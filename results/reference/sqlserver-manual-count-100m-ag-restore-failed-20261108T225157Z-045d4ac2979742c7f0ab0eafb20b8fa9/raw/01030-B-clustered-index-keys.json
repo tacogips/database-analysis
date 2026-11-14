@@ -1,0 +1,19 @@
+{
+  "sql": "SELECT i.index_id,i.name index_name,ic.index_column_id,ic.key_ordinal,ic.is_included_column,c.name column_name\nFROM sys.indexes i JOIN sys.index_columns ic ON ic.object_id=i.object_id AND ic.index_id=i.index_id\nJOIN sys.columns c ON c.object_id=ic.object_id AND c.column_id=ic.column_id\nWHERE i.object_id=OBJECT_ID(N\u0027dbo.Target\u0027,N\u0027U\u0027) ORDER BY i.index_id,ic.index_column_id;",
+  "start_ns": 360809643207028,
+  "end_ns": 360809668648326,
+  "elapsed_ns": 25441298,
+  "raw": [
+    [
+      {
+        "index_id": 1,
+        "index_name": "PK_Target",
+        "index_column_id": 1,
+        "key_ordinal": 1,
+        "is_included_column": false,
+        "column_name": "id"
+      }
+    ]
+  ],
+  "error": null
+}

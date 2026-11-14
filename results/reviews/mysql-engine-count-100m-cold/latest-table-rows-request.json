@@ -1,0 +1,8 @@
+{
+  "receivedAt": "2026-11-08T16:23:02.082641+00:00",
+  "userRequest": "Record TABLE_ROWS value and retrieval speed alongside SELECT COUNT value and speed in measured results.",
+  "implementationAfterAuthorTerminal": "Add exact one-table TABLE_ROWS scalar query in addition to existing catalogue inventory, per sample; record same scalar-arrival/full-boundary timing semantics as COUNT, raw value/NULL, timestamp and error vs known100M truth. No targetdata fullscan or extraCOUNT.",
+  "unknownPolicy": "NULL/error/uninitialized not0. Observed metadata0 not proof of empty table. Precision reference only, not cross-table10percent guarantee.",
+  "report": "Side-by-side TABLE_ROWS approximate value/time/error and exactCOUNT value/time for each indexcondition and all3samples.",
+  "runtimeStatus": "Author still active; do not edit its source until terminal; owner implements and offline-verifies latest steering before first cold-buffer fullrun."
+}

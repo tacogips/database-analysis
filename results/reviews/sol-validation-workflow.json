@@ -1,0 +1,101 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-validation-sol",
+    "description": "社内案内前に提案手法と検証設計の疑問・不満・代替案・欠陥を独立に洗い出す敵対的レビュー",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "社内案内前に提案手法と検証設計の疑問・不満・代替案・欠陥を独立に洗い出す敵対的レビュー",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "reuse"
+      },
+      "variables": {},
+      "promptTemplate": "あなたはGPT-6.1 Sol。独立した敵対的レビューを日本語で行う。\nユーザーの目的: 調査・提案手法を社内の不特定メンバーとサービスへ案内した際にエンジニアから出る疑問、不満、より良い方法を先取りする。それに加え、検証方法そのものへの疑問も洗い出す。cache、index、暗号化、その他考慮条件の漏れ、検証内容の不備を特に求めている。単なる文章校正や「実験が少ない」で終わらず、具体的に何が誤判定されるかを反証する。\n本来の要件: 件数も内容も分からない巨大MySQLテーブルで、稼働サービスのDB performanceへの影響を最小限にし、誤差数%の概数を取りたい。概数が小さければ正確COUNTへ進む案も含む。暗号化、通常50列・最大100列、業務上のWHEREなしの全件数が対象。内容の平文分布を知っている前提を置かない。\n最初に results/reviews/sol-validation-input.json と対象ファイルのハッシュを照合する。docs/table-count-guideline.md、docs/table-count-evidence.md、compose.yaml、lab.rb、README.md、benchの実装、resultsの生JSONとログを読む。著者の説明や過去レビューを信用せず、まず独立に検討し、その後既存指摘も照合する。読んでいないファイルを読んだと報告しない。\n絶対制約: 読み取り専用。DB接続、Docker操作、負荷生成、実験起動、ファイル編集、他workflow起動、委譲は禁止。既存Compose実験が継続中であり干渉しない。必要な読み取り、ハッシュ、純粋な計算の検証のみ可。\n検証の査読では少なくとも次を問う。以下のリストにも漏れがあれば追加する:\n1. キャッシュ: buffer poolとOS/VM/ホストのページキャッシュを区別しているか。bind mount、O_DIRECT、先読み、dirty pageのフラッシュ、ロード直後、表の作成順、追い出しに使った表、hot working set、測定順と持越し効果。cold/warmの名前と実測bytes・pagesが一致するか。毎回読んだ同じページ数だけで同条件と結論できるか。BPサイズと各索引の比率を実測しているか。\n2. 索引: 列数や表容量だけでなく実際に読む索引と読取バイトを比較しているか。EXPLAINと実行時の経路、特殊COUNT最適化、parallel read、FORCE/IGNORE/不可視索引、PRIMARYがない場合、PK幅、nullable/prefix/生成/複合/降順、二次索引の更新とMVCCクラスタ参照、パーティション。計画が妥当でも過剰走査を見逃す計測になっていないか。\n3. 暗号化: TDE、列暗号化、ストレージ暗号化を混同していないか。同一データ・索引・設定・鍵状態・順序・キャッシュで暗号化有無を比較したか。暗号文幅、padding、圧縮・エントロピー、インライン/外部LOB、50/100列の組合せ。鍵ローテーションが実際にCOUNTと重なった証拠、鍵不在・再起動など未検証条件。3列表の結果を幅広い表や本番の倍率へ一般化していないか。\n4. 負荷と対照: オープンループか、予定時刻からの遅延か、coordinated omissionや未完了リクエスト漏れはないか。read/writeの割合、対象範囲、hotspot/全域、INSERT/DELETE/索引列更新/非索引更新、トランザクションサイズ、接続数・飽和度。CPU pinning、DBと負荷生成器の競合、同一VM/ストレージの共有、サンプラーとPerformance Schemaの負担。計測窓・warmup・回復期間・総予算・クエリ上限の妥当性。\n5. 統計と比較: 各1回/反復の十分性、順序の交替・ランダム化、ベースラインのばらつき、p50だけでtail悪化を隠さないか、試行後のキャッシュ回復、エラー・キル・スキップ・途中結果の扱い、終了コード・source hash・設定・完全ログの来歴。中央値だけで差や無影響を言っていないか。統計的な精度とサービス性能の合格を混同しないか。\n6. 概数の精度: 真値の対象時点とMVCC、ANALYZE前後、stats expiry、再計算、NUM_ROWSの初期化・未コミットDML、同一統計の一致、サンプルページ数、欠番・削除・偏り、メタ情報の権限とDDL待ち。replicaの統計誤差と適用遅延、replication filter・チャネル・read_only/super_read_only、GTID待ちの成功判定。\n7. 確率的推定: samplinglib.pyと98は実験待ち。選択確率、セル上限、alpha配分、途中停止、固定seed、信頼区間、適用条件、空標本・密集域見落とし、スナップショットのMDL/undo、予算超過と失敗処理を検証する。sampling_bounds.pyは追加候補の純粋な数理計算で、DB実行へまだ組み込んでいない。解析的な検査結果を実DB計測とは扱わない。\n8. 外的妥当性: 小さいラボから何を一般化できるか。巨大な表/BP比、メモリ・CPU・ディスクの制約、物理隔離replica、本番SLO、実際のクラウド権限や鍵管理、複数チームの同時実行、バックアップ・DDL・undo・長いTX・ネットワーク、バージョン差。ローカルで試せないものと、意思決定を変える必須の追加検証を分ける。\n9. 再現性: mise run all が白紙DBから最終コードで通っているか。固定設定、依存コードの変更とstatusによるスキップ、予算による未実行を成功扱いしないか。結果と文書の数値が一致するか。実データに接続しない不変条件。履歴の保存と新規実行の区別。\n各主要結論(参考統計の採用、数%精度、COUNT形式、暗号化の影響、小さい索引/PRIMARY、分割、replica、初回COUNT上限と行数閾値、sampling)についてclaimEvidenceMapを作り、supported/conditional/unsupported/invalidを付け、根拠ファイルとフィールド、交絡、言える範囲、必要な修正を記録する。\n疑問は、社内エンジニアが実際に聞く言葉でも出す。例: 『coldは何を冷やしたのか』『先に作った表だけ遅くないか』『EXPLAINの索引を本当に読んだのか』『3秒のp99でSLOを判断してよいか』『暗号化した100列を同じ負荷で試したのか』。不足条件は、欠けると推奨が変わるものを優先する。\n実行状態: 91の3版は修正版が正常終了、旧不公平JSONは成功結果へ置換済み。92は64測定が揃ったが起動元終了により終了コード未回収。93はSTATS_INITIALIZED付き再試験が正常終了、旧観測はrequested_metadata_accuracy_initial.jsonへ保存。94は全項目と最終件数まで正常終了。0c復旧は正常終了。96/97のTDE50/100列サービス負荷実験は実行中で、JSONはpartialの可能性がある。98は未実行。最終コードでmise run allはまだ未確認。この情報も状態ファイルと実測内容で照合し、現在進行中の仕事を捏造して完了としない。\n根拠のない指摘や不要な実験を増やさない。有限のラボで全本番を証明できないことを理由に、すべてをやり直せとしない。既にある根拠で使える結論、表現を狭めれば使える結論、比較自体を捨てるべき結論を分ける。追加実験は局所的な最小比較、判定基準、何が変わるか、優先度(P0/P1/P2)を含める。\n返答はadapter JSON {\"when\":{},\"payload\":{...}}。必須項目: decision(accepted/rejected)、guidelineSha256、reviewScope、findings、engineerQuestions、betterAlternatives、requestedExperiments、rolloutRecommendation、reviewEvidence、limitations、claimEvidenceMap、validationCoverageMatrix、priorityFixes。findingsにはstable id、severity(high/middle/low)、section、scenario、evidence(ファイルとフィールド、原文確認した公式URL)、impact、requiredCorrection。high/middle未解決ならacceptedにしない。検証設計としての判定と社内配布の判定を区別する。最後にハッシュ再確認と確認時点を報告し、変化した結果は最終ハッシュまたはmtimeを付ける。\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations",
+            "claimEvidenceMap",
+            "validationCoverageMatrix",
+            "priorityFixes"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            },
+            "claimEvidenceMap": {
+              "type": "array"
+            },
+            "validationCoverageMatrix": {
+              "type": "array"
+            },
+            "priorityFixes": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

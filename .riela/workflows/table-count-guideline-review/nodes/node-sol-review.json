@@ -1,0 +1,98 @@
+{
+  "id": "sol-review",
+  "description": "Codex GPT-6.1 Sol adversarial review; also challenges the first independent review and gates the round.",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "high",
+  "agentSandbox": "read-only",
+  "sessionPolicy": {
+    "mode": "new"
+  },
+  "variables": {},
+  "promptTemplateFile": "prompts/sol-review.md",
+  "output": {
+    "jsonSchema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "rejected"
+          ]
+        },
+        "independentFindingAssessment": {
+          "type": "array"
+        },
+        "findingDispositions": {
+          "type": "array"
+        },
+        "independentFindings": {
+          "type": "array"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "requestedExperiments": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "reviewEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "discussionHistory": {
+          "type": "array"
+        },
+        "workflowInput": {
+          "type": "object"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "guidelinePath": {
+          "type": "string"
+        },
+        "guidelineSha256": {
+          "type": "string"
+        },
+        "reviewQuestions": {
+          "type": "object",
+          "required": [
+            "betterMethods",
+            "designCoverage",
+            "omissions",
+            "lockFactors",
+            "fastCount"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "accepted",
+        "decision",
+        "workflowInput",
+        "revision",
+        "guidelinePath",
+        "guidelineSha256",
+        "findings",
+        "requestedExperiments",
+        "reviewEvidence",
+        "reviewQuestions"
+      ]
+    },
+    "maxValidationAttempts": 2
+  }
+}

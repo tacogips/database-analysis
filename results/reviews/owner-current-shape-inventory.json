@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-11-07T07:45:11.940195+00:00",
+  "meaning": "Completed quiet-table shape inventory and limited count consistency audit only; not full all/production/SLO/precision approval.",
+  "artifact": "results/count_shapes.json",
+  "sha256": "8f0a26ae93457a877b3e4e72d31090cf3bcce7ddc947817323a2dbad28ebfb65",
+  "declaredCases": 58,
+  "savedCases": 58,
+  "missing": [],
+  "extra": [],
+  "exactMethodCountsComparedToInitialTableOracle": 235,
+  "countMismatches": [],
+  "legacySplitFailuresOrIncorrectCounts": [],
+  "engineCounts": {
+    "InnoDB": 54,
+    "MyISAM": 1,
+    "MEMORY": 1,
+    "ARCHIVE": 1,
+    "VIEW": 1
+  },
+  "scopeLimitations": [
+    "t_dense100M is verified initially and belongs to impact experiments, not the58shape list.",
+    "View is counted as logical result; initial base-table oracle comparison covers57base table designs, not independent view semantics.",
+    "Quiet-table timing/order/cache/index observations do not establish production safe thresholds or no-impact.",
+    "Complete lock/service/matrix/requested coverage and post-experiment integrity remain pending."
+  ]
+}

@@ -1,0 +1,75 @@
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+2be6c66fae9499f6df32b4ce3ae659ea2f7ab0695d81a04a34fed8283197e031
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.4' locally
+9.7.4: Pulling from library/mysql
+b76013fbb918: Pulling fs layer
+ee15add96297: Pulling fs layer
+053fec689bfc: Pulling fs layer
+0faccbb03700: Pulling fs layer
+332288060cf8: Pulling fs layer
+84d412465407: Pulling fs layer
+cea84603e890: Pulling fs layer
+1eb2512f0309: Pulling fs layer
+6d0bdba5eb82: Pulling fs layer
+332288060cf8: Download complete
+b76013fbb918: Download complete
+053fec689bfc: Download complete
+ee15add96297: Download complete
+cea84603e890: Download complete
+0faccbb03700: Download complete
+84d412465407: Download complete
+332288060cf8: Pull complete
+0faccbb03700: Pull complete
+053fec689bfc: Pull complete
+ee15add96297: Pull complete
+84d412465407: Pull complete
+db5edd9c75b0: Download complete
+1eb2512f0309: Download complete
+71b7f8695596: Download complete
+cea84603e890: Pull complete
+1eb2512f0309: Pull complete
+6d0bdba5eb82: Download complete
+b76013fbb918: Pull complete
+6d0bdba5eb82: Pull complete
+Digest: sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+Status: Downloaded newer image for mysql:9.7.4
+a2295225aec3d94303ab60ecb522eb428d99a3f33fa04fec578a0a11ae8da2a9
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:26.10.0' locally
+26.10.0: Pulling from library/mysql
+0ac49b392b78: Pulling fs layer
+b44aa14e230f: Pulling fs layer
+f589dac8ec1f: Pulling fs layer
+7f360cfcd0c6: Pulling fs layer
+abb8b963bc24: Pulling fs layer
+111940a3af7a: Pulling fs layer
+f66cb2d4f38d: Pulling fs layer
+01ab56bed6cf: Pulling fs layer
+59a4b8888e49: Pulling fs layer
+f589dac8ec1f: Download complete
+59a4b8888e49: Download complete
+7f360cfcd0c6: Download complete
+abb8b963bc24: Download complete
+0ac49b392b78: Download complete
+111940a3af7a: Download complete
+01ab56bed6cf: Download complete
+abb8b963bc24: Pull complete
+7f360cfcd0c6: Pull complete
+f589dac8ec1f: Pull complete
+0ac49b392b78: Pull complete
+111940a3af7a: Pull complete
+5e5100be39ae: Download complete
+1b185e2dd510: Download complete
+f66cb2d4f38d: Download complete
+f66cb2d4f38d: Pull complete
+b44aa14e230f: Download complete
+01ab56bed6cf: Pull complete
+b44aa14e230f: Pull complete
+59a4b8888e49: Pull complete
+Digest: sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+Status: Downloaded newer image for mysql:26.10.0
+11784e3dd7ed5dac79982a298e42a4fcd65adc9d7103c844a79234856e90042c
+==> docker exec lab-bench python3 -u /work/bench/verify_data.py
+mismatched: none | replica caught up: True | replica t_repl: 20000000
+{"ran":[{"id":"91-encrypted-count","ok":true,"seconds":695,"log":"results/requested/91-encrypted-count.log"}],"lab_data_intact":true}

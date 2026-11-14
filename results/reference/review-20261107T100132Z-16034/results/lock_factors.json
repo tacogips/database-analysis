@@ -1,0 +1,2091 @@
+[
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 8,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 3
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 41,
+  "record_locks": 200000,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 3
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 13,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 17,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 14,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 5,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 17,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 27,
+  "record_locks": 200000,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 13,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 6,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 2,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1008
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 29,
+  "record_locks": 200455,
+  "lock_modes": {
+   "X": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 17,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 47,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 27,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 42,
+  "record_locks": 200455,
+  "lock_modes": {
+   "X": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 37,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 37,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 39,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1011
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 37,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 27,
+  "record_locks": 200455,
+  "lock_modes": {
+   "S": 200455
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "SERIALIZABLE",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 19,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 87,
+  "record_locks": 400000,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 400000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 3
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 19,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 2
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 87,
+  "record_locks": 400000,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 400000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 2
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 112,
+  "record_locks": 400304,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 200000,
+   "X": 200304
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1008
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 19,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 2
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 39,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1009
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 38,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1007
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 31,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 2
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 38,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 105,
+  "record_locks": 400304,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 200000,
+   "X": 200304
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1010
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 27,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 38,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 2
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 35,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1009
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200304,
+  "lock_modes": {
+   "S": 200304
+  },
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1007
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "SERIALIZABLE",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 19,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 14,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 26
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 20,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 42,
+  "record_locks": 200000,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 30,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 32
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 3
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 29,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 31
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 14,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-UNCOMMITTED",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 14,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 3
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 41,
+  "record_locks": 200000,
+  "lock_modes": {
+   "X,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1011
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 2
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 8,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 41
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 19,
+  "record_locks": 200000,
+  "lock_modes": {
+   "S,REC_NOT_GAP": 200000
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 17,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 28
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 14,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 14,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 2,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 18,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 36,
+  "record_locks": 200533,
+  "lock_modes": {
+   "X": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 9,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 43
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 20,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1011
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 33,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 47,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 24,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "count_for_share",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR SHARE",
+  "outcome": "ok",
+  "ms": 38,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1002
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "count_for_update",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk FOR UPDATE",
+  "outcome": "ok",
+  "ms": 21,
+  "record_locks": 200533,
+  "lock_modes": {
+   "X": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "select_into_variable",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) INTO @c FROM lk",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "set_variable_subquery",
+  "in_transaction": true,
+  "sql": "SET @c = (SELECT COUNT(*) FROM lk)",
+  "outcome": "ok",
+  "ms": 25,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1005
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "insert_summary_select",
+  "in_transaction": true,
+  "sql": "INSERT INTO lk_summary (c) SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 26,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1001
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "update_summary_subquery",
+  "in_transaction": true,
+  "sql": "UPDATE lk_summary2 SET c = (SELECT COUNT(*) FROM lk) WHERE k=1",
+  "outcome": "ok",
+  "ms": 32,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1003
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "create_table_as_select",
+  "in_transaction": true,
+  "sql": "CREATE TEMPORARY TABLE lk_tmp AS SELECT COUNT(*) AS c FROM lk",
+  "outcome": "ok",
+  "ms": 21,
+  "record_locks": 200533,
+  "lock_modes": {
+   "S": 200533
+  },
+  "update_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1004
+  },
+  "insert_row": {
+   "blocked": true,
+   "error": 1205,
+   "ms": 1006
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "SERIALIZABLE",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 9,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 43
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ }
+]

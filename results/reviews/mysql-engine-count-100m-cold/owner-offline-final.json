@@ -1,0 +1,29 @@
+{
+  "verifiedAt": "2026-11-08T18:36:20.484991+00:00",
+  "exitCode": 0,
+  "log": "results/reviews/mysql-engine-count-100m-cold/owner-offline-final.log",
+  "logSha256": "05d2af669d82d2c1fe6d48ab8db5c6e9927bb67f3831e87cd41a4dc513badf32",
+  "checks": 67,
+  "sourceHashes": {
+    "mysql/engine-count-100m-cold/lab.rb": "5a6ed2366ffc3b4b9e92c30d445e58bffd387d877b37e2a58cfcb571ebe7c589",
+    "mysql/engine-count-100m-cold/reference_flow.rb": "ff32f35782bb01688d6f2cabeb1e57ee29cd3a8059efe574ab9f10d8317577d0",
+    "mysql/engine-count-100m-cold/compose.yaml": "00288110a6c076e04879b94aecb9fe779e6e0e4aaefdc85b1eb4c4b71ae6256e",
+    "mysql/engine-count-100m-cold/mise.toml": "cf4df1fc461300be52009322df74c33303cc4f9aa9868f6b46dbcaa5af6da7a4",
+    "mysql/engine-count-100m-cold/README.md": "b1f918db955d33401d1d690b19296615eaa9b25b827359ae63d11375c8fc6e39",
+    "mysql/engine-count-100m-cold/verify_offline.rb": "139292d6470eb63afe23bdee1b6e053ea4de96438ba4c25b26c0165463bd810f",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/mysql-innodb.md": "df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/source.json": "d4f1c9217493eec79e4df2c1d7a28358a973cb4606ca318ad3c63019ca3a5991"
+  },
+  "notExecuted": [
+    "Docker",
+    "DB",
+    "build",
+    "measurements"
+  ],
+  "ownerExtensions": [
+    "Readiness nonmeasurement mysqladmin ping before persistent CLI; authenticated failure aborts before load.",
+    "Each sample targeted TABLE_ROWS scalar value/time/error vs100M plus existing inventory, identical scalar/full timer semantics to COUNT.",
+    "NULL/zero semantic tests and failed readiness ping ordering tests.",
+    "Sol59 duration-only author proposal applied after interrupted run terminal/owned cleanup: MyISAM cumulative load14400s; InnoDB load7200s, per-batch7200s, overall6h unchanged."
+  ]
+}

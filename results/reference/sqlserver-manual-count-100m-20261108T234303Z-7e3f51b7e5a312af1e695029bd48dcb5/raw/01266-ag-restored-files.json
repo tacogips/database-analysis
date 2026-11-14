@@ -1,0 +1,32 @@
+{
+  "sql": "SELECT name,physical_name,size,max_size,growth FROM sys.database_files; SELECT database_guid,family_guid,recovery_fork_guid FROM sys.database_recovery_status WHERE database_id=DB_ID();",
+  "start_ns": 364684565379363,
+  "end_ns": 364684574816688,
+  "elapsed_ns": 9437325,
+  "raw": [
+    [
+      {
+        "name": "ManualCount100m_data",
+        "physical_name": "/var/opt/mssql/data/ManualCount100m.mdf",
+        "size": 8331264,
+        "max_size": 10485760,
+        "growth": 32768
+      },
+      {
+        "name": "ManualCount100m_log",
+        "physical_name": "/var/opt/mssql/log/ManualCount100m.ldf",
+        "size": 294912,
+        "max_size": 524288,
+        "growth": 8192
+      }
+    ],
+    [
+      {
+        "database_guid": "88326c0b-7bf1-41be-8094-69eb98ede1ec",
+        "family_guid": "9647926e-ca4f-4675-ac48-c82ead72aa86",
+        "recovery_fork_guid": "9647926e-ca4f-4675-ac48-c82ead72aa86"
+      }
+    ]
+  ],
+  "error": null
+}

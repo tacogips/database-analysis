@@ -1,0 +1,202 @@
+{
+  "recordedAt": "2026-11-07T11:12:40.534063+00:00",
+  "meaning": "Completed basic-impact subset during liveall, not whole scope/SLO/causal ranking or continuous lock proof. No raw decompression.",
+  "declaredExperiments": 22,
+  "savedExperiments": 16,
+  "missing": [
+    "baseline_end",
+    "count_on_primary_t_repl",
+    "count_on_replica_t_repl",
+    "counter_no_trigger",
+    "counter_trigger_one_row",
+    "replica_control_no_count"
+  ],
+  "files": {
+    "baseline": {
+      "path": "results/impact_baseline.json",
+      "sha256": "1f4dde3e37e82f3b0f9f15741f1e336aeef381b83fb5c667441af4e964c920eb",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "baseline_mid": {
+      "path": "results/impact_baseline_mid.json",
+      "sha256": "826071a5a288b5dda20f01884b38a82884edd18002e46dd138f4356498313a80",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_default": {
+      "path": "results/impact_count_default.json",
+      "sha256": "ce94018a05cf8f26807476d4fd0ab4a813e46761d58127e4eada2b2e0e0ccf62",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_estimate": {
+      "path": "results/impact_count_estimate.json",
+      "sha256": "74ae1e1e4275afc8e861631010779ad9fdbb5d9d376f3c7141b9319be5d4833b",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [
+        {
+          "path": "$.latency.during.read",
+          "scheduled": 1
+        },
+        {
+          "path": "$.latency.during.write",
+          "scheduled": 0
+        }
+      ],
+      "windowCountProblems": []
+    },
+    "count_force_primary": {
+      "path": "results/impact_count_force_primary.json",
+      "sha256": "d97f3f7c65e75ac9d377f74a6e9857fe2265441555460b95c6d8c4fe87ed78ea",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_force_secondary": {
+      "path": "results/impact_count_force_secondary.json",
+      "sha256": "2126dc07ce64ea357bfd75972b59bd9da7d6138b89c6965a0b4fa2fdf19f5cd3",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_kill_latency": {
+      "path": "results/impact_count_kill_latency.json",
+      "sha256": "4de8ad53f918beb02305ee36acd684b5e5812c484bd05424373d7a0c3cf87711",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_single_thread": {
+      "path": "results/impact_count_single_thread.json",
+      "sha256": "5c452e5b43bb5947c35c3974d4a6439378ddcbaa33b1e16a114cf4262ae077eb",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_100k_duty50": {
+      "path": "results/impact_count_split_100k_duty50.json",
+      "sha256": "d032c8bbf1f57e33d9bfd164412662c560be5ffbc71531939e7d6a20c16f1746",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_100k_nosleep": {
+      "path": "results/impact_count_split_100k_nosleep.json",
+      "sha256": "6e7655af699b392f8c1b664fc14b5fb4e6c9601a5c327a881a05a566fe43709e",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_10k_duty50": {
+      "path": "results/impact_count_split_10k_duty50.json",
+      "sha256": "75bbdea49a254df0682826a78e8a6af1e1b2f41b191a1b89151b0de6890d972d",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_1m_duty50": {
+      "path": "results/impact_count_split_1m_duty50.json",
+      "sha256": "179ca855b225c35c25102cbfb75cea6d868cd3a9b00141674d2d381082e9a062",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_timeout_hint": {
+      "path": "results/impact_count_timeout_hint.json",
+      "sha256": "a088993b509fca14918735b05c8d6301d041542bc645fe73de8c6a110fd968e6",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_under_history": {
+      "path": "results/impact_count_under_history.json",
+      "sha256": "410a96ab671e893107d71d9ef4bf04c3f557918b998bdf8944d3db3be1a19b07",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_baseline": {
+      "path": "results/impact_lock_baseline.json",
+      "sha256": "b62f9499ceb4beb83b0d588204c3e0a4089120944f482cecc14f7cca3e8752f1",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_plain_count": {
+      "path": "results/impact_lock_plain_count.json",
+      "sha256": "5585de8dff81d6abf818491ad378cbc075d63fbf0d1b756478be1cf0425713c2",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    }
+  },
+  "methodOrWindowCountProblems": []
+}

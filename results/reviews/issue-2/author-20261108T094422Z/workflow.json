@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-issue2-author-sol",
+  "description": "Issue2 documentation correction author",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "author",
+  "nodes": [
+    {
+      "id": "author",
+      "nodeFile": "nodes/author.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "author",
+      "nodeId": "author",
+      "role": "worker"
+    }
+  ]
+}

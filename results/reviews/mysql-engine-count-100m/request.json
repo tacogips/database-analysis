@@ -1,0 +1,16 @@
+{
+  "request": "Goal: actual static COUNT(*) performance at 100000000 rows and 100 columns across three requested index/engine conditions.",
+  "excluded": "User explicitly cancelled COUNT(1) investigation/measurement.",
+  "schemaChoice": "BIGINT UNSIGNED NOT NULL primary key plus 99 INT NOT NULL columns; same deterministic data and only ENGINE differs.",
+  "capacityChoice": "Host bind under own ignored .data subtree, one engine at a time; guest filesystem too small.",
+  "hostFreeGiBApprox": 107,
+  "guestAvailableKiB": 4790032,
+  "conditions": [
+    "InnoDB PK only",
+    "InnoDB PK plus narrow secondary index",
+    "MyISAM PK only"
+  ],
+  "secondaryIndex": "Add nonunique k_count(c001) to the SAME completed InnoDB table after PK-only measurements; no second 100M InnoDB load; default COUNT(*) plan recorded; index creation duration excluded from COUNT time.",
+  "expectedMeasuredCounts": 9,
+  "hostFreeAfterAuthorizedCleanupGiBApprox": 125
+}

@@ -1,0 +1,75 @@
+{
+  "workflow": {
+    "workflowId": "temp-count-error-extrema-sol",
+    "description": "Guide-focused Sol author; exhaustive engine suite explicitly skipped by latest user",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 1800000
+    },
+    "entryStepId": "guide-author",
+    "nodes": [
+      {
+        "id": "guide-author",
+        "nodeFile": "nodes/guide-author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "guide-author",
+        "nodeId": "guide-author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/guide-author.json": {
+      "id": "guide-author",
+      "description": "Focused practical engineering guide using existing representative evidence",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "medium",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Update docs/table-count-calibration.md and docs/table-count-guideline.md for the latest user request: 誤差が最大になるケース、最小になるケース、条件も知りたい。GPT-6.1 Sol only. Read AGENTS.md; no DB/Docker/benchmark, delegation, workflow, commit or push. Edit ONLY those two docs. Finish a concrete concise comparison table, not a plan. Root independently computed results/reviews/owner-observed-error-extrema.json from saved source. Verify that report against results/reference/20261107-observations/requested_metadata_accuracy.json and actual table definitions/loader; report itself is not a substitute for source. Show observed absolute-error maxima/minima WITH signed error, truth, estimate when retained, conditions, phase/sample pages/repeats, and applicability. Distinguish equal minima, zero rounded to .001% from actual estimate==truth, unknown stats excluded, non-InnoDB catalog excluded from InnoDB recommendations. Current observation TABLE_ROWS: pre-ANALYZE max t_strpk +15.0349% (truth1M estimate1150349), post max d_str_bin -23.123% (truth500k estimate384385), min tags truth1000 estimate1000 exact0. Uneven-width separate fixture truth2.1M, 2M rows body x and100k rows body6000 chars, 20pages max38.731333% estimate2913358, 200pages5 repeats -2.131095% estimate2055247. Source misleading docstring says half/half; INSERT loops override. Pages sweep t_part10M at2000pages five stored0.000% errors; only roundederrors saved so do not assert exact0 rows difference. Include PK/rowwidth/index/encryption/unknown cache conditions honestly; observed correlations are not isolated causal effects. Avoid a global universal worstcase number. Separate statistical metadata error from sampling prototype: owner-nonlocking-measured-accuracy-frontier.json has min0 dense/negative/wide fixed dense cells; islands actual100% error but ALL precision_not_reached, never acceptedestimate. Max among accepted target_reached 105 static fixture runs also compute and state only if source verified, don't mix service changing truth with static truth. Main guide add brief pointer to extrema table. Preserve current final validation gate requirements, concise guide, and all historical artifacts. Do not broaden experiments. Return the SMALL required adapter (guidelinePath,guidelineSha256,changedFiles,decisionCoverage,evidenceChecks,remainingGaps) with actual hashes and source checks. Keep the table useful to engineer asking which conditions worsen/improve error; no guarantee from sample count or sample pages alone.",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "guidelinePath",
+            "guidelineSha256",
+            "changedFiles",
+            "decisionCoverage",
+            "evidenceChecks",
+            "remainingGaps"
+          ],
+          "properties": {
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "changedFiles": {
+              "type": "array"
+            },
+            "decisionCoverage": {
+              "type": "array"
+            },
+            "evidenceChecks": {
+              "type": "array"
+            },
+            "remainingGaps": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

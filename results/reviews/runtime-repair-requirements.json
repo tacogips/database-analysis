@@ -1,0 +1,26 @@
+{
+  "phaseSpecificWork": "Fix only these demonstrated startup/evidence-delivery issues, retaining the already partitioned primary-scale protocol and3/5/10%105static/48service scope. Prior author work is not to be restarted from revision13. No new DB experiments outside fixed runner. Then WHITE all, docs-only integration, owner audit, two freshSol reviews. Root has now installed/pinned4.0.9 and applied task exec/bootstrap wrapper; verify it, do not duplicate or revert. Complete lossless bounded raw evidence, stale summary freshness, mise cache fingerprint and real-launch regression, then retry white all.",
+  "fixes": [
+    {
+      "id": "ROOT-RUBY-RUNTIME",
+      "evidence": "results/reviews/ruby-runtime-fix-evidence.json",
+      "requiredCorrection": "Latest user permits current Ruby: pin latest stable4.0.9 in mise.toml (official downloads and mise latest agree; root is installing it). Keep public mise run all; explicitly use mise exec -- ruby lab.rb <command> in each of5tasks and include mise.toml in cache fingerprint. Bootstrap Riela command node through an executable POSIX shell wrapper that execs mise exec -- ruby <workflow Ruby controller>, so controller itself starts on configured4.0.9. Preserve project cwd; capture wrapper in source-before/after fingerprint/snapshot. Do not add legacy2.6 compatibility. Update actual-launch-chain fake regression plus early-failure stale-summary case. Existing real Riela guarded probes establish the plain-task/explicit-exec mechanism; latest4.0.9 bootstrap probe will be supplied. Do not change database algorithms for this startup failure."
+    },
+    {
+      "id": "ROOT-RAW-ARTIFACT-SIZE",
+      "evidence": "results/reviews/raw-evidence-size-projection.json",
+      "requiredCorrection": "New reqscale embeds full raw_service_samples in indented mainJSON. Existing observed1105writes/s and planned620s imply about162MB prettyJSON, over GitHub100MiB file limit. Preserve ALL raw numeric samples losslessly in bounded-size standard gzip JSONL chunks with sample counts and SHA manifests; main results JSON retains summaries/metadata/chunk refs. Enforce a conservative uncompressed chunk byte cap, not one unbounded gzip. No table data. Add pure roundtrip/count/hash/bound tests. Include generated nested raw files in per-script artifact collection/cache validation and immutable runner snapshot, and prove deleting/changing a raw chunk invalidates reuse. Keep sampling/load/timing protocols unchanged; representation happens after collection. Document how to verify/read chunks. This projection is not a DB measurement."
+    },
+    {
+      "id": "ROOT-FAILED-ALL-SUMMARY",
+      "evidence": "results/reviews/final-all-candidate.json and final-all-run.log first attempt",
+      "requiredCorrection": "Failure occurred at Ruby parsing BEFORE reset. Controller read prior interrupted requested/last_run.json(status started), not a summary produced by this all attempt. Detect summary freshness with pre/post file signature or equivalent read-only evidence; report not_reached on unchanged prior summary. Do not move/delete another potential lab owner data before the CLI lock. Snapshot collection may contain pre-run files on early failure; label honestly. Extend isolated actual-runner regression to an early failure leaving an old completed summary, ensuring no prior ran entries are credited. Preserve first failed candidate/log in existing immutable snapshot or dedicated reviews copy before next all."
+    }
+  ],
+  "officialSupportCheckPath": "results/reviews/mysql-support-check-20261107.json",
+  "latestUserSteering": "User explicitly permits latest Ruby. Use latest stable4.0.9 confirmed by official downloads and mise latest on2026-11-07; pin exact4.0.9 for reproduction, no need support system2.6.",
+  "rubyVersion": "4.0.9",
+  "rubyLatestSource": "https://www.ruby-lang.org/en/downloads/",
+  "latestRubyProbePath": "results/reviews/mise-runtime-latest-probe.json",
+  "latestRubySourceFixApplied": true
+}

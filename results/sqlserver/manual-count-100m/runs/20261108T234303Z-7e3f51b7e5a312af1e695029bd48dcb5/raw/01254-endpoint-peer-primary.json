@@ -1,0 +1,10 @@
+{
+  "sql": "CREATE LOGIN peer_endpoint_login WITH PASSWORD=\u0027ManualCount100m_Peer_2026!\u0027;\nCREATE USER peer_endpoint_user FOR LOGIN peer_endpoint_login;\nCREATE CERTIFICATE peer_endpoint_cert AUTHORIZATION peer_endpoint_user FROM FILE=\u0027/backup/primary.cer\u0027;\nGRANT CONNECT ON ENDPOINT::Hadr_endpoint TO peer_endpoint_login;\n",
+  "start_ns": 364407657242678,
+  "end_ns": 364407669451776,
+  "elapsed_ns": 12209098,
+  "raw": [
+    []
+  ],
+  "error": null
+}

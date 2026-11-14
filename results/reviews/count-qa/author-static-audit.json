@@ -1,0 +1,25 @@
+{
+  "scope": "documentation-only; no new database or performance validation",
+  "documents": {
+    "README.md": "28b4c584e35f47ec2935f3137709ed554d199784100bc4650f8a526567f10287",
+    "docs/README.md": "1fd23d9db6749e66a46c4713c50d2e98d6db953d77afc19851fce79a99f118ba",
+    "docs/guidelines/mysql.md": "5edf80862587b3fb5ac3779f45eaf0009e20780263ff5007725e54fd48deff68",
+    "docs/guidelines/sql-server.md": "c851124ea5e11928bb27c3aa2534bff491d4abbdafaa1266f569b6f411d4c9bb",
+    "docs/guidelines/operations-runbook.md": "262c92e198620008cab9346e2aeeff37487e3891660d885a127c468aeff3511d",
+    "docs/guidelines/count-qa.md": "7581509e87dd4df4ccd7285d29744a572f258d480c725e44e008029417b00c28"
+  },
+  "checks": {
+    "git_diff_check": "pass",
+    "local_links_except_pending_receipt": "pass",
+    "frozen_reaggregation": "matches accuracy-summary.json",
+    "historical_archive_hashes": "pass",
+    "issue_3_receipt_unchanged": "pass",
+    "mermaid_cli_render": "pass both products",
+    "render_visual_inspection": "author inspected both PNGs; labels and arrows visible without clipping"
+  },
+  "database_docker_measurement_started": false,
+  "limitations": [
+    "No new performance, precision, or production SLO claims",
+    "Independent reviewers did not independently render diagrams"
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "meaning": "Observed extrema of absolute relative error, not distribution-free best/worst guarantees. Signed percent is (estimate-truth)/truth*100. InnoDB candidates exclude non-InnoDB quiet catalog. Unknown stats excluded, not zero.",
+  "source": "results/reference/20261107-observations/requested_metadata_accuracy.json",
+  "sourceSha256": "5f21dcb3561cadf0a7a1cc74ab70aa8188158986c43cd0a25ee2a620824a0d56",
+  "phases": {
+    "before_analyze": {
+      "validNonemptyInnoDBTables": 55,
+      "minimumTies": [
+        {
+          "table": "tags",
+          "truth": 1000,
+          "estimate": 1000,
+          "signedErrorPercent": 0.0,
+          "absoluteErrorPercent": 0.0
+        }
+      ],
+      "maximumTies": [
+        {
+          "table": "t_strpk",
+          "truth": 1000000,
+          "estimate": 1150349,
+          "signedErrorPercent": 15.0349,
+          "absoluteErrorPercent": 15.0349
+        }
+      ]
+    },
+    "after_analyze": {
+      "validNonemptyInnoDBTables": 55,
+      "minimumTies": [
+        {
+          "table": "tags",
+          "truth": 1000,
+          "estimate": 1000,
+          "signedErrorPercent": 0.0,
+          "absoluteErrorPercent": 0.0
+        }
+      ],
+      "maximumTies": [
+        {
+          "table": "d_str_bin",
+          "truth": 500000,
+          "estimate": 384385,
+          "signedErrorPercent": -23.123,
+          "absoluteErrorPercent": 23.123
+        }
+      ]
+    }
+  },
+  "unevenRows": {
+    "truth": 2100000,
+    "definition": {
+      "primaryKey": "BIGINT",
+      "body": "VARCHAR(7000) NOT NULL",
+      "shortRows": 2000000,
+      "shortPayloadCharacters": 1,
+      "longRows": 100000,
+      "longPayloadCharacters": 6000,
+      "runsPerSamplePages": 5
+    },
+    "runs": [
+      {
+        "sample_pages": 20,
+        "estimate": 2195769,
+        "error_pct": 4.56,
+        "signedErrorPercent": 4.560428571428571
+      },
+      {
+        "sample_pages": 20,
+        "estimate": 2913358,
+        "error_pct": 38.731,
+        "signedErrorPercent": 38.73133333333333
+      },
+      {
+        "sample_pages": 20,
+        "estimate": 2195769,
+        "error_pct": 4.56,
+        "signedErrorPercent": 4.560428571428571
+      },
+      {
+        "sample_pages": 20,
+        "estimate": 2913358,
+        "error_pct": 38.731,
+        "signedErrorPercent": 38.73133333333333
+      },
+      {
+        "sample_pages": 20,
+        "estimate": 2913358,
+        "error_pct": 38.731,
+        "signedErrorPercent": 38.73133333333333
+      },
+      {
+        "sample_pages": 200,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 200,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 200,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 200,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 200,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 2000,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 2000,
+        "estimate": 2040950,
+        "error_pct": -2.812,
+        "signedErrorPercent": -2.8119047619047617
+      },
+      {
+        "sample_pages": 2000,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 2000,
+        "estimate": 2055247,
+        "error_pct": -2.131,
+        "signedErrorPercent": -2.131095238095238
+      },
+      {
+        "sample_pages": 2000,
+        "estimate": 2048071,
+        "error_pct": -2.473,
+        "signedErrorPercent": -2.472809523809524
+      }
+    ],
+    "caution": "Current source misleading docstring says half/half; actual INSERT loops specify 2M/100k. These are observed conditions, not isolated causal effects."
+  },
+  "tableConditions": {
+    "tags": {
+      "engine": "InnoDB",
+      "columns": 2,
+      "primaryKey": "INT UNSIGNED",
+      "name": "VARCHAR(32)",
+      "rows": 1000
+    },
+    "t_strpk": {
+      "engine": "InnoDB",
+      "columns": 2,
+      "primaryKey": "VARCHAR(40), utf8mb4_general_ci",
+      "values": "mixed numeric text, Ab, Äb-, z + trailing x",
+      "rows": 1000000
+    },
+    "d_str_bin": {
+      "engine": "InnoDB",
+      "columns": 2,
+      "primaryKey": "VARCHAR(40), utf8mb4_bin",
+      "values": "A/a prefix and decimal integer",
+      "rows": 500000
+    }
+  },
+  "samplePagesSweep": {
+    "meaning": "Extrema of saved errors rounded to 3 decimals; apparent 0.000% need not prove exact equality unless estimate exists separately.",
+    "minimumTies": [
+      {
+        "table": "t_part",
+        "samplePages": 2000,
+        "repeat": 1,
+        "truth": 10000000,
+        "recordedSignedErrorPercent": 0.0,
+        "recordedAbsoluteErrorPercent": 0.0
+      },
+      {
+        "table": "t_part",
+        "samplePages": 2000,
+        "repeat": 2,
+        "truth": 10000000,
+        "recordedSignedErrorPercent": 0.0,
+        "recordedAbsoluteErrorPercent": 0.0
+      },
+      {
+        "table": "t_part",
+        "samplePages": 2000,
+        "repeat": 3,
+        "truth": 10000000,
+        "recordedSignedErrorPercent": 0.0,
+        "recordedAbsoluteErrorPercent": 0.0
+      },
+      {
+        "table": "t_part",
+        "samplePages": 2000,
+        "repeat": 4,
+        "truth": 10000000,
+        "recordedSignedErrorPercent": 0.0,
+        "recordedAbsoluteErrorPercent": 0.0
+      },
+      {
+        "table": "t_part",
+        "samplePages": 2000,
+        "repeat": 5,
+        "truth": 10000000,
+        "recordedSignedErrorPercent": 0.0,
+        "recordedAbsoluteErrorPercent": 0.0
+      }
+    ],
+    "maximumTies": [
+      {
+        "table": "t_uuid",
+        "samplePages": 20,
+        "repeat": 4,
+        "truth": 5000000,
+        "recordedSignedErrorPercent": -21.59,
+        "recordedAbsoluteErrorPercent": 21.59
+      }
+    ]
+  },
+  "historicalManifestVerification": {
+    "path": "results/reference/20261107-observations/manifest.json",
+    "sha256Matches": true,
+    "bytesMatch": true
+  }
+}

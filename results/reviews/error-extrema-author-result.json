@@ -1,0 +1,40 @@
+{
+  "changedFiles": [
+    {
+      "path": "docs/table-count-guideline.md",
+      "sha256": "fcddf7771d6d06e120489e575df55c5223bc27a41f9ca7f46e3103b83a014e7a"
+    },
+    {
+      "path": "docs/table-count-calibration.md",
+      "sha256": "3be32a923b4ce75ec307aa014013b818fa618c149ea4c71979aff107ec069471"
+    }
+  ],
+  "decisionCoverage": [
+    "最大・最小の比較表に真値、推定値、符号付き誤差、条件、反復、適用範囲を記載",
+    "実値一致0%と丸め0.000%、同値極小、UNKNOWN、非InnoDB除外を区別",
+    "標本75到達観測の最大+1.154167%、45同値最小0%、islands全15未達−100%を分離",
+    "因果効果・将来保証と区別し、既存の最終検証ゲートを維持"
+  ],
+  "evidenceChecks": [
+    {
+      "check": "元JSONから所有者極値報告を再計算し、DDL・ローダー・INSERTループと照合",
+      "sourceSha256": "5f21dcb3561cadf0a7a1cc74ab70aa8188158986c43cd0a7a1cc74ab70aa8188158986c43cd0a25ee2a620824a0d56"
+    },
+    {
+      "check": "105静的標本、対応COUNT真値、実装4ファイルのハッシュ、リンクを検証",
+      "completeLogPath": "/private/tmp/table-count-error-extrema-verification-25.log",
+      "exitCode": 0,
+      "logSha256": "e057ef6b8f3ab43e50c4ff68df43d7f87dccc4cf9fba3be5755e1275e480b929"
+    },
+    {
+      "check": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "fcddf7771d6d06e120489e575df55c5223bc27a41f9ca7f46e3103b83a014e7a",
+  "remainingGaps": [
+    "指定されたresults/reviews/error-extrema-interruption.jsonは存在しない",
+    "固定runner白紙all、所有者の最終監査、別セッション最終Sol 2役は未実施。DB・Docker・計測は起動していない"
+  ]
+}

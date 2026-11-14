@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-11-07T04:22:05.608636+00:00",
+  "meaning": "Actual Riela command backend, guarded fake lab project; no Docker or DB access. Isolates runtime selection.",
+  "before": {
+    "childExit": 42,
+    "childOutput": "[all] $ ruby lab.rb all\n{\"probe_only\":true,\"ruby\":\"2.6.10\",\"args\":[\"all\"]}\n[all] ERROR task failed\n",
+    "command": [
+      "mise",
+      "run",
+      "all"
+    ],
+    "cwd": "/Users/taco/gits/tacogips/database-analysis/.private.handover/runtime-probe-project",
+    "launcherRuby": "2.6.10",
+    "probe_only": true
+  },
+  "after": {
+    "childExit": 0,
+    "childOutput": "[all] $ mise exec -- ruby lab.rb all\n{\"probe_only\":true,\"ruby\":\"3.4.10\",\"args\":[\"all\"]}\n",
+    "command": [
+      "mise",
+      "run",
+      "all"
+    ],
+    "cwd": "/Users/taco/gits/tacogips/database-analysis/.private.handover/runtime-probe-project",
+    "launcherRuby": "2.6.10",
+    "probe_only": true
+  },
+  "files": {
+    "results/reviews/mise-runtime-original-probe.json": "dc8e4ad57aa22c13256a0f94bf382c9c069fbbaa95cca069f20c8031d126a097",
+    "results/reviews/mise-runtime-explicit-probe.json": "b77022fe6faad8b41348ffecf131046291055b6342b21048c01d90a80eb1a911"
+  },
+  "requiredFix": "Keep public invocation mise run all; make each task invoke mise exec -- ruby lab.rb <command>, including prepare/measure/experiment/reset. Keep controller launch compatible with Riela outerRuby2.6 or explicitly bootstrap it with mise. Real all still required.",
+  "latestUserSteering": "Use latest stable Ruby",
+  "latestStable": "4.0.9",
+  "latestSource": "https://www.ruby-lang.org/en/downloads/",
+  "latestRielaProbe": "results/reviews/mise-runtime-latest-probe.json",
+  "applied": "Installed4.0.9,pinned mise.toml,explicit task exec,POSIXshell bootstrap node; syntax and project workflow checks pass. Actual all not yet rerun."
+}

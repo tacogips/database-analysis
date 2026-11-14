@@ -1,0 +1,17 @@
+{
+  "sql": "SELECT synchronization_state_desc,synchronization_health_desc,redo_queue_size,is_suspended FROM sys.dm_hadr_database_replica_states WHERE is_local=1 AND database_id=DB_ID(N\u0027ManualCount100m\u0027);",
+  "start_ns": 364684236956930,
+  "end_ns": 364684241575170,
+  "elapsed_ns": 4618240,
+  "raw": [
+    [
+      {
+        "synchronization_state_desc": "SYNCHRONIZED",
+        "synchronization_health_desc": "HEALTHY",
+        "redo_queue_size": 0,
+        "is_suspended": false
+      }
+    ]
+  ],
+  "error": null
+}

@@ -1,0 +1,10 @@
+[tools]
+ruby = "4.0.9"
+
+[tasks.all]
+description = "Owner only, after MySQL cleanup: fixed SQL Server Rosetta 100M x 100, 3 x 3 counts"
+run = "mise exec -- ruby lab.rb all"
+
+[tasks.offline]
+description = "Offline stdlib syntax and lifecycle/model verification; no Docker, DB, build or downloads"
+run = "mise exec -- ruby verify_offline.rb"

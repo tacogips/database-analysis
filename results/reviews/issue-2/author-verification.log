@@ -1,0 +1,61 @@
+Issue 2 author documentation-only static verification; no DB/Docker/bench/workflow execution
+Earlier scope-check attempt failed because owner-supplied untracked files were classified as author changes. Full failed log retained at /private/tmp/issue2-author-sol-session-46-verification.log (exit 1). This check distinguishes tracked modifications from untracked owner inputs.
+PASS exact input results/reviews/issue-2/baseline.json SHA-256 8ac2118b8da77be47509a41ea29670969cb193dfe4b217040488abdf0a95c7b8
+PASS exact input results/reviews/issue-2/issue.json SHA-256 656c451c48d80e3d84eb27a132748ecd05a0c6bf9dc1525d3a9a9d5c143fce4f
+PASS all 10817 baseline protected files unchanged
+PASS all 7 pre-fix snapshot files match manifest (five documents, Issue 1 acceptance, completion audit)
+git diff --check exit=0 stdout='' stderr=''
+git status complete:
+ M README.md
+ M docs/README.md
+ M docs/guidelines/mysql.md
+ M docs/guidelines/operations-runbook.md
+ M docs/guidelines/sql-server.md
+?? .riela/workflows/issue-2-remediation/scripts/audit.py
+?? .riela/workflows/issue-2-remediation/scripts/finalize.py
+?? .riela/workflows/issue-2-remediation/scripts/run.py
+?? results/reference/issue-2-pre-fix-de1c79c/README.md
+?? results/reference/issue-2-pre-fix-de1c79c/docs/README.md
+?? results/reference/issue-2-pre-fix-de1c79c/docs/guidelines/mysql.md
+?? results/reference/issue-2-pre-fix-de1c79c/docs/guidelines/operations-runbook.md
+?? results/reference/issue-2-pre-fix-de1c79c/docs/guidelines/sql-server.md
+?? results/reference/issue-2-pre-fix-de1c79c/manifest.json
+?? results/reference/issue-2-pre-fix-de1c79c/results/reviews/issue-1/acceptance.json
+?? results/reference/issue-2-pre-fix-de1c79c/results/reviews/issue-1/completion-audit.json
+?? results/reviews/issue-2/author-20261108T094422Z/README.md
+?? results/reviews/issue-2/author-20261108T094422Z/docs/README.md
+?? results/reviews/issue-2/author-20261108T094422Z/docs/guidelines/mysql.md
+?? results/reviews/issue-2/author-20261108T094422Z/docs/guidelines/operations-runbook.md
+?? results/reviews/issue-2/author-20261108T094422Z/docs/guidelines/sql-server.md
+?? results/reviews/issue-2/author-20261108T094422Z/inputs.json
+?? results/reviews/issue-2/author-20261108T094422Z/node.json
+?? results/reviews/issue-2/author-20261108T094422Z/run.log
+?? results/reviews/issue-2/author-20261108T094422Z/temporary-payload.json
+?? results/reviews/issue-2/author-20261108T094422Z/validation.json
+?? results/reviews/issue-2/author-20261108T094422Z/workflow.json
+?? results/reviews/issue-2/author-launch.json
+?? results/reviews/issue-2/baseline.json
+?? results/reviews/issue-2/issue.json
+?? results/reviews/issue-2/official-sources.json
+
+PASS tracked modifications confined to five authorized documents; untracked paths confined to owner Issue 2 workflow/input/snapshot materials (not authored here)
+PENDING allowed Issue 2 receipt link from README.md
+PENDING allowed Issue 2 receipt link from docs/README.md
+PENDING allowed Issue 2 receipt link from docs/guidelines/mysql.md
+PENDING allowed Issue 2 receipt link from docs/guidelines/sql-server.md
+PENDING allowed Issue 2 receipt link from docs/guidelines/operations-runbook.md
+PASS 83 relative links/anchors; only explicitly pending Issue 2 receipt may be absent; balanced fenced blocks
+PASS GitHub root first-screen direct link (one click): docs/README.md
+PASS GitHub root first-screen direct link (one click): docs/guidelines/mysql.md
+PASS GitHub root first-screen direct link (one click): docs/guidelines/sql-server.md
+PASS GitHub root first-screen direct link (one click): docs/guidelines/operations-runbook.md
+PASS GitHub root first-screen direct link (one click): results/reviews/issue-2/acceptance.json
+PASS historical Issue 1 receipts reference pre-fix Issue 2 snapshot
+FINAL SHA-256 README.md 06e0b325e46143a5df7478a6e4eea13dbfa5c2e54c98f172f4d00cd800fad2d4
+FINAL SHA-256 docs/README.md fc1ae930e545780f729088aa8a1964a7e733ade7d3a25706ffcef214b1ce9c77
+FINAL SHA-256 docs/guidelines/mysql.md 91713bdc667fad15a68cae5c87290f292d098c70fe757ae1a794f23dc5f09701
+FINAL SHA-256 docs/guidelines/sql-server.md 37e7ec3bb673f2d034d4167d619530a964f36f0309b8154cddb64b462861769b
+FINAL SHA-256 docs/guidelines/operations-runbook.md fcf9aba1f80a0dce467364a217c330540904d50ae53dc6282d8bee94e471d6e7
+Manual content review: all three issue conditions addressed in existing sections; official primary documentation cited; historical measurements and limitations retained; acceptance pending owner and two independent Sol reviews.
+Scope: static documents only. No measurement, HA integration test, production SLO certification, acceptance assertion, commit/push, delegation, or external message.
+FINAL_EXIT_STATUS=0

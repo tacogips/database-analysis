@@ -1,0 +1,53 @@
+{
+  "accepted": true,
+  "decision": "accepted",
+  "findings": [],
+  "guidelineSha256": "a2430a338a44b52103009c9612020898c2066c0d18836a39532067f77f3e95bb",
+  "proofSha256": "83067594c7760061f4c74145b11916ee2f70b8f7343086e7abe49e93e2e26d11",
+  "requestedExperiments": [],
+  "reviewEvidence": [
+    {
+      "check": "integrity",
+      "exitCode": 0,
+      "result": "指定guide/proof、proof参照先5件、計測source8件、raw artifact2662件のhash・bytes・complete、manifest2664件を照合。一致。README SHA256=6bfb71847c4b9f3116d555e2faff5f3fc6b993dbc6492e4c9cd60858ab3b48d8。"
+    },
+    {
+      "check": "independent_raw_recomputation",
+      "exitCode": 0,
+      "result": "result.jsonの178観測をLABJSON・TIME・IOと照合し、送信SQLを再構築してinput_sha256一致。誤差147件と中央値40組を再計算。正の真値は各方式27観測。optimizer絶対最大0.04198236740568961%、最小23件・最大1件。他4方式は全27件で0%。掲載CPU・logical readsも一致。"
+    },
+    {
+      "check": "execution_and_cleanup",
+      "completeLogPath": "results/sqlserver/runs/20261107T230105Z-8533a31e/runner.log",
+      "exitCode": 0,
+      "logSha256": "179e8c5447ac7c7bc127069432d38aededb6ad61b18a75fb7633d0b25e3914dd",
+      "outerCompleteLogPath": "results/sqlserver/reviews/canonical-invocation.log",
+      "result": "canonical-invocation.jsonはprocess_finished/exitCode=0。1331 commandはexit0・timeoutなし・ログ完了。所有session残数0、同一container ID・所有label、停止・削除、volume/network削除と最終不在一覧を生ログで確認。現在のDocker状態は接続せず未確認。先行Ruby失敗exit1は別ログに保存されている。"
+    },
+    {
+      "check": "scope_and_conservation",
+      "result": "10fixtureのloadと初期/最終oracle、heap/clustered累計+21行、TDE開始/最終state=3、RCSI/SNAPSHOT有効を確認。service36 arrivalsのcommit・時刻・未完了0を照合し、SLO unavailableを維持。権限error262・NULL・空表を混同していない。"
+    },
+    {
+      "check": "owner_material_corrections",
+      "result": "owner-open-findings.jsonのラベルに依存せず確認。§2・§3は既存transaction拒否、IMPLICIT_TRANSACTIONS OFF、自動参加防止、SNAPSHOT終了後@@TRANCOUNT=0を要求。§3・§4はAG primaryのghost回収・data/log容量・log再利用・切断状態を停止/回復予算に含め、監視不能なら隔離復元先か保留へ分岐。公式仕様と整合。",
+      "sources": [
+        "[暗黙transaction](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-implicit-transactions-transact-sql?view=sql-server-ver17)",
+        "[AG制限事項](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-ver17#limitations-and-restrictions)"
+      ]
+    },
+    {
+      "check": "support_links_and_acceptance_boundary",
+      "result": "生Docker情報aarch64、image amd64・固定digest、実版17.0.5035.5を確認。非サポートemulationからnative性能へ外挿していない。ガイド/READMEのlocal link22件とリンク先公式仕様を確認。既存MySQL source344件・文書3件のhash一致。final-acceptance.jsonはnot_yet_accepted/reviews=[]であり、本判定はこの役の受入れのみ。",
+      "source": "[Microsoft containerサポート境界](https://learn.microsoft.com/en-us/sql/linux/containers/deploy?view=sql-server-ver17)"
+    }
+  ],
+  "reviewQuestions": {
+    "betterMethods": "既存の承認済みexportを優先し、参考値で足りればmetadataで終了。必要精度・鮮度を満たす隔離先exactが成立しなければ保留する分岐は妥当。",
+    "designCoverage": "100M細表と各750k行の80/100列表を実測。100M広表、native性能、実アプリ暗号化、Always Encrypted等の未計測を明確に区別している。追加必須実験なし。",
+    "fastCount": "費用比較は掲載条件に限定され、普遍的最速・誤差保証・行数だけのprimary scan許可を主張していない。",
+    "lockFactors": "locking RCとRCSI/SNAPSHOT、Sch-S/DDL、version保持、AGのprimary側への影響、取消・サーバー終了・回復確認を区別している。",
+    "omissions": "所有者のmaterial finding 2件を本文で独立に確認し、修正済みと判断。新たな運用上の阻害欠陥は認めない。"
+  },
+  "role": "engineer"
+}

@@ -1,0 +1,169 @@
+#!/usr/bin/env python3
+raise SystemExit("Historical source only: superseded_by_explicit_user_scope; never execute this locking probe")
+"""Answers EXP-R12 (FIND-MDL-FLUSH-01): a long COUNT or a split, with FLUSH TABLES or FLUSH TABLES WITH READ LOCK arriving during it.
+
+Which monitor sees it? Three probes run at 10/s throughout: a read on the counted table, a read on another table, and a write on another table.
+The flush and the lock are released at the end of each arm. Writes touch one private row.
+"""
+import threading, time
+from countlib import CountMonitor, session_setup, split_count, split_plans
+from lablib import PRIMARY, connect, query
+from reqlib import Results, builder, guard, reset_schema, sql_try
+
+ID = "41-EXP-R12"
+guard(ID, 6)
+r = Results(ID, ["EXP-R12", "FIND-MDL-FLUSH-01"])
+b = builder()
+reset_schema(b, "req_flush")
+query(b, "CREATE TABLE req_flush.w (id INT PRIMARY KEY, v INT NOT NULL)")
+query(b, "INSERT INTO req_flush.w VALUES (1,0)")
+
+
+class Probes:
+    def __init__(self):
+        self.halt = threading.Event()
+        self.lat = {"read_counted": [], "read_other": [], "write_other": []}
+        self.threads = [threading.Thread(target=self._run, args=(k, s), daemon=True) for k, s in
+                        (("read_counted", "SELECT id FROM bench.t_dense WHERE id=1"), ("read_other", "SELECT id FROM bench.t_hot WHERE id=1"), ("write_other", "UPDATE req_flush.w SET v=v+1 WHERE id=1"))]
+
+    def _run(self, key, sql):
+        c = connect(read_timeout=60)
+        query(c, "SET SESSION lock_wait_timeout=30")
+        while not self.halt.is_set():
+            t = time.monotonic()
+            res = sql_try(c, sql)
+            self.lat[key].append((time.monotonic() - t) * 1000 if res["ok"] else -1)
+            time.sleep(.1)
+        c.close()
+
+    def start(self):
+        for t in self.threads:
+            t.start()
+
+    def stop(self):
+        self.halt.set()
+        for t in self.threads:
+            t.join(35)
+        return {k: {"n": len(v), "max_ms": round(max(v), 1) if v else None, "errors": sum(1 for x in v if x < 0), "over_1s": sum(1 for x in v if x > 1000)} for k, v in self.lat.items()}
+
+
+def state_log(stop):
+    """What a watcher would see: MDL rows on t_dense and the states of the waiting threads."""
+    c = connect(read_timeout=20)
+    seen = []
+    while not stop.is_set():
+        pending = query(c, "SELECT OBJECT_TYPE,OBJECT_NAME,LOCK_TYPE FROM performance_schema.metadata_locks WHERE LOCK_STATUS='PENDING'")
+        states = query(c, "SELECT PROCESSLIST_STATE,COUNT(*) FROM performance_schema.threads WHERE PROCESSLIST_STATE LIKE 'Waiting for%' AND TYPE='FOREGROUND' GROUP BY 1")
+        seen.append({"pending_mdl": [list(x) for x in pending], "states": [list(x) for x in states]})
+        stop.wait(.5)
+    c.close()
+    return seen
+
+
+def arm(flush_sql, method, flush_lock_wait=15, release=None):
+    res = {}
+    probes = Probes()
+    probes.start()
+    log_stop = threading.Event()
+    log_out = []
+    logger = threading.Thread(target=lambda: log_out.extend(state_log(log_stop)), daemon=True)
+    logger.start()
+    f = connect(read_timeout=60)
+    query(f, f"SET SESSION lock_wait_timeout={flush_lock_wait}")
+
+    def do_flush():
+        res["flush"] = sql_try(f, flush_sql)
+        res["flush"].pop("rows", None)
+    time.sleep(1)
+    th = threading.Timer(2, do_flush)
+    th.start()
+    t = time.monotonic()
+    res["method"] = method()
+    res["method_seconds"] = round(time.monotonic() - t, 2)
+    method_end = time.monotonic()
+    th.join()
+    res["flush_ended_after_method_s"] = round(time.monotonic() - method_end, 2)
+    if release:
+        time.sleep(3)  # keep the read lock for a moment after the method, then release it
+        res["release"] = sql_try(f, release)["ok"]
+    time.sleep(1)
+    log_stop.set()
+    logger.join(5)
+    res["probes"] = probes.stop()
+    res["watcher_saw"] = {"pending_mdl_samples": sum(1 for x in log_out if x["pending_mdl"]), "state_samples": sum(1 for x in log_out if x["states"]), "states": sorted({s[0] for x in log_out for s in x["states"]}),
+                          "pending_objects": sorted({f"{p[0]}:{p[1]}:{p[2]}" for x in log_out for p in x["pending_mdl"]})}
+    f.close()
+    return res
+
+
+def long_count():
+    c = connect(read_timeout=300)
+    query(c, "SET SESSION innodb_parallel_read_threads=1")
+    res = sql_try(c, "SELECT COUNT(*) FROM t_dense FORCE INDEX (`k_created`)")
+    res.pop("rows", None)
+    c.close()
+    return res
+
+
+def monitored_split():
+    c = connect(read_timeout=120)
+    session_setup(c, 0)
+    plan = next(p for p in split_plans(c, "bench", "t_dense")["plans"] if p["index"] == "k_created")
+    stop = threading.Event()
+    mon = CountMonitor(PRIMARY, "bench", "t_dense", c.thread_id(), stop, interval=.05)
+    mon.start()
+    s = split_count(c, "t_dense", plan, width=100_000, limit_ms=5000, duty=.5, stop=stop, max_steps=400)
+    mon.finish()
+    c.close()
+    return {"status": s["status"], "steps": s["steps"], "monitor_reason": mon.reason, "kill": mon.kill_result, "errors": s.get("errors")}
+
+
+def split_no_monitor():
+    c = connect(read_timeout=120)
+    session_setup(c, 0)
+    plan = next(p for p in split_plans(c, "bench", "t_dense")["plans"] if p["index"] == "k_created")
+    s = split_count(c, "t_dense", plan, width=100_000, limit_ms=5000, duty=.5, max_steps=300)
+    c.close()
+    return {"status": s["status"], "steps": s["steps"], "stmt_ms_max": s["stmt_ms_max"], "seconds": s["seconds_total"], "errors": s.get("errors")}
+
+
+with r.section("arms") as d:
+    d["long_count_flush_tables"] = arm("FLUSH TABLES", long_count)
+    r.save()
+    d["long_count_ftwrl"] = arm("FLUSH TABLES WITH READ LOCK", long_count, release="UNLOCK TABLES")
+    r.save()
+    d["split_flush_tables"] = arm("FLUSH TABLES", split_no_monitor)
+    r.save()
+    d["split_ftwrl"] = arm("FLUSH TABLES WITH READ LOCK", split_no_monitor, release="UNLOCK TABLES")
+    r.save()
+    d["split_monitor_with_flush_tables"] = arm("FLUSH TABLES", monitored_split)
+    r.save()
+
+with r.section("killing_the_count_releases_the_flush") as d:
+    c = connect(read_timeout=120)
+    query(c, "SET SESSION innodb_parallel_read_threads=1")
+    res = {}
+    th = threading.Thread(target=lambda: res.update(sql_try(c, "SELECT COUNT(*) FROM t_dense FORCE INDEX (`k_created`)")), daemon=True)
+    th.start()
+    time.sleep(1)
+    f = connect(read_timeout=60)
+    query(f, "SET SESSION lock_wait_timeout=30")
+    flush = {}
+    t0 = time.monotonic()
+
+    def do_flush():
+        flush.update(sql_try(f, "FLUSH TABLES"))
+        flush["seconds_from_issue"] = round(time.monotonic() - t0, 2)
+    ft = threading.Thread(target=do_flush, daemon=True)
+    ft.start()
+    time.sleep(2)
+    k = connect(read_timeout=10)
+    query(k, f"KILL QUERY {c.thread_id()}")
+    d["kill_sent_at_s"] = round(time.monotonic() - t0, 2)
+    th.join(30)
+    ft.join(30)
+    d["count"] = {"errno": res.get("errno")}
+    d["flush"] = {k2: flush.get(k2) for k2 in ("ok", "errno", "seconds_from_issue")}
+
+query(b, "DROP DATABASE req_flush")
+r.finish()

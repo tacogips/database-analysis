@@ -1,0 +1,64 @@
+{
+ "tuple": {
+  "ms": 528.5,
+  "handler_read_next": 4504999,
+  "plan": {
+   "access": "index",
+   "key": "PRIMARY",
+   "used_key_parts": [
+    "tenant_id",
+    "seq"
+   ],
+   "covering": true,
+   "rows_estimate": 5000,
+   "select_tables_optimized_away": false,
+   "message": null,
+   "raw_keys": [
+    "cost_info",
+    "ordering_operation",
+    "select_id"
+   ]
+  }
+ },
+ "and_or": {
+  "ms": 290.6,
+  "handler_read_next": 4504999,
+  "plan": {
+   "access": "range",
+   "key": "PRIMARY",
+   "used_key_parts": [
+    "tenant_id"
+   ],
+   "covering": true,
+   "rows_estimate": 5124473,
+   "select_tables_optimized_away": false,
+   "message": null,
+   "raw_keys": [
+    "cost_info",
+    "ordering_operation",
+    "select_id"
+   ]
+  }
+ },
+ "or_expanded": {
+  "ms": 4.0,
+  "handler_read_next": 4999,
+  "plan": {
+   "access": "range",
+   "key": "PRIMARY",
+   "used_key_parts": [
+    "tenant_id",
+    "seq"
+   ],
+   "covering": true,
+   "rows_estimate": 6159365,
+   "select_tables_optimized_away": false,
+   "message": null,
+   "raw_keys": [
+    "cost_info",
+    "ordering_operation",
+    "select_id"
+   ]
+  }
+ }
+}

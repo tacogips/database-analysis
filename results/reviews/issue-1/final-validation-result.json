@@ -1,0 +1,88 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "item1": {
+      "evidence": "Initialize/ReadIdentity/Same/GuardedKillと生ログを照合。5ケースで別SqlConnectionからSPID、login_time、server connection_id、CONTEXT_INFO、login/original login、app、DB、serverを確認。ClientConnectionIdは実際にserver IDと異なる。tag/time/connection_idの3不一致を拒否し、元接続のSELECT 1が成功。権限preflightと実可視性を確認し、restricted observerの部分可視・空結果を不在と扱わない。",
+      "status": "pass"
+    },
+    "item2": {
+      "evidence": "server error、Cancel、timeout後はfinally前にrequestなし・sleeping・open TX=1・snapshotあり。TX3077/3399/3671は元接続rollback、idle DisposeのTX3915は消失追跡、rollback失敗注入のTX4128はguard付き管理KILLで回収。全ケースでsession/request/TX/snapshot/active_transactionsの不在を確認。cleanupには独立した30秒tokenを使用し、保存TX IDをsession mapping消失後も追跡する。KILLのSPID TOCTOU、Disposeと実分断の差、observer不通時UNKNOWN・次作業禁止・引継ぎを明記。保持解除を物理割当回収や本番回復と混同しない。",
+      "status": "pass"
+    },
+    "item3": {
+      "evidence": "旧labのauto stats OFF制約と、既存sync/async/low-priority/compatibility/stateの確認を具体化。3実planは無条件COUNT_BIG、実scan4096行、OptimizerStatsUsageなし。fixture_valueはrows=1024、modification_counter=7168、更新時刻が前後と累積約0/1/4秒で不変。未初期化PK統計はNULLのまま。XE未収集・async窓外・cached trivial planの限界を含む狭い観測であり、普遍的発火／不発火や本番設定の一律変更を主張しない。",
+      "status": "pass"
+    },
+    "item4": {
+      "evidence": "空欄templateと独立復元先／専用replicaの記入済み例がある。数値・人物・適格化証拠はillustrative_not_measured。共有資源、実device・親階層までのcap検証、指標source/権限、通常変動、責任者を記録する。検出・集計・配送・判断・Cancel・rollback・jitterの上界12秒を、別根拠の20/24秒余裕と比較し、p99差から秒へ換算しない。未制御SAN/network・primary回収不明はHOLD。pending到着を分母から除外しない。MySQL MDL/undo/applier、SQL request/TX/version/PVS/AG primary回収の観測と取得不能分岐も具体的。",
+      "status": "pass"
+    },
+    "scope": "Issue 1修正を受入。本番SLO・native性能・実分断復旧・物理領域回収の認定ではない。集約acceptance.jsonは両レビュー完了後に新しい対象hashへ結び付ける。"
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "docs/README.md": "9783f53da8b3e4613628d3f6798d7f5753cbcf9be3a7fadd9e6b7c67c27c48a3",
+    "docs/guidelines/mysql.md": "ffb3ae5b8d189b90418c9fb9efa8e5d2787c2bcae328a60e9c3fedcf907c2b2f",
+    "docs/guidelines/operations-runbook.md": "27ae9f91f863acb759abf913459755f502108af33c4524650e214ce1e2cf73d1",
+    "docs/guidelines/sql-server.md": "bbfdada6f71acc91010c8457c076cae1b79d00e6aac07247ff6f66ec547ff47c"
+  },
+  "findings": [],
+  "independentFindingAssessment": {
+    "assessment": "findings/requestedExperimentsが空である判断に同意。4項目の根拠、TX ID、統計観測窓、機能検証の限界は独立確認と一致し、追加の未解決欠陥はない。",
+    "path": "results/reviews/issue-1/final-engineer-result.json",
+    "sequence": "独立指摘と4項目の判定を形成した後、final-engineer-result.jsonを読んだ。",
+    "sha256": "0a268cc1fc151903dd651065caedde5113a8a1455e598aaf809b66753a2a3be6"
+  },
+  "requestedExperiments": [],
+  "reviewEvidence": [
+    {
+      "observations": "AGENTS.mdとIssue本文を全文読了し、4項目の修正条件を確認。ファイル変更、DB/Docker/計測起動、委譲、workflow実行、commit/publishは行っていない。",
+      "path": "results/reviews/issue-1/issue.json",
+      "sha256": "5f94a59773fec11f737812e7f69d105e2b5bbf7c33e51638b607451779fbe3b9"
+    },
+    {
+      "observations": "protectedFiles全362件の実hashに不一致なし。修正前archive全5ファイルもmanifest一致。旧receiptの3文書hashは保存された旧文書と一致し、現行版へ転用されていない。",
+      "path": "results/reviews/issue-1/baseline.json",
+      "sha256": "f35110a6fab261ab7021c8f2e4f7976b6f888f18c311446bd09b5387c78b2f1e"
+    },
+    {
+      "observations": "現行source12件の実hashが指定入力、owner-proof、runtime resultのsource_before/source_afterと一致。owner audit scriptの実hashもproof記載と一致。",
+      "ownerAuditPath": "results/reviews/issue-1/owner-audit.json",
+      "ownerAuditSha256": "d50ff3cb01b3fdb00dd1d5ae88aca2b340f5deef1e37c5d6f2fa14ebccad5ee3",
+      "path": "results/reviews/issue-1/owner-proof.json",
+      "sha256": "56a995a783884baa76a0194d4a53ebc63b3855f10b402751fdf3e4168f3654f8"
+    },
+    {
+      "observations": "全8ファイル、result内artifact hash、元runとarchiveのbytesを確認。probeの85イベントはcontroller stdoutと完全一致。3つのplan XMLを独立解析し、実行counter、無条件COUNT、統計usage不在を確認した。",
+      "path": "results/reference/issue-1-runtime-20261108T013522-6bd01cec80ff/manifest.json",
+      "probeSha256": "c188f405dfbf1535af9f02203807ba7cbd3fc7a569df73d3b4163f4e62e75ad7",
+      "resultSha256": "d74a9ab419c810eb14a97023c5d5c177f0657e4a635f151d3d674d0a6d5d6f41",
+      "sha256": "f8e81e1e1d4adc9ba7a0d6fffe8e2eeafd4e12231ec59cb12b6dab3a74daeef6"
+    },
+    {
+      "clientExitStatus": 0,
+      "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/reference/issue-1-runtime-20261108T013522-6bd01cec80ff/controller.log",
+      "finalExitStatus": 0,
+      "observations": "全32 CLIの終了code0・timeoutなし、client/controller最終markerを確認。container/volume/networkと生成imageのrun所有label、同じ所有資源だけの削除、最終inventoryでの専用資源不在を生ログから確認。",
+      "sha256": "be15774a76a4e7ca555982fd83c70b22a144e59d2ae49834972a8965057c463a"
+    },
+    {
+      "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/reviews/issue-1/canonical-invocation.log",
+      "completeLogSha256": "12404efa6f578d6efed187f76295fd7dc7826ce91fd8b70ddf7195c44eda0f1f",
+      "finalExitStatus": 0,
+      "observations": "所有者の前景allはprocess_finished、実終了code0。今回の査読では再実行していない。",
+      "path": "results/reviews/issue-1/canonical-invocation.json",
+      "sha256": "13ca14eb43616a11c13e023cab1e881fa308a4179d9080e9560a8b4754bb8faf"
+    },
+    {
+      "observations": "保存TX IDの追跡、PVS列・権限、SPID再利用の説明を公式仕様とも照合した。[active transactions](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-objects/sys-dm-tran-active-transactions-transact-sql?view=sql-server-ver17)、[PVS stats](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-objects/sys-dm-tran-persistent-version-store-stats?view=sql-server-ver17)、[KILL](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/kill-transact-sql?view=sql-server-ver17)。"
+    }
+  ],
+  "reviewQuestions": {
+    "betterMethods": "承認済みexport、対象限定の参考値、必要時だけ適格な隔離先の正確COUNTという経路は妥当。",
+    "designCoverage": "Issue 1の4項目を文書・実装・生証跡で確認した。未解決のhigh/middle指摘と必須追加実験はない。",
+    "fastCount": "必要精度・鮮度・追加費用で選定し、普遍的最速、推定値の正確値化、行数だけの安全閾値を主張していない。",
+    "lockFactors": "MySQLの行ロックとMDL、SQL Serverのlocking RCとversioning・Sch-Sを区別。undo/version保持、統計background、replicaのprimary側影響も扱い、新たな意図的競合注入を推奨しない。",
+    "omissions": "実ネットワーク分断、native性能、本番SLO、物理割当回収、最小権限構成の全面検証は未確認として留保され、不明時はHOLDまたはUNKNOWNへ分岐する。"
+  }
+}

@@ -1,0 +1,825 @@
+{
+ "version": "9.7.4",
+ "keyring_status": [
+  [
+   "Component_name",
+   "component_keyring_file"
+  ],
+  [
+   "Author",
+   "Oracle Corporation"
+  ],
+  [
+   "License",
+   "GPL"
+  ],
+  [
+   "Implementation_name",
+   "component_keyring_file"
+  ],
+  [
+   "Version",
+   "1.0"
+  ],
+  [
+   "Component_status",
+   "Active"
+  ],
+  [
+   "Data_file",
+   "/tmp/lab_keyring"
+  ],
+  [
+   "Read_only",
+   "No"
+  ]
+ ],
+ "md5_available": "error 1305: FUNCTION bench.MD5 does not exist",
+ "sizes": [
+  [
+   "t_enc",
+   396296192,
+   129744896,
+   "ENCRYPTION='Y'"
+  ],
+  [
+   "t_plain",
+   396296192,
+   129744896,
+   ""
+  ]
+ ],
+ "detect_with_tablespaces": [
+  [
+   "bench/t_plain",
+   "N"
+  ],
+  [
+   "bench/t_enc",
+   "Y"
+  ],
+  [
+   "bench/t_evict",
+   "N"
+  ]
+ ],
+ "explain": {
+  "t_plain": [
+   "-> Count rows in t_plain\n"
+  ],
+  "t_enc": [
+   "-> Count rows in t_enc\n"
+  ]
+ },
+ "preflight": {
+  "t_plain": {
+   "create_options": "",
+   "default_plan": "{'access': 'index', 'key': 'k_v', 'used_key_parts': ['v'], 'covering': True, 'rows_estimate': 3876324, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'select_id', 'table']}",
+   "recommendation": "{'method': 'COUNT_WITH_LIMIT_THEN_SPLIT', 'index': 'k_v', 'form': 'A', 'why': \"SQL 2 first; on a timeout follow the guideline's flow. No size threshold: reported sizes can be wrong.\", 'first_statement': 'SELECT /*+ MAX_EXECUTION_TIME(1000) */ COUNT(*) FROM `t_plain`'}"
+  },
+  "t_enc": {
+   "create_options": "ENCRYPTION='Y'",
+   "default_plan": "{'access': 'index', 'key': 'k_v', 'used_key_parts': ['v'], 'covering': True, 'rows_estimate': 3876324, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'select_id', 'table']}",
+   "recommendation": "{'method': 'COUNT_WITH_LIMIT_THEN_SPLIT', 'index': 'k_v', 'form': 'A', 'why': \"SQL 2 first; on a timeout follow the guideline's flow. No size threshold: reported sizes can be wrong.\", 'first_statement': 'SELECT /*+ MAX_EXECUTION_TIME(1000) */ COUNT(*) FROM `t_enc`'}"
+  }
+ },
+ "count_default": {
+  "plain_cold": [
+   {
+    "seconds": 0.484,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6902,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113082368
+   },
+   {
+    "seconds": 0.553,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6298,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103186432
+   },
+   {
+    "seconds": 0.495,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6298,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103186432
+   },
+   {
+    "seconds": 0.635,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6298,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103186432
+   },
+   {
+    "seconds": 0.763,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6317,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103497728
+   },
+   {
+    "seconds": 0.348,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   }
+  ],
+  "plain_warm": [
+   {
+    "seconds": 0.666,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6295,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103137280
+   },
+   {
+    "seconds": 0.513,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6296,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103153664
+   },
+   {
+    "seconds": 0.48,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6296,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103153664
+   },
+   {
+    "seconds": 0.733,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6296,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103153664
+   },
+   {
+    "seconds": 1.246,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6294,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 103120896
+   },
+   {
+    "seconds": 0.156,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   }
+  ],
+  "enc_cold": [
+   {
+    "seconds": 0.685,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6899,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113033216
+   },
+   {
+    "seconds": 0.692,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6899,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113033216
+   },
+   {
+    "seconds": 1.806,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6898,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113016832
+   },
+   {
+    "seconds": 0.69,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 1.468,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.451,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   }
+  ],
+  "enc_warm": [
+   {
+    "seconds": 0.776,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6898,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113016832
+   },
+   {
+    "seconds": 0.591,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6898,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113016832
+   },
+   {
+    "seconds": 0.798,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.582,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.663,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.421,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   }
+  ]
+ },
+ "count_single_thread": {
+  "plain_cold": [
+   {
+    "seconds": 0.323,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.327,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.329,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.417,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.405,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.461,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   }
+  ],
+  "plain_warm": [
+   {
+    "seconds": 0.153,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.156,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.156,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.194,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.188,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.193,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   }
+  ],
+  "enc_cold": [
+   {
+    "seconds": 0.383,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.403,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.408,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 1.196,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.498,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.505,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   }
+  ],
+  "enc_warm": [
+   {
+    "seconds": 0.389,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.398,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.402,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.699,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.497,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.499,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   }
+  ]
+ },
+ "count_force_primary": {
+  "plain_cold": [
+   {
+    "seconds": 1.213,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.898,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.287,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.266,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.267,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.26,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   }
+  ],
+  "plain_warm": [
+   {
+    "seconds": 1.21,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.412,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.25,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.236,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 2.316,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.28,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 537,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 402014208
+   }
+  ],
+  "enc_cold": [
+   {
+    "seconds": 1.311,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.35,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.287,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.317,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.502,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.304,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   }
+  ],
+  "enc_warm": [
+   {
+    "seconds": 1.318,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.308,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.33,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.349,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.344,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   },
+   {
+    "seconds": 1.33,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 160,
+    "Innodb_buffer_pool_read_ahead": 24000,
+    "Innodb_data_read": 395837440
+   }
+  ]
+ },
+ "count_force_secondary": {
+  "plain_cold": [
+   {
+    "seconds": 0.42,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.433,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.405,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.428,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.439,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   },
+   {
+    "seconds": 0.43,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 5690,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 93224960
+   }
+  ],
+  "plain_warm": [
+   {
+    "seconds": 0.192,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.197,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.192,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.197,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.201,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   },
+   {
+    "seconds": 0.193,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 0
+   }
+  ],
+  "enc_cold": [
+   {
+    "seconds": 0.497,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.494,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 1.256,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.513,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.513,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.502,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   }
+  ],
+  "enc_warm": [
+   {
+    "seconds": 0.485,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.498,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.717,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.501,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.52,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   },
+   {
+    "seconds": 0.492,
+    "count": 4000000,
+    "Innodb_buffer_pool_reads": 6897,
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_data_read": 113000448
+   }
+  ]
+ },
+ "split": {
+  "index": "k_v",
+  "rows": 4000000,
+  "null_rows": 0,
+  "unique_cursor": true,
+  "cursor_columns": [
+   "v",
+   "id"
+  ],
+  "chunks": 41,
+  "max_chunk_ms": 30.9,
+  "seconds": 0.78,
+  "complete": true
+ },
+ "plain_count_record_locks": 0,
+ "insert_select_count_record_locks": 100000,
+ "rotate_during_count": {
+  "rotate": "ok",
+  "rotate_seconds": 0.002,
+  "count": {
+   "seconds": 0.653,
+   "count": 4000000,
+   "Innodb_buffer_pool_reads": 2695,
+   "Innodb_buffer_pool_read_ahead": 21533,
+   "Innodb_data_read": 396951552
+  }
+ }
+}

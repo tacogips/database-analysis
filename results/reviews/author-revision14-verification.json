@@ -1,0 +1,138 @@
+{
+  "revision": 14,
+  "createdAt": "2026-11-07T04:01:24.089111+00:00",
+  "ok": true,
+  "exitCode": 0,
+  "log": "results/reviews/author-revision14-verification.log",
+  "logComplete": true,
+  "logSha256": "fcea114776094fadf44a6e484b4c17834fb045591db4cd8900009fe34c2de823",
+  "checks": [
+    {
+      "check": "git diff whitespace",
+      "ok": true,
+      "detail": {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "check": "Python syntax",
+      "ok": true,
+      "detail": {
+        "pythonFiles": 148,
+        "mode": "AST parse only; no imports or execution"
+      }
+    },
+    {
+      "check": "Ruby syntax lab.rb",
+      "ok": true,
+      "detail": {
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "ruby",
+          "-c",
+          "lab.rb"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "check": "Ruby syntax bench/test_matrix_cleanup.rb",
+      "ok": true,
+      "detail": {
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "ruby",
+          "-c",
+          "bench/test_matrix_cleanup.rb"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "check": "Ruby syntax bench/test_white_all_runner.rb",
+      "ok": true,
+      "detail": {
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "ruby",
+          "-c",
+          "bench/test_white_all_runner.rb"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "check": "Ruby syntax bench/test_runner_cache.rb",
+      "ok": true,
+      "detail": {
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "ruby",
+          "-c",
+          "bench/test_runner_cache.rb"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "check": "Ruby syntax .riela/workflows/table-count-guideline-review/scripts/run-requested.rb",
+      "ok": true,
+      "detail": {
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "ruby",
+          "-c",
+          ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "check": "retained evidence hashes",
+      "ok": true,
+      "detail": {
+        "preservedFilesVerified": 230,
+        "originalObservationsMutated": false
+      }
+    },
+    {
+      "check": "documentation paths and size",
+      "ok": true,
+      "detail": {
+        "localLinkPathsVerified": 30,
+        "mainLines": 206,
+        "externalDocumentation": "not browsed; unconfirmed claims labeled"
+      }
+    },
+    {
+      "check": "planned scope and retired source SHA",
+      "ok": true,
+      "detail": {
+        "configurations": 5,
+        "scriptPartitions": 30,
+        "repeatsPerMethod": 3,
+        "unboundedProtocolsRetired": 2,
+        "databaseExecuted": false
+      }
+    }
+  ],
+  "scope": "File/hash and syntax-only author verification. No tests, DB queries, experiments, Docker operations or workflows executed. Runtime regression tests are registered for fixed runner, not reported as passing here.",
+  "runtimeTestsStatus": "not_run_by_author",
+  "reproductionProofExists": false,
+  "guidelineSha256": "4200abea369a0c2c1f00db1e8544f72204123d26edfa45adb13583bdaefea77e"
+}

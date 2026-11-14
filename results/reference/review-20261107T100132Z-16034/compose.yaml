@@ -1,0 +1,79 @@
+# Local test bed for the bulk-read guideline. Never point this tooling at production. See README.md.
+name: bulk-read-lab
+
+x-mysql-common: &mysql-common
+  image: mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+  environment:
+    MYSQL_ROOT_PASSWORD: lab
+    MYSQL_DATABASE: bench
+  healthcheck:
+    test: ["CMD-SHELL", "mysql -h127.0.0.1 -uroot -plab -e 'SELECT 1' >/dev/null 2>&1"]
+    interval: 5s
+    timeout: 5s
+    retries: 60
+
+services:
+  # CPUs are pinned so the database, the service workload and the extraction client cannot steal from each other.
+  primary:
+    <<: *mysql-common
+    container_name: lab-primary
+    hostname: primary
+    cpuset: "0,1"
+    mem_limit: 3g
+    # Buffer pool is far smaller than the data on purpose: production-like cache pressure.
+    command:
+      - --server-id=1
+      - --log-bin=binlog
+      - --binlog-format=ROW
+      - --gtid-mode=ON
+      - --enforce-gtid-consistency=ON
+      - --innodb-buffer-pool-size=1536M
+      - --innodb-redo-log-capacity=2G
+      - --local-infile=ON
+      - --secure-file-priv=/out
+      - --binlog-expire-logs-seconds=3600
+      - --max-connections=300
+      - --performance-schema=ON
+    volumes:
+      - ./.data/primary:/var/lib/mysql
+      - ./.data/out:/out
+      - ./sql:/sql:ro
+    ports: ["127.0.0.1:33061:3306"]
+
+  replica:
+    <<: *mysql-common
+    container_name: lab-replica
+    hostname: replica  # relay log names derive from this; a changing hostname breaks replication after recreate
+    cpuset: "3"
+    mem_limit: 2g
+    # Only the replication test table is replicated so disk use stays small.
+    command:
+      - --server-id=2
+      - --log-bin=binlog
+      - --binlog-format=ROW
+      - --gtid-mode=ON
+      - --enforce-gtid-consistency=ON
+      - --read-only=ON
+      - --relay-log=relay-bin
+      - --innodb-buffer-pool-size=768M
+      - --replicate-do-table=bench.t_repl
+      - --replica-parallel-workers=2
+    volumes:
+      - ./.data/replica:/var/lib/mysql
+    depends_on:
+      primary: { condition: service_healthy }
+
+  bench:
+    build: ./bench
+    container_name: lab-bench
+    cpuset: "2,3"
+    mem_limit: 2g
+    working_dir: /work
+    command: ["sleep", "infinity"]
+    volumes:
+      - ./bench:/work/bench
+      - ./sql:/work/sql:ro
+      - ./results:/work/results
+      - ./.data/out:/out
+    depends_on:
+      primary: { condition: service_healthy }

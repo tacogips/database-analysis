@@ -1,0 +1,278 @@
+{
+  "meaning": "DB-free checks only; not narrowed white-all, precision/SLO acceptance, cleanup audit or final reviews.",
+  "complete": true,
+  "exitCode": 0,
+  "log": "results/reviews/author-essential-scope-verification.log",
+  "logSha256": "a79a50141400b89a1efde43ca06b5cb13adc7a4923988e99e3dd4fb2b0de681f",
+  "seconds": 9.045,
+  "checks": [
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "--version"
+      ],
+      "exitCode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_nonlocking_scope.py"
+      ],
+      "exitCode": 0,
+      "seconds": 2.492
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_scope_audit.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.158
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_workload_accounting.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.034
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_sampling_contract.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.034
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_dependencies.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.032
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_kill_timer.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 0,
+      "seconds": 1.541
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.041
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_reqmix_protocol.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.255
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.108
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_nonlocking_runner.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.196
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.059
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_resource_preflight.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.058
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_matrix_cleanup.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.057
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 1.196
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.015
+    },
+    {
+      "check": "requirements, all Python AST syntax, Python-only bench mount layout, protected input stability",
+      "exitCode": 0
+    }
+  ],
+  "protectedInputsBefore": {
+    "AGENTS.md": "a028988bd2bf143a114e2da1ebe67cf70e557b17115397e74cf73212fa2b9b1f",
+    "docs/table-count-guideline.md": "fcddf7771d6d06e120489e575df55c5223bc27a41f9ca7f46e3103b83a014e7a",
+    "docs/table-count-calibration.md": "3be32a923b4ce75ec307aa014013b818fa618c149ea4c71979aff107ec069471",
+    "bench/experiments.py": "4aeecb660bd53a6134dbcd5948cb0316f75da23a3a10fa866ab8cee9187924d6",
+    "mysql-images.json": "cd956e4909cade317c23531d3d7677ff9b6f75166019e4762bfb45d78ecbe5bd",
+    "results/reviews/final-all-proof.json": null
+  },
+  "protectedInputsAfter": {
+    "AGENTS.md": "a028988bd2bf143a114e2da1ebe67cf70e557b17115397e74cf73212fa2b9b1f",
+    "docs/table-count-guideline.md": "fcddf7771d6d06e120489e575df55c5223bc27a41f9ca7f46e3103b83a014e7a",
+    "docs/table-count-calibration.md": "3be32a923b4ce75ec307aa014013b818fa618c149ea4c71979aff107ec069471",
+    "bench/experiments.py": "4aeecb660bd53a6134dbcd5948cb0316f75da23a3a10fa866ab8cee9187924d6",
+    "mysql-images.json": "cd956e4909cade317c23531d3d7677ff9b6f75166019e4762bfb45d78ecbe5bd",
+    "results/reviews/final-all-proof.json": null
+  },
+  "verifiedSourcesBefore": {
+    "lab.rb": "361982656bb077ae71e7a3d4dc342053a6813bc3ca972b96e43a294fe11e3d54",
+    "mise.toml": "56fb15d95a63c63962ab5a36923e6d1d1d9e75a69381144f5aa4477bcb8d4ddb",
+    "audit/audit-final-results.py": "33b97fe8667bcaddec5856943a2247a2e8648d8af19d8f3500c4c8a8c5ffa357",
+    "bench/nonlocking-scope.json": "fc448f35097bd89e8ca56a2a16a71f6a21ab1e024f31483b277e5bb149d5004c",
+    "bench/nonlocking-scope-v23.json": "373ed84dab78d4622428403e162a61a47ae204088901e80888dfd49ff43b5918",
+    "bench/test_workload_accounting.py": "0d1f55e29504b59b9f850b891670d63f92fcfad5e93ba567fab28c303a0214a4",
+    "bench/test_protocol_integrity.py": "9a471fe8c18e9c0b3ca921c7c9bceafa4317cc4b8ca0b0e3479e74399550f5d4",
+    "bench/test_raw_evidence.py": "4da3393dc6aeacea3021ce102cd00c2cfb5ed3914fbde49e75e9ffa730402936",
+    "bench/test_nonlocking_scope.py": "7cb5c22a53ece502575a79c93f9fa5007a68387383d833b5cde76307237d5ea2",
+    "bench/test_resource_preflight.rb": "bc0a4365cda027073d2ca2a9edb6378ff8a39e3c4b49f1f4a3ab03699fff5a7c",
+    "bench/test_dependencies.py": "2066c2b327ff1f3d6e4cd7cbb20817fc278f140552ba780f769bf632122e8989",
+    "bench/test_nonlocking_runner.rb": "0fdc814f1c64fbb3eb2254709179d076cb85e893cd0970d2052eb093ad9e6f6f",
+    "bench/test_wide_outcomes.py": "0524878330010b73f8ec4fc0e0551add7ee503e740848d313ce08d1dd8d1afb8",
+    "bench/test_reqmix_protocol.py": "72e35b65c42a3f6c082f7d1d05fd6a587d1f9dbcbf168c61f420785fc0496dbf",
+    "bench/test_scope_audit.py": "6b02ef88771abcfa39c8aac86c90d7af9079978ffb22baaac3a465adaabdf8f8",
+    "bench/test_kill_timer.py": "82c938f96476048b58a0e773f0bbd7b78d55f13852ee4a4014c747f33437c9ee",
+    "bench/test_white_all_runner.rb": "f278d07266aad23b40cd8fe543a86f15c790b43436f4cb23dbb4a51cb41c961a",
+    "bench/test_accuracy_frontier.py": "c04ce7c9a5ee5a5e2ae9a23896743af96d85078d606e48a4b069616c87845b0f",
+    "bench/test_runner_cache.rb": "2d92e8e7a48f6a7405c0a138efcab7c04b7eb01b8e25a350db8f0a41e15d6005",
+    "bench/test_matrix_cleanup.rb": "27619f3bd2ff2f3348efe37b63fc28b7f9bb683704e7aea1a4856cd575ede2f7",
+    "bench/test_sampling_contract.py": "ead86a87cccf947f4ca1ed6f2aec82513d312b487dc0deddf04efc1ed993f216"
+  },
+  "verifiedSourcesAfter": {
+    "lab.rb": "361982656bb077ae71e7a3d4dc342053a6813bc3ca972b96e43a294fe11e3d54",
+    "mise.toml": "56fb15d95a63c63962ab5a36923e6d1d1d9e75a69381144f5aa4477bcb8d4ddb",
+    "audit/audit-final-results.py": "33b97fe8667bcaddec5856943a2247a2e8648d8af19d8f3500c4c8a8c5ffa357",
+    "bench/nonlocking-scope.json": "fc448f35097bd89e8ca56a2a16a71f6a21ab1e024f31483b277e5bb149d5004c",
+    "bench/nonlocking-scope-v23.json": "373ed84dab78d4622428403e162a61a47ae204088901e80888dfd49ff43b5918",
+    "bench/test_workload_accounting.py": "0d1f55e29504b59b9f850b891670d63f92fcfad5e93ba567fab28c303a0214a4",
+    "bench/test_protocol_integrity.py": "9a471fe8c18e9c0b3ca921c7c9bceafa4317cc4b8ca0b0e3479e74399550f5d4",
+    "bench/test_raw_evidence.py": "4da3393dc6aeacea3021ce102cd00c2cfb5ed3914fbde49e75e9ffa730402936",
+    "bench/test_nonlocking_scope.py": "7cb5c22a53ece502575a79c93f9fa5007a68387383d833b5cde76307237d5ea2",
+    "bench/test_resource_preflight.rb": "bc0a4365cda027073d2ca2a9edb6378ff8a39e3c4b49f1f4a3ab03699fff5a7c",
+    "bench/test_dependencies.py": "2066c2b327ff1f3d6e4cd7cbb20817fc278f140552ba780f769bf632122e8989",
+    "bench/test_nonlocking_runner.rb": "0fdc814f1c64fbb3eb2254709179d076cb85e893cd0970d2052eb093ad9e6f6f",
+    "bench/test_wide_outcomes.py": "0524878330010b73f8ec4fc0e0551add7ee503e740848d313ce08d1dd8d1afb8",
+    "bench/test_reqmix_protocol.py": "72e35b65c42a3f6c082f7d1d05fd6a587d1f9dbcbf168c61f420785fc0496dbf",
+    "bench/test_scope_audit.py": "6b02ef88771abcfa39c8aac86c90d7af9079978ffb22baaac3a465adaabdf8f8",
+    "bench/test_kill_timer.py": "82c938f96476048b58a0e773f0bbd7b78d55f13852ee4a4014c747f33437c9ee",
+    "bench/test_white_all_runner.rb": "f278d07266aad23b40cd8fe543a86f15c790b43436f4cb23dbb4a51cb41c961a",
+    "bench/test_accuracy_frontier.py": "c04ce7c9a5ee5a5e2ae9a23896743af96d85078d606e48a4b069616c87845b0f",
+    "bench/test_runner_cache.rb": "2d92e8e7a48f6a7405c0a138efcab7c04b7eb01b8e25a350db8f0a41e15d6005",
+    "bench/test_matrix_cleanup.rb": "27619f3bd2ff2f3348efe37b63fc28b7f9bb683704e7aea1a4856cd575ede2f7",
+    "bench/test_sampling_contract.py": "ead86a87cccf947f4ca1ed6f2aec82513d312b487dc0deddf04efc1ed993f216"
+  },
+  "coreEvidenceHashes": {
+    "results/reviews/owner-nonlocking-current-initial-integrity.json": "5e6ff90d7efe6fb1440c105850226d38b22b6113d23c9ae51711a673bc789ba2",
+    "results/reviews/owner-nonlocking-current-shape-inventory.json": "ab6575710d331a042db229788ba3e8b5d43f0fad4e9b93556fa5410017f85f05",
+    "results/reviews/owner-nonlocking-current-lock-inventory.json": "b990d75ad0e111f22fff3169c4543df0d77e12275f644c925f65b5f368a5183b",
+    "results/reviews/owner-nonlocking-current-impact-inventory.json": "aa75ce48409eb70700d1cd987041f4352ba82f7bac1ce81d6fba37d7959e2ad1",
+    "results/reviews/owner-nonlocking-wide50-provenance.json": "f49ad494ff44a8a2dda2de7e624853d64c214f438575124c92c9dc575ca60b8d",
+    "results/reviews/owner-nonlocking-wide100-provenance.json": "adb9192cdf3acaac0f23a3a54c6eed8069d15cbe009b898377ee6a910c9058e6",
+    "results/reviews/owner-nonlocking-frontier105-provenance.json": "69f005f5b5219b91686d67135d6c3948a0ac9d619321ebbb40f6475f3bf76df1",
+    "results/reviews/owner-nonlocking-service48-provenance.json": "56a125e26edcab2ecabb6ae61a0834e4f4fd22edea3c91b346535e907f6af32d",
+    "results/reviews/essential-scope-interruption.json": null
+  },
+  "missingCoreEvidence": [
+    "results/reviews/essential-scope-interruption.json"
+  ],
+  "selectedCounts": {
+    "baseImpacts": 9,
+    "requestedScripts": 7,
+    "requestedProcesses": 9,
+    "quietShapes": 58,
+    "plainCountCases": 12,
+    "matrixVersions": 5
+  },
+  "skippedCounts": {
+    "baseImpacts": 13,
+    "requestedScripts": 137,
+    "requestedProcesses": 149
+  }
+}

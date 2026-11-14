@@ -1,0 +1,262 @@
+[
+    {
+        "Id": "29fce9019e6db71dd6d5cd50e251e9ea31f0a25581593dcff4bb0c2dc3122d66",
+        "Created": "2026-11-08T21:37:55.51789087Z",
+        "Path": "/opt/mssql/bin/launch_sqlservr.sh",
+        "Args": [
+            "/opt/mssql/bin/sqlservr"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1044588,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-08T21:37:56.665813248Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "ResolvConfPath": "/var/lib/docker/containers/29fce9019e6db71dd6d5cd50e251e9ea31f0a25581593dcff4bb0c2dc3122d66/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/29fce9019e6db71dd6d5cd50e251e9ea31f0a25581593dcff4bb0c2dc3122d66/hostname",
+        "HostsPath": "/var/lib/docker/containers/29fce9019e6db71dd6d5cd50e251e9ea31f0a25581593dcff4bb0c2dc3122d66/hosts",
+        "LogPath": "/var/lib/docker/containers/29fce9019e6db71dd6d5cd50e251e9ea31f0a25581593dcff4bb0c2dc3122d66/29fce9019e6db71dd6d5cd50e251e9ea31f0a25581593dcff4bb0c2dc3122d66-json.log",
+        "Name": "/lab-sqlserver-manual100m",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-manual100m-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 3000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/primary",
+                    "Target": "/var/opt/mssql",
+                    "BindOptions": {}
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/shared",
+                    "Target": "/backup",
+                    "BindOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/primary",
+                "Destination": "/var/opt/mssql",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/shared",
+                "Destination": "/backup",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "countprimary",
+            "Domainname": "",
+            "User": "501:0",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MSSQL_MEMORY_LIMIT_MB=2048",
+                "ACCEPT_EULA=Y",
+                "MSSQL_PID=Developer",
+                "MSSQL_ENABLE_HADR=1",
+                "MSSQL_SA_PASSWORD=ManualCount100m_Lab_2026!",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "5eb47841adabeef61c48885db5e3da3001439398f09fa4a6fb55eb579f7fe457",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-manual100m",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+                "com.docker.compose.service": "server",
+                "com.docker.compose.version": "5.6.1",
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "count.manual100m.owner": "b0798be83c64c6dc5992bed4adae8ed5",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "189db9eea003554ee3e3624c5175981fbdc80a5b2bc1d87e214a964401433f8d",
+            "SandboxKey": "/var/run/docker/netns/189db9eea003",
+            "Ports": {
+                "1433/tcp": null
+            },
+            "Networks": {
+                "lab-sqlserver-manual100m-network": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-manual100m",
+                        "server",
+                        "countprimary"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "8637d017431bb53aa5a7bf6b3049ec239366393739e1243be6e8bd8e577fa9a2",
+                    "EndpointID": "3d6017840e06502fac195c0030efec65b79a92a8373b56fda4a1584b489e0fde",
+                    "Gateway": "",
+                    "IPAddress": "172.19.0.2",
+                    "MacAddress": "f2:90:49:0e:cd:ef",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-manual100m",
+                        "server",
+                        "countprimary",
+                        "29fce9019e6d"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

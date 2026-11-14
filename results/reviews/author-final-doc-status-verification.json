@@ -1,0 +1,54 @@
+{
+  "complete": true,
+  "exitCode": 0,
+  "logPath": "results/reviews/author-final-doc-status-verification.json",
+  "completeLog": [
+    "PASS: local document links and timeless acceptance gates",
+    "PASS: archived manifest hashes for metadata, initial COUNT, numeric exit0 status, log and truth-oracle source",
+    "PASS: initial/truth oracle 500000; after_analyze 361075; signed error -27.785%",
+    "PASS: final-all-proof unchanged; measurement sources and seven public auditors match proof",
+    "PASS: acceptance record remains not_yet_accepted; no reviews asserted"
+  ],
+  "documents": [
+    {
+      "path": "docs/table-count-guideline.md",
+      "sha256": "0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5",
+      "localLinks": "pass",
+      "timelessGate": "pass"
+    },
+    {
+      "path": "docs/table-count-calibration.md",
+      "sha256": "99bfd0477a19c4cf1f0f60967aa37957073ae6283d68f959979bc72669cf61a0",
+      "localLinks": "pass",
+      "timelessGate": "pass"
+    },
+    {
+      "path": "README.md",
+      "sha256": "823ef857270dc21710214834dc65a18adc1ce23e32cec6387a24eea4964ba4a9",
+      "localLinks": "pass",
+      "timelessGate": "pass"
+    }
+  ],
+  "historicalStatic93": {
+    "manifestSha256": "e683e11b947847b905c2c28a27d0356a43c11dbb1a5954f1d5c887314925ab21",
+    "verifiedFiles": {
+      "results/requested_metadata_accuracy.json": "8308fa45a7932cb6349454b625f88378767765668a1fcf59f765ad4057a16334",
+      "results/data_check.json": "f50ce4e3b558f7576a9946f2037d622ffab485dcf47a67426ccdde9873c5e2b9",
+      "results/requested/93-metadata-accuracy.status.json": "c31995b5eeca9b8ead3bb2a79d6488c50fab91c587bc4a9aab83a89e491c9af2",
+      "results/requested/93-metadata-accuracy.log": "d16de8977802a22c8940dd5e34725932a9f45965b7ba3dd5acf0d549a98bd7f4",
+      "bench/requested/93-metadata-accuracy.py": "09ee5bfbc9ac9d5228d7dd68b85dc30ba3895a67046c6cc851e78c03568cef6e"
+    },
+    "truth": 500000,
+    "estimate": 361075,
+    "signedErrorPct": -27.785,
+    "numericExitCode": 0,
+    "serviceEvidence": false
+  },
+  "sourceChecks": {
+    "finalAllProofSha256": "0ef235cd8832593093b25335121253fae8ab2fc5c2bf9feb1384c30ba2e93350",
+    "measurementSourcesMatched": 344,
+    "publicAuditorsMatched": 7
+  },
+  "acceptanceStatus": "not_yet_accepted",
+  "scope": "Documentation only; no DB/Docker/benchmark or auditor execution."
+}

@@ -1,0 +1,279 @@
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '--version']
+ruby 4.0.9 (2026-10-23 revision 3e93b23afc) +PRISM [arm64-darwin25]
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '--version']
+Python 3.13.18
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_nonlocking_scope.py']
+{"blocked_before_cursor": 20, "allowed_dispatch": 16, "baseImpactCount": 22, "requestedScripts": 144, "requestedProcesses": 158, "writeMixScripts": 41, "primaryScaleScripts": 30, "db_operations": 0, "scope_catalog_matches": true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_workload_accounting.py']
+{
+  "test": "six arrivals while first query runs",
+  "scheduled_arrivals": 6,
+  "observed_samples": 6,
+  "samples": [
+    [
+      1000.0,
+      "read",
+      55.0,
+      "ok",
+      0.0,
+      55.0
+    ],
+    [
+      1000.01,
+      "read",
+      45.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.02,
+      "read",
+      35.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.03,
+      "read",
+      25.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.04,
+      "read",
+      15.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.05,
+      "read",
+      4.999999999999997,
+      "queued",
+      null,
+      null
+    ]
+  ],
+  "accounting": {
+    "scheduled": 6,
+    "started": 1,
+    "completed": 1,
+    "failed": 0,
+    "inflight": 0,
+    "unstarted": 5,
+    "consistent": true,
+    "arrival_window_seconds": 0.055
+  },
+  "source_sha256": "e21662d7caf90cdd003fb3ace14770a7839107d86941b778f4ac940971b3b829",
+  "no_database_or_real_threads": true
+}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_sampling_contract.py']
+{
+  "normal": {
+    "seed": 42,
+    "width": 200,
+    "looks": [
+      512
+    ],
+    "target_relative_error": 0.03,
+    "family_alpha": 0.05,
+    "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+    "budget_scope": "first SQL through rollback; connection established separately by caller",
+    "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+    "max_seconds": 1,
+    "checkpoints": [
+      {
+        "estimate": "10000",
+        "lower": 9736,
+        "upper": 10000,
+        "relative_error_bound": 0.027115858668857847,
+        "look_alpha": "0.025",
+        "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+        "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+        "cell_sample_variance": "0",
+        "interval_method": "intersection with half look alpha allocated to each bound",
+        "checkpoint_draws": 512,
+        "sampled_rows_with_repeats": 102400,
+        "sampled_squared_counts": 20480000
+      }
+    ],
+    "attempted_draws": 512,
+    "completed_draws": 512,
+    "last_valid_checkpoint_draws": 512,
+    "accuracyStatus": "target_reached",
+    "budgetStatus": "within_budget",
+    "cleanupStatus": "rolled_back",
+    "status": "target_reached",
+    "min_id": 1,
+    "max_id": 10000,
+    "domain": 10000,
+    "cells": 50,
+    "estimate": "10000",
+    "lower": 9736,
+    "upper": 10000,
+    "relative_error_bound": 0.027115858668857847,
+    "look_alpha": "0.025",
+    "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+    "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+    "cell_sample_variance": "0",
+    "interval_method": "intersection with half look alpha allocated to each bound",
+    "checkpoint_draws": 512,
+    "sampled_rows_with_repeats": 102400,
+    "sampled_squared_counts": 20480000,
+    "seconds": 0.0,
+    "draws": 512
+  },
+  "late_final_query": {
+    "seed": 42,
+    "width": 200,
+    "looks": [
+      512
+    ],
+    "target_relative_error": 0.03,
+    "family_alpha": 0.05,
+    "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+    "budget_scope": "first SQL through rollback; connection established separately by caller",
+    "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+    "max_seconds": 1,
+    "checkpoints": [],
+    "attempted_draws": 512,
+    "completed_draws": 512,
+    "last_valid_checkpoint_draws": 0,
+    "accuracyStatus": "not_assessed",
+    "budgetStatus": "exhausted",
+    "cleanupStatus": "rolled_back",
+    "status": "budget_exhausted",
+    "min_id": 1,
+    "max_id": 10000,
+    "domain": 10000,
+    "cells": 50,
+    "seconds": 1.1,
+    "draws": 512
+  },
+  "rollback_failure": {
+    "seed": 42,
+    "width": 200,
+    "looks": [
+      512
+    ],
+    "target_relative_error": 0.03,
+    "family_alpha": 0.05,
+    "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+    "budget_scope": "first SQL through rollback; connection established separately by caller",
+    "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+    "max_seconds": 1,
+    "checkpoints": [
+      {
+        "estimate": "10000",
+        "lower": 9736,
+        "upper": 10000,
+        "relative_error_bound": 0.027115858668857847,
+        "look_alpha": "0.025",
+        "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+        "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+        "cell_sample_variance": "0",
+        "interval_method": "intersection with half look alpha allocated to each bound",
+        "checkpoint_draws": 512,
+        "sampled_rows_with_repeats": 102400,
+        "sampled_squared_counts": 20480000
+      }
+    ],
+    "attempted_draws": 512,
+    "completed_draws": 512,
+    "last_valid_checkpoint_draws": 512,
+    "accuracyStatus": "target_reached",
+    "budgetStatus": "within_budget",
+    "cleanupStatus": "failed",
+    "status": "cleanup_failed",
+    "min_id": 1,
+    "max_id": 10000,
+    "domain": 10000,
+    "cells": 50,
+    "estimate": "10000",
+    "lower": 9736,
+    "upper": 10000,
+    "relative_error_bound": 0.027115858668857847,
+    "look_alpha": "0.025",
+    "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+    "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+    "cell_sample_variance": "0",
+    "interval_method": "intersection with half look alpha allocated to each bound",
+    "checkpoint_draws": 512,
+    "sampled_rows_with_repeats": 102400,
+    "sampled_squared_counts": 20480000,
+    "cleanup_errno": 2013,
+    "seconds": 0.0,
+    "draws": 512
+  }
+}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_dependencies.py']
+{"unrelated_change_preserves_cache": true, "indirect_import_change_invalidates_cache": true, "invalid_source_rejected": true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_kill_timer.py']
+{"early_completion_cancels_and_joins": true, "reassigned_connection_not_killed": true, "kill_queries": ["KILL QUERY 11"]}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_accuracy_frontier.py']
+{"check": "actual AST function, fake failed connection; no DB", "failed_sample_saved_before_comparison": true, "comparison_not_called_after_unexpected_sample_failure": true, "sample_and_comparison_error_both_preserved": true, "confirmed_statement_limit_distinct_from_total_budget": true, "unknown_interrupt_or_failed_cleanup_not_normalized": true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_wide_outcomes.py']
+{"db_access": false, "actual_functions": true, "sampler_cases": 7, "workload_cleanup_cases": 8, "arm_cases": 13, "caller_failure_cases": 15, "static_failure_saved": true, "no_next_arm": true, "nonzero_exception_reaches_wrappers": true, "recursive_cache_closure": ["01a-PROB-WIDE-50", "01b-PROB-WIDE-100", "96-encrypted-wide-50", "97-encrypted-wide-100", "01d-ACCURACY-SERVICE-100"], "expected_observations_preserved": true, "combined_failures_preserved": true, "successful_callers": [["sample50", "ok", 36], ["sample50", "precision", 36], ["sample50", "budget", 36], ["sample50", "deadline", 36], ["sample100", "ok", 36], ["sample100", "precision", 36], ["sample100", "budget", 36], ["sample100", "deadline", 36], ["wide50", "ok", 48], ["wide50", "precision", 48], ["wide50", "budget", 48], ["wide50", "deadline", 48], ["wide100", "ok", 48], ["wide100", "precision", 48], ["wide100", "budget", 48], ["wide100", "deadline", 48], ["frontier100", "ok", 48], ["frontier100", "precision", 48], ["frontier100", "budget", 48], ["frontier100", "deadline", 48]]}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_protocol_integrity.py']
+{"actual_functions_only": true, "db_access": false, "three_repeats_and_partition_outputs": true, "disabled_locks_distinct_from_zero": true, "semantic_exit_status": true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_reqmix_protocol.py']
+{"db_access": false, "actual_function_tests": true, "classification_cases": 12, "static_149_150_120_1_counterexample": true, "all_caps": true, "all_wrappers_match_plan": true, "declared_scripts": 41, "body_scenarios": 6, "owned_cleanup_scenarios": 5, "workload_registry_scenarios": 4}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3', '-B', '/Users/taco/gits/tacogips/database-analysis/bench/test_raw_evidence.py']
+{"db_access": false, "lossless_numeric_roundtrip": true, "standard_gzip_jsonl": true, "chunk_count_hash_and_byte_bounds": true, "deterministic_representation": true, "boundary_and_empty_streams": true, "corruption_and_missing_chunk_rejected": true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '/Users/taco/gits/tacogips/database-analysis/bench/test_runner_cache.rb']
+{"success_reused":true,"failure_rejected":true,"old_inputs_rejected":true,"failed_process_rejected":true,"wide_failure_exit1_rejected":true,"changed_or_missing_artifact_rejected":true,"nested_raw_collected":true,"changed_or_missing_raw_chunk_rejected":true,"mise_config_invalidates_cache":true,"db_access":false}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '/Users/taco/gits/tacogips/database-analysis/bench/test_white_all_runner.rb']
+{"check":"actual bootstrap/controller/task chain with isolated fake mise/lab; no DB","cases":["success","failure","source_change","early_failure"],"nonzero_exit_propagated":true,"source_change_rejected":true,"stale_proof_archived":true,"previous_attempt_retained":true,"stale_completed_summary_uncredited":true,"old_lab_summary_untouched":true,"nested_raw_in_snapshot":true,"wrapper_fingerprinted":true,"explicit_exec_chain_and_cwd":true,"process_success_requires_owner_audit":true,"logs_and_snapshot_hashes_verified":true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '/Users/taco/gits/tacogips/database-analysis/bench/test_matrix_cleanup.rb']
+{"fake_docker_only":true,"actual_teardown_checks":["success","remove_failed","verify_failed","still_present"],"cleanup_failure_propagated":true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '/Users/taco/gits/tacogips/database-analysis/bench/test_resource_preflight.rb']
+{"db_access":false,"all_images_inspected":true,"space_pass_and_failure":true,"failed_run_blocks_later_experiments":true,"all_unstarted_retained":true}
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '-c', 'lab.rb']
+Syntax OK
+
+exit_code=0
+$ ['/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby', '-c', '.riela/workflows/table-count-guideline-review/scripts/run-requested.rb']
+Syntax OK
+
+exit_code=0
+AST syntax verified 181 Python files
+Workflow JSON parsed; no workflow invoked
+Guideline lines=220
+verification_exit_code=0

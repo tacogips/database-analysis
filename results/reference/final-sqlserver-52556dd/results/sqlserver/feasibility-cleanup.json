@@ -1,0 +1,33 @@
+{
+  "status": "verified",
+  "at": "2026-11-07T22:54:45.517200+00:00",
+  "ownedContainerId": "0d53988a2ceb826d0b0f5b8c94d28c88502721517edc7c35ab971fabab63368d",
+  "priorMounts": [],
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "stop",
+        "--time",
+        "30",
+        "lab-sqlserver-count"
+      ],
+      "exitCode": 0,
+      "stdout": "Flag --time has been deprecated, use --timeout instead\nlab-sqlserver-count\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "rm",
+        "-v",
+        "lab-sqlserver-count"
+      ],
+      "exitCode": 0,
+      "stdout": "lab-sqlserver-count\n",
+      "stderr": ""
+    }
+  ],
+  "containerAbsent": true,
+  "scope": "Only owner-created feasibility container; no other containers/volumes altered."
+}

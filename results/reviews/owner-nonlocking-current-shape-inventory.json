@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-11-07T11:01:57.974283+00:00",
+  "meaning": "Quiet table shape coverage and exact-method comparisons to initial base-table oracle, not full all/SLO or independently verified view semantics.",
+  "artifact": "results/count_shapes.json",
+  "sha256": "86c751f5d5b1284e44dc5633e04d65fc3135b7d357e3efbf80c8880f37976901",
+  "declaredCases": 58,
+  "savedCases": 58,
+  "exactMethodCountsComparedToInitialTableOracle": 235,
+  "countMismatches": [],
+  "legacySplitFlags": [],
+  "engineCounts": {
+    "InnoDB": 54,
+    "MyISAM": 1,
+    "MEMORY": 1,
+    "ARCHIVE": 1,
+    "VIEW": 1
+  },
+  "scopeLimitations": [
+    "57base-table oracles, view logical count not independent truth",
+    "t_dense100M belongs to impact stage, not58shape list",
+    "Quiet non-InnoDB scans are not compliant nonlocking service candidates",
+    "Cache/order uncontrolled, timings do not prove safe production thresholds"
+  ]
+}

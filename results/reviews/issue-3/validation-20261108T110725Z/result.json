@@ -1,0 +1,93 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "contextContract": "合格。Initialize／PrepareAndCount／GuardedCandidateCountの実gateが、承認欠落・UNKNOWN・BUSINESS_USEをタグ書込みと候補COUNT前に拒否する。契約はRLS依存先・業務初期化・後続SET・監査・trigger・lease寿命を含む。NULL・管理者・非pool・可視policy不在から許可を推定しない。callerを確認し、unguardedな候補COUNTの本番例への露出はない。",
+    "ordinaryOwnershipAndCleanup": "合格。予約済み非RLS経路の5ケースで同一不変identityを使用し、誤tag・login_time・server connection_idを拒否。実Cancel、server error 51010、timeout -2、独立cleanup期限、rollback／管理KILLを確認。保持TX ID 3103／3431／3716／3987／4192を追跡し、各最終pollでsession・request・TX・snapshot・active transaction不在。HOLD側4接続も所有Dispose後に解放済み。",
+    "priorFixesAndHistory": "合格。保護対象10,885ファイルと旧snapshot7ファイルのhashは一致。旧受入の文書hashも旧snapshotと一致し、4096行非RLS成功をRLS安全性へ転用していない。来歴・鮮度・HA失効・資源制御は維持。rootから現行文書・現行受入先は各1クリック。集約受入pending自体は欠陥ではない。",
+    "rlsRejectionRuntime": "合格。実CONTEXT_INFO依存RLSの対照値は2／3／0、既知の物理seedは5。7検査パスは通常経路と同じ入口・直接wrapperを呼び、通常Target指定でも契約単独の拒否を確認する。全パスでtag writes／candidate dispatchesは0、ownerとobserverのidentity・contextは前後一致。初期NULLと後続業務initを含む。RLS運用COUNT＋取消は未対応としてHOLD／exportへ戻す。"
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "README.md": "02ded6ef68b1d7395ea302c24e322b75be10e047763886ea1ea33fa629a6b30e",
+    "docs/README.md": "1eedc7a9e9c3b097ed8e18ee6d34e205702f690000450a6a8f33b6b75ec88de3",
+    "docs/guidelines/mysql.md": "01d464cc9055116411e3ed5494496bdbadc4505aac7338503f9a7e094bf64362",
+    "docs/guidelines/operations-runbook.md": "819fac46993c6a49a94eb5cf8dfef8869c86554bf0222e5c912693d2d1439628",
+    "docs/guidelines/sql-server.md": "ab015810b4f4d1231cc81aa71de1555b0f2988d4b4987b2cfbb96af231a59656"
+  },
+  "findings": [],
+  "independentFindingAssessment": {
+    "observation": "独立所見をfindings=[]・必須追加実験なし・acceptedとして確定した後に開いた。engineerもfindings=[]であり、対象hash・RLS拒否・保持解除・履歴保全の結論は独立確認と一致。異議や未解決所見はない。",
+    "path": "results/reviews/issue-3/final-engineer-result.json",
+    "sha256": "ca60bb67eecc2d6b0c1204d1779385ee7d736b50d60a415519eab016f898119e"
+  },
+  "requestedExperiments": [],
+  "reviewEvidence": {
+    "actualProbe": {
+      "observation": "122イベントがcontroller logと完全一致。RLS対照・7拒否の前後context、異常系と解放pollを確認。3統計profileの既知statsは限定観測窓で不変。",
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/probe.json",
+      "sha256": "c469ba8822a07d60341f39ba598f9819210e3dfc7d5e72acacfb3a706cf56bc4"
+    },
+    "baseline": {
+      "mismatches": 0,
+      "path": "results/reviews/issue-3/baseline.json",
+      "protectedFilesVerified": 10885,
+      "sha256": "f01ced311ed3f67f12d3c739c9cf1b22528194880e841f0c696f07611fb1e1ea"
+    },
+    "completeRuntimeLog": {
+      "finalExitStatus": 0,
+      "observation": "33 CLIすべてのargv・終了記録を照合しexit0／timeoutなし。client終了0・非稼働と末尾controller終了0を確認。所有container／volume／network／client imageは最終inventoryで不在。",
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/controller.log",
+      "sha256": "4a6b6a16383c9d6e67358353cea024f51e3ba6c4b18c8a9d1aee8151c0316346"
+    },
+    "foregroundInvocation": {
+      "actualExitCode": 0,
+      "command": "mise -C sqlserver/issue3 run all",
+      "completeLog": "results/reviews/issue-3/canonical-invocation.log",
+      "logSha256": "7c46541da5406d1351c5fda06c1c9f1e23589e326948c8bdee8b862e608f9f0c",
+      "path": "results/reviews/issue-3/canonical-invocation.json",
+      "sha256": "ea74d75ee1510d7a42fbdcbcca347af8c4e832e15a7bcc5bb86095e5bead91c3"
+    },
+    "issue": {
+      "observation": "AGENTS.mdとともに全文を確認。",
+      "path": "results/reviews/issue-3/issue.json",
+      "sha256": "cbfd6402c7e52f5e7eedc862fdf143bf4fce725155ac888f6103d6926f540684"
+    },
+    "officialSemantics": {
+      "observation": "RLSはdbo等にも適用され、CONTEXT_INFOはsession状態としてDMVから観測できる。[RLS仕様](https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver17)、[SET CONTEXT_INFO仕様](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-context-info-transact-sql?view=sql-server-ver17)"
+    },
+    "oldSnapshot": {
+      "observation": "旧5文書、Issue2受入、completion auditのbytesと旧受入内の文書hashが一致。",
+      "path": "results/reference/issue-3-pre-fix-16cc9b3/manifest.json",
+      "sha256": "d6e029c2e47726f6da20b382fbb9ad5a00fbae45df58b6421470a1b0a5b17793",
+      "verifiedFiles": 7
+    },
+    "ownerAudit": {
+      "observation": "passedフラグだけでなく、実probe・CLI log・owner label・削除結果・成功した最終inventoryを独立照合した。",
+      "path": "results/reviews/issue-3/owner-audit.json",
+      "sha256": "c5189ae5def40f0cbed03c043bbb1b18b5939dd540f4d9c58c9be59dd9c3ac4f"
+    },
+    "ownerProof": {
+      "path": "results/reviews/issue-3/owner-proof.json",
+      "sha256": "69448dd438abf3f3dbc9a25408abb37c9a9c18cf379634856a6cd2254c7c86f4"
+    },
+    "runtimeArchive": {
+      "observation": "8成果物すべてのarchive／元run hashが一致。11ソースのsource_before／source_after／currentは指定hashと全一致。",
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/manifest.json",
+      "sha256": "c9db98aea939fa909a1edd77c22eb95cc76a5d6bbfed99d95e4744943dc4a123"
+    },
+    "runtimeResult": {
+      "clientExitCode": 0,
+      "controllerExitCode": 0,
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/result.json",
+      "sha256": "b8de7484c422e8bc46ce23a716b4f00de1e2a1603762e25e93760171a36cf127"
+    },
+    "scope": "独立した読み取り専用final validation。現行5文書、Issue3全ソース・README、所有者証跡を確認。ファイル変更、DB／Docker／計測起動、委任、workflow起動、commit／push、外部メッセージ送信なし。本判定はこの査読の受入判定である。"
+  },
+  "reviewQuestions": {
+    "betterMethods": "競合・不明時のCOUNT前HOLD／承認済みexportで受入条件を満たす。代替RLS取消実装は不要。",
+    "designCoverage": "同じ候補入口、直接wrapper、契約単独拒否、実RLS対照、両接続context維持、通常経路の取消・解放を分離して確認している。",
+    "fastCount": "export→参考metadata→適格隔離先COUNTの選択は妥当。RLS可視0・物理空・UNKNOWNを区別し、普遍的最速・影響ゼロ・本番SLO合格を主張していない。",
+    "lockFactors": "locking RCとRCSI／SNAPSHOTを区別し、Sch-S／Sch-M、version保持、自動統計、CPU／I/O、AG primary側回収を残存要因として扱っている。",
+    "omissions": "native性能、本番SLO、実ネットワーク分断、最小権限、物理容量回収は未検証と明示。今回のHOLD修正に不可欠な追加実験はない。"
+  }
+}

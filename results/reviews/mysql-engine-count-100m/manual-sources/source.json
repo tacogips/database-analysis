@@ -1,0 +1,14 @@
+{
+  "originalPath": "docs/guidelines/mysql-innodb.md",
+  "snapshotPath": "results/reviews/mysql-engine-count-100m/manual-sources/mysql-innodb.md",
+  "sha256": "df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e",
+  "classification": "Existing working-tree InnoDB manual captured for index-before-COUNT reference, not modified.",
+  "stepsReproduced": [
+    "TABLE_ROWS inventory",
+    "fresh count session with READ COMMITTED and autocommit1",
+    "EXPLAIN FORMAT=TRADITIONAL",
+    "selected-index size/n_leaf_pages/last_update and page size",
+    "bounded ordinary COUNT only"
+  ],
+  "adaptation": "Static local lab has no service/replica workload; SELECT deadline20min replaces illustrative10s. No production cancellation/SLO certification."
+}

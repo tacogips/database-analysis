@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-07T05:18:30.346685+00:00",
+  "finding": "SOL-FRONTIER-004",
+  "meaning": "Partial current white-all runtime evidence for disabled vs enabled data-lock observation only. Owner/independent reviewers still decide closure. Target lock attribution and service SLO are not proved by aggregate samples.",
+  "observations": {
+    "count_default": {
+      "path": "results/impact_count_default.json",
+      "sha256": "1581b7dd41e794d3b2c83cf418104b2c8008ba93790c8e91fed3d5bb72fb6fac",
+      "during": {
+        "table_data_lock_samples": 0,
+        "peak_row_locks_seen": null,
+        "peak_table_level_locks": null
+      }
+    },
+    "lock_plain_count": {
+      "path": "results/impact_lock_plain_count.json",
+      "sha256": "701a2aa6ea255bba734876513ee4627a8f9a9edb18427b9f036427640877fadc",
+      "during": {
+        "table_data_lock_samples": 39,
+        "peak_row_locks_seen": 1,
+        "peak_table_level_locks": 0
+      }
+    }
+  }
+}

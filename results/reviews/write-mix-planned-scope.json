@@ -1,0 +1,93 @@
+{
+  "at": "2026-11-07T06:12:43.948696+00:00",
+  "meaning": "Provisional independent SOURCE PLAN coverage only, while author is active. Not executed scope, not design approval, not final all proof. Recheck frozen plan hash and actual outcomes after author/all.",
+  "plan": "bench/requested/write-mix-plan.json",
+  "planSha256": "5574876311ec1502005873c154b1992999938d06eb1c6d87455b1ccf62c7c4f9",
+  "declaredScriptCount": 41,
+  "requiredScriptIds": [
+    "05-EXP-O6-WRITE-MIX-indexed-100",
+    "05-EXP-O6-WRITE-MIX-indexed-100-splits-b2",
+    "05-EXP-O6-WRITE-MIX-indexed-100-statements-b1",
+    "05-EXP-O6-WRITE-MIX-indexed-100-statements-b2",
+    "05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1",
+    "06-EXP-O6-WRITE-MIX-indexed-800",
+    "06-EXP-O6-WRITE-MIX-indexed-800-splits-b2",
+    "06-EXP-O6-WRITE-MIX-indexed-800-statements-b1",
+    "06-EXP-O6-WRITE-MIX-indexed-800-statements-b2",
+    "06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1",
+    "07-EXP-O6-WRITE-MIX-uniform-100",
+    "07-EXP-O6-WRITE-MIX-uniform-100-splits-b2",
+    "07-EXP-O6-WRITE-MIX-uniform-100-statements-b1",
+    "07-EXP-O6-WRITE-MIX-uniform-100-statements-b2",
+    "07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1",
+    "08-EXP-O6-WRITE-MIX-uniform-800",
+    "08-EXP-O6-WRITE-MIX-uniform-800-splits-b2",
+    "08-EXP-O6-WRITE-MIX-uniform-800-statements-b1",
+    "08-EXP-O6-WRITE-MIX-uniform-800-statements-b2",
+    "08-EXP-O6-WRITE-MIX-uniform-800-auxiliary-b1",
+    "09-EXP-O6-WRITE-MIX-monotonic-100",
+    "09-EXP-O6-WRITE-MIX-monotonic-100-splits-b2",
+    "09-EXP-O6-WRITE-MIX-monotonic-100-statements-b1",
+    "09-EXP-O6-WRITE-MIX-monotonic-100-statements-b2",
+    "09-EXP-O6-WRITE-MIX-monotonic-100-auxiliary-b1",
+    "09a-EXP-O6-WRITE-MIX-monotonic-800",
+    "09a-EXP-O6-WRITE-MIX-monotonic-800-splits-b2",
+    "09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b1",
+    "09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b2",
+    "09a-EXP-O6-WRITE-MIX-monotonic-800-auxiliary-b1",
+    "0e-EXP-O10-ROW-CEILING-indexed-800",
+    "0e-EXP-O10-ROW-CEILING-indexed-800-splits-b2",
+    "0e-EXP-O10-ROW-CEILING-indexed-800-auxiliary-b1",
+    "0f-EXP-O10-ROW-CEILING-uniform-800",
+    "0f-EXP-O10-ROW-CEILING-uniform-800-splits-b2",
+    "0f-EXP-O10-ROW-CEILING-uniform-800-auxiliary-b1",
+    "0d-EXP-O10-INDEXED-100-STALL",
+    "0d-EXP-O10-INDEXED-100-STALL-tail-r2",
+    "0d-EXP-O10-INDEXED-100-STALL-tail-r3",
+    "0d-EXP-O10-INDEXED-100-STALL-tail-r4",
+    "0d-EXP-O10-INDEXED-100-STALL-tail-r5"
+  ],
+  "mainMethodOpportunities": 112,
+  "mainCaseFamilies": [
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "09a"
+  ],
+  "extraRowCeilingFamilies": [
+    "0e",
+    "0f"
+  ],
+  "repeatsPerMainMethod": 4,
+  "auxiliaryFamilies": [
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "09a",
+    "0e",
+    "0f"
+  ],
+  "tailRepeats": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "observedPlanMatchesIndependentExpectedGrid": true,
+  "caps": {
+    "reqmixStatementMs": 120000,
+    "reqmixSplitSeconds": 150
+  },
+  "postRunAudit": [
+    "Every planned opportunity has completed or confirmed_ceiling outcome; no missing/duplicate case/method/repetition.",
+    "Four completed repeats are additionally needed for claimed completed-time ranking; censored observations are not completed COUNT times.",
+    "Confirm owned connection/worker termination, no section errors, serialized arrival counts and raw integrity as applicable.",
+    "Audit auxiliary and tail outcomes; no unproved quiet truth or drift bound.",
+    "Treat changing plan hash as changed input; this provisional plan check is not final acceptance."
+  ]
+}

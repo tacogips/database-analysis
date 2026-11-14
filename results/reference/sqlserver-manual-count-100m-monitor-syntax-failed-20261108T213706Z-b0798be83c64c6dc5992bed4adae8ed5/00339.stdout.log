@@ -1,0 +1,255 @@
+[
+    {
+        "Id": "ff4f16a9adaa0bd92635c8df3c4df1dba54e3420ea02b95461f8b7a81d88286e",
+        "Created": "2026-11-08T21:37:55.520861522Z",
+        "Path": "/opt/mssql/bin/launch_sqlservr.sh",
+        "Args": [
+            "/opt/mssql/bin/sqlservr"
+        ],
+        "State": {
+            "Status": "created",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "0001-01-01T00:00:00Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "ResolvConfPath": "",
+        "HostnamePath": "",
+        "HostsPath": "",
+        "LogPath": "",
+        "Name": "/lab-sqlserver-manual100m-secondary",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-manual100m-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 3000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/shared",
+                    "Target": "/backup",
+                    "BindOptions": {}
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/secondary",
+                    "Target": "/var/opt/mssql",
+                    "BindOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/secondary",
+                "Destination": "/var/opt/mssql",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/b0798be83c64c6dc5992bed4adae8ed5/stage/shared",
+                "Destination": "/backup",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "countsecondary",
+            "Domainname": "",
+            "User": "501:0",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MSSQL_PID=Developer",
+                "MSSQL_ENABLE_HADR=1",
+                "MSSQL_SA_PASSWORD=ManualCount100m_Lab_2026!",
+                "MSSQL_MEMORY_LIMIT_MB=2048",
+                "ACCEPT_EULA=Y",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "d4f2393fb858074382320d839e72d16e7d1ee53ecca41c883778324276492feb",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-manual100m",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+                "com.docker.compose.service": "secondary",
+                "com.docker.compose.version": "5.6.1",
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "count.manual100m.owner": "b0798be83c64c6dc5992bed4adae8ed5",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-manual100m-network": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-manual100m-secondary",
+                        "secondary",
+                        "countsecondary"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

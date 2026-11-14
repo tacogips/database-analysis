@@ -1,0 +1,58 @@
+{
+  "workflow": {
+    "workflowId": "temp-issue2-validation-sol",
+    "description": "Issue2 documentation correction validation",
+    "defaults": {
+      "nodeTimeoutMs": 3600000,
+      "maxLoopIterations": 1
+    },
+    "entryStepId": "validation",
+    "nodes": [
+      {
+        "id": "validation",
+        "nodeFile": "nodes/validation.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "validation",
+        "nodeId": "validation",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/validation.json": {
+      "id": "validation",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Read AGENTS.md and results/reviews/issue-2/issue.json completely. GPT-6.1 Sol only, NEW session, no delegation, no workflows inside this node, no Git commit/push or external messages. Never start Docker/DB/bench or connect to any DB. Issue2 is documentation-only correction, not a new measurement or HA failure experiment. Preserve ALL existing sources, data/results/evidence and receipts listed in baseline.protectedFiles. Old five docs and Issue1 receipt were preserved before editing at results/reference/issue-2-pre-fix-de1c79c/manifest.json. Existing runtime evidence remains historical, never certify new execution or production SLO. User: https://github.com/tacogips/database-analysis/issues/2 を解決せよ. All 3 Issue2 conditions must be resolved without diluting existing safety policy.\nYou are NEW read-only independent final adversarial validation reviewer separate from author. Do not write files. Review exact current FIVE documents in inputs; read linked runbook and immutable existing evidence where relevant. Independently verify baseline protectedfile hashes and old snapshot manifest, current doc hashes, owner-proof and owner-audit. Validate all 3 Issue2 acceptance conditions, not just keyword presence: GitHubroot coherent currentlinks <=2click vs historical references, table-level replica equivalence/lineage vs snapshot freshness, filter/skip/emptyGTID/repair/localwrite and initialcopy/reseed provenance, unavailable=>this-copy-only vs original UNKNOWN/HOLD, no defaultfullprodchecksum; dynamic role/routing/epoch/identity vs serverUUID invariant, HAowner source/currency/privileges/read-onlyflags and intent caveats, pernewphysicalsessiongate/pinnedbackend, stop/cancel/release/recovery/requalification/HAintegrationandnoinstantpollguarantee. Review filled illustrative examples and entryforms for consistency. Normal usable independentrestoredcopy path must remain, don't blanketdeferordinarytables; no newperformance claims. Existing Issue1 cancellation fixes must remain sound and last benchmark sources/evidence unchanged. No DB runtime is required to prove purely documentation routing corrections with unverified HA integration gated HOLD; don't demand experiments for removed/unclaimed guarantees. If a currently operative claim requires indispensable measurement, request it with concretewhy. Check current new acceptance link pending, old receipt applies only oldarchivedhashes; don't require new aggregate receipt accepted before your own review.\nFIRST form independent findings. Then read results/reviews/issue-2/final-engineer-result.json and assess findings in independentFindingAssessment.\nReturn concise JSON accepted bool,decision accepted|rejected,documentHashes exact fivecurrenthashes,findings stable id/severity high|middle|low/scenario/fix,requestedExperiments (indispensable only),coverageReport mapping items1-3 with evidence/status,reviewEvidence paths/hashes/observations,reviewQuestions {betterMethods,designCoverage,omissions,lockFactors,fastCount}. No materialhigh/middle or indispensableexperiment pending at acceptance. Don't waive defects.\n\nExact inputs: {\"documents\": {\"README.md\": \"14130ad352ab27373d6e4cddd3a4b419dbf04f4387b5a0cdbf009fccc3ba9c27\", \"docs/README.md\": \"5bc2a1ce121bfe34e1b562d3cef5b340e5424286ca3011fe21aef8bd91762434\", \"docs/guidelines/mysql.md\": \"8e1a49826c92b8f77d254bda1415c8dcca49ec9afb1f45e1d360595e05734bdd\", \"docs/guidelines/sql-server.md\": \"64aea4b927d552fb724a4f4ddb009f27388fcd54dae3b0be62ed36c512db97b0\", \"docs/guidelines/operations-runbook.md\": \"5c31092659a94f21b0be4af6abc519712f7579ddc35b7f357f6186f1cc53612c\"}, \"baselineSha256\": \"8ac2118b8da77be47509a41ea29670969cb193dfe4b217040488abdf0a95c7b8\", \"issueSha256\": \"656c451c48d80e3d84eb27a132748ecd05a0c6bf9dc1525d3a9a9d5c143fce4f\", \"ownerProofSha256\": \"35060045e4bda2e40d9624a0f35c2a422189939b75810ea26ad32ba92064bd93\", \"ownerAuditSha256\": \"cee0f76087c2a3112bf695822757972c0c5eac940d92b298a5120c285421c7f6\"}",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "required": [
+            "accepted",
+            "decision",
+            "documentHashes",
+            "findings",
+            "requestedExperiments",
+            "coverageReport",
+            "reviewEvidence",
+            "reviewQuestions"
+          ],
+          "properties": {},
+          "additionalProperties": true
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  },
+  "cliCompatibility": "Installed CLI lacks --workflow-json-file/--dry-run: validate explicit definition dir then execute one step; preserve exact embedded payload."
+}

@@ -1,0 +1,81 @@
+[
+    {
+        "Id": "sha256:1d66f07165296581fc62a83cf2d15dd1b849fb7fe3518145c51565336154ea11",
+        "RepoTags": [
+            "lab-sqlserver-manual100m-client:7e3f51b7e5a312af1e695029bd48dcb5"
+        ],
+        "RepoDigests": [
+            "lab-sqlserver-manual100m-client@sha256:1d66f07165296581fc62a83cf2d15dd1b849fb7fe3518145c51565336154ea11"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-09T07:41:42.070547303+09:00",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=1",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64",
+                "DOTNET_CLI_TELEMETRY_OPTOUT=1"
+            ],
+            "Entrypoint": [
+                "dotnet",
+                "ManualCount100m.dll"
+            ],
+            "WorkingDir": "/app",
+            "Labels": {
+                "count.manual100m.owner": "7e3f51b7e5a312af1e695029bd48dcb5",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 391552568,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:107ffca6dcd3fc87a7bed8c062f5ddc0d6a4b107205c82c0b49efdb7c1aff967",
+                "sha256:09112df7245c4f71290b9e2adc8d59c2fd8c239077deaeb0135fc738754afec6",
+                "sha256:2c128d2a22173723650e57eee883644c9fa3b72b7da8e000a71939f60a81c073",
+                "sha256:fc56b1452eeabd83861375b79b04ce1a3730eea53a8ac2cecdadf2e7d077c8e9",
+                "sha256:99ca1d93e777e729c265afb2cbde52972289803a9c3bc2cf87e6870568a0b77d",
+                "sha256:4c7e58bb242d8ca617fb2ab42357f37d9e982e10f5362284feed907e0b488e1c",
+                "sha256:5d0233e1ec0a359ca65b500f05e305f65ba8a36add9fcb1f51400f68c989527e",
+                "sha256:02122b6c3f177fe7bdeb85b6e15a605da4483301f9d393b6e0a97112b451dac3",
+                "sha256:67d056a5e8ac1b68348481be543b22a52e1c6f5ad95608f1aeeec550de0277fc",
+                "sha256:68d2d4f1cb1fdf9a0ff8c5ab1b6cafe2787fa2d33b8fd1080a043f1ec890785d",
+                "sha256:8e4d3b307f83e559d6fcffdfb28f8ed3878cf435dc691e95aea13ac23381f8ff",
+                "sha256:0cf7b92e41fc36e77c5fbe0f45594d25af91486527ca22855402fcd448e69224",
+                "sha256:a2833673152ba240d2903bb7e4398f86d6a44c35ca2c7f26d40b30dfdd0e23a6",
+                "sha256:fbae079490d610e5db0b8261ffa11a4478f6d013d6f072df04203add5dd4c252",
+                "sha256:1e81ac102792cf6d57d1922bd42edc623849c4398a0c3659e0fd88559cef0414",
+                "sha256:4d7e67b3a835294684b276d9ae996ad103375452a9e0bb89d8738c374861b099",
+                "sha256:d851c92bf460ddbf53187529642e47025b7d11153788ba38d4cf115c580f6d18",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-08T23:43:06.024961353Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:1d66f07165296581fc62a83cf2d15dd1b849fb7fe3518145c51565336154ea11",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "0ckpdsbjorqrss6xw7yrzp61y",
+                    "CreatedAt": "2026-11-09T08:43:06.263385991+09:00"
+                }
+            ]
+        }
+    }
+]

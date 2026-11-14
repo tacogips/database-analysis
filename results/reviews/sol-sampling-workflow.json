@@ -1,0 +1,89 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-sampling-sol",
+    "description": "確率的なキー範囲標本の数理的保証と運用条件をGPT-6.1 Solが敵対的に検証",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "社内案内前の疑問・不満・代替案を先取りする独立した敵対的レビュー",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "reuse"
+      },
+      "variables": {},
+      "promptTemplate": "GPT-6.1 Solとして日本語で独立した敵対的レビューを行う。ユーザーは社内へ案内した際の疑問・不満・より良い方法を先取りしたい。今回の焦点は新しく追加した bench/samplinglib.py、bench/requested/98-stratified-sampling.py と docs/table-count-guideline.md の推定・精度・実行条件である。現行のガイドラインSHAと対象ソースSHAは results/reviews/sol-sampling-input.json にある。最初と最後にハッシュを照合する。\n読み取り専用。ファイル編集、DB接続、Docker操作、負荷生成、他workflow・委譲は禁止。ファイル読み取り、ハッシュ、独立した純粋な数理検証の計算のみ可。他のCompose実験が稼働中なので干渉しない。\n依頼の本来の条件は件数も内容も不明な巨大MySQL表で本番サービスへの影響を最小限にし、数%の誤差で概数を知ること。暗号化、50〜100列も対象。統計値の精度を保証できないため、整数主キーのキー空間を固定幅のセルへ分割し一様・復元抽出でセルのCOUNTを取る推定を追加した。観測分散から空標本の誤差を0と判断せず、1セルの行数<=セル幅という一意整数キーの上限とHoeffding型の保守的な境界を使う。複数回の判定にはalphaを配分する。条件不足・予算到達・区間が広い場合は精度未達を返す。これは結果待ちの実験で、本番推奨として採用済みではない。\n以下を自分で計算・反証し、著者コメントを鵜呑みにしない:\n- 確率単位、包含確率、最終セルの端数、平均の重み、推定のバイアス、独立性、整数キー一意性、最小・最大キーの取得と整合スナップショットの条件。\n- boundsの式、両側性、alpha配分と停止時点、多重比較、真値に対する相対誤差への変換、切り上げ・切り下げとDecimal、負のキー・符号なしBIGINTの境界。\n- 密集域の見落とし、極端な欠番、空標本、完全な空表、適用不可の型、タイムアウト、全体予算、中断直前の最後の区間、失敗結果を成功と扱わないか。\n- 小さいサンプルで「数%」を一般に保証できるか。必須条件を満たした確率的保証と、実現した誤差の絶対保証とを区別する。固定seedの有限実験が証明する範囲。\n- 8千回以上の範囲COUNT、ランダムI/O、広い行とTDE、スナップショットを保持するMDL/undo、レプリカのDDL適用への影響。全件COUNTより高価になり得る条件、primaryでの既定手順へ誤用されないか。\n- 98はTDE検証用の一時MySQLで合成表を作る。COUNTとの順序交替、キャッシュ、対照、終了記録が比較として十分か。未実行・部分結果を成功と捏造しない。待っている実験を重複起動しない。\n- 主文書は159行程度へ整理した。独立した精度経路と停止条件が、初回の社内展開レビュー results/reviews/sol-internal-rollout-review.json の疑問へ答えたか。詳細文書 docs/table-count-evidence.md に古い危険な文言が残り誤用されないか。\nより良い推定・区間の方式があれば、勝つ条件、追加の仮定、実装・負荷費用を説明する。安全性が向上することと速さが増すことを混同しない。\n必要なら一次論文の仕様を参照する。Hoeffding 1963の出版社は403だったため原文は未取得。Bentkus 2004 https://arxiv.org/pdf/math/0410159 は取得でき、Hoeffdingの境界について議論している。確認できない主張は未確認とする。\n返答はadapter JSON {\"when\":{},\"payload\":{...}}。payload必須項目はdecision(accepted/rejected)、guidelineSha256、reviewScope、findings、engineerQuestions、betterAlternatives、requestedExperiments、rolloutRecommendation、reviewEvidence、limitations。findingsはstable id、severity(high/middle/low)、section、具体的な反例、証拠、impact、requiredCorrectionを含める。数理部分の正誤と、実験未完・運用未計測を分ける。high/middle未解決ならacceptedにしない。\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

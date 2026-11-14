@@ -1,0 +1,89 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-internal-rollout-sol",
+    "description": "社内の不特定のメンバーとサービスに案内する前のMySQL件数推定・COUNT手法の敵対的レビュー",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "社内案内前の疑問・不満・代替案を先取りする独立した敵対的レビュー",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "reuse"
+      },
+      "variables": {},
+      "promptTemplate": "あなたは GPT-6.1 Sol。独立した敵対的レビュアーとして日本語でレビューする。\n目的は、この調査と提案手法を社内の不特定のメンバー・サービスへ案内したとき、エンジニアから上がる疑問点、不満点、より良い方法の提案を事前に洗い出すこと。文章の体裁の指摘だけで終わらず、採用を妨げる技術的・運用上の問題を具体化する。\n最初に results/reviews/sol-internal-rollout-input.json を読み、docs/table-count-guideline.md のSHA-256を照合する。README.md、AGENTS.md、compose.yaml、lab.rb、関連する bench/ の実装と results/ の生JSONを読む。著者の結論や過去レビューを信用せず、まず自分で独立に検討する。その後 results/review-state-before-experiments.json と .riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json の最新レビューも照合し、既存指摘の見落としや誤りを確認する。巨大なruntime snapshotを全文出力せず必要なpayloadを抽出する。\n本来の利用者の要望: 件数が不明な巨大なMySQLテーブルを本番サービス稼働中に、DB performanceへの影響を最小限にして数%の誤差で概算したい。概算で巨大でないと判断できた場合は正確なCOUNTへ進んでもよい。その際の閾値の考え方も欲しい。テーブルは暗号化され、通常50列、最大100列程度。対象はサポート中MySQL、業務上のWHEREなしの全件数のみ。\n必ず以下を検討する:\n1. 誤差数%を要求する人にTABLE_ROWS等の統計を勧めてよいか。実測の誤差分布、統計キャッシュ、古い統計、サンプリング誤差、同時更新、信頼区間・誤差上限の有無を区別する。推定が外れると小さいと誤判定して危険なCOUNTへ進まないか。\n2. 本番無影響/ロックなしという表現の妥当性。通常SELECT COUNT(*)の行ロックとINSERT..SELECT COUNT(*)等のロックを明確に分け、MDL、DDL待ち連鎖、I/O、CPU、キャッシュ追い出し、undo、レプリカ遅延、停止・再開の失敗を攻撃する。\n3. 暗号化方式(TDEと列暗号化)、50〜100列、LOB、幅広い行、小さいセカンダリの有無で推奨が変わるか。COUNT(*)/COUNT(1)/COUNT(id)/COUNT(nullable_col)の意味と速度の差、測定順や先読み、ホストキャッシュの交絡を検証する。\n4. メタ情報各手法とread replicaを正式な候補として比較する。精度、必要権限、待ち、ロック・負荷、運用コスト、replica独自の統計と適用遅延。ANALYZE自体の影響も区別する。\n5. 不特定のサービスに共通の行数閾値を案内できるか。インデックスのバイト数、I/O余力、キャッシュ、SLOから決める実行時間上限・中断・監視・試行の具体策は現実的か。上限付き試行自体の影響を無視していないか。\n6. より良い方法を独立に提案する: 統計、代表的サンプリング(固定範囲だけで棄却してよいか)、既存カウンタ/CDC、専用レプリカ/バックアップ、分割、パーティション、索引追加等。勝つ条件、負荷と精度と導入コスト、ローカルで検証可能かを示す。実験不要の制約と追加実験が意思決定を変える問いを分ける。\n7. 社内導入の障壁: 説明が長くて使えない、権限がない、SQLを改変しがち、監視担当がいない、DDL予定が分からない、レプリカがない/共用、マネージド環境、復旧の責任、複数サービスで一斉実行、シャード/テナント集計、結果の鮮度と意味、手順への不満。各立場のエンジニアが実際に投げる質問を文章で挙げ、現状資料で答えられるかを示す。\n証拠の注意: input manifestのinvalidEvidenceの2つの暗号化JSONは不公平な旧比較であり有効な根拠に使うな。8.4.13のみ有効。92は実行中で部分結果、93/94は未実行または実行中。レビュー中に結果ができても完了状態と内容を確かめてから使用し、未完を捏造しない。他の既存結果も各1回の測定を一般化しない。数値にはファイルとフィールドを示す。公式文書の確認が必要なら一次資料のみ、確認できないものは未確認と書く。\n読み取り専用。ファイルを編集しない。実験、Docker操作、DB接続、負荷生成、別workflow起動、委譲はしない。必要なファイル読み取りとハッシュ計算のみ可。レビューに必要な根拠が無ければその欠落を指摘し、既存の実験へ干渉しない。\n返答はadapter JSON: {\"when\":{},\"payload\":{...}}。payloadの必須項目: decision (accepted/rejected)、guidelineSha256、reviewScope、findings、engineerQuestions、betterAlternatives、requestedExperiments、rolloutRecommendation、reviewEvidence、limitations。\nfindingsの各項目はid、severity(high/middle/low)、section、scenario、evidence(ファイル・フィールドか公式URL)、impact、requiredCorrection。engineerQuestionsは対象の立場、質問/不満、現状での回答可否、改善案。betterAlternativesは適用条件、精度/負荷/権限/導入コスト、現在の推奨より有利な条件、検証の要否。requestedExperimentsはhypothesis、ローカルcomposeだけを使う具体的手順、判断が変わる結果を示す。rolloutRecommendationは社内案内可否、最小限の修正、FAQに必要な内容を優先順位順に示す。無意味な実験要求や見かけだけの指摘はしない。high/middleが未解決ならacceptedにしない。レビュー対象のファイルを最後に再ハッシュして変更の有無も報告する。\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

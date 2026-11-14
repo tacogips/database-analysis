@@ -1,0 +1,37 @@
+{
+  "at": "2026-11-07T07:26:03.247539+00:00",
+  "sessionId": "temp-table-count-encryption-states-sol-session-20",
+  "processExitCode": 0,
+  "reviewPath": "results/reviews/sol-encryption-state-review.json",
+  "designDecision": "rejected",
+  "confirmedFindings": [
+    {
+      "id": "SOL-ENCRYPTION-STATE-001",
+      "severityNormalized": "middle",
+      "ownerAssessment": "confirmed; root correction does not close final review"
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-002",
+      "severityNormalized": "middle",
+      "ownerAssessment": "confirmed; root correction does not close final review"
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-003",
+      "severityNormalized": "low",
+      "ownerAssessment": "confirmed; root correction does not close final review"
+    }
+  ],
+  "nextAction": "Docs-only integration of validationCoverageMatrix after active author releases docs; retain complete measurement scope and two final proof-based Sol roles. No new all solely for docs.",
+  "mandatoryExperiments": "Existing150-script WHITE all; no additional crypto/keyloss/storage experiments mandatory for current claims",
+  "optionalExperiments": [
+    "SELECT-only TDE correctness",
+    "actual encrypted application payload correctness"
+  ],
+  "limitations": "Snapshot design review only, not final current source audit or final approval.",
+  "ownerSnapshotVerification": {
+    "files": 22,
+    "mismatches": [],
+    "guidelineHashMatches": true,
+    "meaning": "immutable selected snapshot verified; not final source acceptance"
+  }
+}

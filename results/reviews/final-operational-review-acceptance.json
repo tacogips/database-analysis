@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "status": "accepted",
+  "acceptedAt": "2026-11-07T16:52:28.355725+00:00",
+  "meaning": "Two completed separate GPT-6.1 Sol sessions accept these exact document bytes and their operational recommendations. Benchmark reproduction and production service budgets remain separate judgments.",
+  "revision": 25,
+  "documents": {
+    "docs/table-count-guideline.md": "0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5",
+    "docs/table-count-calibration.md": "99bfd0477a19c4cf1f0f60967aa37957073ae6283d68f959979bc72669cf61a0",
+    "README.md": "823ef857270dc21710214834dc65a18adc1ce23e32cec6387a24eea4964ba4a9"
+  },
+  "benchmarkProof": {
+    "path": "results/reviews/final-all-proof.json",
+    "sha256": "0ef235cd8832593093b25335121253fae8ab2fc5c2bf9feb1384c30ba2e93350"
+  },
+  "reviews": [
+    {
+      "role": "engineer",
+      "sessionId": "temp-final-count-engineer-sol-session-33",
+      "model": "gpt-6.1-sol",
+      "runtimeStatus": "completed",
+      "cliExitCode": 0,
+      "decision": "accepted",
+      "resultPath": "results/reviews/final-engineer-review-result.json",
+      "resultSha256": "92b145baad364f9ca7faafa4098219a96e0378a1ba00f0f4546e8acef2c7678b",
+      "immutableAttempt": {
+        "path": "results/reference/final-review-engineer-20261107T163734Z/manifest.json",
+        "sha256": "15ea030251c1abccb1de8452104763790c6ccb6d274782f424cc7ef50a76f980",
+        "filesVerified": 9
+      },
+      "openFindings": 0,
+      "requestedExperiments": 0
+    },
+    {
+      "role": "validation",
+      "sessionId": "temp-final-count-validation-sol-session-34",
+      "model": "gpt-6.1-sol",
+      "runtimeStatus": "completed",
+      "cliExitCode": 0,
+      "decision": "accepted",
+      "resultPath": "results/reviews/final-validation-review-result.json",
+      "resultSha256": "c8716a5f6ca0496f72520edda6dd91292c2efa7b9a942232aa86b911be6845d2",
+      "immutableAttempt": {
+        "path": "results/reference/final-review-validation-20261107T164446Z/manifest.json",
+        "sha256": "c03853796f5f43403a681b94859d494f5e8d037432986353e5b9599ea895aaa6",
+        "filesVerified": 9
+      },
+      "openFindings": 0,
+      "requestedExperiments": 0
+    }
+  ],
+  "openHighOrMiddleFindings": 0,
+  "pendingNecessaryExperiments": 0,
+  "productionSLOCertified": false,
+  "universalAccuracyOrSafeRowThresholdCertified": false
+}

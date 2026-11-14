@@ -1,0 +1,47 @@
+[
+    {
+        "Name": "lab-sqlserver-manual100m-network",
+        "Id": "8637d017431bb53aa5a7bf6b3049ec239366393739e1243be6e8bd8e577fa9a2",
+        "Created": "2026-11-09T06:37:55.510271429+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "56ed15ef9a2ae3ed62223ecabc943403c15cedf0bb04d16ecdbb035b47fd1770",
+            "com.docker.compose.network": "runtime",
+            "com.docker.compose.project": "lab-sqlserver-manual100m",
+            "com.docker.compose.version": "5.6.1",
+            "count.manual100m.owner": "b0798be83c64c6dc5992bed4adae8ed5"
+        },
+        "Containers": {},
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 3,
+                        "DynamicIPsAvailable": 65533
+                    }
+                }
+            }
+        }
+    }
+]

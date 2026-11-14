@@ -1,0 +1,32 @@
+{
+  "files": [
+    "mysql/engine-count-100m-cold/lab.rb",
+    "mysql/engine-count-100m-cold/reference_flow.rb",
+    "mysql/engine-count-100m-cold/compose.yaml",
+    "mysql/engine-count-100m-cold/mise.toml",
+    "mysql/engine-count-100m-cold/README.md",
+    "mysql/engine-count-100m-cold/verify_offline.rb",
+    "docs/mysql-engine-count-100m.md",
+    "results/reviews/mysql-engine-count-100m-cold/host-spec.json",
+    "results/reviews/mysql-engine-count-100m-cold/interrupted-reference.json",
+    "results/reviews/mysql-engine-count-100m-cold/offline-author/verification.json",
+    "results/reviews/mysql-engine-count-100m-cold/offline-author/final.log"
+  ],
+  "measurementStatus": "\u672a\u5b9f\u884c\u3002author\u5de5\u7a0b\u3067Docker\u30fbDB\u30fb\u8a08\u6e2c\u30fbdownload\u306f\u8d77\u52d5\u3057\u3066\u3044\u306a\u3044\u3002",
+  "offlineVerification": {
+    "checksPassed": 63,
+    "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/reviews/mysql-engine-count-100m-cold/offline-author/final.log",
+    "protectedFilesExact": 10971
+  },
+  "offlineactualexit": 0,
+  "pendingOwnerSteps": [
+    "author terminal\u3068\u65e7runtime\u306e\u7d42\u4e86\u30fb\u5f8c\u59cb\u672b\u3092\u72ec\u7acb\u78ba\u8a8d\u3059\u308b\u3002",
+    "\u5c02\u7528runner\u3092\u6240\u6709\u3055\u308c\u305fforeground lifecycle\u3067\u5b9f\u884c\u3059\u308b\u3002",
+    "2\u6295\u5165\u30fb12\u6a19\u672c\u30fb14boot\u3001\u5b9f\u8a2d\u5b9a\u3001source\u3001\u5168\u7d42\u4e86\u30b3\u30fc\u30c9\u30fbreap\u30fb\u5f8c\u59cb\u672b\u3092\u76e3\u67fb\u3059\u308b\u3002",
+    "OS\u30fbVM\u30fbmacOS\u30ad\u30e3\u30c3\u30b7\u30e5\u6b8b\u5b58\u3092\u958b\u793a\u3057\u3001\u76e3\u67fb\u6e08\u307f\u7d50\u679c\u3092\u65e5\u672c\u8a9e\u30ec\u30dd\u30fc\u30c8\u3078\u53cd\u6620\u3059\u308b\u3002",
+    "\u6700\u7d42\u6210\u679c\u7269\u3092\u5225\u30bb\u30c3\u30b7\u30e7\u30f3\u306eGPT-6.1 Sol 2\u5f79\u3067\u6575\u5bfe\u7684\u30ec\u30d3\u30e5\u30fc\u3059\u308b\u3002"
+  ],
+  "readyCommand": "mise -C mysql/engine-count-100m-cold run all",
+  "status": "author_complete_ready_for_owner",
+  "unresolvedIssues": []
+}

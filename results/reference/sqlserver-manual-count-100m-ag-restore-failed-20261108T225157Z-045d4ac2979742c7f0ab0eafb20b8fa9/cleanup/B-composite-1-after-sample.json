@@ -1,0 +1,82 @@
+{
+  "id": {
+    "Server": "countprimary",
+    "Database": "ManualCount100m",
+    "Spid": 51,
+    "LoginTime": "2026-11-08T23:18:27.45",
+    "ConnectionId": "d157d409-84f2-458e-9b8e-b93452a29819",
+    "Login": "sa",
+    "Isolation": 2
+  },
+  "disposed": false,
+  "sql": "SELECT s.session_id,s.login_time,s.login_name,DB_NAME(s.database_id) db_name,s.transaction_isolation_level,s.open_transaction_count,\n  (SELECT c.connection_id FROM sys.dm_exec_connections c WHERE c.session_id=s.session_id AND c.parent_connection_id IS NULL) connection_id\nFROM sys.dm_exec_sessions s WHERE s.session_id=@sid AND s.login_time=@login_time AND s.login_name=@login\nAND @@SERVERNAME=@server;\nSELECT r.* FROM sys.dm_exec_requests r JOIN sys.dm_exec_sessions s ON r.session_id=s.session_id WHERE s.session_id=@sid AND s.login_time=@login_time AND s.login_name=@login\nAND @@SERVERNAME=@server;\nSELECT l.* FROM sys.dm_tran_locks l JOIN sys.dm_exec_sessions s ON l.request_session_id=s.session_id WHERE s.session_id=@sid AND s.login_time=@login_time AND s.login_name=@login\nAND @@SERVERNAME=@server;\nSELECT x.* FROM sys.dm_tran_active_snapshot_database_transactions x JOIN sys.dm_exec_sessions s ON x.session_id=s.session_id WHERE s.session_id=@sid AND s.login_time=@login_time AND s.login_name=@login\nAND @@SERVERNAME=@server;\nSELECT x.*, a.transaction_begin_time,a.transaction_state FROM sys.dm_tran_session_transactions x JOIN sys.dm_exec_sessions s ON x.session_id=s.session_id LEFT JOIN sys.dm_tran_active_transactions a ON a.transaction_id=x.transaction_id WHERE s.session_id=@sid AND s.login_time=@login_time AND s.login_name=@login\nAND @@SERVERNAME=@server;\nSELECT d.name,CONVERT(int,d.is_read_committed_snapshot_on) is_read_committed_snapshot_on,d.snapshot_isolation_state,d.snapshot_isolation_state_desc,\n  CONVERT(int,sys.fn_hadr_is_primary_replica(d.name)) is_ag_primary,\n  SERVERPROPERTY(\u0027IsHadrEnabled\u0027) is_hadr_enabled,@@SERVERNAME server_name,\n  rs.role_desc,ar.secondary_role_allow_connections_desc,rs.connected_state_desc,\n  ds.synchronization_state_desc,ds.synchronization_health_desc,ds.is_suspended,\n  ds.redo_queue_size,ds.last_redone_lsn,ds.last_hardened_lsn,ds.last_commit_time,\n  (SELECT COUNT(*) FROM sys.dm_exec_requests r JOIN sys.dm_exec_sessions s ON s.session_id=r.session_id\n   WHERE s.is_user_process=1 AND r.database_id=d.database_id AND r.command IN\n     (\u0027INSERT\u0027,\u0027UPDATE\u0027,\u0027DELETE\u0027,\u0027MERGE\u0027,\u0027BULK INSERT\u0027,\u0027SELECT INTO\u0027)) active_user_writes\nFROM sys.databases d\nLEFT JOIN sys.dm_hadr_database_replica_states ds ON ds.database_id=d.database_id AND ds.is_local=1\nLEFT JOIN sys.dm_hadr_availability_replica_states rs ON rs.replica_id=ds.replica_id AND rs.group_id=ds.group_id AND rs.is_local=1\nLEFT JOIN sys.availability_replicas ar ON ar.replica_id=ds.replica_id\nWHERE d.database_id=DB_ID();",
+  "primary_sql": null,
+  "observations": [
+    {
+      "Sets": [
+        [
+          {
+            "session_id": 51,
+            "login_time": "2026-11-08T23:18:27.45",
+            "login_name": "sa",
+            "db_name": "ManualCount100m",
+            "transaction_isolation_level": 2,
+            "open_transaction_count": 0,
+            "connection_id": "d157d409-84f2-458e-9b8e-b93452a29819"
+          }
+        ],
+        [],
+        [
+          {
+            "resource_type": "DATABASE",
+            "resource_subtype": "",
+            "resource_database_id": 5,
+            "resource_description": "                                                                                                                                                                                                                                                                ",
+            "resource_associated_entity_id": 0,
+            "resource_lock_partition": 0,
+            "request_mode": "S",
+            "request_type": "LOCK",
+            "request_status": "GRANT",
+            "request_reference_count": 1,
+            "request_lifetime": 0,
+            "request_session_id": 51,
+            "request_exec_context_id": 0,
+            "request_request_id": 0,
+            "request_owner_type": "SHARED_TRANSACTION_WORKSPACE",
+            "request_owner_id": 0,
+            "request_owner_guid": "00000000-0000-0000-0000-000000000000",
+            "request_owner_lockspace_id": "0x0000000C80C2A650:0:0",
+            "lock_owner_address": "AAAADIbgt4A="
+          }
+        ],
+        [],
+        [],
+        [
+          {
+            "name": "ManualCount100m",
+            "is_read_committed_snapshot_on": 1,
+            "snapshot_isolation_state": 0,
+            "snapshot_isolation_state_desc": "OFF",
+            "is_ag_primary": null,
+            "is_hadr_enabled": 1,
+            "server_name": "countprimary",
+            "role_desc": null,
+            "secondary_role_allow_connections_desc": null,
+            "connected_state_desc": null,
+            "synchronization_state_desc": null,
+            "synchronization_health_desc": null,
+            "is_suspended": null,
+            "redo_queue_size": null,
+            "last_redone_lsn": null,
+            "last_hardened_lsn": null,
+            "last_commit_time": null,
+            "active_user_writes": 0
+          }
+        ]
+      ],
+      "StartNs": 361361651665013,
+      "EndNs": 361361655255501,
+      "PrimarySets": null
+    }
+  ]
+}

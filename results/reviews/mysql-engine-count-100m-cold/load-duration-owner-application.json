@@ -1,0 +1,30 @@
+{
+  "appliedAt": "2026-11-08T18:35:58.921976+00:00",
+  "status": "applied_offline67_passed_ready_for_blank_all",
+  "authorSession": "temp-mysql-cold100m-load-duration-author-sol-session-59",
+  "authorProposalSha256": "afc08050897a246308bbb09f4dd12f34c31ddf8e9742530742b64c283e9aa8f4",
+  "ownerStopAuditSha256": "6ef3b37a1803fb751dffc09627876d4cd73c38848185514e1ff5e86694031294",
+  "changes": [
+    {
+      "path": "mysql/engine-count-100m-cold/lab.rb",
+      "beforeSha256": "08beff1ca7fd89696a0f00aedb572035448d7b9cb8e99d01c96bfc159f52381e",
+      "afterSha256": "5a6ed2366ffc3b4b9e92c30d445e58bffd387d877b37e2a58cfcb571ebe7c589"
+    },
+    {
+      "path": "mysql/engine-count-100m-cold/README.md",
+      "beforeSha256": "a68a541f397bc8edb95f332219502d51bbb8b9984b07ccb43a13fdf35d0dc6b6",
+      "afterSha256": "b1f918db955d33401d1d690b19296615eaa9b25b827359ae63d11375c8fc6e39"
+    }
+  ],
+  "remainingAuthorConditions": [
+    "Apply only after the current invocation is terminal and its cleanup and archiving are audited; its frozen source must remain unchanged while alive.",
+    "The unchanged global6hour budget can shorten the MyISAM allowance. Successful completion remains unverified.",
+    "Acceptance requires one complete reproducible all from blank, followed by owner source/evidence/cleanup audit and two separate GPT-6.1 Sol reviewer sessions. Failed runs remain separate references; existing InnoDB counts cannot be combined with a later run."
+  ],
+  "sourceAuthorChain": [
+    "temp-mysql-cold100m-author-sol-session-56",
+    "temp-mysql-cold100m-load-duration-author-sol-session-59"
+  ],
+  "scope": "Only cumulative MyISAM load-stage deadline and README change. InnoDB load, per-batch request, COUNT, cache, data, index, cleanup and total6h cap unchanged.",
+  "offlineReceiptSha256": "37d3ceb49215cd65fc4774b5e3c8f3580d0079f92e923e54c4b8e1ba3a3c0031"
+}

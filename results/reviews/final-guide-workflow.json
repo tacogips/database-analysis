@@ -1,0 +1,75 @@
+{
+  "workflow": {
+    "workflowId": "temp-final-operational-guide-sol",
+    "description": "Guide-focused Sol author; exhaustive engine suite explicitly skipped by latest user",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 1800000
+    },
+    "entryStepId": "guide-author",
+    "nodes": [
+      {
+        "id": "guide-author",
+        "nodeFile": "nodes/guide-author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "guide-author",
+        "nodeId": "guide-author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/guide-author.json": {
+      "id": "guide-author",
+      "description": "Focused practical engineering guide using existing representative evidence",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Finish the operational guideline integration after the narrowed white-all and owner audit. GPT-6.1 Sol only. Read AGENTS.md, results/reviews/third-party-engineer-acceptance.json and owner-operator-guide-open-checks.json FIRST. User allows until morning, prioritizes an unfamiliar engineer using this guide to count their own service tables without degradation. Do not expand the experiment grid or promise universal zero impact. No DB/Docker/benchmark, delegation, workflow calls, commit/push. Edit only docs/*.md, README.md,audit/README.md,.riela/workflows/table-count-guideline-review/prompts/*.md and review results JSON you author. Never edit AGENTS.md,bench,lab.rb,compose,mise,pinned images or fixed runner. Read results/reviews/final-all-proof.json, owner audits it references, final-all-candidate.json and fixed snapshot manifest. If proof missing, describe incomplete state honestly; no invented owner acceptance. Preserve reviewer independence and hash current docs. Concrete jobs: (1) Resolve all operator open checks: immutable historical citations, provisioning/backup itself may impact primary and must use approved owner budgeted procedure, obsolete reviewer prompts causing everymeasurablequestion to grow a grid, stale audit README/legacy research routing. (2) Calibration also must distinguish restored/rebuilt statistics from original production cached statistics: logical restoration can change page layout/stats; compare matching generation/time and never transfer a restored-table error bound to old production stats. Keep main guide practical roughly130-180lines: first safe scoped stats SQL, explicit UNKNOWN, rough/calibrated/exact distinction, no uncertified-smallness route to unbounded primary COUNT, supportedInnoDBRC/RR plain SELECT vs lockingDML and MDL, dedicated resource isolation/freshness and no compliant path deferral, concrete pre/during/post monitoring+cancellation owner (monitoring is not prevention: establish resource isolation/caps first and stop thresholds with headroom before SLO violation, not violation as the first trigger), encrypted server key vs clientseed distinction, 50/100column limits. Add concrete operational clarity where needed, not engine encyclopedia or huge code appendix. (3) Preserve observed extrema tables with exact signed/absoluteerrors, conditions, equalminima, rounded0 vs exact0, prototype rejected100%. Bind EVERY historical quoted result to immutable snapshot hashchecked source, or explicitly choose recomputed newrun figures with matching source. Existing owner-guideline-immutable-sources.json verifies old105/48/wide sources in review-20261107T123436Z-66065. Do not silently overwrite oldnumericclaims with newresults. Update run status to what ownerproof really proves, distinguish experimental completion/precision/servicebudget/cleanup; noSLO/globalbest claims from processsuccess. (4) Update persistent author/integrate/reviewer/output prompt scope to current important-only nonlocking scope and thirdparty engineer criteria. Final reviewer1 persona unfamiliar-service-engineer, reviewer2 adversarial-validation/operations. Keep bothSolonly sessions/read-only/noDB. Block real high/middle operational defects and unsupportedclaims; ask additional measurements ONLY if necessary for a specific remaining recommendation, not everypossiblecondition. Old exhaustive requests skipped by explicit user must not become technicalpasses. Preserve history byreferences, no giantadaptercopy. Keep existing required schema keys/reviewQuestions (betterMethods,designCoverage,omissions,lockFactors,fastCount) meaningful to operational scope, preserve strict finalownerproofhash/source checks, neverroundlimitaccept. (5) Legacy detailed research docs may remainhistorical; mark entrypoint status to avoid thirdparty reading stale plans as current mandatory steps. Review material historic concerns, record scope/disposition byreference without claiming unseen reviewerclosure. Finish actual files and numerical/link/hash checks. Return SMALL required adapter guidelinePath,guidelineSha256,changedFiles,decisionCoverage,evidenceChecks,remainingGaps. Save any authored audit reports with hashes. Do not claim final2Sol reviews done: they run after your completed session.",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "guidelinePath",
+            "guidelineSha256",
+            "changedFiles",
+            "decisionCoverage",
+            "evidenceChecks",
+            "remainingGaps"
+          ],
+          "properties": {
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "changedFiles": {
+              "type": "array"
+            },
+            "decisionCoverage": {
+              "type": "array"
+            },
+            "evidenceChecks": {
+              "type": "array"
+            },
+            "remainingGaps": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

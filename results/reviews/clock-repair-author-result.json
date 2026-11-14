@@ -1,0 +1,71 @@
+{
+  "changedFiles": [
+    "bench/clocklib.py",
+    "bench/lablib.py",
+    "bench/reqwide.py",
+    "bench/experiments.py",
+    "bench/reqlib.py",
+    "bench/reqmix.py",
+    "bench/reqscale.py",
+    "bench/reqruns.py",
+    "bench/lock_factors.py",
+    "bench/matrix_probe.py",
+    "bench/raw_evidence.py",
+    "bench/requested/00-budget-start.py",
+    "bench/requested/25-EXP-R15.py",
+    "bench/requested/39a-EXP-O6-NOISE-WINDOWS.py",
+    "bench/test_clock_domains.py",
+    "bench/test_workload_accounting.py",
+    "bench/test_wide_outcomes.py",
+    "bench/test_reqmix_protocol.py",
+    "bench/test_protocol_integrity.py",
+    "bench/test_scope_audit.py",
+    "bench/test_raw_evidence.py",
+    "audit/audit-arrival-windows.py",
+    "audit/audit-extra-evidence.py",
+    "audit/audit-final-results.py",
+    "audit/audit-write-mix.py",
+    "audit/README.md",
+    "README.md",
+    "lab.rb",
+    "results/reviews/author-clock-repair-verification.json",
+    "results/reviews/author-clock-repair-verification.log"
+  ],
+  "clockDesign": "Shared monotonic coordinates for arrivals, methods, broad windows and server samples; explicit domains, boundaries, schedules and completion/censoring timestamps. Wall clocks provide provenance anchors only.",
+  "decisionCoverage": [
+    "Revision24 scope unchanged: 7 requested scripts, 9 processes, 9 impacts, 58 shapes, 12 plain cases, 5 matrix versions.",
+    "Independent auditing rejects missing, foreign, inverted and empty intervals, dropped arrivals and unsupported legacy clocks.",
+    "Existing measurements preserved; completion, precision, budget and cleanup remain separate."
+  ],
+  "evidenceChecks": [
+    {
+      "checks": 19,
+      "exitCode": 0,
+      "log": "results/reviews/author-clock-repair-verification.log",
+      "python": "3.13.18",
+      "report": "results/reviews/author-clock-repair-verification.json",
+      "ruby": "4.0.9",
+      "sourceAndHelperHashesRecorded": true,
+      "unchangedEvidenceFiles": 3511
+    }
+  ],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "fcddf7771d6d06e120489e575df55c5223bc27a41f9ca7f46e3103b83a014e7a",
+  "realRegressionEvidence": {
+    "bothNamedLegacyObservationsStillRejected": true,
+    "liveRunnerWorkloadSamplerFunctionsExercised": true,
+    "queuedAndInflightCensoringVerified": true,
+    "rejectedMutationsPerCase": 21,
+    "spawnedWorkloadClockCheckExitCode": 0,
+    "wallJumpCases": 6,
+    "wallJumpsSeconds": [
+      -3600,
+      0,
+      3600
+    ]
+  },
+  "remainingGaps": [
+    "Original OS/VM wall-clock regression cause remains unknown.",
+    "Fresh narrowed fixed white-all, owner semantic/source/cleanup audits and two separate final Sol reviews remain required. No DB/Docker runs, workflows, delegation, commits or pushes occurred."
+  ]
+}

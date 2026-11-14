@@ -1,0 +1,53 @@
+{
+  "workflow": {
+    "workflowId": "temp-mysql-cold100m-author-sol",
+    "description": "MySQL cold buffer 100M author",
+    "defaults": {
+      "nodeTimeoutMs": 3600000,
+      "maxLoopIterations": 1
+    },
+    "entryStepId": "author",
+    "nodes": [
+      {
+        "id": "author",
+        "nodeFile": "nodes/author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "author",
+        "nodeId": "author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/author.json": {
+      "id": "author",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Read AGENTS.md. User latest selected explicit cache standard: RESET DEDICATED DB BUFFER BEFORE EVERY COUNT; OS/VM/macOS file-cache residual may remain but MUST be disclosed. Earlier native 100M experiment was interrupted by owner SIGINT per this steering after3PKcounts (~275s each); preserve it as incomplete uncontrolled-cache reference, never final success. No table data reuse/scale reduction. Implement a NEW dedicated cold-buffer runner in mysql/engine-count-100m-cold/ by adapting the copied existing controller. Do NOT edit original mysql/engine-count-100m/ or SQL Server files, oldresults, trackedguides or rootall. Allowed mutable report docs/mysql-engine-count-100m.md only. All Riela GPT-6.1 Sol, new session, NO delegation/nested workflow/commit/push/external messages. Author MUST NOT run Docker/DB/build/measurement/downloads. Offline stdlib tests allowed. Root owner executes after author terminal AND old runtime cleanup verified.\n\nScope remains EXACTLY100000000rows,100columns, same deterministic varied generator idBIGINTUNSIGNEDPK+c001..c099INTNOTNULL logical404B; c001100kpermutation,c002~80%zero blocks,c003highcardinality,c004..99constants. Exactly2loads InnoDB thenMyISAM, one atatime. FOUR conditions InnoDBPKonly3, sameunchangedrows+narrowk_count(c001)3, replacewithcompositek_count_v2(c001,c002,c003)3, freshMyISAMPKonly3; total12plainSELECTCOUNT(*)s. COUNT1/WHERE/extraCOUNTcancelled; no serviceworkload/intentionalcontention. Preserve narrow baseline + actualcatalogue assessment drivingwiderreference. Load100k\u00d71000committedROW_COUNTreceipts, inputtruth/countall100M. IndexDDL fixtureonly, count/load/index/restarttimes separate. Samehardware/cpu3mem4GiB/bufferpool1GiB/key128MiB/redo1GiB/nativeARMpinneddigest as originals.\n\nMost lifecycle/timing/manual code already copied from working original. Keep it; focus on sound isolated cold-buffer lifecycle, don't rewrite everything. Rename namespace/module/project/resource LABEL/containername/results/data paths to unique mysql-engine-count-100m-cold. Example all mise -C mysql/engine-count-100m-cold run all; task MUST run mise exec -- ruby lab.rb all (Ruby4.0.9). RuntimeSOURCE all6helpers/config/README/verifier plus results/reviews/mysql-engine-count-100m-cold/manual-sources/{mysql-innodb.md,source.json}, reportexcluded. Baseline results/reviews/mysql-engine-count-100m-cold/baseline.json protectedFiles exact. Reuse capturedmanualcopies with originalhashanddate, noeditguide.\n\nFor EVERY one of12COUNTs: close/reap loader/fixture/reference clients; orderly stop OWNED mysqld container with actualexit0 and reap its dockerstart--attach process; KEEP same owneddatadir/containerID/nonce so don't reload100M or duplicateDB. Restart SAMEID with originalcomposefixedconfig, capture newbootordinal/startactualPID/time/uptime/serverUUID, verify healthy ownedserver and image. Launch fresh dedicated countCLI, autocommit1, RC, lockwait3/maxexecution20min. Startup options explicitly --innodb-buffer-pool-load-at-startup=OFF --innodb-buffer-pool-dump-at-shutdown=OFF --innodb-flush-method=O_DIRECT; verify actualglobals everyboot, neverSETSQL_NO_CACHE(fakebufferreset)/FLUSHTABLES/globalcachepurge. MyISAMkeybuffer also empty afterprocessrestart; storedengine rowcountoptimization NOT query-resultcache and mustnotdisableit. Initialboot load fillsbuffers; firstCOUNT ALSO getsrestart, asdoafterindexbuild/repeats. NoCOUNT is secondscan in same mysqldboot. No crash/recovery/forcedkill as acceptedreset; ifstop/reap/start/readinessfails abortstopcleanup entireownedstage, preservefailedsample. Readiness120s perboot; restarts boundedandtimeexcludedfromCOUNT. Cleanstopusingdefaultfastshutdown shouldnotloadtargettabledata; anybackgroundtouch quantified notsilentcoldproof.\n\nManual pre-COUNT inventory/SHOWINDEX/EXPLAINtraditional/plannedindexpersistentpageStats existinghelper muststillrun at EACH sample afterrestart. Each sample stores its own countsession/manual_reference/plan/indexcatalogue+metadata SQL/raw/elapsed. Preserve condition-level representative metadata but don't pretend a plan frompreviousboot/currentconnection. Actualkey notforced. Metadata SQL may warm a fewtargetrootpages: inspect exact target cachedpages via information_schema.INNODB_BUFFER_PAGE WHERE TABLE_NAME='`lab`.`count_target`' groupedCOUNT metadata (this is buffer-metadataCOUNT, NOT extra fulltableCOUNT), at start beforemanualprechecks and again beforetimedCOUNT; save counts/INDEX_NAME/PAGE_TYPE and disclose anyremainingtargetcachedpages. No broadfulltabledata read tocheckcoldness. Cold-buffer definition is freshmysqld withpreloadoff, no prior tablefullscan thatboot; do NOTclaim literallyzeroallpages ifmetadata/backgroundhasreadsome. If targetdataalreadyfullyresident unexpectedly, markcoldconditionunproven/notpass. ForMyISAMtargetBPmetadata notapplicable; serverrestart verified, keycacheglobalstatus beforeCOUNT reference. ActualSETflags+restartidentity are mainproof; physical/logicalenginecounter deltas before/after eachCOUNT givecontext, notSSDphysicalreads. O_DIRECT observed original, useful guestOSbypass but macOSvirtiofsresidualallowed unknown. No globalLinuxdropcaches/Macpurge/VMrestart/newmount/perfilemacfcntl needed underuserchosenstandard. OS/devicecache cannotclaimgone.\n\nBecause CONNECTION_ID resets/reusesafterserverrestart, sessionownershipfreshness mustuse bootordinal + serverUUID +actualconnectionID (not require globallyuniqueconnectionID acrossboots or assume no reuse). Save allserverattach/restart/readiness/clientPIDs/terminalexit/reapedrecords. Existing final cleanup model onlylastattach/state needs extend toallboots; all12 acceptedcountbootsterminalclean and allownedclients0/reaped. Stage maystartinitialloadboot thenrestart eachcount (InnoDB9countboots + initial; MyISAM3countboots + initial). Before indexbuild use freshfixtureCLI on currenthealthyserver aftercountclientclosed; no concurrentCOUNT. Clientbeforemetadata closed onnextreset. Countprimarytimer scalararrival BEFORElogging excludesrestart/readiness/metadata/dfflush/clientstartup; boundaryvalidationstillrequired. Preserve fullrequestns, errorsaftervaluefail, integerns>0. 3samples descriptive minmedianmax/ratiosonlyall12completepositive; fixedorder/OSVMhostcache/indexbuildwarmingresidual stillconfounds, no causal/nativeotherhardware/prodSLOclaim.\n\nKeep originalstrictsafety: currentlocalUnixDocker only, networknone/socketonly/nopublishedports, pinnedmysql8.4.13digest a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902, nativeARM; no rootbuild/pythonDBdataprocess, actualhostUID:GIDhostbind private.marker/realpath/newnonceguard, sourcebeforeafter; no guestbigvolume, oneenginestageatime/nootherresourceprune, preflight70GiB/index24/floor12; stagepayloadremovedONLYafterallcountsandserverabsence, nextengine startsclean. Global6h/loadindex2h/count20min/cleanup120sec. Cleanup uncertainty notpass, actualexit includingallrestarts andforcedkills preserved. Don't delete unrelated oldpartial ifcleanupfailed; ownerhandlesseparately. MyISAMimplicitlytablelocks staticonly notproductioncandidate, ordinaryInnoDBSELECTnorowlockMDLremains/DMLCOUNTdifferent. Completion/precision/coldBufferPolicy/servicebudgetUNAVAILABLE/cleanup separate. No tabledata committed, rawresults+logs+hashes in newresults/mysql-engine-count-100m-cold/runs/<UTC>-<nonce>.\n\nOffline checks should meaningfully simulate reset-before-EACH-sample ordering INCLUDING first/afterindex/repeats (12distinctbootidentities), reusedconnectionIDacrossbootsvalid/missingresetfails, dump/loadflagsrequired, nonzero-stop/notreaped/refuserestartcase, scalar vsdelayedboundary/EOFfailure unchanged, model all4\u00d73 missingnotpass, marker/ownercleanuprefusals unchanged. Offline run withinreasonabletime no C#compilation/Docker/DB. Write timelessREADME + update standaloneJapanese report clearly newcold-bufferdefinition/pendingresults/carryinterruptedreferenceonly. Add Macspec source results/reviews/mysql-engine-count-100m-cold/host-spec.json whitelistedMacBookAirM4CPU10(4P6E)RAM32GBmacOS26.5.2, VM4vCPU8.3GB, container3CPU4GiB; actualruntimeconfirms. Finish JSON status author_complete_ready_for_owner,files,readyCommand,unresolvedIssues realblocksonly,pendingownersteps,offlineactualexit. No measurementclaim untilrootownerexecutes, audits+finalseparateSol2roles. SQLServerlateralsoDBbuffercoldstandardbutnotyourwritescope.\n\nExact input bindings: {\"baselineSha256\": \"0e184ba5a0ee10e3e87440295f0e342f9a198066a176f1328e99f4ef4a73a5db\", \"manualSha256\": \"df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e\", \"promptSha256\": \"ad354af0c1266d4590759f3fa59bb310217d220d85175317b1e75a3fcf168994\", \"role\": \"author\"}\nRole: author",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "required": [
+            "status",
+            "files",
+            "unresolvedIssues"
+          ],
+          "properties": {},
+          "additionalProperties": true
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  },
+  "cliCompatibility": "Installed CLI lacks --workflow-json-file/--dry-run: validate explicit definition dir then execute one step; exact embedded payload preserved."
+}

@@ -1,0 +1,35 @@
+{
+  "meaning": "Synthetic private service auditor extension regression, not DB measurements or approval",
+  "sha256": "00abe7299cc7ebec08cf901ec4296ad2382e4efdc82c79b1aaafd7fbab583fdb",
+  "positiveChecks": [
+    "valid48armgrid",
+    "precision_not_reached",
+    "budget_exhausted",
+    "confirmed3024sampledeadline",
+    "confirmed1317counttimer",
+    "total budget exhausted before opening snapshot",
+    "control without a dedicated method connection"
+  ],
+  "rejectedInvalidEvidence": [
+    "service2013 despite green outer state",
+    "precision reached with cleanup failure",
+    "precision reached beyond budget",
+    "unconfirmed workload",
+    "missing method cleanup",
+    "unknown count1317",
+    "count2013 false ceiling",
+    "incomplete service grid",
+    "wrong count despite claimed complete",
+    "not reusable outer state",
+    "precision reached without opened snapshot",
+    "control with connection but missing cleanup",
+    "explicit failed cleanup even on control"
+  ],
+  "status": "passed",
+  "earlierHelperSha256": "0780f36737a879dee60d1b96c60ebdf48e6f0bc3ab64d497bc813ea9394a1f08",
+  "extensionMeaning": "not_open is legitimate only for budget_exhausted before snapshot opening; it cannot support achieved precision. No measurement code or DB operations.",
+  "priorHelperHashes": [
+    "e6362a45b7c5df495d1fabcc77520aee7027ba1134668bb4e03fc0ca2271e5fa"
+  ],
+  "realArtifactDiscovery": "Partial01a control arm has no dedicated method connection and no method_cleanup field; prior owner audit assumption was too strict. Benchmark source unchanged."
+}

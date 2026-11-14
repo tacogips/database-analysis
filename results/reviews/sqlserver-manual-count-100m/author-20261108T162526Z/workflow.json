@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-sqlserver-manual100m-author-sol",
+  "description": "SQL Server Rosetta manual 100M author",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "author",
+  "nodes": [
+    {
+      "id": "author",
+      "nodeFile": "nodes/author.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "author",
+      "nodeId": "author",
+      "role": "worker"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "sql": "SELECT s.name AS schema_name, t.name AS table_name,\n       SUM(p.rows) AS approximate_rows,\n       SYSDATETIMEOFFSET() AS observed_at\nFROM sys.tables AS t\nJOIN sys.schemas AS s ON s.schema_id = t.schema_id\nLEFT JOIN sys.partitions AS p\n  ON p.object_id = t.object_id AND p.index_id IN (0, 1)\nWHERE t.is_ms_shipped = 0\n  AND t.is_memory_optimized = 0 AND t.is_external = 0\nGROUP BY s.name, t.name\nORDER BY s.name, t.name;\n",
+  "start_ns": 364390999517627,
+  "end_ns": 364391031875677,
+  "elapsed_ns": 32358050,
+  "raw": [
+    [
+      {
+        "schema_name": "dbo",
+        "table_name": "Target",
+        "approximate_rows": 100000000,
+        "observed_at": "2026-11-09T00:11:07.9219572+00:00"
+      }
+    ]
+  ],
+  "error": null
+}

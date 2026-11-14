@@ -1,0 +1,55 @@
+{
+  "workflow": {
+    "workflowId": "temp-mysql-cold100m-load-duration-author-sol",
+    "description": "Sol authors duration-only patch without touching live source",
+    "defaults": {
+      "nodeTimeoutMs": 3600000,
+      "maxLoopIterations": 1
+    },
+    "entryStepId": "author",
+    "nodes": [
+      {
+        "id": "author",
+        "nodeFile": "nodes/author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "author",
+        "nodeId": "author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/author.json": {
+      "id": "author",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "You are the author of a minimal timeout-only revision to the MySQL 100M cold-buffer benchmark. Return a patch proposal only; do NOT edit files or run any commands that execute SQL, tests, Docker, builds, measurements or cleanup. The existing process is alive; its frozen source must stay unchanged.\nRead AGENTS.md and mysql/engine-count-100m-cold/lab.rb, README.md, verify_offline.rb, reference_flow.rb as needed. User explicitly requested this optional static MyISAM comparison and cold DB-buffer resets before every COUNT. Current MyISAM load (1000 batches x100k rows) has run >100 batches at about7.3sec/batch and will likely exceed the fixed 7200sec load-stage deadline. InnoDB nine counts already finished but the owner requires one complete reproducible all from blank for acceptance; failed runs stay separate references.\nAuthor the smallest exact textual replacements to allow MyISAM fixture loading 14400seconds, retaining InnoDB loading7200seconds, individual SQL-request7200seconds, total-run6hours, count20minutes, index2hours, cleanup120seconds, all ownership/failure/data/SQL/cache/COUNT semantics. No data/load optimization, new SQL, new engine, new measurement, resume or mixed-run acceptance. Update README documentation of stage bounds accurately. If documentation currently conflates the individual-request limit with the stage limit, clarify it. Do not change other source files unless strictly needed. No tests are required for a duration-only constant/branch change; inspect existing tests for compatibility and report whether owner must rerun the existing offline suite.\nReturn JSON status=\"proposal_ready\", replacements=[{path,old,new}], rationale, offlineChecksRequired, unresolvedIssues. Exact old strings must appear once per target file. No actual file edits. The owner may apply only AFTER the current invocation is terminal and cleanup/archiving is audited. This is authoring, not final review or measured success.\nExact source input bindings: {\"sourceHashes\": {\"mysql/engine-count-100m-cold/lab.rb\": \"08beff1ca7fd89696a0f00aedb572035448d7b9cb8e99d01c96bfc159f52381e\", \"mysql/engine-count-100m-cold/reference_flow.rb\": \"ff32f35782bb01688d6f2cabeb1e57ee29cd3a8059efe574ab9f10d8317577d0\", \"mysql/engine-count-100m-cold/compose.yaml\": \"00288110a6c076e04879b94aecb9fe779e6e0e4aaefdc85b1eb4c4b71ae6256e\", \"mysql/engine-count-100m-cold/mise.toml\": \"cf4df1fc461300be52009322df74c33303cc4f9aa9868f6b46dbcaa5af6da7a4\", \"mysql/engine-count-100m-cold/README.md\": \"a68a541f397bc8edb95f332219502d51bbb8b9984b07ccb43a13fdf35d0dc6b6\", \"mysql/engine-count-100m-cold/verify_offline.rb\": \"139292d6470eb63afe23bdee1b6e053ea4de96438ba4c25b26c0165463bd810f\", \"results/reviews/mysql-engine-count-100m-cold/manual-sources/mysql-innodb.md\": \"df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e\", \"results/reviews/mysql-engine-count-100m-cold/manual-sources/source.json\": \"d4f1c9217493eec79e4df2c1d7a28358a973cb4606ca318ad3c63019ca3a5991\"}, \"observedRun\": \"results/mysql-engine-count-100m-cold/runs/20261108T172604Z-ca74a6381f9f93ff0ed6ed7c87471500/result.json\", \"observedRunSha256AtLaunch\": \"c112925c4c59a03674396dd5ba22dfc716691dd8bc377f739dc8ef7aec7b7635\"}",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "required": [
+            "status",
+            "replacements",
+            "rationale",
+            "offlineChecksRequired",
+            "unresolvedIssues"
+          ],
+          "properties": {},
+          "additionalProperties": true
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  },
+  "cliCompatibility": "Installed CLI lacks inline JSON; validated explicit definition used."
+}

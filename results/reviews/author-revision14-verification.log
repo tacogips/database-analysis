@@ -1,0 +1,35 @@
+$ ["git", "diff", "--check"]
+
+exit_code=0
+git diff whitespace: {"command": ["git", "diff", "--check"], "exitCode": 0}
+Python syntax: {"pythonFiles": 148, "mode": "AST parse only; no imports or execution"}
+$ ["mise", "exec", "--", "ruby", "-c", "lab.rb"]
+Syntax OK
+
+exit_code=0
+Ruby syntax lab.rb: {"command": ["mise", "exec", "--", "ruby", "-c", "lab.rb"], "exitCode": 0}
+$ ["mise", "exec", "--", "ruby", "-c", "bench/test_matrix_cleanup.rb"]
+Syntax OK
+
+exit_code=0
+Ruby syntax bench/test_matrix_cleanup.rb: {"command": ["mise", "exec", "--", "ruby", "-c", "bench/test_matrix_cleanup.rb"], "exitCode": 0}
+$ ["mise", "exec", "--", "ruby", "-c", "bench/test_white_all_runner.rb"]
+Syntax OK
+
+exit_code=0
+Ruby syntax bench/test_white_all_runner.rb: {"command": ["mise", "exec", "--", "ruby", "-c", "bench/test_white_all_runner.rb"], "exitCode": 0}
+$ ["mise", "exec", "--", "ruby", "-c", "bench/test_runner_cache.rb"]
+Syntax OK
+
+exit_code=0
+Ruby syntax bench/test_runner_cache.rb: {"command": ["mise", "exec", "--", "ruby", "-c", "bench/test_runner_cache.rb"], "exitCode": 0}
+$ ["mise", "exec", "--", "ruby", "-c", ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"]
+Syntax OK
+
+exit_code=0
+Ruby syntax .riela/workflows/table-count-guideline-review/scripts/run-requested.rb: {"command": ["mise", "exec", "--", "ruby", "-c", ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"], "exitCode": 0}
+retained evidence hashes: {"preservedFilesVerified": 230, "originalObservationsMutated": false}
+documentation paths and size: {"localLinkPathsVerified": 30, "mainLines": 206, "externalDocumentation": "not browsed; unconfirmed claims labeled"}
+planned scope and retired source SHA: {"configurations": 5, "scriptPartitions": 30, "repeatsPerMethod": 3, "unboundedProtocolsRetired": 2, "databaseExecuted": false}
+FINAL exit_code=0
+LOG COMPLETE

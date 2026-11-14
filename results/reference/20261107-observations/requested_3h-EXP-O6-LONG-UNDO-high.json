@@ -1,0 +1,408 @@
+{
+ "id": "3h-EXP-O6-LONG-UNDO-high",
+ "answers": [
+  "EXP-O6-LONG-UNDO",
+  "FIND-O6-LONG-UNDO-01"
+ ],
+ "started": "2026-11-06T21:42:16",
+ "sections": {
+  "ages": {
+   "runs": [
+    {
+     "read_view_age_s": 0,
+     "held_s": 60,
+     "hll_start": 216,
+     "hll_end": 242,
+     "hll_growth_per_s": 0.4,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 0.0,
+     "hll_after_wait": 290,
+     "count_with_new_view_at_end_s": 0.113,
+     "latency_hold": {
+      "read": {
+       "n": 12036,
+       "p50_ms": 0.43,
+       "p95_ms": 1.06,
+       "p99_ms": 2.37,
+       "max_ms": 21.62,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 24072,
+       "p50_ms": 0.86,
+       "p95_ms": 2.34,
+       "p99_ms": 25.1,
+       "max_ms": 60.39,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 0,
+       "p50_ms": null,
+       "p95_ms": null,
+       "p99_ms": null,
+       "max_ms": null,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 0,
+       "p50_ms": null,
+       "p95_ms": null,
+       "p99_ms": null,
+       "max_ms": null,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 6000,
+       "p50_ms": 0.43,
+       "p95_ms": 1.05,
+       "p99_ms": 1.59,
+       "max_ms": 18.76,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 12000,
+       "p50_ms": 0.85,
+       "p95_ms": 2.21,
+       "p99_ms": 21.55,
+       "max_ms": 60.39,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    },
+    {
+     "read_view_age_s": 60,
+     "held_s": 60,
+     "hll_start": 290,
+     "hll_end": 24034,
+     "hll_growth_per_s": 395.7,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 1.0,
+     "hll_after_wait": 68,
+     "count_with_new_view_at_end_s": 0.117,
+     "latency_hold": {
+      "read": {
+       "n": 12036,
+       "p50_ms": 0.41,
+       "p95_ms": 1.05,
+       "p99_ms": 1.25,
+       "max_ms": 29.87,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 24073,
+       "p50_ms": 0.86,
+       "p95_ms": 2.18,
+       "p99_ms": 15.48,
+       "max_ms": 51.18,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 200,
+       "p50_ms": 0.42,
+       "p95_ms": 1.04,
+       "p99_ms": 1.13,
+       "max_ms": 1.18,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 400,
+       "p50_ms": 0.8,
+       "p95_ms": 1.96,
+       "p99_ms": 5.98,
+       "max_ms": 14.2,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 6000,
+       "p50_ms": 0.41,
+       "p95_ms": 1.05,
+       "p99_ms": 1.28,
+       "max_ms": 29.87,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 12000,
+       "p50_ms": 0.85,
+       "p95_ms": 2.18,
+       "p99_ms": 14.8,
+       "max_ms": 51.18,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    },
+    {
+     "read_view_age_s": 180,
+     "held_s": 180,
+     "hll_start": 68,
+     "hll_end": 72077,
+     "hll_growth_per_s": 400.1,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 1.0,
+     "hll_after_wait": 322,
+     "count_with_new_view_at_end_s": 0.128,
+     "latency_hold": {
+      "read": {
+       "n": 36047,
+       "p50_ms": 0.44,
+       "p95_ms": 1.06,
+       "p99_ms": 1.67,
+       "max_ms": 28.89,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 72094,
+       "p50_ms": 0.9,
+       "p95_ms": 3.08,
+       "p99_ms": 27.56,
+       "max_ms": 420.43,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 201,
+       "p50_ms": 0.39,
+       "p95_ms": 1.1,
+       "p99_ms": 1.28,
+       "max_ms": 2.77,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 401,
+       "p50_ms": 0.87,
+       "p95_ms": 23.04,
+       "p99_ms": 48.72,
+       "max_ms": 54.42,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 6000,
+       "p50_ms": 0.43,
+       "p95_ms": 1.05,
+       "p99_ms": 1.97,
+       "max_ms": 3.91,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 12000,
+       "p50_ms": 0.91,
+       "p95_ms": 7.23,
+       "p99_ms": 231.8,
+       "max_ms": 420.43,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    },
+    {
+     "read_view_age_s": 300,
+     "held_s": 300,
+     "hll_start": 323,
+     "hll_end": 120099,
+     "hll_growth_per_s": 399.3,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 1.0,
+     "hll_after_wait": 305,
+     "count_with_new_view_at_end_s": 0.112,
+     "latency_hold": {
+      "read": {
+       "n": 60044,
+       "p50_ms": 0.44,
+       "p95_ms": 1.07,
+       "p99_ms": 1.72,
+       "max_ms": 32.49,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 120088,
+       "p50_ms": 0.92,
+       "p95_ms": 5.85,
+       "p99_ms": 31.87,
+       "max_ms": 611.58,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 200,
+       "p50_ms": 0.4,
+       "p95_ms": 1.17,
+       "p99_ms": 2.05,
+       "max_ms": 2.15,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 400,
+       "p50_ms": 0.85,
+       "p95_ms": 39.43,
+       "p99_ms": 67.85,
+       "max_ms": 75.4,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 6000,
+       "p50_ms": 0.42,
+       "p95_ms": 1.03,
+       "p99_ms": 1.25,
+       "max_ms": 9.82,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 12000,
+       "p50_ms": 0.91,
+       "p95_ms": 5.16,
+       "p99_ms": 20.13,
+       "max_ms": 66.3,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    }
+   ],
+   "_seconds": 603.84
+  },
+  "windows": {
+   "_seconds": 0.26
+  }
+ },
+ "rate": "high",
+ "workload": {
+  "readers": 4,
+  "writers": 8,
+  "rate": 50
+ },
+ "ages_s": [
+  60,
+  180,
+  300
+ ],
+ "substitution": "one consistent snapshot holds the read view; no count statement runs for that long",
+ "elapsed_seconds": 621,
+ "section_errors": []
+}

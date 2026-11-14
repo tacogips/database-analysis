@@ -1,0 +1,2201 @@
+{
+ "id": "requested_probability_sampling",
+ "version": "8.4.13",
+ "encryption": "InnoDB TDE",
+ "buffer_pool_bytes": 268435456,
+ "source_sha256": "b9e66db1f01264fa0bbeafefc59220b314443791ae3e40047aa4e7880b4e97c7",
+ "bounds_sha256": "a855616344eb25490f5fe3626f316d38f34340bdd5c4bd434668b4989f37a977",
+ "cases": {
+  "dense": {
+   "truth": 250000,
+   "full_count_seconds": 0.0039,
+   "full_count_counters": {
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_data_read": 0
+   },
+   "metadata": [
+    249174,
+    16302080,
+    0
+   ],
+   "runs": [
+    {
+     "seed": 1,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 250000,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0439,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0042,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 7,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 250000,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0371,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 42,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 250000,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0522,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0049,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 317,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 250000,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0478,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0025,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 991,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 250000,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0483,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    }
+   ]
+  },
+  "gaps": {
+   "truth": 250000,
+   "full_count_seconds": 0.0042,
+   "full_count_counters": {
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_data_read": 0
+   },
+   "metadata": [
+    249174,
+    16302080,
+    0
+   ],
+   "runs": [
+    {
+     "seed": 1,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "292967.6015625",
+       "lower": 0,
+       "upper": 66425270,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "176000454.0515435812786008438508448104433893236261832540138690849767110",
+       "empirical_bernstein_margin": "66132302.17119700383161151543185349436949735089539107356842425974144466",
+       "cell_sample_variance": "0.02293297455968688845401174168297455968688845401174168297455968688845401",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 12,
+       "sampled_squared_counts": 12
+      },
+      {
+       "estimate": "225829.19287109375",
+       "lower": 0,
+       "upper": 19930815,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "97058622.13868580967556691876822404597970885790812011503778043684249183",
+       "empirical_bernstein_margin": "19704985.68762053024515863257828827393090185122538820652447338747559886",
+       "cell_sample_variance": "0.01774867756167562286272594040058622374206155349291646311675622862725940",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 37,
+       "sampled_squared_counts": 37
+      },
+      {
+       "estimate": "270079.5076904296875",
+       "lower": 0,
+       "upper": 5732159,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+       "empirical_bernstein_margin": "5462079.002519008177782815001666791365114368316699793060741379728235682",
+       "cell_sample_variance": "0.02114218766691338053961665242339152728604565987058967159077035770968136",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 177,
+       "sampled_squared_counts": 177
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 10000,
+     "max_id": 2500000000,
+     "domain": 2499990001,
+     "cells": 12499951,
+     "estimate": "270079.5076904296875",
+     "lower": 0,
+     "upper": 5732159,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+     "empirical_bernstein_margin": "5462079.002519008177782815001666791365114368316699793060741379728235682",
+     "cell_sample_variance": "0.02114218766691338053961665242339152728604565987058967159077035770968136",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 177,
+     "sampled_squared_counts": 177,
+     "seconds": 0.5884,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0037,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 8.031803076171874
+    },
+    {
+     "seed": 7,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "292967.6015625",
+       "lower": 0,
+       "upper": 66425270,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "176000454.0515435812786008438508448104433893236261832540138690849767110",
+       "empirical_bernstein_margin": "66132302.17119700383161151543185349436949735089539107356842425974144466",
+       "cell_sample_variance": "0.02293297455968688845401174168297455968688845401174168297455968688845401",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 12,
+       "sampled_squared_counts": 12
+      },
+      {
+       "estimate": "299071.09326171875",
+       "lower": 0,
+       "upper": 20024152,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "97058622.13868580967556691876822404597970885790812011503778043684249183",
+       "empirical_bernstein_margin": "19725080.57138974639299915031282758212497182141695141376630192101143169",
+       "cell_sample_variance": "0.02336474680935515388373229115779189057156814851001465559355153883732291",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 49,
+       "sampled_squared_counts": 49
+      },
+      {
+       "estimate": "280760.6181640625",
+       "lower": 0,
+       "upper": 5744334,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+       "empirical_bernstein_margin": "5463573.307355383856129401743738335562153425966465552499139196506332225",
+       "cell_sample_variance": "0.02195912434379196679282138932975216701257477719448174826028567940422415",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 184,
+       "sampled_squared_counts": 184
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 10000,
+     "max_id": 2500000000,
+     "domain": 2499990001,
+     "cells": 12499951,
+     "estimate": "280760.6181640625",
+     "lower": 0,
+     "upper": 5744334,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+     "empirical_bernstein_margin": "5463573.307355383856129401743738335562153425966465552499139196506332225",
+     "cell_sample_variance": "0.02195912434379196679282138932975216701257477719448174826028567940422415",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 184,
+     "sampled_squared_counts": 184,
+     "seconds": 0.665,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 12.304247265625
+    },
+    {
+     "seed": 42,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "219725.701171875",
+       "lower": 0,
+       "upper": 66314697,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "176000454.0515435812786008438508448104433893236261832540138690849767110",
+       "empirical_bernstein_margin": "66094970.80959361537449750293734427607205725231724963591782512209595835",
+       "cell_sample_variance": "0.01730292930528375733855185909980430528375733855185909980430528375733855",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 9,
+       "sampled_squared_counts": 9
+      },
+      {
+       "estimate": "250243.15966796875",
+       "lower": 0,
+       "upper": 19962269,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "97058622.13868580967556691876822404597970885790812011503778043684249183",
+       "empirical_bernstein_margin": "19712025.13077531365904930649152537533205741576274423901436806172527228",
+       "cell_sample_variance": "0.01962833376587689301416707376648754274548119198827552515876893014167074",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 41,
+       "sampled_squared_counts": 41
+      },
+      {
+       "estimate": "238036.17626953125",
+       "lower": 0,
+       "upper": 5695433,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+       "empirical_bernstein_margin": "5457396.620872473601154352515648627568829585594470175642892490301356701",
+       "cell_sample_variance": "0.01868261468379929190575021364912709070931510194115492613844463435477964",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 156,
+       "sampled_squared_counts": 156
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 10000,
+     "max_id": 2500000000,
+     "domain": 2499990001,
+     "cells": 12499951,
+     "estimate": "238036.17626953125",
+     "lower": 0,
+     "upper": 5695433,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+     "empirical_bernstein_margin": "5457396.620872473601154352515648627568829585594470175642892490301356701",
+     "cell_sample_variance": "0.01868261468379929190575021364912709070931510194115492613844463435477964",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 156,
+     "sampled_squared_counts": 156,
+     "seconds": 0.636,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 4.7855294921875
+    },
+    {
+     "seed": 317,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "219725.701171875",
+       "lower": 0,
+       "upper": 66314697,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "176000454.0515435812786008438508448104433893236261832540138690849767110",
+       "empirical_bernstein_margin": "66094970.80959361537449750293734427607205725231724963591782512209595835",
+       "cell_sample_variance": "0.01730292930528375733855185909980430528375733855185909980430528375733855",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 9,
+       "sampled_squared_counts": 9
+      },
+      {
+       "estimate": "238036.17626953125",
+       "lower": 0,
+       "upper": 19946590,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "97058622.13868580967556691876822404597970885790812011503778043684249183",
+       "empirical_bernstein_margin": "19708553.25325702334664710542112800441672116568309648345639401726147721",
+       "cell_sample_variance": "0.01868945980398143624816805080605764533463605276013678553981436248168051",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 39,
+       "sampled_squared_counts": 39
+      },
+      {
+       "estimate": "273131.2535400390625",
+       "lower": 0,
+       "upper": 5735641,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+       "empirical_bernstein_margin": "5462509.122539908694193035850554666499940150334618817262457368075568380",
+       "cell_sample_variance": "0.02137574717582560126968624099621535832010743498962275668416554755219143",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 179,
+       "sampled_squared_counts": 179
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 10000,
+     "max_id": 2500000000,
+     "domain": 2499990001,
+     "cells": 12499951,
+     "estimate": "273131.2535400390625",
+     "lower": 0,
+     "upper": 5735641,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+     "empirical_bernstein_margin": "5462509.122539908694193035850554666499940150334618817262457368075568380",
+     "cell_sample_variance": "0.02137574717582560126968624099621535832010743498962275668416554755219143",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 179,
+     "sampled_squared_counts": 179,
+     "seconds": 0.6396,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 9.252501416015624
+    },
+    {
+     "seed": 991,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "415037.435546875",
+       "lower": 0,
+       "upper": 66599700,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "176000454.0515435812786008438508448104433893236261832540138690849767110",
+       "empirical_bernstein_margin": "66184662.50576558125456972052153058877129383393781394757454225223121197",
+       "cell_sample_variance": "0.03216349681996086105675146771037181996086105675146771037181996086105675",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 17,
+       "sampled_squared_counts": 17
+      },
+      {
+       "estimate": "250243.15966796875",
+       "lower": 0,
+       "upper": 19962269,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "97058622.13868580967556691876822404597970885790812011503778043684249183",
+       "empirical_bernstein_margin": "19712025.13077531365904930649152537533205741576274423901436806172527228",
+       "cell_sample_variance": "0.01962833376587689301416707376648754274548119198827552515876893014167074",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 41,
+       "sampled_squared_counts": 41
+      },
+      {
+       "estimate": "231932.6845703125",
+       "lower": 0,
+       "upper": 5688401,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+       "empirical_bernstein_margin": "5456467.483622639149648763768468550932412583075620913623442031007144933",
+       "cell_sample_variance": "0.01821263429373702844585520693444023928702234159443291417409351727505799",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 152,
+       "sampled_squared_counts": 152
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 10000,
+     "max_id": 2500000000,
+     "domain": 2499990001,
+     "cells": 12499951,
+     "estimate": "231932.6845703125",
+     "lower": 0,
+     "upper": 5688401,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "51181115.90512563288713740723714164893101661628950185420395139819784995",
+     "empirical_bernstein_margin": "5456467.483622639149648763768468550932412583075620913623442031007144933",
+     "cell_sample_variance": "0.01821263429373702844585520693444023928702234159443291417409351727505799",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 152,
+     "sampled_squared_counts": 152,
+     "seconds": 0.6575,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0021,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 7.226926171875
+    }
+   ]
+  },
+  "islands": {
+   "truth": 250000,
+   "full_count_seconds": 0.0064,
+   "full_count_counters": {
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_data_read": 0
+   },
+   "metadata": [
+    249174,
+    16302080,
+    0
+   ],
+   "runs": [
+    {
+     "seed": 1,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 263400238,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "704022176.0185094720296615917612040301743999170847706066816559189065437",
+       "empirical_bernstein_margin": "263400237.6172907340369830897614975538426850057298657533273010898006051",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 78276722,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "388245716.3401651607306652959727332194376535981203759040361693471974926",
+       "empirical_bernstein_margin": "78276721.55114469025701387149827670310798625402051015327858291990458169",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 21536600,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+       "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 1,
+     "max_id": 10000250000,
+     "domain": 10000250000,
+     "cells": 50001250,
+     "estimate": "0",
+     "lower": 0,
+     "upper": 21536600,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+     "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 0,
+     "sampled_squared_counts": 0,
+     "seconds": 0.6438,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0021,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 100.0
+    },
+    {
+     "seed": 7,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 263400238,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "704022176.0185094720296615917612040301743999170847706066816559189065437",
+       "empirical_bernstein_margin": "263400237.6172907340369830897614975538426850057298657533273010898006051",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 78276722,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "388245716.3401651607306652959727332194376535981203759040361693471974926",
+       "empirical_bernstein_margin": "78276721.55114469025701387149827670310798625402051015327858291990458169",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 21536600,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+       "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 1,
+     "max_id": 10000250000,
+     "domain": 10000250000,
+     "cells": 50001250,
+     "estimate": "0",
+     "lower": 0,
+     "upper": 21536600,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+     "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 0,
+     "sampled_squared_counts": 0,
+     "seconds": 0.6182,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 100.0
+    },
+    {
+     "seed": 42,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 263400238,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "704022176.0185094720296615917612040301743999170847706066816559189065437",
+       "empirical_bernstein_margin": "263400237.6172907340369830897614975538426850057298657533273010898006051",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 78276722,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "388245716.3401651607306652959727332194376535981203759040361693471974926",
+       "empirical_bernstein_margin": "78276721.55114469025701387149827670310798625402051015327858291990458169",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 21536600,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+       "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 1,
+     "max_id": 10000250000,
+     "domain": 10000250000,
+     "cells": 50001250,
+     "estimate": "0",
+     "lower": 0,
+     "upper": 21536600,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+     "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 0,
+     "sampled_squared_counts": 0,
+     "seconds": 0.6622,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 100.0
+    },
+    {
+     "seed": 317,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 263400238,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "704022176.0185094720296615917612040301743999170847706066816559189065437",
+       "empirical_bernstein_margin": "263400237.6172907340369830897614975538426850057298657533273010898006051",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 78276722,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "388245716.3401651607306652959727332194376535981203759040361693471974926",
+       "empirical_bernstein_margin": "78276721.55114469025701387149827670310798625402051015327858291990458169",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 21536600,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+       "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 1,
+     "max_id": 10000250000,
+     "domain": 10000250000,
+     "cells": 50001250,
+     "estimate": "0",
+     "lower": 0,
+     "upper": 21536600,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+     "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 0,
+     "sampled_squared_counts": 0,
+     "seconds": 0.6424,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 100.0
+    },
+    {
+     "seed": 991,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 263400238,
+       "relative_error_bound": null,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "704022176.0185094720296615917612040301743999170847706066816559189065437",
+       "empirical_bernstein_margin": "263400237.6172907340369830897614975538426850057298657533273010898006051",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 78276722,
+       "relative_error_bound": null,
+       "look_alpha": "0.008333333333333333333333333333",
+       "hoeffding_margin": "388245716.3401651607306652959727332194376535981203759040361693471974926",
+       "empirical_bernstein_margin": "78276721.55114469025701387149827670310798625402051015327858291990458169",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 2048,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      },
+      {
+       "estimate": "0",
+       "lower": 0,
+       "upper": 21536600,
+       "relative_error_bound": null,
+       "look_alpha": "0.004166666666666666666666666667",
+       "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+       "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 8192,
+       "sampled_rows_with_repeats": 0,
+       "sampled_squared_counts": 0
+      }
+     ],
+     "attempted_draws": 8192,
+     "completed_draws": 8192,
+     "last_valid_checkpoint_draws": 8192,
+     "accuracyStatus": "precision_not_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "precision_not_reached",
+     "min_id": 1,
+     "max_id": 10000250000,
+     "domain": 10000250000,
+     "cells": 50001250,
+     "estimate": "0",
+     "lower": 0,
+     "upper": 21536600,
+     "relative_error_bound": null,
+     "look_alpha": "0.004166666666666666666666666667",
+     "hoeffding_margin": "204730384.2751994028934976852002162947368349352125824003242352589334346",
+     "empirical_bernstein_margin": "21536599.62936319108093516923130272800880733843936051151748211562237376",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 8192,
+     "sampled_rows_with_repeats": 0,
+     "sampled_squared_counts": 0,
+     "seconds": 0.6533,
+     "draws": 8192,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0022,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 100.0
+    }
+   ]
+  },
+  "negative": {
+   "truth": 250000,
+   "full_count_seconds": 0.0025,
+   "full_count_counters": {
+    "Innodb_buffer_pool_read_ahead": 0,
+    "Innodb_buffer_pool_reads": 0,
+    "Innodb_data_read": 0
+   },
+   "metadata": [
+    249174,
+    16302080,
+    0
+   ],
+   "runs": [
+    {
+     "seed": 1,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": -125000,
+     "max_id": 124999,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0401,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0029,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 7,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": -125000,
+     "max_id": 124999,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0452,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0034,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 42,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": -125000,
+     "max_id": 124999,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0442,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0078,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 317,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": -125000,
+     "max_id": 124999,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0471,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0038,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 991,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "250000",
+       "lower": 243415,
+       "upper": 250000,
+       "relative_error_bound": 0.02705256455025368,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+       "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": -125000,
+     "max_id": 124999,
+     "domain": 250000,
+     "cells": 1250,
+     "estimate": "250000",
+     "lower": 243415,
+     "upper": 250000,
+     "relative_error_bound": 0.02705256455025368,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+     "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.0473,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 0,
+      "Innodb_data_read": 0
+     },
+     "comparison_count": {
+      "seconds": 0.0021,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 0,
+       "Innodb_buffer_pool_reads": 0,
+       "Innodb_data_read": 0
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    }
+   ]
+  },
+  "wide": {
+   "truth": 3000000,
+   "full_count_seconds": 2.6842,
+   "full_count_counters": {
+    "Innodb_buffer_pool_read_ahead": 185278,
+    "Innodb_buffer_pool_reads": 19948,
+    "Innodb_data_read": 3362422784
+   },
+   "metadata": [
+    2786043,
+    3516923904,
+    0
+   ],
+   "runs": [
+    {
+     "seed": 1,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "3000000",
+       "lower": 2920981,
+       "upper": 3000000,
+       "relative_error_bound": 0.02705221293805061,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+       "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 3000000,
+     "domain": 3000000,
+     "cells": 15000,
+     "estimate": "3000000",
+     "lower": 2920981,
+     "upper": 3000000,
+     "relative_error_bound": 0.02705221293805061,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+     "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.218,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 7437,
+      "Innodb_data_read": 121847808
+     },
+     "comparison_count": {
+      "seconds": 2.6516,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 184330,
+       "Innodb_buffer_pool_reads": 20452,
+       "Innodb_data_read": 3355148288
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 7,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "3000000",
+       "lower": 2920981,
+       "upper": 3000000,
+       "relative_error_bound": 0.02705221293805061,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+       "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 3000000,
+     "domain": 3000000,
+     "cells": 15000,
+     "estimate": "3000000",
+     "lower": 2920981,
+     "upper": 3000000,
+     "relative_error_bound": 0.02705221293805061,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+     "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.2592,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 7459,
+      "Innodb_data_read": 122208256
+     },
+     "comparison_count": {
+      "seconds": 2.6568,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 185039,
+       "Innodb_buffer_pool_reads": 20105,
+       "Innodb_data_read": 3361079296
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 42,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "3000000",
+       "lower": 2920981,
+       "upper": 3000000,
+       "relative_error_bound": 0.02705221293805061,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+       "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 3000000,
+     "domain": 3000000,
+     "cells": 15000,
+     "estimate": "3000000",
+     "lower": 2920981,
+     "upper": 3000000,
+     "relative_error_bound": 0.02705221293805061,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+     "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.2121,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 7520,
+      "Innodb_data_read": 123207680
+     },
+     "comparison_count": {
+      "seconds": 2.6717,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 184284,
+       "Innodb_buffer_pool_reads": 20500,
+       "Innodb_data_read": 3355164672
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 317,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "3000000",
+       "lower": 2920981,
+       "upper": 3000000,
+       "relative_error_bound": 0.02705221293805061,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+       "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 3000000,
+     "domain": 3000000,
+     "cells": 15000,
+     "estimate": "3000000",
+     "lower": 2920981,
+     "upper": 3000000,
+     "relative_error_bound": 0.02705221293805061,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+     "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.2207,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 7471,
+      "Innodb_data_read": 122404864
+     },
+     "comparison_count": {
+      "seconds": 2.6684,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 184240,
+       "Innodb_buffer_pool_reads": 20406,
+       "Innodb_data_read": 3352920064
+      }
+     },
+     "order": "sample_then_count",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    },
+    {
+     "seed": 991,
+     "width": 200,
+     "looks": [
+      512,
+      2048,
+      8192
+     ],
+     "target_relative_error": 0.03,
+     "family_alpha": 0.05,
+     "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+     "budget_scope": "first SQL through rollback; connection established separately by caller",
+     "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+     "max_seconds": 90,
+     "checkpoints": [
+      {
+       "estimate": "3000000",
+       "lower": 2920981,
+       "upper": 3000000,
+       "relative_error_bound": 0.02705221293805061,
+       "look_alpha": "0.025",
+       "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+       "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+       "cell_sample_variance": "0",
+       "interval_method": "intersection with half look alpha allocated to each bound",
+       "checkpoint_draws": 512,
+       "sampled_rows_with_repeats": 102400,
+       "sampled_squared_counts": 20480000
+      }
+     ],
+     "attempted_draws": 512,
+     "completed_draws": 512,
+     "last_valid_checkpoint_draws": 512,
+     "accuracyStatus": "target_reached",
+     "budgetStatus": "within_budget",
+     "cleanupStatus": "rolled_back",
+     "status": "target_reached",
+     "min_id": 1,
+     "max_id": 3000000,
+     "domain": 3000000,
+     "cells": 15000,
+     "estimate": "3000000",
+     "lower": 2920981,
+     "upper": 3000000,
+     "relative_error_bound": 0.02705221293805061,
+     "look_alpha": "0.025",
+     "hoeffding_margin": "211201.3727712335607698792305475975191143421165725168690827697064293024",
+     "empirical_bernstein_margin": "79018.09583279140042608427482157872668463838575931574310461271162239097",
+     "cell_sample_variance": "0",
+     "interval_method": "intersection with half look alpha allocated to each bound",
+     "checkpoint_draws": 512,
+     "sampled_rows_with_repeats": 102400,
+     "sampled_squared_counts": 20480000,
+     "seconds": 0.7286,
+     "draws": 512,
+     "counters": {
+      "Innodb_buffer_pool_read_ahead": 0,
+      "Innodb_buffer_pool_reads": 7427,
+      "Innodb_data_read": 121683968
+     },
+     "comparison_count": {
+      "seconds": 2.8437,
+      "counters": {
+       "Innodb_buffer_pool_read_ahead": 184345,
+       "Innodb_buffer_pool_reads": 20438,
+       "Innodb_data_read": 3355164672
+      }
+     },
+     "order": "count_then_sample",
+     "interval_covers_truth": true,
+     "actual_error_pct": 0.0
+    }
+   ]
+  }
+ },
+ "confidence": 0.95,
+ "target_relative_error": 0.03,
+ "limitations": [
+  "A consistent snapshot holds table MDL and can retain undo. This is not a default primary procedure.",
+  "Requires a single integer primary key. Unknown payload contents need not be inspected.",
+  "PRNG uniform draws model is assumed. Empirical coverage in a finite fixture set does not prove all production conditions.",
+  "No host-cache reset or service-impact measurement. Runtime is a local comparison, not a safe time threshold.",
+  "The hard key-domain upper bound can make intervals very wide on sparse domains; never replace failure with a narrow observed-variance interval."
+ ],
+ "bound_checks": {
+  "empty_sample": {
+   "estimate": "0",
+   "lower": 0,
+   "upper": 12005,
+   "relative_error_bound": null,
+   "look_alpha": "0.05"
+  },
+  "binomial_miss_probabilities": {
+   "0.001": 7.083229242642515e-22,
+   "0.1": 3.8368371987717724e-05,
+   "0.5": 0.00814690222869857,
+   "0.9": 3.836837198771752e-05
+  }
+ },
+ "status_counts": {
+  "target_reached": 15,
+  "precision_not_reached": 10
+ },
+ "unexpected_failures": [],
+ "complete": true,
+ "fixture_cleanup": "confirmed"
+}

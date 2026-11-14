@@ -1,0 +1,62 @@
+{
+  "ROOT-WHITE-ALL-RUBY-BOOTSTRAP": {
+    "status": "fixed",
+    "response": "root適用のRuby 4.0.9・全task明示exec・POSIX bootstrapを維持。controller/labの版・実体ログとmise設定fingerprintを追加。実Riela guard付きprobeと実launch chainのfake回帰・構文確認は成功。白紙all成功は未認定。",
+    "sections": "§7、起動・証拠保存修正",
+    "evidence": ["results/reviews/mise-runtime-latest-probe.json", "results/reviews/author-revision16-verification.json", "mise.toml", ".riela/workflows/table-count-guideline-review/scripts/run-white-all.sh", "lab.rb"]
+  },
+  "ROOT-RUBY-RUNTIME": {
+    "status": "fixed",
+    "response": "既存の4.0.9 pinとbootstrapを再作成・巻き戻しせず検証。mise.toml変更が再利用を無効化する実Lab回帰を追加。実wrapper→controller→mise task→明示execの経路、cwd、ログ、snapshotをfakeで確認。",
+    "sections": "起動・証拠保存修正、README",
+    "evidence": ["results/reviews/mise-runtime-latest-probe.json", "results/reviews/author-revision16-verification.json", "bench/test_runner_cache.rb", "bench/test_white_all_runner.rb"]
+  },
+  "ROOT-RAW-ARTIFACT-SIZE": {
+    "status": "fixed",
+    "response": "収集・集計後のservice/server全標本を8 MiB非圧縮上限の標準gzip JSONL chunksへlossless保存。メインJSONに件数・圧縮前後SHA/サイズ・参照を保持。参照先を含むartifact/cache/snapshotと欠損・改変拒否を純粋回帰で確認。計測プロトコルは不変、実測raw生成は次runner待ち。",
+    "sections": "起動・証拠保存修正、README生の計装データ",
+    "evidence": ["bench/raw_evidence.py", "bench/reqscale.py", "bench/test_raw_evidence.py", "bench/test_runner_cache.rb", "bench/test_white_all_runner.rb", "results/reviews/author-revision16-verification.json"]
+  },
+  "ROOT-FAILED-ALL-SUMMARY": {
+    "status": "fixed",
+    "response": "summary前後署名を読み未変更ならnot_reached/ran=[]。lock前に旧summaryを移動・削除しない。旧completed/旧ranを残したearly exit7の実runner回帰で非加算・原本不変を確認。前回candidate/logを複写保存しsnapshotに旧ファイルが混在し得ることを明記。最初の失敗は既存immutable snapshotを保持。",
+    "sections": "§7、起動・証拠保存修正",
+    "evidence": [".riela/workflows/table-count-guideline-review/scripts/run-requested.rb", "bench/test_white_all_runner.rb", "results/reviews/author-revision16-verification.json", "results/reference/review-20261107T040818Z-62807/manifest.json"]
+  },
+  "SOL-VALIDATION-RUN-CACHE": {
+    "status": "unresolved",
+    "response": "mise.tomlとnested rawをfingerprint/artifactへ追加し、実Lab回帰で変更・欠損時の再利用拒否を確認。旧summaryの加算も排除。白紙allによる最終実行・semantic検証・所有者監査は未完了。",
+    "sections": "§7、起動・証拠保存修正、README",
+    "evidence": ["lab.rb", "bench/test_runner_cache.rb", "results/reviews/author-revision16-verification.json"]
+  },
+  "SOL-VALIDATION-EVIDENCE-LIFECYCLE": {
+    "status": "fixed",
+    "response": "既存immutable参照を保持。raw分割の件数・二重SHA/サイズとsnapshot保持、旧summary除外、前回candidate/log保存を追加。旧failed candidateや測定JSONを書き換えず、92の終了コード不明も維持。",
+    "sections": "§3/7、起動・証拠保存修正",
+    "evidence": ["results/reference/review-20261107T040818Z-62807/manifest.json", "bench/raw_evidence.py", "results/reviews/author-revision16-verification.json"]
+  },
+  "SOL-FRONTIER-001": {
+    "status": "fixed",
+    "response": "標本の先行保存、想定外失敗後の比較抑止、比較失敗の保存を維持。今回、既存の実関数AST回帰をexit0で再確認。DB測定と全scope監査は次runner待ち。",
+    "sections": "確率推定仕様・詳細§13、record_sample",
+    "evidence": ["bench/accuracy_frontier.py", "bench/test_accuracy_frontier.py", "results/reviews/author-revision16-verification.json"]
+  },
+  "SOL-FRONTIER-002": {
+    "status": "fixed",
+    "response": "確認済3024とROLLBACK成功だけを文予算へ分類し、全体予算・未知1317を分離。今回、既存の実関数AST回帰をexit0で再確認。新規DB測定はない。",
+    "sections": "確率推定仕様・詳細§13、sample_with_budgets",
+    "evidence": ["bench/accuracy_frontier.py", "bench/test_accuracy_frontier.py", "results/reviews/author-revision16-verification.json"]
+  },
+  "SOL-FRONTIER-003": {
+    "status": "fixed",
+    "response": "既存のrunner撤去結果・失敗伝播を維持。実Lab撤去関数を使うfake回帰でremove失敗・確認失敗・残存を成功にしないことをexit0で確認。実コンテナ撤去の証跡は次allで監査する。",
+    "sections": "§7、起動・証拠保存修正、Lab.with_version",
+    "evidence": ["lab.rb", "bench/test_matrix_cleanup.rb", "results/reviews/author-revision16-verification.json"]
+  },
+  "SOL-FRONTIER-004": {
+    "status": "fixed",
+    "response": "無効なlock観測をnull/not_measured、有効な0とsample数を別表示する修正を維持。今回、実Sampler.windowのAST回帰をexit0で確認。旧data_locks=Falseの0は実測根拠に使わない。",
+    "sections": "§7、起動・証拠保存修正、Sampler.window",
+    "evidence": ["bench/lablib.py", "bench/test_protocol_integrity.py", "results/reviews/author-revision16-verification.json"]
+  }
+}

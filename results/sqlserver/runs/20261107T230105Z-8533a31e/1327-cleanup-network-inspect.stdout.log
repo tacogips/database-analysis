@@ -1,0 +1,46 @@
+[
+    {
+        "Name": "lab-sqlserver-count-network",
+        "Id": "fc6f92c0693e28c7b5225d106cf355c4e31bd9e7077db6d73a05ef94eb5b0bf0",
+        "Created": "2026-11-08T08:01:05.675728707+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "2150c76f9e9909946c9683c409839964ed931cd65e08cef9f147e7f3d54e0bff",
+            "com.docker.compose.network": "lab",
+            "com.docker.compose.project": "sqlserver-count-lab",
+            "com.docker.compose.version": "5.6.1"
+        },
+        "Containers": {},
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 3,
+                        "DynamicIPsAvailable": 65533
+                    }
+                }
+            }
+        }
+    }
+]

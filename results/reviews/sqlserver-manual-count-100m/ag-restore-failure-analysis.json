@@ -1,0 +1,39 @@
+{
+  "status": "SQLPal_assert_failed_15_counts_A3_pending_not_accepted",
+  "run": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/result.json",
+  "rawRunSha256": "41c66e59931e0ec89f247e1cefec302589a39dcfecbfec6cb5dadc6710ffac02",
+  "bothServerExitCodes": [
+    1,
+    1
+  ],
+  "bothOOMKilled": [
+    false,
+    false
+  ],
+  "assertion": "seenByMonitor < NonYieldThreshold at sosschedmon.cpp:219",
+  "sameFatalTimeUTC": "2026-11-08T23:23:28Z",
+  "powerEvents": {
+    "pmsetExitCode": 0,
+    "sleepWakeEventsMatchingLocal082x": 0,
+    "meaning": "No matching sleep/wake events; does not establish clock or scheduler root cause"
+  },
+  "references": [
+    {
+      "url": "https://learn.microsoft.com/sql/linux/install-upgrade/setup",
+      "meaning": "Rosetta translation unsupported"
+    },
+    {
+      "url": "https://github.com/microsoft/mssql-docker/issues/959",
+      "meaning": "Similar SQL2025 assertion reported also on x86 containers. Reporter says2022 works; not vendor-confirmed cause/fix."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2022",
+      "meaning": "SQL2022 still supported; Rosetta itself unsupported"
+    }
+  ],
+  "alternativeImage": "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+  "imageMetadataCommandExitCode": 0,
+  "sql2022RemediationStatus": "not_applied_not_proven",
+  "cleanupHelperExitCode": 1,
+  "cleanupMeaning": "owned paths/runtime absent but capacity restore within1GiB not achieved; preserve failed helper and raw exit1"
+}

@@ -1,0 +1,84 @@
+PASS: authoritative baseline and issue hashes
+PASS: all 10885 protected files unchanged: []
+PASS: archived old document/receipt: README.md
+PASS: archived old document/receipt: docs/README.md
+PASS: archived old document/receipt: docs/guidelines/mysql.md
+PASS: archived old document/receipt: docs/guidelines/operations-runbook.md
+PASS: archived old document/receipt: docs/guidelines/sql-server.md
+PASS: archived old document/receipt: results/reviews/issue-2/completion-audit.json
+PASS: archived old document/receipt: results/reviews/issue-2/acceptance.json
+ARGV: ["git", "diff", "--check"]
+
+EXIT_STATUS: 0
+PASS: foreground command reached successful terminal exit
+ARGV: ["git", "diff", "--name-only"]
+README.md
+docs/README.md
+docs/guidelines/mysql.md
+docs/guidelines/operations-runbook.md
+docs/guidelines/sql-server.md
+EXIT_STATUS: 0
+PASS: foreground command reached successful terminal exit
+PASS: tracked edits limited to exactly mutable document allowlist
+PASS: complete duplicate-free runtime source list
+PASS: all executable/build/config/README/lock sources covered; no stale example inputs/verifier
+ARGV: ["ruby", "-c", "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue3/lab.rb"]
+Syntax OK
+EXIT_STATUS: 0
+PASS: foreground command reached successful terminal exit
+ARGV: ["ruby", "-ryaml", "-rjson", "-e", "puts JSON.generate(YAML.safe_load(File.read(ARGV.fetch(0))))", "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue3/compose.yaml"]
+{"name":"lab-sqlserver-issue3","services":{"server":{"image":"mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3","platform":"linux/amd64","container_name":"lab-sqlserver-issue3","labels":{"count.issue3.owner":"${ISSUE3_OWNER:?controller only}"},"environment":{"ACCEPT_EULA":"Y","MSSQL_PID":"Developer","MSSQL_SA_PASSWORD":"CountIssue3_Lab_Only_2026!","MSSQL_MEMORY_LIMIT_MB":"3072"},"mem_limit":"4g","cpus":2,"volumes":["data:/var/opt/mssql"],"networks":["runtime"]},"client":{"image":"lab-sqlserver-issue3-client:${ISSUE3_OWNER:?controller only}","container_name":"lab-sqlserver-issue3-client","labels":{"count.issue3.owner":"${ISSUE3_OWNER:?controller only}"},"mem_limit":"2g","cpus":2,"networks":["runtime"]}},"networks":{"runtime":{"name":"lab-sqlserver-issue3-network","internal":true,"labels":{"count.issue3.owner":"${ISSUE3_OWNER:?controller only}"}}},"volumes":{"data":{"name":"lab-sqlserver-issue3-data","labels":{"count.issue3.owner":"${ISSUE3_OWNER:?controller only}"}}}}
+EXIT_STATUS: 0
+PASS: foreground command reached successful terminal exit
+PASS: Issue3 compose project
+PASS: only owned server/client services
+PASS: no published ports/privilege/host network/external config: server
+PASS: unique Issue3 owner label: server
+PASS: no published ports/privilege/host network/external config: client
+PASS: unique Issue3 owner label: client
+PASS: runtime network internal
+PASS: only owned volume; no host/socket mounts
+PASS: fixed SQL2025 CU10 amd64 image
+PASS: fixed SDK, locked restore, Issue3 DLL
+PASS: proven dependency lock copied unchanged
+PASS: exact direct SqlClient/Pkcs pins and lock
+PASS: NU190x audit warnings are build errors
+PASS: fixed mise entrypoint and Ruby pin (textual config check)
+PASS: owned local foreground/reaped lifecycle and terminal evidence paths retained
+PASS: Initialize gate precedes connection open/context SQL
+PASS: independent candidate gate + lease/identity guard before dispatch
+PASS: shared candidate preparation/count route
+PASS: one contract-required initializer and one raw Target COUNT inside guarded wrapper
+PASS: missing/unknown/business default deny and immutable approved lease
+PASS: negative calls same real candidate route + direct wrapper; records zero dispatch, both identities and actual Dispose release
+PASS: negative path never overwrites business context or kills with invented expected tag
+PASS: tiny real CONTEXT_INFO RLS fixture/control and business/unknown/missing/later-init rejection cases
+PASS: no RLS policy alteration/disable or alternate remote SESSION_CONTEXT claim
+PASS: proven ownership/observation/cleanup section preserved: static async Task Preflight(
+PASS: proven ownership/observation/cleanup section preserved: static async Task<State> Observe(
+PASS: proven ownership/observation/cleanup section preserved: static async Task PollRelease(
+PASS: five functional cases, mismatch checks, independent cleanup and original stats diagnostic retained
+PASS: runtime names migrated: lab.rb
+PASS: runtime names migrated: mise.toml
+PASS: runtime names migrated: compose.yaml
+PASS: runtime names migrated: Dockerfile
+PASS: runtime names migrated: .dockerignore
+PASS: runtime names migrated: CountIssue3.csproj
+PASS: runtime names migrated: NuGet.Config
+PASS: runtime names migrated: packages.lock.json
+PASS: runtime names migrated: Program.cs
+PASS: runtime names migrated: README.md
+PASS: runtime names migrated: verify_static.py
+PASS: current receipt + historical archive routing: README.md
+PASS: no old current receipt/future acceptance phrasing: README.md
+PASS: current receipt + historical archive routing: docs/README.md
+PASS: no old current receipt/future acceptance phrasing: docs/README.md
+PASS: current receipt + historical archive routing: docs/guidelines/mysql.md
+PASS: no old current receipt/future acceptance phrasing: docs/guidelines/mysql.md
+PASS: current receipt + historical archive routing: docs/guidelines/sql-server.md
+PASS: no old current receipt/future acceptance phrasing: docs/guidelines/sql-server.md
+PASS: current receipt + historical archive routing: docs/guidelines/operations-runbook.md
+PASS: no old current receipt/future acceptance phrasing: docs/guidelines/operations-runbook.md
+LIMIT: textual/caller/config audit only; no C# compile, Docker, DB, measurement or runtime RLS assertion.
+PASS: source unchanged during offline checks
+AUTHOR_STATIC_FINAL_EXIT_STATUS=0

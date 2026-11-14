@@ -1,0 +1,26 @@
+{
+  "scope": "documentation_only",
+  "change": "numbered SQL procedures and explicit replica selection",
+  "reviews": [
+    {
+      "agent": "qa_engineer_review",
+      "accepted": true
+    },
+    {
+      "agent": "qa_validation_review",
+      "accepted": true
+    }
+  ],
+  "files": {
+    "docs/guidelines/mysql-innodb.md": "86430665746a8e1b39aa1b856e7ce3c180950c558f6b6508cd58073cadb645ab",
+    "docs/guidelines/mysql-myisam.md": "36aec25ae5980782c93b15e7762d724ce3f663809bc2d830d6fc8a9b7e4b2296",
+    "docs/guidelines/mysql-details.md": "28f08c87b2dec6882f5221896d3db7bdf816b13b31774f31d1c892d1d8ccf335"
+  },
+  "checks": [
+    "git diff --check",
+    "local links and heading anchors",
+    "HTML preview generation"
+  ],
+  "database_execution": false,
+  "performance_validation": false
+}

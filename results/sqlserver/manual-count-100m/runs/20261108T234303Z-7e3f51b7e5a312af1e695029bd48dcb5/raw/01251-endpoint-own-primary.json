@@ -1,0 +1,10 @@
+{
+  "sql": "-- Public disposable fixture password. Private keys remain in owned master DB, never exported.\nCREATE MASTER KEY ENCRYPTION BY PASSWORD=\u0027ManualCount100m_MasterKey_2026!\u0027;\nCREATE CERTIFICATE local_endpoint_cert WITH SUBJECT=\u0027ManualCount100m primary endpoint\u0027;\nBACKUP CERTIFICATE local_endpoint_cert TO FILE=\u0027/backup/primary.cer\u0027;\nCREATE ENDPOINT Hadr_endpoint STATE=STARTED AS TCP(LISTENER_PORT=5022)\n FOR DATABASE_MIRRORING(ROLE=ALL,AUTHENTICATION=CERTIFICATE local_endpoint_cert,ENCRYPTION=REQUIRED ALGORITHM AES);\n",
+  "start_ns": 364402377197440,
+  "end_ns": 364404937977724,
+  "elapsed_ns": 2560780284,
+  "raw": [
+    []
+  ],
+  "error": null
+}

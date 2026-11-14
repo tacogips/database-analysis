@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-issue2-validation-sol",
+  "description": "Issue2 documentation correction validation",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "validation",
+  "nodes": [
+    {
+      "id": "validation",
+      "nodeFile": "nodes/validation.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "validation",
+      "nodeId": "validation",
+      "role": "worker"
+    }
+  ]
+}

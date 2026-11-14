@@ -1,0 +1,73 @@
+$ mise exec -- ruby -v
+ruby 4.0.9 (2026-10-23 revision 3e93b23afc) +PRISM [arm64-darwin25]
+
+exit_code=0
+$ mise exec -- ruby -c lab.rb
+Syntax OK
+
+exit_code=0
+$ mise exec -- ruby -c .riela/workflows/table-count-guideline-review/scripts/run-requested.rb
+Syntax OK
+
+exit_code=0
+$ /bin/sh -n .riela/workflows/table-count-guideline-review/scripts/run-white-all.sh
+
+exit_code=0
+$ python3 bench/test_raw_evidence.py
+{"db_access": false, "lossless_numeric_roundtrip": true, "standard_gzip_jsonl": true, "chunk_count_hash_and_byte_bounds": true, "deterministic_representation": true, "boundary_and_empty_streams": true, "corruption_and_missing_chunk_rejected": true}
+
+exit_code=0
+$ mise exec -- ruby bench/test_runner_cache.rb
+{"success_reused":true,"failure_rejected":true,"old_inputs_rejected":true,"failed_process_rejected":true,"changed_or_missing_artifact_rejected":true,"nested_raw_collected":true,"changed_or_missing_raw_chunk_rejected":true,"mise_config_invalidates_cache":true,"db_access":false}
+
+exit_code=0
+$ mise exec -- ruby bench/test_white_all_runner.rb
+bench/test_white_all_runner.rb:88:in 'block (2 levels) in <main>': cwd changed (RuntimeError)
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/tmpdir.rb:105:in 'Dir.mktmpdir'
+	from bench/test_white_all_runner.rb:15:in 'block in <main>'
+	from bench/test_white_all_runner.rb:14:in 'Array#each'
+	from bench/test_white_all_runner.rb:14:in '<main>'
+
+exit_code=1
+
+Correction: compare canonical cwd because macOS /var and /private/var alias the same temporary directory. Preserve failed test above.
+$ mise exec -- ruby bench/test_white_all_runner.rb
+{"check":"actual bootstrap/controller/task chain with isolated fake mise/lab; no DB","cases":["success","failure","source_change","early_failure"],"nonzero_exit_propagated":true,"source_change_rejected":true,"stale_proof_archived":true,"previous_attempt_retained":true,"stale_completed_summary_uncredited":true,"old_lab_summary_untouched":true,"nested_raw_in_snapshot":true,"wrapper_fingerprinted":true,"explicit_exec_chain_and_cwd":true,"process_success_requires_owner_audit":true,"logs_and_snapshot_hashes_verified":true}
+
+exit_code=0
+$ python3 bench/test_protocol_integrity.py
+{"actual_functions_only": true, "db_access": false, "three_repeats_and_partition_outputs": true, "disabled_locks_distinct_from_zero": true, "semantic_exit_status": true}
+
+exit_code=0
+$ python3 bench/test_accuracy_frontier.py
+{"check": "actual AST function, fake failed connection; no DB", "failed_sample_saved_before_comparison": true, "comparison_not_called_after_unexpected_sample_failure": true, "sample_and_comparison_error_both_preserved": true, "confirmed_statement_limit_distinct_from_total_budget": true, "unknown_interrupt_or_failed_cleanup_not_normalized": true}
+
+exit_code=0
+$ mise exec -- ruby bench/test_matrix_cleanup.rb
+{"fake_docker_only":true,"actual_teardown_checks":["success","remove_failed","verify_failed","still_present"],"cleanup_failure_propagated":true}
+
+exit_code=0
+
+Final checks after adding explicit raw references to requested artifacts.
+$ python3 bench/test_raw_evidence.py
+{"db_access": false, "lossless_numeric_roundtrip": true, "standard_gzip_jsonl": true, "chunk_count_hash_and_byte_bounds": true, "deterministic_representation": true, "boundary_and_empty_streams": true, "corruption_and_missing_chunk_rejected": true}
+
+exit_code=0
+$ mise exec -- ruby bench/test_runner_cache.rb
+{"success_reused":true,"failure_rejected":true,"old_inputs_rejected":true,"failed_process_rejected":true,"changed_or_missing_artifact_rejected":true,"nested_raw_collected":true,"changed_or_missing_raw_chunk_rejected":true,"mise_config_invalidates_cache":true,"db_access":false}
+
+exit_code=0
+$ mise exec -- ruby bench/test_white_all_runner.rb
+{"check":"actual bootstrap/controller/task chain with isolated fake mise/lab; no DB","cases":["success","failure","source_change","early_failure"],"nonzero_exit_propagated":true,"source_change_rejected":true,"stale_proof_archived":true,"previous_attempt_retained":true,"stale_completed_summary_uncredited":true,"old_lab_summary_untouched":true,"nested_raw_in_snapshot":true,"wrapper_fingerprinted":true,"explicit_exec_chain_and_cwd":true,"process_success_requires_owner_audit":true,"logs_and_snapshot_hashes_verified":true}
+
+exit_code=0
+$ mise exec -- ruby -c lab.rb
+Syntax OK
+
+exit_code=0
+All Python source parses; actual reqscale closure includes raw_evidence; main <=220 lines; current-document local links and executable bootstrap verified. exit_code=0
+
+Final saved-document and adapter checks.
+$ git diff --check -- lab.rb bench/reqscale.py .riela/workflows/table-count-guideline-review/scripts/run-requested.rb README.md docs/table-count-guideline.md bench/requested/README.md
+exit_code=0
+Saved guideline SHA256=d444827e48ed46eb31e019e6b02eb84d37651df9ee25d87a4823207cb86f0a08; main lines=216; exact workflowInput and all prior discussion entries preserved; proof absent; local links valid. exit_code=0

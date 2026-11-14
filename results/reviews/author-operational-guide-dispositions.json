@@ -1,0 +1,661 @@
+{
+  "meaning": "Documentation author submission only; no new measurements, owner acceptance or final independent reviewer closure. All eight owner open checks have proposed textual resolutions and require final independent review.",
+  "authoredAt": "2026-11-07T16:29:06.216409+00:00",
+  "sourceRegister": {
+    "path": "results/reviews/finding-register.json",
+    "sha256": "c239cfc99d9ae377e3b138a005fa1ab5cdebd82e0d708d6c733f08343345b68d"
+  },
+  "sourceReviews": [
+    {
+      "path": "results/reviews/original-revision10-reviews.json",
+      "expectedSha256": "f0d1b68d0d7d2e5b4146b7092ede93b53b334944b36ff62f0ff8851b13b74ec8",
+      "actualSha256": "f0d1b68d0d7d2e5b4146b7092ede93b53b334944b36ff62f0ff8851b13b74ec8",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-internal-rollout-review.json",
+      "expectedSha256": "866d0fb175391428f9a296145150565e61e88020d2c3ca0b2f131713491fe5f8",
+      "actualSha256": "866d0fb175391428f9a296145150565e61e88020d2c3ca0b2f131713491fe5f8",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-sampling-review.json",
+      "expectedSha256": "fb833ec08f475c62cb87a686be30efafa2895b0941e7301cb89394a8f388a46f",
+      "actualSha256": "fb833ec08f475c62cb87a686be30efafa2895b0941e7301cb89394a8f388a46f",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-validation-review.json",
+      "expectedSha256": "c2e7bcf9412e920deeb693899b6b2a8aa7b7d650b2e36f7501de89c855b84f8d",
+      "actualSha256": "c2e7bcf9412e920deeb693899b6b2a8aa7b7d650b2e36f7501de89c855b84f8d",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-frontier-review.json",
+      "expectedSha256": "2541678b1bb35304eb493f3feacbfcc86ccd8c2acafe5d50ed2c3cccdaa699dc",
+      "actualSha256": "2541678b1bb35304eb493f3feacbfcc86ccd8c2acafe5d50ed2c3cccdaa699dc",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-protocol-review.json",
+      "expectedSha256": "7da34ab4f929266785cd9e12fbd34642b543f3e8f71bdbfe38f5a90b47a47222",
+      "actualSha256": "7da34ab4f929266785cd9e12fbd34642b543f3e8f71bdbfe38f5a90b47a47222",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-wide-errors-review.json",
+      "expectedSha256": "d679d77b92cecd22eb8a8c5ddec95c2ddf044ce4aecbe43aee9ded1127ec77c0",
+      "actualSha256": "d679d77b92cecd22eb8a8c5ddec95c2ddf044ce4aecbe43aee9ded1127ec77c0",
+      "matches": true
+    },
+    {
+      "path": "results/reviews/sol-encryption-state-review.json",
+      "expectedSha256": "a3662f9de30569cddbb9ae10982382a97288a9cb9e263d5461df03cffcb506d6",
+      "actualSha256": "a3662f9de30569cddbb9ae10982382a97288a9cb9e263d5461df03cffcb506d6",
+      "matches": true
+    }
+  ],
+  "ownerOpenChecks": {
+    "path": "results/reviews/owner-operator-guide-open-checks.json",
+    "sha256": "9a686664e1fbe3b73a1714bbbb3bd43b707e087363452f6cc04eea0aa63fe9ba",
+    "resolutions": [
+      {
+        "id": "immutable-citations",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "docs/table-count-calibration.md#2",
+          "docs/table-count-calibration.md#4",
+          "results/reviews/author-operational-guide-verification.json"
+        ]
+      },
+      {
+        "id": "offload-provisioning",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "docs/table-count-guideline.md#3",
+          "docs/table-count-calibration.md#3"
+        ]
+      },
+      {
+        "id": "final-review-prompt-scope",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          ".riela/workflows/table-count-guideline-review/prompts/independent-review.md",
+          ".riela/workflows/table-count-guideline-review/prompts/sol-review.md"
+        ]
+      },
+      {
+        "id": "historical-document-routing",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "README.md",
+          "audit/README.md",
+          "docs/table-count-evidence.md",
+          "docs/probability-count.md"
+        ]
+      },
+      {
+        "id": "accuracy-cost-routing",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "docs/table-count-guideline.md#3",
+          "docs/table-count-calibration.md#4"
+        ]
+      },
+      {
+        "id": "fresh-contradictions-and-extrema",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "docs/table-count-calibration.md#2",
+          "docs/table-count-calibration.md#4",
+          "docs/table-count-calibration.md#5"
+        ]
+      },
+      {
+        "id": "safe-initial-statistics-read",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "docs/table-count-guideline.md#1",
+          "docs/table-count-guideline.md#4"
+        ]
+      },
+      {
+        "id": "clock-anomaly-provenance",
+        "authorStatus": "submitted_for_final_review",
+        "references": [
+          "docs/table-count-calibration.md#5",
+          "audit/README.md"
+        ]
+      }
+    ]
+  },
+  "historicalFindings": [
+    {
+      "id": "FIND-O10-PRIMARY-SCALE",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/FIND-O10-PRIMARY-SCALE",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧primary-scale/write-mixの全gridは現行推薦・既定allから除外。失敗/未完了を技術的成功へ変更しない。現在も重要な予算・未完了・取消/終了確認はガイド§3/4とowner proofの選択範囲で扱う。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "bench/nonlocking-scope.json",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-O10-INDEXED-100-STALL",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/FIND-O10-INDEXED-100-STALL",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧primary-scale/write-mixの全gridは現行推薦・既定allから除外。失敗/未完了を技術的成功へ変更しない。現在も重要な予算・未完了・取消/終了確認はガイド§3/4とowner proofの選択範囲で扱う。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "bench/nonlocking-scope.json",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-O10-STEP-CEILING",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/FIND-O10-STEP-CEILING",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧primary-scale/write-mixの全gridは現行推薦・既定allから除外。失敗/未完了を技術的成功へ変更しない。現在も重要な予算・未完了・取消/終了確認はガイド§3/4とowner proofの選択範囲で扱う。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "bench/nonlocking-scope.json",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-O10-NOPK-FORCE",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/FIND-O10-NOPK-FORCE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "無主キーでも隔離先の既定COUNTへ進む。整数PKセル標本やPRIMARY強制を無条件に推薦しない。",
+      "references": [
+        "docs/table-count-guideline.md#3",
+        "docs/table-count-guideline.md#6"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-O10-ENCRYPTED-STALE",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/FIND-O10-ENCRYPTED-STALE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "現在の実務入口はガイド/校正。過去資料に履歴バナー、引用は固定snapshot、現在proofと過去失敗を区別。source/manifestは著者検証で照合。未見の査読閉鎖を主張しない。",
+      "references": [
+        "docs/table-count-calibration.md#5",
+        "docs/table-count-evidence.md",
+        "results/reviews/author-operational-guide-verification.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-O10-P100-BOLD",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/FIND-O10-P100-BOLD",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "無影響・全条件最速・cache/TDE因果倍率を主張しない。資源隔離/上限を先に確立、SLO違反前の停止値、疎/打切り窓と後続回復を区別。旧時計窓を性能根拠へ使わない。",
+      "references": [
+        "docs/table-count-guideline.md#3",
+        "docs/table-count-guideline.md#4",
+        "docs/table-count-calibration.md#4"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-DOC-01",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/FIND-DOC-01",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "短い実務ガイドに初動・権限・取得先・所有者予算・監視/取消担当・実停止/回復・保留条件を集約。利用にlabは不要。",
+      "references": [
+        "docs/table-count-guideline.md",
+        "README.md"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/FIND-S8-REPLICA-STOP-FAILURE-01",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "適用停止・失敗注入を現在の件数取得手順へ戻さない。停止運用の技術的合格は主張しない。鮮度不足はprimaryへ自動移行せず隔離先/保留とする。",
+      "references": [
+        "docs/table-count-guideline.md#3",
+        "bench/nonlocking-scope.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "originalSeverity": "high",
+      "history": "results/reviews/finding-register.json#findings/SOL-ROLLOUT-ACCURACY",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "参考統計/経験的校正/条件付き区間/正確値を分け、0/NULL/未初期化/取得不可はUNKNOWN。統計キャッシュmiss/expiry分岐と復元後統計を元本番へ転用しない規則、新旧極値を追加。",
+      "references": [
+        "docs/table-count-guideline.md#1",
+        "docs/table-count-guideline.md#2",
+        "docs/table-count-calibration.md#2",
+        "docs/table-count-calibration.md#3"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ROLLOUT-TRIAL-BUDGET",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "接続準備・SQL〜ROLLBACKの区間差、協調的制限、精度/予算/後始末を分離。条件付き標本の適用/失敗条件は現prototype仕様と校正へリンク。時間上限を厳密な無影響機構としない。",
+      "references": [
+        "docs/probability-count.md",
+        "docs/table-count-guideline.md#4",
+        "docs/table-count-guideline.md#6"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "TDEサーバー鍵利用とclient seed/アプリ暗号化を区別。SQL上の単一整数PKで適用判定。thin100M/750k50/100列から100M80列TDEへ費用や精度を外挿しない。",
+      "references": [
+        "docs/table-count-guideline.md#5",
+        "docs/table-count-calibration.md#4",
+        "docs/probability-count.md"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ROLLOUT-METADATA-COMPARISON",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "参考統計/経験的校正/条件付き区間/正確値を分け、0/NULL/未初期化/取得不可はUNKNOWN。統計キャッシュmiss/expiry分岐と復元後統計を元本番へ転用しない規則、新旧極値を追加。",
+      "references": [
+        "docs/table-count-guideline.md#1",
+        "docs/table-count-guideline.md#2",
+        "docs/table-count-calibration.md#2",
+        "docs/table-count-calibration.md#3"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ROLLOUT-ANALYZE-COST",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "既存エクスポート優先。ANALYZE/sample pages変更はprimary自動手順にせず、隔離校正または所有者の別保守として扱う。backup/replica構築も承認済み予算手順。",
+      "references": [
+        "docs/table-count-guideline.md#1",
+        "docs/table-count-guideline.md#2",
+        "docs/table-count-guideline.md#3"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ROLLOUT-OPERATING-MODEL",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "短い実務ガイドに初動・権限・取得先・所有者予算・監視/取消担当・実停止/回復・保留条件を集約。利用にlabは不要。",
+      "references": [
+        "docs/table-count-guideline.md",
+        "README.md"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-SAMP-DEADLINE",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-SAMP-DEADLINE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "接続準備・SQL〜ROLLBACKの区間差、協調的制限、精度/予算/後始末を分離。条件付き標本の適用/失敗条件は現prototype仕様と校正へリンク。時間上限を厳密な無影響機構としない。",
+      "references": [
+        "docs/probability-count.md",
+        "docs/table-count-guideline.md#4",
+        "docs/table-count-guideline.md#6"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-SAMP-DOC-CONTRACT",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-SAMP-DOC-CONTRACT",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "接続準備・SQL〜ROLLBACKの区間差、協調的制限、精度/予算/後始末を分離。条件付き標本の適用/失敗条件は現prototype仕様と校正へリンク。時間上限を厳密な無影響機構としない。",
+      "references": [
+        "docs/probability-count.md",
+        "docs/table-count-guideline.md#4",
+        "docs/table-count-guideline.md#6"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-SAMP-EVIDENCE-DRIFT",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "現在の実務入口はガイド/校正。過去資料に履歴バナー、引用は固定snapshot、現在proofと過去失敗を区別。source/manifestは著者検証で照合。未見の査読閉鎖を主張しない。",
+      "references": [
+        "docs/table-count-calibration.md#5",
+        "docs/table-count-evidence.md",
+        "results/reviews/author-operational-guide-verification.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-SAMP-98-COMPARISON",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/SOL-SAMP-98-COMPARISON",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧98の追加拡張は現在の必須測定でない。代表105/48の新旧固定結果と小さなCOUNT/標本比較へ入口を移し、cache制御・普遍的被覆率/性能は未認定。旧98の技術的成功を主張しない。",
+      "references": [
+        "docs/probability-count.md",
+        "docs/table-count-calibration.md#4"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "originalSeverity": "high",
+      "history": "results/reviews/finding-register.json#findings/SOL-VALIDATION-RUN-CACHE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-VALIDATION-TIMER-TARGET",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧12番の診断全体は選択外で、再実験の合格を主張しない。現在の運用ではjobタグ/対象/アカウント/開始文脈を照合し、再利用IDを盲目的にKILLしない。選択labの取消と終了確認はownerの意味監査を参照。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "現在の実務入口はガイド/校正。過去資料に履歴バナー、引用は固定snapshot、現在proofと過去失敗を区別。source/manifestは著者検証で照合。未見の査読閉鎖を主張しない。",
+      "references": [
+        "docs/table-count-calibration.md#5",
+        "docs/table-count-evidence.md",
+        "results/reviews/author-operational-guide-verification.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-VALIDATION-TDE-CACHE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "無影響・全条件最速・cache/TDE因果倍率を主張しない。資源隔離/上限を先に確立、SLO違反前の停止値、疎/打切り窓と後続回復を区別。旧時計窓を性能根拠へ使わない。",
+      "references": [
+        "docs/table-count-guideline.md#3",
+        "docs/table-count-guideline.md#4",
+        "docs/table-count-calibration.md#4"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "無影響・全条件最速・cache/TDE因果倍率を主張しない。資源隔離/上限を先に確立、SLO違反前の停止値、疎/打切り窓と後続回復を区別。旧時計窓を性能根拠へ使わない。",
+      "references": [
+        "docs/table-count-guideline.md#3",
+        "docs/table-count-guideline.md#4",
+        "docs/table-count-calibration.md#4"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-FRONTIER-001",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-FRONTIER-001",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-FRONTIER-002",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-FRONTIER-002",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-FRONTIER-003",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-FRONTIER-003",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-FRONTIER-004",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/SOL-FRONTIER-004",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-PROTOCOL-001",
+      "originalSeverity": "high",
+      "history": "results/reviews/finding-register.json#findings/SOL-PROTOCOL-001",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧primary-scale/write-mixの全gridは現行推薦・既定allから除外。失敗/未完了を技術的成功へ変更しない。現在も重要な予算・未完了・取消/終了確認はガイド§3/4とowner proofの選択範囲で扱う。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "bench/nonlocking-scope.json",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-PROTOCOL-002",
+      "originalSeverity": "high",
+      "history": "results/reviews/finding-register.json#findings/SOL-PROTOCOL-002",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧primary-scale/write-mixの全gridは現行推薦・既定allから除外。失敗/未完了を技術的成功へ変更しない。現在も重要な予算・未完了・取消/終了確認はガイド§3/4とowner proofの選択範囲で扱う。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "bench/nonlocking-scope.json",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-PROTOCOL-003",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-PROTOCOL-003",
+      "authorDisposition": "superseded_by_explicit_user_scope",
+      "scopeOrCorrection": "旧primary-scale/write-mixの全gridは現行推薦・既定allから除外。失敗/未完了を技術的成功へ変更しない。現在も重要な予算・未完了・取消/終了確認はガイド§3/4とowner proofの選択範囲で扱う。",
+      "references": [
+        "docs/table-count-guideline.md#4",
+        "bench/nonlocking-scope.json",
+        "results/reviews/final-all-proof.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-WIDE-ERROR-001",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-WIDE-ERROR-001",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-WIDE-ERROR-002",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-WIDE-ERROR-002",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "選択範囲のfresh numeric exit0・成果物/依存source・未完了到着/単調時計・精度未達/期待上限・予期しない失敗と終了確認・最終整合/撤去をowner proof固定監査で区別。disabled計装を観測0としない。著者は測定コードを変更せず、owner確認と独立Solの閉鎖を同一視しない。",
+      "references": [
+        "results/reviews/final-all-proof.json",
+        "audit/README.md",
+        "docs/table-count-guideline.md#7"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-001",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ENCRYPTION-STATE-001",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "TDEサーバー鍵利用とclient seed/アプリ暗号化を区別。SQL上の単一整数PKで適用判定。thin100M/750k50/100列から100M80列TDEへ費用や精度を外挿しない。",
+      "references": [
+        "docs/table-count-guideline.md#5",
+        "docs/table-count-calibration.md#4",
+        "docs/probability-count.md"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-002",
+      "originalSeverity": "middle",
+      "history": "results/reviews/finding-register.json#findings/SOL-ENCRYPTION-STATE-002",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "TDEサーバー鍵利用とclient seed/アプリ暗号化を区別。SQL上の単一整数PKで適用判定。thin100M/750k50/100列から100M80列TDEへ費用や精度を外挿しない。",
+      "references": [
+        "docs/table-count-guideline.md#5",
+        "docs/table-count-calibration.md#4",
+        "docs/probability-count.md"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-003",
+      "originalSeverity": "low",
+      "history": "results/reviews/finding-register.json#findings/SOL-ENCRYPTION-STATE-003",
+      "authorDisposition": "submitted_correction_pending_independent_review",
+      "scopeOrCorrection": "現在の実務入口はガイド/校正。過去資料に履歴バナー、引用は固定snapshot、現在proofと過去失敗を区別。source/manifestは著者検証で照合。未見の査読閉鎖を主張しない。",
+      "references": [
+        "docs/table-count-calibration.md#5",
+        "docs/table-count-evidence.md",
+        "results/reviews/author-operational-guide-verification.json"
+      ],
+      "finalSolClosure": "pending; author does not decide independent closure"
+    }
+  ],
+  "rootObservations": [
+    {
+      "id": "ROOT-ALL-SEMANTIC-ERRORS",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-ALL-SEMANTIC-ERRORS",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-REVIEW-BUDGET-SCOPE",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-REVIEW-BUDGET-SCOPE",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-INTRA-ARM-BUDGET-PARTIAL",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-RUBY-RUNTIME",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-RUBY-RUNTIME",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-RAW-ARTIFACT-SIZE",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-RAW-ARTIFACT-SIZE",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-FAILED-ALL-SUMMARY",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-FAILED-ALL-SUMMARY",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    },
+    {
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "history": "results/reviews/finding-register.json#rootAuditObservations/ROOT-VM-CAPACITY-MAINTENANCE",
+      "authorDisposition": "refer_to_current_owner_proof_for_selected_scope_only",
+      "reference": "results/reviews/final-all-proof.json",
+      "limitation": "Historical optional protocols and past partial/failed runs are not retroactively passed; independent final review pending."
+    }
+  ],
+  "additionalCalibrationCorrection": "Restored/rebuilt table statistics and original production cached statistics must be separately identified. Compare matching generation/time and never transfer restored-statistics error to old production cache.",
+  "remainingGaps": [
+    "Two new independent final GPT-6.1 Sol sessions after this completed author session.",
+    "No production SLO, universal accuracy or fastest/zero-impact certification; explicitly unmeasured production conditions remain."
+  ]
+}

@@ -1,0 +1,1182 @@
+{
+  "when": {
+    "always": true
+  },
+  "payload": {
+    "workflowInput": {
+      "guidelinePath": "docs/table-count-guideline.md",
+      "detailPaths": [
+        "docs/table-count-evidence.md",
+        "docs/probability-count.md"
+      ],
+      "currentRevision": 13,
+      "reviewPaths": [
+        "results/reviews/sol-internal-rollout-review.json",
+        "results/reviews/sol-sampling-review.json",
+        "results/reviews/sol-validation-review.json",
+        "results/reviews/sol-frontier-review.json"
+      ],
+      "priorOriginalSession": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+      "reproductionProofPath": "results/reviews/final-all-proof.json",
+      "acceptanceCriteria": [
+        "GPT-6.1 Solのみを使用し、執筆と2つの査読を別の役割・セッションで実施する。未解決high/middleは0とし、異種モデルの独立性は主張しない。ラウンド上限を合格にしない。",
+        "未知の任意表で数%精度や本番無影響を無条件に保証しない。参考統計・条件付き確率推定・正確COUNTを区別し、精度と予算と後始末を別判定する",
+        "暗号化され内容不明の50〜100列表に具体的な経路と根拠を示す。TDEと列暗号化を区別する",
+        "cache/index/暗号化/条件漏れ/検証不備の査読を含め、主要結論ごとに根拠の適用範囲を確認する",
+        "本文数値はハッシュ付きの保持されたresults/reference配下へ対応。実験完了・精度達成・SLO合格を区別する",
+        "固定runnerが白紙DBからのmise run allを実施し、文書反映後に所有者が結果の意味と最終計測ソースの不変性を監査する。reproductionProofPathが無い間は完了としない",
+        "Latest user accepts about10% when few-percent is costly: compare3/5/10% accuracy-cost frontiers and exactCOUNT, show how conditions improve or worsen accuracy, and recommend methods under explicit error/freshness/service budgets."
+      ],
+      "constraints": [
+        "実データベース接続禁止。Composeのprimary/replicaとLabが起動するmatrixサーバーだけ",
+        "table dataをコミットしない。測定JSONを捏造・書換えしない",
+        "人が読む主文書は日本語・220行以内。詳細は分離したまま維持",
+        "commit/pushはワークフローから実施しない",
+        "測定と別の実験を重ねない。固定runnerと.lab.lockを使う",
+        "フィールドcold/warmはキャッシュ同等性を意味しない。暗号化の一律倍率を結論にしない",
+        "有限ラボで実施不能な本番条件は未計測と適用制限を明記し、無意味な追加実験を要求しない"
+      ],
+      "requestedWork": "件数も内容も分からない巨大MySQLテーブルで、暗号化され通常50列・最大100列程度という条件を含め、稼働サービスのDB performanceへの影響を最小限にして誤差数%の概数を得る最適な方法を調査・検証する。概数から小さいと判断して正確COUNTへ進む案と、その許可閾値の考え方も扱う。社内の不特定メンバー・サービスへ案内した際の疑問、不満、より良い案と、検証方法への疑問・条件漏れ・不備を敵対的に洗い出し解消する。 Latest steering: about10% error may be acceptable if few-percent is not attainable affordably; quantify conditions and identify the accuracy-performance frontier.",
+      "currentEvidence": [
+        "91修正版は3版で実行成功。ただし暗号化なし/ありのBP再読込量が違い、暗号処理倍率の因果比較は未成立。新コードの操作ラベルはafter_evict/immediate_repeat。master-key rotationのserver-event重複確認も追加済み、最終allで再計測する。",
+        "92は64観測が揃うが旧起動元の終了コード不明。statusはok=false/observations_complete=trueへ修正済み。最終allで正常終了を取り直す。",
+        "93初期化状態付き再試験と94replica全項目は正常終了。54表のANALYZE後NUM_ROWSはUninitializedで誤差集計から除外。メタ情報取得前の真値COUNTが状態を初期化する影響も検証設計として確認する。",
+        "0c遅延STOP復旧は正常終了。0d/0g〜0lの元レビュー要求が未解決。現在の完了状態と必要性を原文から確認する。",
+        "96/97は旧負荷生成器で48腕ずつ完了。新Workloadは未着手要求を保存し保存則を検査、dispatch/client実行時間を分離。reqwideにactual statement区間・trial raw samples・global arrival accountingを追加、親CPU3/負荷CPU2/DB0,1へ分離済み。新コードの再試験が必要。",
+        "98は修正後に7 fixture×5seedの35腕で正常終了。target25/precision-not-reached10。中程度欠番と密度偏りも含む。metadata→MDL取得→metadata再確認、query後/rollback後の期限判定、accuracy/budget/cleanup分類を修正。直近のDecimal判定とpreflight二重確認はセルフチェック済みで最終all再試験待ち。",
+        "12のTimer対象固定・cancel/join修正版が実DBで正常終了。数値exit_code=0、fingerprint/成果物hash保存。成功キャッシュの実再利用も12/98で確認済み。",
+        "P0 harness修正: 静的import依存グラフ、設定、immutable image digest、実image ID、成功終了コード、成果物hashでのみ再利用。失敗と旧入力は再実行。t_denseの検証はMAX(id)でなく本当のCOUNT(*)。allに5つのセルフチェックを追加。",
+        "全体のwhite allは未実行。resetはDB/生成結果を消しreference/reviewsだけ保持し、再利用はしない。元数値はresults/reference/20261107-observationsへ160 JSONとmanifest保存。最新samplingはresults/reference/20261107-fixed-samplingへcode/exit/statusと共に保存。",
+        "Root pre-final audit at results/reviews/pre-final-audit.json verifies historical hashes/local links and flags that experiments.py main currently does not propagate result.errors into exit status; final white-all proof must inspect semantic errors and intentional cancellation separately, not just process exit.",
+        "Root confirmed historical 3e/3f failed with OperationalError2013 on the superseded unbounded reqruns.write_mix_body design; reqmix.py explicitly documents its replacement but old wrappers still enter all. See ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS in completionAuditPath. Preserve old evidence and full write-mix hypothesis coverage, but fix or explicitly retire superseded invalid protocols before final all rather than accepting partial output.",
+        "Derived existing accuracy curves are in accuracyFrontierExistingEvidencePath, with source hashes. In this later58-fixture observation TABLE_ROWS expiry0 was57/58 within10% beforeANALYZE and55/58 afterANALYZE; do not overwrite the distinct initial corpus or call these production success probabilities. UUID sample-pages20/200/2000 had maxabs errors21.59/8.211/1.547%; uneven-row fixture20pages reached38.731%,200pages2.131%,2000pages2.812%. More sampling is not monotonic per run and ANALYZE is separate maintenance.",
+        "Existing checkpoint replay in accuracyFrontierExistingEvidencePath: uneven_density first recorded target bounds at3/5/10%=8192/2048/512 draws in all5seeds; moderate_gaps=2048/512/512; gaps/islands never meet even10%. These use the same predeclared simultaneous bands, not new post-hoc looks, and lack checkpoint elapsed/counter measurements. Do not infer runtimes or claim this replaces the new tolerance-cost experiment.",
+        "01a AND01b completed successfully with unchanged source and verified artifact hashes; immutable snapshot results/reference/20261107-wide-sampling. Each has20 static and36 service arms with consistent arrival accounting. Static no-index100-column COUNT6.8817-8.1966s vs sample0.7568-1.0313s; small-index COUNT0.0494-0.0723s vs sample1.1712-3.1946s. Under1s service budget,100-column sampling had6/6 exhausted without small index and3/6 exhausted with index. Do not call static speed an SLO pass.",
+        "Isolated3/5/10% comparison code has been prepared without changing running imports; see latestAccuracySteering. Syntax/diff checks and pure band/dependency checks pass; actual measurement is pending.",
+        "0d completed exit0,all sections present.0g completed exit0,all20arms/five repeats/windows present,no skipped arms or section errors. At10M rows,indexed-column updates310/s,256MB pool, statement_k18.758-26.480s,statement_pk0.719-1.254s,split_pk2.307-2.405s. This counters any blanket small-secondary-index rule under MVCC/write churn. Exact SQL forms/settings and physical reads must be interpreted; do not attribute the whole difference solely to index size. Growing immutable-source snapshot at primaryCoverageSnapshotPath. Other0h-0l still running.",
+        "Root fixed a concrete new-frontier failure-loss path discovered during the read-only review: record_sample persists the sample before comparison, skips comparison on unexpected sample failure, and persists a comparison failure without losing the sample. Pure regression uses actual function AST and failed fake connections; results/reviews/accuracy-frontier-failure-regression.json passes. New bench/test_accuracy_frontier.py should be added to lab.self_checks after current owner ends. The design-review immutable snapshot intentionally retains the pre-fix code; do not claim its final findings already closed without checking live correction.",
+        "Focused Sol design review session8 completed rejected,middle3/low1. Root already fixed001 failed-result persistence and002 statement-budget classification in isolated new module, with actual-function AST regressions.003 matrix teardown outcome propagation and004 disabled lock observations remain for author after current owner ends. Read sol-frontier-assessment.json; final reviewer decides closure, not root. Add newtest to self_checks only after owner ends.",
+        "Pipeline updated BEFORE queued launch: fixed runner now attempts white-database all, streaming log in preserved reviews; records source-before/after/exit candidate and immutable measurement snapshot. Integrate is documentation-only. Owner must still audit all scope and semantic outcomes and create final proof, but does not repeat an unchanged successful all only because documentation changed. Existing proof is archived before each new all attempt.",
+        "New bench/test_white_all_runner.rb tests actual fixed workflow script in isolated fake project, no DB. Success,nonzeroexit7,source mutation,stale proof archival,log/snapshot retention all pass; no automatic final proof. results/reviews/white-all-runner-regression.json. Add this hostRuby check to self_checks along with test_accuracy_frontier.py after owner ends.",
+        "Actual0h finished exit0/987s but ONLY 13 arms, with5planned PRIMARY/split repetitions in not_run_near_limit. Slow secondary COUNT195.570s then two300s interruptions crowded them out; no full20-arm success claim. See ROOT-INTRA-ARM-BUDGET-PARTIAL in completionAuditPath and immutable primaryCoverageSnapshotPath. Repair per-arm time allocation/ceiling with preserved hypothesis or report incomplete scope honestly before final all.",
+        "Reconciliation register merges duplicate stable IDs across original revision10 and4temporary reviews:28unique reviewer findings(high2,middle19,low7),36occurrences retained. Every closure remains pending current Sol verification, not root self-approval. See findingRegisterPath and originalReviewExportPath; historical Opus data is retained but new Opus approval is not required.",
+        "Owner batch is intentionally being stopped for proven time-allocation design defect, not treated as completed.0h lacks required PRIMARY repetitions;0j partial archived,0k/0l not yet run. See priorCoverageBatchOutcome and coverage-interruption.json. Fix reqscale allocation/ceiling or split while preserving hypothesis and minimum required repeats before your WHITE mise run all. Complete existing measurements remain preserved. Current root will terminate only this owned local experiment and confirm quiescence before measurement runner. Author may edit after owner exits; do not create a second writer/experiment."
+      ],
+      "additionalExperimentRequired": {
+        "purpose": "確率的推定を50/100列表という実対象へ対応させる。同じコードで整数PK・TDE・小さい索引有無・indexed/nonindexed UPDATEを比較し、精度とコストと負荷を別判定する。",
+        "implementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+        "protocol": "順序交替、対照、warmup/回復の明示、actual method区間と広いtrialの区別、予定数保存則・unfinished/censoredを保存。固定乱数は再現用であり本番信頼度の根拠ではない。ホストcacheは未制御。短窓からSLO合格や無影響を認定しない。",
+        "coverage": "少なくとも100列TDEについて、小さい索引があればexact COUNTが勝つ条件と、索引なしでbounded samplingが負荷/読取量を減らせるか、索引更新で何が変わるかを確認する。service負荷なしの精度/コスト比較とservice負荷中の診断を区別する。",
+        "budget": "必要なら仮説を変えず複数scriptへ分割。timeout/guardの部分結果を完走としない。追加・変更したコードのセルフチェックも更新する。",
+        "currentImplementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate."
+      },
+      "phaseControl": "After active coverage owner exits: author fixes code/protocols, fixed lab-runner runs white-database mise run all (no aggregate skip budget,12h workflow ceiling,20min per requested script), integrate edits documentation only. Stop after3steps. Owner audits semantic completeness and unchanged final benchmark source, creates final-all-proof.json, then resumes two Sol review passes. Repeat all only if benchmark source/configuration changes or real failures require it.",
+      "modelPolicy": "User explicitly instructed on 2026-11-07: Riela must use GPT-6.1 Sol only. No Opus step or Opus approval is required.",
+      "completionAuditPath": "results/reviews/pre-final-audit.json",
+      "latestAccuracySteering": {
+        "userInstruction": "数%に収まらなければ10%程度でもよい。どの条件で精度がどれくらい上がる/下がるかを知り、そのうえで最高精度でperformance最大の件数取得方法を知りたい。",
+        "interpretation": "Compare accuracy, elapsed time, read volume and service impact rather than require only3%. Include exactCOUNT at0% error. Choose the most favorable method within the accepted error, freshness and service budget;10% is not an unconditional guarantee for arbitrary unknown tables.",
+        "requiredComparison": [
+          "Metadata realized errors and freshness; no guaranteed error bound",
+          "Conditional cell sampling at3%,5%,10% relative-error targets with matched confidence, precision failures, realized error, runtime and read volume",
+          "ExactCOUNT runtime/reads/impact, including cases where a small index beats sampling",
+          "50/100 columns,TDE,index presence,key gaps/density skew,concurrent changes,MVCC and caches; separate measured from unmeasured"
+        ],
+        "newExperiment": "Review and run the isolated implementation named in implementation after the current owner ends. Retain hypotheses and proper confidence/look allocation. Repair demonstrated issues or split if20min is insufficient; do not duplicate experiments or infer unobserved service effects.",
+        "reporting": "Give a compact condition-by-method comparison with accuracy/freshness/cost/limitations and recommended paths. Distinguish interval target from realized error and from global confidence. Relaxed accuracy does not prove no service impact.",
+        "conditionMechanisms": "Distinguish effects on statistical accuracy, cost under a fixed budget, and freshness. Key-space sparsity/cell-density variance affect sampling interval convergence; page-level row-size/density heterogeneity, stats sample pages and staleness affect metadata error. A small index, cache, TDE, row width and MVCC mainly change read/CPU/time cost and therefore attainable precision within a fixed budget; they do not make a completed snapshotCOUNT approximate. Concurrent writes/replica lag can change the represented time/population and must not be conflated with estimator error. More sample pages/ANALYZE does not guarantee monotonic accuracy and has separate maintenance impact.",
+        "additionalServicePriority": "Because actual100-column3%-target sampling exhausted the1s service budget in all6 no-small-index arms, include a minimal bounded100-column TDE under-load comparison at relaxed10% (plus matched control and existing3% evidence). Test whether reduced draws actually improve budget/precision outcomes, rather than infer from static checkpoints.5% can be static if a full service factorial would add little. Split scripts within20min limits; avoid an exhaustive redundant factorial.",
+        "implementation": "Root added isolated bench/accuracy_frontier.py plus01c-ACCURACY-COST and01d-ACCURACY-SERVICE-100 (.versions8.4.13/.encrypted/.outputs). No active imported source was edited. Code is prepared, NOT DB-executed. Review/fix these scripts rather than duplicate.01c uses seven fixtures xfive seeds x3targets, fullCOUNT paired comparisons, target-specific predeclared looks and same alpha.01d uses100-column TDE with control/exact/3%/10%, index absent/present, indexed/nonindexed writes x3repeats=48arms.5% service is explicitly unmeasured; static includes it. Pure arithmetic verifies each first look can meet its target at zero variance; static closure includes new module and sampling dependencies. Both new wrappers honor the review-only aggregate guard (exit3, never success) and declare their required .outputs. Final all has no aggregate cap."
+      },
+      "accuracyFrontierExistingEvidencePath": "results/reviews/accuracy-frontier-existing-evidence.json",
+      "wideSamplingSnapshotPath": "results/reference/20261107-wide-sampling",
+      "frontierDesignReview": {
+        "workflow": "temp-table-count-frontier-sol",
+        "log": "results/reviews/sol-frontier-run.log",
+        "resultPath": "results/reviews/sol-frontier-review.json",
+        "snapshot": "results/reference/20261107-frontier-design",
+        "status": "completed,rejected middle3/low1 on immutable pre-fix design",
+        "assessmentPath": "results/reviews/sol-frontier-assessment.json"
+      },
+      "primaryCoverageSnapshotPath": "results/reference/20261107-primary-coverage",
+      "reproductionCandidatePath": "results/reviews/final-all-candidate.json",
+      "findingRegisterPath": "results/reviews/finding-register.json",
+      "originalReviewExportPath": "results/reviews/original-revision10-reviews.json",
+      "priorCoverageBatchOutcome": {
+        "status": "interruption_requested",
+        "requestedAt": "2026-11-07T03:49:14.764359+00:00",
+        "ownerPid": 40467,
+        "ownerBirth": "Sat Nov  7 11:45:33 2026",
+        "reason": "Confirmed ROOT-INTRA-ARM-BUDGET-PARTIAL:300s secondary scans crowd out required fast-arm repetitions. Preserve scope, fix protocol before final all, avoid continuing known defective allocation.",
+        "partialExperiment": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+        "partialSnapshot": "results/reference/20261107-primary-coverage/results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct.json",
+        "notYetRun": [
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+          "0l-EXP-O10-NOPK-FORCE"
+        ],
+        "requiredRerun": [
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+          "0l-EXP-O10-NOPK-FORCE"
+        ],
+        "completeExperiments": [
+          "01a-PROB-WIDE-50",
+          "01b-PROB-WIDE-100",
+          "0d-EXP-O10-INDEXED-100-STALL",
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct"
+        ],
+        "coverageIsComplete": false
+      }
+    },
+    "revision": 14,
+    "guidelinePath": "docs/table-count-guideline.md",
+    "guidelineSha256": "4200abea369a0c2c1f00db1e8544f72204123d26edfa45adb13583bdaefea77e",
+    "authorResponses": [
+      {
+        "id": "FIND-O10-PRIMARY-SCALE",
+        "status": "unresolved",
+        "sections": "§4、詳細§11/13",
+        "response": "reqscaleをcore/secondary×3反復へ分割し、300秒/150秒の上限・元の仮説を維持。二度の上限による省略を廃止。修正版30本の実測と全範囲監査が未完了。",
+        "evidence": [
+          "bench/requested/primary-scale-plan.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-O10-INDEXED-100-STALL",
+        "status": "unresolved",
+        "sections": "詳細§3/11/13",
+        "response": "旧p95/p99と原因未解明を維持。正常終了した0dの保存観測と修正後white-allを区別。原因の断定・最終比較はrunner後。",
+        "evidence": [
+          "results/reference/20261107-primary-coverage/manifest.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-O10-STEP-CEILING",
+        "status": "unresolved",
+        "sections": "詳細SQL 4、§11",
+        "response": "max_rowsの実装を維持。3a/0e/0fの修正後white-allと完走内訳の更新が必要。",
+        "evidence": [
+          "bench/countlib.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-O10-NOPK-FORCE",
+        "status": "unresolved",
+        "sections": "§4、詳細§11",
+        "response": "PRIMARYがない場合は強制しない分岐を明示。0lでIGNORE INDEX・昇格unique・既定を比較するが未実行。",
+        "evidence": [
+          "bench/requested/0l-EXP-O10-NOPK-FORCE.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-O10-ENCRYPTED-STALE",
+        "status": "fixed",
+        "sections": "§3、詳細§6/11/13",
+        "response": "90/91/92の実ファイルへ対応。91の3版正常終了、92の終了コード不明、キャッシュ非同等を区別し、暗号処理倍率にしない。",
+        "evidence": [
+          "results/reference/20261107-observations/manifest.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-O10-P100-BOLD",
+        "status": "fixed",
+        "sections": "詳細§3/10",
+        "response": "100/sのPRIMARY最速強調は除去済み。範囲が重なり差未確立と明示し、800/sの限定結果と分離。",
+        "evidence": [
+          "docs/table-count-evidence.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-DOC-01",
+        "status": "fixed",
+        "sections": "環境表、詳細§12",
+        "response": "仕様一覧全体の原文確認済みという表示を撤回。個別の未確認を明示。Web検索はしていない。",
+        "evidence": [
+          "docs/table-count-evidence.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+        "status": "fixed",
+        "sections": "§6、詳細§7",
+        "response": "STOP要求の遅効・未確認・引継ぎ後の復旧を分離。0cの保存観測を保持し、停止を観測しないまま復旧成功としない。",
+        "evidence": [
+          "results/reference/20261107-observations/requested_0c-EXP-S8-REPLICA-STOP-LONG.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-ROLLOUT-ACCURACY",
+        "status": "unresolved",
+        "sections": "冒頭、§1/2/4",
+        "response": "参考統計・条件付き推定・正確値を分離。10%許容を反映した判断表と条件比較を追加。01c/01dの精度・時間・読取量・実負荷比較は固定runner待ち。",
+        "evidence": [
+          "bench/accuracy_frontier.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+        "status": "fixed",
+        "sections": "§4",
+        "response": "初回の予算、tail・CPU/I/O・回復・中断確認、統計小値を許可閾値にしない条件を維持。1000msは安全既定値ではない。",
+        "evidence": [
+          "docs/table-count-guideline.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+        "status": "unresolved",
+        "sections": "§3、詳細§13",
+        "response": "TDE/列暗号化/ストレージ暗号化、索引バイト/MVCC/外部LOBを分離。01a/01bを保存観測として限定採用。現コード96/97と01dの実負荷検証待ち。",
+        "evidence": [
+          "results/reference/20261107-wide-sampling/manifest.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+        "status": "fixed",
+        "sections": "§2",
+        "response": "メタ情報の精度・鮮度・権限・待機・replicaを比較。Uninitializedを誤差0/100%へ混ぜず、初回/後続コーパスも分離。94の全項目保存観測へ対応。",
+        "evidence": [
+          "results/reference/20261107-observations/requested_metadata_on_replica.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-ROLLOUT-ANALYZE-COST",
+        "status": "fixed",
+        "sections": "§2",
+        "response": "初回参照へANALYZEを加えず、権限/I/O/待機/plan/binlog/replica処理を別保守とする。ページ増量の単調改善も主張しない。",
+        "evidence": [
+          "docs/table-count-guideline.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-ROLLOUT-OPERATING-MODEL",
+        "status": "fixed",
+        "sections": "§1/4/6、詳細§10",
+        "response": "責任者・停止権限・共有資源・DDL/バックアップ・復旧担当を導入票で確認。通常replicaと所有者による適用停止を詳細側も分離。",
+        "evidence": [
+          "docs/table-count-guideline.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-SAMP-DEADLINE",
+        "status": "fixed",
+        "sections": "確率推定仕様、§2",
+        "response": "前後・ROLLBACK後の期限、Decimal判定、attempted/completed/checkpoint、accuracy/budget/cleanupを分離する現コードを維持。協調的制限で厳密な終了時刻保証ではない。",
+        "evidence": [
+          "bench/test_sampling_contract.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-SAMP-DOC-CONTRACT",
+        "status": "fixed",
+        "sections": "§2、確率推定仕様",
+        "response": "整数単一PK・一様復元セル・同一snapshot/MDL・疎領域の未達・呼出しごとのαを明示。本番既定にせず、複数表/再試行の全体信頼度を別設計とする。",
+        "evidence": [
+          "docs/probability-count.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-SAMP-EVIDENCE-DRIFT",
+        "status": "fixed",
+        "sections": "§1/4/6、詳細§1/7/10/11",
+        "response": "replicaは通常適用中。停止・取得先変更・再試行は所有者と累積予算の下だけとし、DDL競合中に開始しない。92/93/94と0dの状態も同期。",
+        "evidence": [
+          "docs/table-count-evidence.md"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-SAMP-98-COMPARISON",
+        "status": "unresolved",
+        "sections": "§2、詳細§13、確率推定仕様",
+        "response": "固定98の全status/コード/ログ/終了/cleanupを保持。継承cacheを開示し、完了と精度を分離。01c/01dと現コードwhite-allの意味上の監査が残る。",
+        "evidence": [
+          "results/reference/20261107-fixed-sampling/manifest.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-VALIDATION-RUN-CACHE",
+        "status": "unresolved",
+        "sections": "§7、README、runner",
+        "response": "依存・設定・digest/実image ID・成功exit・成果物SHAによる再利用を維持。撤去記録もartifactへ追加。白紙allと最終proofが未完了。",
+        "evidence": [
+          "lab.rb"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-VALIDATION-TIMER-TARGET",
+        "status": "fixed",
+        "sections": "詳細§8、実験12",
+        "response": "KILL対象ID固定とcancel/join修正版、保存済みexit0を維持。test_kill_timerはself_checksに残し、白紙allで再検証する。",
+        "evidence": [
+          "bench/test_kill_timer.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+        "status": "fixed",
+        "sections": "§3/7、詳細§13",
+        "response": "保持済み230ファイルのSHAを確認。92の64観測と終了コード不明は維持。新規white-all候補/manifestと最終proofを分離。",
+        "evidence": [
+          "results/reviews/author-revision14-verification.json"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-VALIDATION-TDE-CACHE",
+        "status": "fixed",
+        "sections": "§3、詳細§11/13",
+        "response": "after_evict/immediate_repeatの操作ラベルとBP/hostcache非同等を維持し、一律TDE倍率を主張しない。因果倍率用の追加実験は条件付き要求として保留。",
+        "evidence": [
+          "bench/requested/91-encrypted-count.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+        "status": "unresolved",
+        "sections": "§4、詳細§13、reqscale/reqwide",
+        "response": "修正Workloadを維持し、reqscaleにもraw samplesとglobal accountingを保存。予定数・未着手・未完了を落とさない現コードでのwhite-allが必要。",
+        "evidence": [
+          "bench/lablib.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+        "status": "unresolved",
+        "sections": "§4/7、詳細§13",
+        "response": "無影響の認定はしない。static速度・精度達成・service予算・回復・cleanupを分離。96/97/01dの再計測と所有者監査待ち。",
+        "evidence": [
+          "bench/reqwide.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-FRONTIER-001",
+        "status": "fixed",
+        "sections": "accuracy_frontier.record_sample",
+        "response": "比較COUNT前に識別情報付きsampleを保存するroot修正を確認。比較失敗も残し、想定外sample失敗後に接続を再利用しない。実関数AST回帰をself_checksへ登録。",
+        "evidence": [
+          "bench/test_accuracy_frontier.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-FRONTIER-002",
+        "status": "fixed",
+        "sections": "accuracy_frontier.sample_with_budgets",
+        "response": "3024かつROLLBACK確認だけを文予算到達へ分類。生status/errnoと全体budgetを保持し、未知1317やcleanup失敗は正常化しない。回帰の実行はrunner待ち。",
+        "evidence": [
+          "bench/accuracy_frontier.py"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-FRONTIER-003",
+        "status": "fixed",
+        "sections": "Lab.with_version/teardown_version",
+        "response": "コンテナ撤去・不存在確認・データ除去を別記録へ保存。失敗/確認不能はrun.ok=falseに伝播し、既知の子exit0は失わない。snapshot/cacheにも撤去記録を保持。fake Dockerの回帰を追加、未実行。",
+        "evidence": [
+          "bench/test_matrix_cleanup.rb"
+        ],
+        "reviewerClosure": "pending"
+      },
+      {
+        "id": "SOL-FRONTIER-004",
+        "status": "fixed",
+        "sections": "Sampler.window、詳細§13",
+        "response": "disabled/欠測はnull、観測能力と有効sample数を保存。実際に観測した0と区別。旧data_locks=Falseの0は未測定と明記。回帰を追加、未実行。",
+        "evidence": [
+          "bench/test_protocol_integrity.py"
+        ],
+        "reviewerClosure": "pending"
+      }
+    ],
+    "findings": [
+      {
+        "id": "FIND-O10-PRIMARY-SCALE",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 0,
+            "section": "§1 結論の表と判断フロー, §3 書き込みの形を変えると, §7 延長の条件, §10"
+          },
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 0,
+            "section": "§1 結論・判断フロー、§3 書き込みの形、§7 延長の条件、§10"
+          }
+        ]
+      },
+      {
+        "id": "FIND-O10-INDEXED-100-STALL",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 1,
+            "section": "§1, §3 書き込みの形を変えると"
+          },
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 1,
+            "section": "§1、§3 書き込みの形、§8 停止条件"
+          }
+        ]
+      },
+      {
+        "id": "FIND-O10-STEP-CEILING",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 2,
+            "section": "§1 SQL 4 規則 4"
+          },
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 3,
+            "section": "§1 SQL 4 規則4、§3 完走数"
+          }
+        ]
+      },
+      {
+        "id": "FIND-O10-NOPK-FORCE",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 3,
+            "section": "§1 判断フロー, §7 延長の条件, §6 t_nopk"
+          },
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 4,
+            "section": "§1 判断フロー、§6 主キーなし、§7"
+          }
+        ]
+      },
+      {
+        "id": "FIND-O10-ENCRYPTED-STALE",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 4,
+            "section": "§11 item 3, §1 ヘッダの出典表記, §6 幅広い行"
+          },
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 5,
+            "section": "出典表記、§6 幅広い行、§11"
+          }
+        ]
+      },
+      {
+        "id": "FIND-O10-P100-BOLD",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 5,
+            "section": "§3 書き込みの形を変えると, §10"
+          },
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 6,
+            "section": "§3 書き込みの形、§10"
+          }
+        ]
+      },
+      {
+        "id": "FIND-DOC-01",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+            "findingIndex": 6,
+            "section": "§12"
+          }
+        ]
+      },
+      {
+        "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+            "findingIndex": 2,
+            "section": "§7 レプリカの失敗復旧、bench/countlib.py restore_applier"
+          }
+        ]
+      },
+      {
+        "id": "SOL-ROLLOUT-ACCURACY",
+        "severity": "high",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-internal-rollout-review.json",
+            "findingIndex": 0,
+            "section": "§1 結論・判断フロー、§4 概数の精度、§10"
+          }
+        ]
+      },
+      {
+        "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-internal-rollout-review.json",
+            "findingIndex": 1,
+            "section": "§1 SQL 2、§7 延長の条件、§8 停止条件"
+          }
+        ]
+      },
+      {
+        "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-internal-rollout-review.json",
+            "findingIndex": 2,
+            "section": "§2 対象環境、§6 行と列、§11 暗号化された表"
+          }
+        ]
+      },
+      {
+        "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-internal-rollout-review.json",
+            "findingIndex": 3,
+            "section": "§4 概数の精度、§8 権限、§10 メタ情報候補"
+          }
+        ]
+      },
+      {
+        "id": "SOL-ROLLOUT-ANALYZE-COST",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-internal-rollout-review.json",
+            "findingIndex": 4,
+            "section": "§4 ANALYZEの説明、§8 権限、§10 統計候補"
+          }
+        ]
+      },
+      {
+        "id": "SOL-ROLLOUT-OPERATING-MODEL",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-internal-rollout-review.json",
+            "findingIndex": 5,
+            "section": "§1 コピー用SQL、§7 レプリカ、§8 監視・停止・再開"
+          }
+        ]
+      },
+      {
+        "id": "SOL-SAMP-DEADLINE",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-sampling-review.json",
+            "findingIndex": 0,
+            "section": "bench/samplinglib.py:31-40,49-70"
+          },
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 6,
+            "section": "bench/samplinglib.py sample"
+          }
+        ]
+      },
+      {
+        "id": "SOL-SAMP-DOC-CONTRACT",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-sampling-review.json",
+            "findingIndex": 1,
+            "section": "docs/table-count-guideline.md:13-20,119-121,150-155"
+          }
+        ]
+      },
+      {
+        "id": "SOL-SAMP-EVIDENCE-DRIFT",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-sampling-review.json",
+            "findingIndex": 2,
+            "section": "docs/table-count-evidence.md:69-71,88,867,872"
+          },
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 7,
+            "section": "詳細§1、§7、実行時の状態一覧、§10〜11"
+          }
+        ]
+      },
+      {
+        "id": "SOL-SAMP-98-COMPARISON",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-sampling-review.json",
+            "findingIndex": 3,
+            "section": "bench/requested/98-stratified-sampling.py:43-73; lab.rb:70-76,154-162"
+          }
+        ]
+      },
+      {
+        "id": "SOL-VALIDATION-RUN-CACHE",
+        "severity": "high",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 0,
+            "section": "lab.rb requested、README.md 再現手順"
+          }
+        ]
+      },
+      {
+        "id": "SOL-VALIDATION-TIMER-TARGET",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 1,
+            "section": "bench/requested/12-EXP-6.py session_limit_and_lost_hint"
+          }
+        ]
+      },
+      {
+        "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 2,
+            "section": "lab.rb reset、参考結果の保存、92の成功状態"
+          }
+        ]
+      },
+      {
+        "id": "SOL-VALIDATION-TDE-CACHE",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 3,
+            "section": "91のcold/warm比較、詳細§11の公平比較という説明"
+          }
+        ]
+      },
+      {
+        "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 4,
+            "section": "bench/lablib.py Workload"
+          }
+        ]
+      },
+      {
+        "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-validation-review.json",
+            "findingIndex": 5,
+            "section": "詳細§3の性能表現、reqwide.pyの評価範囲"
+          }
+        ]
+      },
+      {
+        "id": "SOL-FRONTIER-001",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-frontier-review.json",
+            "findingIndex": 0,
+            "section": "01c：失敗結果の永続化"
+          }
+        ]
+      },
+      {
+        "id": "SOL-FRONTIER-002",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-frontier-review.json",
+            "findingIndex": 1,
+            "section": "01d：意図した問い合わせ上限と後続アーム"
+          }
+        ]
+      },
+      {
+        "id": "SOL-FRONTIER-003",
+        "severity": "middle",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-frontier-review.json",
+            "findingIndex": 2,
+            "section": "実験完了と検証環境の後始末"
+          }
+        ]
+      },
+      {
+        "id": "SOL-FRONTIER-004",
+        "severity": "low",
+        "status": "pending_final_sol_review",
+        "occurrences": [
+          {
+            "source": "results/reviews/sol-frontier-review.json",
+            "findingIndex": 3,
+            "section": "サービス観測の未計測値"
+          }
+        ]
+      }
+    ],
+    "requestedExperiments": [
+      {
+        "id": "EXP-O10-PRIMARY-SCALE",
+        "status": "prepared_requires_white_all",
+        "scriptsPlan": "bench/requested/primary-scale-plan.json",
+        "minimumRepeats": 3,
+        "partitions": 30,
+        "historicalCoverage": "0g/0i complete;0h incomplete;0j interrupted;0k not run"
+      },
+      {
+        "id": "EXP-O10-INDEXED-100-STALL",
+        "status": "historical_observation_preserved_requires_current_white_all",
+        "scripts": [
+          "bench/requested/0d-EXP-O10-INDEXED-100-STALL.py"
+        ]
+      },
+      {
+        "id": "EXP-O10-ROW-CEILING",
+        "status": "prepared_requires_white_all",
+        "scripts": [
+          "bench/requested/0e-EXP-O10-ROW-CEILING-indexed-800.py",
+          "bench/requested/0f-EXP-O10-ROW-CEILING-uniform-800.py",
+          "bench/requested/3a-EXP-O6-LOOP-RULES.py"
+        ]
+      },
+      {
+        "id": "EXP-O10-NOPK-FORCE",
+        "status": "not_measured_requires_white_all",
+        "scripts": [
+          "bench/requested/0l-EXP-O10-NOPK-FORCE.py"
+        ]
+      },
+      {
+        "id": "SOL-FRONTIER-EXP-01",
+        "status": "prepared_existing_implementation_not_duplicated",
+        "scripts": [
+          "bench/requested/01c-ACCURACY-COST.py"
+        ],
+        "scope": "7 fixtures×5 seeds×3 targets; exact COUNT paired"
+      },
+      {
+        "id": "SOL-FRONTIER-EXP-02",
+        "status": "prepared_existing_implementation_not_duplicated",
+        "scripts": [
+          "bench/requested/01d-ACCURACY-SERVICE-100.py"
+        ],
+        "scope": "48 control/exact/3%/10% arms;5% service explicitly unmeasured"
+      },
+      {
+        "id": "SOL-EXP-FINAL-REPRODUCTION",
+        "status": "pending_fixed_runner_then_owner_audit",
+        "candidatePath": "results/reviews/final-all-candidate.json",
+        "proofPath": "results/reviews/final-all-proof.json",
+        "proofExists": false
+      },
+      {
+        "id": "SOL-EXP-HARNESS-PURE",
+        "status": "self_checks_registered_not_executed_by_author",
+        "scripts": [
+          "bench/test_accuracy_frontier.py",
+          "bench/test_protocol_integrity.py",
+          "bench/test_matrix_cleanup.rb",
+          "bench/test_white_all_runner.rb"
+        ]
+      },
+      {
+        "id": "SOL-EXP-TDE-RESIDENCY",
+        "status": "conditional_not_required_without_causal_multiplier",
+        "reason": "キャッシュ同等性・暗号処理倍率を主張しないため、条件付き追加実験を起動しない。"
+      },
+      {
+        "id": "preserved-all-reviewer-requests",
+        "status": "retained_verbatim_in_export",
+        "path": "results/reviews/author-revision14-preserved-reviews.json",
+        "sha256": "136affd531f88ac7d7e52a53e768e5ef08f2d49a80eed42c2fac3282462d3c61",
+        "scope": "Original revision10 and every request in four current Sol review payloads, including closed/conditional requests and all discussion questions."
+      }
+    ],
+    "experimentsWritten": [
+      {
+        "id": "EXP-O10-PRIMARY-SCALE",
+        "plan": "bench/requested/primary-scale-plan.json",
+        "files": [
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-core-r2",
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-core-r3",
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r1",
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r2",
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r3",
+          "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-core-r2",
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-core-r3",
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r1",
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r2",
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r3",
+          "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-core-r2",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-core-r3",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r1",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r2",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r3",
+          "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-core-r2",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-core-r3",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r1",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r2",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r3",
+          "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-core-r2",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-core-r3",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r1",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r2",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r3",
+          "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m"
+        ],
+        "implementation": "bench/reqscale.py",
+        "status": "written_not_DB_executed"
+      },
+      {
+        "id": "protocol-retirement",
+        "path": "bench/requested/retired-protocols.json",
+        "status": "retired_3e_3f_preserving_sources_and_hypotheses"
+      },
+      {
+        "id": "frontier-and-harness-self-checks",
+        "status": "registered_not_executed",
+        "files": [
+          "bench/test_accuracy_frontier.py",
+          "bench/test_protocol_integrity.py",
+          "bench/test_matrix_cleanup.rb",
+          "bench/test_white_all_runner.rb"
+        ]
+      }
+    ],
+    "experimentsRun": [],
+    "discussionHistory": [
+      {
+        "revision": 1,
+        "role": "history",
+        "summary": "Revisions 1 to 3 are in results/review-state-before-experiments.json. Revisions 4 to 9 are in results/workflow-run2.log."
+      },
+      {
+        "revision": 10,
+        "role": "author",
+        "summary": "Integrated the third lab run. Data intact; 18 of 19 scripts succeeded. Main change: FORCE INDEX (PRIMARY) moved from rejected to conditional, because under scattered writes the secondary-index statement hit its 120 s limit in 4/4 runs while PRIMARY finished 8/8. Under writes that do not touch the index, the earlier result stands. Also: the default parallelism is kept for PK-only tables, a client timeout does not stop the server statement, the ENUM guard, replica STOP failure and channel gate are measured, type results now cover all 5 versions, and the catalog is re-based on the re-run of script 10. New low finding: the step ceiling stops shrunken walks early. Reviewers decide closure."
+      },
+      {
+        "revision": 10,
+        "role": "opus",
+        "summary": "Rejected. The write-mix redesign is good, its numbers match, and FIND-O6-WRITE-SHAPE-01 closes. Two middle items replace it. FIND-O10-PRIMARY-SCALE answers the author's question: no, adopting FORCE PRIMARY is not shown beyond a 2 GB table near lab saturation, and at 100 writes/s the fixed tolerance is not met against k. FIND-O10-INDEXED-100-STALL: an unexplained 66.8 s split and a whole-run write p95 of 1646.57 ms at 100 writes/s are missing from the text. On 91: encrypted results now exist from a run outside this workflow, so §11 is stale; I would not make them decisive, since encrypted tables are out of scope, but the owner should decide and confirm that run is finished. Scripts 90, 91 and 92 are still of unknown origin to me."
+      },
+      {
+        "revision": 10,
+        "role": "sol",
+        "summary": "Rejected。digest一致。新しいwrite-mixの実行と数値、現行カタログ51表一致、全5版の型、ENUM guard、複数チャネル拒否、1205を独立確認した。Opusのmiddle 2件を確認し、低い速度でのPRIMARY優位の表示も訂正が必要とした。STOP失敗はgrace内の復旧しか測っておらず、現行restore_applierが停止を観測しないままrestored=trueを返すためFIND-S8-REPLICA-STOP-FAILURE-01を再開した。公式文書の裏付けは前回と今回のSol原文確認で成立しFIND-DOC-01は閉鎖。後発manual-91の完結成功ログは確認したが、実行所有者や別PIDの現在状態は断定しない。DB接続・変更・委譲はしていない。"
+      },
+      {
+        "revision": 13,
+        "role": "preserved-review-history",
+        "summary": "現在のSol rollout/sampling/validation/frontier査読と28件の統合台帳を引き継ぐ。旧Opus記録は履歴だけで、新規承認は要求しない。",
+        "evidence": [
+          "results/reviews/finding-register.json",
+          "results/reviews/author-revision14-preserved-reviews.json"
+        ]
+      },
+      {
+        "revision": 14,
+        "role": "author",
+        "summary": "DB接続・実験・テスト実行・委譲・別workflow起動なし。旧所有者中断ログと解放済みlockを確認後、reqscaleを30本へ分割して各方式3反復と300/150秒上限を維持。旧3e/3fをSHA付き引退台帳へ移し、matrix撤去・無効lock観測・semantic exitを修正。主文書206行。white-all、文書反映後監査、最終proofと別Sol査読は未完了。",
+        "evidence": [
+          "results/reviews/author-revision14-verification.json",
+          "bench/requested/primary-scale-plan.json"
+        ]
+      }
+    ],
+    "unresolvedQuestions": [
+      "固定runnerの白紙mise run allで全範囲・精度・予算・後始末とsection_errorsを確認する。",
+      "01c/01dの3/5/10%比較を測定し、10%緩和による実負荷改善を推測で補わない。",
+      "integrateはdocumentation-only。その後所有者が意味と最終計測ソース不変性を監査しfinal-all-proof.jsonを作る。proofは現在存在しない。",
+      "全28findingの閉鎖は別セッションのSol査読が決める。high/middleゼロ・合格は未達。",
+      "仕様の原文・サポート期限の未確認項目はSol査読へ残す。"
+    ],
+    "reviewEvidence": [
+      "results/reviews/author-revision14-verification.json",
+      "results/reviews/author-revision14-verification.log",
+      "results/reviews/author-revision14-preserved-reviews.json",
+      "results/reference/20261107-author-r14/manifest.json",
+      "results/reference/20261107-wide-sampling/manifest.json",
+      "results/reference/20261107-primary-coverage/manifest.json",
+      "bench/requested/primary-scale-plan.json",
+      "bench/requested/retired-protocols.json"
+    ],
+    "reviewQuestionResponses": [
+      {
+        "topic": "betterMethods",
+        "disposition": "adopt_or_conditional",
+        "outcome": "参考統計を入口、条件付きセル標本・exact COUNTを精度/鮮度/負荷予算で比較。KL境界は採用せず、現行境界と3/5/10%比較を01c/01dで検証。"
+      },
+      {
+        "topic": "designCoverage",
+        "disposition": "document_and_measure_named_gaps",
+        "outcome": "詳細§6の設計カタログを維持。no-PKは0l、規模/書込の交差は分割reqscale、TDE50/100列は01a/01b/96/97/01d。有限ラボから任意表への保証をしない。"
+      },
+      {
+        "topic": "omissions",
+        "disposition": "fixed_and_pending_measurements_separated",
+        "outcome": "cache持越し・未初期化統計・未着手arrival・実区間/広いtrial・失敗/打切り・撤去・white-all証拠を区別。省略した反復を成功としない。"
+      },
+      {
+        "topic": "lockFactors",
+        "disposition": "adopt",
+        "outcome": "通常SELECTとINSERT SELECT等を分離。EXPLAINのkeyを実内部読取の証明にせず、MDL/FK/分離レベル/停止終了確認を詳細へ残す。"
+      },
+      {
+        "topic": "fastCount",
+        "disposition": "conditional_frontier",
+        "outcome": "小索引があればexactが標本より安い保存観測あり。更新/MVCCではPRIMARYが速い反例もある。二つの打切り結果から勝者を選ばない。"
+      },
+      {
+        "topic": "otherCandidates",
+        "disposition": "explicit_conditions",
+        "outcome": "CDC/カウンタ/確定範囲再利用/隔離復元は初期整合性と運用費次第。索引追加・複数接続・並列read設定は限定候補。PK span、操作回数差分、histogram/n_diff_pfxを未知の絶対件数の保証にしない。"
+      }
+    ],
+    "verification": {
+      "revision": 14,
+      "createdAt": "2026-11-07T04:01:24.089111+00:00",
+      "ok": true,
+      "exitCode": 0,
+      "log": "results/reviews/author-revision14-verification.log",
+      "logComplete": true,
+      "logSha256": "fcea114776094fadf44a6e484b4c17834fb045591db4cd8900009fe34c2de823",
+      "checks": [
+        {
+          "check": "git diff whitespace",
+          "ok": true,
+          "detail": {
+            "command": [
+              "git",
+              "diff",
+              "--check"
+            ],
+            "exitCode": 0
+          }
+        },
+        {
+          "check": "Python syntax",
+          "ok": true,
+          "detail": {
+            "pythonFiles": 148,
+            "mode": "AST parse only; no imports or execution"
+          }
+        },
+        {
+          "check": "Ruby syntax lab.rb",
+          "ok": true,
+          "detail": {
+            "command": [
+              "mise",
+              "exec",
+              "--",
+              "ruby",
+              "-c",
+              "lab.rb"
+            ],
+            "exitCode": 0
+          }
+        },
+        {
+          "check": "Ruby syntax bench/test_matrix_cleanup.rb",
+          "ok": true,
+          "detail": {
+            "command": [
+              "mise",
+              "exec",
+              "--",
+              "ruby",
+              "-c",
+              "bench/test_matrix_cleanup.rb"
+            ],
+            "exitCode": 0
+          }
+        },
+        {
+          "check": "Ruby syntax bench/test_white_all_runner.rb",
+          "ok": true,
+          "detail": {
+            "command": [
+              "mise",
+              "exec",
+              "--",
+              "ruby",
+              "-c",
+              "bench/test_white_all_runner.rb"
+            ],
+            "exitCode": 0
+          }
+        },
+        {
+          "check": "Ruby syntax bench/test_runner_cache.rb",
+          "ok": true,
+          "detail": {
+            "command": [
+              "mise",
+              "exec",
+              "--",
+              "ruby",
+              "-c",
+              "bench/test_runner_cache.rb"
+            ],
+            "exitCode": 0
+          }
+        },
+        {
+          "check": "Ruby syntax .riela/workflows/table-count-guideline-review/scripts/run-requested.rb",
+          "ok": true,
+          "detail": {
+            "command": [
+              "mise",
+              "exec",
+              "--",
+              "ruby",
+              "-c",
+              ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"
+            ],
+            "exitCode": 0
+          }
+        },
+        {
+          "check": "retained evidence hashes",
+          "ok": true,
+          "detail": {
+            "preservedFilesVerified": 230,
+            "originalObservationsMutated": false
+          }
+        },
+        {
+          "check": "documentation paths and size",
+          "ok": true,
+          "detail": {
+            "localLinkPathsVerified": 30,
+            "mainLines": 206,
+            "externalDocumentation": "not browsed; unconfirmed claims labeled"
+          }
+        },
+        {
+          "check": "planned scope and retired source SHA",
+          "ok": true,
+          "detail": {
+            "configurations": 5,
+            "scriptPartitions": 30,
+            "repeatsPerMethod": 3,
+            "unboundedProtocolsRetired": 2,
+            "databaseExecuted": false
+          }
+        }
+      ],
+      "scope": "File/hash and syntax-only author verification. No tests, DB queries, experiments, Docker operations or workflows executed. Runtime regression tests are registered for fixed runner, not reported as passing here.",
+      "runtimeTestsStatus": "not_run_by_author",
+      "reproductionProofExists": false,
+      "guidelineSha256": "4200abea369a0c2c1f00db1e8544f72204123d26edfa45adb13583bdaefea77e"
+    },
+    "completionStatus": "author_prepared_pending_fixed_white_all_integration_owner_audit_and_two_sol_reviews",
+    "reviewClosurePolicy": "All dispositions are author responses only. Sol reviewers decide closure; no new Opus approval or heterogeneous-model independence is asserted.",
+    "rootAuditResponses": [
+      {
+        "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+        "status": "fixed_protocol_pending_measurement",
+        "evidence": "bench/requested/primary-scale-plan.json"
+      },
+      {
+        "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+        "status": "fixed_retirement_pending_replacement_scope_audit",
+        "evidence": "bench/requested/retired-protocols.json"
+      },
+      {
+        "id": "ROOT-ALL-SEMANTIC-ERRORS",
+        "status": "fixed_propagation_pending_white_all",
+        "evidence": "bench/experiments.py"
+      },
+      {
+        "id": "ROOT-REVIEW-BUDGET-SCOPE",
+        "status": "all_has_no_aggregate_skip_budget",
+        "evidence": ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"
+      }
+    ]
+  }
+}

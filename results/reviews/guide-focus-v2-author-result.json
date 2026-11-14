@@ -1,0 +1,33 @@
+{
+  "changedFiles": [
+    "docs/table-count-guideline.md",
+    "docs/table-count-calibration.md",
+    "README.md"
+  ],
+  "decisionCoverage": [
+    "既存統計→条件付き校正→隔離先COUNTの判断とSQL",
+    "UNKNOWN、鮮度、MDL、資源分離、停止・取消確認",
+    "代表表の選定、実測プロファイル照合、校正の受入・棄却",
+    "TDE鍵条件と未計測条件",
+    "プロジェクト完了に必要な検証・監査・レビューを保持"
+  ],
+  "evidenceChecks": [
+    {
+      "completeLogPath": "/private/tmp/table-count-guide-author-session24-verification.log",
+      "exitCode": 0,
+      "result": "3文書の相対リンク24件、UTF-8・書式、129行の本文、引用数値、保存manifest・成果物ハッシュを確認"
+    },
+    {
+      "calibrationSha256": "deb8872fd3d4c306c8514d84b643b3fffed92ffc77a1bec7a28a20d2b00014ec",
+      "readmeSha256": "1f4439d30b4cedcdad91371557bfea2ff21463f76626987a7668f0d115194ec3",
+      "result": "58ケース、行幅偏り15観測、50/100列割当量、105静的・48サービス観測を照合。公式MySQL一次資料5件を確認"
+    }
+  ],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "0bcbed6cbf58158be82d7d51fc512e299a58ff280be769fb814b92ffb28e15e3",
+  "remainingGaps": [
+    "範囲縮小後の固定runner白紙all、所有者の意味・最終source・後始末監査、別セッションの最終Sol 2役レビューは未実施。DB・Docker・計測は起動していない。",
+    "1億行×80列×TDE、本番資源分離、5%サービス負荷は未計測。",
+    "入力指定のguide-focus-v2-interruption.jsonは存在せず、既存guide-focus-interruption.jsonと固定snapshotの終了コード130を確認して引用。"
+  ]
+}

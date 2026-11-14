@@ -1,0 +1,2184 @@
+{
+ "id": "3c-EXP-O2-1-versions-9.7.4",
+ "answers": [
+  "EXP-O2-1",
+  "EXP-R2",
+  "EXP-R3",
+  "EXP-R6",
+  "EXP-7",
+  "FIND-R3-LOOPEDGE-01",
+  "FIND-R2-CURSOR-01",
+  "FIND-KEY-TYPE-01",
+  "FIND-O6-WALK-CEILING-01"
+ ],
+ "started": "2026-11-06T23:58:32",
+ "sections": {
+  "sizes_and_nulls": {
+   "e_empty": {
+    "truth": 0,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 30,
+    "status": "complete",
+    "rows": 0,
+    "partial_rows": 0,
+    "null_rows": 0,
+    "steps": 1,
+    "statements": {
+     "first": 1,
+     "tail": 1
+    },
+    "plan_check": null,
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.13,
+    "seconds_total": 0.001,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_lt": {
+    "truth": 5,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 30,
+    "status": "complete",
+    "rows": 5,
+    "partial_rows": 5,
+    "null_rows": 0,
+    "steps": 1,
+    "statements": {
+     "first": 1,
+     "tail": 1
+    },
+    "plan_check": null,
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.18,
+    "seconds_total": 0.001,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_exact": {
+    "truth": 300,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 30,
+    "status": "complete",
+    "rows": 300,
+    "partial_rows": 300,
+    "null_rows": 0,
+    "steps": 4,
+    "statements": {
+     "first": 1,
+     "mid": 3,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.08,
+    "seconds_total": 0.001,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_neg": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.1,
+    "seconds_total": 0.006,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_nopk_null": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "k_a",
+    "form": "B",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 3333,
+    "steps": 51,
+    "statements": {
+     "null_count": 1,
+     "first": 1,
+     "range": 50,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "k_a",
+     "used_key_parts": [
+      "a"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.36,
+    "seconds_total": 0.007,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_uniq_null": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "uk",
+    "form": "B",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 3333,
+    "steps": 67,
+    "statements": {
+     "null_count": 1,
+     "first": 1,
+     "range": 66,
+     "mid": 66,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "uk",
+     "used_key_parts": [
+      "code"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.35,
+    "seconds_total": 0.009,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_tie": {
+    "truth": 60000,
+    "rejected": {},
+    "chosen": "k_a",
+    "form": "B",
+    "ceiling": 1800,
+    "status": "complete",
+    "rows": 60000,
+    "partial_rows": 60000,
+    "null_rows": 0,
+    "steps": 102,
+    "statements": {
+     "first": 1,
+     "range": 101,
+     "mid": 101,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "k_a",
+     "used_key_parts": [
+      "a"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 4.43,
+    "seconds_total": 0.023,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_null_few_primary": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.09,
+    "seconds_total": 0.006,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_null_few_forced_nullable_index": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "k_a",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 10,
+    "steps": 100,
+    "statements": {
+     "null_count": 1,
+     "first": 1,
+     "mid": 99,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "k_a",
+     "used_key_parts": [
+      "a",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.1,
+    "seconds_total": 0.008,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_null_many_primary": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.12,
+    "seconds_total": 0.006,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_null_many_forced_nullable_index": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "k_a",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 8000,
+    "steps": 21,
+    "statements": {
+     "null_count": 1,
+     "first": 1,
+     "mid": 20,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "k_a",
+     "used_key_parts": [
+      "a",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.41,
+    "seconds_total": 0.003,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "_seconds": 0.42
+  },
+  "R2_nullable_composite": {
+   "guideline": {
+    "truth": 20000,
+    "rejected": {
+     "k": [
+      "nullable_non_leading_part"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 600,
+    "status": "complete",
+    "rows": 20000,
+    "partial_rows": 20000,
+    "null_rows": 0,
+    "steps": 201,
+    "statements": {
+     "first": 1,
+     "mid": 200,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.19,
+    "seconds_total": 0.014,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "old_walker_on_k": {
+    "rows": 500,
+    "truth": 20000,
+    "correct": false
+   },
+   "_seconds": 0.11
+  },
+  "R3_desc": {
+   "k_asc_pk_asc": {
+    "guideline": {
+     "truth": 50000,
+     "rejected": {},
+     "chosen": "k",
+     "form": "A",
+     "ceiling": 1500,
+     "status": "complete",
+     "rows": 50000,
+     "partial_rows": 50000,
+     "null_rows": 0,
+     "steps": 501,
+     "statements": {
+      "first": 1,
+      "mid": 500,
+      "tail": 1
+     },
+     "plan_check": {
+      "access_type": "range",
+      "key": "k",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "roundtrips": 0,
+     "width_end": 100,
+     "stmt_ms_max": 0.34,
+     "seconds_total": 0.038,
+     "correct": true,
+     "every_statement_has_hint": true
+    },
+    "forced": {
+     "asc_predicate": {
+      "filesort": false,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 0.16,
+      "handler_read": {
+       "Handler_read_next": 999,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 0
+     },
+     "desc_predicate": {
+      "filesort": false,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 0.21,
+      "handler_read": {
+       "Handler_read_next": 0,
+       "Handler_read_prev": 999,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 0
+     },
+     "mixed_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 3.28,
+      "handler_read": {
+       "Handler_read_next": 25100,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     }
+    },
+    "status": "measured"
+   },
+   "k_desc_pk_asc": {
+    "guideline": {
+     "truth": 50000,
+     "rejected": {
+      "k": [
+       "not_all_ascending"
+      ]
+     },
+     "chosen": "PRIMARY",
+     "form": "A",
+     "ceiling": 1500,
+     "status": "complete",
+     "rows": 50000,
+     "partial_rows": 50000,
+     "null_rows": 0,
+     "steps": 501,
+     "statements": {
+      "first": 1,
+      "mid": 500,
+      "tail": 1
+     },
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "roundtrips": 0,
+     "width_end": 100,
+     "stmt_ms_max": 0.27,
+     "seconds_total": 0.038,
+     "correct": true,
+     "every_statement_has_hint": true
+    },
+    "forced": {
+     "asc_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 3.56,
+      "handler_read": {
+       "Handler_read_next": 25000,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     },
+     "desc_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 2.35,
+      "handler_read": {
+       "Handler_read_next": 25098,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     },
+     "mixed_predicate": {
+      "filesort": false,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 0.17,
+      "handler_read": {
+       "Handler_read_next": 999,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 0
+     }
+    },
+    "status": "measured"
+   },
+   "k_asc_pk_desc": {
+    "guideline": {
+     "truth": 50000,
+     "rejected": {
+      "k": [
+       "not_all_ascending"
+      ]
+     },
+     "chosen": "PRIMARY",
+     "form": "A",
+     "ceiling": 1500,
+     "status": "complete",
+     "rows": 50000,
+     "partial_rows": 50000,
+     "null_rows": 0,
+     "steps": 501,
+     "statements": {
+      "first": 1,
+      "mid": 500,
+      "tail": 1
+     },
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "roundtrips": 0,
+     "width_end": 100,
+     "stmt_ms_max": 0.34,
+     "seconds_total": 0.042,
+     "correct": true,
+     "every_statement_has_hint": true
+    },
+    "forced": {
+     "asc_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 2.1,
+      "handler_read": {
+       "Handler_read_next": 25000,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     },
+     "desc_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 3.38,
+      "handler_read": {
+       "Handler_read_next": 25098,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     },
+     "mixed_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 3.18,
+      "handler_read": {
+       "Handler_read_next": 25100,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     }
+    },
+    "status": "measured"
+   },
+   "k_desc_pk_desc": {
+    "guideline": {
+     "truth": 50000,
+     "rejected": {
+      "k": [
+       "not_all_ascending"
+      ]
+     },
+     "chosen": "PRIMARY",
+     "form": "A",
+     "ceiling": 1500,
+     "status": "complete",
+     "rows": 50000,
+     "partial_rows": 50000,
+     "null_rows": 0,
+     "steps": 501,
+     "statements": {
+      "first": 1,
+      "mid": 500,
+      "tail": 1
+     },
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "roundtrips": 0,
+     "width_end": 100,
+     "stmt_ms_max": 0.32,
+     "seconds_total": 0.037,
+     "correct": true,
+     "every_statement_has_hint": true
+    },
+    "forced": {
+     "asc_predicate": {
+      "filesort": false,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 0.26,
+      "handler_read": {
+       "Handler_read_next": 0,
+       "Handler_read_prev": 999,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 0
+     },
+     "desc_predicate": {
+      "filesort": false,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 0.16,
+      "handler_read": {
+       "Handler_read_next": 999,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 0
+     },
+     "mixed_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 2.18,
+      "handler_read": {
+       "Handler_read_next": 25100,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     }
+    },
+    "status": "measured"
+   },
+   "mixed_explicit": {
+    "guideline": {
+     "truth": 50000,
+     "rejected": {
+      "k": [
+       "not_all_ascending"
+      ]
+     },
+     "chosen": "PRIMARY",
+     "form": "A",
+     "ceiling": 1500,
+     "status": "complete",
+     "rows": 50000,
+     "partial_rows": 50000,
+     "null_rows": 0,
+     "steps": 501,
+     "statements": {
+      "first": 1,
+      "mid": 500,
+      "tail": 1
+     },
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "roundtrips": 0,
+     "width_end": 100,
+     "stmt_ms_max": 0.23,
+     "seconds_total": 0.036,
+     "correct": true,
+     "every_statement_has_hint": true
+    },
+    "forced": {
+     "asc_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 3.45,
+      "handler_read": {
+       "Handler_read_next": 25000,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     },
+     "desc_predicate": {
+      "filesort": true,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 2.19,
+      "handler_read": {
+       "Handler_read_next": 25098,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 1000
+     },
+     "mixed_predicate": {
+      "filesort": false,
+      "access": "range",
+      "used_key_parts": [
+       "a",
+       "id"
+      ],
+      "ms": 0.17,
+      "handler_read": {
+       "Handler_read_next": 999,
+       "Handler_read_prev": 0,
+       "Handler_read_rnd_next": 0,
+       "Handler_read_key": 2,
+       "Handler_read_rnd": 0
+      },
+      "sort_rows": 0
+     }
+    },
+    "status": "measured"
+   },
+   "_seconds": 1.04
+  },
+  "R6_types": {
+   "e_dec_distinct": [
+    2000,
+    2000,
+    "9007199254740992.000001",
+    "9007199254740992.002000"
+   ],
+   "e_date": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "roundtrip": 100,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "d",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 100,
+    "width_end": 100,
+    "stmt_ms_max": 0.2,
+    "seconds_total": 0.016,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_time": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "roundtrip": 100,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "t",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 100,
+    "width_end": 100,
+    "stmt_ms_max": 0.24,
+    "seconds_total": 0.015,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_year": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "roundtrip": 100,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "y",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 100,
+    "width_end": 100,
+    "stmt_ms_max": 0.22,
+    "seconds_total": 0.015,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_char": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "roundtrip": 100,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "c",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 100,
+    "width_end": 100,
+    "stmt_ms_max": 0.29,
+    "seconds_total": 0.015,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_pad": {
+    "truth": 5000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 150,
+    "status": "complete",
+    "rows": 5000,
+    "partial_rows": 5000,
+    "null_rows": 0,
+    "steps": 51,
+    "statements": {
+     "first": 1,
+     "roundtrip": 50,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "c",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 50,
+    "width_end": 100,
+    "stmt_ms_max": 0.22,
+    "seconds_total": 0.007,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "float_guideline": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": null,
+    "form": null,
+    "ceiling": 300,
+    "status": "no_eligible_index"
+   },
+   "float_forced_no_roundtrip": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10032,
+    "partial_rows": 10032,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "f"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": false
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.21,
+    "seconds_total": 0.009,
+    "correct": false,
+    "every_statement_has_hint": true
+   },
+   "float_forced_with_roundtrip": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "stopped:roundtrip_failed",
+    "rows": null,
+    "partial_rows": 0,
+    "null_rows": 0,
+    "steps": 0,
+    "statements": {
+     "first": 1,
+     "roundtrip": 1
+    },
+    "plan_check": null,
+    "errors": null,
+    "roundtrips": 1,
+    "width_end": 100,
+    "stmt_ms_max": 0.12,
+    "seconds_total": 0.0,
+    "correct": null,
+    "every_statement_has_hint": true
+   },
+   "double_guideline": {
+    "truth": 10000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "roundtrip": 100,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "f",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 100,
+    "width_end": 100,
+    "stmt_ms_max": 0.26,
+    "seconds_total": 0.015,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "bit_guideline": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": null,
+    "form": null,
+    "ceiling": 300,
+    "status": "no_eligible_index"
+   },
+   "bit_forced": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "stopped:roundtrip_failed",
+    "rows": null,
+    "partial_rows": 0,
+    "null_rows": 0,
+    "steps": 0,
+    "statements": {
+     "first": 1,
+     "roundtrip": 1
+    },
+    "plan_check": null,
+    "errors": null,
+    "roundtrips": 1,
+    "width_end": 100,
+    "stmt_ms_max": 0.11,
+    "seconds_total": 0.0,
+    "correct": null,
+    "every_statement_has_hint": true
+   },
+   "set_guideline": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": null,
+    "form": null,
+    "ceiling": 300,
+    "status": "no_eligible_index"
+   },
+   "set_forced": {
+    "truth": 10000,
+    "rejected": {
+     "PRIMARY": [
+      "cursor_type_excluded"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 6667,
+    "partial_rows": 6667,
+    "null_rows": 0,
+    "steps": 67,
+    "statements": {
+     "first": 1,
+     "roundtrip": 66,
+     "mid": 66,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "index",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "s",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 100,
+     "ok": false
+    },
+    "errors": null,
+    "roundtrips": 66,
+    "width_end": 100,
+    "stmt_ms_max": 1.86,
+    "seconds_total": 0.034,
+    "correct": false,
+    "every_statement_has_hint": true
+   },
+   "zero_date_guideline": {
+    "truth": 2000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 60,
+    "status": "stopped:error_1525",
+    "rows": null,
+    "partial_rows": 0,
+    "null_rows": 0,
+    "steps": 0,
+    "statements": {
+     "first": 1
+    },
+    "plan_check": null,
+    "errors": [
+     {
+      "kind": "roundtrip",
+      "errno": 1525,
+      "ms": 0.1,
+      "msg": "(1525, \"Incorrect DATETIME value: '0000-00-00 00:00:00'\")"
+     }
+    ],
+    "roundtrips": 1,
+    "width_end": 100,
+    "stmt_ms_max": 0.1,
+    "seconds_total": 0.0,
+    "correct": null,
+    "every_statement_has_hint": true
+   },
+   "timestamp_utc": {
+    "truth": 6000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 180,
+    "status": "complete",
+    "rows": 6000,
+    "partial_rows": 6000,
+    "null_rows": 0,
+    "steps": 61,
+    "statements": {
+     "first": 1,
+     "roundtrip": 60,
+     "mid": 60,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "ts",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 60,
+    "width_end": 100,
+    "stmt_ms_max": 0.14,
+    "seconds_total": 0.01,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "time_zone_tables_loaded": true,
+   "timestamp_dst_zone": {
+    "status": "stopped:roundtrip_failed",
+    "rows": null,
+    "partial_rows": 1150,
+    "steps": 23,
+    "truth": 6000,
+    "correct": false,
+    "errors": null
+   },
+   "timestamp_dst_zone_no_roundtrip": {
+    "status": "complete",
+    "rows": 5687,
+    "partial_rows": 5687,
+    "steps": 114,
+    "truth": 6000,
+    "correct": false,
+    "errors": null
+   },
+   "utf8mb4_guideline": {
+    "truth": 3000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 90,
+    "status": "complete",
+    "rows": 3000,
+    "partial_rows": 3000,
+    "null_rows": 0,
+    "steps": 31,
+    "statements": {
+     "first": 1,
+     "roundtrip": 30,
+     "mid": 30,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "code"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 30,
+    "width_end": 100,
+    "stmt_ms_max": 0.08,
+    "seconds_total": 0.004,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "latin1_with_roundtrip": {
+    "status": "stopped:roundtrip_failed",
+    "rows": null,
+    "partial_rows": 1000,
+    "steps": 20,
+    "truth": 3000,
+    "correct": false,
+    "errors": null
+   },
+   "latin1_no_roundtrip": {
+    "status": "stopped:max_steps",
+    "rows": null,
+    "partial_rows": 10000,
+    "steps": 200,
+    "truth": 3000,
+    "correct": false,
+    "errors": null
+   },
+   "bigint_exact": {
+    "truth": 2000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 60,
+    "status": "complete",
+    "rows": 2000,
+    "partial_rows": 2000,
+    "null_rows": 0,
+    "steps": 21,
+    "statements": {
+     "first": 1,
+     "mid": 20,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.08,
+    "seconds_total": 0.002,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "bigint_through_double": {
+    "status": "complete",
+    "rows": 1750,
+    "partial_rows": 1750,
+    "steps": 251,
+    "truth": 2000,
+    "correct": false,
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null
+   },
+   "decimal_literal": {
+    "status": "complete",
+    "rows": 2000,
+    "partial_rows": 2000,
+    "steps": 286,
+    "truth": 2000,
+    "correct": true,
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null
+   },
+   "decimal_quoted_string": {
+    "status": "complete",
+    "rows": 2000,
+    "partial_rows": 2000,
+    "steps": 286,
+    "truth": 2000,
+    "correct": true,
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null
+   },
+   "decimal_through_double": {
+    "status": "stopped:no_progress",
+    "rows": null,
+    "partial_rows": 7,
+    "steps": 1,
+    "truth": 2000,
+    "correct": false,
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null
+   },
+   "probe_exact": 1,
+   "probe_through_double": 0,
+   "_seconds": 0.71
+  },
+  "boundary_deletes_and_errors": {
+   "abort_under_deletes": [
+    {
+     "status": "complete",
+     "steps": 1000,
+     "roundtrips": 999,
+     "delete_statements": 33,
+     "seconds": 0.116,
+     "statements": {
+      "first": 1,
+      "roundtrip": 999,
+      "mid": 999,
+      "tail": 1
+     }
+    },
+    {
+     "status": "complete",
+     "steps": 1000,
+     "roundtrips": 999,
+     "delete_statements": 34,
+     "seconds": 0.121,
+     "statements": {
+      "first": 1,
+      "roundtrip": 999,
+      "mid": 999,
+      "tail": 1
+     }
+    },
+    {
+     "status": "complete",
+     "steps": 1000,
+     "roundtrips": 999,
+     "delete_statements": 51,
+     "seconds": 0.207,
+     "statements": {
+      "first": 1,
+      "roundtrip": 999,
+      "mid": 999,
+      "tail": 1
+     }
+    },
+    {
+     "status": "complete",
+     "steps": 1000,
+     "roundtrips": 999,
+     "delete_statements": 50,
+     "seconds": 0.183,
+     "statements": {
+      "first": 1,
+      "roundtrip": 999,
+      "mid": 999,
+      "tail": 1
+     }
+    },
+    {
+     "status": "complete",
+     "steps": 1000,
+     "roundtrips": 999,
+     "delete_statements": 61,
+     "seconds": 0.216,
+     "statements": {
+      "first": 1,
+      "roundtrip": 999,
+      "mid": 999,
+      "tail": 1
+     }
+    }
+   ],
+   "index_dropped_midway": {
+    "status": "stopped:error_1176",
+    "errors": [
+     {
+      "kind": "mid",
+      "errno": 1176,
+      "ms": 0.1,
+      "msg": "(1176, \"Key 'k' doesn't exist in table 'e_drop'\")"
+     }
+    ],
+    "rows": null,
+    "plan_check": {
+     "access_type": "range",
+     "key": "k",
+     "used_key_parts": [
+      "a",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    }
+   },
+   "table_dropped_midway": {
+    "status": "stopped:error_1146",
+    "errors": [
+     {
+      "kind": "mid",
+      "errno": 1146,
+      "ms": 0.3,
+      "msg": "(1146, \"Table 'bench.e_drop' doesn't exist\")"
+     }
+    ],
+    "rows": null,
+    "plan_check": {
+     "access_type": "index",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": false
+    }
+   },
+   "_seconds": 2.09
+  },
+  "EXP7_designs": {
+   "e_3c": {
+    "truth": 20000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 600,
+    "status": "complete",
+    "rows": 20000,
+    "partial_rows": 20000,
+    "null_rows": 0,
+    "steps": 201,
+    "statements": {
+     "first": 1,
+     "mid": 200,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "a",
+      "b",
+      "c"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 3,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 1.65,
+    "seconds_total": 0.046,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_4c": {
+    "truth": 20000,
+    "rejected": {},
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 600,
+    "status": "complete",
+    "rows": 20000,
+    "partial_rows": 20000,
+    "null_rows": 0,
+    "steps": 201,
+    "statements": {
+     "first": 1,
+     "roundtrip": 200,
+     "mid": 200,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "a",
+      "b",
+      "c",
+      "e"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 4,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 200,
+    "width_end": 100,
+    "stmt_ms_max": 0.92,
+    "seconds_total": 0.058,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_func": {
+    "truth": 10000,
+    "rejected": {
+     "kf": [
+      "expression_or_multivalued"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 300,
+    "status": "complete",
+    "rows": 10000,
+    "partial_rows": 10000,
+    "null_rows": 0,
+    "steps": 101,
+    "statements": {
+     "first": 1,
+     "mid": 100,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.46,
+    "seconds_total": 0.009,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_mv": {
+    "truth": 5000,
+    "rejected": {
+     "km": [
+      "expression_or_multivalued"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 150,
+    "status": "complete",
+    "rows": 5000,
+    "partial_rows": 5000,
+    "null_rows": 0,
+    "steps": 51,
+    "statements": {
+     "first": 1,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.44,
+    "seconds_total": 0.005,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_inv": {
+    "truth": 5000,
+    "rejected": {
+     "ki": [
+      "invisible"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 150,
+    "status": "complete",
+    "rows": 5000,
+    "partial_rows": 5000,
+    "null_rows": 0,
+    "steps": 51,
+    "statements": {
+     "first": 1,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.41,
+    "seconds_total": 0.005,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_gen": {
+    "truth": 5000,
+    "rejected": {
+     "kg": [
+      "column_moves:g"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 150,
+    "status": "complete",
+    "rows": 5000,
+    "partial_rows": 5000,
+    "null_rows": 0,
+    "steps": 51,
+    "statements": {
+     "first": 1,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.08,
+    "seconds_total": 0.004,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_onupd": {
+    "truth": 5000,
+    "rejected": {
+     "ku": [
+      "column_moves:u"
+     ]
+    },
+    "chosen": "PRIMARY",
+    "form": "A",
+    "ceiling": 150,
+    "status": "complete",
+    "rows": 5000,
+    "partial_rows": 5000,
+    "null_rows": 0,
+    "steps": 51,
+    "statements": {
+     "first": 1,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 1,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 100,
+    "stmt_ms_max": 0.42,
+    "seconds_total": 0.005,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "e_defgen": {
+    "truth": 5000,
+    "rejected": {},
+    "chosen": "ku",
+    "form": "A",
+    "ceiling": 150,
+    "status": "complete",
+    "rows": 5000,
+    "partial_rows": 5000,
+    "null_rows": 0,
+    "steps": 51,
+    "statements": {
+     "first": 1,
+     "roundtrip": 50,
+     "mid": 50,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "ku",
+     "used_key_parts": [
+      "u",
+      "id"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 2,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 50,
+    "width_end": 100,
+    "stmt_ms_max": 0.56,
+    "seconds_total": 0.012,
+    "correct": true,
+    "every_statement_has_hint": true
+   },
+   "composite_secondary_plus_composite_pk": {
+    "truth": 30000,
+    "rejected": {},
+    "chosen": "k_s",
+    "form": "A",
+    "ceiling": 90,
+    "status": "complete",
+    "rows": 30000,
+    "partial_rows": 30000,
+    "null_rows": 0,
+    "steps": 31,
+    "statements": {
+     "first": 1,
+     "mid": 30,
+     "tail": 1
+    },
+    "plan_check": {
+     "access_type": "range",
+     "key": "k_s",
+     "used_key_parts": [
+      "s1",
+      "s2",
+      "p1",
+      "p2"
+     ],
+     "using_filesort": false,
+     "partitions": null,
+     "rows_examined_per_scan": 4,
+     "ok": true
+    },
+    "errors": null,
+    "roundtrips": 0,
+    "width_end": 1000,
+    "stmt_ms_max": 0.8,
+    "seconds_total": 0.008,
+    "correct": true,
+    "every_statement_has_hint": true,
+    "handler_read_next_one_step": 999
+   },
+   "e_part": {
+    "stats_names": [
+     "e_part#p#p1",
+     "e_part#p#p2",
+     "e_part#p#p3"
+    ],
+    "parts": {
+     "p1": {
+      "status": "complete",
+      "rows": 10353,
+      "plan_check": {
+       "access_type": "range",
+       "key": "PRIMARY",
+       "used_key_parts": [
+        "id",
+        "d"
+       ],
+       "using_filesort": false,
+       "partitions": [
+        "p1"
+       ],
+       "rows_examined_per_scan": 2,
+       "ok": true
+      },
+      "truth": 10353,
+      "sql_mid": "SELECT /*+ MAX_EXECUTION_TIME(500) */ `id`, `d` FROM `e_part` PARTITION (`p1`) FORCE INDEX (`PRIMARY`) WHERE `id` > %s OR (`id` = %s AND (`d` > %s)) ORDER BY `id`, `d` LIMIT 1 OFFSET 499"
+     },
+     "p2": {
+      "status": "complete",
+      "rows": 9324,
+      "plan_check": {
+       "access_type": "range",
+       "key": "PRIMARY",
+       "used_key_parts": [
+        "id",
+        "d"
+       ],
+       "using_filesort": false,
+       "partitions": [
+        "p2"
+       ],
+       "rows_examined_per_scan": 2,
+       "ok": true
+      },
+      "truth": 9324,
+      "sql_mid": "SELECT /*+ MAX_EXECUTION_TIME(500) */ `id`, `d` FROM `e_part` PARTITION (`p2`) FORCE INDEX (`PRIMARY`) WHERE `id` > %s OR (`id` = %s AND (`d` > %s)) ORDER BY `id`, `d` LIMIT 1 OFFSET 499"
+     },
+     "p3": {
+      "status": "complete",
+      "rows": 10323,
+      "plan_check": {
+       "access_type": "range",
+       "key": "PRIMARY",
+       "used_key_parts": [
+        "id",
+        "d"
+       ],
+       "using_filesort": false,
+       "partitions": [
+        "p3"
+       ],
+       "rows_examined_per_scan": 2,
+       "ok": true
+      },
+      "truth": 10323,
+      "sql_mid": "SELECT /*+ MAX_EXECUTION_TIME(500) */ `id`, `d` FROM `e_part` PARTITION (`p3`) FORCE INDEX (`PRIMARY`) WHERE `id` > %s OR (`id` = %s AND (`d` > %s)) ORDER BY `id`, `d` LIMIT 1 OFFSET 499"
+     }
+    },
+    "sum": 30000,
+    "truth": 30000,
+    "whole_table_split": {
+     "truth": 30000,
+     "rejected": {},
+     "chosen": "PRIMARY",
+     "form": "A",
+     "ceiling": 180,
+     "status": "complete",
+     "rows": 30000,
+     "partial_rows": 30000,
+     "null_rows": 0,
+     "steps": 61,
+     "statements": {
+      "first": 1,
+      "roundtrip": 60,
+      "mid": 60,
+      "tail": 1
+     },
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id",
+       "d"
+      ],
+      "using_filesort": false,
+      "partitions": [
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "roundtrips": 60,
+     "width_end": 500,
+     "stmt_ms_max": 0.51,
+     "seconds_total": 0.018,
+     "correct": true,
+     "every_statement_has_hint": true
+    }
+   },
+   "e_sub": {
+    "subpartitions": {
+     "p1sp0": {
+      "status": "complete",
+      "rows": 5338
+     },
+     "p1sp1": {
+      "status": "complete",
+      "rows": 5005
+     },
+     "p2sp0": {
+      "status": "complete",
+      "rows": 4662
+     },
+     "p2sp1": {
+      "status": "complete",
+      "rows": 4995
+     }
+    },
+    "sum": 20000,
+    "truth": 20000
+   },
+   "tenants": {
+    "sum": 15000,
+    "truth": 15000,
+    "correct": true
+   },
+   "_seconds": 1.13
+  }
+ },
+ "version": "9.7.4",
+ "elapsed_seconds": 6,
+ "section_errors": [],
+ "server": "9.7.4"
+}

@@ -1,0 +1,150 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "item1": {
+      "assessment": "rootから現行両製品ガイド・runbook・新受入先へ各1クリック。相対リンク／anchor83件を独立検証し、欠落は予定されたIssue 2 acceptance.jsonだけ。記録なしは受入保留と明示され、旧文書・旧受入は履歴として区別されている。",
+      "evidence": [
+        "README.md:3-17",
+        "docs/README.md:7-29"
+      ],
+      "status": "resolved"
+    },
+    "item2": {
+      "assessment": "表・世代単位のsource/channel対応、filter現在値と履歴、完全初期コピー・再seed・DDL、skip・空GTID・repair・local writeを、範囲と期間を覆う承認済み監査で確認する。同等性と鮮度は独立判定。不明時はこのコピー自体のsnapshot件数に限定し、元表の正確要求はUNKNOWN/HOLD。本番全表checksum等の自動投入はない。架空例Aの通常独立復元経路は利用可能で、例Bの不足条件はHOLDとなり整合する。",
+      "evidence": [
+        "docs/guidelines/mysql.md:91-109",
+        "docs/guidelines/operations-runbook.md:18-21",
+        "docs/guidelines/operations-runbook.md:50-64",
+        "docs/guidelines/operations-runbook.md:105-106"
+      ],
+      "status": "resolved"
+    },
+    "item3": {
+      "assessment": "server identityと可変のrole/routing/epochを分離。HA所有者の情報源・鮮度・承認・観測権限と実backendを照合し、read_only／ApplicationIntentだけでは認定しない。変更・期限切れ・不明で投入停止、所有確認した取消、finally、保持解除、回復、再適格化へ進む。新物理sessionごとの全gateと専用lease固定を要求。昇格連携未検証は独立復元先へ戻し、緊急HAを優先する。ポーリングによる瞬間的変更防止は保証していない。",
+      "evidence": [
+        "docs/guidelines/mysql.md:66-67",
+        "docs/guidelines/mysql.md:119-133",
+        "docs/guidelines/sql-server.md:149-159",
+        "docs/guidelines/operations-runbook.md:15-17",
+        "docs/guidelines/operations-runbook.md:39-42",
+        "docs/guidelines/operations-runbook.md:178-193"
+      ],
+      "status": "resolved"
+    }
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "README.md": "14130ad352ab27373d6e4cddd3a4b419dbf04f4387b5a0cdbf009fccc3ba9c27",
+    "docs/README.md": "5bc2a1ce121bfe34e1b562d3cef5b340e5424286ca3011fe21aef8bd91762434",
+    "docs/guidelines/mysql.md": "8e1a49826c92b8f77d254bda1415c8dcca49ec9afb1f45e1d360595e05734bdd",
+    "docs/guidelines/operations-runbook.md": "5c31092659a94f21b0be4af6abc519712f7579ddc35b7f357f6186f1cc53612c",
+    "docs/guidelines/sql-server.md": "64aea4b927d552fb724a4f4ddb009f27388fcd54dae3b0be62ed36c512db97b0"
+  },
+  "findings": [],
+  "independentFindingAssessment": {
+    "assessment": "独立評価を固定した後に全文を読んだ。対象5hashは一致し、engineerの指摘なし・不可欠な追加実験なしという結論に同意する。指摘の免除や未解決事項の成功扱いはない。",
+    "engineerResultPath": "results/reviews/issue-2/final-engineer-result.json",
+    "engineerResultSha256": "ab5b18a130f895c9121efb3af8ce0f6a77c58be0a5cc1118747d38b8f7e4c9ac",
+    "independentFindings": [],
+    "independentFindingsFormedBeforeReadingEngineer": true
+  },
+  "requestedExperiments": [],
+  "reviewEvidence": {
+    "integrity": [
+      {
+        "observation": "protectedFiles全10,817件を独立再hashし、欠落・不一致0件。既存benchmark source・results・証跡・receiptsは不変。",
+        "path": "results/reviews/issue-2/baseline.json",
+        "sha256": "8ac2118b8da77be47509a41ea29670969cb193dfe4b217040488abdf0a95c7b8"
+      },
+      {
+        "observation": "全7ファイルがmanifestおよびde1c79c2e982fafae8bb79a06989dfb6a5573891のgit内容と一致。旧Issue 1受入の文書hashは保存された旧文書だけに一致。",
+        "path": "results/reference/issue-2-pre-fix-de1c79c/manifest.json",
+        "sha256": "512db38d6493ce052369be8500a024163b8ce338289f7cd4171d2a685e5c44dc"
+      },
+      {
+        "observation": "AGENTS.mdとともに全文を読み、3条件を個別検証した。",
+        "path": "results/reviews/issue-2/issue.json",
+        "sha256": "656c451c48d80e3d84eb27a132748ecd05a0c6bf9dc1525d3a9a9d5c143fce4f"
+      },
+      {
+        "observation": "現行5hash、baseline、旧manifest、audit script、official sources、歴史的Issue 1 proofとの結合を検証した。",
+        "path": "results/reviews/issue-2/owner-proof.json",
+        "sha256": "35060045e4bda2e40d9624a0f35c2a422189939b75810ea26ad32ba92064bd93"
+      },
+      {
+        "observation": "現行hashと独立検証結果が一致。新実行・HA連携成功・本番SLOの証明とは扱っていない。",
+        "path": "results/reviews/issue-2/owner-audit.json",
+        "sha256": "cee0f76087c2a3112bf695822757972c0c5eac940d92b298a5120c285421c7f6"
+      }
+    ],
+    "issue1Preservation": {
+      "observation": "client finally、独立cleanup期限、実TX ID追跡、別接続identity照合、guarded KILLのTOCTOU注意、終了不明時の停止を保持。保持解除と物理容量・本番回復を区別する。runtime archive全8成果物もmanifestに一致。",
+      "paths": [
+        "docs/guidelines/operations-runbook.md:110-176",
+        "sqlserver/issue1/Program.cs:120",
+        "sqlserver/issue1/README.md",
+        "results/reference/issue-1-runtime-20261108T013522-6bd01cec80ff/manifest.json"
+      ]
+    },
+    "officialSources": [
+      {
+        "observation": "replicaでfilterされたtransactionのGTIDも保存される仕様を独立確認。",
+        "source": "[MySQL GTID Life Cycle](https://dev.mysql.com/doc/refman/8.4/en/replication-gtids-lifecycle.html)"
+      },
+      {
+        "observation": "変更可能な設定と特権書込例外を確認。role・来歴の保証にしない方針は妥当。",
+        "source": "[MySQL read_only](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_read_only)"
+      },
+      {
+        "observation": "接続要求と現在roleに依存するrouting条件を確認。継続適格性を別gateにするのは運用方針として妥当。",
+        "source": "[SQL Server read-only routing](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/configure-read-only-routing-for-an-availability-group-sql-server?view=sql-server-ver17)"
+      }
+    ],
+    "scope": "指定5文書の独立最終validation。ファイル編集、DB接続、Docker、bench、委譲、新規workflow、commit/push、外部メッセージ送信なし。新しい集約受入の作成前であることは本査読の阻害条件にしていない。",
+    "verification": {
+      "foregroundChecks": [
+        {
+          "check": "保護対象・旧snapshot・現行hash・owner結合",
+          "completeOutputReference": "58dafa",
+          "finalExitStatus": 0,
+          "sessionId": 86526
+        },
+        {
+          "check": "83リンク／anchor・導線・旧受入・置換行監査",
+          "completeOutputReference": "277162",
+          "finalExitStatus": 0,
+          "sessionId": 80369
+        },
+        {
+          "check": "旧commit照合・Issue 1 archive・保存log終端・最終hash",
+          "completeOutputReference": "dda499",
+          "finalExitStatus": 0,
+          "sessionId": 91898
+        }
+      ],
+      "historicalCompleteLogs": [
+        {
+          "finalExitStatus": 0,
+          "path": "results/reviews/issue-2/author-verification.log",
+          "scope": "owner編集前の静的確認。現行hashの証明には流用しない。",
+          "sha256": "31e5680a7c1f316d7d4a5ff7177265b743dfdeeaeb011b03f797ee80bba3b84c"
+        },
+        {
+          "finalExitStatus": 0,
+          "path": "results/reference/issue-1-runtime-20261108T013522-6bd01cec80ff/controller.log",
+          "scope": "歴史的機能検証のみ。新実行・本番SLOを再認定しない。",
+          "sha256": "be15774a76a4e7ca555982fd83c70b22a144e59d2ae49834972a8965057c463a"
+        }
+      ],
+      "independentPersistentLogPath": null,
+      "logNote": "read-onlyのため新規logは作成せず、独立検証の完全出力は上記terminal記録に保持。最初のheredocはsandboxでexit 1となり合格扱いせず、temp file不要の方式で再実施した。全foreground sessionは終了済み。"
+    }
+  },
+  "reviewQuestions": {
+    "betterMethods": "既存export・参考統計を優先し、必要時だけ適格な独立復元先で正確COUNTする経路を保持している。",
+    "designCoverage": "通常表のPK・幅・暗号化等が未計測でも、意味を確認した隔離COUNTへ進める。記入欄と架空例は各gateを独立判定できる。",
+    "fastCount": "全条件最速・無劣化・普遍的精度保証は追加されていない。既存数値の条件と未計測範囲を維持している。",
+    "lockFactors": "MySQLのMDL・undo、SQL ServerのSch-S・version保持・AG primary側回収、取消後の残作業と回復確認を保持している。",
+    "omissions": "受入を妨げる欠落は検出しなかった。未検証HA連携はHOLD条件であり、削除済み・未主張の保証のための追加実験は不要。"
+  }
+}

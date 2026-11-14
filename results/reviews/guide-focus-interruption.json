@@ -1,0 +1,28 @@
+{
+  "at": "2026-11-07T12:34:11.997465+00:00",
+  "state": "controlled_stop_completed",
+  "reason": "User explicitly says remaining suite is too slow, skip nonessential tests, and wants practical engineering guideline for safe counts on huge databases/tables, not MySQL engine investigation. Prefer no primary full scan; dedicated replica/isolated measurementDB for exactor requiredprecision,existingstatistics forroughinventory.",
+  "pausedRielaPid": 66064,
+  "pausedLabRubyPid": 66068,
+  "interruptedBench": [
+    {
+      "pid": 1364,
+      "argv": [
+        "python3",
+        "-u",
+        "/work/bench/requested/06-EXP-O6-WRITE-MIX-indexed-800-statements-b2.py"
+      ]
+    }
+  ],
+  "next": "Confirm ownbenchmark quiescence, stopownedDBs, letfixedcontroller retainactual130/source/snapshot, terminatepausedoldRiela before obsolete integration; guide-focused Sol author/review only. Do not restart/reset/rerun completed coretests or remaining grids.",
+  "finishedAt": "2026-11-07T12:34:36Z",
+  "orchestratorExitCode": 130,
+  "measurementSourceUnchanged": true,
+  "measurementSourceFiles": 339,
+  "snapshot": "results/reference/review-20261107T123436Z-66065",
+  "ownedDbStopped": true,
+  "benchPythonQuiescent": true,
+  "obsoleteWorkflowTermination": "SIGTERM+SIGCONT after fixedcontroller snapshot saved; no old docs integration should run",
+  "latestUserClarification": "安全な件数取得ガイドラインの判断フローが目的。COUNT検証は説得力を与え、table状態で分岐を選ぶために必要な分だけ。残りの網羅gridはskip。",
+  "finalDataIntegrity": "not_reached; intentionally stopped ownDBs, MEMORY volatile; not claimed finalall or intactness"
+}

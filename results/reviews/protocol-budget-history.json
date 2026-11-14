@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-07T05:54:20.256746+00:00",
+  "purpose": "Historical setup-budget context for reqmix repair, not final measurement or production performance.",
+  "qualification": "These are different old runs, potentially different cache/workload/protocol states and uncertain historical process exits. Do not attribute variation to rate alone or extrapolate a future runtime bound. Use as evidence not to omit setup reserve. The static starvation counterexample already fails even with zero setup.",
+  "sources": [
+    {
+      "path": "results/reference/20261107-observations/requested_05-EXP-O6-WRITE-MIX-indexed-100.json",
+      "sha256": "856eed7fe00cbb809c6d60de76ae888797c930b2cdf5121f61b12e00b92a9559",
+      "rows": 20000000,
+      "reportedBuildSeconds": 93.47,
+      "reportedElapsedSeconds": 255
+    },
+    {
+      "path": "results/reference/20261107-observations/requested_06-EXP-O6-WRITE-MIX-indexed-800.json",
+      "sha256": "9bdf61f8e6cd22fd48a8d83f1f8689a0f0770245558055f194b8ce5710c1bbb4",
+      "rows": 20000000,
+      "reportedBuildSeconds": 395.61,
+      "reportedElapsedSeconds": 932
+    },
+    {
+      "path": "results/reference/20261107-observations/requested_07-EXP-O6-WRITE-MIX-uniform-100.json",
+      "sha256": "f6c290c1aa8a5f0e688b595161aa55bc447a8b81e5225fd3df7cec9592525be9",
+      "rows": 20000000,
+      "reportedBuildSeconds": 209.78,
+      "reportedElapsedSeconds": 280
+    },
+    {
+      "path": "results/reference/20261107-observations/requested_08-EXP-O6-WRITE-MIX-uniform-800.json",
+      "sha256": "fdbf28f435d6574dfe2d07d810446b1013d6a24917551939bac4c0aec6f6cf1b",
+      "rows": 20000000,
+      "reportedBuildSeconds": 107.6,
+      "reportedElapsedSeconds": 514
+    }
+  ],
+  "requestedConsideration": "Partition or otherwise reserve necessary comparisons with setup/cleanup cost included. Current scale10M reported builds23-25s are a different setup and do not prove reqmix20M setup fits any fixed remainder."
+}

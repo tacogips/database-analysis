@@ -1,0 +1,319 @@
+{
+  "status": "interrupted_not_accepted_owned_cleanup_audited",
+  "rootExistedAtThisAudit": false,
+  "previousHelperAttempt": "Earlier helper reached post-unlink df assertion before asynchronous space reclamation was visible. Its actual exit was1; this audit independently rechecks terminal absence and capacity without repeating deletion when root is already absent.",
+  "checkedAt": "2026-11-08T18:35:36.215273+00:00",
+  "rawResult": "results/mysql-engine-count-100m-cold/runs/20261108T172604Z-ca74a6381f9f93ff0ed6ed7c87471500/result.json",
+  "rawResultSha256": "51593cdb6e455766cb5920487a580fb07934defe1931eaebcddcbd63afc755c1",
+  "canonicalExitCode": 1,
+  "rawCleanup": "failed_or_unknown",
+  "sourceUnchanged": true,
+  "allProcessesReaped": true,
+  "allServersStoppedExitZero": true,
+  "ownedRuntimeAbsent": true,
+  "ownedRootAbsent": true,
+  "deletedDescriptorsBefore": [
+    {
+      "pid": 66961,
+      "fd": "750r",
+      "size": 169,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/.owner.json"
+    },
+    {
+      "pid": 66961,
+      "fd": "751r",
+      "size": 0,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysqld_tmp_file_case_insensitive_test.lower-test"
+    },
+    {
+      "pid": 66961,
+      "fd": "846r",
+      "size": 56,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/auto.cnf"
+    },
+    {
+      "pid": 66961,
+      "fd": "871r",
+      "size": 4194304,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_0.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "894r",
+      "size": 12582912,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_1.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "967r",
+      "size": 16777216,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/undo_002"
+    },
+    {
+      "pid": 66961,
+      "fd": "1104r",
+      "size": 208,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysql_upgrade_history"
+    },
+    {
+      "pid": 66961,
+      "fd": "1222r",
+      "size": 15757,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_138.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1223r",
+      "size": 15758,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_139.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1412r",
+      "size": 5279,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/users_146.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1469r",
+      "size": 35510,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/prepared_stateme_177.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1510r",
+      "size": 1112,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/server-cert.pem"
+    },
+    {
+      "pid": 66961,
+      "fd": "1511r",
+      "size": 1705,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/client-key.pem"
+    }
+  ],
+  "deletedDescriptorsAfter": [
+    {
+      "pid": 66961,
+      "fd": "750r",
+      "size": 169,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/.owner.json"
+    },
+    {
+      "pid": 66961,
+      "fd": "751r",
+      "size": 0,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysqld_tmp_file_case_insensitive_test.lower-test"
+    },
+    {
+      "pid": 66961,
+      "fd": "846r",
+      "size": 56,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/auto.cnf"
+    },
+    {
+      "pid": 66961,
+      "fd": "871r",
+      "size": 4194304,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_0.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "894r",
+      "size": 12582912,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_1.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "967r",
+      "size": 16777216,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/undo_002"
+    },
+    {
+      "pid": 66961,
+      "fd": "1104r",
+      "size": 208,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysql_upgrade_history"
+    },
+    {
+      "pid": 66961,
+      "fd": "1222r",
+      "size": 15757,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_138.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1223r",
+      "size": 15758,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_139.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1412r",
+      "size": 5279,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/users_146.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1469r",
+      "size": 35510,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/prepared_stateme_177.sdi"
+    },
+    {
+      "pid": 66961,
+      "fd": "1510r",
+      "size": 1112,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/server-cert.pem"
+    },
+    {
+      "pid": 66961,
+      "fd": "1511r",
+      "size": 1705,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/client-key.pem"
+    }
+  ],
+  "hostFreeBytes": 172248809472,
+  "archive": "results/reference/mysql-engine-count-100m-cold-duration-stopped-20261108T172604Z-ca74a6381f9f93ff0ed6ed7c87471500",
+  "archiveManifestSha256": "520aa54246d85882a05c64006ca5171ae32d51ce4dfc7dabf92da6c6e03e2363",
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "label=count.engine100m.cold.owner=ca74a6381f9f93ff0ed6ed7c87471500",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "label=count.engine100m.cold.owner=ca74a6381f9f93ff0ed6ed7c87471500",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--filter",
+        "label=count.engine100m.cold.owner=ca74a6381f9f93ff0ed6ed7c87471500",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exitCode": 0,
+      "stdout": "punchflow-release-smoke\nbuildx_buildkit_punchflow-release0\ndocker-kestra-ec-1\ndocker-remote-worker-1\ndocker-remote-worker-b-1\ndocker-mailpit-1\ndocker-postgres-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "+L1"
+      ],
+      "exitCode": 0,
+      "stdout": "[filtered exact nonce only; see descriptor lists]",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "env",
+        "COLIMA_HOME=/Users/taco/.config/colima",
+        "colima",
+        "--profile",
+        "brotli-verify",
+        "ssh",
+        "--",
+        "sh",
+        "-c",
+        "stat -- /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/.owner.json '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_0.dblwr' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_1.dblwr' /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/auto.cnf /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/client-key.pem /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysql_upgrade_history /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysqld_tmp_file_case_insensitive_test.lower-test /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_138.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_139.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/prepared_stateme_177.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/users_146.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/server-cert.pem /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/undo_002"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "stat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/.owner.json': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_0.dblwr': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_1.dblwr': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/auto.cnf': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/client-key.pem': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysql_upgrade_history': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysqld_tmp_file_case_insensitive_test.lower-test': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_138.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_139.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/prepared_stateme_177.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/users_146.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/server-cert.pem': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/undo_002': No such file or directory\ntime=\"2026-11-09T03:35:35+09:00\" level=fatal msg=\"exit status 1\"\n"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "+L1"
+      ],
+      "exitCode": 0,
+      "stdout": "[filtered exact nonce only; see descriptor lists]",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "env",
+        "COLIMA_HOME=/Users/taco/.config/colima",
+        "colima",
+        "--profile",
+        "brotli-verify",
+        "ssh",
+        "--",
+        "sh",
+        "-c",
+        "stat -- /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/.owner.json '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_0.dblwr' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_1.dblwr' /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/auto.cnf /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/client-key.pem /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysql_upgrade_history /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysqld_tmp_file_case_insensitive_test.lower-test /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_138.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_139.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/prepared_stateme_177.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/users_146.sdi /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/server-cert.pem /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/undo_002"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "stat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/.owner.json': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_0.dblwr': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/#ib_16384_1.dblwr': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/auto.cnf': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/client-key.pem': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysql_upgrade_history': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/mysqld_tmp_file_case_insensitive_test.lower-test': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_138.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/events_transacti_139.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/prepared_stateme_177.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/performance_schema/users_146.sdi': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/server-cert.pem': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage/data/undo_002': No such file or directory\ntime=\"2026-11-09T03:35:35+09:00\" level=fatal msg=\"exit status 1\"\n"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "+L1"
+      ],
+      "exitCode": 0,
+      "stdout": "[filtered exact nonce only; see descriptor lists]",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 771212040 168211728    83%    /System/Volumes/Data\n",
+      "stderr": ""
+    }
+  ],
+  "note": "Raw run is incomplete/exit1 with retained-stage cleanup decision. This separate owner cleanup is not experimental success."
+}

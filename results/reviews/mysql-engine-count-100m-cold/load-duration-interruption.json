@@ -1,0 +1,25 @@
+{
+  "requestedAt": "2026-11-08T18:33:32.078055+00:00",
+  "reason": "Actual last50 MyISAM load batches average ~7.3 seconds: projected >7200sec cumulative stage cap. Stop before foreseeable late timeout; preserve all incomplete outcomes. Next source changes only MyISAM load stage to14400sec under unchanged6h whole-run cap; repeat complete all from blank.",
+  "signal": "SIGINT",
+  "targetPid": 21171,
+  "verifiedParentChain": "21144 37871 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python .riela/workflows/mysql-engine-count-100m-cold/scripts/execute.py\n21169 21144 mise -C mysql/engine-count-100m-cold run all\n21171 21169 /Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby lab.rb all\n",
+  "verifiedCwd": "p21171\nfcwd\nn/Users/taco/gits/tacogips/database-analysis/mysql/engine-count-100m-cold\n",
+  "rawResult": "results/mysql-engine-count-100m-cold/runs/20261108T172604Z-ca74a6381f9f93ff0ed6ed7c87471500/result.json",
+  "loadedMyISAMRowsAtDecision": 16300000,
+  "loadElapsedNs": 1221305749000,
+  "authorProposalSession": "temp-mysql-cold100m-load-duration-author-sol-session-59",
+  "sourceHashes": {
+    "mysql/engine-count-100m-cold/lab.rb": "08beff1ca7fd89696a0f00aedb572035448d7b9cb8e99d01c96bfc159f52381e",
+    "mysql/engine-count-100m-cold/reference_flow.rb": "ff32f35782bb01688d6f2cabeb1e57ee29cd3a8059efe574ab9f10d8317577d0",
+    "mysql/engine-count-100m-cold/compose.yaml": "00288110a6c076e04879b94aecb9fe779e6e0e4aaefdc85b1eb4c4b71ae6256e",
+    "mysql/engine-count-100m-cold/mise.toml": "cf4df1fc461300be52009322df74c33303cc4f9aa9868f6b46dbcaa5af6da7a4",
+    "mysql/engine-count-100m-cold/README.md": "a68a541f397bc8edb95f332219502d51bbb8b9984b07ccb43a13fdf35d0dc6b6",
+    "mysql/engine-count-100m-cold/verify_offline.rb": "139292d6470eb63afe23bdee1b6e053ea4de96438ba4c25b26c0165463bd810f",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/mysql-innodb.md": "df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/source.json": "d4f1c9217493eec79e4df2c1d7a28358a973cb4606ca318ad3c63019ca3a5991"
+  },
+  "status": "actual_terminal_exit1_owner_cleanup_audited",
+  "finishedAt": "2026-11-08T18:33:35.146042+00:00",
+  "stopAuditSha256": "6ef3b37a1803fb751dffc09627876d4cd73c38848185514e1ff5e86694031294"
+}

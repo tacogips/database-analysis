@@ -1,0 +1,39 @@
+{
+  "workflow": {
+    "workflowId": "temp-sqlserver-evidence-integration-sol",
+    "description": "Integrate actual SQL Server owner-verified evidence into Japanese guide only",
+    "defaults": {
+      "nodeTimeoutMs": 3600000,
+      "maxLoopIterations": 1
+    },
+    "entryStepId": "integrate",
+    "nodes": [
+      {
+        "id": "integrate",
+        "nodeFile": "nodes/integrate.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "integrate",
+        "nodeId": "integrate",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/integrate.json": {
+      "id": "integrate",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "You are GPT-6.1 Sol document author, NEW separate session. Integrate actual accepted SQL Server benchmark evidence into docs/sqlserver-table-count-guideline.md and sqlserver/README.md ONLY. Do not modify any runner/code/plan/source/proof/results/AGENTS/MySQL/rootREADME/mise. Do not start DB/Docker/measurement, delegate, workflows, commit or push. Read current AGENTS and results/sqlserver/owner-proof.json, owner-audit.json, its actual result and cited raw logs. Use Python to parse allowlisted fields, do not cat huge JSON/raw files into the model repeatedly. Verify cited values yourself. The owner proof verifies benchmark, not document acceptance. Final two Sol roles are separate forthcoming.\nRemove unmeasured-draft framing for what was actually measured; retain unmeasured conditions and don't imply support/guarantees from emulation. Canonical command is mise -C sqlserver run all, local context pinned Unix socket, not rootmise/newSQLtask. Root fixed connection/source boundaries and preserved oldMySQL measured input bytes. Plan is historical planned_not_db_executed, actual run authoritative. Guide ~200 lines, practical Japanese for unfamiliar engineer safe tablecounting on serviceDB. No blanketzero-impact/zero-locks/few%bound/Nsafe threshold/globalfastest claims. Fixedmeaning counts reference vs optimizer update-time vs exact snapshot. Include observed min/max signed+absolute errors tied to actual conditions, zero truth relativeerror undefined and ties ifall0; sourceprogrammatic owner-audit/recompute from rawresult. Give illustrative repeat medians comparing exact vsmetadata for100M ifverified,80/100wide and small tables; CPU/IO/status/clioverhead vsSQLserver metrics explicit, not causal/purequery/no SLO inference. Include actual100M notrun iffailed—not shrink/fabricate. Qualify combined100M80/100TDEunmeasured even if thin100MTDE andwide750kTDEobserved. All fixturesthisrunTDE, noon/offcausality. Nativeperformance and actualproduction appcrypto/AlwaysEncrypted notmeasured. Stats are different mechanisms, fixtureoptimizer statsstaledeliberately only7/21 committedrows; don't infer age guarantees. Appseed/ciphertext clientkey vsserver TDEcapability correct.\nKeep firstexistingapprovedexports/metadata budget andUNKNOWN inclpermission invisible0/null/missing. CoreCOUNT onlypreexistingRCSI/SNAPSHOTqualifiedresourceisolatedtarget; no productionautomaticconfigurationchange or NOLOCK. SchS/DDL, versionstore/PVS/tempdb, redo/AG/snapshotfreshness, backup/restore provisioning load, resourcecapsbeforemonitoring, ownership/cancel/rollback/end/recovery, driverdeadlinevsLOCK_TIMEOUT retained. Newconnection may inherit ambientclienttransaction; require no ambient/shared/pooledlongtransaction and no accidental commitexistingwork. Ifclientcolumnencryptionnotmeasured describeunderCOUNTsemanticsinference androuting only. Needwhatno keymeansTDEservercannotreadvsclientnotneeded.\nUse timeless final acceptance gate linking results/sqlserver/reviews/final-acceptance.json, which owner will create only after two completed separate finalSolsessions match exactguide/proof hashes. Do not assert finalSol alreadyaccepted. Do not make docchanges after finalreview otherwise. Keep scope/limits/numeric failure separation honest, no restoreoldgrid. ExistingMySQL reset maydelete results/sqlserver; state evidence committed/retain beforeotherreset, do notmodifyMySQL. Final output SMALL JSON status, changedpaths, actualguideSHA, numericalsourcepaths, unresolvedmaterialissues. Write no extraresultfiles; rootcapturesoutput. Local link/syntax checks allowed, no Docker."
+    }
+  }
+}

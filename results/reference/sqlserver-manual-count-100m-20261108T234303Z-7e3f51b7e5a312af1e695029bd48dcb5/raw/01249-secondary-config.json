@@ -1,0 +1,10 @@
+{
+  "sql": "EXEC sys.sp_configure \u0027show advanced options\u0027,1; RECONFIGURE;\nEXEC sys.sp_configure \u0027max server memory (MB)\u0027,2048; RECONFIGURE;\nALTER DATABASE tempdb MODIFY FILE (NAME=tempdev,MAXSIZE=8192MB);\nALTER DATABASE tempdb MODIFY FILE (NAME=templog,MAXSIZE=4096MB);",
+  "start_ns": 364402291373707,
+  "end_ns": 364402351191318,
+  "elapsed_ns": 59817611,
+  "raw": [
+    []
+  ],
+  "error": null
+}

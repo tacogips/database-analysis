@@ -1,0 +1,55 @@
+{
+  "changedFiles": [
+    "README.md",
+    "audit/README.md",
+    "docs/table-count-guideline.md",
+    "docs/table-count-calibration.md",
+    "docs/probability-count.md",
+    "docs/table-count-nonlocking-scope.md",
+    "docs/table-count-evidence.md",
+    "docs/table-count-integration-audit.md",
+    "docs/table-count-integration-files.md",
+    "docs/table-count-author-repair.md",
+    "docs/table-count-protocol-repair.md",
+    "docs/table-count-wide-repair.md",
+    ".riela/workflows/table-count-guideline-review/prompts/author.md",
+    ".riela/workflows/table-count-guideline-review/prompts/integrate.md",
+    ".riela/workflows/table-count-guideline-review/prompts/independent-review.md",
+    ".riela/workflows/table-count-guideline-review/prompts/sol-review.md",
+    ".riela/workflows/table-count-guideline-review/prompts/workflow-output.md",
+    "results/reviews/author-operational-guide-dispositions.json",
+    "results/reviews/author-operational-guide-verification-attempt1.json",
+    "results/reviews/author-operational-guide-verification-attempt2.json",
+    "results/reviews/author-operational-guide-verification.json",
+    "results/reviews/author-operational-guide-hashes.json"
+  ],
+  "decisionCoverage": [
+    "主ガイド147行。統計SQL前の予算・新規接続・UNKNOWN・保留条件を明確化。",
+    "資源隔離、構築・backup負荷、SLO違反前の停止値、所有クエリの取消・回復確認を追加。",
+    "復元後統計と元の本番キャッシュ統計を区別。",
+    "旧極値を固定参照で保持し、新観測とCOUNT/標本の少数比較を別記。",
+    "owner open checks全8件と歴史的指摘36件の著者処置を記録。独立査読閉鎖は未認定。",
+    "永続プロンプトを重要条件・最終Sol2役へ更新し、旧研究資料を履歴として明示。"
+  ],
+  "evidenceChecks": [
+    {
+      "completeLogPath": "results/reviews/author-operational-guide-verification.json",
+      "coverage": "数値・リンク・固定証拠・計測source344件・公開監査source7件",
+      "exitCode": 0,
+      "passedChecks": 81,
+      "sha256": "624f91cec321b23dbc862e2b0c60a49fe343a619ffe51a5faab64b56d66058f3"
+    },
+    {
+      "completeLogPath": "results/reviews/author-operational-guide-hashes.json",
+      "coverage": "最終文書ハッシュ、source再照合、git diff --check",
+      "exitCode": 0,
+      "sha256": "b14e2d91ce109c6b344ddaa439e4a9ec5966882be43a97e0643219ff5aba1534"
+    }
+  ],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "2a09051ec492983e6430022801b3b9ac24fb5ffa2868641c14d17a56bb446988",
+  "remainingGaps": [
+    "統合後文書の独立した最終GPT-6.1 Sol 2役レビューは次工程。",
+    "本番SLO・普遍的精度・全条件最速・影響ゼロは未認定。DB/Docker/benchmark・委譲・workflow・commit/pushは実行していない。"
+  ]
+}

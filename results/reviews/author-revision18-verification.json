@@ -1,0 +1,153 @@
+{
+  "type": "DB-free regression and syntax only; no Docker, DB, benchmarks or workflow launch",
+  "checks": [
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.025
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_dependencies.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.035
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_kill_timer.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.024
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.046
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.105
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_reqmix_protocol.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.259
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_sampling_contract.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.036
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_workload_accounting.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.03
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.267
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 1.225
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_matrix_cleanup.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.061
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "/Users/taco/gits/tacogips/database-analysis/bench/test_resource_preflight.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.062
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.028
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.083
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "astParsedFiles": 184,
+  "completeLogPath": "results/reviews/author-revision18-verification.log",
+  "logSha256": "ad6919c894de01a17ba7a70227efb5d4f1d9ade3b583dc40b1bf6ff21dd4178e",
+  "finalExitStatus": 0
+}

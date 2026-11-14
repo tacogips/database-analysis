@@ -1,0 +1,2085 @@
+{
+ "revision": 3,
+ "findings": [
+  {
+   "assessmentOfRebuttal": "『タイムアウトでも1317が返る』という反論は正しい。しかし、安全側に停止すると自動進行できないことは、経過時間が原因を識別できるという証明にはならない。Opusのlowへの格下げは採用しない。",
+   "evidence": "results/impact_count_kill_latency.jsonとimpact_count_timeout_hint.jsonはいずれもnotes.error=1317、seconds_until_return=5.0。番号と経過時間に原因を識別する情報はない。公式[KILL仕様](https://dev.mysql.com/doc/refman/8.4/en/kill.html)も停止フラグの確認・終了処理に時間がかかり得ると説明する。本文の『上限以上の1317→時間切れ』は十分条件にならない。",
+   "experiment": "EXP-O2-2-stop-vs-timeout",
+   "id": "FIND-R2-KILL-01",
+   "impact": "停止の意思を再試行へ変える旧問題が第三者停止について残る。自前の監視の停止フラグを追加した点は有効だが、原因不明の1317を一般に安全なタイムアウトと扱えない。",
+   "requiredCorrection": "経過時間による分類を確実な原因判定として使わない。1317の原因を独立した制御情報で確定できなければ停止し、再試行・次経路への移行は明示的な再開判断にする。正当なタイムアウトでも1317になる点は認め、その場合に自動進行できないという制約を開示するか、原因を記録できる自前の期限・停止プロトコルを実証する。",
+   "scenario": "上限前にDBAがKILL QUERYを送り、サーバーの停止処理、応答配送、またはクライアントの再スケジュールが遅れ、例外を処理した時点では上限以上の時間が経っている。共有停止フラグを使わない第三者のKILLなので、現行表は時間切れと判定して再試行または分割へ進む。ヒントの喪失がなくても成立する反例。",
+   "section": "§1判断フロー、SQL 4エラー表、§8停止条件",
+   "severity": "middle",
+   "status": "open",
+   "title": "経過時間だけでは1317の原因を確定できない"
+  },
+  {
+   "evidence": "本文§4と§11は文書のSQLそのものが未実行と明記。bench/countlib.pyには現行の型・方向条件、各文のヒント、往復確認、例外分類が実装されていない。experimentsRunも空。",
+   "id": "FIND-STEP-01",
+   "impact": "全件数の正確さと、長い文を制限する中心機構が未検証。",
+   "requiredCorrection": "EXP-O2-1、EXP-O2-2、EXP-6で現行手順をそのまま実行し、成功だけでなく停止・拒否・未完了の扱いまで確認する。",
+   "scenario": "開発者が本文の形A/B、ヒント、監視、プラン判定、カーソル確認を組み合わせて実装する。既存53表の一致は別実装なので、新しい手順の構文・停止・加算・拒否条件が動く保証にならない。",
+   "section": "§1 SQL 0・SQL M・SQL 3・SQL 4、§8",
+   "severity": "middle",
+   "status": "open",
+   "title": "推奨する安全機構を含む現行手順の実行証拠がない"
+  },
+  {
+   "evidence": "results/impact_count_split_*.jsonのnotes.indexはk_created。PRIMARYの単一文の53.04秒をPRIMARY分割の根拠にはできず、インライン幅広行も未測定。",
+   "id": "FIND-PK-01",
+   "impact": "推奨する重要なフォールバックについて、サービスを劣化させない条件が未回答。",
+   "requiredCorrection": "EXP-R4で索引・幅・時間目標・回復を比較し、成立する条件を記載する。小さい幅への本文修正は緩和として認める。",
+   "scenario": "不変な二次索引が分からない幅広表でPRIMARYへ進む。小さい幅で開始しても、一文の時間制限だけではバッファプールの追い出しと回復まで保証できない。",
+   "section": "§1 SQL 3、§6幅広行、§8",
+   "severity": "middle",
+   "status": "open",
+   "title": "PRIMARY分割の負荷下の影響が未測定"
+  },
+  {
+   "evidence": "DENSE負荷は件数を変えないUPDATE statusで、k_createdを歩く。result=100000000は件数変動やカーソル移動を検証していない。",
+   "id": "FIND-DRIFT-01",
+   "impact": "実用上どの用途まで許容できる値か、測定に基づいて答えられない。",
+   "requiredCorrection": "EXP-R5でコミット済み操作列と境界を記録して誤差を測る。『厳密』の表現を削除した本文修正は確認済み。",
+   "scenario": "追加・削除・主キー更新・索引値の移動がある表を分割する。合計が同時点でないことは説明されたが、実際の誤差を評価する証拠がない。",
+   "section": "§1結論、§7",
+   "severity": "middle",
+   "status": "open",
+   "title": "並行変更時の分割合計の精度が未測定"
+  },
+  {
+   "evidence": "impact_count_default.server.baseline.rows_read_per_s=263480、impact_count_force_primaryでは3010159。本文に開示されたが、原因特定と静止確認後の再計測はない。",
+   "id": "FIND-LAB-CONTAM-01",
+   "impact": "速度・キャッシュ・ノイズ基準の比較条件が揃わない。",
+   "requiredCorrection": "EXP-R7で発生源を調べ、静止ゲートを入れて該当比較を取り直す。",
+   "scenario": "通常負荷なら約200行/秒の区間に、数十万から数百万行/秒の読み取りがある条件で各方式を比較する。",
+   "section": "§2、§3",
+   "severity": "middle",
+   "status": "open",
+   "title": "比較に含まれる背景読み取りの原因が未解明"
+  },
+  {
+   "evidence": "18.63、11.73、18.53秒は各一回で、既定プランと反復がない。本文は優劣・同等性を判定できないと正しく修正された。",
+   "id": "FIND-FAST-01",
+   "impact": "依頼の中心である最速の問いへの実証回答が未完了。",
+   "requiredCorrection": "EXP-R8で実行順・キャッシュを制御し、プランと反復を記録する。範囲の重なりだけで同等としない。",
+   "scenario": "1億行の既定、FORCE二次索引、分割のどれが速いかを判断する。",
+   "section": "§1、§3、§10",
+   "severity": "middle",
+   "status": "open",
+   "title": "巨大表で最速の方式が未確定"
+  },
+  {
+   "evidence": "負荷は軽く半分が先頭20万行に偏る。比較窓が揃わず、defaultのディスク読みはbaseline=1/秒からrecovery=328/秒。因果と無害のいずれも確定できない。",
+   "id": "FIND-IMPACT-01",
+   "impact": "『サービス性能を落とさず』の成立条件が未回答。",
+   "requiredCorrection": "EXP-R9で作業セット・負荷・比較窓・回復を揃えて測る。本文の判定不能という留保は維持する。",
+   "scenario": "バッファプールの大半を使うサービスに全域スキャンを追加し、計数後の回復も評価する。",
+   "section": "§2、§3、§8",
+   "severity": "middle",
+   "status": "open",
+   "title": "本番相当の作業セットでの劣化と回復が未検証"
+  },
+  {
+   "evidence": "count_shapes.jsonは静止投入後の結果。19表のTABLE_ROWS=0の原因は未確定。expiry=0は本文に追加されたが未実行。",
+   "id": "FIND-EST-01",
+   "impact": "許容誤差を判断するための運用条件別の根拠がない。",
+   "requiredCorrection": "EXP-R10でキャッシュと統計自体の誤差を分け、大量変更後を真値と比較する。固定サイズ閾値の説明の修正は確認済み。",
+   "scenario": "大量削除・更新後に概数を採用する。",
+   "section": "§1 SQL 1、§4",
+   "severity": "middle",
+   "status": "open",
+   "title": "統計キャッシュの切り分けと大量変更後の精度が未測定"
+  },
+  {
+   "evidence": "停止・再開手順は未実施。replica_count_vs_ddlは明示トランザクションでCOUNT後も保持する実験。Samplerの通常指標はprimaryで、replica自身のHLL・読取遅延はない。",
+   "id": "FIND-REPL-01",
+   "impact": "一瞬の値とカウンタ初期化が依存する手順の正確さ・影響を確定できない。",
+   "requiredCorrection": "EXP-R15で実際の適用状態、フィルター、停止・再開、autocommitとDDL、replica自身の指標を確認する。",
+   "scenario": "適用を止めて数え、再開する。あるいは適用中の長いautocommit COUNTにprimaryのDDLが重なる。",
+   "section": "§1、§7、§9",
+   "severity": "middle",
+   "status": "open",
+   "title": "レプリカの推奨手順とレプリカ自身への影響が未検証"
+  },
+  {
+   "evidence": "本文はWHERE a=? AND b=?という断片だけを示し、全ての文への上限・少量結果を保証する具体形がない。例外表にその他エラーの既定動作もない。",
+   "experiment": "EXP-O2-1-guideline-sql-as-written",
+   "id": "FIND-R3-LOOPEDGE-01",
+   "impact": "余分な読み取り、意図しない継続、完走率低下の恐れ。確認対象行の削除で止まること自体は誤計数を防ぐ安全側の動作。",
+   "requiredCorrection": "上限付きSELECT 1 ... LIMIT 1などを示し、未列挙エラーは未完了として停止する規則を加える。存在確認だけを一般的な無損失シリアライズの証明とは呼ばない。",
+   "scenario": "形Bの大量同値キーで、往復確認をLIMITやヒントなしで実装する。また1146や1176など表にないエラーを受ける。",
+   "section": "§1 SQL 4規則3、エラー表",
+   "severity": "low",
+   "status": "open-low",
+   "title": "往復確認SQLの上限と未列挙エラーの既定動作が不明"
+  },
+  {
+   "evidence": "本文はヒントに依存し、SESSION max_execution_timeの設定や上限超過成功時の判定を示さない。[公式ヒント仕様](https://dev.mysql.com/doc/refman/8.4/en/optimizer-hints.html)はヒントがない場合のセッション変数を定義する。",
+   "experiment": "EXP-6-sql-not-executed",
+   "id": "FIND-R3-HINT-01",
+   "impact": "文の実行時間を制限する前提を確認できない。特定プロキシが実際にヒントを除去したとの実測ではない。",
+   "requiredCorrection": "実際の発行SQLとサーバー設定を確認し、セッション上限・独立した期限監視等の代替を検証する。成功まで長時間かかった事実をヒント有効の証拠にしない。",
+   "scenario": "未検証の中継・SQL生成層がヒントコメントを除去し、長いSELECTが成功する。エラーがないのでタイマー不適用と気づかない。",
+   "section": "§1 SQL 0・SQL 2・SQL 4",
+   "severity": "low",
+   "status": "open-low",
+   "title": "ヒントが失われた場合の検知と代替上限がない"
+  }
+ ],
+ "opusFindings": [
+  {
+   "evidence": "docs/table-count-guideline.md:208, :211-217。本文は余分な読み取りと中止を未測定と認めている",
+   "id": "FIND-R3-LOOPEDGE-01",
+   "impact": "誤った件数にはならない方向。不要な負荷と完走しないジョブの恐れ",
+   "requiredCorrection": "SELECT /*+ MAX_EXECUTION_TIME(...) */ 1 ... LIMIT 1 の形を示す。エラーの表に『それ以外は止まる』を加える。EXP-O2-1 で誤った中止の頻度を見る",
+   "scenario": "(a) 往復確認は WHERE a = ? AND b = ? と書くだけで SQL がない。形 B の文字列キーで同じ値が大量にあると、LIMIT と時間上限なしの読み取りを書いてしまい、行がクライアントに流れる恐れがある。(b) カーソルの行が直前に削除されると 1 行も返らず中止になるので、削除の多い表では誤った中止が増えうる。(c) エラーの表にない番号(1146、1176 など)の動作がない",
+   "section": "§1 SQL 4 規則 3、エラーの表",
+   "severity": "low",
+   "title": "revision 3 で加えた手順に細部の穴がある"
+  },
+  {
+   "evidence": "docs/table-count-guideline.md:122, :214。SET SESSION max_execution_time は本文の手順にない(既定値の表 :244 のみ)。プロキシ経由は未計測",
+   "id": "FIND-R3-HINT-01",
+   "impact": "監視が MDL 待ちでは止めるので影響は限定的",
+   "requiredCorrection": "上限を大きく超えて返った文はヒント無効として止める規則、または SQL 0 で SET SESSION max_execution_time を併用する案を EXP-6 で確かめて記載する",
+   "scenario": "プロキシや ORM がコメント形式のヒントを落とすと、上限のない文になる。SQL 2 が長時間かかって成功しても誤りと判定されず、後から KILL されると『上限以上の 1317』として時間切れに分類され、次の経路へ進む",
+   "section": "§1 SQL 2, SQL 4",
+   "severity": "low",
+   "title": "時間上限のヒントが失われても検知しない"
+  },
+  {
+   "id": "FIND-STEP-01",
+   "note": "本文の規則は確認。ステップのヒント、停止フラグ、監視は 1 度も実行されていない。EXP-6、EXP-O2-1、EXP-O2-2 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-PK-01",
+   "note": "既定のフォールバックが負荷下で未計測。EXP-R4 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-DRIFT-01",
+   "note": "誤差が未知。EXP-R5 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-LAB-CONTAM-01",
+   "note": "開示のみで原因は未特定。EXP-R7 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-FAST-01",
+   "note": "最速の問いが未回答。EXP-R8 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-IMPACT-01",
+   "note": "劣化の有無が判定できない。EXP-R9 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-EST-01",
+   "note": "§1 の説明の修正は :76 で確認。原因と大量変更後の精度は未測定。EXP-R10 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-REPL-01",
+   "note": "§1 の結論の表が未計測の手順に言及したまま。EXP-R15 待ち",
+   "severity": "middle",
+   "source": "opus",
+   "status": "open"
+  },
+  {
+   "id": "FIND-R2-LOOP-01",
+   "note": "形 A / B の定義、最初・途中・末尾の条件、足す値、NULL の 1 回の加算を :165-199 で確認。bench/countlib.py:89-103 の分岐と整合する。EXP-O2-1 は必須のまま",
+   "previousSeverity": "middle",
+   "severity": "low",
+   "source": "opus/sol",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "id": "FIND-R2-KILL-01",
+   "note": "停止フラグ、エラーの表、フローの分岐を :60-61, :213-219, :681 で確認。EXP-O2-2 は必須のまま",
+   "previousSeverity": "middle",
+   "severity": "low",
+   "source": "opus/sol",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "id": "FIND-R2-CURSOR-01",
+   "note": "SET NAMES、前進の確認、往復確認、プラン条件の失敗時の動作を確認。細部は FIND-R3-LOOPEDGE-01",
+   "previousSeverity": "middle",
+   "severity": "low",
+   "source": "opus/sol",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "id": "FIND-SOL-DDL-01",
+   "note": "運用の調整を条件にし、TABLE_ID の限界を :729-731 に明記したことを確認。Opus の判定で、Sol の判断を拘束しない",
+   "previousSeverity": "middle",
+   "severity": "low",
+   "source": "sol",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "id": "FIND-R2-CASCADE-VER-01",
+   "note": "§9 の既定 OFF は 9.7 の記述と整合。ただし enable_cascade_triggers はセッション単位で、innodb_native_foreign_keys=OFF のときだけ効くという要約を得た。『自分のサーバーの設定を確かめ』では足りない可能性がある。検索の要約であり原文は未読",
+   "severity": "low",
+   "source": "opus/sol",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-SOL-TX-01",
+   "severity": "low",
+   "source": "sol",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-KEY-ENUM-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-KEY-NULL-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-KEY-DESC-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-KEY-TYPE-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-LOCK-FORMS-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-MDL-FLUSH-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-PRIV-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-RESUME-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-BETTER-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-SOL-ISO-01",
+   "severity": "low",
+   "source": "sol",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-SOL-TIMING-01",
+   "severity": "low",
+   "source": "sol",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-SOL-COUNTER-01",
+   "note": "補正の再実行排除が本文にない(著者も認めている)",
+   "severity": "low",
+   "source": "sol",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-SOL-MONITOR-01",
+   "note": ":682 の修正を確認",
+   "severity": "low",
+   "source": "sol",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-SOL-TIMEOUT-01",
+   "severity": "low",
+   "source": "sol",
+   "status": "mitigated-in-text"
+  },
+  {
+   "id": "FIND-LOCK-SAMPLER-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-MDL-TRIAL-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-ENGINE-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-DOC-01",
+   "note": "§12 の未確認一覧は前回 Opus が示した検索結果の項目(LOCK TABLES と FK、親の DDL と子の MDL、多値索引、stats_expiry など)を取り込んでいない。URL は reviewEvidence に再掲する",
+   "severity": "low",
+   "source": "opus",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-PREFLIGHT-01",
+   "severity": "low",
+   "source": "opus",
+   "status": "open-low"
+  },
+  {
+   "id": "FIND-FLOW-01",
+   "severity": "middle",
+   "source": "opus",
+   "status": "closed"
+  },
+  {
+   "id": "FIND-SOL-VIEW-01",
+   "severity": "middle",
+   "source": "sol",
+   "status": "closed"
+  }
+ ],
+ "opusFindingAssessment": [
+  {
+   "assessment": "confirmed-in-part",
+   "evidence": "規則3はSQL断片だけで上限・LIMITがなく、例外表にもその他エラーがない。",
+   "id": "FIND-R3-LOOPEDGE-01",
+   "qualification": "削除された境界行を見つけられず未完了停止すること自体は正確さの欠陥ではない。完走率の問題として測定する。",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "ヒント喪失と上限を大きく超えた成功を検出する規則がない。",
+   "id": "FIND-R3-HINT-01",
+   "qualification": "特定プロキシで喪失した実測ではない。第三者KILLの誤分類は喪失を前提としないため、FIND-R2-KILL-01から分離しない。",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "現行SQL・監視・例外分類の実行証拠がなく、既存実装とは異なる。",
+   "id": "FIND-STEP-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "負荷下のsplit結果の索引はk_createdのみ。",
+   "id": "FIND-PK-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "件数変動・カーソル移動の実験は未実施。表現の修正は確認済み。",
+   "id": "FIND-DRIFT-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "初期baselineの異常読み取りをrawで再確認。原因・取り直しはない。",
+   "id": "FIND-LAB-CONTAM-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "各一回、既定プランなし、反復なし。順位不明の開示は正しいが回答未完了。",
+   "id": "FIND-FAST-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "比較窓・作業セット・回復の統制実験がない。",
+   "id": "FIND-IMPACT-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "§1の説明は修正済み。統計キャッシュ切分けとchurn後精度は未測定。",
+   "id": "FIND-EST-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "適用停止・再開とreplica自身の通常指標は未検証。",
+   "id": "FIND-REPL-01",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed-text-fix",
+   "evidence": "形AはN、形Bは範囲COUNT、初回・末尾は非NULL集合、NULLは一度と定義された。PARTITION集合の維持も明示。",
+   "id": "FIND-R2-LOOP-01",
+   "severity": "low",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "rejected-downgrade",
+   "evidence": "停止フラグは自前の監視に有効。一方、client elapsed>=limitは1317の原因がタイマーである証拠にならない。",
+   "id": "FIND-R2-KILL-01",
+   "qualification": "著者の『タイマーも1317』は受け入れるが、『安全側に停止すると自動進行できない』ことを理由に原因不明の自動再試行を許す結論は採用しない。",
+   "severity": "middle",
+   "status": "open"
+  },
+  {
+   "assessment": "confirmed-text-mitigation",
+   "evidence": "SET NAMES、同値の反復拒否、往復確認、プラン不適格時の拒否を追加した。",
+   "id": "FIND-R2-CURSOR-01",
+   "qualification": "確認SQLの具体形と無損失性の検査はEXP-O2-1に残す。存在する行に一致しただけで任意の変換損失を排除したことにはならない。",
+   "severity": "low",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-text-fix",
+   "evidence": "入れ替え系DDLを運用で調整し、調整できない合計を実数と扱わず、TABLE_IDは補助で復帰を検知できないと明記した。",
+   "id": "FIND-SOL-DDL-01",
+   "severity": "low",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "9.7公式本文でenable_cascade_triggersはSESSION、既定FALSE、native FKが有効なら効かないことを再確認した。",
+   "id": "FIND-R2-CASCADE-VER-01",
+   "qualification": "確認するのはカウント接続だけでなく変更を起こすセッションの設定。innodb_native_foreign_keysの既定FALSEも今回原文で確認できた。",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "新規専用接続とプール再利用禁止を維持。旧high経路をそのまま残してはいない。",
+   "id": "FIND-SOL-TX-01",
+   "severity": "low",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "enum/setを分割候補から除外。未計測の代替は候補に限定。",
+   "id": "FIND-KEY-ENUM-01",
+   "status": "mitigated-in-text"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "非先頭キー部をNOT NULLに限定し、追加PKにも条件を適用。",
+   "id": "FIND-KEY-NULL-01",
+   "status": "mitigated-in-text"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "全ASC、単一DESC PKのみ例外、filesort検査を維持。",
+   "id": "FIND-KEY-DESC-01",
+   "status": "mitigated-in-text"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "UTC、FLOAT/BIT除外、DOUBLE無損失条件を維持。",
+   "id": "FIND-KEY-TYPE-01",
+   "status": "mitigated-in-text"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "直接発行するトップレベルSELECTに限定し、検索の非網羅性を明記。",
+   "id": "FIND-LOCK-FORMS-01",
+   "status": "mitigated-in-text"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "バックアップ予定とthread state監視を維持。実測はない。",
+   "id": "FIND-MDL-FLUSH-01",
+   "status": "mitigated-in-text"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "権限表と不足時開始禁止を維持。最小権限で未実行。",
+   "id": "FIND-PRIV-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "既定やり直し、型付きカーソルと合計等の原子的記録を維持。",
+   "id": "FIND-RESUME-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "増分候補と不変条件・照合を維持。効果は未測定。",
+   "id": "FIND-BETTER-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-text-fix",
+   "evidence": "SQL 0でSESSION RRを設定しRUを禁止。",
+   "id": "FIND-SOL-ISO-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "NULL事前COUNTの時間除外を明記。計測実装は未修正。",
+   "id": "FIND-SOL-TIMING-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "同じ停止状態のN-D補正という論理は改善。補正の重複実行排除は未定義・未実証。",
+   "id": "FIND-SOL-COUNTER-01",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed-text-mitigation",
+   "evidence": "正常な空の待機一覧と監視失敗・計装無効を区別する修正を確認。",
+   "id": "FIND-SOL-MONITOR-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed-text-fix",
+   "evidence": "ストアドプログラムではヒント無視と明記。",
+   "id": "FIND-SOL-TIMEOUT-01",
+   "status": "validation-pending"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "data_locksの2番目のクエリは上限なし。交絡の開示はある。",
+   "id": "FIND-LOCK-SAMPLER-01",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "0.02秒は一回値、発行位相とDDL作業時間を区別。",
+   "id": "FIND-MDL-TRIAL-01",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed-mitigation",
+   "evidence": "CHECK TABLEの影響とMEMORY片側再起動を明記。障害時は未測定。",
+   "id": "FIND-ENGINE-01",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed-in-part",
+   "evidence": "URL欠落は既に解消。未確認の一覧は残る。",
+   "id": "FIND-DOC-01",
+   "qualification": "Opusの検索要約があるだけでは本文を原文確認済みに変更できない。Solが原文を取得した既存項目は確認済みを維持してよい。",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed",
+   "evidence": "文書の適格性・ヒント・検査とbench実装は未一致。本文は証拠範囲を開示。",
+   "id": "FIND-PREFLIGHT-01",
+   "status": "open-low"
+  },
+  {
+   "assessment": "confirmed-closure",
+   "evidence": "ビュー、実表集合、非InnoDB、パーティション、分割不能の分岐を確認。",
+   "id": "FIND-FLOW-01",
+   "status": "closed"
+  },
+  {
+   "assessment": "confirmed-closure",
+   "evidence": "基底件数の代用を禁止し、対象実表とビュー結果を分けている。",
+   "id": "FIND-SOL-VIEW-01",
+   "status": "closed"
+  }
+ ],
+ "requestedExperiments": [
+  {
+   "addedScope": "往復確認の中止頻度とsecondary+PKのプラン条件。",
+   "blocking": true,
+   "confirmOrRefute": "不一致・不正継続・無界な確認文があれば反例。真値一致または安全な拒否、理由と完走率を記録して確認する。",
+   "hypothesis": "現行の形A/B、NULL別計数、往復確認、プラン条件が静止表で正しい値か安全な拒否を返す。",
+   "id": "EXP-O2-1-guideline-sql-as-written",
+   "status": "not-run",
+   "steps": [
+    "このcomposeラボ専用に本文の手順を実装し、旧countlibで未定義部分を補わない。",
+    "t_nopk、t_uniq_nullable、d_soft_delete、categories、t_events、t_composite、負数、空表、幅未満、NULL少数・多数、巨大同値群を試す。",
+    "文字セット損失、型の無損失往復、境界行削除、確認SQLの上限とLIMIT、その他エラーの停止を確認する。",
+    "secondary+PKの実カーソルでused_key_parts条件を記録する。全ての境界・NULL・末尾・確認SQLとEXPLAINで同じPARTITION集合を維持する。"
+   ]
+  },
+  {
+   "addedScope": "上限後KILL、ヒント喪失に加え、上限前KILLの遅延通知を含める。",
+   "blocking": true,
+   "confirmOrRefute": "KILLに由来する1317で自動再発行すれば現行分類を反証。既知の期限と停止意思を独立に記録し、不明原因を停止できる方式を検証する。",
+   "hypothesis": "client経過時間だけでは1317をタイムアウトと第三者KILLに分類できない。",
+   "id": "EXP-O2-2-stop-vs-timeout",
+   "status": "not-run",
+   "steps": [
+    "ローカルt_denseでヒントによる時間切れと第三者KILLを各5回以上比較し、送信・サーバー停止・クライアント処理時刻を分ける。",
+    "上限の直前・直後のKILL、早いKILLの例外配送または処理を上限後まで遅らせるローカルテストフック、ヒントを除いた文を試す。",
+    "保留中ALTERと停止フラグを競合させ、停止後に次のSQLを発行しないか確認する。",
+    "1205、接続断、監視喪失を試し、原因不明1317を止める方式と現行の経過時間方式を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "設定依存の差が出れば条件付き説明を確定する。既定が従来動作を保つ場合、版だけで既定が変わるとは書かない。",
+   "hypothesis": "9.7・26.10のCASCADE/SET NULLトリガーはSESSION設定とnative FKモードに依存する。",
+   "id": "EXP-O2-3-cascade-trigger-version",
+   "status": "not-run",
+   "steps": [
+    "ローカルmatrixに親子とDELETE/UPDATEトリガーカウンタを追加する。",
+    "5版で変数の有無、既定、変更元SESSIONのenable_cascade_triggers、native FKモードを記録する。",
+    "可能な設定組合せで親DELETE/UPDATEと子のトリガー回数、警告を測る。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "既知の変更列から重複・欠落を確認する。開始終了の件数だけを正解にしない。",
+   "hypothesis": "追加・削除位置とカーソル列移動で分割合計の誤差が変わる。",
+   "id": "EXP-R5-split-drift",
+   "status": "not-run",
+   "steps": [
+    "ラボで開始終了の静止真値とコミット済み変更ログを保存する。",
+    "カーソル前後への追加、一様削除、status・updated_at・PKの更新を個別に与える。",
+    "PRIMARYと可動二次索引の境界・合計を比較する。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "原因を特定するか、静止確認済み結果に置き換える。再現しないことだけで旧値を無交絡にしない。",
+   "hypothesis": "初期比較には通常負荷以外の読み取りが混在している。",
+   "id": "EXP-R7-background-reader",
+   "status": "not-run",
+   "steps": [
+    "ラボの通常実行順でprocesslist、threads、rows_readを記録する。",
+    "静止ゲートを設け、baseline、default、single_thread、force_primaryを取り直す。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "再現する差だけを条件付き順位にする。範囲の重なりは同等性の証明にしない。",
+   "hypothesis": "既定・FORCE二次索引・分割の順位はキャッシュと実行順に依存する。",
+   "id": "EXP-R8-count-repeat",
+   "status": "not-run",
+   "steps": [
+    "ローカルt_denseでプランを記録し、順序を入れ替えて各5回以上測る。",
+    "warm/coldを分け、時間、読み量、HLL、遅延を保存する。",
+    "実用上許容する差を事前に定める。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "許容遅延・回復時間を超える差を確認する。差がなくても条件と検出限界を付ける。",
+   "hypothesis": "作業セットが大きいと計数中・終了後の遅延と回復が悪化する場合がある。",
+   "id": "EXP-R9-working-set-impact",
+   "status": "not-run",
+   "steps": [
+    "ラボ負荷をバッファプール70〜90%に広げて温める。",
+    "baseline/recoveryを120秒以上、方式間の窓を揃える。",
+    "対照、既定、分割待ちなし・50%を複数負荷率で各3回以上測る。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "条件付きの差を確認し、単一文PRIMARYの値から分割を推定しない。",
+   "hypothesis": "PRIMARY分割は索引幅と行幅によって小さい二次索引分割と影響が異なる。",
+   "id": "EXP-R4-primary-split-impact",
+   "status": "not-run",
+   "steps": [
+    "ラボでPRIMARYとk_createdを交互に3回以上測る。",
+    "インライン幅広TEXT/JSON表で固定幅と時間目標を比較する。",
+    "遅延、文時間、ディスク読み、回復のミス率を保存する。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "キャッシュ関与と統計誤差を分離して確認し、観測誤差を上限にしない。",
+   "hypothesis": "統計キャッシュと大量変更は別々に概数誤差へ影響する。",
+   "id": "EXP-R10-estimate-churn",
+   "status": "not-run",
+   "steps": [
+    "ラボのTABLE_ROWS=0表でexpiry設定と投入後I_S読取り順を比較する。",
+    "50%削除、半数更新、auto_recalc OFFでEXPLAIN、TABLE_ROWS、NUM_ROWS等を真値と比較する。",
+    "t_denseのEXPLAIN時間も測る。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "状態と件数の対応および影響を確認する。primaryの指標をreplicaの指標として使わない。",
+   "hypothesis": "適用停止値が記録状態へ対応し、適用中COUNTはDDL適用と競合する。",
+   "id": "EXP-R15-replica-procedure",
+   "status": "not-run",
+   "steps": [
+    "ローカルcomposeの実設定workers=2で停止・GTID・フィルター・件数・再開を記録する。",
+    "コミット済みログと適用状態を照合する。",
+    "autocommit COUNTとprimary ALTERを競合させ、replica自身のHLL・MDL・読取遅延・適用遅延を測る。"
+   ]
+  },
+  {
+   "addedScope": "SET NAMES、セッション上限、ヒント喪失・長時間成功の検知。",
+   "blocking": true,
+   "confirmOrRefute": "全経路の値・拒否・停止を確認する。構文成功だけを安全機構の合格にしない。",
+   "hypothesis": "現行SQL・監視・タイマーが記載条件で機能する。",
+   "id": "EXP-6-sql-not-executed",
+   "status": "not-run",
+   "steps": [
+    "ラボでSQL 0/M/3/4、TABLE_ID、threads、ルーチン検索、rgをそのまま実行する。",
+    "SET NAMESと各ヒント、SESSION max_execution_time併用案を比較する。",
+    "1000ms・500msを各5回以上、境界・NULL・末尾・往復確認にも適用する。",
+    "不適格プラン、権限不足、欠損、KILLと上限超過成功を処理する。"
+   ]
+  },
+  {
+   "blocking": true,
+   "confirmOrRefute": "旧経路の保持と、修正版の回避または停止を確認する。",
+   "hypothesis": "既存明示トランザクションではautocommit再設定だけで解放できず、新規接続で回避できる。",
+   "id": "EXP-SOL-1-existing-transaction",
+   "status": "not-run",
+   "steps": [
+    "ラボでautocommit=1、START TRANSACTION、SQL 0と複数ステップを実行する。",
+    "別接続でALTER・UPDATE、MDL・行ロックを観測する。",
+    "新規接続とドライバの意図しないトランザクション開始を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "位置依存の読み増加なら支持、幅相当なら反証。SETへ一般化しない。",
+   "hypothesis": "ENUM数値カーソルの読み量が位置・規模とともに増える。",
+   "id": "EXP-R1-enum-scaling",
+   "status": "not-run",
+   "steps": [
+    "ラボで100万・500万・2000万行のENUM先頭PKを作る。",
+    "各実カーソルのHandler、EXPLAIN、時間を測り、値別等価条件と比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "旧不一致と修正版の一致・拒否を確認する。",
+   "hypothesis": "非先頭NULLの旧カーソルは読み飛ばす。",
+   "id": "EXP-R2-nullable-composite",
+   "status": "not-run",
+   "steps": [
+    "ラボにid PKとKEY(tenant_id,deleted_at)を置き、NULL境界を作る。",
+    "旧方式、静止COUNT、除外またはNULL対応方式を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "filesortと過剰読みで支持し、索引順・幅相当なら該当ケースを反証する。",
+   "hypothesis": "混在方向と全ASCの不一致はソート・過剰読みを生む場合がある。",
+   "id": "EXP-R3-desc-index",
+   "status": "not-run",
+   "steps": [
+    "ラボで索引・末尾PKのASC/DESCを組み合わせる。",
+    "実カーソルのプラン、next/prev/key/rnd_next、ソート指標を方向に合う述語と比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "不一致・停滞または現行の安全な拒否を確認する。",
+   "hypothesis": "FLOAT、DST時刻、ゼロ日付の往復変換がカーソルを失わせる場合がある。",
+   "id": "EXP-R6-float-dst",
+   "status": "not-run",
+   "steps": [
+    "ラボで重複FLOAT、DST折返しTIMESTAMP、許可モードのゼロ日付を用意する。",
+    "UTC/地域時刻と損失・無損失シリアライズを真値と比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "実行中・保持中のロックと競合結果で分類し、文終了後ゼロだけで無ロックとしない。",
+   "hypothesis": "未計測文形のロック動作は通常SELECTと異なる場合がある。",
+   "id": "EXP-R11-lock-forms",
+   "status": "not-run",
+   "steps": [
+    "ラボでDO、変数代入、PREPARE、ルーチン・トリガー内、CTAS、REPLACE SELECT等を追加する。",
+    "4分離レベル・3索引設計で実行中ロックと競合書込みを観測する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "可視性と停止を比較し、実際に不足する監視だけを特定する。",
+   "hypothesis": "COUNTとFLUSH系の競合にはMDL以外のstate監視も必要になる。",
+   "id": "EXP-R12-flush-chain",
+   "status": "not-run",
+   "steps": [
+    "ラボで長いCOUNT・分割にFLUSH TABLESとFTWRLを個別に競合させる。",
+    "MDL、processlist、遅延、停止後の所有ロック解放を記録する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "成否から主体別権限を確定し、失敗で継続しないことを確認する。",
+   "hypothesis": "カウント権限だけでは全監視・停止を実行できない。",
+   "id": "EXP-R13-least-privilege",
+   "status": "not-run",
+   "steps": [
+    "ラボに段階的権限のカウント・監視ユーザーを作る。",
+    "全SQL、KILL、replica操作の成否と、権限喪失時の停止を確認する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "修正版が混合を拒否し、同じステップを一度だけ加算すること。",
+   "hypothesis": "接続先・型・原子的保存がない再開では混合または二重加算する。",
+   "id": "EXP-R14-resume-failover",
+   "status": "not-run",
+   "steps": [
+    "ラボで接続断後に遅延replicaへ切り替える。",
+    "保存前後で中断し、旧方式と同一性・原子的保存を持つ方式を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "不変条件下の一致と読取り削減、条件違反の検知を確認する。",
+   "hypothesis": "不変範囲の確定値再利用は全域計数より少ない読みで同じ精度を得る。",
+   "id": "EXP-R16-incremental",
+   "status": "not-run",
+   "steps": [
+    "ラボ追記表とt_partで増分・全域を比較する。",
+    "過去更新・削除・遅延到着・交換を混ぜ、変更検知と照合を測る。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "統制した悪化で支持し、別接続が古いsnapshotを持つだけの試験と区別する。",
+   "hypothesis": "古いスナップショット自身や大量変更後の索引は計数コストが増える。",
+   "id": "EXP-3-history",
+   "status": "not-run",
+   "steps": [
+    "ラボで広範囲更新後に更新前スナップショット自身で数える。",
+    "大量削除・索引更新後のCOUNT/分割を対照と比較し、HLL・取得可能なundo関連指標と時間を記録する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "実際の待ち依存で確認し、通常COUNTの親子行ロックと混同しない。",
+   "hypothesis": "子COUNTと親DDL、WRITEテーブルロックは親子へ競合を生む。",
+   "id": "EXP-4-fk-mdl",
+   "status": "not-run",
+   "steps": [
+    "ラボのorder_items読取りとordersのINSTANT/INPLACE ALTERを競合させる。",
+    "親子MDL、後続アクセス、LOCK TABLES WRITE時の読み書きを記録する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "1205なら支持し、通れば説明を見直す。",
+   "hypothesis": "二次索引共有ロックは索引列UPDATEを阻害する。",
+   "id": "EXP-5-indexed-update-lock",
+   "status": "not-run",
+   "steps": [
+    "ラボのpk_and_small_secondaryでFOR SHAREを保持する。",
+    "索引列UPDATEを1秒待ちで試し、非索引列と比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "成立・拒否条件を記録し、構築しないトポロジーを確認済みにしない。",
+   "hypothesis": "残る設計でも現行手順は正しく数えるか安全に拒否する。",
+   "id": "EXP-7-coverage-gaps",
+   "status": "not-run",
+   "steps": [
+    "ローカルにテナント、サブパーティション、3列以上、関数・多値・不可視索引を追加する。",
+    "適格性と結果を照合し、9.7/26.10の主要影響試験とCPU飽和条件を追加する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "RUの未コミット包含と修正版の回避を確認する。",
+   "hypothesis": "SQL 0のRR明示はRUからのdirty countを回避する。",
+   "id": "EXP-SOL-2-read-uncommitted",
+   "status": "not-run",
+   "steps": [
+    "ラボで未コミットINSERTとROLLBACKを行う。",
+    "RU、SQL 0後のRR、RCの件数を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "除外量を特定し、新計測が全処理と全ての文を含むことを確認する。",
+   "hypothesis": "旧タイマーはNULL事前COUNTを除外する。",
+   "id": "EXP-SOL-3-null-inclusive-timing",
+   "status": "not-run",
+   "steps": [
+    "ラボt_uniq_nullableとd_soft_deleteの呼出し全体と全SQLを個別計時する。",
+    "NULLを含む新旧値、時間上限、監視停止を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "代用の不一致と入口の正しい分岐を確認する。",
+   "hypothesis": "ビュー件数は基底件数で一般に代用できない。",
+   "id": "EXP-SOL-4-view-semantics",
+   "status": "not-run",
+   "steps": [
+    "ラボに一対多JOIN、不一致行、UNION DISTINCT、集約ビューを用意する。",
+    "基底件数と比較し、修正した入口が意味の異なる値を返さないことを確認する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "正しい初期値と一度だけの補正を確認する。CASCADE設定も別記する。",
+   "hypothesis": "停止状態N-Dの補正は整合点を接続できるが重複補正を排除する必要がある。",
+   "id": "EXP-SOL-5-counter-bootstrap",
+   "status": "not-run",
+   "steps": [
+    "ローカルROW複製の対象表・カウンタで既知のINSERT/DELETE/ROLLBACKを与える。",
+    "旧初期化、書込み停止、N-D方式を比較する。",
+    "補正前後に変更と接続断・再試行を入れ、静止真値と照合する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "異常をゼロ待機とせず、正常な文間の空一覧では不要停止しないこと。",
+   "hypothesis": "計装・権限・監視接続の異常を正常な空の待機一覧と区別できる。",
+   "id": "EXP-SOL-6-monitor-health",
+   "status": "not-run",
+   "steps": [
+    "ラボのMDL計装無効、権限不足、監視切断を個別に試す。",
+    "実待ちと観測結果を比較し、停止後に設定を復元する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "端点ID一致での混合を再現し、修正版が交換または結果確定を拒否すること。",
+   "hypothesis": "TABLE_ID端点比較は途中交換・復帰を見逃し、運用協調で混合を防ぐ必要がある。",
+   "id": "EXP-SOL-7-table-generation",
+   "status": "not-run",
+   "steps": [
+    "ラボのA={1,2,3}、B={3,4}を幅1で数え、途中交換と復帰を試す。",
+    "TRUNCATE、パーティション交換も個別に試す。",
+    "端点IDと合計を保存し、DDL協調・世代記録で混合を防ぐ方式と比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "適用文脈を確認し、非適用の経路へ保証を広げない。",
+   "hypothesis": "直接SELECTとストアドプログラム内では同じヒントの適用が異なる。",
+   "id": "EXP-SOL-8-timeout-context",
+   "status": "not-run",
+   "steps": [
+    "ラボで直接、CALL、イベントを比較する。",
+    "時間・警告・エラーを記録し、独立した所有接続で必ず終了させる。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "許容影響内の再現する優位性だけを候補にする。不一致のP_S差分を厳密値に採用しない。",
+   "hypothesis": "条件により並列・小索引・分散カウンタが有利で、P_S差分は厳密件数に一致しない場合がある。",
+   "id": "EXP-SOL-9-alternative-methods",
+   "status": "not-run",
+   "steps": [
+    "ラボの同じ負荷・キャッシュで並列設定、複数接続、小索引、不可視索引を比較する。",
+    "単一・複数スロットカウンタを負荷率と長い書込みtransactionで比較する。",
+    "P_S差分をcommit、rollback、REPLACE、TRUNCATE、cascade、reset後の真値と照合する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "状態別の件数・待ちを確認し、未実施の障害状態を確認済みにしない。",
+   "hypothesis": "非InnoDB保存件数の安全性はロック・障害・再起動状態に依存する。",
+   "id": "EXP-SOL-10-engine-states",
+   "status": "not-run",
+   "steps": [
+    "ラボMyISAMでCHECK TABLE中の読み書きを測る。",
+    "破棄可能なローカル複製環境でMEMORY片側再起動、MyISAM障害後を確認する。",
+    "optimized awayでないエンジンのCOUNTと時間上限を確認する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "差が再現すれば分離し、ロックの有無とは別に報告する。",
+   "hypothesis": "data_locks採取がロック実験の遅延へ追加影響する。",
+   "id": "EXP-SOL-11-lock-sampler-control",
+   "status": "not-run",
+   "steps": [
+    "ラボで同一locking COUNTと負荷を採取あり・なしで交互に測る。",
+    "ロック自体は別試行で確認し、遅延・完了数・回復を比較する。"
+   ]
+  },
+  {
+   "blocking": false,
+   "confirmOrRefute": "分布と位相差を示し、COUNTが与える待ちとDDL作業時間を分ける。",
+   "hypothesis": "分割時のALTER待ちは発行位相に依存する。",
+   "id": "EXP-SOL-12-mdl-phase",
+   "status": "not-run",
+   "steps": [
+    "ラボでステップ開始直後・途中・休止中のALTERを複数回実行する。",
+    "INSTANTと可能なINPLACEを分け、MDL待ち・DDL作業・サービス停止を保存する。"
+   ]
+  }
+ ],
+ "reviewQuestions": {
+  "betterMethods": [
+   {
+    "assessment": "採用・候補の区分は妥当。原因切分けとchurn後精度は未測定。",
+    "beatsWhen": "概数で足り、運用条件ごとの誤差を許容できる場合。",
+    "experiment": "EXP-R10-estimate-churn",
+    "locallyTestable": true,
+    "lockAndLoadCost": "主にメタデータ。EXPLAINはMDL待ち、NUM_ROWS等は追加権限。同じ統計由来の一致は独立検証ではない。",
+    "method": "EXPLAIN rows、expiry=0のTABLE_ROWS、NUM_ROWS、PARTITIONS.TABLE_ROWS"
+   },
+   {
+    "assessment": "§10への追加を支持。効果は未確定。",
+    "beatsWhen": "反復計数で過去範囲の不変を保証できる場合。",
+    "experiment": "EXP-R16-incremental",
+    "locallyTestable": true,
+    "lockAndLoadCost": "新範囲だけの通常SELECT。短いMDL、初期値・変更検知・照合の管理が必要。",
+    "method": "閉じた範囲の確定値と増分"
+   },
+   {
+    "assessment": "小ささだけで型・NULL・方向・可動性を省略しない条件は妥当。",
+    "beatsWhen": "幅広PRIMARYを繰り返し読むコストが大きい場合。",
+    "experiment": "EXP-SOL-9-alternative-methods",
+    "locallyTestable": true,
+    "lockAndLoadCost": "通常SELECTは行ロックなし。索引追加のDDL・更新増幅は別コスト。",
+    "method": "適格な最小索引、専用小索引、セッション限定の不可視索引"
+   },
+   {
+    "assessment": "測定待ちが適切。一回のPRIMARY結果から一律不採用にしない。",
+    "beatsWhen": "CPU・I/Oに余力があり総時間を優先する場合。",
+    "experiment": "EXP-SOL-9-alternative-methods",
+    "locallyTestable": true,
+    "lockAndLoadCost": "CPU/I/O、各接続のMDL・snapshotが増える。全接続の停止が必要で、複数接続の値は同時点ではない。",
+    "method": "parallel read threads、複数接続の非重複範囲"
+   },
+   {
+    "assessment": "候補として妥当だが停止・再開の実証が必要。",
+    "beatsWhen": "primaryの負荷とMDLを隔離し、指定した適用状態を数えたい場合。",
+    "experiment": "EXP-R15-replica-procedure",
+    "locallyTestable": "ローカル手順は可。クラウド固有の取得・費用は不可。",
+    "lockAndLoadCost": "コピー側の負荷・undo・MDL、適用遅延、準備時間・ストレージ。フィルターで行集合が異なり得る。",
+    "method": "専用レプリカ、適用停止、clone・復元コピー"
+   },
+   {
+    "assessment": "初期化は改善。補正冪等性と変更元SESSIONのCASCADE条件が残る。",
+    "beatsWhen": "高頻度に件数を読み、初期値・位置・照合を運用できる場合。",
+    "experiments": [
+     "EXP-SOL-5-counter-bootstrap",
+     "EXP-O2-3-cascade-trigger-version",
+     "EXP-SOL-9-alternative-methods"
+    ],
+    "locallyTestable": "カウンタと小規模差分処理は可。外部基盤全体は不可。",
+    "lockAndLoadCost": "読取りは小さい。単一カウンタは競合、CDCは初期化・再実行排除・復旧と基盤負荷がある。",
+    "method": "集計カウンタ、複数slot、コミット済みbinlog/CDC"
+   },
+   {
+    "assessment": "厳密値としての不採用を支持。PK spanは欠番で破綻済み。",
+    "beatsWhen": "P_S差分は概数補間として精度を実証した場合に限る。他は現在の証拠で一般的な改善を示せない。",
+    "experiments": [
+     "EXP-SOL-9-alternative-methods",
+     "EXP-R10-estimate-churn"
+    ],
+    "locallyTestable": true,
+    "lockAndLoadCost": "既存統計・端点は軽い。サンプリング作成は読取り負荷と偏り。操作回数はコミット済み行数と同義でない。",
+    "method": "P_S操作差分、ヒストグラム、n_diff_pfx、サンプリング、PK span"
+   }
+  ],
+  "designCoverage": {
+   "additionalStates": [
+    "ヒントが失われた発行SQL、上限前のKILLが上限後に通知されるクライアント状態。",
+    "確認する境界行の削除と、カウンタ補正の応答不明・重複実行。",
+    "暗号化表領域、FEDERATEDなどは未検証として保証へ含めない。",
+    "破損・DISCARD TABLESPACEを復旧へ分ける記述は妥当。"
+   ],
+   "answer": "静止データと安全側の除外については改善を確認した。現行手順そのもの、並行変更、負荷下の安全性は未検証で、全設計への保証には達していない。",
+   "columns": [
+    {
+     "assessment": "外部LOB等の旧静止結果を支持。生成値の可動性を理由にPRIMARYへ進む説明は妥当。インライン幅広PRIMARYの負荷・回復は未測定。",
+     "design": "LOB、JSON、generated、compressed、FULLTEXT、SPATIAL、wide rows"
+    }
+   ],
+   "keys": [
+    {
+     "assessment": "旧実装の静止一致を支持。開始値0固定を避け、unsignedとカーソルを無損失に扱う条件がある。現行形A/Bの実行確認は残る。",
+     "design": "integer、signed・negative、gaps、Snowflake、unsigned最大付近"
+    },
+    {
+     "assessment": "BINARY UUIDと文字列の静止試験はある。SET NAMESと往復確認は改善したが、具体的な有界確認SQL、ドライバ・checkpointでの無損失性と完走率は未検証。",
+     "design": "UUID、string・collation・ties"
+    },
+    {
+     "assessment": "前四者は分割から除外。DOUBLEとDECIMALは静止一致があり、DOUBLEは最後の手段。無損失条件を省略しない。",
+     "design": "ENUM、SET、FLOAT、BIT、DOUBLE、DECIMAL"
+    },
+    {
+     "assessment": "UTCとNULL化時の拒否を確認。小数秒・DST・ゼロ日付のドライバ往復は未測定。",
+     "design": "DATETIME、TIMESTAMP、zero date"
+    },
+    {
+     "assessment": "非先頭NOT NULL、ASC条件、末尾PKにも条件適用を維持。単一DESC PKとGIPKの静止結果は支持。3列以上とsecondary+PKのプラン条件は未確認。",
+     "design": "composite、3列以上、DESC、invisible、GIPK"
+    },
+    {
+     "assessment": "分割不能または形B・NULL別計数へ分岐。形A/Bの加算規則は修正された。prefix、式、多値の除外を文書どおり実装した試験はない。",
+     "design": "no key、no PK、nullable unique、prefix unique、functional・multi-valued index"
+    }
+   ],
+   "layout": [
+    {
+     "assessment": "実表一覧とPARTITION集合を維持する説明を確認。入れ替えDDLは運用協調を前提にし、端点TABLE_IDの限界も明示された。複数文・複数DBの合計は同時点ではない。",
+     "design": "partition・subpartition、schema/table per tenant、time-rolled tables、sharding"
+    },
+    {
+     "assessment": "ビューを基底件数で代用しない。直接SELECT以外とタイムアウト非適用を分離した。カウンタ初期化・再実行・cascade設定は別途必要。",
+     "design": "views、triggers、stored programs、events"
+    },
+    {
+     "assessment": "保存値とscan、行ロックとテーブルロックを分ける説明は改善。MEMORY再起動・MyISAM障害は未測定。NDBは保証対象外。",
+     "design": "MyISAM、MEMORY、ARCHIVE、CSV、BLACKHOLE、MERGE、NDB"
+    }
+   ],
+   "lifecycle": [
+    {
+     "assessment": "全物理行・版・属性という数える単位は明確。追記の遅延到着、削除マーク、古いsnapshot、並行変更の誤差は未実証。",
+     "design": "soft delete、history、EAV、append-only、heavy churn"
+    }
+   ],
+   "relations": [
+    {
+     "assessment": "通常の非ロッキングCOUNTの静止結果を支持。親子DDL、WRITEロック、索引列更新は別実験が必要。CASCADEトリガーは9.7以降の変更元SESSIONとnative FK条件を確認する。",
+     "design": "FK trees、diamonds、composite FK、FK to unique、SET NULL、CASCADE、self-reference、cycles、cross-schema、undeclared polymorphic"
+    }
+   ]
+  },
+  "fastCount": {
+   "answer": "最速かつサービス無劣化という全体順位は未確定。本文の留保は適切だが、依頼の実証回答と現行手順の動作確認は未完了。",
+   "options": [
+    {
+     "accuracy": "静止の非ゼロTABLE_ROWSで最大誤差12.15%、19表は0。t_denseの0.38%は上限ではない。",
+     "gapsDeletesWrites": "欠番に直接依存しない。大量変更後精度とcache切分けは未実施。",
+     "impact": "主にmetadataだがMDL待ちあり。estimateのduringはwriteサンプル0、server指標なし。",
+     "option": "EXPLAIN rows / TABLE_ROWS",
+     "runtime": "TABLE_ROWS 0.45ms。t_dense EXPLAINは未測定。"
+    },
+    {
+     "accuracy": "t_sparseで誤差10009600%。",
+     "gapsDeletesWrites": "欠番・削除・非連番で破綻。不採用を支持。",
+     "impact": "軽いが一般的な件数として不適格。",
+     "option": "PK span",
+     "runtime": "0.27ms。"
+    },
+    {
+     "accuracy": "新規RR/RCの一つの整合性読み取りの実数。",
+     "gapsDeletesWrites": "snapshotに従い欠番を正しく数える。MDL・undo保持は残る。",
+     "impact": "write p50/p99=1.65/264.19、1.52/152.06ms。HLL=1804/1703。背景読み取りとプラン未記録。",
+     "option": "COUNT既定 / single thread",
+     "runtime": "18.63 / 17.87秒。"
+    },
+    {
+     "accuracy": "一つの整合性読み取りの実数。",
+     "gapsDeletesWrites": "snapshotに従う。削除マーク・履歴のコストは未測定。",
+     "impact": "write p50/p99=1.44/8.88ms、HLL=1102。公平な反復比較ではない。",
+     "option": "FORCE k_created",
+     "runtime": "11.73秒、一回。"
+    },
+    {
+     "accuracy": "一つの整合性読み取りの実数。",
+     "gapsDeletesWrites": "snapshotに従う。幅広行・cache条件でコストが変わる。",
+     "impact": "write p50=4.59ms、HLL=5310、直前3010159 rows/s。普遍的な最遅とは言えない。",
+     "option": "FORCE PRIMARY",
+     "runtime": "53.04秒。t_replで2.747秒の例もある。"
+    },
+    {
+     "accuracy": "旧実装の静止53表は一致。現行形A/Bと追加検査は未実行。",
+     "gapsDeletesWrites": "欠番に強いが複数時点の合計。移動・追加・削除の誤差と完走率は未測定。",
+     "impact": "待ちなしwrite p50/p99=1.51/9.05ms、HLL=275。負荷下はk_createdだけ。",
+     "option": "分割",
+     "runtime": "10万待ちなし18.53秒、10万50%=41.19秒、1万50%=46.12秒。NULL事前COUNTを除外する値は注記済み。"
+    },
+    {
+     "accuracy": "その適用済み行集合のsnapshot。",
+     "gapsDeletesWrites": "適用状態とfilterに依存。停止・再開手順は未検証。",
+     "impact": "primary write p50/p99=4.22/23.93ms、lag0秒。replica自身の通常指標なし。transaction保持+DDLでlag39〜40秒。",
+     "option": "replica COUNT",
+     "runtime": "6.01秒、primary12.53秒。構成・cacheが違う。"
+    },
+    {
+     "accuracy": "静止t_partで一致。複数文は同時点ではない。",
+     "gapsDeletesWrites": "PARTITION集合を維持し、交換系DDLを協調して避ける。",
+     "impact": "静止一回。各partitionが巨大な場合の影響は未測定。",
+     "option": "partition合計",
+     "runtime": "0.227秒、全体一文0.211秒、キー分割3.19秒。"
+    }
+   ]
+  },
+  "lockFactors": [
+   {
+    "assessment": "本文修正は妥当。ドライバとステップ間検査は未実行。",
+    "detectBeforeRunning": "新規専用接続とSQL 0のRR・autocommit確認。EXPLAINではロック有無を判定できない。",
+    "factor": "通常SELECTと分離レベル・既存transaction",
+    "verified": "99試行を再読。RU/RC/RR plain_countは0、SERIALIZABLEのtransaction内は共有ロック。autocommit文終了後の0を実行中の証拠にしない。"
+   },
+   {
+    "assessment": "通常COUNTと別文への埋込みの区別は維持されている。",
+    "detectBeforeRunning": "文形・分離レベル・実発行SQL。rgとルーチン検索は補助で、許可範囲は直接SELECT。",
+    "factor": "INSERT..SELECT、SET、UPDATE subquery、CTAS、FOR SHARE/FOR UPDATE",
+    "verified": "RR pk_only INSERT SELECT=200455、secondaryあり=200304、SETはRCでも全既存行。SELECT INTOはRC/RRで0。"
+   },
+   {
+    "assessment": "統計で読む索引が変わる注意は妥当。索引列UPDATEの実測は残る。",
+    "detectBeforeRunning": "EXPLAIN key、索引定義、更新列で危険を推定。プランだけではロックを保証しない。",
+    "factor": "読む索引・更新列・統計",
+    "verified": "secondary FOR SHARE=200304で非索引列UPDATEは通る。FOR UPDATE=400304で止まる。無索引=200533。"
+   },
+   {
+    "assessment": "観測数を全データ分布へ普遍化しない。",
+    "detectBeforeRunning": "分離レベル、文形、実際の索引範囲。",
+    "factor": "gap・next-key",
+    "verified": "RC以下locking readはREC_NOT_GAPでINSERTは通るが既存行UPDATEは止まる。RR/SERIALIZABLEはINSERTも止まる。"
+   },
+   {
+    "assessment": "除外規則は改善。新手順の実行確認と停止の原因分類が不足。",
+    "detectBeforeRunning": "STATISTICS/COLUMNS、実カーソルEXPLAINとHandler全方向の差分。",
+    "factor": "NULL・ties・types・direction",
+    "verified": "通常SELECTへ直接行ロックを追加する要因ではないが、広い走査・sortでMDLとundo保持を延ばす。"
+   },
+   {
+    "assessment": "静止計数の結果は支持。FK競合と新しい設定の実験は未実施。",
+    "detectBeforeRunning": "KEY_COLUMN_USAGE、予定DDL、更新内容と変更元設定。EXPLAIN keyだけでは不十分。",
+    "factor": "FK",
+    "verified": "通常COUNTが親子の行ロックを取る証拠はない。書込み時FK検査、cascade、WRITEロック、親DDLの子MDLは別。"
+   },
+   {
+    "assessment": "停止フラグは改善。第三者KILLが時間切れと再分類される経路は残る。",
+    "detectBeforeRunning": "DDL/backup予定と監視能力。実行中はPENDINGとstate。",
+    "factor": "MDL・FLUSH・停止",
+    "verified": "長いCOUNT後ALTER=13.74秒、書込p50=5819.68ms。分割0.02秒は一回値。"
+   },
+   {
+    "assessment": "現在の説明は区別できているが障害状態は未測定。",
+    "detectBeforeRunning": "ENGINE、プラン、再起動・障害状態。",
+    "factor": "非InnoDBテーブルロック",
+    "verified": "MEMORY/MyISAMのTable_locks_waited=4055/4272。optimized awayとテーブルロックなしは同義でない。"
+   }
+  ],
+  "omissions": [
+   {
+    "experiment": "EXP-O2-2-stop-vs-timeout",
+    "finding": "FIND-R2-KILL-01",
+    "item": "KILLの時刻と1317を処理する時刻の違い。経過時間は原因を特定しない。",
+    "locallyMeasurable": true
+   },
+   {
+    "experiment": "EXP-O2-1-guideline-sql-as-written",
+    "finding": "FIND-R3-LOOPEDGE-01",
+    "item": "往復確認の上限・LIMIT、その他エラー時の既定停止。",
+    "locallyMeasurable": true
+   },
+   {
+    "experiment": "EXP-6-sql-not-executed",
+    "finding": "FIND-R3-HINT-01",
+    "item": "ヒント喪失、上限を大きく超えた成功、独立した期限とセッション上限。",
+    "locallyMeasurable": true
+   },
+   {
+    "experiments": [
+     "EXP-SOL-5-counter-bootstrap",
+     "EXP-O2-3-cascade-trigger-version"
+    ],
+    "item": "カウンタ補正の冪等性と変更元SESSIONのCASCADE設定。",
+    "locallyMeasurable": true
+   },
+   {
+    "experiments": [
+     "EXP-R9-working-set-impact",
+     "EXP-R15-replica-procedure",
+     "EXP-7-coverage-gaps"
+    ],
+    "item": "カウント後の回復、replica自身のHLL・読取遅延、CPU飽和。",
+    "locallyMeasurable": true
+   },
+   {
+    "item": "課金、バーストクレジット、マネージド切替、外部CDC費用。",
+    "locallyMeasurable": "ローカルI/O・CPU・ログ量は可。外部サービス固有の費用・保証は不可。"
+   }
+  ]
+ },
+ "findingDispositions": [
+  {
+   "authorStatus": "fixed",
+   "currentSeverity": "low",
+   "id": "FIND-R2-LOOP-01",
+   "note": "形A/BとNULL加算の修正を受け入れる。EXP-O2-1は未実施。",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "authorStatus": "fixed",
+   "currentSeverity": "middle",
+   "id": "FIND-R2-KILL-01",
+   "note": "自前の停止フラグは修正済み。第三者KILLと遅れた応答を経過時間で判別する部分は未解決。Opusの格下げを採用しない。",
+   "status": "open"
+  },
+  {
+   "authorStatus": "fixed",
+   "currentSeverity": "low",
+   "id": "FIND-R2-CURSOR-01",
+   "note": "SET NAMESと確認を受け入れる。確認SQLの細部はFIND-R3-LOOPEDGE-01。",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "authorStatus": "fixed",
+   "currentSeverity": "low",
+   "id": "FIND-SOL-DDL-01",
+   "note": "運用協調を条件とし、TABLE_IDを補助にした修正で前回の反例への本文対応を確認。",
+   "status": "fixed-in-text-unexecuted"
+  },
+  {
+   "authorStatus": "fixed",
+   "id": "generation-check-incomplete",
+   "note": "TABLE_IDだけでは完全検知できないと明記。",
+   "status": "closed-in-text"
+  },
+  {
+   "authorStatus": "fixed",
+   "currentSeverity": "low",
+   "id": "FIND-R2-CASCADE-VER-01",
+   "note": "版区分と既定FALSEは受け入れる。変更を行うSESSIONとnative FK条件を明示する余地が残る。",
+   "status": "open-low"
+  },
+  {
+   "authorStatus": "fixed",
+   "id": "author-decision-no-size-threshold",
+   "note": "報告サイズだけでは判定できないという説明に修正された。",
+   "status": "accepted"
+  },
+  {
+   "id": "author-decision-18.53-vs-18.63-no-claim",
+   "note": "優劣・同等を判定できない記述を維持。",
+   "status": "accepted"
+  },
+  {
+   "id": "author-decision-main-harm-mdl-undo",
+   "note": "遅延影響の判定不能とMDL・undoの観測を分ける。",
+   "status": "accepted"
+  },
+  {
+   "id": "author-decision-preflight-documented-not-fixed",
+   "note": "開示は確認。実装の修正・再生成は未実施。",
+   "status": "accepted-for-this-revision"
+  },
+  {
+   "id": "FIND-FLOW-01",
+   "note": "分岐を再確認。",
+   "status": "closed"
+  },
+  {
+   "id": "FIND-SOL-VIEW-01",
+   "note": "代用禁止を再確認。",
+   "status": "closed"
+  },
+  {
+   "id": "README-stale",
+   "note": "従来判断を維持。",
+   "status": "accepted-out-of-scope"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-STEP-01",
+   "note": "現行手順の実行証拠待ち。停止分類には本文で直せる問題も残る。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-PK-01",
+   "note": "EXP-R4待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-DRIFT-01",
+   "note": "EXP-R5待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-LAB-CONTAM-01",
+   "note": "EXP-R7待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-FAST-01",
+   "note": "EXP-R8待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-IMPACT-01",
+   "note": "EXP-R9待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-EST-01",
+   "note": "EXP-R10待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "middle",
+   "id": "FIND-REPL-01",
+   "note": "EXP-R15待ち。",
+   "status": "open"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-SOL-TX-01",
+   "note": "新規専用接続による緩和を維持。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-KEY-ENUM-01",
+   "note": "分割対象から除外。",
+   "status": "mitigated-in-text"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-KEY-NULL-01",
+   "note": "非先頭NULLを除外。",
+   "status": "mitigated-in-text"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-KEY-DESC-01",
+   "note": "方向条件とソート検査を維持。",
+   "status": "mitigated-in-text"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-KEY-TYPE-01",
+   "note": "UTC・型条件を維持。",
+   "status": "mitigated-in-text"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-LOCK-FORMS-01",
+   "note": "直接SELECTの許可範囲を維持。",
+   "status": "mitigated-in-text"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-MDL-FLUSH-01",
+   "note": "予定確認・state監視を維持。",
+   "status": "mitigated-in-text"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-PRIV-01",
+   "note": "権限表はあるが最小権限未実行。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-RESUME-01",
+   "note": "既定やり直し・原子的保存の実行確認待ち。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-BETTER-01",
+   "note": "増分候補の効果待ち。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-SOL-ISO-01",
+   "note": "RR明示の実行確認待ち。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-SOL-TIMING-01",
+   "note": "除外範囲は注記済み、計測再生成待ち。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-SOL-COUNTER-01",
+   "note": "初期値の整合点は改善。補正の再実行排除は未定義。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-SOL-MONITOR-01",
+   "note": "空の待機一覧と監視失敗の区別を確認。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-SOL-TIMEOUT-01",
+   "note": "適用文脈の記述は修正済み。",
+   "status": "validation-pending"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-LOCK-SAMPLER-01",
+   "note": "採取負荷の分離待ち。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-MDL-TRIAL-01",
+   "note": "位相反復待ち。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-ENGINE-01",
+   "note": "障害・再起動試験待ち。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-DOC-01",
+   "note": "原文確認と検索要約を区別して更新する。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-PREFLIGHT-01",
+   "note": "本文との実装差は開示済み、未修正。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-R3-LOOPEDGE-01",
+   "note": "往復確認の有界SQLとその他エラー時の停止を明示する。",
+   "status": "open-low"
+  },
+  {
+   "currentSeverity": "low",
+   "id": "FIND-R3-HINT-01",
+   "note": "ヒント喪失時の上限と検知を検証する。",
+   "status": "open-low"
+  },
+  {
+   "id": "BLOCKER-experiments-not-runnable",
+   "note": "著者の3ターン連続の拒否報告を保持する。著者ノードの権限をレビュアーから検証・変更していない。",
+   "status": "reported-by-author"
+  },
+  {
+   "id": "BLOCKER-doc-lookup",
+   "note": "Sol側は原文取得が可能。CASCADEのSESSION条件とnative FK既定FALSEを今回確認した。",
+   "status": "partially-resolved"
+  },
+  {
+   "id": "code-not-updated",
+   "note": "文書を別に実装する検証とbench整合が未完了。",
+   "status": "open"
+  },
+  {
+   "id": "guideline-untested-sql",
+   "note": "36実験が未実施。",
+   "status": "open"
+  },
+  {
+   "id": "pipeline-log",
+   "note": "measure.logの記録された最終終了コードは1。all成功の証拠ではない。",
+   "status": "open"
+  },
+  {
+   "id": "opus-self-correction",
+   "note": "必須扱い11件への訂正を受け入れる。",
+   "status": "accepted"
+  }
+ ],
+ "opusReviewQuestions": {
+  "betterMethods": {
+   "answer": "本文に書かれた候補の順位づけは妥当で、新たに順位を上げるべき方法は見つからなかった。ただし測定待ちの候補の効果が未確定なので、『より良い方法がない』とは言えない",
+   "methods": [
+    {
+     "beatsWhen": "定期的に数える追記中心の表、閉じたパーティション",
+     "cost": "未確定の範囲だけ読む。行ロックなし。古い範囲の変更の検知と定期照合が要る",
+     "locallyTestable": true,
+     "method": "閉じた範囲の確定値 + 増分",
+     "status": "§10 に条件付き候補。EXP-R16 未実行"
+    },
+    {
+     "beatsWhen": "誤差を許容できるとき",
+     "cost": "メタデータのみ。EXPLAIN は MDL を取る。NUM_ROWS は権限が要る",
+     "locallyTestable": true,
+     "method": "EXPLAIN rows、expiry=0 の TABLE_ROWS、INNODB_TABLESTATS.NUM_ROWS、PARTITIONS.TABLE_ROWS",
+     "status": "大量変更後の精度が未測定。EXP-R10"
+    },
+    {
+     "beatsWhen": "余力があり時間が最優先のとき",
+     "cost": "接続数分の CPU と I/O。並列読み取りは長い 1 文のままで MDL と undo が残る",
+     "locallyTestable": true,
+     "method": "複数接続の並列分割、innodb_parallel_read_threads の増加",
+     "status": "測定待ち。EXP-SOL-9"
+    },
+    {
+     "beatsWhen": "一瞬の値が必要で primary の MDL を避けたいとき",
+     "cost": "遅延、ストレージ、準備時間",
+     "locallyTestable": "適用停止は可。クラウドのスナップショットは不可",
+     "method": "専用レプリカ、適用停止、クローン",
+     "status": "手順は未計測。EXP-R15"
+    },
+    {
+     "beatsWhen": "索引のない表や幅広の表を繰り返し数えるとき",
+     "cost": "DDL と書き込み増幅",
+     "locallyTestable": true,
+     "method": "小さい専用索引、不可視索引",
+     "status": "測定待ち"
+    },
+    {
+     "beatsWhen": "頻繁に読むとき",
+     "cost": "カウンタ行の競合、または基盤コスト。初期値の整合が必要",
+     "locallyTestable": "一部可",
+     "method": "集計カウンタ、binlog / CDC",
+     "status": "§9 と §10 に記載"
+    },
+    {
+     "beatsWhen": "総行数の実数では勝てない",
+     "cost": "統計読み取りのみ",
+     "locallyTestable": true,
+     "method": "performance_schema の操作回数の差分、ヒストグラム、n_diff_pfx、サンプリング",
+     "status": "不採用を支持する"
+    }
+   ]
+  },
+  "designCoverage": {
+   "answer": "静止時の数え方と除外の規則としては、列挙された設計にすべて答えがある。書き込み中の正しさと負荷時の安全は未検証で、『あらゆる設計で成り立つ』とはまだ言えない。本文の SQL 4 自体は 1 度も実行されていない",
+   "holdsStaticOrSafeExclusion": [
+    "整数、負の ID、欠番、Snowflake、UUID、文字列と照合順序、DECIMAL、DATETIME、DESC 単一列 PK、GIPK、2 列の複合 PK、NOT NULL ユニーク: 別実装の 53 表で静止時に一致",
+    "ENUM、SET、FLOAT、BIT、DESC 二次索引、方向の混在、非先頭列 NULL 可、多値索引、関数索引、プレフィックスユニーク、索引なし: 分割から外す、または『分割できないとき』に進む",
+    "LOB(外部ページ)、圧縮、FULLTEXT、SPATIAL、FK の各形、ポリモーフィック、論理削除、履歴、EAV、トリガー: 静止時の数え方として成立",
+    "ビュー、複数実表、パーティション、非 InnoDB: フローに分岐がある"
+   ],
+   "weak": [
+    {
+     "design": "先頭列 NULL 可(t_uniq_nullable、形 B)",
+     "experiment": "EXP-O2-1",
+     "problem": "本文の形 A / B の定義は countlib.py の分岐と整合するが、本文どおりの実装は未実行"
+    },
+    {
+     "design": "PRIMARY しか選べない幅広の表",
+     "finding": "FIND-PK-01",
+     "problem": "負荷下の分割が未計測"
+    },
+    {
+     "design": "激しい更新、大量削除、追記、値が動く索引",
+     "finding": "FIND-DRIFT-01, FIND-EST-01",
+     "problem": "分割の誤差と概数の精度が未知"
+    },
+    {
+     "design": "3 列以上のカーソル、パーティション内の分割、サブパーティション、テナント、シャード、ロール表",
+     "experiment": "EXP-7",
+     "problem": "未計測と明記あり"
+    },
+    {
+     "design": "文字列キーの形 B で同じ値が大量にある表",
+     "finding": "FIND-R3-LOOPEDGE-01",
+     "problem": "往復確認の SQL が示されておらず、上限と LIMIT のない読み取りを書ける"
+    },
+    {
+     "design": "追加の設計: 9.7 以降で innodb_native_foreign_keys=OFF の表",
+     "finding": "FIND-R2-CASCADE-VER-01",
+     "problem": "カウント自体への影響は未確認。§9 のトリガーの条件に関わる"
+    }
+   ]
+  },
+  "fastCount": {
+   "answer": "答えられない。概数は統計が最速、小さい表は時間上限付き 1 文が速く、DDL に強いのは分割、という方向は支持する。1 億行の順位と本番相当の負荷での劣化の有無は実測がなく、本文もそう書いている。受け入れの中心の問いが未回答のままである",
+   "options": [
+    {
+     "accuracy": "静的な表で最大 12.15%。キャッシュで 0 の例あり",
+     "gapsDeletesWrites": "欠番に影響されない。削除後は未計測",
+     "impact": "メタデータのみ",
+     "option": "EXPLAIN rows / TABLE_ROWS",
+     "runtime": "TABLE_ROWS 0.45 ms。t_dense の EXPLAIN は未計測"
+    },
+    {
+     "accuracy": "欠番で破綻",
+     "gapsDeletesWrites": "不採用を支持",
+     "impact": "ほぼなし",
+     "option": "MAX-MIN+1",
+     "runtime": "0.27 ms"
+    },
+    {
+     "accuracy": "スナップショットの実数",
+     "gapsDeletesWrites": "影響なし",
+     "impact": "HLL 1804、MDL 連鎖",
+     "option": "COUNT(*) 既定",
+     "runtime": "18.63 秒(交絡あり)"
+    },
+    {
+     "accuracy": "同上",
+     "gapsDeletesWrites": "影響なし",
+     "impact": "HLL 1102",
+     "option": "COUNT(*) FORCE k_created",
+     "runtime": "11.73 秒(1 回)"
+    },
+    {
+     "accuracy": "同上",
+     "gapsDeletesWrites": "影響なし",
+     "impact": "p50 4.59、HLL 5310",
+     "option": "COUNT(*) FORCE PRIMARY",
+     "runtime": "53.04 秒(1 回、交絡あり)。t_repl は 2.747 秒"
+    },
+    {
+     "accuracy": "書き込みなしの別実装で一致。書き込み中の誤差は未計測",
+     "gapsDeletesWrites": "欠番に強い。追加、削除、値の移動で差が出る",
+     "impact": "HLL は下限内。ALTER への待ちは最長ステップまで",
+     "option": "分割",
+     "runtime": "18.53 秒(10 万、待ちなし)、46.12 秒(本文の開始条件に近い 1 万、稼働 50%)"
+    },
+    {
+     "accuracy": "適用位置のスナップショット",
+     "gapsDeletesWrites": "フィルターと遅延の影響を受ける",
+     "impact": "primary の読み取りを避ける。レプリカ側は未計測",
+     "option": "レプリカの 1 文",
+     "runtime": "6.01 秒(条件が違うので比較不可)"
+    }
+   ]
+  },
+  "lockFactors": {
+   "answer": "実測のロック数と文書の表は一致する。推奨形(autocommit、REPEATABLE READ のトップレベル SELECT)の行ロックは 0 で、データと索引が変えるのはロック数ではなく文の長さ、つまり MDL と undo の保持である",
+   "factors": [
+    {
+     "detectBeforeRunning": "EXPLAIN では不可と明記。rg、ROUTINES / TRIGGERS / EVENTS、ステージングの trx_rows_locked で検知。すべて未実行で、網羅でないと明記",
+     "factor": "文の形",
+     "verified": "lock_factors.json の 99 試行と §5 が一致。許可範囲の方式で未検証の形も安全側に倒れる"
+    },
+    {
+     "detectBeforeRunning": "可能(SQL 0)",
+     "factor": "分離レベル",
+     "verified": "SERIALIZABLE のトランザクション内は全行。SQL 0 で REPEATABLE READ を指定して確認する"
+    },
+    {
+     "detectBeforeRunning": "実行中の確認のみ",
+     "factor": "既存トランザクション",
+     "verified": "新規接続の必須化で主経路は閉じた。INNODB_TRX の確認は未実行"
+    },
+    {
+     "detectBeforeRunning": "ロックする形は索引によらず不許可。EXPLAIN の key は読む索引を示すのみ",
+     "factor": "プランとデータで変わる索引",
+     "verified": "FOR SHARE は二次索引のみ 200,304、FOR UPDATE は両方 400,304、主キーなし 200,533。一致"
+    },
+    {
+     "detectBeforeRunning": "分離レベルで判断できる",
+     "factor": "ギャップ、ネクストキー",
+     "verified": "RR と SERIALIZABLE で S / X、RC 以下で REC_NOT_GAP。INSERT の可否も一致"
+    },
+    {
+     "detectBeforeRunning": "KEY_COLUMN_USAGE の SQL あり(未実行)。子の長い COUNT と親の ALTER は未計測(EXP-4)",
+     "factor": "外部キー",
+     "verified": "読み取りカウントが親子に行ロックを取る証拠なし。親の DDL が子の MDL に及ぶことは metadata-locking の記載と整合"
+    },
+    {
+     "detectBeforeRunning": "PENDING と thread state の監視。実行中の検知のみ。実行前は運用予定の確認",
+     "factor": "MDL と FLUSH",
+     "verified": "MDL の値は一致。FLUSH は文書ベースで未計測"
+    },
+    {
+     "detectBeforeRunning": "該当の文を使わないので影響は限定的",
+     "factor": "索引列を変える UPDATE",
+     "verified": "未計測(EXP-5)"
+    }
+   ]
+  },
+  "omissions": [
+   {
+    "finding": "FIND-R3-HINT-01",
+    "item": "ヒントが途中で失われた場合の検知がない",
+    "measurableLocally": true
+   },
+   {
+    "finding": "FIND-R3-LOOPEDGE-01",
+    "item": "エラーの表にない番号(1146、1176 など)の既定動作がない",
+    "measurableLocally": true
+   },
+   {
+    "finding": "FIND-STEP-01",
+    "item": "新しい安全機構がすべて未実行(停止フラグ、1317 の判定、SET NAMES、往復確認、SQL M、TABLE_ID、threads の state)",
+    "measurableLocally": true
+   },
+   {
+    "finding": "FIND-IMPACT-01",
+    "item": "カウント後の作業セットの回復時間",
+    "measurableLocally": true
+   },
+   {
+    "finding": "FIND-REPL-01",
+    "item": "レプリカ自身の HLL、読み取り遅延、適用停止の手順",
+    "measurableLocally": true
+   },
+   {
+    "finding": null,
+    "item": "I/O 課金、バーストクレジット、Group Replication、マネージドサービス",
+    "measurableLocally": false
+   }
+  ]
+ },
+ "opusRequestedExperiments": [
+  {
+   "addedScope": "往復確認の誤った中止の頻度、secondary + 主キーの実カーソルで規則 2 の used_key_parts 全列が成り立つか(ラボの実カーソルの EXPLAIN は PRIMARY の複合キーのみ)。成り立たなければ k_created の経路が規則 2 で分割不可になる",
+   "blocking": true,
+   "id": "EXP-O2-1-guideline-sql-as-written",
+   "status": "not-run"
+  },
+  {
+   "addedScope": "上限より後の KILL、ヒントを落とした文の動作",
+   "blocking": true,
+   "id": "EXP-O2-2-stop-vs-timeout",
+   "status": "not-run"
+  },
+  {
+   "addedScope": "enable_cascade_triggers をセッションで切り替え、innodb_native_foreign_keys の既定と併せて 9.7 と 26.10 で記録する",
+   "blocking": false,
+   "id": "EXP-O2-3-cascade-trigger-version",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R5-split-drift",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R7-background-reader",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R8-count-repeat",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R9-working-set-impact",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R4-primary-split-impact",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R10-estimate-churn",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-R15-replica-procedure",
+   "status": "not-run"
+  },
+  {
+   "addedScope": "SET NAMES、SET SESSION max_execution_time の併用案",
+   "blocking": true,
+   "id": "EXP-6-sql-not-executed",
+   "status": "not-run"
+  },
+  {
+   "blocking": true,
+   "id": "EXP-SOL-1-existing-transaction",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R1-enum-scaling",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R2-nullable-composite",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R3-desc-index",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R6-float-dst",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R11-lock-forms",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R12-flush-chain",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R13-least-privilege",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R14-resume-failover",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-R16-incremental",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-3-history",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-4-fk-mdl",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-5-indexed-update-lock",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-7-coverage-gaps",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-2-read-uncommitted",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-3-null-inclusive-timing",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-4-view-semantics",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-5-counter-bootstrap",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-6-monitor-health",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-7-table-generation",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-8-timeout-context",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-9-alternative-methods",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-10-engine-states",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-11-lock-sampler-control",
+   "status": "not-run"
+  },
+  {
+   "blocking": false,
+   "id": "EXP-SOL-12-mdl-phase",
+   "status": "not-run"
+  }
+ ],
+ "discussionHistory": [
+  {
+   "revision": 1,
+   "role": "author",
+   "summary": "初版を作成した。根拠はコミット済みの results/ のみで、新規の実験は実行していない。文書の主な判断は次のとおり。(1) サイズ閾値で分岐せず、時間上限付き COUNT(*) を先に試し、打ち切られたら分割カウントに進む。(2) 概数は EXPLAIN の rows と TABLE_ROWS を併用する。(3) 1 億行の分割(待ちなし) 18.53 秒と 1 文 18.63 秒は 1 回ずつの測定で差を主張しない。(4) 主な害は遅延そのものより MDL 連鎖と undo の滞留とした。"
+  },
+  {
+   "revision": 1,
+   "role": "author",
+   "summary": "bench/count_preflight.py の推奨に欠陥を確認し、コードは変更せず文書 §4 に明記した。統計が古い d_soft_delete(200 万行)で COUNT_STAR を返す、t_lob(4.93 GB, 1 文 0.008 秒)で SPLIT_COUNT を返す、MEMORY/ARCHIVE の説明が実測と矛盾する、数値リテラルで分割プランを確認するため t_uuid/t_strpk で type=index と出る、の 4 点。修正すると results の再生成が必要だが、このターンでは実行できない。"
+  },
+  {
+   "revision": 1,
+   "role": "opus-review",
+   "summary": "rejected。文書の数値は results/ と一致したが、推奨 SQL に 3 件の high がある。ENUM の数値カーソルが全索引スキャンになる証拠、複合索引の NULL カーソルによる読み飛ばし、DESC 索引の filesort の可能性。middle はステップの時間上限なし、PRIMARY フォールバックが負荷下で未計測、『厳密』の表現、最初の実験群の未説明の背景読み取り、害がないという結論の過大な一般化、ロック形の検知漏れ、flush 連鎖、権限、再開、レプリカ手順、増分方式の欠落など。実験を 16 件追加し、著者の未計測項目を維持した。実験の実行には人の許可が必要。"
+  },
+  {
+   "revision": 1,
+   "role": "sol-review",
+   "summary": "rejected。開始・終了の SHA-256 は入力と一致。46 個の raw JSON、53 表の静止分割一致、99 件のロック試行、影響結果と実装を読み取り専用で照合した。独立に、既存の明示トランザクション、RU の継承、NULL COUNT を除外した時間計測、ビューの件数置換、カウンタ初期化の整合点、監視計装無効、表世代の変更、ストアドプログラム内の時間ヒント非適用を追加した。Opus の 23 指摘は問題の範囲を限定して確認し、未実証の性能外挿・filesort・flush 検知漏れを実測事実とは扱わなかった。DOUBLE の静止試験が存在すること、compose レプリカの worker 数は 2 であること、反復範囲の重なりだけでは同等性を証明できないことも補正した。追加実験は全て未実施。DB 接続、ファイル編集、委譲は行っていない。入力の実験 blocker は履歴として保持したが、このターンの制約はレビュアーの明示的な読み取り専用であり、一般的な Bash 実行不能ではない。"
+  },
+  {
+   "revision": 2,
+   "role": "author",
+   "summary": "全面的に書き直した。推奨を安全側へ寄せた: 新規の専用接続、分離レベルと time_zone の明示、監視の事前確認、全ステップの時間上限、索引の適格条件(方向、NULL、型、更新される列)、許可する文の形の限定、世代の確認、既定はやり直し。結論は弱めた: 速さの順位と遅延の害は『判定できない』、分割は『文ごとの値の合計』。§10 に候補ごとの判定を載せた。実験は 0 件。mise exec が著者ターンでも 'requires approval' で拒否されたため。high 4 件を含む多くの指摘は、文書は修正済みでも実測で確認できていないので unresolved と報告する。fixed と報告したのは FIND-FLOW-01、FIND-SOL-VIEW-01 と著者判断の項目のみ。"
+  },
+  {
+   "revision": 2,
+   "role": "opus-review",
+   "summary": "rejected。ハッシュと revision 2 の引用値は raw と一致し、修正は大きく前進した。FIND-FLOW-01 と FIND-SOL-VIEW-01 の fixed を本文で確認した。ENUM、NULL、DESC など 15 件は本文が安全側に倒れたので、Opus としては low に下げた。新規の middle は 2 件。SQL 4 のループ規則が文書の SQL と矛盾して件数を誤らせる点と、KILL と時間切れが同じ 1317 で停止がやり直しに変わる点。どちらも実験なしで本文を直せる。残る open は実験でしか閉じられないので、blocking の実験を 12 件に絞って示した。実行の許可か受け入れ条件の見直しは人の判断が必要。"
+  },
+  {
+   "revision": 2,
+   "role": "sol-review",
+   "summary": "rejected。開始終了ハッシュは入力と一致し、46原JSONと実装を読み取り専用で再照合した。フローとビューの修正を確認し、専用新規接続によりFIND-SOL-TX-01の旧high経路も本文上は緩和されたと評価した。Opusのループ加算とKILL再試行のmiddleを確認。文字セット損失・カーソル停滞は誤計数につながるためmiddleとした。FIND-SOL-DDL-01は、開始終了のTABLE_IDが同じでも途中交換と復帰を見逃す反例がありmiddleを維持した。CASCADEは9.7・26.10の公式本文で設定依存を確認したが、既定が変わったという解釈は否定した。INNODB_TABLESのPROCESS要件も公式本文で確認した。入力のblocking=trueは11件で要約の12件とは異なるが、ゲートは任意扱いも含むpendingなしを要求するため、36実験を全て未実施として保持した。DB接続、実験、ファイル編集、委譲はしていない。"
+  },
+  {
+   "revision": 3,
+   "role": "author",
+   "summary": "実験なしで直せる指摘だけを修正した。SQL 4 を形 A・形 B に分けて加算規則を定義、エラーの扱いを表にして停止フラグと 1317 の経過時間による判定を追加、文字列カーソルの SET NAMES と往復確認、入れ替え系 DDL は運用で調整し TABLE_ID は補助に変更、CASCADE を版と設定で条件分け。実験は 0 件。mise exec は 3 ターン連続で 'requires approval' で拒否。このまま続けても、実験に依存する middle(STEP, PK, DRIFT, CONTAM, FAST, IMPACT, EST, REPL)と 36 件の実験は閉じられない。文書の修正だけでこれ以上進展する見込みは低く、人の判断が必要。"
+  },
+  {
+   "revision": 3,
+   "role": "opus-review",
+   "summary": "rejected。ハッシュは一致。LOOP、KILL、CURSOR、SOL-DDL の本文の修正を確認し、Opus としては low に下げた。KILL については著者の反論を raw で確かめて受け入れ、前回の修正案を撤回した。新規は low 2 件(往復確認の細部とエラーの既定動作、ヒント喪失の検知)。high はなく、open の middle 8 件はすべて測定が必要で、本文の修正では閉じない。必須の実験は 11 件(前回の 12 は誤り)、全体で 36 件が未実行。文書の修正だけのラウンドを重ねても判定は変わらないので、著者ノードへの実行許可か受け入れ条件の見直しを人が決める必要がある。Opus は許可を勧める。"
+  },
+  {
+   "revision": 3,
+   "role": "sol-review",
+   "summary": "rejected。本文全814行と46個の原JSON、該当bench実装を読み取り専用で照合し、開始終了ハッシュは入力と一致した。形A/B、NULL一度加算、PARTITION集合、DDL運用協調とTABLE_IDの限界は本文修正として受け入れた。自前の監視停止フラグも有効な修正だが、経過時間以上の1317をタイマーと断定する規則では、上限前の第三者KILLが遅れて通知される反例を区別できないため、FIND-R2-KILL-01はmiddleを維持した。タイムアウトも1317になるという著者の事実認識は受け入れるが、自動進行できなくなることは原因判定の証明にならない。Opusのlow2件は範囲を限定して確認。CASCADEのSESSION条件とnative FK既定FALSEを公式原文で再確認した。highはなく、Solではmiddle9件、36実験は全て未実施。DB接続、実験、編集、委譲はしていない。"
+  }
+ ]
+}

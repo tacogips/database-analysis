@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-07T04:59:56.925804+00:00",
+  "purpose": "Private owner-auditor regression, synthetic local evidence only. No DB connection and no measurement acceptance.",
+  "passed": [
+    "independent raw decoder roundtrip",
+    "reject raw sha256",
+    "reject raw samples",
+    "reject raw path",
+    "reject raw uncompressed_bytes",
+    "reject raw uncompressed_sha256",
+    "reject wrong total sample count",
+    "reject duplicate raw chunk",
+    "full105-cell frontier fixture grid",
+    "reject omitted frontier repetition",
+    "reject unsupported precision claim",
+    "full48-cell service fixture grid",
+    "reject inconsistent scheduled arrivals",
+    "reject duplicated service arm",
+    "current frozen source inventory and hashes match recorded before-map",
+    "full30-script required case/group/repetition fixture grid",
+    "reject missing planned scale arm despite scopeComplete=true",
+    "reject missing entire scale repetition"
+  ],
+  "checks": 18,
+  "auditorSha256": "ddd54342da20b3d2cb2d18efc9977534247ee0917f54e0a11ea165f79762e576",
+  "currentAllStillRunning": true,
+  "latencyWindowExtension": {
+    "auditorSha256": "1c8cd590e7fcf056a4be494b91c4bd999f1ae638bee7b051b5ab1dd80f0f994b",
+    "checksPassed": [
+      "accept conserved counts with explicitly censored latencies",
+      "reject missing scheduled arrival",
+      "reject complete assessment flag with unfinished arrivals",
+      "reject completed-response label with censored arrivals"
+    ],
+    "currentPartialAllWindows": {
+      "impact_baseline.json": {
+        "problems": [],
+        "windows": 6,
+        "sparseWindows": [],
+        "censoredWindows": [],
+        "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+      },
+      "impact_count_default.json": {
+        "problems": [],
+        "windows": 6,
+        "sparseWindows": [],
+        "censoredWindows": [
+          "$.latency.recovery.read"
+        ],
+        "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+      },
+      "impact_count_estimate.json": {
+        "problems": [],
+        "windows": 6,
+        "sparseWindows": [
+          {
+            "path": "$.latency.during.read",
+            "scheduled": 1
+          },
+          {
+            "path": "$.latency.during.write",
+            "scheduled": 0
+          }
+        ],
+        "censoredWindows": [],
+        "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+      },
+      "impact_count_single_thread.json": {
+        "problems": [],
+        "windows": 6,
+        "sparseWindows": [],
+        "censoredWindows": [
+          "$.latency.recovery.read",
+          "$.latency.recovery.write"
+        ],
+        "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+      }
+    },
+    "meaning": "Current partial observation only. This does not approve the all-run, service impact, or tail estimates."
+  }
+}

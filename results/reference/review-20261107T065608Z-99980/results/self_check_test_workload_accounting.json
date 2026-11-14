@@ -1,0 +1,67 @@
+{
+  "test": "six arrivals while first query runs",
+  "scheduled_arrivals": 6,
+  "observed_samples": 6,
+  "samples": [
+    [
+      1000.0,
+      "read",
+      55.0,
+      "ok",
+      0.0,
+      55.0
+    ],
+    [
+      1000.01,
+      "read",
+      45.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.02,
+      "read",
+      35.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.03,
+      "read",
+      25.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.04,
+      "read",
+      15.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.05,
+      "read",
+      4.999999999999997,
+      "queued",
+      null,
+      null
+    ]
+  ],
+  "accounting": {
+    "scheduled": 6,
+    "started": 1,
+    "completed": 1,
+    "failed": 0,
+    "inflight": 0,
+    "unstarted": 5,
+    "consistent": true,
+    "arrival_window_seconds": 0.055
+  },
+  "source_sha256": "6d23aa46602148b0b91230d6ad7716ad522309cb33ef84f32e3084459a89f442",
+  "no_database_or_real_threads": true
+}

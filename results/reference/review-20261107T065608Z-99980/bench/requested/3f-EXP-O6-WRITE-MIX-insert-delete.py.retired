@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+"""Answers EXP-O6-WRITE-MIX (FIND-O6-WRITE-SHAPE-01): inserts and deletes. The sum and the statement count different instants here, so times are compared and values are only reported."""
+from reqlib import guard
+from reqruns import write_mix_body
+
+ID = "3f-EXP-O6-WRITE-MIX-insert-delete"
+guard(ID, 15)
+write_mix_body(ID, "insert_delete")

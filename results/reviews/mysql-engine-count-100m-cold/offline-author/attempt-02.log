@@ -1,0 +1,64 @@
+PASS authoritative baseline hash
+PASS all 10971 protected files exact
+PASS two engines in fixed order
+PASS exactly four planned conditions with twelve preserved slots
+PASS runtime source includes executable inputs and frozen manual; final report independently bound
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping batches, 100 physical values and varied numeric records
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS offline Compose YAML parses; only fixed mysql service and no named volumes/networks
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+PASS delayed boundary affects full request but not scalar arrival; preflight df and slow raw log excluded
+PASS EOF after exact scalar still fails and preserves value and arrival timing
+PASS real orchestration loads 1000 batches each, PK3 before narrow/composite, 9+3 counts; optimizer actual key unforced
+PASS initial, after each index build, and every repeat reset: 12 distinct count boots, 14 total, all stopped/reaped
+PASS same connection ID across new boots valid, composite boot/UUID/connection identity unique
+PASS each sample has current manual/SHOW INDEX/EXPLAIN, SQL/raw/ns, two exact-target buffer metadata snapshots
+PASS ordering: closed loader/DDL/previous CLI, orderly stop/reap/start, own current prechecks, COUNT once, close
+PASS missing condition cannot pass or produce ratios
+PASS missing one of twelve cannot pass or produce ratios
+PASS wrong scalar cannot pass or produce ratios
+PASS zero timing cannot produce ratios
+PASS missing reset fails cold proof including first count
+PASS missing boot_ordinal fails cold proof including first count
+PASS missing count_session fails cold proof including first count
+PASS two counts in one boot cannot pass cold policy
+PASS missing actual innodb_buffer_pool_load_at_startup fails globals verification
+PASS missing actual innodb_buffer_pool_dump_at_shutdown fails globals verification
+PASS missing actual innodb_flush_method fails globals verification
+PASS nonzero_stop: first reset fails, no restart/COUNT and failed original sample retained
+PASS nonzero_attach: first reset fails, no restart/COUNT and failed original sample retained
+PASS not_reaped: first reset fails, no restart/COUNT and failed original sample retained
+PASS refuse_stop: first reset fails, no restart/COUNT and failed original sample retained
+PASS fully resident target/index metadata fails cold proof before COUNT
+PASS actual ON innodb_buffer_pool_load_at_startup aborts boot
+PASS actual ON innodb_buffer_pool_dump_at_shutdown aborts boot
+PASS failed index retains PK3 and all pending slots, no another condition or summaries
+PASS EOF after value stays failed in its slot, no retry/omission/statistical success
+PASS host capacity guard parses 70 GiB and uses fixed df argv without shell or recursive monitoring
+PASS index working headroom violation fails and retains actual host capacity
+PASS ongoing host floor violation fails and retains actual host capacity
+2026-11-08T16:19:27Z command synthetic-child exit=7 stdout=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261109-4330-mvaq46/0001-synthetic-child.stdout.log stderr=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261109-4330-mvaq46/0001-synthetic-child.stderr.log
+PASS stdout/stderr file drain without pipe deadlock; actual nonzero exit reaped
+/Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/digest.rb:64:in 'File#initialize': No such file or directory @ rb_sysopen - /Users/taco/gits/tacogips/database-analysis/docs/mysql-engine-count-100m-cold.md (Errno::ENOENT)
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/digest.rb:64:in 'IO.open'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/digest.rb:64:in 'Digest::Instance#file'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/digest.rb:49:in 'Digest::Class.file'
+	from mysql/engine-count-100m-cold/verify_offline.rb:502:in '<main>'
+PASS timed out owned local child terminated and reaped with numeric exit
+PASS valid private nonce marker accepted offline
+PASS mismatched ownership marker refuses cleanup
+PASS unowned container refuses lifecycle mutation
+PASS partial load cleanup removes owned stopped runtime then guarded stage
+PASS stop timeout retains failure, kills only owned runtime, still removes guarded partial data
+PASS unowned runtime prevents stop/rm and guarded data deletion
+
+OFFLINE_SHELL_ACTUAL_EXIT_STATUS=1

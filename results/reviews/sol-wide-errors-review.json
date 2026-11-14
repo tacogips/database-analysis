@@ -1,0 +1,430 @@
+{
+  "betterAlternatives": [
+    {
+      "alternative": "callerで診断完了と再利用可能な必須範囲完了を分離する",
+      "reason": "全ての非成功をプロセス失敗にする必要はない。期待された停止を有効な観測として残し、予期しない失敗だけが必須範囲の再試行を妨げないようにする。"
+    },
+    {
+      "alternative": "未知のcount中断は診断として保持し、deadlineの根拠から除外する",
+      "reason": "reqwideのraw情報はこの限定に足りる。unknown1317をタイマーと呼んだという未確認の指摘や、全COUNTの無条件再測定は不要。"
+    },
+    {
+      "alternative": "既存の所有connection終了確認をwide共通armへ接続する",
+      "reason": "新しい停止機構を導入せず、現在の比較順序と計測範囲を保って残存処理による混入を防げる。"
+    }
+  ],
+  "claimEvidenceMap": [
+    {
+      "assessment": "precision_not_reachedとbudget_exhaustedは正当な観測。complete=trueだけを精度達成とは読まない。",
+      "claim": "protocol完了は精度達成を意味しない",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/samplinglib.py:83-110",
+        "results/reference/20261107-wide-error-design/bench/requested/98-stratified-sampling.py:80-95",
+        "E03"
+      ]
+    },
+    {
+      "assessment": "SOL-WIDE-ERROR-001。raw保全はあるが、要約と必須範囲の再利用判断に欠落がある。",
+      "claim": "01a/01bはserviceの予期しない標本失敗を最終失敗集計に含めない",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/reqsamplewide.py:55-63",
+        "E03",
+        "E04",
+        "E05"
+      ]
+    },
+    {
+      "assessment": "この主張は確認できない。error、errno、timer deltaを保持する。期限確認の根拠への採用は不可だが、診断としての完了・保管まで否定しない。",
+      "claim": "reqwideはunknown1317を明示的にtimerへ改名している",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/reqwide.py:63-76",
+        "E03"
+      ]
+    },
+    {
+      "assessment": "確認した経路では成立。3024＋rollback成功、unknown1317、精度未達、全体予算到達を区別する。",
+      "claim": "01c/01dは予期しないsampling失敗を保存して停止する",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/accuracy_frontier.py:46-58,71-83,203-208",
+        "E02",
+        "E03",
+        "E05"
+      ]
+    },
+    {
+      "assessment": "通常finishまで到達すればerrorsにより終了1となる。今回のwide wrappersはResultsを使わず直接runを呼ぶため、この機構はSOL-WIDE-ERROR-001を補わない。",
+      "claim": "Results.sectionに捕捉された例外は成功終了になる",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/reqlib.py:46-64"
+      ]
+    },
+    {
+      "assessment": "成立しない。SOL-WIDE-ERROR-002。最終matrix teardownとも別の判定が必要。",
+      "claim": "workloadの到着会計整合はサーバー後始末確認を保証する",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/lablib.py:77-108,198-223",
+        "results/reference/20261107-wide-error-design/bench/reqwide.py:95-107",
+        "E03"
+      ]
+    },
+    {
+      "assessment": "成立しない。sample後の比較COUNTが先に失敗すると、そのsample結果はappend前で失われ得る。ただし例外は外へ伝播し、同じcacheable green経路ではない。今回の独立した却下理由には追加しない。",
+      "claim": "98にも01cと同じ先行保存がある",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/bench/requested/98-stratified-sampling.py:67-77,81-95"
+      ]
+    },
+    {
+      "assessment": "文書上の限定は妥当。最終誤主張の封じ込めには有効だが、arm間の実行時cleanup gateを代替しない。",
+      "claim": "後日の所有者監査が必要で、候補だけでは最終合格にならない",
+      "evidence": [
+        "results/reference/20261107-wide-error-design/docs/table-count-guideline.md:88,109,160-163,208-214"
+      ]
+    }
+  ],
+  "decision": "rejected",
+  "engineerQuestions": [
+    {
+      "answer": "なり得る。rawは残るので監査による最終主張の封じ込めは可能だが、空の失敗集計と再試行省略は残る。SOL-WIDE-ERROR-001の限定修正が必要。診断の完了と方式の成功を同一視していない。",
+      "question": "serviceのgenuine2013やcleanup_failedはcacheable greenになるか。所有者監査で十分か。"
+    },
+    {
+      "answer": "直接『確認済みタイマー』へ書き換える実装は確認できない。実際のarmはcount_status=error、errno=1317、timer_counter_delta=0を保持して正常returnする。96/97、01a/01bのcount、01dのcountに共通し、他条件が満たされれば再利用可能。ただし不明中断を観測した診断の再利用自体は直ちに不正ではないため、これだけを独立した欠陥とはしない。所有者監査では期限到達の証拠から明示的に除外する必要がある。経過時間や1317だけでplanned deadlineへ読み替えてはならない。",
+      "question": "reqwideのunknown1317、timer delta0はタイマーと誤認されるか。"
+    },
+    {
+      "answer": "確認した経路では適切。01cのrecord_sampleは予期しない標本失敗を保存して比較COUNTを呼ばず停止する。01dもarm保存後に停止する。3024とrolled_backの組合せはstatement_budget_exhaustedとして扱い、unknown1317はquery_failedのまま保持する。workload終了確認の共通欠落は別問題。",
+      "question": "01c/01dはsampling失敗を適切に扱うか。"
+    },
+    {
+      "answer": "未知中断をdeadline根拠にしないことや、失敗標本を成功率・速度比較から除外することには有効。失敗診断を捨てる必要もない。ただし未解決の必須条件を完了へ変換したり、後始末未確認の連続比較を有効化したりはできない。必要範囲を維持して不足部分を所有者管理下で解決する必要がある。",
+      "question": "既存の失敗証拠を除外すれば再計測なしで足りるか。"
+    }
+  ],
+  "findings": [
+    {
+      "boundedRemediation": "callerの失敗集計・保存・終了判定を限定修正する。失敗結果を保存して非0終了する方式、または診断完了を維持しつつ必須範囲の再利用を明示的に禁止する方式で足りる。precision_not_reached、全体budget_exhausted、確認済みdeadlineを一律失敗へ変更しない。既存の失敗観測は診断として保持し、成功比較から除外できるが、必須条件を満たしたことには代用できない。",
+      "concreteCounterexample": {
+        "genuine2013": "実際のsample関数でクエリ中に接続を失わせ、以後のROLLBACKも失敗させると、status=cleanup_failed、errno=2013、cleanup_errno=0が残った。",
+        "observed": "実際のrun関数をfake環境で実行し、serviceにquery_failed/errno2013またはcleanup_failedを入れてもcomplete=true、unexpected_sampling_failures=[]、正常returnとなった。実際のRubyメソッドも、終了0と一致するartifactを与えると再利用を許可した。",
+        "verification": "E03、E04、E05"
+      },
+      "exactInaccurateClaimOrSkippedRetry": "serviceに予期しない標本失敗が存在してもunexpected_sampling_failures=[]となる。全armを試行したというcomplete自体は成立し得るが、この結果が未解決失敗のない必須計測と区別されず、次のrequested実行で再試行を省略できる。",
+      "id": "SOL-WIDE-ERROR-001",
+      "impact": "必要なservice条件が未解決のまま再利用される。失敗後も後続比較が続くため、cleanup_failedについてはSOL-WIDE-ERROR-002の問題も重なる。",
+      "ownerAuditAssessment": "raw statusが保存されるため、必須の所有者監査が最終的な誤った成功主張を防ぐ余地はある。ただし、現在の失敗要約と自動再利用判定は修正されず、必要な再試行も自動では復活しない。",
+      "requiredCorrection": "staticとserviceの双方について、期待された観測と予期しない失敗を区別して保存する。未解決の予期しない失敗を必須範囲の再利用可能な完了として扱わない。",
+      "scenario": "staticの標本が正常で、serviceの標本だけがgenuine2013またはcleanup_failedになる。reqwide.armは返されたsampling.statusを保存するが、reqsamplewide.runの最終失敗集計はstaticしか調べない。",
+      "severity": "middle",
+      "sourceEvidence": [
+        {
+          "detail": "samplingの失敗statusを戻り値として受け取り、例外にはしない。",
+          "file": "results/reference/20261107-wide-error-design/bench/reqwide.py",
+          "function": "arm",
+          "lines": "84-90"
+        },
+        {
+          "detail": "service結果は保存するが、unexpected_sampling_failuresと最終raiseはstaticだけを対象にする。",
+          "file": "results/reference/20261107-wide-error-design/bench/reqsamplewide.py",
+          "function": "run",
+          "lines": "55-63"
+        },
+        {
+          "detail": "終了0、出力存在、入力不変でokになり、次回は終了コードとartifactハッシュ等の一致だけで再利用する。serviceの意味的失敗は読まない。",
+          "file": "results/reference/20261107-wide-error-design/lab.rb",
+          "function": "requested_process / requested / reusable_status?",
+          "lines": "140-142,160-167,287-297,352-361"
+        }
+      ],
+      "status": "open",
+      "title": "01a/01bのservice sampling失敗が失敗集計から漏れ、そのまま再利用対象になる"
+    },
+    {
+      "boundedRemediation": "既存のWorkload.finish(confirm_server=True)と所有connection確認機構を利用し、失敗時にも現在のarm情報・到着会計・cleanup診断をcallerへ保存してから停止する。後始末失敗を単なる遅延観測へ変換しない。SQL、caps、fixture、arm数の変更は不要。",
+      "concreteCounterexample": {
+        "observed": "実際のWorkload.finishにconsistent=true、inflight=1、connection_registry_complete=falseのpayloadを与えると、既定呼出しは正常returnし、cleanup={confirmed:false,status:not_requested}となった。実際のreqwide.armのfake実行でもfinishへのconfirm_server指定はfalseだった。",
+        "verification": "E03"
+      },
+      "exactInaccurateClaimOrSkippedRetry": "accounting整合を満たすことと、前armが所有したサーバー処理の終了確認が分離されていない。前armの処理が残り得る状態で、次のcontrol/count/sample比較を開始できる。",
+      "id": "SOL-WIDE-ERROR-002",
+      "impact": "前armの残存処理が次のbaselineやmethod窓へ混入し、方式間比較の帰属が崩れる可能性がある。stuckを打切り観測として残すだけでは、この混入を防げない。",
+      "ownerAuditAssessment": "後日の監査で疑わしい比較を除外することは可能。ただしarmごとの確認証拠が保存されず、どこで残存処理が消えたかを後から確定できない。lab.rbの最終matrixコンテナ削除は有効な最終後始末だが、同一スクリプト内の先行比較を遡って保証しない。",
+      "requiredCorrection": "各wide armの所有workloadについて終了確認を行い、確認できない場合は後続比較を開始しない。accounting、打切り観測、cleanup結果を別々に保存する。",
+      "scenario": "workload終了時に処理中リクエストが残る。到着数のaccountingは整合し、子プロセスからはconnection_registry_complete=falseのpayloadが返る。",
+      "severity": "middle",
+      "sourceEvidence": [
+        {
+          "detail": "confirm_server=Falseが既定。registry不完全やサーバー終了未確認による失敗判定はconfirm_server=Trueの場合に限られる。",
+          "file": "results/reference/20261107-wide-error-design/bench/lablib.py",
+          "function": "Workload.finish",
+          "lines": "77-108"
+        },
+        {
+          "detail": "生存するdaemon workerをstuckとして記録し、accounting整合とregistry不完全を同時に報告できる。",
+          "file": "results/reference/20261107-wide-error-design/bench/lablib.py",
+          "function": "_workload_main",
+          "lines": "188-223"
+        },
+        {
+          "detail": "w.finish()を引数なしで呼び、cleanup確認結果を保存せず、戻ると次のarmへ進む。",
+          "file": "results/reference/20261107-wide-error-design/bench/reqwide.py",
+          "function": "arm / run",
+          "lines": "95-107,132-137"
+        },
+        {
+          "detail": "同じarmを連続実行する。",
+          "file": "results/reference/20261107-wide-error-design/bench/reqsamplewide.py",
+          "function": "run",
+          "lines": "51-58"
+        },
+        {
+          "detail": "同じarmを使用し、sampling.statusの検査ではworkload側の未確認終了を検出できない。",
+          "file": "results/reference/20261107-wide-error-design/bench/accuracy_frontier.py",
+          "function": "wide_service_frontier",
+          "lines": "196-208"
+        }
+      ],
+      "status": "open",
+      "title": "wide共通armがworkloadのサーバー終了確認なしに次の比較へ進む"
+    }
+  ],
+  "guidelineSha256": "60652403909846799f045a3a25fdfe2cca18c0d7991cb6febed42aabb8b0521a",
+  "limitations": [
+    "完全な検査出力と最終終了コードは上記tool transcriptに保持される。READ ONLY・ファイル作成禁止に従い、ディスク上の完全ログファイルは作成しておらず、completeLogPathはnull。最終proof用の永続検証ログとしては提出していない。",
+    "一部の一括ソース表示はtool出力上で切り詰められた。必要箇所は対象を絞って追加読取した。E01〜E08の検査出力は切り詰められていない。",
+    "DB、実ネットワーク、MySQLの実際のキャンセルや停止時間は測定していない。fake反例はソースの分岐・保存・再利用判断を検証したもので、発生頻度や実測負荷を示さない。",
+    "growing current resultファイルは読んでいない。過去の数値根拠ファイルも今回の凍結対象に含まれないため、ガイドラインの数値自体を再監査していない。",
+    "reqmix関連テストは文脈として読んだが、その全suiteや別workflowは実行していない。",
+    "所有者監査の実施・最終承認は未評価。ガイドラインが要求する後続監査の存在と、今回確認した自動処理の限界を区別した。"
+  ],
+  "priorityFixes": [
+    {
+      "action": "wide共通armに所有workloadの終了確認と失敗時保存を接続し、未確認なら後続比較を止める。",
+      "finding": "SOL-WIDE-ERROR-002",
+      "priority": 1
+    },
+    {
+      "action": "serviceを含む予期しないsampling失敗の要約・保存・再利用判定を修正する。期待されたdeadline・精度未達・全体予算到達は有効な観測として維持する。",
+      "finding": "SOL-WIDE-ERROR-001",
+      "priority": 2
+    }
+  ],
+  "requestedExperiments": [
+    {
+      "cases": [
+        "genuine2013：以後のクエリとROLLBACKも失敗する接続",
+        "cleanup_failed：精度到達後でもcleanup失敗を保持",
+        "unknown1317、timer delta0：確認済みdeadlineにしない",
+        "確認済みdeadline：期待された観測を維持",
+        "precision_not_reached：有効な精度未達観測を維持",
+        "全体budget_exhausted：statement deadlineと区別",
+        "successful sampleおよびsuccessful exact count"
+      ],
+      "decisionRelevance": "SOL-WIDE-ERROR-001の解消確認。数学、SQL、caps、fixture、必要armを変更しない。",
+      "id": "REG-WIDE-OUTCOME-PERSISTENCE",
+      "requiredAssertions": [
+        "staticとservice双方の予期しない失敗が、元errno・cleanup情報を含めて保存される",
+        "必須範囲の未解決失敗が再利用による再試行省略を起こさない",
+        "期待された精度・予算結果を一律に非0終了へ変更しない",
+        "unknown1317を経過時間だけでタイマーと呼ばない"
+      ],
+      "scope": "samplinglib→wide caller→保存結果→終了判定→Ruby再利用判定",
+      "type": "DB不要の実関数AST・fake回帰"
+    },
+    {
+      "cases": [
+        "正常な所有connection終了確認",
+        "accounting整合かつstuckあり、registry不完全",
+        "終了確認の観測失敗",
+        "所有connectionの停止失敗",
+        "子プロセス終了未確認",
+        "標本失敗とworkload cleanup失敗の同時発生"
+      ],
+      "decisionRelevance": "SOL-WIDE-ERROR-002の解消確認。広範な追加負荷実験は要求しない。",
+      "id": "REG-WIDE-CLEANUP-GATE",
+      "requiredAssertions": [
+        "未確認cleanupでは次armを開始しない",
+        "失敗armのraw、accounting、cleanup診断を停止前に保存する",
+        "終了確認成功と精度達成・予算内完了を別に判定する",
+        "正常sample/countおよび期待されたdeadline・精度未達・全体予算到達の観測を維持する"
+      ],
+      "scope": "Workload.finishとreqwide.arm/callerの保存・継続判断",
+      "type": "DB不要の実関数AST・fake回帰"
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "action": "開始時のauthoritative入力と19ファイルのSHA-256照合",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E01",
+      "outputComplete": true,
+      "result": "全19ファイル一致。入力SHA-256=4576751109120caf97156887e7db4fea76f5144556bc4904e58aaf6f94e47d42。",
+      "toolOutputReference": "exec_command chunk 282ac0"
+    },
+    {
+      "action": "凍結test_accuracy_frontier.pyのASTによるDB不要検査",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E02",
+      "outputComplete": true,
+      "result": "失敗標本の先行保存、比較失敗保存、3024とunknown1317の区別を確認。",
+      "toolOutputReference": "exec_command chunk 8b6fd5"
+    },
+    {
+      "action": "実sample、sample_with_budgets、record_sample、reqsamplewide.run、reqwide.arm、Workload.finishのASTをpure/fake環境で実行",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E03",
+      "outputComplete": true,
+      "result": "期待された精度・予算結果を保持。service失敗の集計漏れ、unknown1317 delta0のraw保持、workload終了確認省略の反例を確認。2013後もROLLBACKが成功する注入は分類分岐の検査であり、genuine切断はE05で別途検査。",
+      "toolOutputReference": "exec_command chunk 5a8a2d"
+    },
+    {
+      "action": "実Ruby requested_process/reusable_status?を抽出し、capture・File.write・artifact参照をfake化",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E04",
+      "outputComplete": true,
+      "result": "意味的service失敗を検査せず終了0とartifact一致で再利用可能。終了コードnil/1は再利用不可。Docker・シェル子プロセス・実ファイル書込は発生させていない。",
+      "toolOutputReference": "exec_command chunk d17b99"
+    },
+    {
+      "action": "genuine2013の接続断モデルと実01d callerの保存・停止検査",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E05",
+      "outputComplete": true,
+      "result": "sampleはerrno2013とcleanup_errno0を保持したcleanup_failed。01dは保存後に停止し、complete=falseを維持。",
+      "toolOutputReference": "exec_command chunk 8e114f"
+    },
+    {
+      "action": "manifestと入力ファイル一覧の一致確認",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E06",
+      "outputComplete": true,
+      "result": "manifestの19件はauthoritative入力と一致。manifest SHA-256=b91587d6c37147c8eb350a160f935f8ca444c45c641274ba7259403e388aad39。",
+      "toolOutputReference": "exec_command chunk 97a251"
+    },
+    {
+      "action": "終了時の入力・manifest・全19ファイル再照合と17 PythonファイルのAST解析",
+      "completeLogPath": null,
+      "exitCode": 0,
+      "id": "E07",
+      "outputComplete": true,
+      "result": "全ハッシュ一致。入力・manifest不変。17ファイルのAST解析完了。",
+      "toolOutputReference": "exec_command chunk ae3357"
+    },
+    {
+      "action": "最初のハッシュ検査起動",
+      "completeLogPath": null,
+      "exitCode": 1,
+      "id": "E08",
+      "outputComplete": true,
+      "result": "zshのheredoc一時ファイル作成がread-only制約で拒否され、Python検査は未実行。合格として扱わず、ファイルを作らない-c形式でE01を実施した。",
+      "toolOutputReference": "exec_command chunk 381e72"
+    }
+  ],
+  "reviewScope": {
+    "constraintsObserved": "読み取り、ハッシュ、AST抽出、隔離したpure/fake計算のみ。DB接続、Docker実行、ベンチマーク、編集、委譲は行っていない。",
+    "decisionBasis": "middleの未解決指摘2件。精度未達・期待された予算到達、実行中のWHITE all、最終proof未作成は却下理由に含めない。",
+    "input": "results/reviews/sol-wide-errors-input.json",
+    "snapshot": "results/reference/20261107-wide-error-design",
+    "traced": [
+      "reqwide.arm/run",
+      "reqsamplewide.run",
+      "accuracy_frontierと01c/01d",
+      "samplinglib.sample",
+      "Workloadの終了処理",
+      "Results",
+      "lab.rbのrequested_process、ok、artifact、reusable_status?",
+      "同じ意味論に関係する96/97/98"
+    ],
+    "type": "失敗処理・計測方法の設計審査のみ"
+  },
+  "rolloutRecommendation": {
+    "activeRun": "実行中のWHITE allには介入していない。結果を先取りして合否判定していない。",
+    "design": "middle指摘2件を解消するまで設計承認を保留する。",
+    "existingEvidence": "失敗診断を保持し、成功・期限確認・有効な方式比較の根拠とは分ける。必要条件の削除や実行範囲短縮で通過させない。",
+    "finalApproval": "本審査は最終導入承認ではない。実際のall完了、所有者監査とproof、2役の新規最終Sol査読が引き続き必要。"
+  },
+  "validationCoverageMatrix": [
+    {
+      "area": "スナップショット不変性",
+      "coverage": "開始・終了で19/19ハッシュ照合。入力とmanifestも照合",
+      "evidence": [
+        "E01",
+        "E06",
+        "E07"
+      ],
+      "status": "確認"
+    },
+    {
+      "area": "samplingの失敗・期待結果分類",
+      "coverage": "genuine2013、cleanup_failed、unknown1317、確認済みstatement deadline、precision_not_reached、全体budget_exhausted、successful sample",
+      "evidence": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "status": "pure/fakeで確認"
+    },
+    {
+      "area": "wide COUNT",
+      "coverage": "1317 delta0、1317 delta1、3024 delta1、2013、successful count",
+      "evidence": [
+        "E03"
+      ],
+      "status": "raw分類と正常return/例外の差を確認"
+    },
+    {
+      "area": "01a/01b",
+      "coverage": "実runの全ループをfake実行。service失敗時の保存・complete・最終失敗集計",
+      "evidence": [
+        "E03"
+      ],
+      "status": "欠陥確認：SOL-WIDE-ERROR-001"
+    },
+    {
+      "area": "01c/01d",
+      "coverage": "01cの保存helperと予算分類、01dの実callerに対するgenuine切断結果の保存・停止",
+      "evidence": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "status": "sampling失敗伝播を確認。01c全fixture構築は未実行"
+    },
+    {
+      "area": "workload cleanup",
+      "coverage": "実finishの既定呼出しと、共通armが要求する確認モード",
+      "evidence": [
+        "E03"
+      ],
+      "status": "欠陥確認：SOL-WIDE-ERROR-002"
+    },
+    {
+      "area": "runner・artifact・cache",
+      "coverage": "ソース追跡と実Ruby2メソッドのfake実行。終了0/nil/1とartifact一致",
+      "evidence": [
+        "E04"
+      ],
+      "status": "意味的失敗を検査しない再利用経路を確認"
+    },
+    {
+      "area": "96/97/98・Results・raw保存",
+      "coverage": "凍結ソースを追跡。共有arm、例外終了、保存順序、hashによるartifact完全性と意味的妥当性の違い",
+      "evidence": [
+        "E07"
+      ],
+      "status": "静的確認"
+    },
+    {
+      "area": "実測・owner audit・最終承認",
+      "coverage": "本ターンでは実施対象外",
+      "evidence": [],
+      "status": "未評価。欠落を新規指摘にはしていない"
+    }
+  ]
+}

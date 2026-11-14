@@ -1,0 +1,21 @@
+{
+  "status": "owner_corrected_timing",
+  "recordedAt": "2026-11-08T23:32:13.449440+00:00",
+  "corrects": "sameFatalTimeUTC in ag-restore-failure-analysis.json",
+  "previousAnalysisSha256": "0132cc41eb63ed5225c00d1720ba8daf98d04a2063abe4251fd65bb50e1880ec",
+  "observations": [
+    {
+      "server": "container:lab-sqlserver-manual100m-secondary",
+      "stderr": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/00682.stderr.log",
+      "stderrSha256": "2e537b99eaef9e08854a94b748a80addab936152e8c78860a646d77e4c7909ff",
+      "fatalLine": "This program has encountered a fatal error and cannot continue running at Sun Nov  8 23:23:28 2026"
+    },
+    {
+      "server": "container:lab-sqlserver-manual100m",
+      "stderr": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/00687.stderr.log",
+      "stderrSha256": "a9792b1a4618c6b1d71fa109fb92d5ea232d0a12e670b505b1d558c0123d6a39",
+      "fatalLine": "This program has encountered a fatal error and cannot continue running at Sun Nov  8 23:23:32 2026"
+    }
+  ],
+  "meaning": "Fatal events are4seconds apart, not simultaneous. Same assertion and both exit1 confirmed; no cause established. Original analysis preserved as historical input to Sol64."
+}

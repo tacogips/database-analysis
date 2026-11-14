@@ -1,0 +1,53 @@
+{
+  "rubyVersion": "4.0.9",
+  "reviewPaths": [
+    "results/reviews/sol-internal-rollout-review.json",
+    "results/reviews/sol-sampling-review.json",
+    "results/reviews/sol-validation-review.json",
+    "results/reviews/sol-frontier-review.json",
+    "results/reviews/sol-protocol-review.json",
+    "results/reviews/sol-wide-errors-review.json"
+  ],
+  "phaseSpecificWork": "Bounded wide failure/cleanup repair only. Preserve all estimator math, SQL methods, statement/total caps, fixtures, required150scripts/41write-mixplan/30scaleplan,105accuracy and48service scope. New review confirms two middle defects. Keep all previous startup/raw/cache/freshness/resource/reqmix fixes. No DB experiments outside the fixed runner. Add actual-function/fake regressions and register selfchecks. Then final-source WHITE mise run all and docs-only integration. Also handle the latest explicitly requested bounded keyless/no-caller-seed investigation in additionalUserRequest before final white all; preserve existing scope.",
+  "phaseControl": "Single Sol author after phase17 integration terminal; fixedWHITEall; docs-only integration(max3steps). Source changes require new final-code reproduction. Owner semantic/source audit, proof and two fresh final Sol roles remain required.",
+  "fixes": [
+    {
+      "id": "SOL-WIDE-ERROR-001",
+      "severity": "middle",
+      "evidence": "results/reviews/sol-wide-errors-review.json",
+      "requiredCorrection": "staticとserviceの双方について、期待された観測と予期しない失敗を区別して保存する。未解決の予期しない失敗を必須範囲の再利用可能な完了として扱わない。",
+      "boundedRemediation": "callerの失敗集計・保存・終了判定を限定修正する。失敗結果を保存して非0終了する方式、または診断完了を維持しつつ必須範囲の再利用を明示的に禁止する方式で足りる。precision_not_reached、全体budget_exhausted、確認済みdeadlineを一律失敗へ変更しない。既存の失敗観測は診断として保持し、成功比較から除外できるが、必須条件を満たしたことには代用できない。"
+    },
+    {
+      "id": "SOL-WIDE-ERROR-002",
+      "severity": "middle",
+      "evidence": "results/reviews/sol-wide-errors-review.json",
+      "requiredCorrection": "各wide armの所有workloadについて終了確認を行い、確認できない場合は後続比較を開始しない。accounting、打切り観測、cleanup結果を別々に保存する。",
+      "boundedRemediation": "既存のWorkload.finish(confirm_server=True)と所有connection確認機構を利用し、失敗時にも現在のarm情報・到着会計・cleanup診断をcallerへ保存してから停止する。後始末失敗を単なる遅延観測へ変換しない。SQL、caps、fixture、arm数の変更は不要。"
+    }
+  ],
+  "wideErrorsReviewPath": "results/reviews/sol-wide-errors-review.json",
+  "wideErrorsAssessmentPath": "results/reviews/sol-wide-errors-assessment.json",
+  "priorWhiteAllInterruptionPath": "results/reviews/wide-errors-interruption.json",
+  "wideRepairAcceptance": [
+    "Persist original method error/errno, raw samples/accounting, accuracy/budget/cleanup dimensions and workload cleanup BEFORE stopping. No later arm after unconfirmed cleanup.",
+    "Expected precision_not_reached, total budget_exhausted and confirmed statement deadlines remain legitimate observations; do not turn all non-success into fatal failure. Genuine2013,cleanup_failed and unknown interruption cannot become reusable mandatory-success results.",
+    "Cover reqsamplewide01a/01b,reqwide96/97 and accuracy_frontier01d shared arm/callers. Preserve valid sample/count behavior and all planned cases.",
+    "Use Workload.finish(confirm_server=True) or equivalent existing owned-session confirmation, save its results and fail closed. Audit other repeated-load callers for the SAME defaultFalse leak risk; use shared safe behavior or explicit required gating where appropriate, without unrelated SQL/protocol redesign.",
+    "DB-free exact-function/fake regressions must cover genuine2013 with failed rollback, achieved precision plus cleanup failure, unknown1317 with timer delta0, confirmed deadline, precision_not_reached,total budget_exhausted,successful sample/count; and consistent accounting plus incomplete registry/stuck,observer/KILL/child-exit failure,combined failures. Verify persistence,no nextarm,and no invalid cache reuse.",
+    "Do not shorten scopes, lower resource reserve or delete more environment caches. VM was restored to6.4GiB,all5MySQL/currentbenchimages prepared; currentbenchbuild cache reuse confirmed. DBs intentionally stopped and will be recreated by fixed all.",
+    "Read current guide/detail history and retain source/method qualifications. No commit/push; all new Riela nodes Sol only."
+  ],
+  "additionalUserRequest": {
+    "text": "progress? 暗号化されているtableでも件数を取れるの? (seedなしで)その方法も調査せよ",
+    "interpretation": "Investigate both unknown application encryption/decryption key/seed and no caller-supplied sampling RNG seed; clarification pending. No plaintext content or existing true count may be required.",
+    "requirements": [
+      "Explain TDE SQL client need not possess key, but MySQL keyring must be available; missing server key is not solved by COUNT. Application-encrypted column contents can remain opaque: COUNT(*) counts visible rows without AES_DECRYPT or plaintext. Distinguish trusted existing metadata from exact current count; no bounded-percent promise from TABLE_ROWS.",
+      "Explicitly distinguish sampling RNG seed from encryption key. Existing seed is laboratory reproducibility only. Inspect/test actual sample(...,seed=None) no fixed caller seed behavior; if supported, prove invocation needs no known row count or plaintext. Document entropy source and evidence limits, do not claim fixed-seed confidence validation.",
+      "Bounded extra scope before final white all: add a reproducible isolated lab test for opaque application-encrypted payload under a SELECT-only counter with no decryption key, and sampling no caller seed if applicable. Keep all previously mandatory scopes and caps, no live DB connection. Test unsuitable UUID/binary/composite/no integer PK as inapplicable for current integer-cell estimator; COUNT/metadata remain distinct alternatives. Do not introduce universal few-percent/no-impact promise.",
+      "Use official MySQL 8.4 TDE, COUNT aggregate and I_S.TABLES sources. Further source research saved in results/reviews/encrypted-keyless-research.json. Include this user request in integration/final review coverage, preserve guide <=220lines and put detail separately."
+    ],
+    "clarification": "暗号化・復号用の鍵や seed を知らない。乱数seedなしの追加調査は不要。",
+    "delivery": "Not in original session19 input: follow-up required; do not assume delivered."
+  }
+}

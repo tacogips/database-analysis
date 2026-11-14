@@ -1,0 +1,151 @@
+{
+  "checkedAt": "2026-11-07T07:14:19.403125+00:00",
+  "userCorrection": "TDEに鍵は必要。暗号化方式と鍵の利用可否はMySQLテーブルの状態一覧として検証対象に含むこと。",
+  "status": "coverage audit, not final approval",
+  "states": [
+    {
+      "state": "InnoDB TDE; server keyring healthy; SQL caller does not supply encryption key",
+      "coverage": "implemented_and_historical_lab_evidence; final_white_all_pending",
+      "sources": [
+        "bench/requested/91-encrypted-count.py",
+        "bench/reqwide.py",
+        "bench/accuracy_frontier.py"
+      ],
+      "evidence": [
+        "results/reference/20261107-observations/requested_encrypted_count_26.10.0.json",
+        "results/reference/20261107-observations/requested_encrypted_count_8.4.13.json",
+        "results/reference/20261107-observations/requested_encrypted_count_9.7.4.json"
+      ],
+      "qualifications": [
+        "Historical91 has4000000-count results on8.4.13/9.7.4/26.10.0; old cold/warm labels do not prove equal cache residency.",
+        "Current-source all has not reached requested phase.",
+        "Current91 uses root SQL client, not a SELECT-only privilege proof."
+      ],
+      "sourceSha256": {
+        "bench/requested/91-encrypted-count.py": "9b394f5bcaf73252bad5a864f26641d88e4c03d467c315049a2122b24dfc2b1b",
+        "bench/reqwide.py": "4c10705b13337dc81e64fc833eec5afd5dfb6fb4aabf469d4e8fb6860684d90b",
+        "bench/accuracy_frontier.py": "2389e371a0dbaa34b0940faee52f94d72307b670dc5a62e40025210caed19176"
+      },
+      "sourceReference": {
+        "kind": "immutable selected-file design snapshot; NOT final current source",
+        "manifest": "results/reference/20261107-encryption-state-design/manifest.json"
+      }
+    },
+    {
+      "state": "InnoDB TDE; required server key/keyring unavailable",
+      "coverage": "official_prerequisite_only; isolated_failure_injection_unmeasured",
+      "sources": [
+        "docs/table-count-guideline.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "Do not promise SQL exact/sampled count without server ability to decrypt.",
+        "Existing cache/statistics do not establish current exact count or bounded-percent error.",
+        "No destructive key removal on existing lab/main data; any test must use disposable owned instance."
+      ],
+      "sourceSha256": {
+        "docs/table-count-guideline.md": "a594e5fc6b947820e00bd3152fa149b25b709a54f5217cb02f70e799582a0a94"
+      },
+      "sourceReference": {
+        "kind": "immutable selected-file design snapshot; NOT final current source",
+        "manifest": "results/reference/20261107-encryption-state-design/manifest.json"
+      }
+    },
+    {
+      "state": "Application-encrypted columns; counting client lacks application key",
+      "coverage": "COUNT semantics support key-independent row count; actual crypto-specific fixture_unmeasured",
+      "sources": [
+        "docs/table-count-guideline.md",
+        "bench/reqwide.py"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "reqwide explicitly synthetic opaque binary payload, not measured application encryption implementation.",
+        "COUNT(*) does not require plaintext meaning or decryption expression; index/row width and NULL semantics matter.",
+        "Opaque stored integer/noninteger primary-key design must be distinguished from encrypted payload columns."
+      ],
+      "sourceSha256": {
+        "docs/table-count-guideline.md": "a594e5fc6b947820e00bd3152fa149b25b709a54f5217cb02f70e799582a0a94",
+        "bench/reqwide.py": "4c10705b13337dc81e64fc833eec5afd5dfb6fb4aabf469d4e8fb6860684d90b"
+      },
+      "sourceReference": {
+        "kind": "immutable selected-file design snapshot; NOT final current source",
+        "manifest": "results/reference/20261107-encryption-state-design/manifest.json"
+      }
+    },
+    {
+      "state": "Storage/disk encryption; transparent healthy mounted storage",
+      "coverage": "documented_unmeasured",
+      "sources": [
+        "docs/table-count-guideline.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "Storage key accessibility and physical I/O overhead not measured by this Compose."
+      ],
+      "sourceSha256": {
+        "docs/table-count-guideline.md": "a594e5fc6b947820e00bd3152fa149b25b709a54f5217cb02f70e799582a0a94"
+      },
+      "sourceReference": {
+        "kind": "immutable selected-file design snapshot; NOT final current source",
+        "manifest": "results/reference/20261107-encryption-state-design/manifest.json"
+      }
+    },
+    {
+      "state": "SQL-visible noninteger/UUID/binary/composite primary key, or no usable single integer primary key",
+      "coverage": "current integer-cell estimator inapplicable; exact COUNT and metadata alternatives remain",
+      "sources": [
+        "bench/samplinglib.py",
+        "docs/probability-count.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "No generic3/5/10% estimator for arbitrary key shapes established.",
+        "Current sampler requires single integer PRIMARY named id, snapshot and budget; full COUNT counts rows regardless payload interpretation.",
+        "Applicability follows SQL-visible type, uniqueness, index, snapshot and budget, not whether stored values are encrypted. TDE integer PK remains SQL integer. A format-preserving application cipher could also retain a unique integer key; do not reject by encryption label alone. Dense/sparse distribution affects cost/attainable precision, not merely applicable/inapplicable."
+      ],
+      "sourceSha256": {
+        "bench/samplinglib.py": "a929cd2685f12b6c878de838703182abc8f9dab97ef3f1741de6e6e5da4bcc9f",
+        "docs/probability-count.md": "90159396da3d464107e2ac400dfd640d385f15ca64b21f8d313ebb02300e2fd7"
+      },
+      "sourceReference": {
+        "kind": "immutable selected-file design snapshot; NOT final current source",
+        "manifest": "results/reference/20261107-encryption-state-design/manifest.json"
+      }
+    },
+    {
+      "state": "Encrypted storage/key values but SQL-visible single integer unique PRIMARY named id",
+      "coverage": "current integer-cell implementation structurally applicable if InnoDB table readable; actual precision/cost conditional and not guaranteed",
+      "sources": [
+        "bench/samplinglib.py",
+        "docs/probability-count.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "TDE key is transparent to SQL type; application ciphertext stored as integer may also satisfy type/unique-key checks.",
+        "The implementation requires named id and a consistent snapshot; key density, budget, holes and interval bounds still matter.",
+        "Actual format-preserving cipher fixture unmeasured; structural applicability is a code/specification inference, not measured performance."
+      ],
+      "sourceSha256": {
+        "bench/samplinglib.py": "a929cd2685f12b6c878de838703182abc8f9dab97ef3f1741de6e6e5da4bcc9f",
+        "docs/probability-count.md": "90159396da3d464107e2ac400dfd640d385f15ca64b21f8d313ebb02300e2fd7"
+      },
+      "sourceReference": {
+        "kind": "immutable selected-file design snapshot; NOT final current source",
+        "manifest": "results/reference/20261107-encryption-state-design/manifest.json"
+      }
+    }
+  ],
+  "requiredFollowup": "Integrate into comprehensive table-state/condition coverage, mark measured/specification/unmeasured separately; address gaps with isolated tests without touching realDB or overlapping active lab owner. Latest request was after session19 launch and has not been delivered to its initial input.",
+  "ownerCorrection": {
+    "at": "2026-11-07T07:24:53.146375+00:00",
+    "reason": "Actual sampler inspects SQL-visible key metadata, not encryption label. Correct original overbroad encrypted-PK exclusion. Immutable session20 snapshot preserves prior text; review final closure pending."
+  },
+  "reviewAssessment": {
+    "reviewPath": "results/reviews/sol-encryption-state-review.json",
+    "at": "2026-11-07T07:26:03.247539+00:00",
+    "state001": "Owner classification corrected; final Sol closure pending",
+    "state002": "Pending integration into guide/detail state catalog; do not edit docs alongside active author",
+    "state003": "Owner re-read selected snapshot source; all per-state hashes now anchored to that exact immutable manifest. Current final source audit remains pending."
+  }
+}

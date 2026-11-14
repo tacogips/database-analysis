@@ -1,0 +1,65 @@
+[
+    {
+        "Id": "sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+        "RepoTags": [
+            "mcr.microsoft.com/mssql/server@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718"
+        ],
+        "RepoDigests": [
+            "mcr.microsoft.com/mssql/server@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-03T05:58:05.433673258Z",
+        "Config": {
+            "User": "mssql",
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135",
+                "CONFIG_EDGE_BUILD=",
+                "MSSQL_PID=developer"
+            ],
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Labels": {
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "16.0.4305.5",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04",
+                "vendor": "Microsoft"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 626712917,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:73974f74b436f39a2fdb6461b1e3f7c3e41c73325776fa71d16b942a5b4a365b",
+                "sha256:104c63c3ffa4cd4bca6b042dd1909c06edf48fb1c8c794b92a3020aa8cb98aa4",
+                "sha256:562bf246073c20ec679f54e010758f257dfaf42022d4c0d362e103721abf2886"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-08T23:43:03.581949182Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+            "size": 760
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "mcr.microsoft.com/mssql/server"
+                }
+            ]
+        }
+    }
+]

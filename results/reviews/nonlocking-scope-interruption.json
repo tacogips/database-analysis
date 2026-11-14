@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-07T10:00:52.958259+00:00",
+  "state": "controlled_stop_completed",
+  "reason": "Latest explicit user instruction: do not measure intentional full-row/table locking counting forms; measure only non-row-locking count/estimate methods. Current remaining default suite contains locking probes. Scope change authorized by user overrides old150-script requirement.",
+  "userInstruction": "countによるdegradeはlockの有無でも変わる。全行lockは絶対に避けるので計測しなくていい。lockを発生させない方法で計測すればいい。",
+  "orchestratorPid": 16036,
+  "staleDocsQueuePid": 15785,
+  "staleDocsQueueStopped": true,
+  "mainSession": "table-count-guideline-review-session-19",
+  "plan": "Pause own orchestrator, interrupt exact owned bench Python, confirm owned workers and DB statements ended, terminate own lab DBs if needed, then SIGINT/SIGCONT orchestrator so controller records interruption. Preserve existing evidence; no final integrity/completion claim. Let session19 docs boundary finish, then bounded Sol author removes intentional locking probes from default all while retaining relevant nonlocking accuracy/cost/service work.",
+  "remainingScopeRule": "No FOR SHARE/FOR UPDATE, count-to-DML/CTAS/SETsubquery or SERIALIZABLE transaction count benchmarks; no explicit TABLE/GLOBAL READ lock probes. Ordinary SELECT MDL is unavoidable, distinct from row-lock guarantee. Background business writes may take their own normal locks; counting method must not.",
+  "benchPythonQuiescenceConfirmed": true,
+  "ownedPrimaryReplicaStopped": true,
+  "orchestratorSignal": "SIGINT_then_SIGCONT",
+  "observedAt": "2026-11-07T10:01:32.182637+00:00",
+  "finalDataIntegrity": "not_reached; owned DBs stopped intentionally, MEMORY volatile. No corruption or final intactness claim.",
+  "orchestratorExitCode": 130,
+  "candidateStatus": "failed",
+  "measurementSourceUnchanged": true,
+  "finishedAt": "2026-11-07T10:01:32Z",
+  "measurementSnapshot": "results/reference/review-20261107T100132Z-16034",
+  "ownedDbStates": [
+    "/lab-primary false 0",
+    "/lab-replica false 0"
+  ]
+}

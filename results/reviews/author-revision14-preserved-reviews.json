@@ -1,0 +1,3515 @@
+{
+  "meaning": "Verbatim reviewer payloads retained; historical Opus is history only. New author/review policy is Sol only. Reviewer decides closure.",
+  "sources": {
+    "results/reviews/original-revision10-reviews.json": {
+      "meaning": "Historical revision10 reviews exported from original session3. Historical Opus output is evidence, not a requirement for a new Opus run; latest user policy is Sol-only. Prior running state is not evidence of a live process. Current final closure must be decided by Sol.",
+      "sourceSha256": "08c9c3dd3590f11f61963c6b4570a5c0d2c7234ce69fa975503e737c2cfc1aba",
+      "reviews": {
+        "opus-review": {
+          "discussionHistory": [
+            {
+              "revision": 1,
+              "role": "history",
+              "summary": "Revisions 1 to 3 are in results/review-state-before-experiments.json. Revisions 4 to 9 are in results/workflow-run2.log."
+            },
+            {
+              "revision": 10,
+              "role": "author",
+              "summary": "Integrated the third lab run. Data intact; 18 of 19 scripts succeeded. Main change: FORCE INDEX (PRIMARY) moved from rejected to conditional, because under scattered writes the secondary-index statement hit its 120 s limit in 4/4 runs while PRIMARY finished 8/8. Under writes that do not touch the index, the earlier result stands. Also: the default parallelism is kept for PK-only tables, a client timeout does not stop the server statement, the ENUM guard, replica STOP failure and channel gate are measured, type results now cover all 5 versions, and the catalog is re-based on the re-run of script 10. New low finding: the step ceiling stops shrunken walks early. Reviewers decide closure."
+            },
+            {
+              "revision": 10,
+              "role": "opus",
+              "summary": "Rejected. The write-mix redesign is good, its numbers match, and FIND-O6-WRITE-SHAPE-01 closes. Two middle items replace it. FIND-O10-PRIMARY-SCALE answers the author's question: no, adopting FORCE PRIMARY is not shown beyond a 2 GB table near lab saturation, and at 100 writes/s the fixed tolerance is not met against k. FIND-O10-INDEXED-100-STALL: an unexplained 66.8 s split and a whole-run write p95 of 1646.57 ms at 100 writes/s are missing from the text. On 91: encrypted results now exist from a run outside this workflow, so §11 is stale; I would not make them decisive, since encrypted tables are out of scope, but the owner should decide and confirm that run is finished. Scripts 90, 91 and 92 are still of unknown origin to me."
+            }
+          ],
+          "findingDispositions": [
+            {
+              "disposition": "closed, successor opened",
+              "id": "FIND-O6-WRITE-SHAPE-01",
+              "note": "The redesign ran and tests the hypothesis: separate connections, limits, three shapes, two rates. Raw values and medians match. INSERT and DELETE touching every secondary index is stated. Remaining problems are FIND-O10-PRIMARY-SCALE and FIND-O10-INDEXED-100-STALL. The 120 s limit is well supported by index entries read: 3.39M-11.1M of 20M."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-PKONLY-PARALLEL",
+              "note": "requested_0a shows a real PK-only table, 4 threads fastest at about 1.9x pool, and the flip against t_dense is stated with the OS cache limit. The hypothesis I offered in round 8 did not hold there."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S8-ENUM-DOMAIN-01",
+              "note": "Confirmed in the 9.7.4 file: 30000 of 30700 unguarded, refused with guard."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+              "note": "requested_02: earlier procedure left stopped after 1875; current function restored."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S8-REPLICA-CHANNEL-01",
+              "note": "Accepted on the text and the author's evidence; I did not read requested_03."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-CLIENT-TIMEOUT",
+              "note": "Measured, confirming my inference; §5 text is right."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-P50-COMPARATOR"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-NOISE-PERIODIC",
+              "note": "I accept Sol's reading over my 'periodic' wording, since a window lottery is the point. I did not re-read all the cuts."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-NUMBERS",
+              "note": "The named values are fixed; I re-read the HLL row. New citation issues are in FIND-O10-ENCRYPTED-STALE."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-1205",
+              "note": "requested_04: 3001-3006 ms, counter delta 0."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-CURSOR-01",
+              "note": "Accepted on author evidence for all 5 versions; I did not re-open the new 3c files this round."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-TYPE-01",
+              "note": "Same basis as FIND-R2-CURSOR-01."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-PREFLIGHT-01",
+              "note": "requested_10 started 23:56, 51 correct; §3 small-table values match it. countlib changed at 07:56 per file time, which is a later local time on the next day, so there was no code change after this run that I can see."
+            },
+            {
+              "disposition": "open low",
+              "id": "FIND-DOC-01"
+            },
+            {
+              "disposition": "open low",
+              "id": "FIND-O10-STEP-CEILING",
+              "note": "Author's new finding, confirmed."
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-STEP-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R6-MDL-AS-TIMEOUT"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-IMPACT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-REPL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-NOISE-FLOOR-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-INSTRUMENT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-LONG-UNDO-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S6-MONITOR-RECHECK-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S6-INCREMENTAL-DETECT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S6-REPLICA-CLEANUP-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-WALK-CEILING-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-THREADS-FILTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-MDL-HEADLINE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-COLD-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-QUIET-GATE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-REPLICA-ISOLATION-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-ANALYZE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-DRIFT-COUNTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R3-LOOPEDGE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R3-HINT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-CASCADE-VER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-ENUM-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-PRIV-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-BETTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-MDL-TRIAL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-KILL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-PK-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-DRIFT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-LAB-CONTAM-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-FAST-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-EST-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-LOOP-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-DDL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-TX-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-NULL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-DESC-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-LOCK-FORMS-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-MDL-FLUSH-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-RESUME-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-ISO-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-TIMING-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-COUNTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-MONITOR-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-TIMEOUT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-LOCK-SAMPLER-01"
+            },
+            {
+              "disposition": "closed by withdrawal",
+              "id": "FIND-ENGINE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-FLOW-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-VIEW-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R6-TRX-LOCK-POLLING"
+            }
+          ],
+          "findings": [
+            {
+              "evidence": "requested_06, 08 arms statement PRIMARY and k; requested_05, 07 statement k 1.65-12.92 s, ranges overlapping PRIMARY; build.pages PRIMARY 130944; requested_wide_count_forms.json and log t_dense count_star_force_primary 41.82-46.85; requested_20 write p50 4.67, 4.58 and HLL 4309, 4709.",
+              "id": "FIND-O10-PRIMARY-SCALE",
+              "impact": "A flipped recommendation for the most common write pattern is unverified at the scale the guideline targets, and could raise I/O, eviction and read-view time on a primary. The limit bounds the damage but does not make the advice right.",
+              "requiredCorrection": "Run EXP-O10-PRIMARY-SCALE. Then state the condition under which PRIMARY is preferred, with rate and size, or keep a short-limit trial of each with an explicit stop. Until then, mark the combination unmeasured in §1 and the flow, not only in §11.",
+              "scenario": "A developer has a 500 GB table with a small secondary index, ordinary INSERT and DELETE traffic, and a much smaller pool. The flow says writes are scattered, so use FORCE INDEX (PRIMARY). That is backed only by a 2 GB table about 1.3x the pool at a write rate near lab saturation. At 100 writes/s the secondary-index statement always finished at 20M rows. On t_dense at about 4x the pool, PRIMARY took 41.82-47.15 s against about 6-11 s, with write p50 about 3x higher and HLL over 4000, though under non-indexed writes. The flow's rule has no rate or size condition, so it may read far more pages and do more harm than the index it replaces. §11 item 2 discloses the unknown flip size for PRIMARY in general, but not this combination, and §1 still recommends it.",
+              "section": "§1 結論の表と判断フロー, §3 書き込みの形を変えると, §7 延長の条件, §10",
+              "severity": "middle",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_05 sections.drift_arm status stopped:max_steps, seconds 66.806; windows.whole_run_write p95 1646.57, p99 2345.55; arms write p99 by time order, rising to 466.43 for k split and 52.64 for the last statement; bench/reqmix.py:161-165. No drift value for the indexed mix at either rate. §3 line 395.",
+              "id": "FIND-O10-INDEXED-100-STALL",
+              "impact": "A possible seconds-long write stall at an ordinary rate on the recommended path is neither explained nor disclosed. It also bears on the p50-only claim.",
+              "requiredCorrection": "Run EXP-O10-INDEXED-100-STALL. Report the tail and its cause or state it as unexplained, and record a window for the drift arm.",
+              "scenario": "At a moderate 100 writes/s of indexed updates, the last split on PRIMARY ran 66.8 s and stopped at the step ceiling, though four earlier identical arms took 4.8-10.7 s. Whole-run write p95 was 1646.57 ms and p99 2345.55 ms while every comparison arm's write p99 was 466.43 ms or less, so writes stalled for seconds during that arm or outside the arm windows. Arm times and write latency also worsen over the run (k split 1.7 s to 4.6 s, statement k 1.7 s to 12.9 s). The text reports this as one ceiling stop and quotes only write p50 0.97-5.37 ms for this load. Cause and direction are unknown: the count may cause it, or a lab stall may slow the count.",
+              "section": "§1, §3 書き込みの形を変えると",
+              "severity": "middle",
+              "status": "open"
+            },
+            {
+              "evidence": "bench/countlib.py:496; requested_06, 08 stopped:max_steps; rule 4 marked 【未実行】.",
+              "id": "FIND-O10-STEP-CEILING",
+              "impact": "The split completion numbers are understated by an unknown amount.",
+              "requiredCorrection": "Change countlib and re-run the 800/s split arms, then update those counts.",
+              "scenario": "The text prescribes a row-based ceiling and the code uses a step ceiling, so the printed rule has not run. Stops at 9.28M-19.39M of 20M rows may have been premature, which affects the completion counts in §1 and §3.",
+              "section": "§1 SQL 4 規則 4",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "No IGNORE INDEX or GEN_CLUST wording in the guideline (search); requested_54 invisible_force_default_session 1176; §6 rows for t_nopk and t_uniq_notnull.",
+              "id": "FIND-O10-NOPK-FORCE",
+              "impact": "Safe failure, but the flow gives no answer for this design.",
+              "requiredCorrection": "Run EXP-O10-NOPK-FORCE and state the form that reads the clustered index, or send these tables to split or replica.",
+              "scenario": "A table with no primary key and a secondary index has no index named PRIMARY, so the flow's FORCE INDEX (PRIMARY) should return 1176 and hit 'other error: stop', with no way forward stated. The same text problem applies to a promoted NOT NULL unique key, whose name is not PRIMARY. This is reasoning from behaviour measured for missing indexes.",
+              "section": "§1 判断フロー, §7 延長の条件, §6 t_nopk",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "Listed files and mtimes; bench/requested/91-encrypted-count.py:128; bench/requested/90-wide-count-forms.py:81; results/requested/90-wide-count-forms.log; results/requested/manual-91.txt.",
+              "id": "FIND-O10-ENCRYPTED-STALE",
+              "impact": "Numbers cannot be traced from the cited name, and an out-of-scope statement is stale.",
+              "requiredCorrection": "Fix the citations. Decide with the run's owner whether the encrypted results are accepted, then update §11 from those files or keep them out of scope with the reason. See reviewEvidence on the run outside the workflow.",
+              "scenario": "Two citations do not resolve. §11 says script 91 failed on all versions and has no results, but results/requested_encrypted_count_{8.4.13,9.7.4,26.10.0}.json now exist with a working keyring, written 09:39-09:43, and results/requested/91-encrypted-count.status.json says ok true. The guideline cites 90-wide-count-forms.json, and under its stated naming rule that file does not exist; the data is in requested_wide_count_forms.json. §6 also gives 0.51-0.73 s for 200 columns with a small index, while that table's FORCE PRIMARY was 0.618-0.733 s; 0.51 comes from the no-secondary table.",
+              "section": "§11 item 3, §1 ヘッダの出典表記, §6 幅広い行",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_07 statement k 1.648-11.359, PRIMARY 0.819-1.829; requested_05 k 1.655-12.917, PRIMARY 1.36-4.028.",
+              "id": "FIND-O10-P100-BOLD",
+              "impact": "A claim stronger than the guideline's own criterion, feeding the flow rule.",
+              "requiredCorrection": "Remove the bold and say no difference is established at 100/s, and limit the §10 wording to the 800/s result.",
+              "scenario": "The table bolds PRIMARY as fastest at 100 scattered writes/s, and §10 says PRIMARY is fastest on tables with scattered writes, but the fixed tolerance is not met against k at that rate because the ranges overlap. The prose admits the overlap for one row only.",
+              "section": "§3 書き込みの形を変えると, §10",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "§12 final paragraph; my rounds 6 and 8 searches.",
+              "id": "FIND-DOC-01",
+              "impact": "Provenance of the 文書 labels; no wrong claim known.",
+              "requiredCorrection": "Sol confirms these pages or the text marks them unconfirmed.",
+              "scenario": "§12 says the list rests on reviewer reports. I can vouch only for search summaries of kill, account-categories, privileges-provided, general-thread-states and innodb-locks-set (8.4, 9.7). CREATE INDEX, TABLES, PARTITIONS, aggregate functions, multi-versioning, ENUM, STOP REPLICA and START REPLICA are not confirmed by me.",
+              "section": "§12",
+              "severity": "low",
+              "status": "open"
+            }
+          ],
+          "guidelinePath": "docs/table-count-guideline.md",
+          "guidelineSha256": "5c818808a50c1cd072d6847ad05b6de30e2cb893b103fb64ef64e8cb6d0699d3",
+          "opusDecision": "rejected",
+          "requestedExperiments": [
+            {
+              "confirm": "k beats PRIMARY by the fixed tolerance at the lower rate or the larger size, so the flow must become conditional.",
+              "hypothesis": "On a table several times larger than the pool, at write rates below saturation, the secondary-index statement can beat FORCE PRIMARY, and the crossover depends on write rate and size.",
+              "id": "EXP-O10-PRIMARY-SCALE",
+              "priority": 1,
+              "refute": "PRIMARY wins or ties at both rates and sizes, so the rule stands and §11 can narrow.",
+              "status": "new",
+              "steps": "Use a local small-pool lab matrix server (256 MB pool) so that about 10M-20M private rows are 4-8x the pool, with a small secondary index k. First measure closed-loop capacity and pick rates at about 10% and 30% of it. Mixes: uniform k updates and uniform INSERT plus DELETE. Arms on separate connections, in rotating order, at least 3 repeats: statement k and statement PRIMARY with a 300 s hint, split k (only for the non-moving mix) and split PRIMARY at guideline settings, and a no-count control of equal length. Record seconds, index entries read for timed-out arms, pool read requests, disk reads, write p50 and p95, HLL, miss rate after."
+            },
+            {
+              "confirm": "The control also stalls (lab or flush effect), or stalls follow the count (count effect); either way the text can state which.",
+              "hypothesis": "The 66.8 s split and seconds-long write tail at 100 indexed writes/s come from a server-side state that builds up during the run, not from one arm alone.",
+              "id": "EXP-O10-INDEXED-100-STALL",
+              "priority": 1,
+              "refute": "No stall reproduces: report it as one unexplained event with the tail value.",
+              "status": "new",
+              "steps": "Repeat script 05's design with the row-based ceiling, and run the split on PRIMARY at least 5 times at the end of the run. Add a no-count control of the same length at the same point in the run. Save each arm's write p95 and p99 and a 1 Hz log of dirty pages, flush, redo, purge, HLL, disk reads and step time. Save a drift value for the indexed mix."
+            },
+            {
+              "confirm": "Backward cursor stops; completion counts rise.",
+              "hypothesis": "With a row-based ceiling, more 800/s split arms finish, and a backward cursor still stops.",
+              "id": "EXP-O10-ROW-CEILING",
+              "priority": 2,
+              "refute": "Arms still stop, for another cause: report it.",
+              "status": "new",
+              "steps": "Change split_count's ceiling to rows read, re-run 3a's ceiling and backward arms, and the split arms from 06 and 08."
+            },
+            {
+              "confirm": "1176, and the alternative runs with a clustered plan.",
+              "hypothesis": "FORCE INDEX (PRIMARY) returns 1176 on a table without a primary key, and IGNORE INDEX reads the clustered index.",
+              "id": "EXP-O10-NOPK-FORCE",
+              "priority": 3,
+              "refute": "Another behaviour: state it.",
+              "status": "new",
+              "steps": "On private copies of the t_nopk and t_uniq_notnull designs, run both forms under the same statement limit, with EXPLAIN, and compare time under uniform writes at 100/s."
+            },
+            {
+              "id": "EXP-O6-WRITE-MIX",
+              "note": "Successors above.",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O8-PKONLY-THREADS",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R6-float-dst",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O2-1-guideline-sql-as-written",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O8-1205",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-7-coverage-gaps",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S8-ENUM-DOMAIN",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S8-REPLICA-STOP-FAILURE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S8-REPLICA-CHANNEL-GATE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R9-working-set-impact",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-CPU-CONTROL",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-NOISE-WINDOWS",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-LONG-UNDO",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-6-sql-not-executed",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-LOOP-RULES",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R15-replica-procedure",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-ANALYZE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-THREADS-SCOPE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S6-MONITOR-RECHECK",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S6-REPLICA-FAILURE-CLEANUP",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S6-INCREMENTAL-SAME-SECOND",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R13-least-privilege",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-3-history",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-9-alternative-methods",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-12-mdl-phase",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R1-enum-scaling",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O2-3-cascade-trigger-version",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-10-engine-states",
+              "status": "withdrawn"
+            },
+            {
+              "id": "EXP-O2-2-stop-vs-timeout",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R5-split-drift",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R7-background-reader",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R8-count-repeat",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R4-primary-split-impact",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R10-estimate-churn",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-1-existing-transaction",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R2-nullable-composite",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R3-desc-index",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R11-lock-forms",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R12-flush-chain",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R14-resume-failover",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R16-incremental",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-4-fk-mdl",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-5-indexed-update-lock",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-2-read-uncommitted",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-3-null-inclusive-timing",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-4-view-semantics",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-5-counter-bootstrap",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-6-monitor-health",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-7-table-generation",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-8-timeout-context",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-11-lock-sampler-control",
+              "status": "closed"
+            }
+          ],
+          "reviewEvidence": [
+            "shasum -a 256 docs/table-count-guideline.md exited 0 and printed 5c818808a50c1cd072d6847ad05b6de30e2cb893b103fb64ef64e8cb6d0699d3 at the start and end of this review, matching the payload. I read §1 through the start of SQL 0, SQL 4 and rules, §3, §5 stop section, §7 from 一瞬の値, §10-§12 and ENUM rows of this revision; other sections I last read at revision 8.",
+            "Runner log results/requested/runner.log, last line: 19 scripts recorded with lab_data_intact true; 91 ok false in that run; verify_data 'mismatched: none, replica caught up, t_repl 20000000'.",
+            "Lab activity outside this workflow's runner record: during this review, PID 92620 'ruby lab.rb requested' (started 09:42:06, still present at my last check) with a child process, and results/requested/manual-run.txt and manual-91.txt show matrix containers started with a keyring. requested_encrypted_count_*.json were written 09:39-09:43, 91-encrypted-count.py changed at 09:42, and 92-wide-form-order.py (dated 09:38) has no result. I did not start or change these and do not know who owns them. Whoever owns the workflow should confirm that this run is intended and finished before the next results are trusted, because it also shares the lab.",
+            "Recomputed from raw files for revision 10: all medians and ranges in the write-mix table for k and PRIMARY arms; 800/s completion counts; Handler_read_next for timed-out arms; arm timeline for requested_05; 1205 trials; client-timeout probes; replica STOP timeline; ENUM guard on 9.7.4; §3 small-table values against requested_10; t_dense and 60-column values from the log of script 90.",
+            "Not read this round: requested_03, requested_57 beyond its head, requested_0b, requested_3c row values, the full requested_wide_count_forms.json. These were accepted on the author's evidence where noted, or left to Sol. The cause I give for findings marked reasoning was not measured.",
+            "No database was connected, no file was changed, nothing was committed. All commands were read-only and ran in the foreground."
+          ],
+          "reviewQuestions": {
+            "betterMethods": "One decision is still open: which index to read under scattered writes on a table much larger than the pool. FORCE PRIMARY won at 20M rows (about 1.3x pool) near this lab's write limit, while on t_dense (about 4x pool) under non-indexed writes it took 41.82-47.15 s against about 6-11 s on the small index. The secondary-index statement may still win at moderate write rates on large tables, because at 100 writes/s it finished every time at 20M rows. Costs: no row locks; PRIMARY reads far more pages and evicts more. Testable on a small-pool matrix server (EXP-O10-PRIMARY-SCALE). Stopped-applier replica: the only exact option with no concurrent writes during the count, so it should avoid the slowdown; costs deliberate lag; the procedure is measured, the advantage under scattered writes is reasoning. Thread count: default kept for PK-only tables, with the flip size unknown and stated. Several connections, dedicated index, multi-row counters: reasonable conditional candidates, mostly one run each. Sampling, P_S deltas, histograms, n_diff_pfx, PK span, COUNT(non-indexed column): rejected with evidence I checked or reasoning that is marked. Clone and binlog/CDC: unmeasured and marked; they win only for frequent reads or audited values.",
+            "designCoverage": "Close, with two named gaps. Key types are now covered on all 5 versions in 3c, including DATE, TIME, YEAR and CHAR per the author; I checked the 8.4.13 type statuses in round 8 and only section status for other versions in earlier rounds, and I did not re-open the new 3c row values in this round. ENUM now has a guard measured on 3 versions, and I confirmed the 9.7.4 file. Gap 1: a table with no primary key. The flow says FORCE INDEX (PRIMARY) under scattered writes, but t_nopk-style tables have no index named PRIMARY, so that statement should fail with 1176 (reasoning; FIND-O10-NOPK-FORCE). Gap 2: scattered writes on tables far larger than the pool (FIND-O10-PRIMARY-SCALE). Columns: LOB, JSON, generated, multi-valued, compressed, fulltext, spatial covered; wide tables now have count-form data, while load impact on a wide table larger than the pool is marked unmeasured. Relations: FK trees, diamonds, composite, unique-target, SET NULL and CASCADE, self-reference, cycles, cross-schema, polymorphic covered. Lifecycle: soft delete, history, EAV are semantic notes; append-only and rolling tables are measured with monotonic keys; heavy churn is measured at 20M rows only. Layout: partitions, subpartitions, tenant sums correct at small scale; time-rolled, per-tenant tables and shards are advice, marked unmeasured. Views and triggers covered. Non-InnoDB covered, with crash and restart marked. Encrypted tables: §11 is now stale, see FIND-O10-ENCRYPTED-STALE.",
+            "fastCount": "Measured conclusion, verified from raw files: with writes that leave the counted index alone or append monotonically, the default statement is fastest. Under scattered writes at 800/s on 20M rows, the secondary-index statement hit 120 s in 4/4 with only 3.39M-11.1M of 20M index entries read, and FORCE PRIMARY finished 8/8 in 3.88-17.17 s; all my median recomputations for these rows match. At 100/s the table bolds PRIMARY, but k and PRIMARY ranges overlap (k 1.65-11.36 and 1.66-12.92 s; PRIMARY 0.82-1.83 and 1.36-4.03 s), so the fixed tolerance is not met for that comparison. The general recommendation does not yet hold for 'huge' tables, which is the guideline's subject: the 800/s runs are near saturation with no control, and the table is only about 1.3x the pool. Estimate: 0.105 ms, no bound, needs expiry=0. PK span rejected. Split: correct within write statements in the 4 drift arms that completed, but it may not finish under heavy load, and its drift under indexed updates has no result because both drift arms stopped early. Replica: procedure, GTID mapping and failure paths verified. Whether any of these is free of service impact is not answered at scattered-write rates, and the text says so at 800/s but not at 100/s.",
+            "lockFactors": "No change to the row-lock conclusions, and I found no new counterexample. Plain top-level SELECT COUNT(*) at RC and RR takes no row locks in any tested design (lock_factors.json, requested_40), and the encrypted-table files show 0 record locks for the plain form against 100000 for INSERT..SELECT on 8.4.13. FORCE PRIMARY does not change the statement form, so it adds no row locks under RR autocommit; for locking forms the locked index would change, and the guideline already says no design makes those forms safe. Detection by factor: statement form is not visible in EXPLAIN, and the guideline gives code search, catalog queries and staging, with rg itself unexecuted; isolation by SQL 0 read-back and the job's MDL row; index by EXPLAIN key, but EXPLAIN cannot show the scattered-write slowdown, which only the limit reveals; gap and next-key by the isolation table; FK checks by the manual and metadata query. New MDL facts are well covered: a client timeout leaves the statement holding MDL at 24 s until KILL (requested_06, 08 client_timeout), and the extended statement behind a pending ALTER returns 1205 at about 3 s in 5/5 (requested_04). A longer FORCE PRIMARY statement holds MDL longer, which the §7 conditions guard.",
+            "omissions": "(1) In the only low-rate scattered run, the last split on PRIMARY took 66.8 s and hit the step ceiling, where earlier identical arms took 4.8-10.7 s, and the whole-run write p95 was 1646.57 ms although every comparison arm stayed at p99 466 ms or less. Nobody explained it, and the text quotes only p50 for this load (FIND-O10-INDEXED-100-STALL). Measurable. (2) No control arm for the 100 writes/s scattered runs, so that impact is not judged either. Measurable, included in that experiment. (3) No rule for telling, before running, whether writes are scattered enough to matter; the flow relies on the developer knowing. Partly measurable through EXP-O10-PRIMARY-SCALE. (4) A lab run outside the workflow is rewriting results during review (reviewEvidence). Not a guideline issue, but it affects evidence. (5) Not measurable here and marked: HA behaviour, relay log capacity, network storage, Group Replication and proxies, hours-long undo."
+          },
+          "revision": 10,
+          "workflowInput": {
+            "acceptanceCriteria": [
+              "Opus 5.5 と GPT-6.1 Sol の両方の敵対的レビューを経て、high/middle の未解決指摘がない",
+              "数値はすべて results/ のファイルに基づき、未計測は明記されている",
+              "ガイドライン本文のSQLがラボで実行され、結果が確認されている",
+              "テーブル設計ごとに推奨方法と根拠がある",
+              "データ・インデックスによるロック要因と、その事前検知方法がある"
+            ],
+            "constraints": [
+              "対象はMySQLのサポート中バージョン(8.4 LTS, 9.7 LTS, 26.10 Innovation)のみ",
+              "接続先はローカルのcomposeの検証環境のみ",
+              "コミットとpushはしない",
+              "人間が読む文書は日本語"
+            ],
+            "guidelinePath": "docs/table-count-guideline.md",
+            "requestedWork": "複数の巨大データサービスを運用する開発者向けに、MySQLテーブルの全件カウント(業務上のWHEREなし)を、サービス性能を落とさず全件ロックせず最速で取得する方法のガイドラインを、計測結果に基づいて日本語で作成する。良い方法を洗い出し、あらゆるデータベース/テーブル設計で成り立つことを敵対的に検証する。"
+          }
+        },
+        "sol-review": {
+          "accepted": false,
+          "decision": "rejected",
+          "discussionHistory": [
+            {
+              "revision": 1,
+              "role": "history",
+              "summary": "Revisions 1 to 3 are in results/review-state-before-experiments.json. Revisions 4 to 9 are in results/workflow-run2.log."
+            },
+            {
+              "revision": 10,
+              "role": "author",
+              "summary": "Integrated the third lab run. Data intact; 18 of 19 scripts succeeded. Main change: FORCE INDEX (PRIMARY) moved from rejected to conditional, because under scattered writes the secondary-index statement hit its 120 s limit in 4/4 runs while PRIMARY finished 8/8. Under writes that do not touch the index, the earlier result stands. Also: the default parallelism is kept for PK-only tables, a client timeout does not stop the server statement, the ENUM guard, replica STOP failure and channel gate are measured, type results now cover all 5 versions, and the catalog is re-based on the re-run of script 10. New low finding: the step ceiling stops shrunken walks early. Reviewers decide closure."
+            },
+            {
+              "revision": 10,
+              "role": "opus",
+              "summary": "Rejected. The write-mix redesign is good, its numbers match, and FIND-O6-WRITE-SHAPE-01 closes. Two middle items replace it. FIND-O10-PRIMARY-SCALE answers the author's question: no, adopting FORCE PRIMARY is not shown beyond a 2 GB table near lab saturation, and at 100 writes/s the fixed tolerance is not met against k. FIND-O10-INDEXED-100-STALL: an unexplained 66.8 s split and a whole-run write p95 of 1646.57 ms at 100 writes/s are missing from the text. On 91: encrypted results now exist from a run outside this workflow, so §11 is stale; I would not make them decisive, since encrypted tables are out of scope, but the owner should decide and confirm that run is finished. Scripts 90, 91 and 92 are still of unknown origin to me."
+            },
+            {
+              "revision": 10,
+              "role": "sol",
+              "summary": "Rejected。digest一致。新しいwrite-mixの実行と数値、現行カタログ51表一致、全5版の型、ENUM guard、複数チャネル拒否、1205を独立確認した。Opusのmiddle 2件を確認し、低い速度でのPRIMARY優位の表示も訂正が必要とした。STOP失敗はgrace内の復旧しか測っておらず、現行restore_applierが停止を観測しないままrestored=trueを返すためFIND-S8-REPLICA-STOP-FAILURE-01を再開した。公式文書の裏付けは前回と今回のSol原文確認で成立しFIND-DOC-01は閉鎖。後発manual-91の完結成功ログは確認したが、実行所有者や別PIDの現在状態は断定しない。DB接続・変更・委譲はしていない。"
+            }
+          ],
+          "findingDispositions": [
+            {
+              "disposition": "closed, successors opened",
+              "id": "FIND-O6-WRITE-SHAPE-01",
+              "note": "独立接続・文上限・失敗時保存・三つの書き込み形の実行を確認。残件はPRIMARYの一般化、100/sのstall、行数上限。"
+            },
+            {
+              "disposition": "closed for measured conditions",
+              "id": "FIND-O8-PKONLY-PARALLEL",
+              "note": "0a・0bを確認。実際のPK-onlyの約1.9倍の表では4スレッドが1より速い。前回の1スレッド優位という仮説はこの表では棄却。更に大きい表や2対4の一般的順位は未確定。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S8-ENUM-DOMAIN-01",
+              "note": "01の3版で番号0入りの30700行を旧歩行は30000と数え、guardは拒否。正常表は30000で一致。"
+            },
+            {
+              "disposition": "reopened middle",
+              "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+              "note": "停止意図の先行記録は修正済み。ただし固定graceを超える未解決STOPをrestored=trueとする経路が残る。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S8-REPLICA-CHANNEL-01",
+              "note": "03を独立に確認。2チャネルで副作用なく拒否し、無指定STARTが停止中チャネルも開始する負対照がある。実装は単一のdefault channelに限定。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-CLIENT-TIMEOUT",
+              "note": "06・08のclient_timeoutは2013後も文とMDLが残り、KILL後に消える。§5の修正と一致。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-P50-COMPARATOR"
+            },
+            {
+              "disposition": "closed after rejecting strict-periodicity claim",
+              "id": "FIND-O8-NOISE-PERIODIC",
+              "note": "本文は前半の交互パターンと全期間での非周期性を区別している。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-NUMBERS",
+              "note": "前回のHLL、負荷上限、ANALYZE最長時間、counter試験のwriter数は修正済み。新しい引用・数値の問題は別ID。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O8-1205",
+              "note": "04で単独文とsplit classifier各5試行を確認。1205、counter増分0、幅変更なし。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-CURSOR-01",
+              "note": "3c全5版のR6結果を確認。DECIMALは2000個の異なる値を投入でき、損失変換の負対照も記録されている。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-TYPE-01",
+              "note": "DATE・TIME・YEAR・CHAR・PAD SPACEと既存型の全5版の出力を確認。"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-PREFLIGHT-01",
+              "note": "再実行10は51表でcorrect:true、7表は非分割。現行の数値表と対応。"
+            },
+            {
+              "disposition": "closed by source verification",
+              "id": "FIND-DOC-01"
+            },
+            {
+              "disposition": "open middle",
+              "id": "FIND-O10-PRIMARY-SCALE"
+            },
+            {
+              "disposition": "open middle",
+              "id": "FIND-O10-INDEXED-100-STALL"
+            },
+            {
+              "disposition": "open low",
+              "id": "FIND-O10-STEP-CEILING"
+            },
+            {
+              "disposition": "open low",
+              "id": "FIND-O10-NOPK-FORCE"
+            },
+            {
+              "disposition": "open low",
+              "id": "FIND-O10-ENCRYPTED-STALE"
+            },
+            {
+              "disposition": "open low",
+              "id": "FIND-O10-P100-BOLD"
+            },
+            {
+              "disposition": "closed for previously tested rules; new ceiling tracked separately",
+              "id": "FIND-STEP-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R6-MDL-AS-TIMEOUT"
+            },
+            {
+              "disposition": "closed for narrowed impact claims",
+              "id": "FIND-IMPACT-01"
+            },
+            {
+              "disposition": "closed for normal-path GTID mapping",
+              "id": "FIND-REPL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-NOISE-FLOOR-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-INSTRUMENT-01"
+            },
+            {
+              "disposition": "closed for stated bounded conditions",
+              "id": "FIND-O6-LONG-UNDO-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S6-MONITOR-RECHECK-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-S6-INCREMENTAL-DETECT-01"
+            },
+            {
+              "disposition": "closed for failures after successful STOP",
+              "id": "FIND-S6-REPLICA-CLEANUP-01"
+            },
+            {
+              "disposition": "closed for original runaway protections; row ceiling tracked separately",
+              "id": "FIND-O6-WALK-CEILING-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-THREADS-FILTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-MDL-HEADLINE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-COLD-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-QUIET-GATE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-REPLICA-ISOLATION-01"
+            },
+            {
+              "disposition": "closed within short-count measurement scope",
+              "id": "FIND-O6-ANALYZE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-O6-DRIFT-COUNTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R3-LOOPEDGE-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R3-HINT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-CASCADE-VER-01"
+            },
+            {
+              "disposition": "closed for measured scaling and guarded domain",
+              "id": "FIND-KEY-ENUM-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-PRIV-01"
+            },
+            {
+              "disposition": "closed for earlier candidate search",
+              "id": "FIND-BETTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-MDL-TRIAL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-KILL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-PK-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-DRIFT-01"
+            },
+            {
+              "disposition": "closed within disclosed limitations",
+              "id": "FIND-LAB-CONTAM-01"
+            },
+            {
+              "disposition": "closed for non-index-touching workload",
+              "id": "FIND-FAST-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-EST-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R2-LOOP-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-DDL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-TX-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-NULL-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-KEY-DESC-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-LOCK-FORMS-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-MDL-FLUSH-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-RESUME-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-ISO-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-TIMING-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-COUNTER-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-MONITOR-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-TIMEOUT-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-LOCK-SAMPLER-01"
+            },
+            {
+              "disposition": "closed by withdrawal",
+              "id": "FIND-ENGINE-01"
+            },
+            {
+              "disposition": "closed for earlier holes; current index-selection holes tracked separately",
+              "id": "FIND-FLOW-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-SOL-VIEW-01"
+            },
+            {
+              "disposition": "closed",
+              "id": "FIND-R6-TRX-LOCK-POLLING"
+            }
+          ],
+          "findings": [
+            {
+              "evidence": "requested_05〜08の表はPRIMARY 130944ページで、1.5GBプールの約1.3倍。800 writes/sではstatement kが4/4時間切れ、PRIMARYが8/8完了した。一方100 writes/sでは、kとPRIMARYの時間範囲は両mixで重なり、本文の固定基準を満たさない。requested_wide_count_forms.jsonのt_denseではPRIMARYが41.820〜46.851秒だが、これは散らばる書き込みとの組み合わせを検証した結果ではない。",
+              "id": "FIND-O10-PRIMARY-SCALE",
+              "impact": "限定された条件の順位を巨大表一般の索引選択へ拡張している。余分なページ走査、追い出し、MDL・read view保持を増やす可能性があり、時間上限だけでは最速・無劣化という推奨の根拠にならない。",
+              "requiredCorrection": "EXP-O10-PRIMARY-SCALEを実行するか、§1・§7の分岐を短い上限付き比較試行として明示し、未計測の組み合わせではPRIMARYを優先すると断定しない。100/sではkに対する優位が確立しないことを反映する。別条件のt_denseを、この組み合わせの直接の反証とも扱わない。",
+              "scenario": "バッファプールより何倍も大きい表に散らばるINSERT・DELETEがあるため、開発者がフローに従ってFORCE INDEX (PRIMARY)を選ぶ。現在の分岐には、書き込み速度や表とプールの比率による適用範囲がない。",
+              "section": "§1 結論・判断フロー、§3 書き込みの形、§7 延長の条件、§10",
+              "severity": "middle",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_05 sections.drift_armはstopped:max_steps、66.806秒、rows=null。windows.whole_run_writeはp95=1646.57ms、p99=2345.55ms、max=2764.58ms。比較armのwrite p99の最大は466.43ms。bench/reqmix.pyはdrift_armの書き込み窓を保存していないため、秒単位の遅延をそのarmに帰属させることも除外することもできない。",
+              "id": "FIND-O10-INDEXED-100-STALL",
+              "impact": "通常の書き込み速度で、推奨経路の完走とサービス影響を判断するための重要な観測が欠ける。全体のノイズの注意書きだけでは、この具体的な停止と大きな遅延を説明できない。",
+              "requiredCorrection": "EXP-O10-INDEXED-100-STALLを実行し、同じ時点の対照、drift armの窓、時系列を保存する。再現しなくても、この1回の値と原因未特定を本文に記す。p50だけでサービス影響を評価せず、サービスのtail許容値を停止判断に含める。",
+              "scenario": "100 indexed writes/sの比較を終えた最後のPRIMARY分割が66.806秒かかって停止する。同じ実行の書き込みには秒単位の遅延があるが、本文はこの負荷についてp50だけを示す。",
+              "section": "§1、§3 書き込みの形、§8 停止条件",
+              "severity": "middle",
+              "status": "open"
+            },
+            {
+              "evidence": "restore_applierはlast_stateがYesかつ経過時間がgrace_seconds以上なら、starts_issued=0でもrestored=trueで終了する。replica_point_countの既定stop_failure_graceは20秒。requested_02の修正版試験はロックを4秒で解放し、失敗したSTOPの復旧窓は12秒なので、この経路を試していない。[STOP REPLICA公式文書](https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html)は、待ち時間切れ後も停止要求が有効で、処理終了後に停止すると説明している。",
+              "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+              "impact": "未解決の停止要求を復旧済みと誤報し、監視終了後にレプリカが止まったままになる。停止意図を先に記録する修正は有効だが、前回指摘の閉鎖には足りない。",
+              "requiredCorrection": "STOP失敗後、稼働状態を一定時間観測しただけで復旧済みとしない。停止要求の解決を確認してから再開・確認するか、期限に達したら未解決として警報と継続所有者へ引き継ぐ。graceを超えて処理が続き、その後STOPが効く試験を追加する。",
+              "scenario": "STOPが1875で失敗し、適用スレッドは長い処理またはロック待ちでYesのままである。処理が復旧監視のgrace期間より長く続くと、関数は停止を一度も観測せずrestored=trueを返す。その後STOPが効いて適用が停止する。",
+              "section": "§7 レプリカの失敗復旧、bench/countlib.py restore_applier",
+              "severity": "middle",
+              "status": "reopened"
+            },
+            {
+              "evidence": "bench/countlib.pyのsplit_countはmax_stepsで判定する。bench/reqmix.pyは開始幅10000から6000ステップを設定する。requested_06・08は幅156〜1250へ縮み、約928万〜1939万行でstopped:max_stepsになった。本文は行数上限を指示し、その実装を未実行と記す。",
+              "id": "FIND-O10-STEP-CEILING",
+              "impact": "停止自体は安全だが、本文に記載した規則が実行されておらず、完走数による方法の評価が暫定値になっている。",
+              "requiredCorrection": "行数上限を実装し、前進検査の負対照と800/sの分割を再実行する。完走数を更新し、それまではステップ上限を使った試験結果として扱う。",
+              "scenario": "幅が時間切れで縮むと、行数はまだ上限未満なのにステップ上限に達し、正常に完走できた可能性がある分割を停止する。",
+              "section": "§1 SQL 4 規則4、§3 完走数",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_10のt_nopkはk_a、t_uniq_notnullはクラスタ化したuk_codeを使う設計。現在のフローは宣言されたPRIMARYの有無を確認せずPRIMARYを指定する。1176になるという点は、今回この設計では未実行の推論である。",
+              "id": "FIND-O10-NOPK-FORCE",
+              "impact": "安全側のエラー停止になるが、クラスタ索引を選ぶ方法または別の退避先が示されない。",
+              "requiredCorrection": "EXP-O10-NOPK-FORCEで実際の文と計画を確認するか、これらの表を明示的に分割・レプリカへ分岐する。昇格したunique keyをPRIMARYという名前で指定できると仮定しない。",
+              "scenario": "PRIMARYという索引名がない表で、散らばる書き込みの分岐に従ってFORCE INDEX (PRIMARY)を発行する。",
+              "section": "§1 判断フロー、§6 主キーなし、§7",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "実体はresults/requested_wide_count_forms.jsonで、本文の規則によるrequested_90-wide-count-forms.jsonではない。200列・小さい二次索引ありのFORCE PRIMARYは0.618、0.733、0.705秒。0.51秒台は別の二次索引なし表。requested_encrypted_count_3版のJSONとmanual-91.txtの完結した成功記録が現在存在する。",
+              "id": "FIND-O10-ENCRYPTED-STALE",
+              "impact": "数値の追跡可能性と測定範囲の説明が不正確になる。",
+              "requiredCorrection": "引用先と200列の範囲を修正する。暗号化を保証外に残すことは妥当だが、結果不存在・キーリング不存在という現在は古い理由を使わない。後発実験の来歴を区別し、採用範囲を明記する。",
+              "scenario": "本文の引用名から結果を開けず、暗号化試験に結果がないという説明も現在の保存済み結果と異なる。",
+              "section": "出典表記、§6 幅広い行、§11",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_07はk 1.648〜11.359秒対PRIMARY 0.819〜1.829秒、requested_05はk 1.655〜12.917秒対PRIMARY 1.360〜4.028秒。どちらも範囲が重なる。",
+              "id": "FIND-O10-P100-BOLD",
+              "impact": "本文自身の事前基準より強い順位の主張になり、PRIMARYの一般的な選択を後押しする。",
+              "requiredCorrection": "100/sではkに対する優位は確立していないと記す。太字と§10の最速という説明を、比較対象と測定条件に合わせる。",
+              "scenario": "100/sの散らばる書き込みでもPRIMARYを最速と読む表示・説明がある。",
+              "section": "§3 書き込みの形、§10",
+              "severity": "low",
+              "status": "open"
+            }
+          ],
+          "guidelinePath": "docs/table-count-guideline.md",
+          "guidelineSha256": "5c818808a50c1cd072d6847ad05b6de30e2cb893b103fb64ef64e8cb6d0699d3",
+          "opusDecision": "rejected",
+          "opusFindingAssessment": [
+            {
+              "assessment": "confirmed",
+              "evidence": "05〜08の全比較arm、build.pages、時間範囲を再計算し、条件を越えた一般化を確認。ただしt_denseは書き込み形が異なるため、散らばる書き込みでのPRIMARY優位を直接反証した結果ではない。小さいプールでの追加実験も、測定範囲を越えた万能なルールの証明にはならない。",
+              "id": "FIND-O10-PRIMARY-SCALE",
+              "severity": "middle"
+            },
+            {
+              "assessment": "confirmed",
+              "evidence": "05の66.806秒、全体p95 1646.57ms、p99 2345.55msを確認。drift armの窓が保存されていないので、count起因か蓄積したserver状態かは未確定。本文の100/sのp50だけの記載では不足する。",
+              "id": "FIND-O10-INDEXED-100-STALL",
+              "severity": "middle"
+            },
+            {
+              "assessment": "confirmed",
+              "evidence": "split_countのmax_stepsとreqmixの6000ステップ設定を確認。本文の行数上限は実装されていない。完走数は暫定であるが、途中値を正しい件数として返したという不具合ではない。",
+              "id": "FIND-O10-STEP-CEILING",
+              "severity": "low"
+            },
+            {
+              "assessment": "confirmed",
+              "evidence": "PRIMARYの存在確認をしない分岐を確認。具体的な1176と代替文の動作はこの設計では未実行として扱い、推論を実測に格上げしない。分割・レプリカへ明示的に分岐する修正でも解決できる。",
+              "id": "FIND-O10-NOPK-FORCE",
+              "severity": "low"
+            },
+            {
+              "assessment": "confirmed",
+              "evidence": "実ファイル名と200列の値を確認。現在manual-91.txtには最終ran JSONとlab_data_intact:trueがあり、91成功の完結記録は存在する。Opusが観測したPIDが現在も動いているとは確認できない。暗号化を新たに保証対象へ含める必要はない。",
+              "id": "FIND-O10-ENCRYPTED-STALE",
+              "severity": "low"
+            },
+            {
+              "assessment": "confirmed",
+              "evidence": "100/sの両mixでPRIMARYとkの範囲が重なる。PRIMARY対split PRIMARYの優位と、PRIMARY対statement kの優位を区別する必要がある。",
+              "id": "FIND-O10-P100-BOLD",
+              "severity": "low"
+            },
+            {
+              "assessment": "rejected",
+              "evidence": "前回Solレビューで確認済みであり、今回も[多版型](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html)、[CREATE INDEX](https://dev.mysql.com/doc/refman/8.4/en/create-index.html)、[TABLES](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)、[PARTITIONS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-partitions-table.html)、[集計関数](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)、[ENUM](https://dev.mysql.com/doc/refman/8.4/en/enum.html)、[STOP REPLICA](https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html)、[START REPLICA](https://dev.mysql.com/doc/refman/8.4/en/start-replica.html)の関連原文を確認した。§12は著者自身の確認とは主張していない。",
+              "id": "FIND-DOC-01",
+              "reason": "現行の出典表記はSolの原文確認によって裏付けられている。Opus自身が未確認であることは、その裏付けを否定しない。"
+            }
+          ],
+          "opusFindings": [
+            {
+              "evidence": "requested_06, 08 arms statement PRIMARY and k; requested_05, 07 statement k 1.65-12.92 s, ranges overlapping PRIMARY; build.pages PRIMARY 130944; requested_wide_count_forms.json and log t_dense count_star_force_primary 41.82-46.85; requested_20 write p50 4.67, 4.58 and HLL 4309, 4709.",
+              "id": "FIND-O10-PRIMARY-SCALE",
+              "impact": "A flipped recommendation for the most common write pattern is unverified at the scale the guideline targets, and could raise I/O, eviction and read-view time on a primary. The limit bounds the damage but does not make the advice right.",
+              "requiredCorrection": "Run EXP-O10-PRIMARY-SCALE. Then state the condition under which PRIMARY is preferred, with rate and size, or keep a short-limit trial of each with an explicit stop. Until then, mark the combination unmeasured in §1 and the flow, not only in §11.",
+              "scenario": "A developer has a 500 GB table with a small secondary index, ordinary INSERT and DELETE traffic, and a much smaller pool. The flow says writes are scattered, so use FORCE INDEX (PRIMARY). That is backed only by a 2 GB table about 1.3x the pool at a write rate near lab saturation. At 100 writes/s the secondary-index statement always finished at 20M rows. On t_dense at about 4x the pool, PRIMARY took 41.82-47.15 s against about 6-11 s, with write p50 about 3x higher and HLL over 4000, though under non-indexed writes. The flow's rule has no rate or size condition, so it may read far more pages and do more harm than the index it replaces. §11 item 2 discloses the unknown flip size for PRIMARY in general, but not this combination, and §1 still recommends it.",
+              "section": "§1 結論の表と判断フロー, §3 書き込みの形を変えると, §7 延長の条件, §10",
+              "severity": "middle",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_05 sections.drift_arm status stopped:max_steps, seconds 66.806; windows.whole_run_write p95 1646.57, p99 2345.55; arms write p99 by time order, rising to 466.43 for k split and 52.64 for the last statement; bench/reqmix.py:161-165. No drift value for the indexed mix at either rate. §3 line 395.",
+              "id": "FIND-O10-INDEXED-100-STALL",
+              "impact": "A possible seconds-long write stall at an ordinary rate on the recommended path is neither explained nor disclosed. It also bears on the p50-only claim.",
+              "requiredCorrection": "Run EXP-O10-INDEXED-100-STALL. Report the tail and its cause or state it as unexplained, and record a window for the drift arm.",
+              "scenario": "At a moderate 100 writes/s of indexed updates, the last split on PRIMARY ran 66.8 s and stopped at the step ceiling, though four earlier identical arms took 4.8-10.7 s. Whole-run write p95 was 1646.57 ms and p99 2345.55 ms while every comparison arm's write p99 was 466.43 ms or less, so writes stalled for seconds during that arm or outside the arm windows. Arm times and write latency also worsen over the run (k split 1.7 s to 4.6 s, statement k 1.7 s to 12.9 s). The text reports this as one ceiling stop and quotes only write p50 0.97-5.37 ms for this load. Cause and direction are unknown: the count may cause it, or a lab stall may slow the count.",
+              "section": "§1, §3 書き込みの形を変えると",
+              "severity": "middle",
+              "status": "open"
+            },
+            {
+              "evidence": "bench/countlib.py:496; requested_06, 08 stopped:max_steps; rule 4 marked 【未実行】.",
+              "id": "FIND-O10-STEP-CEILING",
+              "impact": "The split completion numbers are understated by an unknown amount.",
+              "requiredCorrection": "Change countlib and re-run the 800/s split arms, then update those counts.",
+              "scenario": "The text prescribes a row-based ceiling and the code uses a step ceiling, so the printed rule has not run. Stops at 9.28M-19.39M of 20M rows may have been premature, which affects the completion counts in §1 and §3.",
+              "section": "§1 SQL 4 規則 4",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "No IGNORE INDEX or GEN_CLUST wording in the guideline (search); requested_54 invisible_force_default_session 1176; §6 rows for t_nopk and t_uniq_notnull.",
+              "id": "FIND-O10-NOPK-FORCE",
+              "impact": "Safe failure, but the flow gives no answer for this design.",
+              "requiredCorrection": "Run EXP-O10-NOPK-FORCE and state the form that reads the clustered index, or send these tables to split or replica.",
+              "scenario": "A table with no primary key and a secondary index has no index named PRIMARY, so the flow's FORCE INDEX (PRIMARY) should return 1176 and hit 'other error: stop', with no way forward stated. The same text problem applies to a promoted NOT NULL unique key, whose name is not PRIMARY. This is reasoning from behaviour measured for missing indexes.",
+              "section": "§1 判断フロー, §7 延長の条件, §6 t_nopk",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "Listed files and mtimes; bench/requested/91-encrypted-count.py:128; bench/requested/90-wide-count-forms.py:81; results/requested/90-wide-count-forms.log; results/requested/manual-91.txt.",
+              "id": "FIND-O10-ENCRYPTED-STALE",
+              "impact": "Numbers cannot be traced from the cited name, and an out-of-scope statement is stale.",
+              "requiredCorrection": "Fix the citations. Decide with the run's owner whether the encrypted results are accepted, then update §11 from those files or keep them out of scope with the reason. See reviewEvidence on the run outside the workflow.",
+              "scenario": "Two citations do not resolve. §11 says script 91 failed on all versions and has no results, but results/requested_encrypted_count_{8.4.13,9.7.4,26.10.0}.json now exist with a working keyring, written 09:39-09:43, and results/requested/91-encrypted-count.status.json says ok true. The guideline cites 90-wide-count-forms.json, and under its stated naming rule that file does not exist; the data is in requested_wide_count_forms.json. §6 also gives 0.51-0.73 s for 200 columns with a small index, while that table's FORCE PRIMARY was 0.618-0.733 s; 0.51 comes from the no-secondary table.",
+              "section": "§11 item 3, §1 ヘッダの出典表記, §6 幅広い行",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "requested_07 statement k 1.648-11.359, PRIMARY 0.819-1.829; requested_05 k 1.655-12.917, PRIMARY 1.36-4.028.",
+              "id": "FIND-O10-P100-BOLD",
+              "impact": "A claim stronger than the guideline's own criterion, feeding the flow rule.",
+              "requiredCorrection": "Remove the bold and say no difference is established at 100/s, and limit the §10 wording to the 800/s result.",
+              "scenario": "The table bolds PRIMARY as fastest at 100 scattered writes/s, and §10 says PRIMARY is fastest on tables with scattered writes, but the fixed tolerance is not met against k at that rate because the ranges overlap. The prose admits the overlap for one row only.",
+              "section": "§3 書き込みの形を変えると, §10",
+              "severity": "low",
+              "status": "open"
+            },
+            {
+              "evidence": "§12 final paragraph; my rounds 6 and 8 searches.",
+              "id": "FIND-DOC-01",
+              "impact": "Provenance of the 文書 labels; no wrong claim known.",
+              "requiredCorrection": "Sol confirms these pages or the text marks them unconfirmed.",
+              "scenario": "§12 says the list rests on reviewer reports. I can vouch only for search summaries of kill, account-categories, privileges-provided, general-thread-states and innodb-locks-set (8.4, 9.7). CREATE INDEX, TABLES, PARTITIONS, aggregate functions, multi-versioning, ENUM, STOP REPLICA and START REPLICA are not confirmed by me.",
+              "section": "§12",
+              "severity": "low",
+              "status": "open"
+            }
+          ],
+          "requestedExperiments": [
+            {
+              "confirm": "k beats PRIMARY by the fixed tolerance at the lower rate or the larger size, so the flow must become conditional.",
+              "hypothesis": "On a table several times larger than the pool, at write rates below saturation, the secondary-index statement can beat FORCE PRIMARY, and the crossover depends on write rate and size.",
+              "id": "EXP-O10-PRIMARY-SCALE",
+              "priority": 1,
+              "refute": "PRIMARY wins or ties at both rates and sizes, so the rule stands and §11 can narrow.",
+              "solRefinement": "十分な予算を持つ独立スクリプトへ分け、各armを保存する。対照は同じ負荷・同じ時間で比較し、負荷の未処理分を次のarmへ持ち越したかも記録する。refuteの結果でも一般的な優位の証明とはせず、測定したサイズ・速度に結論を限定する。実験を待たず、分岐を短い上限付き比較試行に直すことも可能。",
+              "status": "new",
+              "steps": "Use a local small-pool lab matrix server (256 MB pool) so that about 10M-20M private rows are 4-8x the pool, with a small secondary index k. First measure closed-loop capacity and pick rates at about 10% and 30% of it. Mixes: uniform k updates and uniform INSERT plus DELETE. Arms on separate connections, in rotating order, at least 3 repeats: statement k and statement PRIMARY with a 300 s hint, split k (only for the non-moving mix) and split PRIMARY at guideline settings, and a no-count control of equal length. Record seconds, index entries read for timed-out arms, pool read requests, disk reads, write p50 and p95, HLL, miss rate after."
+            },
+            {
+              "confirm": "The control also stalls (lab or flush effect), or stalls follow the count (count effect); either way the text can state which.",
+              "hypothesis": "The 66.8 s split and seconds-long write tail at 100 indexed writes/s come from a server-side state that builds up during the run, not from one arm alone.",
+              "id": "EXP-O10-INDEXED-100-STALL",
+              "priority": 1,
+              "refute": "No stall reproduces: report it as one unexplained event with the tail value.",
+              "solRefinement": "drift armにも独立したwrite/read/server窓を保存する。原因は対照と時系列が支持する範囲だけで述べる。再現しないことを元の観測の取り消しに使わない。",
+              "status": "new",
+              "steps": "Repeat script 05's design with the row-based ceiling, and run the split on PRIMARY at least 5 times at the end of the run. Add a no-count control of the same length at the same point in the run. Save each arm's write p95 and p99 and a 1 Hz log of dirty pages, flush, redo, purge, HLL, disk reads and step time. Save a drift value for the indexed mix."
+            },
+            {
+              "confirm": "Backward cursor stops; completion counts rise.",
+              "hypothesis": "With a row-based ceiling, more 800/s split arms finish, and a backward cursor still stops.",
+              "id": "EXP-O10-ROW-CEILING",
+              "priority": 2,
+              "refute": "Arms still stop, for another cause: report it.",
+              "solRefinement": "時間上限と厳密な前進確認は維持する。完走数が増えること自体を成功条件にせず、新しい上限の動作と停止理由を確認する。誤った途中値を結果にしない。",
+              "status": "new",
+              "steps": "Change split_count's ceiling to rows read, re-run 3a's ceiling and backward arms, and the split arms from 06 and 08."
+            },
+            {
+              "confirm": "1176, and the alternative runs with a clustered plan.",
+              "hypothesis": "FORCE INDEX (PRIMARY) returns 1176 on a table without a primary key, and IGNORE INDEX reads the clustered index.",
+              "id": "EXP-O10-NOPK-FORCE",
+              "priority": 3,
+              "refute": "Another behaviour: state it.",
+              "solRefinement": "この要求で決定的なのは、各設計で有効な文と実際のクラスタ索引の選択である。IGNORE INDEXは全ての対象二次索引名を明示し、昇格したunique keyを持つ設計を分ける。本文がこれらを分割・レプリカへ明示的に退避するなら、速度比較は取り下げ可能。",
+              "status": "new",
+              "steps": "On private copies of the t_nopk and t_uniq_notnull designs, run both forms under the same statement limit, with EXPLAIN, and compare time under uniform writes at 100/s."
+            },
+            {
+              "confirm": "現行は停止を一度も観測せずrestored=trueで戻り、その後Noになる。修正版はこの誤報を防ぎ、最終的な稼働状態または明示的な未解決状態を正しく報告する。",
+              "hypothesis": "STOP失敗後にgrace期間を超えて適用処理が続くと、現行関数は未解決の停止要求を復旧済みと誤認する。",
+              "id": "EXP-S8-REPLICA-STOP-FAILURE",
+              "previousStatus": "closed for stops resolving within the observation grace",
+              "priority": 1,
+              "refute": "graceを超えるSTOP保留があっても現行関数が未解決と報告し、後発の停止を引き続き復旧する。状態遷移とコード経路で示す。",
+              "status": "reopened",
+              "steps": "ローカルcomposeの複製される私有テスト行で適用をブロックし、短いrpl_stop_replica_timeoutでSTOPを失敗させる。今回はロックを復旧graceの後まで保持する。例えば既定20秒のgraceに対し、適用側のロック待ち上限を十分長くした上で35〜40秒後に解放する。関数の戻り時刻、starts_issued、restored、STOP保留中の状態、その後の適用状態を継続記録する。修正版は未解決期限でrestored=trueを返さず、停止要求が解決してから再開・追いつきを確認するか、未解決として警報と継続監視へ引き継ぐ。元から停止している対照も維持する。設定・行・適用状態をfinallyで復元する。"
+            },
+            {
+              "id": "EXP-O6-WRITE-MIX",
+              "note": "Successors above.",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O8-PKONLY-THREADS",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R6-float-dst",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O2-1-guideline-sql-as-written",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O8-1205",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-7-coverage-gaps",
+              "note": "57の3版の完了と本文のwrite p50範囲を確認。書き込み形・大きいworking setへの版間一般化はしていない。",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S8-ENUM-DOMAIN",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S8-REPLICA-CHANNEL-GATE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R9-working-set-impact",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-CPU-CONTROL",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-NOISE-WINDOWS",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-LONG-UNDO",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-6-sql-not-executed",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-LOOP-RULES",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R15-replica-procedure",
+              "status": "closed for normal-path mapping"
+            },
+            {
+              "id": "EXP-O6-ANALYZE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O6-THREADS-SCOPE",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S6-MONITOR-RECHECK",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-S6-REPLICA-FAILURE-CLEANUP",
+              "status": "closed for failures after successful STOP"
+            },
+            {
+              "id": "EXP-S6-INCREMENTAL-SAME-SECOND",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R13-least-privilege",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-3-history",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-9-alternative-methods",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-12-mdl-phase",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R1-enum-scaling",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-O2-3-cascade-trigger-version",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-10-engine-states",
+              "status": "withdrawn"
+            },
+            {
+              "id": "EXP-O2-2-stop-vs-timeout",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R5-split-drift",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R7-background-reader",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R8-count-repeat",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R4-primary-split-impact",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R10-estimate-churn",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-1-existing-transaction",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R2-nullable-composite",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R3-desc-index",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R11-lock-forms",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R12-flush-chain",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R14-resume-failover",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-R16-incremental",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-4-fk-mdl",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-5-indexed-update-lock",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-2-read-uncommitted",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-3-null-inclusive-timing",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-4-view-semantics",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-5-counter-bootstrap",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-6-monitor-health",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-7-table-generation",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-8-timeout-context",
+              "status": "closed"
+            },
+            {
+              "id": "EXP-SOL-11-lock-sampler-control",
+              "status": "closed"
+            }
+          ],
+          "reviewEvidence": [
+            "guidelineを全体読了し、開始・終了でSHA-256が入力と一致。最終確認コマンドexit_code=0、完全な出力はtool transcript chunk 2a89b2。digestは5c818808a50c1cd072d6847ad05b6de30e2cb893b103fb64ef64e8cb6d0699d3。",
+            "最終読み取り専用検証は139個のresults直下JSONを構文読込。ファイル名と内容のmanifest SHA-256はe2269a0c7cb2b07c668629ed6e6cb47c7b9d9445f350b422e9e3b3a0472a1d69で、取得したmanifestから最終確認まで不変。countlib.py SHA-256はdc3821a712732093f495f6d2500359ff0f70be8d6cfe96fdaccc491e6656f008。",
+            "完結した第三回runnerログは /Users/taco/gits/tacogips/database-analysis/results/requested/runner.log。最終JSONは19エントリ、91だけok:false、lab_data_intact:true。直前のverify_dataはmismatched:none、replica caught up:True、t_repl:20000000。数値の元プロセス終了コードは保存されていないため、19試験全合格とは扱わない。",
+            "後発91の完結ログは /Users/taco/gits/tacogips/database-analysis/results/requested/manual-91.txt。最終JSONに91 ok:true、205秒、lab_data_intact:trueとverify_dataがある。完全な実験ログの指定先は /Users/taco/gits/tacogips/database-analysis/results/requested/91-encrypted-count.log。これを第三回runnerの失敗記録と混同しない。manual-run.txtには同じ完結記録を確認できず、成功判定に使わない。",
+            "プロセス一覧の独立確認はpsがoperation not permitted、exit_code=127で拒否された。追加権限を求めず、PID 92620の現在の稼働・終了や所有者を断定しない。自分では実験や長寿命プロセスを起動していない。",
+            "bench/reqmix.py、countlib.pyの分割・復旧・ENUM実装、01〜04のスクリプトと生データ、05〜09aの全比較armとdrift/windows、0a・0bを照合。write-mixの中央値・範囲は本文と一致するが、100/sでの太字の意味と05のtailが問題。drift armに書き込み窓を保存しない実装を確認。",
+            "02は旧手順の1875後の遅延停止と、修正版3回中1回のSTOP失敗を記録する。修正版の失敗例は12.09秒で復旧したが、ロックを4秒で解放する試験なので、graceを超える未解決STOPは検証されていない。restore_applierの成功条件から再開指摘を導いた。長い保留の反例は今回DB実行していない。",
+            "03の全出力を独立確認。2チャネルではstop_requested:falseで拒否し、changed_nothing:true。無指定STARTの負対照ではreq_testのSQLがNoからYesになり、最後にdefaultだけへ復元、catch_up=0。04は単独文・split各5回の1205とcounter増分0を確認。",
+            "3c全5版のR6とsection_errorsを確認。DATE/TIME/YEAR/CHAR/PAD SPACE、正確なBIGINT/DECIMALは真値と一致し、損失変換の負対照も全版で記録された。01のENUM3版で正常表一致・番号0拒否を確認。読み取り専用の集計確認exit_code=0、完全出力はchunk 948673。",
+            "再実行10の全表を確認し、51のsplit.correct:trueと7の非分割を集計。57の3版の各armを読み、9.7/26.10の本文のwrite p50範囲に一致。0aは3反復、実際のPK-onlyでINDEX_LENGTH=0、threads read-backと30M件の結果がある。0bは10秒反復であり、0aの単発文と同じ負荷時間として扱わない。",
+            "lock_factors.jsonの99記録、count_shapes.jsonの58設計、以前のimpact_count_*等の比較と今回変更箇所を照合した。以前の全結果の全セルを新規に再計算したという意味ではない。過去の指摘・応答は前回までのSolレビュー、results/review-state-before-experiments.jsonとworkflow-run2.logへの保存参照を引き継いだ。",
+            "requested_wide_count_forms.jsonを開き、本文のCOUNT形式と広い表の値を照合。200列の0.51秒台は二次索引なし表であり、二次索引ありPRIMARYの0.618〜0.733秒とは違う。暗号化3版のJSONは存在しkeyring Activeを記録するが、本レビューでは保証範囲の拡大に使用しない。",
+            "公式原文を確認した。特に[STOP REPLICA](https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html)の停止要求の残存、[多版型](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html)の二次索引からクラスタ参照への条件を確認。後者は遅延機構と整合するが、今回のstallの原因を実測で特定したものではない。",
+            "このターンではDBへ一切接続せず、ファイル変更・commit・push・委譲・別workflow起動をしていない。全てforegroundで終了し、自分の未終了sessionはない。読み取り専用のため新しいディスクログは作成せず、検証コマンドの完全出力はtool transcript、元実験の完全ログは上記パスを参照する。"
+          ],
+          "reviewQuestions": {
+            "betterMethods": "未決なのは散らばる変更下でどの索引を読むかである。20M行・800/sではPRIMARYが二次索引の長い1文を大幅に上回るが、100/sでは固定基準を満たさず、大きさ・変更率・局所性を越えて優先できない。PRIMARYは行ロックを追加しない一方、クラスタの全ページを読む費用とMDL・undo保持がある。小さいプールのローカル実験で条件を狭められる。短い分割は新しいviewにより二次索引のクラスタ参照を減らせる候補で、MDL・undo保持は短いが、一瞬の値でなく、今の完走数はステップ上限で打ち切られた結果である。専用の適用停止レプリカはprimaryへの走査を移し同時変更を避けられるが、意図的なlag、読み先からの除外、停止要求の復旧管理が必要。正常系は測定済み、固定grace後のSTOPは未解決。主キーだけの表の並列度は0a・0bで既定4が1より速いという結果を採用し、さらに大きい表まで一般化しない。複数接続は54で速い例があるがCPU・I/O・MDL所有者が増え同時点性もない。専用小索引は繰り返し数える広い表で有利だが追加DDL・容量・書き込み維持費があり、54の小規模結果だけで費用を確定できない。統計表、EXPLAIN、TABLE_ROWS、PARTITIONSは概数なら非常に速く、expiry=0が必要で誤差保証はない。histogramやn_diff_pfxは全件数を確定する代替ではない。単純key-span samplingは54の疎なキーで失敗し、現在の提案の不採用は妥当。これは全ての標本設計を反証する試験ではない。閉じたpartitionの既知値再利用は不変性の運用保証があるときだけ有利。頻繁な取得ではsummary/counterが走査を避けるが、書き込み競合と初期値接続が必要。binlog/CDCは初期値・位置・再送排除、clone/backup restoreは準備時間・容量という費用があり、本文の未計測表示を維持する。ローカルで測れる未決の索引選択は要求実験に含めた。",
+            "designCoverage": "静かな設計カタログの再実行は51表で正解、7表は手順どおり非分割。整数・符号・負数・穴・snowflake・UUID・文字列/collation・decimal・datetime/timestamp・複合・3/4列・DESC主キー・GIPK・nullable/prefix unique・キーなしの扱いを確認した。R6は全5版で成功し、DATE・TIME・YEAR・CHAR・PAD SPACEも正解。FLOAT・BIT・SETの拒否、BIGINTをdouble経由した1750/2000、DST往復なし5687/6000等の負対照を確認した。ENUMの番号0は3版で事前拒否される。ただしPRIMARY無指定設計での新しいFORCE PRIMARY分岐には穴がある。invisible・functional・多値・生成列・ON UPDATEは分割適格性を分け、生成元の変更も考慮している。LOB・JSON・圧縮・fulltext・spatialは既存カタログを継承。幅広い表にはcount形式の新しい結果があるが、負荷影響・cache状態は別で引用訂正が必要。FKの木・diamond・複合・unique参照・SET NULL/CASCADE・自己参照・循環・cross-schema・polymorphicは件数とMDL連鎖を区別できる。soft delete・history・EAVは物理行数の意味を明記。append-onlyと古い行の削除はmonotonic mixで測られ、heavy churnは20M行で実行されたが速度とサイズの一般化、100/sのstall、行数上限が残る。partition/subpartition、schema/table-per-tenantの小規模合計は確認され、多数表・time-rolled・shard全体の同一時点性は未計測。viewは基底件数で代用せず、triggerは呼び出し文形を区別する。非InnoDBは保存値・走査・テーブルロックを区別し、MEMORY再起動・MyISAM crashの要求を再開しない。追加の運用設計として複数チャネルは事前拒否を確認、STOPが長く未解決の状態は未対応。一時表、一般表領域、online rebuild、Group Replication、proxyは明示的な保証外。暗号化の後発データは存在するが、保証範囲を広げる必要はない。",
+            "fastCount": "限定条件の最速は確認できるが、巨大表一般で無劣化の最速という結論には達していない。非索引列UPDATEでは従来の1億行の既定1文5.72/6.90秒対分割10.71/13.19秒、3dの20M行1.05秒対1.94秒という比較を維持する。monotonic追記・古い行削除では05〜09aの対応結果が既定索引を支持する。800/sのscatterではstatement kが120秒で4/4打ち切り、Handler_read_nextは約339万〜1111万で全20Mに届かず、PRIMARYは3.88〜17.17秒で8/8完了した。これは有力な条件付き候補である。ただし100/sはkとPRIMARYの範囲が重なり、同じ推奨へ直結しない。splitの800/s完走数はステップ上限の影響があり、修正前の値である。indexed mixのdrift armは両速度で停止し、誤差の結果がない。uniform/monotonicで完走した4件は書き込み文数内の差だったが、分割は同時点の正確な件数ではない。estimateは約0.105msで最速だが無保証の概数、PK spanは穴・削除・採番で不正確。COUNT(*)・COUNT(1)・NOT NULL idの差は確立せず、nullable列は全件を数えない。wide count形式の結果にも固定順序・cacheの制御限界があり、負荷比較と混ぜない。R9の追い出し18/18対対照0/12は成立し、待ちを挟んでも追い出しを消せない。p50も対照選択で見え方が変わり、tailは一般的に無害と判定できない。加えて05の100/sには秒単位の未説明のtailがある。replicaはprimary走査を移せるが、共有VMで分離効果を証明できず、適用DDLのMDL連鎖も起こる。停止済みreplicaの正常なGTID対応は測定済みだが、長く保留されたSTOPの復旧は再度修正が必要。impact_count_*.jsonとcount_shapes.jsonは補助証拠として読み、異なる書き込み形・cache・反復条件の数値を同一の比較にしない。",
+            "lockFactors": "lock_factors.jsonの99記録と既存40等の結果に対し、row-lockの結論を変える新しい反例はない。plain top-level SELECTはRC/RRで3設計ともrecord_locks=0、SERIALIZABLEの明示トランザクションでは約20万行をロックする。SQL 0のread-backだけでは既存トランザクションを除外できず、job自身の文の間のMDL確認が必要。INSERT..SELECT、SET、DO、CTAS、FOR SHARE等は文形と分離レベルで変わり、EXPLAINだけでは判定できない。本文のコード検索・routine/trigger/eventカタログ・staging確認が必要で、検索の非網羅性とrg自体未実行の限界は残る。locking formでは索引選択でロック対象が変わり、二次索引だけのFOR SHAREが非索引列UPDATEを許しても索引列UPDATEを止める。gap/next-keyは分離レベルと走査範囲で変わる。通常SELECTのNULL・ties・collationは境界と走査時間の問題で、行ロックを追加する理由ではない。FK検査は書き込み側、読み取りは整合性読み取りである一方、子のCOUNTが親DDLを待たせるMDL連鎖は実測され、対象表のPENDINGと親子の予定確認が必要。FLUSHはthread stateも要る。FORCE PRIMARYもplain SELECTという形は変えないが、文の長さ、I/O、read view保持を変える。これらの負荷はEXPLAINのkeyだけでは事前保証できず、上限と監視が必要。04で長い文上限下の1205停止を各5回確認した。06・08ではclient timeout後もMDLが残ることを確認した。短いlocking statementがpollingをすり抜ける点、STATEMENT binlog形式の未計測表示を維持する。",
+            "omissions": "今回の独立した残件は、STOP復旧が固定graceを過ぎると停止要求を未解決のまま成功扱いすることである。ローカルで長いブロックを置いて測れるので既存要求を再開した。02の短い解放条件だけでは閉鎖できない。ほかに低負荷のdrift armの窓欠落と秒単位の書き込み遅延、行数上限の未実装、PRIMARYが存在しない設計の分岐が測定可能な残件。scatterの有無を知るだけでは変更率・索引サイズ・局所性の組み合わせを推定できず、短い実測試行の方が安全な分岐になる。クライアントtimeoutが停止でない点は今回実測され、本文にも反映された。監視instrumentの再確認、PROCESS剥奪が既存接続へ即反映されない点、UPDATE_TIMEの同秒見逃し、DDL世代判定の限界、途中合計を捨てる扱いは維持されている。後発のmanual-91には完結ログがあり、結果不存在という記載は古い。psは実行拒否されたため、Opusが見たPIDの現在状態や実験所有者は独立確認できない。結果JSON群は取得したmanifestから最終確認まで変わらなかった。HA、relay log容量、数時間のundo、network storage、課金、Group Replication、proxyはこのラボで一般化せず、未計測とする。"
+          },
+          "revision": 10,
+          "workflowInput": {
+            "acceptanceCriteria": [
+              "Opus 5.5 と GPT-6.1 Sol の両方の敵対的レビューを経て、high/middle の未解決指摘がない",
+              "数値はすべて results/ のファイルに基づき、未計測は明記されている",
+              "ガイドライン本文のSQLがラボで実行され、結果が確認されている",
+              "テーブル設計ごとに推奨方法と根拠がある",
+              "データ・インデックスによるロック要因と、その事前検知方法がある"
+            ],
+            "constraints": [
+              "対象はMySQLのサポート中バージョン(8.4 LTS, 9.7 LTS, 26.10 Innovation)のみ",
+              "接続先はローカルのcomposeの検証環境のみ",
+              "コミットとpushはしない",
+              "人間が読む文書は日本語"
+            ],
+            "guidelinePath": "docs/table-count-guideline.md",
+            "requestedWork": "複数の巨大データサービスを運用する開発者向けに、MySQLテーブルの全件カウント(業務上のWHEREなし)を、サービス性能を落とさず全件ロックせず最速で取得する方法のガイドラインを、計測結果に基づいて日本語で作成する。良い方法を洗い出し、あらゆるデータベース/テーブル設計で成り立つことを敵対的に検証する。"
+          }
+        }
+      }
+    },
+    "results/reviews/sol-internal-rollout-review.json": {
+      "betterAlternatives": [
+        {
+          "accuracy": "TABLE_ROWS、SHOW TABLE STATUS、EXPLAINは統計由来で、相互の一致は独立した検証にならない。expiry=0は統計キャッシュを迂回する設定で、再標本化や真値取得ではない。",
+          "conditions": "数％の保証を要求せず、迅速な規模把握が目的。",
+          "implementationCost": "低。",
+          "load": "既存結果では低コスト。ただしEXPLAIN等のMDL待ちと多数表巡回の累積コストは別に扱う。",
+          "method": "既存メタ情報を参考値として取得",
+          "privileges": "TABLE_ROWS・EXPLAINは対象表の可視性・SELECT。mysql.innodb_table_statsはその表のSELECT。INNODB_TABLESTATSはPROCESS。",
+          "verification": "24と完了した93を利用できる。NUM_ROWSは初期化状態を条件にする。",
+          "winsWhen": "不確かな精度を許容でき、走査負荷を避けたいとき。"
+        },
+        {
+          "accuracy": "COUNT自体はその読み取りビューの正確値。primary現在値との差は適用遅延と変更内容次第で、遅延秒数だけから数％を保証できない。",
+          "conditions": "レプリカの適用済み状態を数えることで目的を満たし、専用のCPU・I/O余力がある。",
+          "implementationCost": "既存の専用レプリカがあれば中、なければ高。",
+          "load": "primaryの走査を避ける。レプリカのキャッシュ、undo、DDL適用、読み取りサービスへの影響は残る。",
+          "method": "通常適用中の専用read replicaで上限付きCOUNT",
+          "privileges": "SELECTと監視・停止に必要な権限。適用停止権限は必須ではない。",
+          "verification": "通常経路は25に根拠がある。物理的に分離した効果は同一VMのcomposeでは測れない。",
+          "winsWhen": "一瞬のprimary値よりも低い本番影響と許容鮮度が重要な今回の用途。"
+        },
+        {
+          "accuracy": "統計はレプリカ固有で、推定誤差と適用遅延を別々に持つ。",
+          "conditions": "走査を避けたいが、primaryのメタ情報アクセスも集約したい。",
+          "implementationCost": "低〜中。",
+          "load": "小さいと期待されるが、メタ情報手法別の待機条件を確認する必要がある。",
+          "method": "レプリカのメタ情報",
+          "privileges": "取得方法ごとの権限。適用停止は不要。",
+          "verification": "94の完了結果で権限・待機を確認する。部分結果だけで採用判断しない。",
+          "winsWhen": "参考値の定期収集をprimaryから外す場合。"
+        },
+        {
+          "accuracy": "復元された整合状態の正確値。現在との差は別途扱う。",
+          "conditions": "バックアップ時点の件数でよく、復元先を用意できる。",
+          "implementationCost": "既存の復元環境があれば中、なければ高。準備時間と保存容量が必要。",
+          "load": "復元・COUNTの負荷を隔離できる。新規バックアップ取得を無影響とは扱わない。",
+          "method": "既存バックアップ・クローンを隔離環境へ復元してCOUNT",
+          "privileges": "バックアップ、復元、暗号化鍵への適切なアクセス。",
+          "verification": "COUNTの挙動はローカル複製で確認可能。実際のバックアップ方式・鍵管理・サービス費用はこのcomposeでは未確認。",
+          "winsWhen": "primaryを試行する余力がなく、多少古い件数を許容できる。"
+        },
+        {
+          "accuracy": "単位の包含確率に応じた重み付けと不確かさの評価が必要。空標本や反復一致だけで数％達成と判定しない。任意の未知分布への低コスト保証はない。",
+          "conditions": "整数キーや既存パーティションなどで標本単位と抽出確率を定義でき、偏在を検証できる。",
+          "implementationCost": "中〜高。",
+          "load": "全域走査を避けられる可能性がある一方、ランダムI/Oと多数の範囲COUNTが発生する。文・総時間・読取量の上限が必要。",
+          "method": "適用条件を限定した層化・確率的なキー範囲サンプリング",
+          "privileges": "SELECT。標本設計に必要なメタ情報。",
+          "verification": "54は固定した乱数seedによるランダムなキー区間抽出であり、固定位置だけの標本ではない。t_sparseの失敗はこの設計の不適合を示すが、すべての標本設計の棄却にはならない。代替設計を採用したい場合だけ追加比較する。",
+          "winsWhen": "既知の構造を持つ同種テーブルへ繰り返し適用し、統計より精度を改善できる場合。"
+        },
+        {
+          "accuracy": "初期件数と差分位置の整合、コミット単位、重複排除、削除・TRUNCATE・移行の処理が揃えば高精度を狙える。未知の絶対件数を差分だけから復元することはできない。",
+          "conditions": "頻繁な取得が必要で、書き込み経路またはCDC基盤を管理できる。",
+          "implementationCost": "既存基盤があれば中、新規導入は高。",
+          "load": "取得は軽い。同期カウンタは書き込み競合、CDCは処理遅延と保持・再処理の運用負担を持つ。",
+          "method": "既存カウンタ・CDCと基準件数の組み合わせ",
+          "privileges": "カウンタ更新またはbinlog/CDCへの権限。",
+          "verification": "カウンタの競合・初期化・補正再試行は49・54に根拠がある。CDCは未計測。",
+          "winsWhen": "多数サービスが繰り返し件数を要求し、毎回の全域走査を避けたい場合。"
+        },
+        {
+          "accuracy": "閉じた部分の確定値と、新しい部分の件数を合計する。遅延到着、削除、EXCHANGEで前提が崩れる。",
+          "conditions": "既存の閉じたパーティションや期間について不変性を運用で保証できる。",
+          "implementationCost": "中。件数取得だけのための新規パーティション化は高コスト。",
+          "load": "再走査を新しい部分へ限定できる。分割しても各SELECTは表のMDLを取る。",
+          "method": "不変な閉じた範囲の確定件数を再利用",
+          "privileges": "SELECTと集計結果を管理する権限。",
+          "verification": "52と52aで利点と検知漏れが確認されている。TABLE_IDとUPDATE_TIMEの一致だけを不変性の証明にしない。",
+          "winsWhen": "大半が不変の時系列データで、件数を継続的に取得する場合。"
+        },
+        {
+          "accuracy": "通常のCOUNTの意味を維持できる。nullable列のCOUNTへ変更しない。",
+          "conditions": "統計では不足し、COUNTを繰り返す。小さく、書き込みで頻繁に変化しない索引が使える。",
+          "implementationCost": "既存索引なら低、新規追加は高。",
+          "load": "走査量を減らせるが、追加索引は構築I/O、MDL、保存容量、INSERT・DELETE等の維持負担を増やす。",
+          "method": "既存の小さい索引、または繰り返し取得向けの専用索引",
+          "privileges": "既存索引はSELECT。追加はDDL権限と運用調整。",
+          "verification": "54のsmall_or_invisible_indexに限定的な根拠がある。不可視索引も制御された専用セッションなら候補にでき、設定が必要という理由だけで全面棄却する必要はない。ただし現行SQL 3の分割対象へ無条件に追加しない。",
+          "winsWhen": "幅広いクラスタ索引しかなく、継続的な計数費用が追加・維持費を上回る場合。"
+        }
+      ],
+      "decision": "rejected",
+      "engineerQuestions": [
+        {
+          "answerability": "不可。SQL 1にはその保証も判定手段もない。",
+          "improvement": "許容誤差・信頼度・対象時点を依頼時に記録し、保証できない場合は参考値として返す。",
+          "question": "『だいたい』では困ります。±3％なのか±5％なのか、今回の値でどう判断できますか。",
+          "role": "件数を依頼する開発者"
+        },
+        {
+          "answerability": "一部可。共通行数閾値を使わない理由は明確。",
+          "improvement": "推定行数では許可せず、索引バイト数、I/O余力、キャッシュ、SLOに基づく試行予算で判断する短い例を付ける。",
+          "question": "TABLE_ROWSが少なかったらCOUNTしてよいのですか。何行以下なら安全ですか。",
+          "role": "サービス担当"
+        },
+        {
+          "answerability": "一部可。追い出しの説明はあるが、初回試行の開始条件が不足。",
+          "improvement": "時間上限と負荷予算を区別し、tail・エラー・I/Oと回復を監視する。",
+          "question": "1秒で止めれば、数十msのSLOを守れますか。止めた後のキャッシュは戻りますか。",
+          "role": "SRE"
+        },
+        {
+          "answerability": "可。文の形・分離レベルによる行ロックの違いを説明している。",
+          "improvement": "入口にも『トップレベルSELECTの結果をクライアントで受け取り、別文で保存』を残す。",
+          "question": "取得した件数をINSERT SELECTやSETの副問い合わせで保存してはいけませんか。",
+          "role": "アプリ実装者"
+        },
+        {
+          "answerability": "概ね可。ただしidがNOT NULLという条件を入口で明示したい。",
+          "improvement": "COUNT(*)とCOUNT(1)はInnoDBで同じ扱い、COUNT(id)はNOT NULLなら同じ件数、COUNT(nullable_col)はNULLを除く別の値と簡潔に示す。[集計関数公式仕様](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+          "question": "COUNT(1)やCOUNT(id)へ変更すれば速くなりますか。nullable列でもよいですか。",
+          "role": "ORM利用者"
+        },
+        {
+          "answerability": "不足。",
+          "improvement": "暗号化方式と保存形式を確認し、全件数取得で列の復号式を評価しない手順を示す。鍵が利用できず表を開けない状態は復旧担当へ送る。",
+          "question": "暗号化はTDEですか、列暗号化ですか。復号鍵や復号式がCOUNTに必要ですか。",
+          "role": "暗号化を運用する担当者"
+        },
+        {
+          "answerability": "一部可。",
+          "improvement": "列数・表総容量ではなく読む索引のページ数を中心に説明し、インライン行と外部LOB、索引なしを分ける。",
+          "question": "100列や巨大LOBがあれば遅いのですか。小さい二次索引がない場合はどうしますか。",
+          "role": "幅広い表の担当者"
+        },
+        {
+          "answerability": "一部可。監視不能ならCOUNTしない規則はあるが、統計で数％になるとは答えられない。",
+          "improvement": "最低権限で得られる参考統計と、精度を満たすために依頼する窓口を分ける。",
+          "question": "SELECTしかありません。PROCESSやperformance_schemaが読めなくても数％の値を得られますか。",
+          "role": "権限の限られた開発者"
+        },
+        {
+          "answerability": "不可。対象環境は未計測。",
+          "improvement": "製品ごとの停止手段と停止確認を所有者が検証する。クライアント切断だけを代用しない。",
+          "question": "KILLやSTOP REPLICAが制限されています。管理画面のキャンセルで同じですか。",
+          "role": "マネージドMySQLの担当者"
+        },
+        {
+          "answerability": "一部可。DDL適用と共有負荷の注意はあるが、統計の独立性と鮮度の整理が不足。",
+          "improvement": "専用・共用を区別し、取得先、適用位置、取得時刻、統計更新状態を結果に付ける。遅延秒数だけで件数誤差を判断しない。",
+          "question": "共用read replicaでよいですか。統計はprimaryと同じですか。遅延0なら現在の件数ですか。",
+          "role": "レプリカの運用者"
+        },
+        {
+          "answerability": "技術的な規則はあるが、責任分担は未定。",
+          "improvement": "未解決停止要求の継続監視、引継ぎ先、再開確認、読み先へ戻す条件をサービスの運用票で固定する。",
+          "question": "STOPが失敗した後やジョブが落ちた後、誰がレプリカを戻しますか。",
+          "role": "当番・復旧担当"
+        },
+        {
+          "answerability": "一部可。監視で影響をゼロにはできない。",
+          "improvement": "予定確認不能時のprimary長時間COUNTを禁止し、許容できる待ち時間を持つ分割か隔離先へ送る。",
+          "question": "予定を完全には把握できません。監視があれば実行してよいですか。",
+          "role": "DDL・バックアップ担当"
+        },
+        {
+          "answerability": "不足。",
+          "improvement": "DBインスタンスと共有ストレージ単位の同時実行制御、開始時刻の分散、累積I/O予算を設ける。",
+          "question": "各チームが一斉に実行したら、1ジョブずつの計測は意味がありますか。",
+          "role": "複数サービスを運用する基盤担当"
+        },
+        {
+          "answerability": "一部可。対象一覧固定と非同時点性の説明はある。",
+          "improvement": "対象世代、移行時の所有先、成功・未完了の内訳を保存し、未完了を全件数として返さない。",
+          "question": "移行中のテナントやロール表を二重に足しませんか。失敗したシャードを除いた値を返してよいですか。",
+          "role": "シャード・テナント基盤担当"
+        },
+        {
+          "answerability": "概ね可。",
+          "improvement": "物理行数であること、対象集合、基準時点、推定方法、鮮度、未完了状態を結果と一緒に返す。",
+          "question": "論理削除行や履歴も含みますか。昨日のバックアップの件数でもよいですか。",
+          "role": "結果の利用者"
+        }
+      ],
+      "findings": [
+        {
+          "evidence": [
+            "results/requested_metadata_accuracy.json: summary_before_analyze.table_rows_expiry0は58表中within_5pct=54、max_abs_pct=12.152。summary_after_analyzeでもwithin_5pct=54、max_abs_pct=16.591。これは構成した58表の観測であり、本番での成功確率ではない。",
+            "同ファイル: spread_by_sample_pages.t_uuid.20.error_pctは-13.301〜4.854。uneven_row_sizes.runsではsample_pages=20で4.56%と38.731%。",
+            "results/requested_24-EXP-R10.json: sections.after_bulk_changes.del_90pct.immediately.table_rows_expiry0_error_pct=-8.54。",
+            "[TABLES公式仕様](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)もInnoDBのTABLE_ROWSを近似値として説明する。"
+          ],
+          "id": "SOL-ROLLOUT-ACCURACY",
+          "impact": "数％精度が必要な用途へ、精度を判定できない値を渡すことになる。ANALYZE後の値、複数の統計値の一致、繰り返しの安定性も誤差上限の証明にならない。",
+          "requiredCorrection": "冒頭で『精度保証のない参考値』『条件を限定して校正した概算』『スナップショットの正確値』を区別する。SQL 1だけでは任意の未知テーブルについて数％を保証できないと明記し、精度が必須なら既存の信頼できるカウンタ、隔離された複製のCOUNT、または適用条件を検証した推定へ分岐する。93の分布を設計別に反映し、観測範囲・信頼区間・保証された誤差上限を混同しない。統計値の安全係数から共通のCOUNT許可閾値を作らない。",
+          "scenario": "依頼者は『多少ずれてもよい』ではなく『数％の誤差で知りたい』と考えている。概数でよいという分岐からSQL 1で終了すると、その精度要件を満たしたか判断できない。",
+          "section": "§1 結論・判断フロー、§4 概数の精度、§10",
+          "severity": "high"
+        },
+        {
+          "evidence": [
+            "docs/table-count-guideline.md: SQL 2の上限は主にDDL待ち許容時間から決める説明。§8の停止表はp50を例示し、本文の別箇所でtail許容値も要求しているが、一体の開始条件になっていない。",
+            "results/requested_30-EXP-R9-rep1-low.json: sections.runs.runsの各server.recoveryにカウント終了後のキャッシュミスが残る。これらは全域走査の結果であり、1000ms試行の影響を直接測った結果ではない。",
+            "results/requested_05-EXP-O6-WRITE-MIX-indexed-100.json: sections.windows.whole_run_write[0]はp50_ms=3.52に対しp99_ms=2345.55。原因は未特定。",
+            "bench/countlib.py: JobMonitorが直接扱うのはMDL、FLUSH状態、行ロック、任意のHLL上限などで、アプリSLOやストレージ余力は別途実装が必要。"
+          ],
+          "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+          "impact": "時間上限を負荷上限と誤解しやすい。中断しても、失われたキャッシュや消費済みI/Oは元に戻らない。試行の繰り返しも追加負荷になる。",
+          "requiredCorrection": "初回試行にも、アプリのtail遅延・エラー率、CPU、I/O待ち・帯域・IOPS、ストレージ余力、回復観測を含む予算を設定する。1000msを既定の安全値として配布しない。予算を決められなければprimaryでは試さない。打ち切ったCOUNTから一般に進捗率や残時間を推定できないことを明記する。§7の予想所要時間は、過去の同条件実績など根拠がある場合に限定する。",
+          "scenario": "DDL予定を確認できた担当者が、未知サイズの表へ例示の1000ms COUNTを試す。DDLがなくても、その間のI/O、CPU、先読み、キャッシュ追い出しがサービスの許容範囲を超える可能性がある。",
+          "section": "§1 SQL 2、§7 延長の条件、§8 停止条件",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "bench/requested/91-encrypted-count.py: DDLはid、v、padの3列。TDEの試験であり、列暗号化された幅広い表の試験ではない。",
+            "results/requested_encrypted_count_8.4.13.json: sizes、count_force_primary、plain_count_record_locks、insert_select_count_record_locks。",
+            "count_force_primary.plain_cold[*].secondsは0.248〜0.305、enc_cold[*].secondsは0.433〜0.453。この小規模・無サービス負荷の一条件では差がある。",
+            "同じ比較のplain_warm、enc_warmでもInnodb_data_readが約396MBあり、warmという名前をバッファプール内の比較と解釈できない。",
+            "results/requested_wide_count_forms.jsonは幅広い表だが暗号化との組み合わせではない。"
+          ],
+          "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+          "impact": "本来の対象に対する採用可否が未回答。TDEの速度倍率を列暗号化へ適用したり、列数だけでCOUNT負荷を判断したりする誤用が起こる。",
+          "requiredCorrection": "TDEと列暗号化を入口で区別する。TDEでは読んだページの復号コスト、列暗号化では保存幅・利用可能な索引・復号式の有無が問題になると説明する。全件数のために復号式を評価しない。列数より選択される索引のバイト数とMVCC参照を重視し、外部LOB容量とインライン幅を分ける。有効な8.4.13の結果を限定して採用し、暗号化された幅広い表のprimary試行は別途検証するか、隔離複製へ送る。",
+          "scenario": "対象サービスは暗号化済みの50〜100列の表を持つが、ガイドは暗号化を保証範囲から除外したままである。利用者には、その場合にどの経路まで利用できるか分からない。",
+          "section": "§2 対象環境、§6 行と列、§11 暗号化された表",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "results/requested_metadata_accuracy.json: after_analyzeのINNODB_TABLESTATS.NUM_ROWSは54表すべて0として記録されている。summary_after_analyze.innodb_tablestats_num_rows.within_5pct=0。",
+            "bench/requested/93-metadata-accuracy.py: read_allはNUM_ROWSだけを取得し、STATS_INITIALIZEDを記録しない。EXPLAINも本文のCOUNT(*)ではなくSELECT *を説明する。",
+            "[INNODB_TABLESTATS公式仕様](https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html): ANALYZEは統計をUninitializedにし、次の表アクセス時に再収集する。NUM_ROWSは未コミットDMLの影響も受け得る。",
+            "[永続統計の公式仕様](https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html): 自動再計算の統計はインスタンスローカル。通常のANALYZE文はログ抑制しなければ複製され、各レプリカで再計算される。",
+            "94の最終確認時のJSONはstalenessだけで、権限・待機・最終件数の完了結果は未保存。"
+          ],
+          "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+          "impact": "未初期化の0を空表と誤解したり、レプリカの統計精度と適用遅延を混同したりする。複数の統計値の一致を独立した裏付けとも解釈できない。",
+          "requiredCorrection": "メタ情報を正式な比較表にし、精度の意味、キャッシュ、更新時点、必要権限、対象エンジン、対象表への待機、運用コストを列挙する。NUM_ROWSはSTATS_INITIALIZEDと併読し、未初期化・取得不可・NULLを件数0にしない。93の0を単純な推定精度の悪さと集計しない。レプリカでは統計誤差と適用済み状態の古さを別に表示する。94の完了を確認するまでは、その未完の項目を未確認とする。",
+          "scenario": "利用者がTABLE_ROWS、SHOW TABLE STATUS、mysql.innodb_table_stats、INNODB_TABLESTATS、EXPLAIN、パーティション統計を交換可能な概数取得手段として使う。また、primaryで権限が足りないためread replicaの統計へ切り替える。",
+          "section": "§4 概数の精度、§8 権限、§10 メタ情報候補",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "results/requested_metadata_accuracy.json: spread_by_sample_pages.t_denseのanalyze_seconds_eachは20ページで0.013、2000ページで0.64。ただし計測区間には統計取得も含まれ、サービス影響は測っていない。",
+            "同ファイル: uneven_row_sizesでは2000ページでも誤差-2.812%または-2.131%。増量は任意精度の保証ではない。",
+            "[ANALYZE TABLE公式仕様](https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html): 対象表のSELECTとINSERT権限が必要で、解析中のread lockを説明している。",
+            "docs/table-count-guideline.mdの既存ANALYZE比較は短いCOUNTとの共存であり、統計刷新自体のI/O、書き込みへの影響、プラン変更を評価したものではない。"
+          ],
+          "id": "SOL-ROLLOUT-ANALYZE-COST",
+          "impact": "低負荷のメタデータ取得と、統計を作り直す操作が同じ手順に見える。統計更新によるプラン変更や複製先の再解析も、計数後まで影響し得る。",
+          "requiredCorrection": "SQL 1にはANALYZEを自動追加しないと明記する。必要な場合はDB所有者が権限、ロック・待機、I/O、プラン変更、binlogへの記録とレプリカ側処理を扱う別の保守操作にする。サンプル設定の増量を本番共通設定として案内しない。待機しなかった短いCOUNT試験から、ANALYZEの無害性を導かない。",
+          "scenario": "『数％へ近づけたい』利用者が、統計を新しくするため本番でANALYZE TABLEを追加し、さらにサンプルページ数を増やす。",
+          "section": "§4 ANALYZEの説明、§8 権限、§10 統計候補",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "README.mdおよびdocs/table-count-guideline.md: benchは検証環境専用。本番で使う監視・停止・結果保存を含む実行手段は配布されていない。",
+            "§8は別接続・別スレッドの監視と停止フラグを要求する。bench/countlib.pyのJobMonitorだけではアプリSLOや組織横断の同時実行制御を提供しない。",
+            "§7は未解決STOPの監視継続と人への引継ぎを要求するが、誰が引き継ぐかはサービスごとの未設定事項。",
+            "bench/countlib.py: restore_applierの誤った成功条件は修正されているが、対応する0cの結果は最終確認時点で存在しない。"
+          ],
+          "id": "SOL-ROLLOUT-OPERATING-MODEL",
+          "impact": "各SQLが正しくても、組み合わせ・復旧・実行競合で事故になる。手順が長いこと自体より、利用者が安全条件を実装し直す必要があることが採用障壁となる。",
+          "requiredCorrection": "社内案内を入口の短い判断表と詳細な検証資料に分ける。サービスごとに実行責任者、停止権限、監視経路、DDL・バックアップ確認先、復旧担当、同一DB・共有資源の同時実行上限を記入する導入票を用意する。満たせない場合はprimaryのCOUNTを開始せず、参考統計または隔離複製へ送る。レプリカ停止を一般開発者向けの既定経路にせず、所有者の運用手順として扱う。",
+          "scenario": "DBAが常駐しない複数サービスで、担当者がSQL断片を独自実装する。監視担当やDDL予定の窓口がなく、複数チームが同じDBまたは共有ストレージで同時に開始する。",
+          "section": "§1 コピー用SQL、§7 レプリカ、§8 監視・停止・再開",
+          "severity": "middle"
+        }
+      ],
+      "guidelineSha256": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+      "limitations": [
+        "独立レビューであり、実験を再実行していない。数値は記載した保存ファイルのフィールドまたはその集計に基づく。",
+        "9.7.4と26.10.0の暗号化JSONはinvalidEvidenceとして除外し、有効な根拠に使用していない。",
+        "93の58表の割合や各5反復は、未知の本番テーブルに対する確率、独立標本、信頼区間、誤差上限を与えない。混在するエンジンの全体集計をInnoDB一般の精度として扱わない。",
+        "92は終了コードと完全ログが欠落する。94は部分結果である。これらを完成した合格検証として扱っていない。",
+        "既存ラボは同一VM・共有ストレージであり、ホストキャッシュを制御していない。サービスの無影響や物理的に分離したレプリカの効果を証明できない。",
+        "マネージド環境の権限、停止API、課金、バースト枠、実際の暗号化鍵管理、組織の復旧責任は未確認。",
+        "lab.rbのMATRIXと対象版表記は読んだが、2026-11時点の全サポート契約・終了日の公式照合は今回行っていない。社内対象版の維持確認は別途必要。",
+        "読み取り用集計の途中で、ヒアドキュメントの一時ファイル作成拒否とJSON構造の仮定によるエラーがあった。失敗した確認を合格として使用せず、読み取り専用の代替コマンドで必要な確認を完了した。最終ハッシュ確認は終了コード0。",
+        "自分が起動した未終了セッションや背景プロセスはない。既存実験の状態を変更していない。"
+      ],
+      "priorReviewAssessment": [
+        {
+          "assessment": "旧指摘をそのまま再掲しない。",
+          "evidence": "現行本文・countlibにセッション上限、タイマー発火カウンタ、上限付き往復確認、その他エラー停止がある。13のsections.summaryではkilled_first_called_timeout.counter=0、elapsed=5。",
+          "ids": [
+            "FIND-R2-KILL-01",
+            "FIND-R3-HINT-01",
+            "FIND-R3-LOOPEDGE-01"
+          ]
+        },
+        {
+          "assessment": "『未実行』という旧理由は現在の実装・結果と合わない。測定条件外への保証は別問題。",
+          "evidence": "10の本文手順実行、23のドリフト、26・27の索引比較、21・22の反復比較が存在する。今回の追加要求は暗号化された幅広い表と初回試行の予算に限定した。",
+          "ids": [
+            "FIND-STEP-01",
+            "FIND-PK-01",
+            "FIND-DRIFT-01",
+            "FIND-FAST-01"
+          ]
+        },
+        {
+          "assessment": "旧問題に対する検証と留保は増えている。ただし今回の数％精度・社内運用への適用を自動的に承認するものではない。",
+          "evidence": "24はキャッシュと古い統計を切り分け、25はGTID対応を検証。30以降は回復期を記録する。背景読み取りの原因、真のcold、物理的分離等の限界は本文が開示している。",
+          "ids": [
+            "FIND-LAB-CONTAM-01",
+            "FIND-IMPACT-01",
+            "FIND-EST-01",
+            "FIND-REPL-01"
+          ]
+        },
+        {
+          "assessment": "現行本文の一般化は修正済み。",
+          "evidence": "§1・§7はPRIMARYを短い同一上限で試す候補とし、100/sで優位未確立、条件外では優先しないと明記する。0g〜0kを広範な社内案内の必須実験としては維持しない。",
+          "id": "FIND-O10-PRIMARY-SCALE"
+        },
+        {
+          "assessment": "開示不足は修正済み。原因未特定は残る。",
+          "evidence": "§3に66.806秒、p95/p99、因果不明が記載された。これだけを理由に追加実験を必須にしないが、p50中心の運用判断は今回の指摘で修正を求める。",
+          "id": "FIND-O10-INDEXED-100-STALL"
+        },
+        {
+          "assessment": "Opusの前回の閉鎖は早すぎた。現在はコード・本文が修正されているが、長い保留と引継ぎの実測は未完。",
+          "evidence": "restore_applierは停止未観測時の期限到達をrestored=false、unresolved_stop=trueにする。0cの結果は存在しない。",
+          "id": "FIND-S8-REPLICA-STOP-FAILURE-01"
+        },
+        {
+          "assessment": "実装修正と暫定表示を確認。",
+          "evidence": "split_countにmax_rowsがあり、本文は旧完走数がステップ上限による暫定値であると明記する。行数上限の3倍も統計的な誤差上限ではない。",
+          "id": "FIND-O10-STEP-CEILING"
+        },
+        {
+          "assessment": "本文修正で解消している。",
+          "evidence": "PRIMARYという索引がない表を試行から除外し、100/sで索引間の優位が確立していないと記す。",
+          "ids": [
+            "FIND-O10-NOPK-FORCE",
+            "FIND-O10-P100-BOLD"
+          ]
+        },
+        {
+          "assessment": "前回レビューの『3版の保存結果が存在する』という根拠を、有効な比較の証明として引き継がない。",
+          "evidence": "今回の入力マニフェストは9.7.4・26.10.0の2ファイルをinvalidEvidenceと指定する。有効な暗号化比較は8.4.13だけを使用した。§11の3版への参照にはこの区別を追記すべきである。",
+          "id": "FIND-O10-ENCRYPTED-STALE"
+        }
+      ],
+      "requestedExperiments": [
+        {
+          "decisionChangingResult": "短い試行でも予算超過する条件があれば、その条件をprimary試行から除外する。予算内でも、測った条件に限定した試行候補にとどめる。",
+          "executedByReviewer": false,
+          "hypothesis": "暗号化された幅広い表の短時間COUNTは、時間上限内でも無視できないI/O・CPU負荷や回復遅延を生み、小さい二次索引の有無で採用可能性が変わる。",
+          "id": "SOL-EXP-ENCRYPTED-WIDE-TRIAL",
+          "localSteps": [
+            "既存実験の所有者が終了・後始末を確認した後、同じcomposeネットワークの8.4.13検証サーバーだけを使う。",
+            "91の有効な平文/TDE比較を基に、同一データの60列または100列表を作り、読む索引がプールを超える構成を含める。小さい二次索引あり・なしを比較する。",
+            "サービス負荷だけの対照と、例示の短い上限付きCOUNTを順序を交互にして比較する。非索引更新と索引へ触れる更新を区別する。",
+            "上限超過、中断確認、読取バイト、先読み、CPU、アプリtail・エラー、HLL、終了後のキャッシュ回復を記録する。ホストキャッシュを制御できない制約を残す。",
+            "JSON、スクリプト識別情報、完全ログ、実プロセスの終了コードを保存する。"
+          ],
+          "priority": "primaryでの試行を対象へ含める場合に必要。隔離複製へ限定するなら公開前の必須実験ではない。"
+        },
+        {
+          "decisionChangingResult": "対象表のDDL待ちを避けられるメタ情報があるなら、権限と古さを条件に代替経路へ追加する。取得できない・待つ場合は、その制約を正式比較表へ反映する。",
+          "executedByReviewer": false,
+          "hypothesis": "メタ情報の取得先・キャッシュ・権限・DDL待機により、参考値を返せる経路が変わる。",
+          "id": "94-metadata-on-replica",
+          "localSteps": [
+            "既存の所有者が、現在の94をcomposeのprimary・replicaだけで完了させる。",
+            "staleness以外にanalyze_is_local、privileges、waits_on_primary、waits_on_replica_applier_ddl、final_countsが保存されたことを確認する。",
+            "例外やタイムアウトがある場合は部分成功とし、レプリカ再開・後始末・最終件数を確認する。",
+            "完全ログと実終了コードを保存し、本文のCOUNT用EXPLAINと試験のSELECT *用EXPLAINの差も明記する。"
+          ],
+          "priority": "既存実験の完了確認。重複起動しない。"
+        },
+        {
+          "decisionChangingResult": "未解決STOPを成功と報告せず、引継ぎ後に復旧することが確認できれば、明示的な復旧担当を条件に停止手順を候補へ戻せる。",
+          "executedByReviewer": false,
+          "hypothesis": "修正された復旧処理は、監視期限より遅れて効くSTOPを復旧済みと誤報せず、継続所有者へ引き継いで再開確認できる。",
+          "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+          "localSteps": [
+            "既存所有者が、準備済みのbench/requested/0c-EXP-S8-REPLICA-STOP-LONG.pyを通常のラボ実行経路で実施する。レビュー中の実験へ重ねて実行しない。",
+            "compose replicaの適用をローカル行ロックで復旧期限より長く待たせ、STOP失敗後の最初の返却を確認する。",
+            "未確認の返却後に監視を継続し、遅延停止、再開、GTID追いつきまで記録する。元から停止中の負対照も確認する。",
+            "最終適用状態、後始末、完全ログと終了コードを保存する。"
+          ],
+          "priority": "レプリカ停止手順を社内運用として案内する場合に必要。通常適用中のレプリカCOUNTだけを案内するなら対象外にできる。"
+        },
+        {
+          "decisionChangingResult": "特定の構造で精度と負荷が改善するなら、その構造だけの候補にする。密集域の見落としを狭い区間として誤報するなら採用しない。有限の試験から任意分布への保証は主張しない。",
+          "executedByReviewer": false,
+          "hypothesis": "構造を限定した層化標本なら、54の一様キー区間抽出より少ない負荷で数％へ近づけられる場合がある。",
+          "id": "SOL-EXP-STRATIFIED-SAMPLING",
+          "localSteps": [
+            "compose内に連続キー、巨大な欠番、少数の密集域、テナント偏在を持つ決定的な表を作る。",
+            "等しい標本単位または既知の包含確率を持つ層を定義し、重み付けした推定を行う。RANDによる全域走査や単一先頭範囲の外挿は使わない。",
+            "複数seedで真のCOUNTと比較し、誤差・不確かさの区間・区間の実測被覆・読取量を記録する。空標本や予算到達時は精度未達として終了する。",
+            "SQL 1と54の方式を同じ負荷予算で比較する。"
+          ],
+          "priority": "任意のテーブルへの標準推奨にはしない。対応するサービス群があり、この候補を採用したい場合だけ実施する。"
+        }
+      ],
+      "reviewEvidence": [
+        {
+          "actual": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+          "check": "入力と開始時ハッシュ",
+          "command": "shasum -a 256 docs/table-count-guideline.md",
+          "completeOutput": "tool transcript chunk 211e4e",
+          "exitCode": 0,
+          "expected": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+          "result": "一致"
+        },
+        {
+          "check": "終了時のファイル再ハッシュ",
+          "completeOutput": "最終functions.execの比較出力、およびtool transcript chunk 47cd01",
+          "exitCode": 0,
+          "guidelineFinalSha256": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+          "logPath": null,
+          "logPathReason": "読み取り専用のため新しいディスクログを作成していない。検証の完全出力はRielaのtool transcriptに残した。",
+          "result": "比較開始時の269ファイルに変更なし。追加は部分結果results/requested_metadata_on_replica.jsonの1ファイル。",
+          "sourceAggregateSha256BeforeAndAfter": "19a9f2f53095cf728cc80ffa811415859951653fc7f6fd5c9c8f126383ae5b46",
+          "sourceFiles": 127
+        },
+        {
+          "check": "有効な暗号化比較",
+          "file": "results/requested_encrypted_count_8.4.13.json",
+          "finalProcessExitCode": null,
+          "logPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/91-encrypted-count.log",
+          "sha256": "658fd6a1047287842d8dbe5a07e7e887d0414261a4dc8298854a3e3ee246b7ed",
+          "status": "91全体の現在のstatusはok=false。ログ末尾は26.10.0のt_evict作成中1114。8.4.13の完成した比較だけをマニフェストに従い限定使用し、3版全体を成功と扱わない。"
+        },
+        {
+          "check": "92の終了記録",
+          "files": [
+            "results/requested_wide_form_order.json",
+            "results/requested_wide_form_order_after_load.json",
+            "results/requested/92-wide-form-order.status.json"
+          ],
+          "finalProcessExitCode": null,
+          "logPath": null,
+          "result": "64個の異なるthreads/round/positionと6個のafter-load測定を独立に確認。",
+          "status": "statusはrecovered_after_host_runner_exit=true、process_exit_code=null。構造上の測定充足とプロセス終了確認の記録はあるが、完全ログ・終了コードを備えた合格実験とは認定しない。COUNT形式の優劣をこの結果から追加主張していない。"
+        },
+        {
+          "check": "93の完成内容",
+          "exitCodeQualification": "数値終了コード自体は保存されていない。通常のlab.rbはstatus.success?をokへ保存するため、記録上は正常終了相当。精度や運用安全性の合格を意味しない。",
+          "file": "results/requested_metadata_accuracy.json",
+          "finalProcessExitCode": null,
+          "logPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/93-metadata-accuracy.log",
+          "sha256": "a5d9966ab1e7ecacf53dfce8e7ff2130100362746c3a79904bab1bea6d02aa7f",
+          "status": "ok=true、seconds=90。全7トップレベル項目、8表×3設定×5反復、uneven_row_sizesの15測定とログ末尾を照合した。",
+          "statusPath": "results/requested/93-metadata-accuracy.status.json"
+        },
+        {
+          "check": "94の未完確認",
+          "file": "results/requested_metadata_on_replica.json",
+          "finalProcessExitCode": null,
+          "logPath": null,
+          "savedKeys": [
+            "staleness"
+          ],
+          "sha256AtFinalCheck": "2ad8e349f6df343db0d6348f5f0a1f9d878b0aa2c6b8b1c5aec772809ce28854",
+          "status": "完了ステータスと完結したログを確認できないため不合格扱いではなく未完扱い。権限・DDL待機・最終復旧の根拠には使用しない。"
+        },
+        {
+          "check": "既存の統計・代替手法の完成記録",
+          "finalProcessExitCode": null,
+          "logs": [
+            "/Users/taco/gits/tacogips/database-analysis/results/requested/24-EXP-R10.log",
+            "/Users/taco/gits/tacogips/database-analysis/results/requested/54-EXP-SOL-9.log"
+          ],
+          "qualification": "元の数値終了コードは未保存。54のログには以前のSKIPPEDも含まれるため、最後の完結した実行と区別した。",
+          "status": "各statusはok=true、各生JSONはsection_errors=[]。完全ログの最終JSONも一致。"
+        },
+        {
+          "check": "過去レビューの抽出",
+          "file": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+          "paths": [
+            "/session/executions/13/acceptedOutput/payload",
+            "/session/executions/14/acceptedOutput/payload"
+          ],
+          "qualification": "snapshot全体を根拠として丸ごと出力せず、レビューpayloadと状態を抽出した。",
+          "result": "最新完了レビューはrevision=10、対象SHAは5c818808a50c1cd072d6847ad05b6de30e2cb893b103fb64ef64e8cb6d0699d3。現在の対象SHAとは異なるため、指摘を現在の本文・コードへ再照合した。execution 15のauthorはrunningでacceptedOutputなし。"
+        },
+        {
+          "check": "一次資料",
+          "result": "今回必要になった統計・COUNTの意味・ANALYZE・暗号化の説明を公式原文で確認した。",
+          "sources": [
+            "[集計関数](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+            "[永続統計](https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html)",
+            "[ANALYZE TABLE](https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html)",
+            "[information_schema_stats_expiry](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_information_schema_stats_expiry)",
+            "[INNODB_TABLESTATS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html)",
+            "[TABLES](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)",
+            "[InnoDB保存時暗号化](https://dev.mysql.com/doc/refman/8.4/en/innodb-data-encryption.html)"
+          ]
+        }
+      ],
+      "reviewScope": {
+        "evidenceCutoff": "最終確認時点で93は結果・成功ステータス・完結したログを確認。92は64測定の構造を確認したが終了コード未記録。94はstalenessだけの部分結果で、完了ステータスなし。",
+        "execution": "読み取り専用。実験、Docker操作、DB接続、負荷生成、ファイル編集、委譲、別workflow起動は行っていない。",
+        "importantQualification": "現行フローは統計上の行数でCOUNTの安全性を判断していない。この点は妥当であり、過小推定を理由に無制限COUNTへ進める欠陥があるとは判定していない。",
+        "purpose": "暗号化された通常50列・最大100列程度の巨大MySQLテーブルについて、稼働中サービスへの影響を最小限にし、数％の誤差で全件数を概算するための社内案内として評価した。",
+        "reviewed": [
+          "入力マニフェスト、ガイドライン全体、README.md、AGENTS.md、compose.yaml、lab.rb",
+          "関連するbench実装、追加実験90〜94、統計・ロック・監視・レプリカ・代替手法の生JSON",
+          "独立検討後、results/review-state-before-experiments.jsonとsession-3の最新Opus/Solレビュー"
+        ]
+      },
+      "rolloutRecommendation": {
+        "allowedUse": "検証資料としての共有は可能。精度保証のない参考統計の取得も、その限界を明示して案内できる。",
+        "companyWideAnnouncement": "現状のまま『数％精度・本番低影響の共通手順』として案内することは不可。",
+        "constraintsNotRequiringExperiments": [
+          "統計キャッシュの迂回は正確値取得ではない。",
+          "同じ統計に由来する値の一致は独立した検証ではない。",
+          "時間上限はI/O・CPU・キャッシュ影響の上限ではない。",
+          "ラボの有限の観測から、未知の全テーブルに共通の誤差上限や安全行数閾値は導けない。",
+          "CDC差分には整合した絶対件数の基準が必要。",
+          "物理的に分離したレプリカ、マネージドサービス、実ストレージの性能はこのcomposeだけでは検証できない。"
+        ],
+        "faqPriorities": [
+          "数％の保証はあるか。統計の一致やANALYZE後なら信用できるか。",
+          "何行以下ならCOUNTしてよいか。試行自体の負荷をどう制限するか。",
+          "SELECTなのにサービスを待たせるのはなぜか。SQLを書き換えてよいか。",
+          "暗号化方式、列数、LOB、索引で何が変わるか。",
+          "監視権限・担当者・DDL予定がない場合はどうするか。",
+          "共有レプリカを使えるか。遅延・統計・適用停止からの復旧を誰が扱うか。",
+          "複数サービス、シャード、テナント移行、部分失敗の結果をどう集計するか。"
+        ],
+        "minimumCorrectionsInPriorityOrder": [
+          "P0: 数％精度の達成と、保証のない概数取得を分ける。普遍的な低負荷・数％保証は得られていないと冒頭で回答する。",
+          "P0: 通常のSELECT COUNT(*)の行ロックなしと、MDL・資源負荷なしを区別する。INSERT SELECT等の危険な文形の説明は維持する。",
+          "P0: 未知表への最初のCOUNTにもSLOとI/Oの予算を要求する。共通の行数閾値や1000msの安全値を配布しない。",
+          "P1: TDE・列暗号化、幅広い行、LOB、小さい索引の有無を入口で分類し、未検証条件は隔離複製または所有者判断へ送る。",
+          "P1: 93を反映してメタ情報比較を更新する。NUM_ROWS未初期化を除外し、94は完了確認後に反映する。ANALYZEを別の保守操作として扱う。",
+          "P1: 実行・監視・停止・復旧・同時実行制御の責任者をサービスごとに固定する。レプリカ停止は所有者の運用に限定する。",
+          "P2: 入口の短い手順と詳細な根拠を分け、結果に対象、取得先、時点、方式、精度の位置付け、完了状態を添付する。"
+        ]
+      }
+    },
+    "results/reviews/sol-sampling-review.json": {
+      "betterAlternatives": [
+        {
+          "additionalAssumptions": "現在と同じ独立・一様抽出、固定スナップショット、0<=X<=Wでよい。セル行数が二値である仮定は不要。",
+          "calculatedBenefit": "完全密集で512回すべて満杯、最初のalpha=0.025なら、相対誤差上限は丸め前で約0.860%。現行の約7%より狭く、同じ判定時点で3%へ届く可能性がある。密度0.0001で標本平均が真の平均と一致する場合も、最終alphaを固定した計算では必要回数は約1.427億回へ減るが、依然として小標本ではない。",
+          "costAndLimits": "区間反転と数値誤差の扱い、境界ケースの検証が必要。空標本の上限も正になる。追加SQLは不要で、早期達成による問い合わせ削減を期待できるが、実行時間やサービス安全性は未計測。",
+          "derivation": "Z=X/Wとすると、0<=Z<=1よりexp(lambda*Z)<=1-Z+Z*exp(lambda)。これを期待値へ適用してBernoulli型のMGF上限を得て、両側のKL境界を反転できる。判定ごとのalpha配分は維持する。",
+          "id": "SOL-SAMP-ALT-BOUNDED-KL",
+          "method": "同じ有界セル標本に対するChernoff/KL境界の反転",
+          "winsWhen": "セルがほぼ満杯、ほぼ空、または占有密度が低く、現在の二乗レンジ依存のHoeffding境界が過度に広い場合。"
+        },
+        {
+          "additionalAssumptions": "固定された全セル集合から既知の確率で非復元抽出する。独立標本用の現行式をそのまま流用しない。",
+          "costAndLimits": "抽出済みセル管理と有限母集団の境界実装が必要。全セルを数えれば正確だが、多数の範囲SQLより1文COUNTの方が安い可能性がある。問い合わせ削減と安全性向上を同一視しない。",
+          "id": "SOL-SAMP-ALT-WITHOUT-REPLACEMENT",
+          "method": "セルの非復元抽出と有限母集団用の区間",
+          "winsWhen": "セル数が小さいか、標本数がセル数へ近づき、復元抽出の重複が多い場合。"
+        },
+        {
+          "additionalAssumptions": "層は全領域を重複なく覆い、各層のセル数・抽出確率・行数上限を把握する。未抽出層を0件にしない。",
+          "costAndLimits": "層別推定と区間・alphaの統合が必要。層の探索自体が走査を要するなら利点が失われる。98は現状この方式を実装していない。",
+          "id": "SOL-SAMP-ALT-EXPLICIT-STRATA",
+          "method": "既存パーティション等を使う明示的な層化",
+          "winsWhen": "セル一様抽出が見落としやすい密集域を、事前に定義した構造で分離できる場合。"
+        },
+        {
+          "additionalAssumptions": "既存複製またはバックアップの時点を許容し、共有ストレージ・読み取りサービス・鍵への影響を所有者が確認できる。",
+          "costAndLimits": "全域走査と準備費用は残る。サンプリングより速いとは限らないが、任意のキー分布に対する精度未達を避けられる。",
+          "id": "SOL-SAMP-ALT-ISOLATED-COUNT",
+          "method": "許容時点の隔離複製で正確なCOUNT",
+          "winsWhen": "疎なキー領域、適用不可の主キー、厳密な数%要件、primaryで試行する余力がない場合。"
+        }
+      ],
+      "decision": "rejected",
+      "engineerQuestions": [
+        {
+          "answer": "違う。前提を満たした独立抽出の繰り返しについて区間が真値を含む保証で、個々の結果の絶対保証ではない。target_reachedの意味と信頼度を一緒に返す必要がある。",
+          "question": "95%なら、今回の値は必ず±3%なのですか。"
+        },
+        {
+          "answer": "よくない。欠番や密集域の見落としに対して安全に精度未達を返せるが、少数の問い合わせで精度達成する保証はない。",
+          "question": "整数主キーなら、欠番がどれだけあっても8192回でよいのですか。"
+        },
+        {
+          "answer": "再現性と確率保証は別。seed=1の8192回で選ばれるセルを後から密集域にした純粋計算では、真値1,631,400行に対して2億行と推定する例を構成できた。これはデータと抽出が独立という前提を破った例で、境界定理そのものへの反例ではない。",
+          "question": "固定seedなら再現できるので、精度も保証できますか。"
+        },
+        {
+          "answer": "違う。現在の方式は範囲COUNTを同じトランザクションで繰り返すため、対象表のMDLと読み取りビューは終了まで保持する。レプリカのDDL適用も待たせ得る。",
+          "question": "範囲COUNTは100msなので、DDLやundoへの影響も短いのですか。"
+        },
+        {
+          "answer": "行数上限は推定のための論理上限。読むページ数、TDEの復号、MVCCの旧版確認、削除済みレコード、ランダムI/Oの費用の上限ではない。",
+          "question": "暗号化された100列表でも、1セル200行なら安いのですか。"
+        },
+        {
+          "answer": "未計測。密な小さめの表では同じセルを繰り返し数え、全件COUNTより高価になり得る。広い表でも、少ない読取量と短い実行時間は同じではない。",
+          "question": "全件COUNTより何倍速いのですか。"
+        },
+        {
+          "answer": "最後の宣言済み判定の区間として、標本数と失敗状態を明示するなら参考にできる。精度未達やquery_failedを精度成功として扱わない。未配分の停止時点で区間を作り直さない。",
+          "question": "予算終了時に残っている区間を使ってよいですか。"
+        },
+        {
+          "answer": "そのままでは保証できない。対象表・再実行を含む信頼度予算と、取得時点・移行中の所有先・未完了対象を別に管理する。",
+          "question": "100シャードそれぞれ95%なら、合計も95%ですか。"
+        }
+      ],
+      "findings": [
+        {
+          "category": "implementation",
+          "counterexample": "決定的な時計とCOUNT応答だけを与えた検証で、8192回目の開始時89.99秒、完了時90.2秒とすると、max_seconds=90でもstatus=target_reachedが返った。",
+          "evidence": [
+            "全体予算は各COUNT前にしか確認されず、COUNT後・成功判定前には確認されない。",
+            "適用可否を読む2つのメタ情報クエリは計時開始とセッション上限設定より前。",
+            "セッション設定とSTART TRANSACTIONはtryの外にあり、その失敗は構造化されたquery_failedにならない。",
+            "600回で予算終了した場合、トップレベルdraws=600に対して返却区間は512回目のもの。600回目のクエリ失敗ではトップレベルdrawsも512のまま。",
+            "exact_emptyのsecondsはfinallyのROLLBACKより前に計算される。"
+          ],
+          "id": "SOL-SAMP-DEADLINE",
+          "impact": "精度達成と負荷予算達成を同じ成功として扱えない。実行回数、区間の基準標本数、終了処理を含む経過時間も混同しやすい。これは区間式の誤りではない。",
+          "requiredCorrection": "接続・事前確認を含める予算範囲を明示し、最初の問い合わせから期限を扱う。COUNT完了後と最終判定時にも期限を確認し、accuracyStatusとbudgetStatusを分けるか、予算超過を成功扱いしない。attempted/completed drawsとlast_valid_checkpoint_drawsを分離し、終了処理の失敗も記録する。予定外の停止時点で区間を再計算するなら、その判定にもalphaを割り当てる。監視によるサーバー終了確認を備えない現実装を、厳密な90秒停止機構とは説明しない。",
+          "section": "bench/samplinglib.py:31-40,49-70",
+          "severity": "middle"
+        },
+        {
+          "category": "documentation",
+          "counterexample": "主文書だけを読んだUUID主キーの担当者や100シャードの担当者は、新方式の適用不可条件、1回ごとの信頼度と全対象の同時信頼度の違い、整数主キーでも疎な場合にはほぼ精度達成不能なことを判断できない。",
+          "evidence": [
+            "新方式について本文にあるのは、一般的な『確率的・層化サンプリング』の表項目と未計測の注記が中心。",
+            "単一整数主キー、同一スナップショット、セル一様復元抽出、Hoeffding境界、宣言済み判定、target_reached以外の意味への具体的なリンクがない。",
+            "98はセルを一様復元抽出する方式であり、各層へ標本を割り当てる層化実装ではない。",
+            "既定8192回、100ms、90秒がラボ値であることと、スナップショット中のMDL/undo費用は新方式の説明として見つけられない。"
+          ],
+          "id": "SOL-SAMP-DOC-CONTRACT",
+          "impact": "従来の『統計では数%を保証できない』への回答は改善したが、追加した独立精度経路を評価するための条件が読者へ伝わらない。未実験の方式が、単に範囲を少し数える低負荷手法として伝わる余地がある。",
+          "requiredCorrection": "本番既定手順へ昇格させず、『検証中の整数キー・セル標本』として実装と詳細仕様へリンクする。適用条件、抽出単位と式、信頼度と実現誤差の違い、失敗ステータス、疎な領域での限界を記す。MIN/MAXから終了までMDLと読み取りビューを保持すること、8192回のランダム範囲COUNTが全件COUNTより高価になり得ること、複数表・再実行には別のalpha設計が必要なことを明記する。",
+          "section": "docs/table-count-guideline.md:13-20,119-121,150-155",
+          "severity": "middle"
+        },
+        {
+          "category": "documentation",
+          "counterexample": "主文書では適用中のレプリカCOUNTを通常経路と説明する一方、詳細フローを使う担当者は『書き込みの負荷を避けるなら適用を止めたレプリカ』へ進む。MDL待ちでは『間を置いて最初から』を自動再試行として実装する余地もある。",
+          "evidence": [
+            "詳細文書88行は書き込み負荷回避のための適用停止を案内している。",
+            "69・71行のフローには、再試行の回数・全体予算・所有者判断がその場で示されていない。",
+            "867行はDDL実行中・予定ありを『始めない。分割のみ』とし、実行中DDLへ分割だけは開始できるか曖昧。",
+            "872行は遅延レプリカの代替としてprimary分割を挙げる。鮮度不足だけでprimaryへ自動移行する根拠にはならない。",
+            "冒頭には主文書の条件に従う注意があるため、無条件実行を明示しているとは判定していない。"
+          ],
+          "id": "SOL-SAMP-EVIDENCE-DRIFT",
+          "impact": "主文書で改善した停止・取得先の判断が、SQLをコピーする詳細文書で弱まる。新方式の長いスナップショットをレプリカへ置く場合も、DDL適用と読み取りサービスを待たせる可能性は残る。",
+          "requiredCorrection": "通常は適用中の余力あるレプリカを使い、適用停止は時点固定等を所有者が必要と判断した別運用とする。再試行は明示した回数・累積予算・停止フラグの下だけに限定する。DDLが既に競合しているときの分割開始や、鮮度不足からprimaryへの自動移行を案内しない。",
+          "section": "docs/table-count-evidence.md:69-71,88,867,872",
+          "severity": "middle"
+        },
+        {
+          "category": "experiment-design",
+          "counterexample": "sample_then_countの回でも、同じ表について先に正解COUNTを実行し、前の反復も残っている。したがって初回の未知・低キャッシュ状態を代表しない。全sampling runがquery_failedでも、ループを完了すればcomplete=trueとなり得る。",
+          "evidence": [
+            "最初の真値COUNTは全ケースでsamplingより前。順序交替はその後の比較だけ。",
+            "固定5seed、無サービス負荷、2列の合成表であり、50〜100列・同時更新・DDL適用・回復期の対照はない。これらの一部はlimitationsで正しく開示している。",
+            "query_failed等はステータスとして保存されるので、実装が直接精度成功へ書き換えているわけではない。",
+            "lab.rbは実プロセスの数値終了コードを保存せず、status.success?の真偽だけを記録する。",
+            "終了時点で98の結果・ログ・ステータスは存在しない。"
+          ],
+          "id": "SOL-SAMP-98-COMPARISON",
+          "impact": "静的なローカル比較としては有用だが、初回速度、本番低影響、TDEの倍率、95%被覆の実証には不足。実験完了と精度達成を分けて集計する必要がある。",
+          "requiredCorrection": "今回の98は現在の制約付き比較として扱う。完了後は各statusの内訳、精度達成率、実現誤差、区間幅、読取量を併記する。completeは実験の完了だけを意味すると明示し、想定外のquery_failedは別途異常として報告する。結果を採用する前に完全ログ、数値終了コード、実装SHA、後始末の終了記録を保存する。全実行でtarget_reachedを要求する必要はない。",
+          "section": "bench/requested/98-stratified-sampling.py:43-73; lab.rb:70-76,154-162",
+          "severity": "low"
+        }
+      ],
+      "guidelineSha256": "077d95ae1dc88a8fe24f239b9a425128e6b0c62fc965b6c894afeed60470158a",
+      "limitations": [
+        "DB、Docker、実験を実行していない。性能・暗号化負荷・タイムアウトのサーバー実動作・DDL競合は未計測。",
+        "Hoeffding 1963およびBentkus 2004の原文を今回取得・再確認していない。式は有界独立標本の境界とunion boundの数理構成として検討した。文献固有の追加主張はしていない。",
+        "70桁Decimalによる演算は高精度だが、全入力に対する超越関数の区間演算証明ではない。relative_error_boundのfloat化も厳密な閾値比較としては改善余地がある。既定3%を丸めだけで誤達成する具体例は構成していない。",
+        "固定seed、少数の合成分布、有限列挙は、未知の本番データに対する実現誤差の絶対保証を与えない。",
+        "数値のうち標本数・区間幅・確率・延べ行数は独立した数理計算であり、resultsに保存された性能実測値ではない。",
+        "98のcomplete=trueはまだ実際には観測していない。コード上の実験完了と精度達成の区別を評価したもので、未実行結果を成功または失敗と認定していない。",
+        "現行MySQLサポート対象版と全既存実験の再監査は今回の範囲外。MATRIXの外部公式照合は未実施。",
+        "途中のヒアドキュメントは一時ファイル作成拒否で終了コード1、存在しない検索対象を含んだrgは終了コード2だった。必要な読み取りは一時ファイルを使わない代替で完了し、これらの失敗を合格根拠にしていない。",
+        "対象3ファイルの開始・終了ハッシュは一致した。主文書以外の全補助ファイルについて、レビュー中の不変性を保証したものではない。"
+      ],
+      "mathematicalAssessment": {
+        "boundsAndStopping": {
+          "alphaSpending": "既定3判定のalphaは0.025、0.008333…、0.004166…、合計0.0375。判定間の独立性を要求せず、union boundで全判定の同時被覆を少なくとも0.9625にできる。データに依存する停止をしても、この宣言済み判定集合から選ぶ限り保証を維持する。",
+          "assessment": "独立・一様抽出と固定された表・セル分割の前提下で、式とalpha配分は整合する。",
+          "derivation": "一意整数キーなら0<=X_i<=W。両側Hoeffding境界の行数マージンはC*W*sqrt(log(2/alpha_k)/(2n))で、実装と一致する。",
+          "qualification": "これは抽出の繰り返しに関する確率的保証であり、今回の実現誤差が必ず3%以内という絶対保証ではない。複数表・再実行をまとめた保証には、別途その集合全体へのalpha配分が必要。",
+          "relativeError": "同時被覆事象上でN>=L>0なら、abs(N_hat-N)/N<=max(N_hat-L,U-N_hat)/L。実装の真値に対する相対誤差への変換は保守的で正しい。L=0では保証しない処理も適切。",
+          "rounding": "下限のfloor、上限のceilは整数区間を外側へ広げる。真値の上限Dとの交差も有効。Python整数とDecimalを用いるため、符号付き・符号なしBIGINT相当のキー領域計算に固定幅整数のオーバーフローはない。"
+        },
+        "samplingUnitAndWeights": {
+          "assessment": "固定標本数では正しい。",
+          "derivation": "キー領域の長さをD、セル幅をW、セル数をC=ceil(D/W)、各セルの可視行数をx_jとする。一様復元抽出なら各回のセル選択確率は1/Cで、E[X]=sum(x_j)/C=N/C。したがってN_hat=C*sum(X_i)/nは固定nで不偏。",
+          "earlyStopping": "停止後の点推定量まで不偏とは限らない。独立計算では、1000セル中500セルが占有、looks=(64,256)、target=0.9、alpha=0.05の場合、停止後推定値の期待値は約504.968行となった。真値500行との差は、停止時区間の被覆保証とは別問題。",
+          "inclusionProbability": "各行は所属セルが選ばれれば数えられる。n回で少なくとも一度数えられる確率は1-(1-1/C)^n。同じセル内の行は独立な行標本ではない。実装は復元抽出の平均を用いるため、この少なくとも一度の包含確率で除算する必要はない。",
+          "lastCell": "最後のセルが短くても、セルを等確率で選び、セル行数の平均へCを掛ければ正しい。最後のセルの行数を通常セル幅へ補正すると、逆に別の推定量になる。"
+        },
+        "smallSampleFeasibility": {
+          "assessment": "未知の任意の表へ、小標本で数%を一般保証する方式ではない。",
+          "calculations": [
+            "密な25万行・幅200では、既定512回の相対誤差上限は約7.000%、2048回は約3.797%、8192回は約1.980%。",
+            "密な25万行では8192回で延べ1,638,400行分、全件数の6.5536倍を数える。同じセルの再訪を含む論理行数であり、物理I/O倍率の実測ではない。",
+            "密度0.0001で標本平均が真の平均と一致しても、最終判定と同じalphaの境界で3%へ到達する目安は約3639億回。これは計算であり実行予測ではない。",
+            "98のislands形状では8192回すべて空セルとなる確率は約0.814812。その場合の現行境界は[0,194122859]で、精度未達を返す。空標本を0誤差としない点は正しい。"
+          ]
+        },
+        "snapshotAndApplicability": {
+          "assessment": "静的な98の合成表では前提と整合する。本番へ移すには追加の実行条件が必要。",
+          "conditions": [
+            "単一列の一意整数主キー。現実装はInnoDBかつ主キー名idだけに対応する。",
+            "専用接続でREPEATABLE READの整合スナップショットを開始し、MIN/MAXとすべての範囲COUNTを同じ読み取りビューで実行する。",
+            "途中コミット、再接続、接続先変更、異なる表世代への切替をしない。",
+            "適用可否を調べるメタ情報取得から最初の対象表アクセスまでのDDL競合を排除または検出する。",
+            "乱数系列を対象データと独立に選ぶ。固定seedの有限実験を、本番における抽出の独立性の証明にしない。"
+          ],
+          "edgeCases": "負のキー、最終セルの端数、64bit整数の全領域について整数演算を確認した。完全な空表は同一スナップショットのMIN/MAXからexact_emptyとできる。非整数、複合主キー、主キーなし等を拒否する方針は妥当。SQL側の境界値の型変換はDB未接続のため未検証。"
+        }
+      },
+      "priorReviewDisposition": [
+        {
+          "assessment": "冒頭で普遍的な数%・無影響の両立を否定し、参考統計と正確値を分離した点は改善済み。新方式の利用条件の説明はSOL-SAMP-DOC-CONTRACTとして残る。",
+          "id": "SOL-ROLLOUT-ACCURACY"
+        },
+        {
+          "assessment": "主文書はtail遅延、I/O、初回試行、回復まで要求しており改善済み。新sampling実装の期限処理は別途修正が必要。",
+          "id": "SOL-ROLLOUT-TRIAL-BUDGET"
+        },
+        {
+          "assessment": "TDEと列暗号化、索引と行幅を区別した説明は改善済み。幅広いTDE表の運用負荷は今回未認定。",
+          "id": "SOL-ROLLOUT-ENCRYPTED-WIDE"
+        },
+        {
+          "assessment": "主文書に権限・鮮度・未初期化の比較が追加された。今回、関連する全生JSONの再監査までは実施していない。",
+          "id": "SOL-ROLLOUT-METADATA-COMPARISON"
+        },
+        {
+          "assessment": "最初の取得手順へANALYZEを追加しないことが明確になり、文書上の要求は概ね満たす。",
+          "id": "SOL-ROLLOUT-ANALYZE-COST"
+        },
+        {
+          "assessment": "主文書の責任者、停止権限、共有資源制御、部分失敗の説明は改善済み。詳細文書の旧判断との不一致は残る。",
+          "id": "SOL-ROLLOUT-OPERATING-MODEL"
+        }
+      ],
+      "requestedExperiments": [
+        {
+          "decisionChangingResult": "時間予算超過を精度成功だけで返さず、区間の基準標本数と実行回数を区別できればSOL-SAMP-DEADLINEを解消できる。",
+          "executedByReviewer": "一部を独立した純粋計算で実施済み",
+          "id": "SOL-SAMP-EXP-PURE-BOUNDARIES",
+          "remainingWork": [
+            "端数セル、完全空表、全標本空、単一セル、負のキー、符号付き・符号なしBIGINT境界を保存可能な検証へまとめる。",
+            "整数型以外、複合主キー、主キーなし、id以外の主キーの適用不可結果を確認する。",
+            "期限直前・直後、最終判定直後、メタ情報取得失敗、ROLLBACK失敗をDBなしの決定的な検証で確認する。",
+            "相対誤差の比較は可能ならDecimalのまま行い、floatへの変換は表示用途へ限定する。"
+          ]
+        },
+        {
+          "decisionChangingResult": "静的なTDE合成表における方式比較として限定採用できる。本番低影響や任意分布への保証へは一般化しない。",
+          "executedByReviewer": false,
+          "id": "SOL-SAMP-EXP-98-OWNED-COMPLETION",
+          "ownerInstruction": "既存の実験所有者が96/97等との競合を解消した後、既存の98を一度だけ実行する。レビューから重複起動しない。",
+          "requiredEvidence": [
+            "全ケース・全seedのstatus、判定標本数、最終有効区間、真値との差、読取カウンタ。",
+            "実装SHA、完全ログ、実プロセスの数値終了コード、後始末完了。",
+            "実験完了、精度達成、予算達成の独立した集計。"
+          ]
+        },
+        {
+          "decisionChangingResult": "精度だけでなく実行・回復予算を満たした構成に限って候補化する。満たさなければprimary経路から外す。98単独の合格条件にはしない。",
+          "executedByReviewer": false,
+          "id": "SOL-SAMP-EXP-OPERATING-COST",
+          "ownerInstruction": "新方式を本番候補へ進めたい場合だけ、既存実験の終了後にcompose内で計画する。",
+          "requiredComparisons": [
+            "サービス負荷のみ、上限付き全件COUNT、現行セル標本、採用するならKL境界版を同じ予算で比較する。",
+            "読み取り索引がバッファプールを超えるTDE表、小さい二次索引の有無、50〜100列相当の保存幅、索引へ触れる更新を含める。",
+            "p95/p99、エラー、CPU、I/O、MDL、HLL、終了後の回復、レプリカDDL適用待ちを観測する。",
+            "キャッシュ条件と順序を記録し、正解COUNTの事前実行を隠さない。"
+          ]
+        }
+      ],
+      "reviewEvidence": [
+        {
+          "check": "開始時の3ファイルのSHA256",
+          "command": "shasum -a 256 docs/table-count-guideline.md bench/samplinglib.py bench/requested/98-stratified-sampling.py",
+          "completeLogPath": null,
+          "finalExitCode": 0,
+          "id": "SOL-SAMP-EVIDENCE-HASH-START",
+          "result": "入力マニフェストの3ハッシュと一致。",
+          "toolTranscriptChunk": "2ad1cf"
+        },
+        {
+          "check": "セル分割・重み・境界・空標本の独立計算",
+          "completeLogPath": null,
+          "finalExitCode": 0,
+          "id": "SOL-SAMP-EVIDENCE-PARTITION",
+          "qualification": "samplinglibのbounds関数だけをASTで抽出。lablibやDBモジュールの接続処理は実行していない。有限列挙は一般定理の証明ではない。",
+          "results": {
+            "dense8192RelativeBound": 0.019796285494009715,
+            "enumeratedPartitionCases": 2008,
+            "islands8192EmptyProbability": 0.8148123480507017,
+            "signedAndUnsignedDomain": "18446744073709551616",
+            "width200FinalCellWidth": 16
+          },
+          "toolTranscriptChunk": "b7fe98"
+        },
+        {
+          "check": "DBなしの決定的な問い合わせ応答・時計による制御フロー計算",
+          "completeLogPath": null,
+          "finalExitCode": 0,
+          "id": "SOL-SAMP-EVIDENCE-DEADLINE",
+          "results": {
+            "budgetAfter600": {
+              "lastCheckpointDraws": 512,
+              "reportedDraws": 600,
+              "status": "budget_exhausted"
+            },
+            "empty": {
+              "countCalls": 0,
+              "status": "exact_empty"
+            },
+            "errorAt600": {
+              "reportedDraws": 512,
+              "status": "query_failed"
+            },
+            "overrun": {
+              "maxSeconds": 90,
+              "seconds": 90.2,
+              "status": "target_reached"
+            },
+            "rollbackCalledInAllFourCases": true
+          },
+          "toolTranscriptChunk": "ced924"
+        },
+        {
+          "check": "二値セル母集団の有限二項列挙",
+          "completeLogPath": null,
+          "finalExitCode": 0,
+          "id": "SOL-SAMP-EVIDENCE-STOPPING",
+          "qualification": "有限の全標本数の列挙と浮動小数点による確率和。停止後の不偏性を反証し、調べた条件で被覆を確認した。任意分布の被覆率を実証したとは扱わない。",
+          "results": {
+            "familyAlpha": 0.05,
+            "looks": [
+              64,
+              256
+            ],
+            "maximumAnyLookMissProbability": 0.00448982222416786,
+            "maximumStoppedIntervalMissProbability": 0.0021018047521904923,
+            "probabilitiesExamined": [
+              0.001,
+              0.1,
+              0.5,
+              0.9
+            ],
+            "target": 0.9,
+            "true500ExpectedStoppedEstimate": 504.9680083824626
+          },
+          "toolTranscriptChunk": "e19d6d"
+        },
+        {
+          "check": "固定seed反例と有界KL境界の計算",
+          "completeLogPath": null,
+          "finalExitCode": 0,
+          "id": "SOL-SAMP-EVIDENCE-ALTERNATIVE",
+          "result": "固定seedとデータの独立性が必要なことを示す構成例、およびKL代替案の標本数・区間幅を計算。",
+          "toolTranscriptChunk": "0a42d4"
+        },
+        {
+          "allMatch": true,
+          "check": "終了時に初期値・マニフェスト・実ファイルを再照合",
+          "completeLogPath": null,
+          "finalExitCode": 0,
+          "id": "SOL-SAMP-EVIDENCE-HASH-END",
+          "samplingLogExists": false,
+          "samplingResultExists": false,
+          "samplingStatusExists": false,
+          "sha256": {
+            "bench/requested/98-stratified-sampling.py": "59664b1ac3876ffd2f4bf333a37dac3d90f6400bcc00a46826dec62364c5eacc",
+            "bench/samplinglib.py": "e0da0e25bbfbf66e9b1a5359a9bb62745f48c424491f63409de6cd05ddb2350d",
+            "docs/table-count-guideline.md": "077d95ae1dc88a8fe24f239b9a425128e6b0c62fc965b6c894afeed60470158a"
+          },
+          "toolTranscriptChunk": "54cf0d"
+        },
+        {
+          "completeLogPath": null,
+          "existingRielaLogPath": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sol-sampling-run.log",
+          "id": "SOL-SAMP-EVIDENCE-LOG-LIMITATION",
+          "qualification": "読み取り専用のため検証ログを新規保存していない。完全な計算標準出力と最終終了コードは上記tool transcriptにある。既存Rielaログは進捗イベントであり、完全なコマンドログとは認定しない。したがって永続化された完全ログを要件とする合格検証としては扱わない。"
+        }
+      ],
+      "reviewScope": {
+        "decisionBasis": "数理上の基本構成は妥当。未解決のmiddleは、時間予算の扱い、実験方式の説明不足、詳細文書と主文書の運用判断の不一致。未実行であることだけを棄却理由にはしていない。",
+        "evidenceCutoff": "終了時にも98の結果JSON・実行ログ・終了ステータスは存在しなかった。96/97の進行中実験へ干渉せず、その結果を本レビューの実測根拠には使用していない。",
+        "execution": "読み取り、ハッシュ照合、DBアクセスを含まない数理計算と決定的な制御フロー検証だけを実施。ファイル編集、DB接続、Docker操作、負荷生成、workflow起動、委譲は実施していない。起動したコマンドはすべて終了済み。",
+        "primaryFiles": [
+          "bench/samplinglib.py",
+          "bench/requested/98-stratified-sampling.py",
+          "docs/table-count-guideline.md"
+        ],
+        "purpose": "件数・内容が不明な巨大MySQL表について、サービスへの影響を抑えて数%精度の概数を得るための独立した敵対的レビュー。",
+        "supportingFiles": [
+          "docs/table-count-evidence.mdの関連箇所",
+          "results/reviews/sol-sampling-input.json",
+          "results/reviews/sol-internal-rollout-review.json",
+          "bench/lablib.py",
+          "lab.rb",
+          "bench/requested/98-stratified-sampling.versions",
+          "bench/requested/98-stratified-sampling.encrypted"
+        ]
+      },
+      "rolloutRecommendation": {
+        "allowedNow": "研究・検証資料として共有できる。精度保証のない参考統計の取得も、その限界を明示して案内できる。",
+        "experimentalStatus": "98未実行は未完として維持する。実測値を示さず検証候補として紹介するだけなら、普遍的な安全性を証明するための追加実験を公開条件にしない。",
+        "minimumCorrections": [
+          "SOL-SAMP-DEADLINEの期限処理と結果契約を修正する。",
+          "検証中の方式として適用条件・確率保証・精度未達・運用費用を文書化する。",
+          "詳細文書の適用停止、再試行、DDL競合、primaryへの移行条件を主文書へ揃える。"
+        ],
+        "notApproved": "現状の新sampling実装を『未知の巨大表へ数%精度を低負荷で得る社内共通手順』として配布すること。",
+        "productionGate": "実行先、時点、対象集合、精度、信頼度、停止・回復予算を所有者が定義し、該当構成の結果を確認してから限定採用する。"
+      }
+    },
+    "results/reviews/sol-validation-review.json": {
+      "betterAlternatives": [
+        {
+          "benefit": "統計の参考値、信頼区間付き推定、正確COUNT、未完了を混同しない。数値が得られても精度または負荷が未達なら、その状態を保持できる。",
+          "conditions": "共通の安全行数閾値は設けず、取得先と所有者の予算で分岐する。",
+          "method": "取得結果を値・対象時点・精度状態・負荷状態の組で返す"
+        },
+        {
+          "benefit": "任意のキー分布に対する標本設計が不要。",
+          "conditions": "通常COUNTに適用停止は必須ではない。共有I/O、replicaのSLO、適用遅延、復元時点と鍵アクセスを別に確認する。復元全体の費用は未計測。",
+          "method": "許容時点を満たす既存の専用replicaまたは隔離復元先で正確COUNT"
+        },
+        {
+          "benefit": "頻繁な件数取得で繰り返し全域を読む費用を避けられる。",
+          "conditions": "初期絶対件数と差分位置を結び、削除・TRUNCATE・移行・重複排除を扱える場合だけ。単なる操作回数差分は使わない。",
+          "method": "既存の整合したカウンタ・基準件数とCDCを優先する"
+        },
+        {
+          "benefit": "平文内容や密度の事前知識に依存せず、空標本でも広い区間を返せる。",
+          "conditions": "現98は層化割当の実装ではなくセル一様復元抽出。精度未達を許す契約とsnapshot費用が必要。Empirical Bernstein候補は純粋計算段階で、実DBへ組み込み済みと扱わない。",
+          "method": "条件を限定した整数キーのセル標本を検証候補として保持する"
+        }
+      ],
+      "claimEvidenceMap": [
+        {
+          "claim": "参考統計の入口としてexpiry=0のTABLE_ROWSを採用する",
+          "confounders": "同じ統計への依存、取得順、先行COUNTによる表アクセス、静かな合成fixture。",
+          "evidence": [
+            "results/requested_metadata_accuracy_initial.json: summary_before_analyze",
+            "results/requested_metadata_accuracy.json: summary_before_analyze、summary_after_analyze",
+            "results/requested_metadata_on_replica.json: privileges、waits_on_primary"
+          ],
+          "requiredCorrection": "初回観測の履歴保存と詳細側の状態説明を揃える。",
+          "scope": "参考値を取得する入口として有用。精度保証や全環境の無待機を意味しない。",
+          "status": "supported"
+        },
+        {
+          "claim": "未知の任意InnoDB表で既存統計だけから誤差数%以内を保証できる",
+          "confounders": "標本誤差、行サイズ偏り、統計鮮度、未コミット変更。58表の観測分布は本番成功確率ではない。",
+          "evidence": [
+            "results/requested_metadata_accuracy_initial.json: uneven_row_sizesの38.731%",
+            "results/requested_metadata_accuracy.json: afterの最大23.123%"
+          ],
+          "requiredCorrection": "『小さく推定されたからCOUNT許可』を復活させない。校正・既存件数管理・限定sampling・隔離先COUNTの条件を示す。",
+          "scope": "主文書が保証を否定している結論は支持する。数%要件そのものを満たす汎用の低負荷手段は未確立。",
+          "status": "invalid"
+        },
+        {
+          "claim": "全件数は通常COUNT(*)を標準とし、COUNT(1)変更による高速化を前提にしない",
+          "confounders": "92の終了コード不明、キャッシュと実行順。NULL可列のCOUNTは別の値。",
+          "evidence": [
+            "results/requested_wide_form_order.json: 64測定",
+            "results/matrix_*.json: locks",
+            "results/lock_factors.json: statement、isolation、record_locks"
+          ],
+          "requiredCorrection": "92を実行合格に数えず、RR/RCの通常読み取りとSERIALIZABLEトランザクションを区別する。",
+          "scope": "意味・仕様と形式選択の結論。すべての実測時間が同一という証明ではない。",
+          "status": "supported"
+        },
+        {
+          "claim": "TDE表でも復号式を加えずCOUNTできる",
+          "confounders": "正常な鍵・表領域が前提。列暗号化やストレージ暗号化の性能比較ではない。",
+          "evidence": [
+            "results/requested_encrypted_count_<version>.json: count_default、plain_count_record_locks",
+            "results/requested_encrypted_wide_50.json: 完了したCOUNT腕"
+          ],
+          "requiredCorrection": "暗号化方式と正常に表を開ける前提を維持する。",
+          "scope": "全件COUNTに値の内容解釈が不要という意味。",
+          "status": "supported"
+        },
+        {
+          "claim": "91からTDEの一律速度倍率や同一resident状態の追加コストが分かる",
+          "confounders": "plainとencのBP再読取量が異なる。作成順、dirty状態、ホストキャッシュ、鍵状態の同等性が不足。",
+          "evidence": [
+            "results/requested_encrypted_count_9.7.4.json: count_single_threadのwarm bytes",
+            "results/requested_encrypted_count_26.10.0.json: count_force_secondaryのwarm bytes"
+          ],
+          "requiredCorrection": "因果的な倍率比較を捨てるか、必要な1条件だけ再検証する。",
+          "scope": "正常終了した観測資料としては使える。3列から50/100列の倍率へ一般化しない。",
+          "status": "invalid"
+        },
+        {
+          "claim": "小さい索引を優先し、PRIMARYも条件付き比較候補にする",
+          "confounders": "PK幅、MVCCクラスタ参照、飽和・持越し、索引/BP比、実行経路。",
+          "evidence": [
+            "results/requested_54-EXP-SOL-9.json: small_or_invisible_index.pages",
+            "results/requested_08-EXP-O6-WRITE-MIX-uniform-800.json: sections.arms",
+            "results/requested_encrypted_wide_50.json: 索引有無・write_mix"
+          ],
+          "requiredCorrection": "索引別bytes・実行時読取量を添える。未完のPRIMARY-SCALEを既成の結論にしない。",
+          "scope": "静かな小索引の有利さと、更新時に逆転する観測は使える。PRIMARY共通推奨やparallel度の共通設定は導けない。",
+          "status": "conditional"
+        },
+        {
+          "claim": "分割はMDL・snapshot保持を短くする候補である",
+          "confounders": "文間の更新、型・照合・NULL・非一意性、表世代変更。旧高負荷結果のmax_steps停止は方式固有の完走限界ではない。",
+          "evidence": [
+            "results/count_shapes_forms.json: Handlerとplan",
+            "results/requested_23-EXP-R5.json: sum、n_end、committed_changes",
+            "bench/countlib.py: split_count、split_statements"
+          ],
+          "requiredCorrection": "旧ステップ上限の完走率を暫定扱いのまま保持し、再試行と全体予算を明記する。",
+          "scope": "新規専用接続・autocommit・不変カーソル等の条件下。総I/Oをなくさず、一瞬の正確値にもならない。",
+          "status": "conditional"
+        },
+        {
+          "claim": "余力ある専用replicaを取得先候補とし、必要時のみ適用停止する",
+          "confounders": "同一VM・共有I/O、フィルター、統計誤差、適用時点、チャネル、ローカル変更。",
+          "evidence": [
+            "results/requested_metadata_on_replica.json: staleness、final_counts",
+            "results/requested_0c-EXP-S8-REPLICA-STOP-LONG.json: 復旧各節"
+          ],
+          "requiredCorrection": "通常COUNTと適用停止を詳細側でも分ける。GTID待ち0と元の適用状態を確認する。",
+          "scope": "replicaの可視状態の件数。primary現在値や物理隔離の無影響は保証しない。0cの限定復旧挙動は支持できる。",
+          "status": "conditional"
+        },
+        {
+          "claim": "共通の安全行数閾値はなく、初回COUNTにも負荷予算が必要",
+          "confounders": "サービスSLO、余剰帯域、索引/BP比、キャッシュ回復、同時実行。",
+          "evidence": [
+            "results/requested_encrypted_wide_50.json: 1秒中断とtrial遅延・bytes",
+            "results/requested_30〜37-EXP-R9-*.json: recovery.bp_miss_pct"
+          ],
+          "requiredCorrection": "詳細側のp50無影響表現と自動的に読める延長分岐を修正する。",
+          "scope": "主文書の判断原則を支持する。1000msや推定件数の安全係数を共通の許可値にはできない。",
+          "status": "supported"
+        },
+        {
+          "claim": "整数キーのセル標本で信頼区間を構成できる",
+          "confounders": "単一整数一意キー、同一snapshot、セル一様復元抽出、硬いセル上限、宣言済み判定時点、PRNGモデル。",
+          "evidence": [
+            "bench/samplinglib.py: bounds、sample",
+            "bench/sampling_bounds.py: confidence_band",
+            "results/requested_sampling_bound_design.json: analytical_validation_not_database_measurement"
+          ],
+          "requiredCorrection": "deadlineと状態契約を修正する。98未実行、Empirical Bernstein未統合を明示し、層化実装済みと呼ばない。複数表・再実行には別途alpha配分が必要。",
+          "scope": "条件下の数理候補。空標本上限とalpha配分は妥当な方向。疎な領域では区間が広く、低コスト・予算内・サービス無影響は未証明。",
+          "status": "conditional"
+        }
+      ],
+      "decision": "rejected",
+      "engineerQuestions": [
+        {
+          "answer": "追い出し走査後という意味に限定すべき。BPの完全排除も物理ストレージのcoldも証明していない。",
+          "question": "coldは何を冷やしたのか。OSやホストのキャッシュも冷たいのか。"
+        },
+        {
+          "answer": "作成順は固定で、実測のwarm読取量もplainとencで異なる。現在の値から暗号処理倍率は分離できない。",
+          "question": "先に作ったplain表だけ条件が違わないか。"
+        },
+        {
+          "answer": "特殊COUNTや並列経路ではHandlerだけでは判断できない。計画、読取bytes、read-ahead、BP状態を併用する。PRIMARYのHandlerが空でも走査していない証拠にはならない。",
+          "question": "EXPLAINに出た索引を本当に読んだのか。Handlerが0なら読んでいないのか。"
+        },
+        {
+          "answer": "最終確認時点で100列JSONは7腕のpartial、completeと終了statusは未取得。50列の48腕は完了した。",
+          "question": "暗号化した100列を同じ負荷で試したのか。"
+        },
+        {
+          "answer": "収まらない。50列試験では1秒中断の腕で書込p99約1.2秒を観測し、回復・キャッシュへの影響も別に残る。",
+          "question": "1秒で止めればサービスへの影響も1秒分に収まるのか。"
+        },
+        {
+          "answer": "共通手順の合格根拠にはできない。約300件の書込標本とCOUNT後を含む窓であり、予定数欠落も検査する必要がある。",
+          "question": "3秒のp99でSLOを判断してよいか。"
+        },
+        {
+          "answer": "同じ統計への依存があり、独立な裏付けにならない。未初期化NUM_ROWSも除外する必要がある。",
+          "question": "TABLE_ROWSとNUM_ROWSとEXPLAINが一致したら数%以内か。"
+        },
+        {
+          "answer": "小さく出た理由を保証できないため、それだけでは進めない。初回試行にも所有者の負荷予算が必要。",
+          "question": "概数が小さければ正確COUNTへ進めてよいか。"
+        },
+        {
+          "answer": "同時更新とMVCC参照で逆転する。既存の逆転結果は特定のサイズ・高負荷条件であり、PRIMARYの全表共通推奨にはならない。",
+          "question": "小さい二次索引ならいつもPRIMARYより速いか。"
+        },
+        {
+          "answer": "フィルター、対象時点、取得先の統計誤差は別。GTID待ちは戻り値0を確認し、対象データの同一性も確認する。",
+          "question": "replicaの遅延0秒とGTID待ち成功があればprimaryの件数か。"
+        },
+        {
+          "answer": "整数一意キーのセル抽出と同一snapshot等の条件下では区間を構成できるが、疎な領域では精度未達になり得る。低コストと予算内完了は別の問題。",
+          "question": "samplingなら未知の内容でも95%信頼で3%に収まるのか。"
+        },
+        {
+          "answer": "現行のmtimeスキップではそう言えない。失敗statusと依存コード変更を検査するmanifestが必要。白紙allも未確認。",
+          "question": "miseで成功したなら全検証済みなのか。"
+        }
+      ],
+      "finalVerification": {
+        "checkedAt": "2026-11-07T01:59:58.835067+00:00",
+        "evidenceDocumentSha256": "e757f22df8c1be446e4acda274a65ca10f273a5a21546033d5de73b2ef535b8c",
+        "guidelineSha256": "077d95ae1dc88a8fe24f239b9a425128e6b0c62fc965b6c894afeed60470158a",
+        "manifestFilesChanged": 0,
+        "manifestFilesMatched": 12,
+        "mutableResults": "96は完了を確認。97は最終ハッシュ付きpartial 7腕。98は結果なし。これらの状態を超える完了は主張しない。",
+        "runningCommandHandlesOwnedByReviewer": []
+      },
+      "findings": [
+        {
+          "evidence": [
+            {
+              "field": "requested: statusのmtimeが対象.pyより新しければ無条件にnext。スキップしたstatusのokを最終判定へ含めない。reqwide.py、countlib.py、lablib.py、設定、versions/encryptedの変更も判定対象外。",
+              "file": "lab.rb"
+            },
+            {
+              "field": "ok=false。statusのmtimeは対象スクリプトより新しい。3e、3f、70の失敗statusも同じ条件。",
+              "file": "results/requested/12-EXP-6.status.json"
+            },
+            {
+              "field": "t_denseのactualはCOUNTではなくMAX(id)。内部の1行が欠けてもMAXが同じならlab_data_intactを通し得る。",
+              "file": "bench/verify_data.py"
+            }
+          ],
+          "id": "SOL-VALIDATION-RUN-CACHE",
+          "impact": "未解決の失敗や旧依存コードの結果を残したまま、後続のrequestedが成功に見える。白紙からのallではstatusが消えるため、この問題とは別に実際の全工程成功が必要であり、現在は確認されていない。",
+          "requiredCorrection": "成功した実行だけを再利用し、スキップした結果も最終合否へ含める。スクリプト・依存コード・設定・イメージ識別子・必須成果物のmanifestで再利用を判定する。MAX(id)を件数検証と表示しない。履歴を保持したうえで、最終コードの白紙allを所有された実行で一度確認する。",
+          "scenario": "失敗した追加実験の後に同じコマンドを実行する。または共通ライブラリだけ修正して再実行する。",
+          "section": "lab.rb requested、README.md 再現手順",
+          "severity": "high"
+        },
+        {
+          "evidence": [
+            {
+              "field": "threading.Timerのlambdaは実行時のs.thread_id()を参照する。Timerを保持・cancel・joinせず、直後にsを次の接続へ再代入する。",
+              "file": "bench/requested/12-EXP-6.py"
+            },
+            {
+              "field": "sections.session_limit_and_lost_hint.no_limit_killed_at_4sはok=true、ms=3923.54。その直後のCOUNTが1317で失敗し、section_errorsにsession_limit_and_lost_hintが残る。",
+              "file": "results/requested_12-EXP-6.json"
+            },
+            {
+              "field": "次のorder_itemsのCOUNTでQuery execution was interruptedが発生したトレース。",
+              "file": "results/requested/12-EXP-6.log"
+            }
+          ],
+          "id": "SOL-VALIDATION-TIMER-TARGET",
+          "impact": "検査対象外の次の腕をKILLし、時間上限や長時間成功の検証を失敗させる経路がある。既存記録はこの経路と整合するが、当時のKILL対象IDそのものは保存されていない。",
+          "requiredCorrection": "KILL対象IDをTimer作成前に固定し、接続を閉じる前にTimerをcancel/joinする。予定より早く完了する場合の純粋な検査を追加し、12番の失敗節だけを再検証する。",
+          "scenario": "4秒後にKILLする予定のCOUNTが4秒より少し前に完了し、次の接続へ変数sが再代入される。",
+          "section": "bench/requested/12-EXP-6.py session_limit_and_lost_hint",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            {
+              "field": "resetはresults/referenceとresults/reviews以外を削除する。",
+              "file": "lab.rb"
+            },
+            {
+              "field": "§2はresults/requested_metadata_accuracy_initial.jsonの54/58、最大12.152%、16.591%を引用する。",
+              "file": "docs/table-count-guideline.md"
+            },
+            {
+              "field": "生成先はrequested_metadata_accuracy.json。initial.jsonの保存処理はない。確認時点でresults/reference自体が存在しない。",
+              "file": "bench/requested/93-metadata-accuracy.py"
+            },
+            {
+              "field": "ok=trueだがprocess_exit_code=null。64組とafter-load 6件は存在する一方、標準保存先results/requested/92-wide-form-order.logは存在しない。",
+              "file": "results/requested/92-wide-form-order.status.json"
+            }
+          ],
+          "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+          "impact": "allを実行すると文書が引用する過去観測が消え、現行コードから同じ履歴ファイルを再生成できない。92も観測が揃ったことと実行成功が混同される。",
+          "requiredCorrection": "引用する過去観測をハッシュ付きの保持対象へ移し、新規実行と区別する。92はobservations_completeとprocess_exit_unknownを分け、合格チェックには数えない。64測定を観測資料として使うためだけに全実験をやり直す必要はない。",
+          "scenario": "READMEに従って白紙から再現し、その後ガイドラインの初回比較を開く。",
+          "section": "lab.rb reset、参考結果の保存、92の成功状態",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            {
+              "field": "evictを挟んで順序を交替するが、対象索引のBP滞在ページとdirty状態は測っていない。表の作成順はplain→encで固定。warmは単なる直後の再実行。",
+              "file": "bench/requested/91-encrypted-count.py"
+            },
+            {
+              "field": "count_single_thread.plain_warmは6回ともInnodb_data_read=0。enc_warmは6回とも約113MBを読む。count_force_secondaryも同様。",
+              "file": "results/requested_encrypted_count_9.7.4.json"
+            },
+            {
+              "field": "count_single_threadのplain_warmは0 bytes、enc_warmは約113MB。",
+              "file": "results/requested_encrypted_count_26.10.0.json"
+            },
+            {
+              "field": "pages_in_pool_after_evictは約5.9万〜6.1万ページ残る。DEFAULTの各形式は約1.91〜1.93GBを読み、時間範囲は大きく重なる。",
+              "file": "results/requested_wide_form_order.json"
+            },
+            {
+              "officialUrl": "https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html",
+              "verifiedContent": "innodb_flush_methodのUnix既定は対応していればO_DIRECT、それ以外はfsync。設定と実ストレージ層を区別する必要がある。"
+            }
+          ],
+          "id": "SOL-VALIDATION-TDE-CACHE",
+          "impact": "warmを同じBP状態と解釈すると、残留ページ・再読込の違いを暗号処理コストへ誤帰属する。これはTDE全体の挙動差を否定する指摘ではなく、原因を分離できていないという指摘。正常終了と因果比較の成立は別である。",
+          "requiredCorrection": "cold/warmを追い出し走査後/直後再実行など実際の操作名へ変更し、BP・VM/ホストキャッシュ・物理I/Oを区別する。現結果は読取量を伴う観測として保持し、暗号処理倍率には使わない。倍率を必要とする場合だけ、索引別滞在ページ・dirty状態・flush設定を確認した局所比較を追加する。",
+          "scenario": "91のwarm値から、バッファプール内でのTDE追加コストや暗号化の速度倍率を求める。",
+          "section": "91のcold/warm比較、詳細§11の公平比較という説明",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            {
+              "field": "_workload_main.workerは1スレッド1要求ずつ実行し、次の要求を開始するときにだけinflightへ登録する。停止時は現在のinflightだけをstuckとして記録する。",
+              "file": "bench/lablib.py"
+            },
+            {
+              "field": "windowは記録済みsamplesだけを分母にする。予定済み・未着手の残数やscheduled総数は返さない。",
+              "file": "bench/lablib.py"
+            },
+            {
+              "calculation": "50要求/秒の1 workerが最初の要求から10秒間停止すると、予定500件に対して記録されるstuckは1件。未着手499件を集計から落とす経路がある。DBを使わない予定数の計算。"
+            }
+          ],
+          "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+          "impact": "予定時刻起点の遅延は有用だが、終了時のbacklogを完全には保存しない。飽和条件でp99・エラー率・未完了率を過小評価し、無影響と誤判定し得る。非飽和で予定数と標本数が合う観測まで無効にする必要はない。",
+          "requiredCorrection": "測定終端までのscheduled、started、completed、failed、inflight、未着手backlogを保存して保存則を検査する。未完了は打切り観測または未達として別表示する。nの不足を成功扱いせず、負荷生成器の遅れとDB応答時間も分ける。",
+          "scenario": "DBや負荷生成器が滞り、予定時刻を過ぎたリクエストを処理し切る前に測定を終了する。",
+          "section": "bench/lablib.py Workload",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            {
+              "field": "§3には『サービス性能を落とさないと言えるのは、この負荷とストレージでp50についてだけ』という表現が残る。同節自身が対照範囲を超えるp50とtail判定不能を報告している。",
+              "file": "docs/table-count-evidence.md"
+            },
+            {
+              "field": "baseline=5秒、trial=3秒、recovery=7秒。COUNTは最大約1秒で、早く終わった後もtrialを3秒まで延ばす。サンプラーは1Hz。",
+              "file": "bench/reqwide.py"
+            },
+            {
+              "field": "secondary_index=true、write_mix=indexed、repeat=2、plain/countではstatement_seconds=1.004、timer_counter_delta=1、trial.write p50=635.61ms、p99=1218.09ms。同条件plain/controlのp99は6.88ms。各trialは約300書込標本。",
+              "file": "results/requested_encrypted_wide_50.json"
+            },
+            {
+              "field": "索引なしの1秒試行はtrial全体で約449〜600MBを読む。小さい索引・非索引列更新では6回のCOUNTが約0.051〜0.076秒で完了。",
+              "file": "results/requested_encrypted_wide_50.json"
+            }
+          ],
+          "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+          "impact": "時間上限で正常に中断できても、SLOを守れるとは限らない。3秒窓はCOUNT後の時間を含むため影響を薄め、少数のtail標本では安全性を判定できない。96の大きな悪化もTDE差の原因まで特定する証拠ではない。",
+          "requiredCorrection": "『無影響』を削除し、p50の限定観測とtail未判定を記す。96は短い上限でも大きな悪化を観測した反例として採用できる。SLO合格には実サービスの許容値、予定数保存、実COUNT区間と回復区間、対照との反復比較を使い、精度達成と負荷合格を別判定にする。",
+          "scenario": "範囲の重なりや短い窓のp99から、サービス性能に影響しないと判断する。",
+          "section": "詳細§3の性能表現、reqwide.pyの評価範囲",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            {
+              "field": "max_secondsはセルCOUNTの前だけで確認し、COUNT後のtarget_reached判定では再確認しない。適用可否メタ情報は計時開始前、設定とSTART TRANSACTIONはtry外。",
+              "file": "bench/samplinglib.py"
+            },
+            {
+              "calculation": "実装の関数をASTから取り出し、DB問い合わせと時計だけを置換した純粋な検査で、8192回目開始89.99秒・完了90.2秒、max_seconds=90でもtarget_reachedを返した。ROLLBACKは呼ばれた。"
+            },
+            {
+              "field": "budget_exhausted時のdrawsは最後の有効checkpointの標本数と異なり得る。終了処理失敗も独立状態として保存しない。",
+              "file": "bench/samplinglib.py"
+            }
+          ],
+          "id": "SOL-SAMP-DEADLINE",
+          "impact": "信頼区間の式が成立することと、負荷・時間予算を満たして完了したことが混同される。本番向けの厳密な90秒上限とは説明できない。",
+          "requiredCorrection": "予算の対象範囲を明示し、問い合わせ後・成功判定前にも期限を確認する。accuracyStatus、budgetStatus、cleanupStatus、completed_draws、last_valid_checkpoint_drawsを分ける。予定外の停止時点で区間を再計算するなら、その判定にもalphaを割り当てる。",
+          "scenario": "最後のセルCOUNTが全体予算の直前に始まり、予算を超えて返る。",
+          "section": "bench/samplinglib.py sample",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            {
+              "field": "通常は適用中replicaでCOUNTでき、適用停止は時点固定などの別運用とする。停止後の自動延長再試行も禁じる。",
+              "file": "docs/table-count-guideline.md"
+            },
+            {
+              "field": "詳細フローには『書き込みの負荷を避けるなら適用を止めたレプリカ』、MDL待ち後の『間を置いて最初から』、遅延replicaの代替としてprimary分割が残る。",
+              "file": "docs/table-count-evidence.md"
+            },
+            {
+              "field": "§11は92/93/94について『結果はまだありません』と記載する。§10のNUM_ROWS説明も初期化状態の条件を反映していない。",
+              "file": "docs/table-count-evidence.md"
+            },
+            {
+              "officialUrl": "https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html",
+              "verifiedContent": "ANALYZEはSTATS_INITIALIZEDをUninitializedにする。NUM_ROWSは未コミットDMLの影響も受け得る。"
+            }
+          ],
+          "id": "SOL-SAMP-EVIDENCE-DRIFT",
+          "impact": "主文書で狭めた安全条件が、実装時に参照する詳細側で弱まる。適用停止やprimaryへの切替を不要に誘発し、完了した検証の扱いも食い違う。",
+          "requiredCorrection": "詳細の分岐を主文書へ揃える。取得先変更・適用停止・再試行には所有者判断と累積予算を明記する。NUM_ROWSの初期化条件と92/93/94の実状態を更新する。追加DB実験は不要。",
+          "scenario": "主文書を読んだ後、コピー用SQLと判断フローから実装する。",
+          "section": "詳細§1、§7、実行時の状態一覧、§10〜11",
+          "severity": "middle"
+        }
+      ],
+      "guidelineSha256": "077d95ae1dc88a8fe24f239b9a425128e6b0c62fc965b6c894afeed60470158a",
+      "limitations": [
+        "稼働中のCompose環境には干渉していない。DB上の状態、実行中プロセス、物理I/Oを新たに観測していない。",
+        "最終コードのmise run allは未確認。既存の個別成功を全工程成功へ置き換えていない。",
+        "97はpartial、98は結果なし。査読後に更新されても本判定へ自動的には含まれない。",
+        "数値終了コードを保存しない通常statusについては、lab.rbの実装に基づく0相当と明示した。92の終了コード不明は補完していない。",
+        "本ターンのRielaログはresults/reviews/sol-validation-run.logにあるが、確認時点では実行中で完全ログではない。これを完了した検証の証拠にしていない。",
+        "物理隔離replica、ストレージ暗号化、クラウドKMS・停止API、数時間のundo、他チームとの同時実行の効果は未検証。共通の安全倍率を求めず、採用対象サービスの確認事項とする。",
+        "鍵ローテーションは成功結果とCOUNT時間があるが、0.2秒sleep以外に実際のSQL重複を証明する時系列はない。鍵不在・再起動の性能や復旧は未検証。",
+        "固定seedの有限fixtureは被覆保証の実証ではない。数理境界の成立条件と実行費用を分けて評価した。"
+      ],
+      "priorityFixes": [
+        {
+          "findingIds": [
+            "SOL-VALIDATION-RUN-CACHE"
+          ],
+          "fix": "失敗・旧依存コードの結果を成功へ混入させない。再利用manifestと全結果の合否集計を修正する。",
+          "priority": "P0"
+        },
+        {
+          "findingIds": [
+            "SOL-VALIDATION-TIMER-TARGET",
+            "SOL-VALIDATION-EVIDENCE-LIFECYCLE"
+          ],
+          "fix": "12のKILL対象とTimer寿命を固定する。引用履歴を保持し、92の観測完了と終了不明を分離する。",
+          "priority": "P1"
+        },
+        {
+          "findingIds": [
+            "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+            "SOL-VALIDATION-SERVICE-ACCEPTANCE"
+          ],
+          "fix": "予定数保存と未完了分類を実装し、短窓・p50から無影響を認定する表現を除く。",
+          "priority": "P1"
+        },
+        {
+          "findingIds": [
+            "SOL-SAMP-DEADLINE",
+            "SOL-SAMP-EVIDENCE-DRIFT"
+          ],
+          "fix": "samplingの精度・予算・後始末を分け、主文書と詳細の停止・再試行・replica分岐を揃える。",
+          "priority": "P1"
+        },
+        {
+          "findingIds": [
+            "SOL-VALIDATION-TDE-CACHE"
+          ],
+          "fix": "warm/coldと公平比較の表現を観測条件へ狭める。暗号処理倍率を述べる追加比較自体はP2でよい。",
+          "priority": "P1"
+        },
+        {
+          "fix": "進行中作業終了後に最終コードの白紙allを一度確認し、数値終了コード・完全ログ・成果物manifestを保存する。",
+          "priority": "P1"
+        }
+      ],
+      "requestedExperiments": [
+        {
+          "acceptanceCriteria": "失敗・依存変更は再利用されない。Timerは元の対象以外を参照しない。scheduled件数が完了・失敗・実行中・未着手の合計と一致する。",
+          "decisionChanged": "再実行成功と負荷標本数を検証根拠として扱えるようになる。",
+          "execution": "本査読では起動していない。",
+          "id": "SOL-EXP-HARNESS-PURE",
+          "minimumComparison": "失敗statusの再利用、依存ファイルだけ変更、Timer対象の早期完了と変数再代入、停止時の未着手予定数を、それぞれ決定的に検査する。",
+          "priority": "P0",
+          "scope": "DB不要の局所検査"
+        },
+        {
+          "acceptanceCriteria": "最終終了コード0、完全ログ、source/config manifest、必須成果物、失敗・skip・partial内訳、後始末とデータ検証が揃う。対象外へ移した実験は明示し、黙って飛ばさない。",
+          "decisionChanged": "再現可能という成果物要件の判定。",
+          "execution": "本査読では禁止条件に従い未実行。",
+          "id": "SOL-EXP-FINAL-REPRODUCTION",
+          "minimumComparison": "進行中実験終了後、履歴保存とハーネス修正を済ませ、最終コードの白紙mise run allを一度実行する。12番はTimer修正後の失敗節を先に確認する。",
+          "priority": "P1",
+          "scope": "既存Composeの所有された実行"
+        },
+        {
+          "acceptanceCriteria": "条件が同等でない組は暗号処理コストの比から除外する。ホストキャッシュと物理I/Oは未制御なら未制御とする。",
+          "decisionChanged": "TDE倍率を因果的に述べられるか。倍率を述べなければ追加実験を待つ必要はない。",
+          "execution": "未実行。全3版の全面再試験は要求しない。",
+          "id": "SOL-EXP-TDE-RESIDENCY",
+          "minimumComparison": "TDE倍率を報告する必要がある場合に限り、plain/encの作成順も交替した小比較を行う。対象索引のBP滞在ページ、dirty pages、bytes、read-ahead、flush設定を記録し、同等のresident条件と走査後条件を区別する。",
+          "priority": "P2",
+          "scope": "91の1版・1索引だけ"
+        },
+        {
+          "acceptanceCriteria": "予定数欠落がなく、エラー・未完了・SLO超過件数を報告する。原因を特定できなくても悪化を安全値から除外する。短窓p99だけで合格にしない。",
+          "decisionChanged": "1秒試行の具体的な影響と、96のplain/enc差をどう解釈するか。",
+          "execution": "未実行。既存96の大きな悪化は現時点でも反例として利用可能。",
+          "id": "SOL-EXP-WIDE-TAIL",
+          "minimumComparison": "負荷生成器の予定数保存を修正した後、無COUNTと1回だけの1000ms COUNTを3対比較する。COUNT実区間と回復を分け、baseline復帰または事前の観測上限まで記録する。",
+          "priority": "P1",
+          "scope": "96のplain・小索引あり・索引列更新100/秒の異常条件"
+        },
+        {
+          "acceptanceCriteria": "精度・予算・後始末を別判定し、非target_reachedを精度成功にしない。各seedの区間・実現誤差・読取量・問い合わせ数を保存する。既に真値COUNTをした比較はwarm条件と明記する。",
+          "decisionChanged": "数学的候補から運用可能な限定手段へ進めるか。5seedで95%被覆そのものを実証したとはしない。",
+          "execution": "本査読では98を起動していない。",
+          "id": "SOL-EXP-SAMPLING-CONTRACT",
+          "minimumComparison": "deadline前後、query失敗、ROLLBACK失敗、空標本、疎な島、端数セル、負のキーを純粋な検査で確認する。その後、既存98の実行主体が結果を取得する。",
+          "priority": "P1",
+          "scope": "samplingの純粋検査と既に計画された98"
+        }
+      ],
+      "reviewEvidence": [
+        {
+          "finalCheckedAt": "2026-11-07T01:59:58.835067+00:00",
+          "id": "EV-HASH",
+          "initialCheckedAt": "2026-11-07T01:54:08.133592+00:00",
+          "input": "results/reviews/sol-validation-input.json",
+          "result": "記載12ファイルは開始・終了確認とも一致。主文書・詳細・実装の入力ハッシュ変化なし。"
+        },
+        {
+          "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/91-encrypted-count.log",
+          "files": [
+            "results/requested_encrypted_count_8.4.13.json",
+            "results/requested_encrypted_count_9.7.4.json",
+            "results/requested_encrypted_count_26.10.0.json"
+          ],
+          "finalExitStatus": "ok=true。lab.rbのstatus.success?から終了コード0相当。数値コード自体は未保存。",
+          "id": "EV-91",
+          "logAssessment": "過去の失敗を含む追記ログ。末尾の3版の完了出力は現在のJSONと対応する。",
+          "statusFile": "results/requested/91-encrypted-count.status.json",
+          "usableEvidence": "同一DDL・行数・集計サイズでの観測、通常COUNTのrecord locks=0、INSERT SELECTの観測上限100000。warm条件の同等性は不成立。"
+        },
+        {
+          "completeLogPath": null,
+          "files": [
+            "results/requested_wide_form_order.json",
+            "results/requested_wide_form_order_after_load.json"
+          ],
+          "finalExitStatus": null,
+          "id": "EV-92",
+          "observations": "64個の異なるthreads/round/position組とafter-load 6件を確認。DEFAULT中央値はCOUNT(*)=2.565秒、COUNT(1)=2.0665秒、COUNT(id)=3.4085秒。",
+          "passingCheck": false,
+          "reason": "実プロセス終了コード未回収。標準の実験ログも存在しない。観測値の利用と実行合格を区別する。"
+        },
+        {
+          "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/93-metadata-accuracy.log",
+          "files": [
+            "results/requested_metadata_accuracy_initial.json",
+            "results/requested_metadata_accuracy.json"
+          ],
+          "finalExitStatus": "修正版statusはok=true、終了コード0相当。ログは旧版と修正版の追記。",
+          "id": "EV-93",
+          "observations": "初回のTABLE_ROWS数値は主文書と一致。修正版ではbeforeのexpiry0は55/58が5%以内、最大15.035%、afterは53/58、最大23.123%。afterのNUM_ROWSは54表がUninitializedで集計対象外。unevenの最大38.731%も確認。"
+        },
+        {
+          "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/94-metadata-on-replica.log",
+          "file": "results/requested_metadata_on_replica.json",
+          "finalExitStatus": "ok=true、終了コード0相当。",
+          "id": "EV-94",
+          "observations": "staleness、analyze_is_local、privileges、primary/replicaのDDL待ち、final_counts=[20000000,20000000]を確認。GTID待ちは実装が戻り値0を要求する。"
+        },
+        {
+          "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/0c-EXP-S8-REPLICA-STOP-LONG.log",
+          "file": "results/requested_0c-EXP-S8-REPLICA-STOP-LONG.json",
+          "finalExitStatus": "ok=true、終了コード0相当。section_errors=[]。",
+          "id": "EV-0C",
+          "observations": "旧実装は復旧報告14.2秒後に停止。修正版の短期限2回は未確認を返し、引継ぎ後に停止観測・再開・caught_up=0。長期限2回と元から停止中の対照も確認。final_running=Yes、final_catch_up=0。"
+        },
+        {
+          "checkedAt": "2026-11-07T01:59:58.835067+00:00",
+          "completed50": {
+            "arms": 48,
+            "complete": true,
+            "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/96-encrypted-wide-50.log",
+            "file": "results/requested_encrypted_wide_50.json",
+            "finalExitStatus": "status ok=true、終了コード0相当。",
+            "mtime": "2026-11-07T01:56:10.589554+00:00",
+            "sha256": "77eac5edf71a2261ab1d548940f4eefb34d16374c4408692a6ed660deccec49e",
+            "sourceSha256Matches": true
+          },
+          "id": "EV-96-97",
+          "mutability": "50列JSONは査読中に43腕から48腕・complete=trueへ変化した。100列は進行中スナップショットのメタ情報のみ採用し、完了結果として使っていない。",
+          "partial100": {
+            "armsAtSnapshot": 7,
+            "complete": false,
+            "completeLogPath": null,
+            "file": "results/requested_encrypted_wide_100.json",
+            "finalExitStatus": null,
+            "mtime": "2026-11-07T01:59:51.991426+00:00",
+            "passingCheck": false,
+            "sha256": "c3d347a613b87dfeaaed6873b4e8da3b966306955abdf5e5a9c0e76d7310d07a",
+            "sourceSha256Matches": true
+          }
+        },
+        {
+          "analyticalFile": "results/requested_sampling_bound_design.json",
+          "analyticalSha256": "5fbbd08762bae22015ee4f55e4cc27c37049fa71b596919eaf6c0290125e5d0b",
+          "completeLogPath": null,
+          "databaseExperiment": "98の結果・status・完全ログは最終確認時点で存在しない。",
+          "finalExitStatus": "純粋計算コマンドは終了コード0。",
+          "id": "EV-SAMPLING",
+          "logLimitation": "読み取り専用のため新規検証ログは作成していない。計算結果は本ターンのツール出力に残る。実DBのpassing checkには数えない。",
+          "passingDatabaseCheck": false,
+          "pureCalculationObservations": [
+            "sampling_bounds.pyの空標本上限5268、dense例の相対誤差境界0.02705256455を再計算して一致。",
+            "4種類の二項分布の区間外確率を全65通りで再計算し、保存値と一致。",
+            "samplinglibのdense例では512、2048、8192抽出の相対誤差境界が約7.00%、3.80%、1.98%。8192×200=1638400行分を重複込みで数えるため、25万行の全件COUNTより安いとは限らない。",
+            "時計・問い合わせを置換した検査で90秒予算超過のtarget_reachedを再現。"
+          ]
+        },
+        {
+          "filesAndFields": [
+            "results/count_shapes_forms.json: tuple/and_or/or_expandedのHandlerとplan",
+            "results/matrix_{8.4.0,8.4.13,9.7.0,9.7.4,26.10.0}.json: locks",
+            "results/lock_factors.json: plain_count、insert_summary_selectのRC/RR",
+            "results/requested_21-EXP-R8-a.json: sections.plans、sections.runs.runs",
+            "results/requested_30〜37-EXP-R9-*.json: recoveryのbp_miss_pctと遅延",
+            "results/requested_08-EXP-O6-WRITE-MIX-uniform-800.json: sections.arms、status、handler、write",
+            "results/requested_23-EXP-R5.json: sections.runs.runs",
+            "results/requested_54-EXP-SOL-9.json: small_or_invisible_index、key_span_sampling、performance_schema_deltas",
+            "results/requested_0a-EXP-O8-PKONLY-THREADS-large.json: build、runs",
+            "results/requested_12-EXP-6.json: section_errors、session_limit_and_lost_hint"
+          ],
+          "id": "EV-EXISTING-COMPARISONS",
+          "scopeNote": "列挙した生JSONの該当フィールドを確認した。results全ファイルの全文査読や全benchスクリプトの査読を行ったとは主張しない。"
+        },
+        {
+          "id": "EV-OFFICIAL",
+          "result": "該当原文を今回確認。対象の8.4.13、9.7.4、26.10.0は公式発表と整合する。文書末尾の全URLを再確認したとは主張しない。",
+          "sources": [
+            "[COUNTの可視性・索引選択・COUNT(1)](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+            "[SELECTとINSERT SELECTのロック](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)",
+            "[TABLE_ROWS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)",
+            "[NUM_ROWSと初期化状態](https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html)",
+            "[永続統計と未コミット変更](https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html)",
+            "[TDEとmaster key rotation](https://dev.mysql.com/doc/refman/8.4/en/innodb-data-encryption.html)",
+            "[O_DIRECT等の設定](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html)",
+            "[STOPのタイムアウト後も残る停止要求](https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html)",
+            "[GTID待ちの戻り値](https://dev.mysql.com/doc/refman/8.4/en/gtid-functions.html)",
+            "[2026年10月の対象版](https://blogs.oracle.com/mysql/mysql-october-2026-ga-releases-now-available)",
+            "[Empirical Bernstein原論文、Theorem 4](https://www.cs.mcgill.ca/~colt2009/papers/012.pdf)"
+          ]
+        },
+        {
+          "comparison": "独立検討後に既存指摘を照合した。精度要件、初回負荷予算、暗号化方式、ANALYZEを通常手順へ追加しない点、責任者・共有資源の記録は主文書で改善されている。sampling deadlineと詳細文書の分岐不整合は残る。",
+          "files": [
+            "results/reviews/sol-internal-rollout-review.json",
+            "results/reviews/sol-sampling-review.json"
+          ],
+          "id": "EV-PRIOR-REVIEW"
+        }
+      ],
+      "reviewScope": {
+        "constraintsObserved": "DB接続、Docker操作、負荷生成、実験起動、ファイル編集、workflow起動、委譲は行っていない。ファイル読取、ハッシュ、既存JSONの集計、DB処理を置き換えた純粋な計算だけを実施した。",
+        "documentsRead": [
+          "AGENTS.md",
+          "docs/table-count-guideline.md",
+          "docs/table-count-evidence.md",
+          "compose.yaml",
+          "lab.rb",
+          "mise.toml",
+          "README.md",
+          "bench/requested/README.md"
+        ],
+        "implementationRead": [
+          "bench/lablib.py",
+          "bench/reqlib.py",
+          "bench/countlib.py",
+          "bench/count_preflight.py",
+          "bench/count_shapes.py",
+          "bench/preflight.py",
+          "bench/load.py",
+          "bench/verify_data.py",
+          "bench/reqwide.py",
+          "bench/samplinglib.py",
+          "bench/sampling_bounds.py",
+          "bench/reqscale.py",
+          "bench/reqruns.pyのキャッシュ・working set・比較実行部分",
+          "bench/reqmix.pyの腕実行・負荷・計測部分",
+          "bench/experiments.pyの負荷設定・COUNT・実行管理部分",
+          "bench/requested/12-EXP-6.py",
+          "bench/requested/70-EXP-SOL-10-restart.py",
+          "bench/requested/91-encrypted-count.py",
+          "bench/requested/92-wide-form-order.py",
+          "bench/requested/93-metadata-accuracy.py",
+          "bench/requested/94-metadata-on-replica.py",
+          "bench/requested/96-encrypted-wide-50.py",
+          "bench/requested/97-encrypted-wide-100.py",
+          "bench/requested/98-stratified-sampling.py",
+          "bench/requested/99-restore-after-added-scripts.py",
+          ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"
+        ],
+        "internalRolloutDecision": "rejected",
+        "language": "ja",
+        "summary": "参考統計を入口とし、数%保証と無影響を約束しない主文書の方向は妥当。通常SELECTとロックする文の区別、分割の時点差、レプリカ復旧の根拠も利用できる。一方、再現実行の成功判定、負荷生成器の未着手リクエスト欠落、キャッシュ条件、詳細文書との不整合、samplingの予算判定に未解決事項があるため、検証済みの社内共通手順としては承認しない。",
+        "validationDesignDecision": "rejected"
+      },
+      "rolloutRecommendation": {
+        "canRetainNow": [
+          "expiry=0のTABLE_ROWSを精度保証のない参考値として使う入口",
+          "COUNT(*)を標準とし、NULL可列のCOUNTを全件数に代用しないこと",
+          "通常SELECTの非ロック読み取りと、INSERT SELECT等のロックを取る形の区別",
+          "分割のMDL保持短縮と、合計が同一時点でないこと",
+          "専用replicaへの通常COUNTと、適用停止失敗時の継続監視・復旧条件"
+        ],
+        "decision": "rejected",
+        "distributionGate": "未解決のhigh/middleを修正するか、その結論・実装を配布範囲から明示的に外して再レビューする。全P2実験や全クラウド環境の検証を待つ必要はない。参考統計だけの案内は切り出せるが、現リポジトリ全体を検証済みの共通実行手順として配布しない。",
+        "narrowBeforeUse": [
+          "ラボの速度順位は測った索引・負荷・キャッシュ条件での観測に限定する",
+          "TDE比較から暗号処理の一律倍率を出さない",
+          "p50の観測とSLO合格を分ける",
+          "92を正常終了した検証として集計しない"
+        ],
+        "servicePilotGate": "対象サービス1つについて取得時点、アプリSLO、共有資源、停止確認、回復条件を所有者が具体化する。物理隔離やマネージド停止機構の効果は、その環境で確認する。"
+      },
+      "validationCoverageMatrix": [
+        {
+          "action": "操作名と観測条件を明示。因果倍率を必要とするときだけ局所追加。",
+          "axis": "キャッシュ",
+          "covered": "追い出し走査、順序交替、bytes/read-ahead、92の残留ページ、R9の回復ミス率。",
+          "gap": "索引別BP滞在・dirty状態の同等性、flush設定、VM/ホスト/物理I/Oの分離。",
+          "misclassification": "再実行をresident warmと呼び、I/O差を暗号処理差へ帰属する。"
+        },
+        {
+          "action": "現在の限定結論を維持。未測定設計を既定推奨へ昇格しない。",
+          "axis": "索引と実行経路",
+          "covered": "複合条件の過剰走査、NULL・型・DESC等の除外、不可視索引、MVCC更新時の逆転、parallel差。",
+          "gap": "特殊COUNTのHandlerゼロを補う一貫した実行時計測、幅広いPKと索引/BP比の一般性、PRIMARYなしの追加比較。",
+          "misclassification": "EXPLAINのkeyやrowsだけで読取量・完了時間を判断する。"
+        },
+        {
+          "action": "COUNTの意味は使える。倍率・100列サービス負荷・鍵運用は未確定とする。",
+          "axis": "暗号化と行幅",
+          "covered": "91の3版、TDE・列暗号化・ストレージ暗号化の概念区別、96の50列48腕。",
+          "gap": "97の完了、鍵欠落・再起動、実クラウド鍵管理、圧縮・外部LOB・暗号文paddingとの組合せ。",
+          "misclassification": "合成VARBINARYを列暗号化の性能試験と扱う、master key rotationを全データ再暗号化と扱う。"
+        },
+        {
+          "action": "予定数保存を先に修正。高負荷結果は速度・停止の限定観測に留める。",
+          "axis": "負荷と対照",
+          "covered": "予定時刻起点遅延、複数write形、非飽和と飽和の区別、control、CPU対照。",
+          "gap": "未着手予定数、長いTX・bulk更新のサービス影響、実CPU分離。replicaとbenchのcpusetはCPU3で重なる。",
+          "misclassification": "標本不足を低エラー率と解釈する、同一VMの比較を物理隔離と解釈する。"
+        },
+        {
+          "action": "観測差と合格判定を分ける。96の異常条件だけ優先して切り分ける。",
+          "axis": "統計・性能判定",
+          "covered": "反復と順序交替、tailノイズ、R9の120秒回復、途中結果の状態。",
+          "gap": "非劣性の合格基準、短窓tailの精度、腕間のbacklog・dirty状態回復。",
+          "misclassification": "範囲が重なることを同等・無影響の証明とする。"
+        },
+        {
+          "action": "保証なしの入口は現根拠で案内可能。新たな精度保証を主張しない限り全面再試験は不要。",
+          "axis": "概数精度",
+          "covered": "58表、ANALYZE前後、サンプル数、行サイズ偏り、expiry、NUM_ROWS初期化、replica統計と遅延。",
+          "gap": "先行COUNTで表を開く前の未知・未初期化状態、未コミット大規模DMLとsnapshot真値の比較。",
+          "misclassification": "一致する推定値を独立検証と扱う、未初期化0や権限による空結果を空表と扱う。"
+        },
+        {
+          "action": "prototypeとして保持し、実行状態と精度状態を分離する。",
+          "axis": "確率的推定",
+          "covered": "セル包含確率、硬い上限、判定時点へのalpha配分、空標本、数理候補の純粋再計算。",
+          "gap": "98の実DB結果、全体deadline、失敗・後始末の契約、複数対象の同時信頼度。",
+          "misclassification": "数理検査をDB実測と呼ぶ、固定seedの成功率を95%保証と呼ぶ、予算超過の精度達成を運用成功とする。"
+        },
+        {
+          "action": "全環境をラボで証明しようとせず、採用するサービス1つのpilot条件を必須にする。",
+          "axis": "外的妥当性",
+          "covered": "小ラボ・共有VM・ホストキャッシュ・バージョン差の制限を概ね開示。",
+          "gap": "物理隔離、クラウド停止権限・鍵、共有ストレージ、実SLO、複数チーム同時実行。",
+          "misclassification": "方式間比較のローカル倍率を本番時間・安全設定へ移す。"
+        },
+        {
+          "action": "成功判定と履歴保存を修正。benchはCompose専用のままとし、任意LAB_HOST/--hostを受ける現実装を接続先制約の証明にはしない。",
+          "axis": "再現性と来歴",
+          "covered": "固定版、個別status・ログ、96のsource SHA、失敗節保存。",
+          "gap": "失敗status再利用、依存manifest、92終了コード・完全ログ、履歴保持、白紙all、接続先のコード上のallowlist。",
+          "misclassification": "requestedの再実行成功を全実験成功とする、MAX(id)を件数検証とする。"
+        }
+      ]
+    },
+    "results/reviews/sol-frontier-review.json": {
+      "betterAlternatives": [
+        {
+          "condition": "索引が小さく、同時更新・MVCC・利用可能資源の条件で予算を満たす場合。",
+          "evidence": "保持した01bの静的比較では小索引ありCOUNTが0.0494〜0.0723秒、標本が1.1712〜3.1946秒。",
+          "limits": "環境依存の比較。索引追加には構築・保管・更新費用があり、サービス負荷中の安全性をこの静的結果から認定しない。",
+          "method": "既存の小さい索引を使う正確COUNT"
+        },
+        {
+          "condition": "保証付き誤差境界を要求せず、まず規模を知りたい場合。",
+          "evidence": "保存された後期58表の比較ではexpiry=0のTABLE_ROWSがANALYZE前57/58、後55/58で実現誤差10%以内だった。",
+          "limits": "この合成表集合の観測であり、普遍的な10%保証ではない。未初期化・取得不可・統計の古さを明示し、初手にANALYZEを加えない。",
+          "method": "既存メタ情報を参考値として利用"
+        },
+        {
+          "condition": "10%を許容する場合でも、3%用・5%用・10%用をすべて候補として比較する。",
+          "evidence": "純計算の可能な標本列では、セル件数188/192が半々のとき5%用は320抽出で境界約4.87%へ達するが、10%用は160抽出で約10.13%となり次の640抽出まで進む。",
+          "limits": "抽出数の例であり時間の測定ではない。目標別スケジュールの比較は有用だが、『緩い目標ほど必ず安い』や数学的最適方式という主張はできない。完全な最適化探索は要求しない。",
+          "method": "許容誤差内に入った全プロトコルから費用の低いものを選ぶ"
+        },
+        {
+          "condition": "頻繁な取得、またはprimaryで走査する余力がなく、必要な鮮度を満たせる場合。",
+          "limits": "カウンタには整合した初期件数、削除・再試行・移行の追跡が必要。隔離先には復元・鍵・容量・運用責任があり、レプリカの正確値とprimary現在値は同一ではない。これらの費用は今回未計測。",
+          "method": "既存カウンタ・CDC、または余力のある隔離先でのCOUNT"
+        }
+      ],
+      "claimEvidenceMap": [
+        {
+          "assessment": "設計上の区別は妥当。下側区間端を分母にする判定は保守的。target_reachedでも確率的な被覆失敗はあり得るため、絶対的な正確さを意味しない。",
+          "claim": "precision到達、実現誤差、信頼度は別物である。",
+          "evidence": "samplinglib.py:83〜93、accuracy_frontier.py:111〜113、docs/probability-count.md:16〜24。"
+        },
+        {
+          "assessment": "固定lookへのalpha配分と2種類の境界への配分がある。復元抽出なので、重複標本を除いた数や非復元抽出用の有限母集団補正で不当に狭めていない。domainでの上限切りも一意整数キーの条件に対応する。",
+          "claim": "復元抽出・途中停止でも宣言した誤差確率を管理する。",
+          "evidence": "samplinglib.py:70〜86、sampling_bounds.py:16〜25。"
+        },
+        {
+          "assessment": "成立しない。今回比較するのは目標別の停止プロトコルである。許容精度を満たす全候補の費用を比較すれば、この制約下でも有用な選択ができる。",
+          "claim": "10%を許容すれば常に最速になる。",
+          "evidence": "PROTOCOLSと純計算の188/192セル例。"
+        },
+        {
+          "assessment": "区別が必要。セル密度の分散と疎さは区間収束に影響する。幅・索引・TDE・キャッシュ・MVCCは主に費用と予算内に得られる精度へ影響する。完了した同一ビューのCOUNTを近似値にはしない。更新やレプリカ遅延による対象時点差は別問題。",
+          "claim": "疎密・幅・暗号化・キャッシュは同じ種類の精度要因である。",
+          "evidence": "7 fixtureの生成式、sampling_bounds.py、reqwide.pyの表・負荷設計。"
+        },
+        {
+          "assessment": "条件付きでのみ成立。小索引なしの静的比較では標本が短いが、小索引ありではCOUNTが短い。負荷中の1秒予算とサービス影響は別に評価する必要があり、01dにはその判断価値がある。",
+          "claim": "100列では標本が正確COUNTより有利である。",
+          "evidence": "保持した01bのstaticとservice。"
+        },
+        {
+          "assessment": "成立しない。期待した精度未達・予算到達を含んで実験完了になり得る。加えてSOL-FRONTIER-003の撤去結果の欠落を修正する必要がある。",
+          "claim": "プロセス成功やcomplete=trueで精度・サービス・後始末も合格になる。",
+          "evidence": "accuracy_frontier.pyのcomplete、samplinglib.pyの独立状態、lab.rbのok条件。"
+        }
+      ],
+      "decision": "rejected",
+      "engineerQuestions": [
+        {
+          "question": "必要なのは、今回の参考値がおよそ10%以内という期待か、規定した信頼度付きの相対誤差境界か。",
+          "reason": "メタ情報と信頼区間付き標本では得られる保証が異なる。固定した合成表での成功割合を任意の本番表の成功確率には変換できない。"
+        },
+        {
+          "question": "許容する取得時点と、複数表・再実行を含めた保証範囲はどこまでか。",
+          "reason": "各呼び出しのfamily_alpha=.05は全サービス・全試行を合わせた95%保証ではない。レプリカやカウンタでは推定誤差と鮮度差も分ける必要がある。"
+        },
+        {
+          "question": "既存の小さい索引と、その索引列への更新頻度はどうなっているか。",
+          "reason": "保持した100列の静的観測では小索引上の正確COUNTが標本を大幅に上回る。一方、サービス負荷中の索引更新条件では正確COUNTにも中断があり、静的順位だけでは決められない。"
+        },
+        {
+          "question": "単一整数主キーに適用できない表や、既存の信頼できるカウンタを持つ表の経路は用意できるか。",
+          "reason": "セル標本は任意の未知表に適用できる方式ではなく、適用外を失敗や0件へ置き換えてはいけない。"
+        }
+      ],
+      "findings": [
+        {
+          "evidence": [
+            "bench/accuracy_frontier.py:109でsampleの結果を受け取る。",
+            "同:114で比較COUNTを実行した後、116〜117で初めて標本結果をappend・保存する。",
+            "bench/samplinglib.py:96〜104は問い合わせエラーとROLLBACKエラーを結果に格納して返す。",
+            "unexpected_failuresの構築はbench/accuracy_frontier.py:122〜124のループ完了後だけ。"
+          ],
+          "id": "SOL-FRONTIER-001",
+          "impact": "元の標本エラー・精度状態・予算状態・後始末状態がJSONに残らず、ログには後続COUNTの例外だけが残り得る。complete=falseと非ゼロ終了により誤合格は防げるが、何が失敗したかの根拠と後続条件の観測を失う。",
+          "requiredCorrection": "標本結果を比較COUNTより先に識別情報付きで保存する。比較COUNTの失敗も別フィールドへ記録する。壊れた接続は再利用せず、終了確認後に再接続するか、継続不能として明示的に中止する。安全が確認できない状態で全アームの継続を要求するものではない。",
+          "scenario": "sample_then_countのアームで標本接続が切れ、sampleがquery_failedまたはcleanup_failedを返す。その後、同じ接続で比較COUNTを実行すると再び例外になる。",
+          "section": "01c：失敗結果の永続化",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "bench/samplinglib.py:44で各問い合わせにmax_execution_time=100を設定する。",
+            "同:96〜97は3024を含むMySQLErrorを一律query_failedにする。",
+            "bench/accuracy_frontier.py:30はquery_failedをUNEXPECTEDに含める。",
+            "同:168〜178はcontrol/count/sample3/sample10の順から始まり、query_failedを保存した直後に実験全体を中止する。",
+            "対照的にbench/reqwide.py:70〜72のexact COUNTは1317・3024を記録して後続処理へ進む。"
+          ],
+          "id": "SOL-FRONTIER-002",
+          "impact": "比較したい『厳しい目標は予算内に完了しないが、緩い目標なら完了するか』という条件で、設定した問い合わせ上限への到達が後続の10%測定を止め得る。全体1秒のbudget_exhaustedは保持できているが、文単位の上限到達は同じ扱いになっていない。",
+          "requiredCorrection": "設定した文上限による中断を、構文・権限・接続などの予期しない障害から区別する。errnoと文予算到達を残し、終了・ROLLBACKを確認できた場合は後続アームへ進める。全体1秒を使い切ったと偽って分類せず、文予算と全体予算を分ける。原因不明の1317まで自動的に正常な予算到達へ変換しない。",
+          "scenario": "最初のrepeatではsample3がsample10より先に動く。sample3の範囲COUNTが設定済み100ms上限に達して3024を返すと、sample10まで到達しない。",
+          "section": "01d：意図した問い合わせ上限と後続アーム",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "bench/accuracy_frontier.py:180〜184はcomplete=trueを保存し、接続を閉じる。サービス用fixtureの撤去はrunner側に依存する。",
+            "lab.rb:181〜184は削除コマンドのremovedを受け取るが、失敗を上位へ伝播せず、撤去結果も成果物へ保存しない。",
+            "lab.rb:115のok条件は実験終了、必須出力、入力ハッシュ一致であり、撤去成功を含まない。",
+            "lab.rb:123〜129の既存データ検証は、当該matrixコンテナの撤去確認にはならない。"
+          ],
+          "id": "SOL-FRONTIER-003",
+          "impact": "実験完了と後始末完了を別に判定できず、検証用DBが残存してもrunnerが成功を報告し得る。01cのfixture_cleanupは有用だが、01dとrunner所有資源には同等の証拠がない。",
+          "requiredCorrection": "runnerが所有するコンテナ・データ領域の撤去結果を、実験結果とは別の状態として記録する。撤去失敗または確認不能なら実行全体を成功扱いしない。01d側で重複したDROPを増やす必要はなく、所有者であるrunnerの終了処理で確認する。",
+          "scenario": "01dが48アームを完了した後、matrixコンテナの削除が失敗する。実験プロセス自体はexit 0で終了している。",
+          "section": "実験完了と検証環境の後始末",
+          "severity": "middle"
+        },
+        {
+          "evidence": [
+            "bench/reqwide.py:51はSamplerをdata_locks=Falseで作る。",
+            "bench/lablib.py:223〜226はこの場合row_locks_seenとtable_is_locksを収集しない。",
+            "同:257、274〜275は未収集キーを0として集計する。"
+          ],
+          "id": "SOL-FRONTIER-004",
+          "impact": "未計測が『観測して0だった』と読める。通常のSELECT COUNTが行ロックを取らないという説明自体とは別に、このJSONをその実測証拠にはできない。",
+          "requiredCorrection": "無効な観測はnullまたはnot_measuredとし、観測機能の有効状態を結果へ保存する。既存互換性のため0を残す場合も、測定値として集計・引用しない明確な状態を付ける。",
+          "scenario": "ロック観測を無効にしたサービスアームでも、集計JSONには行ロック・テーブルロックのピークが0として出る。",
+          "section": "サービス観測の未計測値",
+          "severity": "low"
+        }
+      ],
+      "guidelineSha256": "29c9382c22d1f25f436176c112195280aa1d882383d1e8be234dc96c93995387",
+      "limitations": [
+        "新しい01c/01dはDB未実行。SQL実行可能性、所要時間、I/O、負荷、20分以内の完走は確認していない。",
+        "今回のシェル検証は完結したツール出力と終了コードを保持したが、READ ONLYのため独立した完結ログファイルを新設していない。ログファイルを要する正式な実行証明へ置き換えない。",
+        "通常の独立一様抽出というモデルに対する境界式を確認した。固定seedの有限実験は本番での95%被覆の実証ではなく、定理の独立した形式証明も実施していない。",
+        "全ケース・全目標・再試行を合わせた95%保証はない。各呼び出しに同じ名目alpha上限を使うが、look数の違いで実際の配分合計は異なる。",
+        "真値COUNT、作成直後の状態、前アームからの持越し、ホスト・VMキャッシュは制御されない。CPU・I/Oのglobal差分には観測処理と背景処理が含まれ、方法単体の資源量ではない。",
+        "サービスは固定の密な750000行、100列TDE、100 read/s・100 update/sの局所条件。INSERT/DELETE、負荷飽和、任意の暗号文幅、物理的な隔離、50列での10%サービス影響、5%サービス影響は今回の新設計では未計測。",
+        "7秒の回復観測は回復完了の証明ではない。到着保存則の一致だけでも、エラーがないこと、サービスSLO合格、サーバー処理の終了確認にはならない。"
+      ],
+      "priorityFixes": [
+        {
+          "action": "設定した文予算への到達を分類し、安全に終了確認できた予算失敗の後にも10%比較を残せるようにする。",
+          "finding": "SOL-FRONTIER-002",
+          "priority": 1
+        },
+        {
+          "action": "標本結果を先に永続化し、比較COUNTや観測処理の二次障害で失わないようにする。",
+          "finding": "SOL-FRONTIER-001",
+          "priority": 2
+        },
+        {
+          "action": "runner所有資源の後始末状態を記録し、確認不能を実行成功へ含めない。",
+          "finding": "SOL-FRONTIER-003",
+          "priority": 3
+        },
+        {
+          "action": "無効なロック観測を未計測として表現する。",
+          "finding": "SOL-FRONTIER-004",
+          "priority": 4
+        }
+      ],
+      "requestedExperiments": [
+        {
+          "decisionItCanChange": "密度偏り・中程度欠番で、3%から5%または10%へ緩めることで全件COUNTより有利になるか。細い表・極端な疎領域でCOUNTを選ぶべきか。",
+          "id": "SOL-FRONTIER-EXP-01",
+          "protocol": "修正後の既存01c-ACCURACY-COST",
+          "requiredEvidence": "挿入実績と初回COUNTの一致、各目標の達成境界・実現誤差・真値被覆、失敗を含む時間と読取量、順序、後始末、終了コード、完結ログ、依存ソースと成果物のハッシュ。",
+          "restriction": "既存所有者の終了後にCompose検証環境だけで実施する。本査読では実行していない。",
+          "scope": "7 fixture×5 seed×3目標の105標本結果と対応する実COUNT。"
+        },
+        {
+          "decisionItCanChange": "既存3%で予算未達だった100列表で、10%の少ない抽出が精度判定と1秒予算を両立するか。小索引や索引更新でCOUNTとの選択が変わるか。",
+          "id": "SOL-FRONTIER-EXP-02",
+          "protocol": "修正後の既存01d-ACCURACY-SERVICE-100",
+          "requiredEvidence": "文単位と全体の予算到達を残し、actual_method_serviceと3秒trialを分ける。予定到着数の保存則、打切り、エラー、回復、監視失敗と後始末も保持する。",
+          "restriction": "5%サービス影響は未計測のままでよい。短窓の改善をSLO合格や本番無影響と呼ばない。今回の目的のために50列・全版・全分布のサービス直積を追加する必要はない。",
+          "scope": "control/exact/3%/10%×索引有無×更新2種類×3反復の48アーム。"
+        }
+      ],
+      "reviewEvidence": [
+        {
+          "completeLogPath": null,
+          "exitCode": 0,
+          "files": 21,
+          "foregroundOutputReference": "efc351",
+          "guidelineSha256": "29c9382c22d1f25f436176c112195280aa1d882383d1e8be234dc96c93995387",
+          "logNote": "完結した標準出力はツール記録に保持。READ ONLYのため新規ログファイルは作成していない。",
+          "mismatches": [],
+          "phase": "開始時ハッシュ検証"
+        },
+        {
+          "checks": [
+            "スナップショットのPython 9ファイルをAST解析。",
+            "01c/01dの静的依存閉包を計算し、reqwide・samplinglib・sampling_bounds・lablib・reqlibを含むことを確認。",
+            "実装された境界式で、ゼロ分散の各初回lookが目標へ到達可能であることを確認。",
+            "3-lookのalpha支出合計0.0375、4-lookの合計0.04で、いずれも宣言値0.05以下と確認。",
+            "巨大な疎領域で全標本0でも下端0・相対境界なしとなり、精度達成にならない例を確認。",
+            "5%用が10%用より少ない抽出で停止し得るスケジュール例を確認。"
+          ],
+          "completeLogPath": null,
+          "exitCode": 0,
+          "foregroundOutputReferences": [
+            "055c16",
+            "2580cb",
+            "6cb0ec"
+          ],
+          "meaning": "構文・依存関係・算術の確認。DB測定、被覆確率の実証、サービス合格の証拠ではない。",
+          "phase": "静的解析・純計算"
+        },
+        {
+          "completeLogPath": "results/reference/20261107-wide-sampling/results/requested/01b-PROB-WIDE-100.log",
+          "completeLogSha256": "29658fddc8140172ed54086bc92a53b3e26fed63c2785c22b917d12bb7736bc2",
+          "foregroundOutputReferences": [
+            "886aea",
+            "7e37fe"
+          ],
+          "historicalRunExitCode": 0,
+          "mismatches": [],
+          "observations": "100列の36サービスアームの到着保存則は全件consistent=true。3%標本は小索引なし6/6、小索引あり3/6でbudget_exhausted。新しい48アームの結果ではない。",
+          "phase": "保存済み観測の照合",
+          "semanticRead": [
+            "manifest.json",
+            "results/requested_probability_wide_100.jsonのstatic・service・完了状態",
+            "results/requested/01b-PROB-WIDE-100.status.json",
+            "01a/01bのログ末尾"
+          ],
+          "snapshotRoot": "results/reference/20261107-wide-sampling",
+          "verificationCommandExitCode": 0,
+          "verifiedManifestFiles": 24
+        },
+        {
+          "completeLogPath": null,
+          "exitCode": 0,
+          "foregroundOutputReference": "7e37fe",
+          "meaning": "過去観測と新規実験を区別した。過去のcheckpoint再生から未観測の停止時間を推定していない。",
+          "path": "results/reference/20261107-frontier-design/results/reviews/accuracy-frontier-existing-evidence.json",
+          "phase": "過去観測からの派生資料",
+          "sourceHashChecks": "指定されたmetadata_accuracyとfixed-samplingの原本2ファイルは、記載SHA-256と一致。"
+        },
+        {
+          "completeLogPath": null,
+          "items": [
+            {
+              "exitCode": 1,
+              "foregroundOutputReference": "b07873",
+              "reason": "最初のhere-documentは一時ファイル作成が拒否され、ハッシュ計算に入らなかった。書き込み不要の-c形式で再実施した。"
+            },
+            {
+              "exitCode": 1,
+              "foregroundOutputReference": "42f93e",
+              "reason": "Python実体の探索で存在しない候補をlsした。後続の純計算は存在する/opt/homebrew/bin/python3で正常終了した。"
+            }
+          ],
+          "meaning": "失敗したコマンドを合格検証として数えていない。実行中のシェルセッションは残っていない。",
+          "phase": "検証コマンドの不成立"
+        },
+        {
+          "completeLogPath": null,
+          "exitCode": 0,
+          "files": 21,
+          "foregroundOutputReference": "7a3a64",
+          "guidelineSha256": "29c9382c22d1f25f436176c112195280aa1d882383d1e8be234dc96c93995387",
+          "manifestSha256": "6ce0c9643ceda392cd2aa57420761a250a6ed7e3602dc82b848f0f9e2bdc064e",
+          "mismatches": [],
+          "phase": "終了時ハッシュ再検証"
+        }
+      ],
+      "reviewScope": {
+        "endHashVerification": "査読終了時も21ファイルすべて一致。manifest・ガイドラインのハッシュは開始時と同一。",
+        "judgment": "3/5/10%精度・費用比較の設計実行準備のみ。未解決middleが3件あるため差し戻す。DB未実行であること自体は差し戻し理由ではない。",
+        "manifestSha256": "6ce0c9643ceda392cd2aa57420761a250a6ed7e3602dc82b848f0f9e2bdc064e",
+        "operations": "ファイル読み取り、ハッシュ、AST解析、DBを使わない算術のみ。DB接続・Docker操作・負荷生成・実験実行・編集・別ワークフロー・委任は行っていない。",
+        "revisionBoundary": "指摘の行番号は上記スナップショット基準。results/reviews/full-review-input.jsonと検索で表示された現行ファイルは背景情報としてのみ使用し、後日の編集で指摘を解消済みとは扱っていない。",
+        "snapshotFilesRead": [
+          "bench/accuracy_frontier.py",
+          "bench/requested/01c-ACCURACY-COST.py",
+          "bench/requested/01d-ACCURACY-SERVICE-100.py",
+          "bench/requested/01c-ACCURACY-COST.outputs",
+          "bench/requested/01d-ACCURACY-SERVICE-100.outputs",
+          "bench/requested/01c-ACCURACY-COST.versions",
+          "bench/requested/01d-ACCURACY-SERVICE-100.versions",
+          "bench/requested/01c-ACCURACY-COST.encrypted",
+          "bench/requested/01d-ACCURACY-SERVICE-100.encrypted",
+          "bench/samplinglib.py",
+          "bench/sampling_bounds.py",
+          "bench/reqwide.py",
+          "bench/lablib.py",
+          "bench/reqlib.py",
+          "bench/dependencies.py",
+          "lab.rb",
+          "compose.yaml",
+          "docs/table-count-guideline.md",
+          "docs/probability-count.md",
+          "results/reviews/accuracy-frontier-design-check.json",
+          "results/reviews/accuracy-frontier-existing-evidence.json"
+        ],
+        "snapshotRoot": "results/reference/20261107-frontier-design",
+        "startHashVerification": "manifestの21ファイルすべて一致。guidelineSha256も指定値と一致。"
+      },
+      "rolloutRecommendation": {
+        "currentGuidance": "参考統計、条件付きの確率推定、読み取りビューの正確COUNTを分ける。通常のSELECT COUNT(*)は行ロックを取らないがMDLと資源負荷があり、INSERT ... SELECT COUNT(*)等は読み取り元をロックする場合があるという区別を維持する。",
+        "designReadiness": "SOL-FRONTIER-001〜003を修正して再確認するまで差し戻し。",
+        "remainingGates": [
+          "修正版01c/01dの実測と、期待した精度未達・予算到達を含む結果の統合。",
+          "最終コードによる白紙DBからのmise run allと、数値終了コード・完結ログ・意味上の結果・後始末の確認。",
+          "固定した最終成果物について、執筆とは別セッションで行う最終2段階Solレビュー。"
+        ],
+        "rolloutReadiness": "保留。設計が受理されても本番導入承認にはならない。"
+      },
+      "validationCoverageMatrix": [
+        {
+          "area": "3/5/10%・初回look",
+          "coverage": "事前宣言済み。ゼロ分散なら各初回lookで到達可能と純計算で確認。",
+          "status": "設計確認。費用は未計測。"
+        },
+        {
+          "area": "alpha・途中停止・反復",
+          "coverage": "look別配分、境界別配分、固定paired seed、呼び出し単位の保証範囲を明記。",
+          "status": "設計確認。全試行の共同保証なし。"
+        },
+        {
+          "area": "母集団・真値",
+          "coverage": "01cはROW_COUNTの挿入実績を合算し、初回および対応COUNTと照合する。MIN/MAXを真値の代わりにしない。",
+          "status": "設計確認。実際の照合は未実行。"
+        },
+        {
+          "area": "7分布",
+          "coverage": "dense、negative、gaps、islands、wide、moderate_gaps、uneven_density。",
+          "status": "主要な成功・失敗条件を比較できる。任意分布や行幅の異質性への網羅保証なし。"
+        },
+        {
+          "area": "静的費用の比較",
+          "coverage": "目標順の循環、COUNT前後の交替、並列読取1、global読取カウンタ。",
+          "status": "継承したキャッシュでの条件付き方式比較として有用。暗号処理単独の倍率、等しいcold状態、初回速度の因果主張には使えない。"
+        },
+        {
+          "area": "接続と時間範囲",
+          "coverage": "静的比較は接続再利用、サービスは新規接続。方法時間は接続確立を除外し、標本は最初のSQLからROLLBACKまで。",
+          "status": "比較範囲の明示は妥当。利用者が受け取るまでの全所要時間とは異なる。"
+        },
+        {
+          "area": "100列サービス48アーム",
+          "coverage": "control/exact/3%/10%、索引有無、更新2種類、3反復、順序循環。",
+          "status": "目的に対応。SOL-FRONTIER-002により予算中断後の継続を要修正。5%は意図的に未計測。"
+        },
+        {
+          "area": "サービス遅延と到着保存",
+          "coverage": "actual statement/method区間とtrial、予定時刻起点の遅延、queued/stuck、global保存則、dispatch/client実行時間。",
+          "status": "未完了要求を落とす問題への対策がある。slo_assessableは打切りの有無であり、SLO合格フラグとして使わない。"
+        },
+        {
+          "area": "CPU・監視・回復",
+          "coverage": "DB CPU0/1、負荷CPU2、方法CPU3、共通監視、7秒回復。",
+          "status": "クライアント干渉を減らす設計。共有VM資源・観測負荷は残り、CPUカウンタは総CPUではない。SOL-FRONTIER-004の未計測0を修正推奨。"
+        },
+        {
+          "area": "20分・集約guard・出力・出典",
+          "coverage": "runnerの1200秒上限、wrapperの18分見積りによる開始判定、必須.outputs、依存閉包と成果物ハッシュ。",
+          "status": "guardのexit 3とtimeoutを成功にしない設計は妥当。18分は実測保証や実行中の集約上限ではない。SOL-FRONTIER-001と003が未解決。"
+        }
+      ]
+    }
+  },
+  "sourceSha256": {
+    "results/reviews/original-revision10-reviews.json": "f0d1b68d0d7d2e5b4146b7092ede93b53b334944b36ff62f0ff8851b13b74ec8",
+    "results/reviews/sol-internal-rollout-review.json": "866d0fb175391428f9a296145150565e61e88020d2c3ca0b2f131713491fe5f8",
+    "results/reviews/sol-sampling-review.json": "fb833ec08f475c62cb87a686be30efafa2895b0941e7301cb89394a8f388a46f",
+    "results/reviews/sol-validation-review.json": "c2e7bcf9412e920deeb693899b6b2a8aa7b7d650b2e36f7501de89c855b84f8d",
+    "results/reviews/sol-frontier-review.json": "2541678b1bb35304eb493f3feacbfcc86ccd8c2acafe5d50ed2c3cccdaa699dc"
+  }
+}

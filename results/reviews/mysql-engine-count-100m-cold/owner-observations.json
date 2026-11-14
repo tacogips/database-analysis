@@ -1,0 +1,10 @@
+{
+  "phase": "Read-only owner inspection while Sol56 author still active; no modifications to author files. Reassess after terminal before DB load.",
+  "items": [
+    {
+      "id": "readiness-client-exits",
+      "scenario": "start_boot may open persistent Client when mysqld PID1 exists but socket not ready. A failed readiness Client exits1, but later stop_boot and final all_mysql_clients_exit_zero demand every persistent Client ever exit0. Thus accepted readiness retry can cause late failure after expensive full load.",
+      "fixCandidate": "Use short mysqladmin ping readiness probes (nonmeasurement command records) before opening persistent Client. If ready ping yet actual authenticated Client fails, abort immediately before fixture load. Retain failed probe exit records; do not silently exempt actual measured/fixture clients."
+    }
+  ]
+}

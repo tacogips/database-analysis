@@ -1,0 +1,468 @@
+controller Ruby 4.0.9 /Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby; cwd=/Users/taco/gits/tacogips/database-analysis; command=mise run all
+[all] $ mise exec -- ruby lab.rb all
+lab Ruby 4.0.9 /Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby; command=["all"]
+==> docker compose down --volumes --remove-orphans
+ Container lab-bench Stopping 
+ Container lab-replica Stopping 
+ Container lab-replica Stopped 
+ Container lab-replica Removing 
+ Container lab-replica Removed 
+ Container lab-bench Stopped 
+ Container lab-bench Removing 
+ Container lab-bench Removed 
+ Container lab-primary Stopping 
+ Container lab-primary Stopped 
+ Container lab-primary Removing 
+ Container lab-primary Removed 
+ Network bulk-read-lab_default Removing 
+ Network bulk-read-lab_default Removed 
+==> docker compose up -d --build --wait primary replica bench
+ Image bulk-read-lab-bench Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 558B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 325B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+#5 resolve docker.io/library/mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 done
+#5 DONE 0.0s
+
+#6 [2/3] RUN microdnf install -y python3 python3-pip perl-DBD-MySQL 2>/dev/null || microdnf install -y python3 python3-pip
+#6 CACHED
+
+#7 [3/3] RUN pip3 install --no-cache-dir pymysql==1.1.1 cryptography==43.0.3
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:31756969d8aaee2c3b929e4491647781e4afba7c812845e685ca20d58c0664d1 done
+#8 exporting config sha256:645df8e4d7254f32739f30e1f8907f64444171f19bd0553241117c23c7ea7f77 done
+#8 exporting attestation manifest sha256:06121fc3b68c61f3228e002ea74a33f7988d12183822cb6bccea9c31861a4954 done
+#8 exporting manifest list sha256:b22e0be9afd6803b06bd6794ec6aab25bf09d3b7acaa802fae36dfeced0e3547 done
+#8 naming to docker.io/library/bulk-read-lab-bench:latest done
+#8 unpacking to docker.io/library/bulk-read-lab-bench:latest done
+#8 DONE 0.0s
+
+#9 resolving provenance for metadata file
+#9 DONE 0.0s
+ Image bulk-read-lab-bench Built 
+ Network bulk-read-lab_default Creating 
+ Network bulk-read-lab_default Creating 
+ Network bulk-read-lab_default Created 
+ Network bulk-read-lab_default Created 
+ Container lab-primary Creating 
+ Container lab-primary Created 
+ Container lab-replica Creating 
+ Container lab-bench Creating 
+ Container lab-replica Created 
+ Container lab-bench Created 
+ Container lab-primary Starting 
+ Container lab-primary Started 
+ Container lab-primary Waiting 
+ Container lab-primary Waiting 
+ Container lab-primary Healthy 
+ Container lab-primary Healthy 
+ Container lab-replica Starting 
+ Container lab-bench Starting 
+ Container lab-replica Started 
+ Container lab-bench Started 
+ Container lab-primary Waiting 
+ Container lab-replica Waiting 
+ Container lab-bench Waiting 
+ Container lab-bench Healthy 
+ Container lab-primary Healthy 
+ Container lab-replica Healthy 
+self-checks: accounting, sampling, dependencies, timer, protocols, cache, white-all and matrix cleanup passed
+==> docker exec lab-bench python3 -u /work/bench/load.py
+10:46:56 done seq1m
+10:46:57 t_sparse 1,000,000/10,000,000 1s
+10:46:58 t_sparse 2,000,000/10,000,000 1s
+10:46:59 t_sparse 3,000,000/10,000,000 2s
+10:46:59 t_sparse 4,000,000/10,000,000 3s
+10:47:00 t_sparse 5,000,000/10,000,000 4s
+10:47:01 t_sparse 6,000,000/10,000,000 4s
+10:47:02 t_sparse 7,000,000/10,000,000 5s
+10:47:02 t_sparse 8,000,000/10,000,000 6s
+10:47:03 t_sparse 9,000,000/10,000,000 7s
+10:47:04 t_sparse 10,000,000/10,000,000 7s
+10:47:04 t_sparse 10,000,000 rows in 7s
+10:47:04 done t_sparse
+10:47:14 done t_uuid
+10:47:15 t_composite 1,000,000/10,000,000 1s
+10:47:16 t_composite 2,000,000/10,000,000 2s
+10:47:17 t_composite 3,000,000/10,000,000 3s
+10:47:18 t_composite 4,000,000/10,000,000 4s
+10:47:19 t_composite 5,000,000/10,000,000 5s
+10:47:20 t_composite 6,000,000/10,000,000 6s
+10:47:21 t_composite 7,000,000/10,000,000 7s
+10:47:22 t_composite 8,000,000/10,000,000 8s
+10:47:23 t_composite 9,000,000/10,000,000 9s
+10:47:23 t_composite 10,000,000/10,000,000 9s
+10:47:23 t_composite 10,000,000 rows in 9s
+10:47:23 done t_composite
+10:47:25 t_nopk 1,000,000/5,000,000 1s
+10:47:26 t_nopk 2,000,000/5,000,000 3s
+10:47:27 t_nopk 3,000,000/5,000,000 4s
+10:47:29 t_nopk 4,000,000/5,000,000 6s
+10:47:31 t_nopk 5,000,000/5,000,000 7s
+10:47:31 t_nopk 5,000,000 rows in 7s
+10:47:31 done t_nopk
+10:47:32 t_uniq_notnull 1,000,000/3,000,000 1s
+10:47:32 t_uniq_notnull 2,000,000/3,000,000 1s
+10:47:33 t_uniq_notnull 3,000,000/3,000,000 2s
+10:47:33 t_uniq_notnull 3,000,000 rows in 2s
+10:47:33 done t_uniq_notnull
+10:47:34 t_uniq_nullable 1,000,000/3,000,000 1s
+10:47:36 t_uniq_nullable 2,000,000/3,000,000 3s
+10:47:37 t_uniq_nullable 3,000,000/3,000,000 4s
+10:47:37 t_uniq_nullable 3,000,000 rows in 4s
+10:47:37 done t_uniq_nullable
+10:47:38 customers 1,000,000/1,000,000 1s
+10:47:38 customers 1,000,000 rows in 1s
+10:47:38 done customers
+10:47:40 orders 1,000,000/5,000,000 2s
+10:47:42 orders 2,000,000/5,000,000 4s
+10:47:44 orders 3,000,000/5,000,000 6s
+10:47:46 orders 4,000,000/5,000,000 8s
+10:47:48 orders 5,000,000/5,000,000 10s
+10:47:48 orders 5,000,000 rows in 10s
+10:47:48 done orders
+10:47:53 order_items 3,000,000/15,000,000 4s
+10:47:57 order_items 6,000,000/15,000,000 9s
+10:48:02 order_items 9,000,000/15,000,000 14s
+10:48:06 order_items 12,000,000/15,000,000 18s
+10:48:11 order_items 15,000,000/15,000,000 22s
+10:48:11 order_items 15,000,000 rows in 22s
+10:48:11 done order_items
+10:48:11 tags 1,000 rows in 0s
+10:48:11 done tags
+10:48:12 customer_tags 1,000,000/5,000,000 1s
+10:48:13 customer_tags 2,000,000/5,000,000 3s
+10:48:15 customer_tags 3,000,000/5,000,000 4s
+10:48:17 customer_tags 4,000,000/5,000,000 6s
+10:48:19 customer_tags 5,000,000/5,000,000 8s
+10:48:19 customer_tags 5,000,000 rows in 8s
+10:48:19 done customer_tags
+10:48:20 done categories
+10:48:21 done circ
+10:48:38 t_lob 300,000 rows in 17s
+10:48:38 done t_lob
+10:48:39 t_part 1,000,000/10,000,000 1s
+10:48:40 t_part 2,000,000/10,000,000 2s
+10:48:41 t_part 3,000,000/10,000,000 3s
+10:48:42 t_part 4,000,000/10,000,000 5s
+10:48:43 t_part 5,000,000/10,000,000 6s
+10:48:44 t_part 6,000,000/10,000,000 7s
+10:48:45 t_part 7,000,000/10,000,000 8s
+10:48:46 t_part 8,000,000/10,000,000 9s
+10:48:47 t_part 9,000,000/10,000,000 10s
+10:48:48 t_part 10,000,000/10,000,000 10s
+10:48:48 t_part 10,000,000 rows in 10s
+10:48:48 done t_part
+10:48:49 done t_strpk
+10:48:52 t_events 1,000,000/5,000,000 2s
+10:48:54 t_events 2,000,000/5,000,000 5s
+10:48:57 t_events 3,000,000/5,000,000 7s
+10:48:59 t_events 4,000,000/5,000,000 10s
+10:49:02 t_events 5,000,000/5,000,000 13s
+10:49:02 t_events 5,000,000 rows in 13s
+10:49:02 done t_events
+10:50:13 t_myisam 1,000,000/3,000,000 71s
+10:51:22 t_myisam 2,000,000/3,000,000 140s
+10:52:31 t_myisam 3,000,000/3,000,000 209s
+10:52:31 t_myisam 3,000,000 rows in 209s
+10:52:31 done t_myisam
+10:52:32 t_memory 500,000 rows in 0s
+10:52:32 done t_memory
+10:52:32 t_archive 1,000,000/1,000,000 1s
+10:52:32 t_archive 1,000,000 rows in 1s
+10:52:32 done t_archive
+10:52:33 order_items_nofk 1,000,000/5,000,000 1s
+10:52:34 order_items_nofk 2,000,000/5,000,000 2s
+10:52:35 order_items_nofk 3,000,000/5,000,000 2s
+10:52:36 order_items_nofk 4,000,000/5,000,000 3s
+10:52:37 order_items_nofk 5,000,000/5,000,000 4s
+10:52:37 order_items_nofk 5,000,000 rows in 4s
+10:52:37 done order_items_nofk
+10:52:37 t_hot 1,000,000/5,000,000 1s
+10:52:38 t_hot 2,000,000/5,000,000 1s
+10:52:39 t_hot 3,000,000/5,000,000 2s
+10:52:39 t_hot 4,000,000/5,000,000 3s
+10:52:40 t_hot 5,000,000/5,000,000 4s
+10:52:40 t_hot 5,000,000 rows in 4s
+10:52:40 done t_hot
+10:52:45 t_repl 2,000,000/20,000,000 5s
+10:52:49 t_repl 4,000,000/20,000,000 9s
+10:52:55 t_repl 6,000,000/20,000,000 15s
+10:52:59 t_repl 8,000,000/20,000,000 19s
+10:53:04 t_repl 10,000,000/20,000,000 24s
+10:53:08 t_repl 12,000,000/20,000,000 28s
+10:53:13 t_repl 14,000,000/20,000,000 33s
+10:53:19 t_repl 16,000,000/20,000,000 39s
+10:53:24 t_repl 18,000,000/20,000,000 44s
+10:53:29 t_repl 20,000,000/20,000,000 48s
+10:53:29 t_repl 20,000,000 rows in 48s
+10:53:29 done t_repl
+10:53:48 t_dense 10,000,000/100,000,000 19s
+10:54:05 t_dense 20,000,000/100,000,000 37s
+10:54:22 t_dense 30,000,000/100,000,000 53s
+10:54:39 t_dense 40,000,000/100,000,000 70s
+10:54:56 t_dense 50,000,000/100,000,000 87s
+10:55:13 t_dense 60,000,000/100,000,000 104s
+10:55:30 t_dense 70,000,000/100,000,000 122s
+10:55:48 t_dense 80,000,000/100,000,000 139s
+10:56:04 t_dense 90,000,000/100,000,000 156s
+10:56:21 t_dense 100,000,000/100,000,000 173s
+10:56:21 t_dense 100,000,000 rows in 173s
+10:56:21 done t_dense
+10:56:21 t_dense building k_created
+10:58:00 t_dense k_created done
+10:58:01 d_negative_pk 1,000,000/1,000,000 1s
+10:58:01 d_negative_pk 1,000,000 rows in 1s
+10:58:01 done d_negative_pk
+10:58:02 d_float_pk 1,000,000/1,000,000 1s
+10:58:02 d_float_pk 1,000,000 rows in 1s
+10:58:02 done d_float_pk
+10:58:03 d_decimal_pk 1,000,000/1,000,000 1s
+10:58:03 d_decimal_pk 1,000,000 rows in 1s
+10:58:03 done d_decimal_pk
+10:58:04 d_datetime_pk 1,000,000/1,000,000 1s
+10:58:04 d_datetime_pk 1,000,000 rows in 1s
+10:58:04 done d_datetime_pk
+10:58:04 d_timestamp_pk 1,000,000/1,000,000 1s
+10:58:04 d_timestamp_pk 1,000,000 rows in 1s
+10:58:04 done d_timestamp_pk
+10:58:05 d_enum_pk 1,000,000/1,000,000 1s
+10:58:05 d_enum_pk 1,000,000 rows in 1s
+10:58:05 done d_enum_pk
+10:58:07 d_desc_pk 1,000,000/1,000,000 1s
+10:58:07 d_desc_pk 1,000,000 rows in 1s
+10:58:07 done d_desc_pk
+10:58:08 d_snowflake 1,000,000/1,000,000 1s
+10:58:08 d_snowflake 1,000,000 rows in 1s
+10:58:08 done d_snowflake
+10:58:08 d_unsigned_max 100,000 rows in 0s
+10:58:08 done d_unsigned_max
+10:58:09 done d_str_bin
+10:58:10 d_prefix_unique 500,000 rows in 1s
+10:58:10 done d_prefix_unique
+10:58:11 d_noindex 1,000,000/1,000,000 1s
+10:58:11 d_noindex 1,000,000 rows in 1s
+10:58:11 done d_noindex
+10:58:12 d_gipk 1,000,000/1,000,000 1s
+10:58:12 d_gipk 1,000,000 rows in 1s
+10:58:12 done d_gipk
+10:58:13 d_compressed 500,000 rows in 2s
+10:58:13 done d_compressed
+10:58:14 d_json_virtual 500,000 rows in 1s
+10:58:14 done d_json_virtual
+10:58:15 d_fulltext 200,000 rows in 1s
+10:58:15 done d_fulltext
+10:58:36 d_spatial 200,000 rows in 21s
+10:58:36 done d_spatial
+10:58:37 d_soft_delete 1,000,000/2,000,000 1s
+10:58:39 d_soft_delete 2,000,000/2,000,000 3s
+10:58:39 d_soft_delete 2,000,000 rows in 3s
+10:58:39 done d_soft_delete
+10:58:40 d_history 1,000,000/1,000,000 1s
+10:58:40 d_history 1,000,000 rows in 1s
+10:58:40 done d_history
+10:58:42 d_eav 1,000,000/1,000,000 2s
+10:58:42 d_eav 1,000,000 rows in 2s
+10:58:42 done d_eav
+10:58:43 d_polymorphic 1,000,000/1,000,000 2s
+10:58:43 d_polymorphic 1,000,000 rows in 2s
+10:58:43 done d_polymorphic
+10:58:44 d_triggered 500,000 rows in 0s
+10:58:44 done d_triggered
+10:58:44 fk_diamond_a 100,000 rows in 0s
+10:58:44 done fk_diamond_a
+10:58:44 fk_diamond_b 500,000 rows in 1s
+10:58:44 done fk_diamond_b
+10:58:45 fk_diamond_c 500,000 rows in 1s
+10:58:45 done fk_diamond_c
+10:58:47 fk_diamond_d 1,000,000/1,000,000 2s
+10:58:47 fk_diamond_d 1,000,000 rows in 2s
+10:58:47 done fk_diamond_d
+10:58:48 fk_comp_parent 500,000 rows in 0s
+10:58:48 done fk_comp_parent
+10:58:49 fk_comp_child 1,000,000/1,000,000 2s
+10:58:49 fk_comp_child 1,000,000 rows in 2s
+10:58:49 done fk_comp_child
+10:58:50 fk_uq_parent 500,000 rows in 1s
+10:58:50 done fk_uq_parent
+10:58:51 fk_uq_child 1,000,000/1,000,000 1s
+10:58:51 fk_uq_child 1,000,000 rows in 1s
+10:58:51 done fk_uq_child
+10:58:51 fk_null_parent 100,000 rows in 0s
+10:58:51 done fk_null_parent
+10:58:52 fk_null_child 500,000 rows in 1s
+10:58:52 done fk_null_child
+10:58:52 bench_other.parent 100,000 rows in 0s
+10:58:52 done bench_other.parent
+10:58:53 fk_cross_schema 500,000 rows in 1s
+10:58:53 done fk_cross_schema
+10:58:53 done tenants
+10:58:58 all done
+==> docker exec lab-bench python3 -u /work/bench/verify_data.py
+mismatched: none | replica caught up: True | replica t_repl: 20000000
+==> docker exec lab-bench python3 -u /work/bench/count_shapes.py
+{'tuple': {'ms': 596.1, 'handler_read_next': 4504999, 'plan': {'access': 'index', 'key': 'PRIMARY', 'used_key_parts': ['tenant_id', 'seq'], 'covering': True, 'rows_estimate': 5000, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'ordering_operation', 'select_id']}}, 'and_or': {'ms': 347.7, 'handler_read_next': 4504999, 'plan': {'access': 'range', 'key': 'PRIMARY', 'used_key_parts': ['tenant_id'], 'covering': True, 'rows_estimate': 4749022, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'ordering_operation', 'select_id']}}, 'or_expanded': {'ms': 3.0, 'handler_read_next': 4999, 'plan': {'access': 'range', 'key': 'PRIMARY', 'used_key_parts': ['tenant_id', 'seq'], 'covering': True, 'rows_estimate': 5783914, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'ordering_operation', 'select_id']}}}
+t_sparse                   COUNT_WITH_LIMIT_THEN_SPLIT default_run1=2.78 default_run2=0.145 single_thread=0.394 force_primary=0.103 split_walk_100k=0.66 estimate_table_rows=2.69 pk_span=10009600.0 | split_ok=True
+t_uuid                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=2.312 default_run2=0.061 single_thread=0.194 force_primary=0.058 split_walk_100k=0.34 estimate_table_rows=19.01 pk_span=- | split_ok=True
+t_composite                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.514 default_run2=0.119 single_thread=0.362 force_primary=0.12 split_walk_100k=0.92 estimate_table_rows=5.02 | split_ok=True
+t_nopk                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.273 default_run2=0.448 single_thread=0.405 force_smallest=0.393 split_walk_100k=1.06 estimate_table_rows=0.2 | split_ok=True
+t_uniq_notnull             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.557 default_run2=0.033 single_thread=0.112 force_smallest=0.033 split_walk_100k=0.19 estimate_table_rows=0.18 | split_ok=True
+t_uniq_nullable            COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.384 default_run2=0.289 single_thread=0.285 force_smallest=0.288 split_walk_100k=0.45 estimate_table_rows=0.21 | split_ok=True
+customers                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.176 default_run2=0.01 single_thread=0.039 force_primary=0.012 split_walk_100k=0.06 estimate_table_rows=0.37 pk_span=0.0 | split_ok=True
+orders                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.282 default_run2=0.192 single_thread=0.207 force_primary=1.287 force_smallest=0.211 split_walk_100k=0.39 estimate_table_rows=0.26 pk_span=0.0 | split_ok=True
+order_items                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=2.077 default_run2=0.565 single_thread=0.568 force_primary=4.737 force_smallest=0.637 split_walk_100k=1.13 estimate_table_rows=2.77 pk_span=0.0 | split_ok=True
+order_items_nofk           COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.329 default_run2=0.058 single_thread=0.188 force_primary=0.057 split_walk_100k=0.32 estimate_table_rows=0.28 pk_span=0.0 | split_ok=True
+tags                       COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.001 default_run2=0.0 single_thread=0.0 force_primary=0.0 split_walk_100k=0.0 estimate_table_rows=0.0 pk_span=0.0 | split_ok=True
+customer_tags              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.077 default_run2=0.199 single_thread=0.19 force_primary=1.375 force_smallest=0.18 split_walk_100k=0.37 estimate_table_rows=5.68 | split_ok=True
+categories                 COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.074 default_run2=0.039 single_thread=0.038 force_primary=0.163 force_smallest=0.043 split_walk_100k=0.08 estimate_table_rows=0.19 pk_span=0.0 | split_ok=True
+circ_a                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.011 default_run2=0.004 single_thread=0.004 force_primary=0.014 force_smallest=0.004 split_walk_100k=0.01 estimate_table_rows=2.17 pk_span=0.0 | split_ok=True
+circ_b                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.01 default_run2=0.004 single_thread=0.004 force_primary=0.013 force_smallest=0.004 split_walk_100k=0.01 estimate_table_rows=0.34 pk_span=0.0 | split_ok=True
+t_lob                      COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.107 default_run2=0.005 single_thread=0.011 force_primary=0.005 split_walk_100k=0.02 estimate_table_rows=0.29 pk_span=0.0 | split_ok=True
+t_part                     PARTITION_SUM_THEN_SPLIT default_run1=1.79 default_run2=0.115 single_thread=0.37 force_primary=0.111 split_walk_100k=1.67 sum_of_partitions=0.117 estimate_table_rows=0.2 | split_ok=True
+t_strpk                    COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.271 default_run2=0.025 single_thread=0.039 force_primary=0.021 split_walk_100k=0.07 estimate_table_rows=15.62 pk_span=- | split_ok=True
+t_events                   COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.485 default_run2=0.214 single_thread=0.2 force_primary=1.318 force_smallest=0.19 split_walk_100k=0.4 estimate_table_rows=4.92 pk_span=8589930476.2 | split_ok=True
+t_myisam                   COUNT_STORED             default_run1=0.0 default_run2=0.0 single_thread=0.0 split_walk_100k=0.15 estimate_table_rows=0.0 pk_span=0.0 | split_ok=True
+t_memory                   COUNT_STORED             default_run1=0.0 default_run2=0.0 single_thread=0.0 estimate_table_rows=0.0 pk_span=0.0 | split_ok=None
+t_archive                  COUNT_STORED             default_run1=0.0 default_run2=0.0 single_thread=0.0 estimate_table_rows=0.0 pk_span=0.0 | split_ok=None
+t_hot                      COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.172 default_run2=0.052 single_thread=0.194 force_primary=0.052 split_walk_100k=0.3 estimate_table_rows=0.25 pk_span=0.0 | split_ok=True
+t_repl                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=8.97 default_run2=8.161 single_thread=3.455 force_primary=1.111 split_walk_100k=3.85 estimate_table_rows=2.92 pk_span=0.0 | split_ok=True
+d_negative_pk              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.04 default_run2=0.009 single_thread=0.035 force_primary=0.01 split_walk_100k=0.06 estimate_table_rows=0.15 pk_span=0.0 | split_ok=True
+d_float_pk                 COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.156 default_run2=0.008 single_thread=0.035 force_primary=0.01 split_walk_100k=0.06 estimate_table_rows=0.15 pk_span=66.67 | split_ok=True
+d_decimal_pk               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.082 default_run2=0.013 single_thread=0.041 force_primary=0.015 split_walk_100k=0.07 estimate_table_rows=0.16 pk_span=85.71 | split_ok=True
+d_datetime_pk              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.038 default_run2=0.017 single_thread=0.035 force_primary=0.011 split_walk_100k=0.07 estimate_table_rows=0.15 pk_span=- | split_ok=True
+d_timestamp_pk             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.041 default_run2=0.014 single_thread=0.034 force_primary=0.011 split_walk_100k=0.08 estimate_table_rows=0.14 pk_span=- | split_ok=True
+d_enum_pk                  COUNT_WITH_LIMIT_ELSE_UNSPLITTABLE default_run1=0.042 default_run2=0.014 single_thread=0.036 force_primary=0.013 split_walk_100k=0.77 estimate_table_rows=0.02 | split_ok=True
+d_desc_pk                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.312 default_run2=0.018 single_thread=0.068 force_primary=0.023 split_walk_100k=0.14 estimate_table_rows=0.15 pk_span=0.0 | split_ok=True
+d_snowflake                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.268 default_run2=0.019 single_thread=0.058 force_primary=0.023 split_walk_100k=0.08 estimate_table_rows=0.15 pk_span=15518909181.13 | split_ok=True
+d_unsigned_max             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.015 default_run2=0.002 single_thread=0.004 force_primary=0.002 split_walk_100k=0.0 estimate_table_rows=0.1 pk_span=0.0 | split_ok=True
+d_str_bin                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.042 default_run2=0.009 single_thread=0.021 force_primary=0.014 split_walk_100k=0.04 estimate_table_rows=10.52 pk_span=- | split_ok=True
+d_prefix_unique            COUNT_WITH_LIMIT_ELSE_UNSPLITTABLE default_run1=0.098 default_run2=0.054 single_thread=0.052 estimate_table_rows=0.36 | split_ok=None
+d_gipk                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.248 default_run2=0.01 single_thread=0.038 force_primary=0.012 split_walk_100k=0.06 estimate_table_rows=0.16 pk_span=27.96 | split_ok=True
+d_noindex                  COUNT_WITH_LIMIT_ELSE_UNSPLITTABLE default_run1=0.085 default_run2=0.01 single_thread=0.098 estimate_table_rows=0.16 | split_ok=None
+d_compressed               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.289 default_run2=0.008 single_thread=0.023 force_primary=0.009 split_walk_100k=0.03 estimate_table_rows=1.15 pk_span=0.0 | split_ok=True
+d_json_virtual             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.102 default_run2=0.021 single_thread=0.021 force_primary=0.237 force_smallest=0.023 split_walk_100k=0.04 estimate_table_rows=0.51 pk_span=0.0 | split_ok=True
+d_fulltext                 COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.057 default_run2=0.002 single_thread=0.009 force_primary=0.003 split_walk_100k=0.01 estimate_table_rows=0.43 pk_span=0.0 | split_ok=True
+d_spatial                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.034 default_run2=0.002 single_thread=0.007 force_primary=0.002 split_walk_100k=0.01 estimate_table_rows=0.15 pk_span=0.0 | split_ok=True
+d_soft_delete              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.162 default_run2=0.077 single_thread=0.07 force_primary=0.163 force_smallest=0.077 split_walk_100k=0.17 estimate_table_rows=0.19 pk_span=0.0 | split_ok=True
+d_history                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.335 default_run2=0.012 single_thread=0.037 force_primary=0.014 split_walk_100k=0.08 estimate_table_rows=1.89 | split_ok=True
+d_eav                      COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.406 default_run2=0.013 single_thread=0.035 force_primary=0.014 split_walk_100k=0.08 estimate_table_rows=0.39 | split_ok=True
+d_polymorphic              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.393 default_run2=0.038 single_thread=0.037 force_primary=0.262 split_walk_100k=0.06 estimate_table_rows=0.26 pk_span=0.0 | split_ok=True
+d_triggered                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.102 default_run2=0.004 single_thread=0.016 force_primary=0.004 split_walk_100k=0.03 estimate_table_rows=0.1 pk_span=0.0 | split_ok=True
+fk_diamond_a               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.01 default_run2=0.001 single_thread=0.003 force_primary=0.002 split_walk_100k=0.0 estimate_table_rows=2.24 pk_span=0.0 | split_ok=True
+fk_diamond_b               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.119 default_run2=0.018 single_thread=0.017 force_primary=0.101 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+fk_diamond_c               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.142 default_run2=0.018 single_thread=0.017 force_primary=0.069 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+fk_diamond_d               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.282 default_run2=0.036 single_thread=0.036 force_primary=0.279 force_smallest=0.036 split_walk_100k=0.07 estimate_table_rows=0.25 pk_span=0.0 | split_ok=True
+fk_comp_parent             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.03 default_run2=0.006 single_thread=0.015 force_primary=0.006 split_walk_100k=0.03 estimate_table_rows=0.07 | split_ok=True
+fk_comp_child              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.322 default_run2=0.037 single_thread=0.037 force_primary=0.186 split_walk_100k=0.06 estimate_table_rows=0.16 pk_span=0.0 | split_ok=True
+fk_uq_parent               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.043 default_run2=0.018 single_thread=0.017 force_primary=0.042 force_smallest=0.017 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+fk_uq_child                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.297 default_run2=0.037 single_thread=0.037 force_primary=0.227 split_walk_100k=0.06 estimate_table_rows=0.16 pk_span=0.0 | split_ok=True
+fk_null_parent             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.009 default_run2=0.001 single_thread=0.003 force_primary=0.002 split_walk_100k=0.0 estimate_table_rows=0.28 pk_span=0.0 | split_ok=True
+fk_null_child              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.122 default_run2=0.018 single_thread=0.017 force_primary=0.101 split_walk_100k=0.03 estimate_table_rows=0.16 pk_span=0.0 | split_ok=True
+fk_cross_schema            COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.152 default_run2=0.018 single_thread=0.017 force_primary=0.106 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+v_orders_with_customer     DECIDE_TARGET            view_count=1.939 | split_ok=None
+==> docker exec lab-bench python3 -u /work/bench/lock_factors.py
+pk_only                  READ-COMMITTED    plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-COMMITTED    plain_count_autocommit     locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  REPEATABLE-READ   plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  REPEATABLE-READ   plain_count_autocommit     locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    plain_count_autocommit     locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   REPEATABLE-READ   plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   REPEATABLE-READ   plain_count_autocommit     locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    plain_count_autocommit     locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           REPEATABLE-READ   plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           REPEATABLE-READ   plain_count_autocommit     locks=      0 update_blocked=False insert_blocked=False ok
+==> docker exec lab-bench python3 -u /work/bench/experiments.py all
+baseline                                   rows/s=       0 write p99 7.58->12.81 ms max=48.21 err=0 read p99 7.88->7.96 ms
+count_estimate                             rows/s=       0 write p99 8.09->None ms max=None err=0 read p99 7.86->0.58 ms
+count_default                              rows/s=       0 write p99 18.88->5.62 ms max=6.54 err=0 read p99 7.78->5.85 ms
+count_single_thread                        rows/s=       0 write p99 21.58->5.17 ms max=6.58 err=0 read p99 7.82->6.24 ms
+count_force_primary                        rows/s=       0 write p99 7.54->49.36 ms max=113.45 err=0 read p99 7.75->7.31 ms
+count_force_secondary                      rows/s=       0 write p99 14.3->5.93 ms max=9.2 err=0 read p99 7.66->6.59 ms
+count_split_100k_nosleep                   rows/s= 8333905 write p99 21.85->6.37 ms max=23.35 err=0 read p99 7.75->6.41 ms
+count_split_100k_duty50                    rows/s= 3892306 write p99 7.04->21.18 ms max=47.33 err=0 read p99 7.56->7.13 ms
+count_split_1m_duty50                      rows/s= 4038727 write p99 7.9->10.41 ms max=34.66 err=0 read p99 7.79->7.23 ms
+count_split_10k_duty50                     rows/s= 2677712 write p99 14.99->6.98 ms max=31.0 err=0 read p99 8.27->7.25 ms
+baseline_mid                               rows/s=       0 write p99 8.23->14.02 ms max=32.86 err=0 read p99 8.33->8.26 ms
+count_timeout_hint                         rows/s=       0 write p99 15.28->6.37 ms max=25.05 err=0 read p99 8.17->6.97 ms
+count_kill_latency                         rows/s=       0 write p99 23.97->5.75 ms max=6.37 err=0 read p99 8.25->6.53 ms
+lock_baseline                              rows/s=       0 write p99 19.36->13.56 ms max=33.78 err=0 read p99 8.97->8.52 ms
+lock_plain_count                           rows/s=       0 write p99 8.02->22.93 ms max=50.58 err=0 read p99 7.93->7.68 ms
+count_under_history                        rows/s=       0 write p99 21.12->370.41 ms max=519.45 err=0 read p99 8.27->7.79 ms
+replica_control_no_count                   rows/s=       0 write p99 7.53->13.8 ms max=39.5 err=0 read p99 7.83->8.21 ms
+count_on_primary_t_repl                    rows/s=       0 write p99 20.69->62.39 ms max=86.98 err=0 read p99 7.77->5.52 ms
+count_on_replica_t_repl                    rows/s=       0 write p99 17.8->39.32 ms max=67.07 err=0 read p99 8.2->7.37 ms
+counter_no_trigger                         rows/s=       0 write p99 19.58->13.04 ms max=51.94 err=0 read p99 8.31->8.33 ms
+counter_trigger_one_row                    rows/s=       0 write p99 8.87->15.41 ms max=31.39 err=0 read p99 8.13->7.97 ms
+baseline_end                               rows/s=       0 write p99 17.79->11.66 ms max=74.53 err=0 read p99 8.11->8.42 ms
+==> docker run -d --name lab-matrix-8-4-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.0@sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+83e28ca83e64c9ed2b079c5737bb5a2e2119de7dbca9c450afae74aacf365eaa
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-8-4-0 8.4.0
+8.4.0 8.4.0 -> /work/results/matrix_8.4.0.json
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+c70c8e081f3e8f6a61796697c63117e2df8ce4a9a9099bee4c1c440fee916081
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-8-4-13 8.4.13
+8.4.13 8.4.13 -> /work/results/matrix_8.4.13.json
+==> docker run -d --name lab-matrix-9-7-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.0@sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+117b16c523ca3cc400985d3d60959743183eb52a4561e39d8fd6dabb0c2f4c81
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-9-7-0 9.7.0
+9.7.0 9.7.0 -> /work/results/matrix_9.7.0.json
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+0382128c7d0c03bd40b02c56d1a562c7c85c98626ba2ec9f92621a9c1ce02795
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-9-7-4 9.7.4
+9.7.4 9.7.4 -> /work/results/matrix_9.7.4.json
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+07b738ea0ed252bec54f0ada7ec57c17e5bfbb480c5ab315d7d221b8d0a8fa98
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-26-10-0 26.10.0
+26.10.0 26.10.0 -> /work/results/matrix_26.10.0.json
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+d2c0adefab46c4b6ac2dfb12c89f5b65eafadd9e319999bbed881c2e1ee9199b
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+702ea95b3293bf83b13e7b5183683f8cb4dd4da936931e965c305b0558185e0d
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+14b6da0b637053c4c223cf5cbb130bc2d8d60ea24a37855cf0c6963400541b78
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+f798517b9cd72c96f40d8f6c54776d90945b6f8f814b76dcf66cdac140aae4a0
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+261d2396603e77d5a5f26c0f9a6e20fa0c3171a8d1d06bc013387187b92658b6
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+47657da185807a773806ed1b3624ec4160117ad09413322d8849bf46cbbf8613
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+bb887fbd6a78fd6028a6fd26c53da6ed9cd17a26585fcc70d107bc4b99e82adc
+#<Thread:0x0000000125d92328 /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:917 run> terminated with exception (report_on_exception is true):
+/Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:917:in 'IO#read': stream closed in another thread (IOError)
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:917:in 'block (2 levels) in Open3.capture2e'
+/Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:929:in 'Thread#value': Interrupt
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:929:in 'block in Open3.capture2e'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:540:in 'Open3.popen_run'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:522:in 'Open3.popen2e'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:912:in 'Open3.capture2e'
+	from lab.rb:379:in 'Lab#capture'
+	from lab.rb:293:in 'Lab#requested_process'
+	from lab.rb:277:in 'Lab#run_requested'
+	from lab.rb:148:in 'block (2 levels) in Lab#requested'
+	from lab.rb:148:in 'Array#map'
+	from lab.rb:148:in 'block in Lab#requested'
+	from lab.rb:131:in 'Array#each'
+	from lab.rb:131:in 'Lab#requested'
+	from lab.rb:425:in 'Kernel#public_send'
+	from lab.rb:425:in 'block in <main>'
+	from lab.rb:425:in 'Array#each'
+	from lab.rb:425:in '<main>'

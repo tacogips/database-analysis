@@ -1,0 +1,106 @@
+{
+ "id": "58-EXP-O2-3-8.4.13",
+ "answers": [
+  "EXP-O2-3",
+  "FIND-R2-CASCADE-VER-01"
+ ],
+ "started": "2026-11-06T22:17:49",
+ "sections": {
+  "cascade": {
+   "variables": {
+    "enable_cascade_triggers": null,
+    "innodb_native_foreign_keys": null
+   },
+   "default": {
+    "setup": {},
+    "delete_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "update_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "delete_set_null": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    }
+   },
+   "writer_session_on": {
+    "setup": {
+     "SET SESSION enable_cascade_triggers=ON": {
+      "ok": false,
+      "ms": 0.16,
+      "errno": 1193,
+      "msg": "(1193, \"Unknown system variable 'enable_cascade_triggers'\")"
+     }
+    },
+    "delete_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "update_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "delete_set_null": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    }
+   },
+   "counting_session_setting_has_no_effect_check": "cc_log moves only through the writer's statements; the session running this check holds the default setting.",
+   "native_on_attempt": {
+    "ok": false,
+    "ms": 0.15,
+    "errno": 1193,
+    "msg": "(1193, \"Unknown system variable 'innodb_native_foreign_keys'\")"
+   },
+   "native_off_attempt": {
+    "ok": false,
+    "ms": 0.12,
+    "errno": 1193,
+    "msg": "(1193, \"Unknown system variable 'innodb_native_foreign_keys'\")"
+   },
+   "_seconds": 0.17
+  }
+ },
+ "version": "8.4.13",
+ "elapsed_seconds": 0,
+ "section_errors": []
+}

@@ -1,0 +1,756 @@
+{
+  "createdAt": "2026-11-07T03:46:21.313228+00:00",
+  "meaning": "Current reconciliation checklist, not review acceptance. Duplicate stable IDs merged; every occurrence remains linked. Historical original8 IDs and temporary20 IDs retained. All closure pending final Sol assessment, including root fixes.",
+  "sources": {
+    "results/reviews/original-revision10-reviews.json": "f0d1b68d0d7d2e5b4146b7092ede93b53b334944b36ff62f0ff8851b13b74ec8",
+    "results/reviews/sol-internal-rollout-review.json": "866d0fb175391428f9a296145150565e61e88020d2c3ca0b2f131713491fe5f8",
+    "results/reviews/sol-sampling-review.json": "fb833ec08f475c62cb87a686be30efafa2895b0941e7301cb89394a8f388a46f",
+    "results/reviews/sol-validation-review.json": "c2e7bcf9412e920deeb693899b6b2a8aa7b7d650b2e36f7501de89c855b84f8d",
+    "results/reviews/sol-frontier-review.json": "2541678b1bb35304eb493f3feacbfcc86ccd8c2acafe5d50ed2c3cccdaa699dc",
+    "results/reviews/sol-protocol-review.json": "7da34ab4f929266785cd9e12fbd34642b543f3e8f71bdbfe38f5a90b47a47222",
+    "results/reviews/sol-wide-errors-review.json": "d679d77b92cecd22eb8a8c5ddec95c2ddf044ce4aecbe43aee9ded1127ec77c0",
+    "results/reviews/sol-encryption-state-review.json": "a3662f9de30569cddbb9ae10982382a97288a9cb9e263d5461df03cffcb506d6"
+  },
+  "findings": [
+    {
+      "id": "FIND-O10-PRIMARY-SCALE",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 0,
+          "section": "§1 結論の表と判断フロー, §3 書き込みの形を変えると, §7 延長の条件, §10"
+        },
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 0,
+          "section": "§1 結論・判断フロー、§3 書き込みの形、§7 延長の条件、§10"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reference/20261107-primary-coverage/manifest.json; collection still growing",
+        "0h process success has5missing PRIMARY/split repetitions; ROOT-INTRA-ARM-BUDGET-PARTIAL"
+      ]
+    },
+    {
+      "id": "FIND-O10-INDEXED-100-STALL",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 1,
+          "section": "§1, §3 書き込みの形を変えると"
+        },
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 1,
+          "section": "§1、§3 書き込みの形、§8 停止条件"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reference/20261107-primary-coverage/results/requested_0d-EXP-O10-INDEXED-100-STALL.json"
+      ]
+    },
+    {
+      "id": "FIND-O10-STEP-CEILING",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 2,
+          "section": "§1 SQL 4 規則 4"
+        },
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 3,
+          "section": "§1 SQL 4 規則4、§3 完走数"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "bench/countlib.py:split_count max_rows; verify exact original request and actual evidence"
+      ]
+    },
+    {
+      "id": "FIND-O10-NOPK-FORCE",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 3,
+          "section": "§1 判断フロー, §7 延長の条件, §6 t_nopk"
+        },
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 4,
+          "section": "§1 判断フロー、§6 主キーなし、§7"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "0l currently pending under existing owner; explicitly conditional flow needed"
+      ]
+    },
+    {
+      "id": "FIND-O10-ENCRYPTED-STALE",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 4,
+          "section": "§11 item 3, §1 ヘッダの出典表記, §6 幅広い行"
+        },
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 5,
+          "section": "出典表記、§6 幅広い行、§11"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "three91 successful historical records; corrected immutable citations; finalall still pending"
+      ]
+    },
+    {
+      "id": "FIND-O10-P100-BOLD",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 5,
+          "section": "§3 書き込みの形を変えると, §10"
+        },
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 6,
+          "section": "§3 書き込みの形、§10"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "main guideline no p50-only no-impact acceptance; final source/text review required"
+      ]
+    },
+    {
+      "id": "FIND-DOC-01",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.opus-review",
+          "findingIndex": 6,
+          "section": "§12"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md reduced169lines; detail/probability docs split"
+      ]
+    },
+    {
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/original-revision10-reviews.json#reviews.sol-review",
+          "findingIndex": 2,
+          "section": "§7 レプリカの失敗復旧、bench/countlib.py restore_applier"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reference/20261107-observations/requested_0c-EXP-S8-REPLICA-STOP-LONG.json",
+        "docs/table-count-evidence.md:replica recovery"
+      ]
+    },
+    {
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "severity": "high",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-internal-rollout-review.json",
+          "findingIndex": 0,
+          "section": "§1 結論・判断フロー、§4 概数の精度、§10"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md",
+        "docs/probability-count.md",
+        "results/reviews/accuracy-frontier-existing-evidence.json",
+        "bench/accuracy_frontier.py;01c/01d DB execution pending"
+      ]
+    },
+    {
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-internal-rollout-review.json",
+          "findingIndex": 1,
+          "section": "§1 SQL 2、§7 延長の条件、§8 停止条件"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md:section4",
+        "results/reference/20261107-wide-sampling/manifest.json"
+      ]
+    },
+    {
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-internal-rollout-review.json",
+          "findingIndex": 2,
+          "section": "§2 対象環境、§6 行と列、§11 暗号化された表"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reference/20261107-wide-sampling/manifest.json",
+        "current-code96/97 whiteall rerun pending"
+      ]
+    },
+    {
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-internal-rollout-review.json",
+          "findingIndex": 3,
+          "section": "§4 概数の精度、§8 権限、§10 メタ情報候補"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md:section2",
+        "results/reference/20261107-observations/requested_metadata_accuracy.json",
+        "results/reference/20261107-observations/requested_metadata_on_replica.json"
+      ]
+    },
+    {
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-internal-rollout-review.json",
+          "findingIndex": 4,
+          "section": "§4 ANALYZEの説明、§8 権限、§10 統計候補"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md:section2; maintenance separate from initial lookup"
+      ]
+    },
+    {
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-internal-rollout-review.json",
+          "findingIndex": 5,
+          "section": "§1 コピー用SQL、§7 レプリカ、§8 監視・停止・再開"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md:section6"
+      ]
+    },
+    {
+      "id": "SOL-SAMP-DEADLINE",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-sampling-review.json",
+          "findingIndex": 0,
+          "section": "bench/samplinglib.py:31-40,49-70"
+        },
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 6,
+          "section": "bench/samplinglib.py sample"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "bench/test_sampling_contract.py",
+        "results/reviews/sol-frontier-assessment.json; statement budget layer",
+        "docs/probability-count.md"
+      ]
+    },
+    {
+      "id": "SOL-SAMP-DOC-CONTRACT",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-sampling-review.json",
+          "findingIndex": 1,
+          "section": "docs/table-count-guideline.md:13-20,119-121,150-155"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/probability-count.md"
+      ]
+    },
+    {
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-sampling-review.json",
+          "findingIndex": 2,
+          "section": "docs/table-count-evidence.md:69-71,88,867,872"
+        },
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 7,
+          "section": "詳細§1、§7、実行時の状態一覧、§10〜11"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-evidence.md; some late evidence integration still pending"
+      ]
+    },
+    {
+      "id": "SOL-SAMP-98-COMPARISON",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-sampling-review.json",
+          "findingIndex": 3,
+          "section": "bench/requested/98-stratified-sampling.py:43-73; lab.rb:70-76,154-162"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reference/20261107-fixed-sampling/manifest.json",
+        "bench/accuracy_frontier.py; new frontier execution pending"
+      ]
+    },
+    {
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "severity": "high",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 0,
+          "section": "lab.rb requested、README.md 再現手順"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "bench/dependencies.py",
+        "bench/test_runner_cache.rb",
+        "results/reviews/cache-reuse-smoke.json",
+        "lab.rb:success/fingerprint/artifact checks and actualCOUNT verification"
+      ]
+    },
+    {
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 1,
+          "section": "bench/requested/12-EXP-6.py session_limit_and_lost_hint"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "bench/test_kill_timer.py",
+        "results/reviews/cache-reuse-smoke.json:ran id12-EXP-6 exit0; source fingerprint and artifact hashes retained",
+        "results/requested/12-EXP-6.status.json; final whiteall will regenerate this result"
+      ]
+    },
+    {
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 2,
+          "section": "lab.rb reset、参考結果の保存、92の成功状態"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reference/20261107-observations/manifest.json",
+        "results/reference/20261107-fixed-sampling/manifest.json",
+        "lab.rb:reset preserves reference/reviews;92 exit unknown explicit"
+      ]
+    },
+    {
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 3,
+          "section": "91のcold/warm比較、詳細§11の公平比較という説明"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md:section3; no causal encryption multiplier",
+        "bench/requested/91-encrypted-count.py:after_evict/immediate_repeat; finalall pending"
+      ]
+    },
+    {
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 4,
+          "section": "bench/lablib.py Workload"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "bench/test_workload_accounting.py",
+        "results/reference/20261107-wide-sampling/manifest.json"
+      ]
+    },
+    {
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-validation-review.json",
+          "findingIndex": 5,
+          "section": "詳細§3の性能表現、reqwide.pyの評価範囲"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "docs/table-count-guideline.md:section4",
+        "wide sampling snapshot; short diagnostics notSLO certification"
+      ]
+    },
+    {
+      "id": "SOL-FRONTIER-001",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-frontier-review.json",
+          "findingIndex": 0,
+          "section": "01c：失敗結果の永続化"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reviews/sol-frontier-assessment.json",
+        "results/reviews/accuracy-frontier-failure-regression.json"
+      ]
+    },
+    {
+      "id": "SOL-FRONTIER-002",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-frontier-review.json",
+          "findingIndex": 1,
+          "section": "01d：意図した問い合わせ上限と後続アーム"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "results/reviews/sol-frontier-assessment.json",
+        "results/reviews/accuracy-frontier-failure-regression.json"
+      ]
+    },
+    {
+      "id": "SOL-FRONTIER-003",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-frontier-review.json",
+          "findingIndex": 2,
+          "section": "実験完了と検証環境の後始末"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "unresolved; author must fix matrix teardown after current owner ends"
+      ]
+    },
+    {
+      "id": "SOL-FRONTIER-004",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-frontier-review.json",
+          "findingIndex": 3,
+          "section": "サービス観測の未計測値"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "required against current source and evidence; root notes do not close review findings",
+      "rootEvidencePointers": [
+        "unresolved low; author must distinguish disabled lock collection from observed zero"
+      ]
+    },
+    {
+      "id": "SOL-PROTOCOL-001",
+      "severity": "high",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-protocol-review.json",
+          "findingIndex": 0,
+          "section": "reqmix2は2013や設計拒否まで予定された上限到達として数える"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "root confirms static counterexamples; current all intentionally interrupted before reqmix runs. Requires code/protocol repair and regression plus final source measurement; no actual current-run reqmix failure claimed.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-protocol-design/manifest.json",
+        "results/reviews/white-all-interruption.json"
+      ]
+    },
+    {
+      "id": "SOL-PROTOCOL-002",
+      "severity": "high",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-protocol-review.json",
+          "findingIndex": 1,
+          "section": "reqmix2の予算と省略判定は、速いarmの必要反復まで落とせる"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "root confirms static counterexamples; current all intentionally interrupted before reqmix runs. Requires code/protocol repair and regression plus final source measurement; no actual current-run reqmix failure claimed.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-protocol-design/manifest.json",
+        "results/reviews/white-all-interruption.json"
+      ]
+    },
+    {
+      "id": "SOL-PROTOCOL-003",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-protocol-review.json",
+          "findingIndex": 2,
+          "section": "中断後のサーバー処理と未完了writeを確認せず、次のarmやquiet truthへ進める"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "root confirms static counterexamples; current all intentionally interrupted before reqmix runs. Requires code/protocol repair and regression plus final source measurement; no actual current-run reqmix failure claimed.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-protocol-design/manifest.json",
+        "results/reviews/white-all-interruption.json"
+      ]
+    },
+    {
+      "id": "SOL-WIDE-ERROR-001",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-wide-errors-review.json",
+          "findingIndex": 0,
+          "section": "01a/01bのservice sampling失敗が失敗集計から漏れ、そのまま再利用対象になる"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "Owner confirms source/fake counterexamples; bounded persistence/classification/cleanup correction required. No claim that current live wide run encountered these failures; it had not reached wide scripts.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-wide-error-design/manifest.json",
+        "results/reviews/wide-errors-interruption.json"
+      ]
+    },
+    {
+      "id": "SOL-WIDE-ERROR-002",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-wide-errors-review.json",
+          "findingIndex": 1,
+          "section": "wide共通armがworkloadのサーバー終了確認なしに次の比較へ進む"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "Owner confirms source/fake counterexamples; bounded persistence/classification/cleanup correction required. No claim that current live wide run encountered these failures; it had not reached wide scripts.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-wide-error-design/manifest.json",
+        "results/reviews/wide-errors-interruption.json"
+      ]
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-001",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-encryption-state-review.json",
+          "findingIndex": 0,
+          "section": "暗号化された整数主キーを一律に標本法の対象外としている"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "Owner confirms overbroad exclusion in owner artifacts, corrected SQL-visible integer applicability; docs integration and final Sol closure pending.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-encryption-state-design/manifest.json",
+        "results/reviews/encryption-state-coverage.json",
+        "results/reviews/encrypted-keyless-research.json"
+      ]
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-002",
+      "severity": "middle",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-encryption-state-review.json",
+          "findingIndex": 1,
+          "section": "暗号化方式の説明が、方式選択に使える状態別カタログへ統合されていない"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "Owner confirms missing integrated encryption state catalog; docs-only correction required after current author releases docs. No new DB experiment or all solely for docs.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-encryption-state-design/manifest.json",
+        "results/reviews/encryption-state-coverage.json",
+        "results/reviews/encrypted-keyless-research.json"
+      ]
+    },
+    {
+      "id": "SOL-ENCRYPTION-STATE-003",
+      "severity": "low",
+      "occurrences": [
+        {
+          "source": "results/reviews/sol-encryption-state-review.json",
+          "findingIndex": 2,
+          "section": "所有者coverageのソースハッシュが同梱版と一致していない"
+        }
+      ],
+      "finalSolClosure": "pending",
+      "authorAssessment": "Owner confirms stale source reference in initial owner coverage; re-read immutable snapshot and anchored all source hashes to its manifest, with explicit nonfinal-source limitation; final Sol closure pending.",
+      "rootEvidencePointers": [
+        "results/reference/20261107-encryption-state-design/manifest.json",
+        "results/reviews/encryption-state-coverage.json",
+        "results/reviews/encrypted-keyless-research.json"
+      ]
+    }
+  ],
+  "rootAuditObservations": [
+    {
+      "id": "ROOT-ALL-SEMANTIC-ERRORS",
+      "status": "requires final audit; not yet measured",
+      "evidence": [
+        "bench/experiments.py:run appends unexpected method/cleanup exceptions to result.errors",
+        "bench/experiments.py:main loops over run results without deriving a failing exit status from result.errors"
+      ],
+      "implication": "Even a zero mise run all exit is insufficient proof of experimental success. Inspect every impact result errors, expected cancellation cases, method completion and source-specific expected coverage. Do not require time-boxed methods to finish when the protocol intentionally cancels them.",
+      "requiredAction": "Author should either propagate unexpected errors to main exit or explain a documented semantic-completeness audit. Owner must inspect generated JSON before final-all-proof acceptance.",
+      "currentProtocolInterpretationNotes": [
+        {
+          "path": "results/reviews/owner-history-workload-interpretation.json",
+          "meaning": "Currentall diagnostic interpretation caveat only; no newfinding or experiment. Docs-only integrate should not attribute broad history/churn window p99 solely toCOUNT."
+        },
+        {
+          "path": "results/reviews/owner-inline-window-actual-regression.json",
+          "meaning": "Owner now independently reconstructs120TDEtrialcohorts+84timestampedmethodwindows,quantiles/countsagree,7badrecordmutationscaught. Broadbaseline/trial/recoverytimestampboundariesnotstored; exactoriginalbroadboundaries andbaseline/recoveryquantiles notindependentlyreconstructed. No SLO claim or newmandatoryexperiment/sourcechange."
+        }
+      ]
+    },
+    {
+      "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+      "status": "historical failures confirmed; final all behavior pending",
+      "evidence": [
+        "results/requested_3e-EXP-O6-WRITE-MIX-indexed.json: sections.runs._error is OperationalError2013 timeout through reqruns.py255/278",
+        "results/requested_3f-EXP-O6-WRITE-MIX-insert-delete.json: same timeout and section_errors=[runs]",
+        "bench/reqmix.py module docstring explicitly says first write-mix design used one shared connection and first unbounded statement loses remaining arms",
+        "bench/requested/3e-*.py and 3f-*.py still call superseded reqruns.write_mix_body; all enumerates all93 scripts"
+      ],
+      "requiredAction": "Before final all, decide how to handle superseded invalid protocols without falsely accepting partial results or needlessly rerunning a known-invalid design. Preserve old observations; use a justified replacement protocol or clearly retire superseded experiments while retaining hypothesis coverage. Do not reduce required write-mix coverage."
+    },
+    {
+      "id": "ROOT-REVIEW-BUDGET-SCOPE",
+      "status": "static runner observation; not a measured failure",
+      "evidence": [
+        "Riela runner passes215min to reqlib.guard; only scripts that call guard honor it",
+        "90/91/92/93/94/96/97/98 and01a/01b do not all call guard; each still has1200s timeout",
+        "lab-runner node timeout4h"
+      ],
+      "requiredAction": "Do not present215min as an enforced total wall-clock ceiling for every script. Before a long review run, retain per-script limits and either make aggregate enforcement honest or explicitly document guard coverage; a later white all remains unbounded in aggregate. Do not silently accept incomplete measurements."
+    },
+    {
+      "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+      "status": "actual incomplete coverage confirmed",
+      "evidence": [
+        "results/requested/0h-EXP-O10-PRIMARY-SCALE-indexed-30pct.status.json:ok=true,exit0,seconds987",
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct.json:sections.arms.not_run_near_limit=['2/statement_pk', '3/statement_pk', '3/split_pk', '4/statement_pk', '4/split_pk']",
+        "reqscale uses300s for statement arms and reserves full timeout before starting each; two slow secondary scans crowd out later fast PRIMARY/split repetitions"
+      ],
+      "requiredAction": "Do not call all planned comparisons complete from process success. Repair bounded scheduling or predeclare an adequate smaller secondary statement ceiling/split protocol so remaining decisive arms run, or explicitly report valid scope and unresolved comparison without silently green coverage. Preserve honest limit outcomes and test hypothesis; do not discard evidence because slow. Avoid blindly increasing every script timeout or pretending unmeasured arms succeeded."
+    },
+    {
+      "id": "ROOT-RUBY-RUNTIME",
+      "evidence": "results/reviews/ruby-runtime-fix-evidence.json",
+      "requiredCorrection": "Latest user permits current Ruby: pin latest stable4.0.9 in mise.toml (official downloads and mise latest agree; root is installing it). Keep public mise run all; explicitly use mise exec -- ruby lab.rb <command> in each of5tasks and include mise.toml in cache fingerprint. Bootstrap Riela command node through an executable POSIX shell wrapper that execs mise exec -- ruby <workflow Ruby controller>, so controller itself starts on configured4.0.9. Preserve project cwd; capture wrapper in source-before/after fingerprint/snapshot. Do not add legacy2.6 compatibility. Update actual-launch-chain fake regression plus early-failure stale-summary case. Existing real Riela guarded probes establish the plain-task/explicit-exec mechanism; latest4.0.9 bootstrap probe will be supplied. Do not change database algorithms for this startup failure."
+    },
+    {
+      "id": "ROOT-RAW-ARTIFACT-SIZE",
+      "evidence": "results/reviews/raw-evidence-size-projection.json",
+      "requiredCorrection": "New reqscale embeds full raw_service_samples in indented mainJSON. Existing observed1105writes/s and planned620s imply about162MB prettyJSON, over GitHub100MiB file limit. Preserve ALL raw numeric samples losslessly in bounded-size standard gzip JSONL chunks with sample counts and SHA manifests; main results JSON retains summaries/metadata/chunk refs. Enforce a conservative uncompressed chunk byte cap, not one unbounded gzip. No table data. Add pure roundtrip/count/hash/bound tests. Include generated nested raw files in per-script artifact collection/cache validation and immutable runner snapshot, and prove deleting/changing a raw chunk invalidates reuse. Keep sampling/load/timing protocols unchanged; representation happens after collection. Document how to verify/read chunks. This projection is not a DB measurement."
+    },
+    {
+      "id": "ROOT-FAILED-ALL-SUMMARY",
+      "evidence": "results/reviews/final-all-candidate.json and final-all-run.log first attempt",
+      "requiredCorrection": "Failure occurred at Ruby parsing BEFORE reset. Controller read prior interrupted requested/last_run.json(status started), not a summary produced by this all attempt. Detect summary freshness with pre/post file signature or equivalent read-only evidence; report not_reached on unchanged prior summary. Do not move/delete another potential lab owner data before the CLI lock. Snapshot collection may contain pre-run files on early failure; label honestly. Extend isolated actual-runner regression to an early failure leaving an old completed summary, ensuring no prior ran entries are credited. Preserve first failed candidate/log in existing immutable snapshot or dedicated reviews copy before next all."
+    },
+    {
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "status": "Capacity restored outside stopped measurements; code preflight pending next Sol author. Not reviewer closure.",
+      "evidence": "results/reviews/build-cache-cleanup-evidence.json",
+      "requiredAudit": "Ensure all pinned image pulls and VM headroom checks occur before performance; no automatic broad pruning. Interrupted partial01a is not final comparison evidence. Confirm next white-all completes with final source and sufficient capacity."
+    }
+  ],
+  "counts": {
+    "uniqueReviewerFindings": 36,
+    "bySeverity": {
+      "middle": 24,
+      "low": 8,
+      "high": 4
+    },
+    "occurrences": 44
+  },
+  "updatedAt": "2026-11-07T12:18:01.386694+00:00",
+  "authorRevision23": {
+    "responsePath": "results/reviews/author-revision23-output.json",
+    "scopeCatalog": "bench/nonlocking-scope.json",
+    "meaning": "Additive author submission only; all original finding occurrences and finalSolClosure fields preserved."
+  }
+}

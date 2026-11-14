@@ -1,0 +1,52 @@
+{
+  "id": "01d-ACCURACY-SERVICE-100",
+  "ok": true,
+  "seconds": 851,
+  "reused": false,
+  "log": "results/requested/01d-ACCURACY-SERVICE-100.log",
+  "runs": [
+    {
+      "ok": true,
+      "exit_code": 0,
+      "signal": null,
+      "version": "8.4.13",
+      "mysql_image": {
+        "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+        "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+      },
+      "bench_image_id": "sha256:b22e0be9afd6803b06bd6794ec6aab25bf09d3b7acaa802fae36dfeced0e3547",
+      "cleanup": {
+        "container": "lab-matrix-8-4-13",
+        "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+        "ok": true,
+        "container_removed": true,
+        "data_removed": true,
+        "image_disposition": "shared_immutable_cache_retained",
+        "remove_exit_code": 0,
+        "remove_output": "lab-matrix-8-4-13\n",
+        "verify_exit_code": 0,
+        "record": "results/matrix_cleanup/lab-matrix-8-4-13-66068-1794053039-484464893173000.json"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/requested_accuracy_service_100.json",
+      "sha256": "9113e982beff1a892aaa53dd03287c2bfd827aadbea954bd8f124d1e6013084d",
+      "bytes": 24590233
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-8-4-13-66068-1794053039-484464893173000.json",
+      "sha256": "36357ee196e8f0f553557fddf2ea9e8623d942b2cac29086a60be7ecd3dd32d6",
+      "bytes": 434
+    },
+    {
+      "path": "results/requested/01d-ACCURACY-SERVICE-100.log",
+      "sha256": "2cfc08209a3f9fe2a7b3fa42da40f1a1a241f7d6470744071dd386318e2b7f8f",
+      "bytes": 3242
+    }
+  ],
+  "missing_outputs": [],
+  "fingerprint": "44e5129e0cf56c081bef5c8a3e0813f5f38aa11680376513c57263d482e3e836",
+  "inputs_changed_during_run": false
+}

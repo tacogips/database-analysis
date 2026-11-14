@@ -1,0 +1,16 @@
+{
+  "scope": "documentation_only",
+  "authorization": "User explicitly accepted uncommitted rows, duplicate counts and omissions and requested NOLOCK adoption; supersedes previous documentation exclusion. Benchmark scope unchanged.",
+  "reviews": [
+    {"agent": "qa_engineer_review", "accepted": true},
+    {"agent": "qa_validation_review", "accepted": true}
+  ],
+  "files": {
+    "docs/guidelines/sql-server.md": "793c144bb0c729adcca2e6028e6276e7918e093c2bcb6cb520caeb1919525b46",
+    "docs/guidelines/count-check-rationale.md": "829704394c4cec025f151fbce7c25ce8fc55a38b1e062951bab6c10904f22072",
+    "docs/guidelines/operations-runbook.md": "4e309d79502749334d3f2596d6f7bec4b9ffde6cbc4e9ad07c8741319b10b50d"
+  },
+  "checks": ["git diff --check", "local links and heading anchors"],
+  "database_execution": false,
+  "performance_validation": false
+}

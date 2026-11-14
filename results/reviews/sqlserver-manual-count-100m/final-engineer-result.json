@@ -1,0 +1,143 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "cleanup": {
+      "assessment": "Actual terminal logs show setup=0 sql=0 on both nodes; no timeout or forced process termination occurred. Nonce resources and guarded host stage were removed. Raw controller status remains incomplete with its immediate capacity failure.",
+      "clientExitCode": 0,
+      "controllerExitCode": 1,
+      "laterCapacityAssessment": "The later observation binds the unchanged raw run and canonical invocation, retains the same 1 GiB criterion, and records only 270692352 bytes below pre-run free capacity. This establishes later capacity recovery separately from resource absence; it does not certify block erasure or global cache purging.",
+      "primaryExitCode": 0,
+      "secondaryExitCode": 0
+    },
+    "coldBufferEverySample": {
+      "assessment": "Every raw target-buffer proof precedes its COUNT and reports cached=0/dirty=0. B/C/D use CHECKPOINT then DBCC; A verifies clean pages without assuming writable CHECKPOINT. Plan cache remains retained; OS/VM/macOS caches are uncontrolled.",
+      "rawProofMismatches": 0,
+      "verified": 18
+    },
+    "eighteenCounts": {
+      "assessment": "All 1000 raw post-COMMIT receipts match their aggregate records, contiguous ID ranges, 100000 affected rows and transaction_count=0. Caller inspection found one primary load and no extra target validation COUNT.",
+      "committedBatchReceipts": 1000,
+      "completed": 18,
+      "positiveTimings": 18,
+      "receiptMismatches": 0,
+      "sampleFileMismatches": 0,
+      "staticMatches100000000": 18,
+      "verified": 18
+    },
+    "fourActualStates": {
+      "A": "Actual countsecondary, SECONDARY/readable, SYNCHRONIZED/HEALTHY, redo_queue_size=0. Full/log CHECKSUM backup and NORECOVERY restore identity support the same committed rowset.",
+      "B": "RCSI=1, SNAPSHOT OFF, non-AG NULL, session isolation 2.",
+      "C": "RCSI=0, SNAPSHOT ON, non-AG NULL; SNAPSHOT prefix precedes final identity capture and isolation 5.",
+      "D": "RCSI=0, SNAPSHOT OFF, non-AG NULL, isolation 2 with explicit NOLOCK table semantics.",
+      "engine": "Both actual nodes report SQL Server 2022 16.0.4305.5 Developer Edition; no mixed-engine samples."
+    },
+    "limitations": [
+      "Unsupported Rosetta diagnostic environment; no native performance or product ranking inference.",
+      "Fixed order, cache residuals, compilation, host IO/thermal context and different active-instance counts prevent causal isolation of DB-state effects.",
+      "Quiet static fixture; service budget remains UNAVAILABLE.",
+      "No generalization to TDE, LOB, compression or arbitrary 100-column tables.",
+      "Historical SQL2025 failures remain failures and are not combined with SQL2022 samples.",
+      "Acceptance covers the documented measurement and cleanup evidence, not a controller-exit-0 claim."
+    ],
+    "manualIndexChecks": "All six cells preserve inventory, exact selected-SQL estimated plans, catalog lock settings, key mappings, stored-column metadata and planned-index partition pages. Inventory excludes nonclustered double counting. Estimated plans are correctly distinguished from actual execution plans and index presence. Capacity pages are not represented as measured IO.",
+    "precisionVsObservedD": "All results match the static fixture. D is explicitly observed_rows, with no accuracy-under-writes or start-time snapshot guarantee. Actual metadata confirms 100 stored columns and no fixture RLS predicates.",
+    "release": {
+      "assessment": "Reviewed 18 after-sample, six after-dispose and three smoke release records. Request, snapshot and transaction absence are checked against the owned identity; disposed sessions and locks disappear. Monitoring does not hide changed DB/isolation through restrictive joins.",
+      "mismatches": 0,
+      "verifiedRecords": 27
+    },
+    "rosetta": "Enabled binfmt and actual SQL executable PID proofs exist for both pinned owned nodes before use and after all counts. Executables resolve to /mnt/lima-rosetta/rosetta. Startup retry rechecks the entire proof within the original deadline; offline lifecycle tests supplement actual execution.",
+    "sixCells": {
+      "assessment": "Each cell contains samples 1\u20133. Both documents correctly report values and min/median/max. The four state comparisons use the unchanged composite structure.",
+      "medianScalarNs": {
+        "A-composite": 4614847824,
+        "B-clustered": 98157859799,
+        "B-composite": 2855456498,
+        "B-narrow": 2105454210,
+        "C-composite": 1998291477,
+        "D-composite": 1296359198
+      },
+      "verified": 6
+    },
+    "timing": "All 18 satisfy full_completion_ns >= first_result_ns > 0, with EOF and extra-result checks. COUNT timing excludes setup, metadata, reset and index/AG work, while including transport, SqlClient and monitor interference. Per-cell statistics are descriptive."
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "docs/guidelines/sql-server.md": "b51650f9114b9d6df29e1d7d1b4447bbcb7b4e5bf575c441eb38412d14887a83",
+    "docs/sqlserver-manual-count-100m.md": "3962800597d64157ce9ab1efef9ac17a43f2dde7c5e60ec9b38597869baa5fe9"
+  },
+  "findings": [],
+  "requestedExperiments": [],
+  "reviewEvidence": {
+    "bindings": [
+      {
+        "path": "results/reviews/sqlserver-manual-count-100m/owner-proof.json",
+        "sha256": "b7d5507c656310a52507b2249a954a5266f9aed1ab1c74df8d844310743bb898"
+      },
+      {
+        "path": "results/reviews/sqlserver-manual-count-100m/owner-audit.json",
+        "sha256": "eca6291c61c6377eacdef2f44e0bd7dbba4566f8acb2b5cfc3e3ca8937405d02"
+      },
+      {
+        "path": "results/reviews/sqlserver-manual-count-100m/baseline.json",
+        "sha256": "4512052b06b5776a99183e2b29b1d5783df59c865aeb3acfd0156b967f43d427"
+      },
+      {
+        "path": "sqlserver/manual-count-100m/manual/sql-server.md",
+        "sha256": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682"
+      },
+      {
+        "path": "results/sqlserver/manual-count-100m/runs/20261108T234303Z-7e3f51b7e5a312af1e695029bd48dcb5/result.json",
+        "sha256": "3a304239d5d5be1382060c218d593739be01a3ae3d24bdfebcab3b259e738d26"
+      },
+      {
+        "path": "results/reference/sqlserver-manual-count-100m-20261108T234303Z-7e3f51b7e5a312af1e695029bd48dcb5/manifest.json",
+        "sha256": "7b2a68bc7f0e493b2a7757307e8394302abf147056a9304bec574487322f0f26"
+      },
+      {
+        "path": "results/reviews/sqlserver-manual-count-100m/owner-post-terminal-capacity.json",
+        "sha256": "6014070dfdc6e297926e3cb7677092f0b7458f565da1ec3e33a41193d139849a"
+      },
+      {
+        "path": "results/reviews/sqlserver-manual-count-100m/engine-repair-owner-application.json",
+        "sha256": "f86867673ecd240f637f6759c25ba113d3ff63522898d76654af2df5fc081978"
+      }
+    ],
+    "hashVerification": {
+      "commandLogBindings": 1448,
+      "currentSourceAndDocumentBindings": 37,
+      "finalArchiveFiles": 2843,
+      "historicalArchiveFiles": 4758,
+      "method": "Read-only foreground Python standard-library verification, followed by direct caller, SQL, raw sample, receipt, release and lifecycle inspection.",
+      "mismatches": 0,
+      "protectedFiles": 11046,
+      "runtimeArtifacts": 2842
+    },
+    "provenanceAssessment": "Authors57/62/63/64 are separate completed Sol sessions, distinct from final reviewer roles. Application/offline hashes bind all 34 runtime source files; the additional baseline binding is verified separately. Failed archives preserve 0, 0 and 15 successful counts respectively, controller exit1, earlier primary137, and SQL2025 both-server exit1. Postrun helper changes preserve raw failure and add same-criterion evidence. The sole subsequent Q&A edit correctly distinguishes measured static Rosetta observations from unmeasured production/native performance; standalone report and runtime evidence are unchanged. Session66 failed operationally and supplies no review decision. Prior65 acceptance was not used as a substitute.",
+    "terminalVerification": [
+      {
+        "completeLogPath": "results/reviews/sqlserver-manual-count-100m/canonical-invocation.log",
+        "exitCode": 1,
+        "logSha256": "d5ec5b5d19446e25641e611895fd4779bb49aff517ba6aef8a6df644827da710",
+        "receiptPath": "results/reviews/sqlserver-manual-count-100m/canonical-invocation.json",
+        "sha256": "afebc386d3a2414bef33287a45ae1e1c8d86ad9b55e3b38bea06f08dec440f3a"
+      },
+      {
+        "checks": 19,
+        "completeLogPath": "results/reviews/sqlserver-manual-count-100m/engine-repair-offline-final.log",
+        "exitCode": 0,
+        "logSha256": "8bb7059755bf0b1a865cc235e9260b09300d4d0b3bada41a3dcc1b73267f8bee",
+        "receiptPath": "results/reviews/sqlserver-manual-count-100m/engine-repair-offline-final.json",
+        "sha256": "4e35a4ba327c2d9a10da331dd0018fd2976747d0045ca788ab3d6267b38324b2"
+      }
+    ]
+  },
+  "reviewQuestions": {
+    "betterMethods": "Existing approximate metadata or a suitable dated cached result can avoid scanning when requirements permit. The narrow-index observation supports inspecting existing scan choices, without recommending production index creation or guaranteeing improvement.",
+    "designCoverage": "Six focused cells cover the requested three B index conditions and four actual A/B/C/D states using common composite data. A broader Cartesian matrix is unnecessary for this request.",
+    "engineerObjections": "The main objections\u2014real secondary versus labelled primary, hidden warm samples, partial scalar success, reused identities and normalized shutdown failures\u2014are resolved by actual raw evidence and caller inspection. Later capacity recovery is sufficient for the narrowly documented cleanup conclusion while controller1 remains explicit.",
+    "fastCount": "The measured narrow-index B case is much faster than clustered B in this fixture. D's lower observed median does not make it an exact-count alternative, and the state medians do not establish a universal fastest or safest method.",
+    "lockFactors": "Sch-S, compilation/metadata work, resource competition, version retention and AG redo interaction remain relevant. Sparse monitoring cannot prove absence of every transient lock; observed lock modes are not conflated with table-wide shared data locking.",
+    "omissions": "No indispensable pending experiment remains for the stated diagnostic claims. Production impact, write-time NOLOCK accuracy and native performance remain explicitly outside measured coverage."
+  }
+}

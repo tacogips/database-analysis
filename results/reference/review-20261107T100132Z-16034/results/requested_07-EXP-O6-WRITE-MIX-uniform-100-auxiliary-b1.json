@@ -1,0 +1,459 @@
+{
+ "id": "07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1",
+ "answers": [
+  "EXP-O6-WRITE-MIX",
+  "FIND-O6-WRITE-SHAPE-01",
+  "FIND-O8-CLIENT-TIMEOUT"
+ ],
+ "started": "2026-11-07T09:42:59",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 130944,
+    "k_k": 39423
+   },
+   "_seconds": 106.85
+  },
+  "arms": {
+   "runs": [
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "t0": 1794044696.4630551,
+     "connection_id": 2585,
+     "table": "t",
+     "form": "A",
+     "cursor_columns": [
+      "id"
+     ],
+     "width_start": 10000,
+     "steps": 2001,
+     "null_rows": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "roundtrips": 0,
+     "width_reductions": 0,
+     "complete": true,
+     "rows": 20000134,
+     "partial_rows": 20000134,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "stmt_ms_p50": 2.74,
+     "stmt_ms_p99": 8.06,
+     "stmt_ms_max": 32.85,
+     "seconds_total": 5.919,
+     "width_end": 10000,
+     "last_cursor": [
+      "47053735"
+     ],
+     "slowest_steps_at_s_and_ms": [
+      [
+       5.01,
+       32.9
+      ],
+      [
+       0.97,
+       13.9
+      ],
+      [
+       3.96,
+       12.0
+      ],
+      [
+       4.0,
+       9.9
+      ],
+      [
+       5.31,
+       9.7
+      ],
+      [
+       4.97,
+       9.1
+      ],
+      [
+       5.23,
+       9.1
+      ],
+      [
+       0.11,
+       8.9
+      ],
+      [
+       1.86,
+       8.8
+      ],
+      [
+       2.08,
+       8.7
+      ]
+     ],
+     "longest_step_ms_by_10s": {
+      "0": 32.9
+     },
+     "t1": 1794044702.384798,
+     "seconds": 5.922,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_last": 0,
+      "Handler_read_next": 19998268,
+      "Handler_read_prev": 0,
+      "Handler_read_rnd": 0,
+      "Handler_read_rnd_next": 0
+     },
+     "timer_counter_after": 0,
+     "cleanup": {
+      "rollback": "ok",
+      "close": "ok",
+      "connection_ids": [
+       2585
+      ],
+      "confirmed": true,
+      "kill_attempts": [],
+      "observations": [
+       {
+        "sessions": [],
+        "transactions": []
+       }
+      ],
+      "status": "confirmed_terminated"
+     },
+     "pool_read_requests": 2489577.0,
+     "disk_reads": 879.0,
+     "cleanup_finished_at": 1794044702.3870203,
+     "outcome": "completed",
+     "rep": 0,
+     "arm": "drift_split",
+     "write": [
+      {
+       "n": 296,
+       "p50_ms": 1.23,
+       "p95_ms": 3.4,
+       "p99_ms": 7.81,
+       "max_ms": 17.0,
+       "errors": 0,
+       "scheduled": 296,
+       "started": 296,
+       "completed": 296,
+       "failed": 0,
+       "inflight_at_end": 0,
+       "queued_at_end": 0,
+       "stuck_at_end": 0,
+       "slo_assessable": true,
+       "latency_status": "completed_responses",
+       "dispatch_delay": {
+        "n": 296,
+        "p50_ms": 0.55,
+        "p95_ms": 2.1,
+        "p99_ms": 4.89,
+        "max_ms": 14.41
+       },
+       "client_execution": {
+        "n": 296,
+        "p50_ms": 0.54,
+        "p95_ms": 2.02,
+        "p99_ms": 3.6,
+        "max_ms": 7.68
+       }
+      },
+      {
+       "n": 296,
+       "p50_ms": 1.17,
+       "p95_ms": 2.89,
+       "p99_ms": 4.08,
+       "max_ms": 14.6,
+       "errors": 0,
+       "scheduled": 296,
+       "started": 296,
+       "completed": 296,
+       "failed": 0,
+       "inflight_at_end": 0,
+       "queued_at_end": 0,
+       "stuck_at_end": 0,
+       "slo_assessable": true,
+       "latency_status": "completed_responses",
+       "dispatch_delay": {
+        "n": 296,
+        "p50_ms": 0.49,
+        "p95_ms": 1.57,
+        "p99_ms": 1.75,
+        "max_ms": 10.72
+       },
+       "client_execution": {
+        "n": 296,
+        "p50_ms": 0.58,
+        "p95_ms": 2.26,
+        "p99_ms": 3.28,
+        "max_ms": 3.88
+       }
+      }
+     ],
+     "read": {
+      "n": 148,
+      "p50_ms": 0.74,
+      "p95_ms": 3.07,
+      "p99_ms": 3.94,
+      "max_ms": 4.59,
+      "errors": 0,
+      "scheduled": 148,
+      "started": 148,
+      "completed": 148,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 0,
+      "stuck_at_end": 0,
+      "slo_assessable": true,
+      "latency_status": "completed_responses",
+      "dispatch_delay": {
+       "n": 148,
+       "p50_ms": 0.52,
+       "p95_ms": 2.55,
+       "p99_ms": 3.57,
+       "max_ms": 3.75
+      },
+      "client_execution": {
+       "n": 148,
+       "p50_ms": 0.2,
+       "p95_ms": 0.74,
+       "p99_ms": 1.4,
+       "max_ms": 2.04
+      }
+     },
+     "server": {
+      "observation_capabilities": {
+       "table_data_locks": "not_measured",
+       "replica_lag": "not_measured"
+      },
+      "samples": 5,
+      "table_data_lock_samples": 0,
+      "seconds": 4.0,
+      "rows_read_per_s": 3033721,
+      "bp_disk_reads_per_s": 116,
+      "bp_miss_pct": 0.03,
+      "row_lock_time_ms": 0,
+      "row_lock_waits": 0,
+      "table_locks_waited": 0,
+      "peak_threads_running": 6.0,
+      "peak_row_lock_current_waits": 0.0,
+      "hll_start": 14,
+      "hll_end": 152,
+      "hll_peak": 215,
+      "peak_trx_age_s": 0,
+      "peak_mdl_waiters": 0,
+      "peak_table_mdl_exclusive": 0,
+      "peak_global_read_lock": 0,
+      "peak_row_locks_seen": null,
+      "peak_table_level_locks": null,
+      "peak_replica_lag_s": null
+     }
+    }
+   ],
+   "_seconds": 10.93
+  },
+  "windows": {
+   "arrival_accounting": [
+    {
+     "scheduled": 1572,
+     "started": 1572,
+     "completed": 1572,
+     "failed": 0,
+     "inflight": 0,
+     "unstarted": 0,
+     "consistent": true,
+     "arrival_window_seconds": 20.94671797499177
+    },
+    {
+     "scheduled": 1050,
+     "started": 1050,
+     "completed": 1050,
+     "failed": 0,
+     "inflight": 0,
+     "unstarted": 0,
+     "consistent": true,
+     "arrival_window_seconds": 20.986165648995666
+    }
+   ],
+   "raw_service_samples": [
+    {
+     "format": "jsonl+gzip-v1",
+     "samples": 1572,
+     "chunk_uncompressed_byte_cap": 8388608,
+     "chunks": [
+      {
+       "path": "raw/requested_07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1/service-0/00000.jsonl.gz",
+       "samples": 1572,
+       "uncompressed_bytes": 141492,
+       "uncompressed_sha256": "e3930d230232641426824f90df5d23f7041b8d6bca388bd71df1805bc8d99c3b",
+       "bytes": 53450,
+       "sha256": "cf7fae2b7d84eaff97270ad1a0a42e5fe3e4a61ec6e55ae22784b71a58a212f8"
+      }
+     ]
+    },
+    {
+     "format": "jsonl+gzip-v1",
+     "samples": 1050,
+     "chunk_uncompressed_byte_cap": 8388608,
+     "chunks": [
+      {
+       "path": "raw/requested_07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1/service-1/00000.jsonl.gz",
+       "samples": 1050,
+       "uncompressed_bytes": 94972,
+       "uncompressed_sha256": "d3ee401d5618becdbf17d2e34e0258ee2b05c604e894aaae7b3975abc1a5b881",
+       "bytes": 35639,
+       "sha256": "75d46e92f3c4e22b380812cf955d199269dcb264c70af5b4c0d0a26d18d005e1"
+      }
+     ]
+    }
+   ],
+   "raw_server_samples": {
+    "format": "jsonl+gzip-v1",
+    "samples": 22,
+    "chunk_uncompressed_byte_cap": 8388608,
+    "chunks": [
+     {
+      "path": "raw/requested_07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1/server/00000.jsonl.gz",
+      "samples": 22,
+      "uncompressed_bytes": 9424,
+      "uncompressed_sha256": "16b62fbaa4125231b70aa795f514b8098552fdad22ae1146bd11194eb17d2694",
+      "bytes": 967,
+      "sha256": "b3bae968799ee7106071590f9e925a833e8164fac4c75caea16f767f13548bd3"
+     }
+    ]
+   },
+   "quiet_truth_status": "not_requested; no write-count drift bound claimed",
+   "_seconds": 0.05
+  },
+  "fixture_cleanup": {
+   "status": "dropped",
+   "_seconds": 0.01
+  }
+ },
+ "protocol": "partitioned-v3",
+ "mix": "uniform_insert_delete",
+ "target_writes_per_s": 100,
+ "group": "auxiliary",
+ "block": 0,
+ "rows": 20000000,
+ "note": "Both touch every index at random places. k does not move, so split_k is eligible.",
+ "split_seconds_ceiling": 150,
+ "statement_limit_ms": 120000,
+ "split_settings": {
+  "width": 10000,
+  "limit_ms": 500,
+  "duty": null
+ },
+ "required_repeats_across_scripts": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "scopeComplete": true,
+ "opportunities": [
+  {
+   "rep": 0,
+   "arm": "drift_split",
+   "outcome": "completed",
+   "run_index": 0
+  }
+ ],
+ "tolerance_fixed_in_advance": "Completed medians require all4repeats,20% lower and no overlap. Censored outcomes cannot rank completed speed.",
+ "limitations": "Uncontrolled host/cache carryover,10s warmup and5s recovery do not certify restoration or SLO. Main arms have no matched no-count control. Auxiliary quiet truth is not a bounded drift estimate.",
+ "elapsed_seconds": 128,
+ "section_errors": [],
+ "cleanup": {
+  "confirmed": true,
+  "workloads": [
+   {
+    "confirmed": true,
+    "status": "confirmed_terminated",
+    "errors": [],
+    "child_exitcode": 0,
+    "child_terminated": false,
+    "child_alive": false,
+    "connection_registry_complete": true,
+    "connection_ids": [
+     2577,
+     2579,
+     2580
+    ],
+    "kill_attempts": [],
+    "observations": [
+     {
+      "sessions": [],
+      "transactions": []
+     }
+    ]
+   },
+   {
+    "confirmed": true,
+    "status": "confirmed_terminated",
+    "errors": [],
+    "child_exitcode": 0,
+    "child_terminated": false,
+    "child_alive": false,
+    "connection_registry_complete": true,
+    "connection_ids": [
+     2578,
+     2581
+    ],
+    "kill_attempts": [
+     {
+      "id": 2581,
+      "status": "already_gone",
+      "error": "OperationalError(1094, 'Unknown thread id: 2581')"
+     }
+    ],
+    "observations": [
+     {
+      "sessions": [],
+      "transactions": [
+       2581
+      ]
+     },
+     {
+      "sessions": [],
+      "transactions": [
+       2581
+      ]
+     },
+     {
+      "sessions": [],
+      "transactions": []
+     }
+    ]
+   }
+  ],
+  "builder": {
+   "rollback": "ok",
+   "close": "ok",
+   "connection_ids": [
+    2553
+   ],
+   "confirmed": true,
+   "kill_attempts": [],
+   "observations": [
+    {
+     "sessions": [],
+     "transactions": []
+    }
+   ],
+   "status": "confirmed_terminated"
+  }
+ },
+ "required_seconds_after_setup": 240
+}

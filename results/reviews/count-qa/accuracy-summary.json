@@ -1,0 +1,83 @@
+{
+  "classification": "offline_reaggregation_not_new_measurement",
+  "sources": {
+    "results/reference/review-20261107T155750Z-26743/results/requested_metadata_accuracy.json": "ba6eb3f185129786accc17174ff4d9f402ecfe413d838ad5a2fbb588f9f0710f",
+    "results/reference/final-sqlserver-52556dd/results/sqlserver/runs/20261107T230105Z-8533a31e/result.json": "2cfa21fbabc69699dacfb87a855bea9b21ad9e8ec6da6afb5f6f24888d1eaa42"
+  },
+  "mysql": {
+    "before_analyze": {
+      "observations": 55,
+      "median_absolute_percent": 0.21413333333333334,
+      "signed_min_percent": -21.1538,
+      "signed_max_percent": 24.3754,
+      "within_percent": {
+        "1": 44,
+        "5": 50,
+        "10": 52
+      },
+      "excluded": [
+        "t_archive",
+        "t_memory",
+        "t_myisam"
+      ],
+      "method": "table_rows_default_cache",
+      "sample_pages": 20
+    },
+    "after_analyze": {
+      "observations": 55,
+      "median_absolute_percent": 0.24708,
+      "signed_min_percent": -18.4832,
+      "signed_max_percent": 19.5881,
+      "within_percent": {
+        "1": 43,
+        "5": 50,
+        "10": 52
+      },
+      "excluded": [
+        "t_archive",
+        "t_memory",
+        "t_myisam"
+      ],
+      "method": "table_rows_default_cache",
+      "sample_pages": 20
+    }
+  },
+  "sqlserver": {
+    "dmv": {
+      "observations": 27,
+      "median_absolute_percent": 0.0,
+      "signed_min_percent": 0.0,
+      "signed_max_percent": 0.0,
+      "within_percent": {
+        "1": 27,
+        "5": 27,
+        "10": 27
+      },
+      "tables": 9
+    },
+    "partitions": {
+      "observations": 27,
+      "median_absolute_percent": 0.0,
+      "signed_min_percent": 0.0,
+      "signed_max_percent": 0.0,
+      "within_percent": {
+        "1": 27,
+        "5": 27,
+        "10": 27
+      },
+      "tables": 9
+    },
+    "optimizer:lab_id": {
+      "observations": 27,
+      "median_absolute_percent": 0.0,
+      "signed_min_percent": -0.04198236740568961,
+      "signed_max_percent": 0.0,
+      "within_percent": {
+        "1": 27,
+        "5": 27,
+        "10": 27
+      },
+      "tables": 9
+    }
+  }
+}

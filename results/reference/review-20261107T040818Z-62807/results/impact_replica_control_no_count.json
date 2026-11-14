@@ -1,0 +1,141 @@
+{
+ "name": "replica_control_no_count",
+ "doc": "Primary traffic with an idle replica",
+ "target": "t_repl",
+ "window_s": 40,
+ "method_seconds": 40.0,
+ "finished_within_window": false,
+ "method_rows": 0,
+ "method_rows_per_s": 0,
+ "chunks": 0,
+ "chunk_ms": null,
+ "notes": {},
+ "errors": [],
+ "latency": {
+  "baseline": {
+   "read": {
+    "n": 1000,
+    "p50_ms": 1.16,
+    "p95_ms": 6.0,
+    "p99_ms": 7.43,
+    "max_ms": 7.88,
+    "errors": 0,
+    "stuck_at_end": 0
+   },
+   "write": {
+    "n": 1000,
+    "p50_ms": 1.69,
+    "p95_ms": 5.27,
+    "p99_ms": 6.94,
+    "max_ms": 11.45,
+    "errors": 0,
+    "stuck_at_end": 0
+   }
+  },
+  "during": {
+   "read": {
+    "n": 4000,
+    "p50_ms": 1.34,
+    "p95_ms": 7.94,
+    "p99_ms": 26.23,
+    "max_ms": 109.15,
+    "errors": 0,
+    "stuck_at_end": 0
+   },
+   "write": {
+    "n": 4000,
+    "p50_ms": 2.0,
+    "p95_ms": 96.76,
+    "p99_ms": 262.96,
+    "max_ms": 344.03,
+    "errors": 0,
+    "stuck_at_end": 0
+   }
+  },
+  "recovery": {
+   "read": {
+    "n": 1001,
+    "p50_ms": 1.21,
+    "p95_ms": 6.03,
+    "p99_ms": 7.33,
+    "max_ms": 9.12,
+    "errors": 0,
+    "stuck_at_end": 0
+   },
+   "write": {
+    "n": 1000,
+    "p50_ms": 1.76,
+    "p95_ms": 5.58,
+    "p99_ms": 8.23,
+    "max_ms": 22.66,
+    "errors": 0,
+    "stuck_at_end": 0
+   }
+  }
+ },
+ "server": {
+  "baseline": {
+   "seconds": 9.0,
+   "rows_read_per_s": 200,
+   "bp_disk_reads_per_s": 155,
+   "bp_miss_pct": 7.61,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 4.0,
+   "peak_row_lock_current_waits": 0,
+   "hll_start": 274,
+   "hll_end": 9,
+   "hll_peak": 295,
+   "peak_trx_age_s": 0,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": 0,
+   "peak_table_level_locks": 0,
+   "peak_replica_lag_s": 1
+  },
+  "during": {
+   "seconds": 38.0,
+   "rows_read_per_s": 200,
+   "bp_disk_reads_per_s": 102,
+   "bp_miss_pct": 5.443,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 7.0,
+   "peak_row_lock_current_waits": 0,
+   "hll_start": 109,
+   "hll_end": 77,
+   "hll_peak": 307,
+   "peak_trx_age_s": 1,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": 0,
+   "peak_table_level_locks": 0,
+   "peak_replica_lag_s": 1
+  },
+  "recovery": {
+   "seconds": 10.0,
+   "rows_read_per_s": 200,
+   "bp_disk_reads_per_s": 93,
+   "bp_miss_pct": 4.8,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 3.0,
+   "peak_row_lock_current_waits": 0,
+   "hll_start": 177,
+   "hll_end": 28,
+   "hll_peak": 220,
+   "peak_trx_age_s": 0,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": 0,
+   "peak_table_level_locks": 0,
+   "peak_replica_lag_s": 1
+  }
+ }
+}

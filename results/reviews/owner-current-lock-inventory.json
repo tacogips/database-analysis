@@ -1,0 +1,15 @@
+{
+  "recordedAt": "2026-11-07T07:47:54.819097+00:00",
+  "meaning": "Current lock-factor scope audit only; neither full all proof nor a universal lock-free/no-impact assertion.",
+  "artifact": "results/lock_factors.json",
+  "sha256": "59dd0d0dfd8657cb6374f53697a541996429991033be6842d8b0bf11946cf18b",
+  "requiredCases": 99,
+  "savedCases": 99,
+  "missing": [],
+  "duplicates": [],
+  "outcomes": {
+    "ok": 99
+  },
+  "interpretation": "Keep isolation/autocommit/SQL form separate. Nonlocking ordinary consistent SELECT COUNT differs from locking SQL and SERIALIZABLE transaction behavior. Workload row-lock peaks cannot be attributed to COUNT without statement ownership.",
+  "pending": "Service, matrix, requested, final integrity, semantic/raw/source audit and final Sol roles."
+}

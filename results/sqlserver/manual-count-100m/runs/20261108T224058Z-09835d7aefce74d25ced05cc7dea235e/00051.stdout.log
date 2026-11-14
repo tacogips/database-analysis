@@ -1,0 +1,261 @@
+[
+    {
+        "Id": "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949",
+        "Created": "2026-11-08T22:41:43.603630437Z",
+        "Path": "/bin/bash",
+        "Args": [
+            "-c",
+            "# Keep INT effective for asynchronously started children; signal PIDs, never groups.\nset -m\nsql_pid=\nsetup_pid=\nsignal_epoch=0\nterm_pending=0\nint_pending=0\nforward_signal() {\n  local sig=\"$1\" child\n  for child in \"$sql_pid\" \"$setup_pid\"; do\n    if [[ -n \"$child\" ]]; then\n      kill -s \"$sig\" -- \"$child\" 2>/dev/null || :\n    fi\n  done\n}\non_signal() {\n  signal_epoch=$((signal_epoch + 1))\n  case \"$1\" in\n    TERM) term_pending=1 ;;\n    INT) int_pending=1 ;;\n  esac\n  forward_signal \"$1\"\n}\nreplay_signals() {\n  if (( term_pending )); then kill -s TERM -- \"$1\" 2>/dev/null || :; fi\n  if (( int_pending )); then kill -s INT -- \"$1\" 2>/dev/null || :; fi\n}\nwait_child() {\n  local target=\"$1\" epoch rc\n  while :; do\n    epoch=$signal_epoch\n    wait -f \"$target\"\n    rc=$?\n    # A trapped signal interrupts wait; retry the SAME child for its actual status.\n    if (( epoch == signal_epoch )); then return \"$rc\"; fi\n  done\n}\ntrap 'on_signal TERM' TERM\ntrap 'on_signal INT' INT\nif [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then\n  echo 'Unable to run startup permissions check, exiting.' >&2\n  exit 1\nfi\n/opt/mssql/bin/permissions_check.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\ncase \"${MSSQL_PID,,}\" in\n  standarddeveloper) export MSSQL_PID=DeveloperStandard ;;\n  enterprisedeveloper) export MSSQL_PID=Developer ;;\nesac\nsource /opt/mssql/bin/init_custom_setup.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\nif (( term_pending )); then exit 143; fi\nif (( int_pending )); then exit 130; fi\n/opt/mssql/bin/sqlservr &\nsql_pid=$!\n# Replay signals received between launch and capture of the owned child PID.\nreplay_signals \"$sql_pid\"\nsetup_status=0\nif (( !term_pending && !int_pending )); then\n  /opt/mssql/bin/run_custom_setup.sh &\n  setup_pid=$!\n  replay_signals \"$setup_pid\"\n  wait_child \"$setup_pid\"\n  setup_status=$?\n  setup_pid=\nfi\nif (( setup_status != 0 )); then\n  # Failed startup must not abandon the SQL child it already started.\n  kill -s TERM -- \"$sql_pid\" 2>/dev/null || :\nfi\nwait_child \"$sql_pid\"\nsql_status=$?\nsql_pid=\nprintf 'manual100m entrypoint terminal: setup=%s sql=%s\\n' \"$setup_status\" \"$sql_status\"\nif (( sql_status != 0 )); then exit \"$sql_status\"; fi\nif (( setup_status != 0 )); then exit \"$setup_status\"; fi\nexit \"$sql_status\"\n"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 137,
+            "Error": "",
+            "StartedAt": "2026-11-08T22:41:44.740865822Z",
+            "FinishedAt": "2026-11-08T22:42:47.446057866Z"
+        },
+        "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "ResolvConfPath": "/var/lib/docker/containers/8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949/hostname",
+        "HostsPath": "/var/lib/docker/containers/8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949/hosts",
+        "LogPath": "/var/lib/docker/containers/8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949/8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949-json.log",
+        "Name": "/lab-sqlserver-manual100m",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-manual100m-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 3000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/primary",
+                    "Target": "/var/opt/mssql",
+                    "BindOptions": {}
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/shared",
+                    "Target": "/backup",
+                    "BindOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/primary",
+                "Destination": "/var/opt/mssql",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/shared",
+                "Destination": "/backup",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "countprimary",
+            "Domainname": "",
+            "User": "501:0",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ACCEPT_EULA=Y",
+                "MSSQL_PID=Developer",
+                "MSSQL_ENABLE_HADR=1",
+                "MSSQL_SA_PASSWORD=ManualCount100m_Lab_2026!",
+                "MSSQL_MEMORY_LIMIT_MB=2048",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135"
+            ],
+            "Cmd": null,
+            "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/bin/bash",
+                "-c",
+                "# Keep INT effective for asynchronously started children; signal PIDs, never groups.\nset -m\nsql_pid=\nsetup_pid=\nsignal_epoch=0\nterm_pending=0\nint_pending=0\nforward_signal() {\n  local sig=\"$1\" child\n  for child in \"$sql_pid\" \"$setup_pid\"; do\n    if [[ -n \"$child\" ]]; then\n      kill -s \"$sig\" -- \"$child\" 2>/dev/null || :\n    fi\n  done\n}\non_signal() {\n  signal_epoch=$((signal_epoch + 1))\n  case \"$1\" in\n    TERM) term_pending=1 ;;\n    INT) int_pending=1 ;;\n  esac\n  forward_signal \"$1\"\n}\nreplay_signals() {\n  if (( term_pending )); then kill -s TERM -- \"$1\" 2>/dev/null || :; fi\n  if (( int_pending )); then kill -s INT -- \"$1\" 2>/dev/null || :; fi\n}\nwait_child() {\n  local target=\"$1\" epoch rc\n  while :; do\n    epoch=$signal_epoch\n    wait -f \"$target\"\n    rc=$?\n    # A trapped signal interrupts wait; retry the SAME child for its actual status.\n    if (( epoch == signal_epoch )); then return \"$rc\"; fi\n  done\n}\ntrap 'on_signal TERM' TERM\ntrap 'on_signal INT' INT\nif [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then\n  echo 'Unable to run startup permissions check, exiting.' >&2\n  exit 1\nfi\n/opt/mssql/bin/permissions_check.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\ncase \"${MSSQL_PID,,}\" in\n  standarddeveloper) export MSSQL_PID=DeveloperStandard ;;\n  enterprisedeveloper) export MSSQL_PID=Developer ;;\nesac\nsource /opt/mssql/bin/init_custom_setup.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\nif (( term_pending )); then exit 143; fi\nif (( int_pending )); then exit 130; fi\n/opt/mssql/bin/sqlservr &\nsql_pid=$!\n# Replay signals received between launch and capture of the owned child PID.\nreplay_signals \"$sql_pid\"\nsetup_status=0\nif (( !term_pending && !int_pending )); then\n  /opt/mssql/bin/run_custom_setup.sh &\n  setup_pid=$!\n  replay_signals \"$setup_pid\"\n  wait_child \"$setup_pid\"\n  setup_status=$?\n  setup_pid=\nfi\nif (( setup_status != 0 )); then\n  # Failed startup must not abandon the SQL child it already started.\n  kill -s TERM -- \"$sql_pid\" 2>/dev/null || :\nfi\nwait_child \"$sql_pid\"\nsql_status=$?\nsql_pid=\nprintf 'manual100m entrypoint terminal: setup=%s sql=%s\\n' \"$setup_status\" \"$sql_status\"\nif (( sql_status != 0 )); then exit \"$sql_status\"; fi\nif (( setup_status != 0 )); then exit \"$setup_status\"; fi\nexit \"$sql_status\"\n"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "29168d3048eb37a1f912e7fc4d493c0f7d45705d9c446fb4cdbedc5fa0f16a52",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-manual100m",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+                "com.docker.compose.service": "server",
+                "com.docker.compose.version": "5.6.1",
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "count.manual100m.owner": "09835d7aefce74d25ced05cc7dea235e",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-manual100m-network": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-manual100m",
+                        "server",
+                        "countprimary"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "1f3924d100466eb972fb9c0a9150faf69d4381e1cc166bb8e1757170cae54614",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-manual100m",
+                        "server",
+                        "countprimary",
+                        "8c88dd39dce3"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

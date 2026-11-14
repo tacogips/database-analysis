@@ -1,0 +1,101 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-wide-errors-sol",
+    "description": "Sol-only read-only review of wide count/sampling failure propagation and cache semantics",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "Sol-only read-only review of wide count/sampling failure propagation and cache semantics",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "You are GPT-6.1 Sol. Review in Japanese. This focused temporary workflow checks FAILURE/METHODOLOGY DESIGN, not final rollout approval.\nRead results/reviews/sol-wide-errors-input.json and verify all immutable snapshot hashes at start/end. Read the selected snapshot source; do not inspect growing current result files as if complete. The current WHITE all is running with frozen source.\nABSOLUTE CONSTRAINTS: READ ONLY. No DB connections, Docker commands, benchmark execution, workload generation, file/source/output edits, delegation or other workflows. File reads, hashes, AST and isolated pure/fake computations are allowed; do not import modules that connect to DB.\nIndependently trace reqwide.arm/run, reqsamplewide.run, accuracy_frontier callers01c/01d, samplinglib.sample, Workload cleanup, Results, lab.rb requested_process/ok/artifact/reusable_status. Include96/97 and98 context only as relevant to these same semantics. The new reqmix protocol fixes are context, not the focus.\nSeparate protocol completion, method completion, expected precision/budget failures, unexpected network/query failure, cleanup confirmation, and final owner approval. A legitimate expected deadline or precision_not_reached is NOT a defect. A diagnostic experiment can validly observe a failure; do not equate every non-success with process failure without explaining the wrong claim or cache/retry decision. Raw errors retained in JSON and later mandatory owner audit may contain some risks; assess that explicitly. But inspect whether unknown service failures can be marked ok/reused without being reattempted, and whether unknown1317 can be falsely called a timer.\nTest the owner questions independently; do not assume their concern is a confirmed bug. For each material finding provide a concrete source counterexample and the exact inaccurate claim, skipped retry or invalid comparison. Judge whether honest exclusion/claim limitation suffices or whether a bounded caller classification/persistence/exit fix is needed. Do not manufacture findings, style requests or broad new experiments that cannot change a decision. Missing final proof and incomplete active measurement are expected here, not new findings.\nGive stable IDs SOL-WIDE-ERROR-001 etc, severity high/middle/low, scenario, exact snapshot file/function/line evidence, impact, requiredCorrection and boundedRemediation. High/middle open => design decision rejected. Any proposed regression should include genuine2013, cleanup_failed, unknown1317 with timer delta0, confirmed deadline, precision_not_reached, total budget_exhausted and successful sample/count, preserving legitimate expected outcomes. Do not alter estimator mathematics, SQL/caps, required fixtures/arms or shorten runtime scope merely to pass.\nReturn adapter JSON {\"when\":{},\"payload\":{...}} with decision accepted/rejected (design only), guidelineSha256, reviewScope, findings, engineerQuestions, betterAlternatives, requestedExperiments, rolloutRecommendation, reviewEvidence, limitations, claimEvidenceMap, validationCoverageMatrix, priorityFixes. No files written. Final rollout still requires actual all, owner audit/proof and two fresh final Sol roles.\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations",
+            "claimEvidenceMap",
+            "validationCoverageMatrix",
+            "priorityFixes"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            },
+            "claimEvidenceMap": {
+              "type": "array"
+            },
+            "validationCoverageMatrix": {
+              "type": "array"
+            },
+            "priorityFixes": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

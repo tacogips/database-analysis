@@ -1,0 +1,129 @@
+{
+  "accepted": true,
+  "decision": "accepted",
+  "discussionHistory": [
+    {
+      "meaning": "Historical scope; current user priority and actual operational claims govern materiality. Not automatic technical closure.",
+      "reference": "results/reviews/finding-register.json"
+    }
+  ],
+  "findingDispositions": [
+    {
+      "disposition": "verified_fixed",
+      "evidence": "現guide§1–2、校正§2–3を確認。参考統計・経験的校正・条件付き区間・正確snapshotを分離し、未初期化0、統計の一致、ANALYZE、復元後統計を精度保証へ変換していない。新旧93の誤差と同値条件も独立再計算した。",
+      "ids": [
+        "SOL-ROLLOUT-ACCURACY",
+        "SOL-ROLLOUT-METADATA-COMPARISON",
+        "SOL-ROLLOUT-ANALYZE-COST"
+      ],
+      "source": "results/reviews/sol-internal-rollout-review.json"
+    },
+    {
+      "disposition": "verified_fixed",
+      "evidence": "現guide§1、3–6で、新規専用接続、準備負荷、資源隔離、停止余裕、所有処理確認、回復監視、サーバー鍵とclient seedの区別、構造的標本適格性を確認。満たせない場合は保留する。合成TDE・thin100Mから本番費用へ外挿しない。",
+      "ids": [
+        "SOL-ROLLOUT-TRIAL-BUDGET",
+        "SOL-ROLLOUT-OPERATING-MODEL",
+        "SOL-ROLLOUT-ENCRYPTED-WIDE",
+        "SOL-ENCRYPTION-STATE-001",
+        "SOL-ENCRYPTION-STATE-002"
+      ],
+      "source": "results/reviews/finding-register.json#findings"
+    },
+    {
+      "disposition": "verified_fixed",
+      "evidence": "現推薦について確認。probability-count.mdとsampling実装は判定時点・誤差確率配分・区間基準標本数・協調的予算・後始末を区別する。旧研究は履歴へ案内し、cache公平比較、TDE因果倍率、サービスSLO認定を現結論に使わない。",
+      "ids": [
+        "SOL-SAMP-DEADLINE",
+        "SOL-SAMP-DOC-CONTRACT",
+        "SOL-SAMP-EVIDENCE-DRIFT",
+        "SOL-VALIDATION-TDE-CACHE",
+        "SOL-VALIDATION-SERVICE-ACCEPTANCE"
+      ],
+      "source": "results/reviews/finding-register.json#findings"
+    },
+    {
+      "disposition": "verified_fixed",
+      "evidence": "現選択範囲のfresh非再利用9プロセス、原結果、到着保存則、取消根拠、arm終了確認、初期/最終整合と撤去を独立照合した。reqwideの失敗保存・後続停止、Workload.finishの終了確認、experiments.mainの失敗伝播も読んだ。旧失敗・終了不明・収集だけの証跡を成功へ昇格していない。",
+      "ids": [
+        "SOL-VALIDATION-RUN-CACHE",
+        "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+        "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+        "SOL-FRONTIER-001",
+        "SOL-FRONTIER-002",
+        "SOL-FRONTIER-003",
+        "SOL-WIDE-ERROR-001",
+        "SOL-WIDE-ERROR-002",
+        "ROOT-ALL-SEMANTIC-ERRORS",
+        "ROOT-FAILED-ALL-SUMMARY"
+      ],
+      "source": "results/reviews/finding-register.json"
+    },
+    {
+      "disposition": "superseded_by_explicit_user_scope",
+      "evidence": "旧scale/write-mix、適用停止・競合診断、任意timer実験の要求は現既定範囲外。技術的合格や旧不具合の解消とは判定しない。現推薦はそれらの未成立順位・安全性・復旧保証に依存せず、運用上の取消条件は現guide§4で別に要求する。",
+      "ids": [
+        "FIND-O10-PRIMARY-SCALE",
+        "FIND-O10-INDEXED-100-STALL",
+        "FIND-S8-REPLICA-STOP-FAILURE-01",
+        "SOL-PROTOCOL-001",
+        "SOL-PROTOCOL-002",
+        "SOL-PROTOCOL-003",
+        "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+        "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+        "SOL-VALIDATION-TIMER-TARGET"
+      ],
+      "source": "results/reviews/finding-register.json; bench/nonlocking-scope.json"
+    }
+  ],
+  "findings": [],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5",
+  "independentFindingAssessment": [
+    {
+      "assessment": "confirm",
+      "evidence": "自分の文書・原証跡レビュー後に開いた。revision25、現guide digest、workflowInputが一致し、independentDecision=accepted、findings=[]、requestedExperiments=[]。個別の指摘はない。統計取得の前提、隔離・準備負荷、取消・回復、暗号化分岐、未測定時の保留について独立確認した結果も一致する。",
+      "source": "results/reviews/final-engineer-review-result.json",
+      "sourceSha256": "92b145baad364f9ca7faafa4098219a96e0378a1ba00f0f4546e8acef2c7678b"
+    }
+  ],
+  "independentFindings": [],
+  "requestedExperiments": [],
+  "reviewEvidence": [
+    "AGENTS.md、third-party-engineer-acceptance.json、owner-operator-guide-open-checks.jsonを先に読み、現文書・原証跡をreviewer1より先に検討した。DB/Docker/benchmark起動、変更、委任、workflow呼出しなし。最終の読取検算コマンドはexit0。",
+    "現文書SHA-256: guide=0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5; calibration=99bfd0477a19c4cf1f0f60967aa37957073ae6283d68f959979bc72669cf61a0; probability-count=3a3103cdc8176ee6408909240487e3631f2065809391f88d534de1117dd671d4; README=823ef857270dc21710214834dc65a18adc1ce23e32cec6387a24eea4964ba4a9; audit/README=0eef471481705cc3dead7d18bd26ecff7adb178d1524ffff29cc376ab41fe76b。5入口のローカルリンク欠落なし。",
+    "final-all-proof.json SHA-256=0ef235cd8832593093b25335121253fae8ab2fc5c2bf9feb1384c30ba2e93350。measurementSnapshot manifest=da3f08178b5ed5353bd0c1033dae89e54ffed907ca18d2725e438db2497b4832、426/426ファイル一致。owner bundle manifest=143a2a08e6daaf911dacc401e7b4c892e14de6dacd72aba41838ca7b1c1cbf53、51/51ファイル一致。proof参照16報告を読み、各ハッシュと意味/source・整合・精度/予算・quiescence・cleanupを照合した。",
+    "固定candidateとroot candidateのSHA-256=4058cff71c1eb179a5bcf0cba923310d7db98f0834c6d7e30c9591419ca53003。processExitCode=0、signal=null。完全ログ results/reference/review-20261107T155750Z-26743/results/reviews/final-all-run.log は424行・95939 bytes、SHA-256=596850c9c6ca2320a8a290612c8de01a6baeb4e37e5bada3e1ff10a685d7ad25。開始からsummary完了まで確認した。",
+    "fresh runnerSummary SHA-256=734496436445d10c71f1df42729eb056753727299791fc6cdbca4ef492dd58c7。manifest内summary/candidateとも一致。7スクリプト・9プロセス全てfresh、非再利用、数値exit0、not_run=[]。21成果物のサイズ/ハッシュ、固定MySQL reference/idとbench imageを照合。scope SHA-256=fc448f35097bd89e8ca56a2a16a71f6a21ab1e024f31483b277e5bb149d5004c。",
+    "runnerのsource列挙規則から344件の完全集合を独立復元し、before=after=currentを確認。辞書SHA-256=b051e779492e78339a9c833d7fc2078af8768676437b4bf5f71fac7a017e6fa9。公開Python監査7本はproof値一致。105/48/50列原結果の埋込source hash計9参照も一致。時計修正報告の測定・監査sourceも照合し、READMEの歴史保存版を現在の測定sourceの代用にはしていない。",
+    "引用した旧統計・旧105/48/50/100列・初回縮小93を各immutable manifestのハッシュで確認。新旧93の符号付き/絶対誤差、全同値最小、uneven反復、旧120 sweepの丸め0を再計算。新旧105とも75到達/30未達、到達集合最大277/240%、実値一致最小45同値、未採用islands最大100%誤差を確認。COUNT/標本の引用中央値も一致した。",
+    "新48はsample3/sample10各12到達、全24推定750000行一致。COUNTは6完了/6取消で、取消6件はerrno1317・timer_counter_delta=1・method_cleanup確認あり。旧48の5/12到達、COUNT3完了/9取消と区別した。新91の3版はkeyring有効・TDE tablespace・plain SELECT観測を確認し、EXPLAINから実読取経路やcache公平性を認定していない。",
+    "新しい9基本+36wide50+48service100の93記録、326044 raw到着について予定(worker,sequence)を復元し、保存則と348個のread/write対の窓の件数・分位点を独立再計算。不一致0。疎な実メソッド窓とforce_primary回復writeの未着手1件は残る。旧壁時計窓の却下も保持されており、いずれもサービスSLO合格へ変換していない。",
+    "初期/最終58表のexpected/actualとreplica20000000行を独立照合。owner quiescenceのINNODB_TRX=0、fixture利用者なし、matrix不在を確認。最終撤去exitCode=0、完全ログ results/reviews/owner-essential-final-cleanup.log SHA-256=ec3db27786327db1d56189a4d844fa8e9f2c4b7a0ea74941e0e0122c6a535722。現在.data不在。時計修正検証もexitCode=0、完全ログ results/reviews/author-clock-repair-verification.log SHA-256=fc99e1d8b9565d257c9b2795f7c8ccf2a606b57055559ddb4f22e1f29516cc3e。",
+    "finding-register.json SHA-256=c239cfc99d9ae377e3b138a005fa1ab5cdebd82e0d708d6c733f08343345b68dと、その8原レビューのハッシュを照合。除外gridは測定成功へ数えていない。本受入れは現revision25の文書と限定された証跡に対する最終reviewer2判定であり、本番SLO・普遍的精度・物理隔離・全条件最速の認定ではない。"
+  ],
+  "reviewQuestions": {
+    "betterMethods": "精度・鮮度・予算別の選択は妥当。承認済みエクスポートを優先し、参考統計と経験的校正を区別する。必須精度には資源を隔離した取得先の既定COUNTを候補とし、標本は全適用条件を満たす場合だけ比較する。primary現在値の常時計数は、更新・再試行・移行等の整合を扱う別設計としている。",
+    "designCoverage": "未知のPK・索引、整数PKなし、欠番・偏在、NULL、LOB、50/100列TDE、アプリseedなし、更新中、partition・シャード・世代違いをたどり、安全な取得先または保留へ分岐できた。標本適格性はSQL上の一意整数PKで判断し、暗号化の由来では判断しない。VIEW・非InnoDBは自動投入せず所有者確認へ戻す。100M×80列×TDEへの外挿もしていない。",
+    "fastCount": "既存索引の既定COUNTを候補にする判断は[公式COUNT仕様](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)と整合する。旧・新105の小比較中央値は原JSONから一致し、COUNT一文と標本SQL開始〜ROLLBACKの計測区間差、cache・read-ahead・順序・host層の未制御を踏まえている。取消COUNTを完了速度にせず、標本未達をUNKNOWNとする。普遍的最速、行数だけの安全閾値、一般的な精度保証や無影響は主張しておらず、現推薦の判断に不可欠な追加測定はない。",
+    "lockFactors": "通常のInnoDB RC/RR SELECTは行非ロックだが、MDL・長いread view・undo保持・資源競合は残るという説明は妥当。[整合性読取](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html)と[MDL仕様](https://dev.mysql.com/doc/refman/8.4/en/metadata-locking.html)に照合した。索引選択を行ロック発生と混同せず、EXPLAINも安全証明にしていない。locking read、DML/CTAS/SET埋込み、SERIALIZABLE、意図的競合注入の追加要求は不要。",
+    "omissions": "現推薦を妨げる実務上の欠落は認めない。SQL前の取得先・予算・監視と新規専用接続、統計cache miss/expiry/既存expiry=0、UNKNOWN処理、準備作業のprimary負荷、共有資源の隔離・上限、GTID/復元位置・鮮度を扱う。事前・実行中・回復監視、別の取消経路、停止余裕、現在のjob所有権照合、サーバー処理終了確認、盲目的再試行禁止も開始条件になっている。[公式KILL仕様](https://dev.mysql.com/doc/refman/8.4/en/kill.html)の非同期終了とも整合する。準備できなければ保留する。"
+  },
+  "revision": 25,
+  "workflowInput": {
+    "acceptanceCriteriaPath": "results/reviews/third-party-engineer-acceptance.json",
+    "currentRevision": 25,
+    "detailPaths": [
+      "docs/probability-count.md",
+      "audit/README.md"
+    ],
+    "historyReference": "results/reviews/finding-register.json",
+    "reproductionProofPath": "results/reviews/final-all-proof.json",
+    "reviewPaths": [
+      "docs/table-count-guideline.md",
+      "docs/table-count-calibration.md",
+      "README.md"
+    ],
+    "scopePath": "bench/nonlocking-scope.json"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "sql": "IF @@TRANCOUNT \u003C\u003E 0 OR XACT_STATE() \u003C\u003E 0\n  THROW 51000, \u0027Use a new connection without a transaction\u0027, 1;\nSET IMPLICIT_TRANSACTIONS OFF;\nSET LOCK_TIMEOUT 1500; -- \u4F8B\uFF1A\u30ED\u30C3\u30AF\u5F85\u3061\u4E0A\u9650\uFF08\u30DF\u30EA\u79D2\uFF09\nIF DB_NAME() \u003C\u003E N\u0027ManualCount100m\u0027 THROW 51000, \u0027Unexpected database\u0027, 1;\nSELECT @@SERVERNAME AS server_name, DB_NAME() AS db_name,\n       s.session_id, s.login_time, c.connection_id, s.login_name,\n       s.transaction_isolation_level\nFROM sys.dm_exec_sessions AS s\nJOIN sys.dm_exec_connections AS c ON c.session_id = s.session_id\nWHERE s.session_id = @@SPID AND c.parent_connection_id IS NULL;\nSELECT is_read_committed_snapshot_on, snapshot_isolation_state_desc,\n       sys.fn_hadr_is_primary_replica(DB_NAME()) AS is_ag_primary\nFROM sys.databases WHERE database_id = DB_ID();\nSELECT name, is_memory_optimized, is_external, temporal_type_desc\nFROM sys.tables WHERE object_id = OBJECT_ID(N\u0027dbo.Target\u0027, N\u0027U\u0027);\n",
+  "start_ns": 361376837808031,
+  "end_ns": 361376838443841,
+  "elapsed_ns": 635810,
+  "raw": [
+    [
+      {
+        "server_name": "countprimary",
+        "db_name": "ManualCount100m",
+        "session_id": 51,
+        "login_time": "2026-11-08T23:20:58.457",
+        "connection_id": "39b8d440-4782-4d6c-83fc-40a5fb0afce5",
+        "login_name": "sa",
+        "transaction_isolation_level": 2
+      }
+    ],
+    [
+      {
+        "is_read_committed_snapshot_on": false,
+        "snapshot_isolation_state_desc": "OFF",
+        "is_ag_primary": null
+      }
+    ],
+    [
+      {
+        "name": "Target",
+        "is_memory_optimized": false,
+        "is_external": false,
+        "temporal_type_desc": "NON_TEMPORAL_TABLE"
+      }
+    ]
+  ],
+  "error": null
+}

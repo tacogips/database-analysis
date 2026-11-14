@@ -1,0 +1,14 @@
+{
+  "id": "lab-runner",
+  "description": "Reproduce the nonlocking default in bench/nonlocking-scope.json from a white compose database after owner scope audit; historical excluded lock probes are not mandatory passes. Retain process/source/artifact evidence for owner semantic audit.",
+  "modelFreeze": false,
+  "nodeType": "command",
+  "variables": {},
+  "timeoutMs": 43200000,
+  "command": {
+    "scriptPath": "scripts/run-white-all.sh"
+  },
+  "output": {
+    "description": "Return JSON listing the experiments that ran and whether the lab data is intact."
+  }
+}

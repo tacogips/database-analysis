@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Answers EXP-SOL-11 and FIND-LOCK-SAMPLER-01: does reading data_locks once a second add to the latency in the locking experiments? Same locking COUNT, with and without the sampling, alternating."""
+import time
+from experiments import HOT
+from reqlib import Results, guard, measured_run
+from lablib import connect, query
+
+ID = "50-EXP-SOL-11"
+guard(ID, 7)
+r = Results(ID, ["EXP-SOL-11", "FIND-LOCK-SAMPLER-01"], window_s=30, base_s=10, recover_s=10)
+
+
+def locking_count(notes):
+    c = connect(read_timeout=120)
+    query(c, "SET SESSION transaction_isolation='REPEATABLE-READ'")
+    t0 = time.monotonic()
+    runs = 0
+    while time.monotonic() - t0 < 30:
+        query(c, "SELECT COUNT(*) FROM t_hot FOR SHARE")
+        runs += 1
+    notes["runs"] = runs
+    c.close()
+
+
+with r.section("runs") as d:
+    d["runs"] = []
+    for rep in range(3):
+        for sampling in ((True, False) if rep % 2 == 0 else (False, True)):
+            if r.time_left() < 70:
+                d["stopped_early"] = f"{rep}/{sampling}"
+                break
+            res = measured_run(f"sampling={sampling}", HOT, locking_count, 10, 10, data_locks=sampling)
+            res.update(rep=rep, data_locks_sampling=sampling)
+            res.pop("series_10s", None)
+            d["runs"].append(res)
+            r.save()
+            print(rep, sampling, res["latency"]["during"]["write"], flush=True)
+r.finish()

@@ -1,0 +1,136 @@
+{
+  "sql": "SELECT @@SERVERNAME server_name,SERVERPROPERTY(\u0027IsHadrEnabled\u0027) is_hadr_enabled,\n  @@VERSION version,SERVERPROPERTY(\u0027ProductVersion\u0027) product_version,SERVERPROPERTY(\u0027Edition\u0027) edition;\nSELECT DB_NAME(database_id) db_name,name,physical_name,size,max_size,growth FROM sys.master_files;\nSELECT name,value,value_in_use FROM sys.configurations WHERE name IN (\u0027max server memory (MB)\u0027,\u0027max degree of parallelism\u0027);",
+  "start_ns": 359630533236021,
+  "end_ns": 359630564034824,
+  "elapsed_ns": 30798803,
+  "raw": [
+    [
+      {
+        "server_name": "countprimary",
+        "is_hadr_enabled": 1,
+        "version": "Microsoft SQL Server 2025 (RTM-CU10) (KB5125471) - 17.0.5035.5 (X64) \n\tOct 15 2026 19:55:26 \n\tCopyright (C) 2025 Microsoft Corporation\n\tEnterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.5 LTS) \u003CX64\u003E",
+        "product_version": "17.0.5035.5",
+        "edition": "Enterprise Developer Edition (64-bit)"
+      }
+    ],
+    [
+      {
+        "db_name": "master",
+        "name": "master",
+        "physical_name": "/var/opt/mssql/data/master.mdf",
+        "size": 592,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "master",
+        "name": "mastlog",
+        "physical_name": "/var/opt/mssql/data/mastlog.ldf",
+        "size": 64,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev",
+        "physical_name": "/var/opt/mssql/data/tempdb.mdf",
+        "size": 1024,
+        "max_size": 1048576,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "templog",
+        "physical_name": "/var/opt/mssql/data/templog.ldf",
+        "size": 1024,
+        "max_size": 524288,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev2",
+        "physical_name": "/var/opt/mssql/data/tempdb2.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev3",
+        "physical_name": "/var/opt/mssql/data/tempdb3.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev4",
+        "physical_name": "/var/opt/mssql/data/tempdb4.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "model",
+        "name": "modeldev",
+        "physical_name": "/var/opt/mssql/data/model.mdf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "model",
+        "name": "modellog",
+        "physical_name": "/var/opt/mssql/data/modellog.ldf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "msdb",
+        "name": "MSDBData",
+        "physical_name": "/var/opt/mssql/data/MSDBData.mdf",
+        "size": 1792,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "msdb",
+        "name": "MSDBLog",
+        "physical_name": "/var/opt/mssql/data/MSDBLog.ldf",
+        "size": 96,
+        "max_size": 268435456,
+        "growth": 10
+      },
+      {
+        "db_name": "ManualCount100m",
+        "name": "ManualCount100m_data",
+        "physical_name": "/var/opt/mssql/data/ManualCount100m.mdf",
+        "size": 8192,
+        "max_size": 10485760,
+        "growth": 32768
+      },
+      {
+        "db_name": "ManualCount100m",
+        "name": "ManualCount100m_log",
+        "physical_name": "/var/opt/mssql/log/ManualCount100m.ldf",
+        "size": 8192,
+        "max_size": 524288,
+        "growth": 8192
+      }
+    ],
+    [
+      {
+        "name": "max degree of parallelism",
+        "value": 0,
+        "value_in_use": 0
+      },
+      {
+        "name": "max server memory (MB)",
+        "value": 2048,
+        "value_in_use": 2048
+      }
+    ]
+  ],
+  "error": null
+}

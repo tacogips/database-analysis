@@ -1,0 +1,165 @@
+{
+  "meaning": "Foreground pure regressions/syntax only; no DB/Docker/workflow or new measurement. Complete log closed after all child exits.",
+  "log": "results/reviews/author-revision16-verification.log",
+  "logSha256": "df65b69922b2d15fff987201f07c4f443e2c56d1c46cc99fb90d5d473b60865b",
+  "checks": [
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-v"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "/bin/sh",
+        "-n",
+        ".riela/workflows/table-count-guideline-review/scripts/run-white-all.sh"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 1
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_matrix_cleanup.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "static-source-and-document-checks"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "final-saved-document-adapter-and-diff-checks"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "allPassed": false,
+  "allLatestPassed": true,
+  "initialFailure": "fake launch cwd assertion compared macOS aliases; corrected to canonical paths; earlier failure retained",
+  "finalStatus": "passed_after_test_assertion_correction",
+  "mainLines": 216,
+  "guidelineSha256": "d444827e48ed46eb31e019e6b02eb84d37651df9ee25d87a4823207cb86f0a08",
+  "logComplete": true
+}

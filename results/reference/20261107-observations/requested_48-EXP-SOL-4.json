@@ -1,0 +1,77 @@
+{
+ "id": "48-EXP-SOL-4",
+ "answers": [
+  "EXP-SOL-4",
+  "FIND-SOL-VIEW-01"
+ ],
+ "started": "2026-11-06T17:59:26",
+ "sections": {
+  "views": {
+   "base_counts": {
+    "p": 100,
+    "ch": 1000,
+    "u2": 100
+   },
+   "v_join": {
+    "view_count": 900,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "p",
+     "ch"
+    ]
+   },
+   "v_left": {
+    "view_count": 955,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "p",
+     "ch"
+    ]
+   },
+   "v_filter": {
+    "view_count": 900,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "ch"
+    ]
+   },
+   "v_union": {
+    "view_count": 150,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "<derived2>",
+     "p",
+     "u2",
+     "<union2,3>"
+    ]
+   },
+   "v_union_all": {
+    "view_count": 200,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "<derived2>",
+     "p",
+     "u2"
+    ]
+   },
+   "v_group": {
+    "view_count": 46,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "<derived2>",
+     "ch"
+    ]
+   },
+   "v_plain": {
+    "view_count": 100,
+    "flow": "DECIDE_TARGET",
+    "explain_tables": [
+     "p"
+    ]
+   },
+   "_seconds": 0.01
+  }
+ },
+ "elapsed_seconds": 0,
+ "section_errors": []
+}

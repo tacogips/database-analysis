@@ -1,0 +1,6 @@
+SET SHOWPLAN_XML ON;
+GO
+SELECT COUNT_BIG(*) AS exact_rows FROM [dbo].[Target];
+GO
+SET SHOWPLAN_XML OFF;
+GO

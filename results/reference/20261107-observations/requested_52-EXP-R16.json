@@ -1,0 +1,94 @@
+{
+ "id": "52-EXP-R16",
+ "answers": [
+  "EXP-R16",
+  "FIND-BETTER-01"
+ ],
+ "started": "2026-11-06T18:04:42",
+ "sections": {
+  "clean_case": {
+   "full": {
+    "value": 3000000,
+    "ms": 27.3,
+    "rows_read": 0.0
+   },
+   "incremental": {
+    "value": 3000000,
+    "ms": 8.9,
+    "rows_read": 3.0
+   },
+   "match": true,
+   "_seconds": 0.25
+  },
+  "broken_premises": {
+   "update_in_closed": {
+    "full": 3000000,
+    "incremental": 3000000,
+    "error": 0,
+    "table_id_detects": false,
+    "update_time_changed": true,
+    "changed_partitions": [
+     "p1"
+    ]
+   },
+   "delete_in_closed": {
+    "full": 2999875,
+    "incremental": 3000000,
+    "error": 125,
+    "table_id_detects": false,
+    "update_time_changed": true,
+    "changed_partitions": [
+     "p1"
+    ]
+   },
+   "late_arrival_in_closed": {
+    "full": 3000875,
+    "incremental": 2999875,
+    "error": -1000,
+    "table_id_detects": false,
+    "update_time_changed": true,
+    "changed_partitions": [
+     "p2"
+    ]
+   },
+   "exchange_closed": {
+    "full": 2255875,
+    "incremental": 3000875,
+    "error": 745000,
+    "table_id_detects": true,
+    "update_time_changed": false,
+    "changed_partitions": []
+   },
+   "truncate_closed": {
+    "full": 1504875,
+    "incremental": 2255875,
+    "error": 751000,
+    "table_id_detects": true,
+    "update_time_changed": true,
+    "changed_partitions": [
+     "p2"
+    ]
+   },
+   "_seconds": 6.7
+  },
+  "append_table": {
+   "full": {
+    "value": 1000000,
+    "ms": 12.8,
+    "rows_read": 0.0
+   },
+   "incremental": {
+    "value": 1000000,
+    "ms": 5.0,
+    "rows_read": 100000.0
+   },
+   "after_old_delete": {
+    "full": 999999,
+    "incremental": 1000000
+   },
+   "_seconds": 1.35
+  }
+ },
+ "elapsed_seconds": 14,
+ "section_errors": []
+}

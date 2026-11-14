@@ -1,0 +1,215 @@
+{
+  "recordedAt": "2026-11-07T09:41:01.719731+00:00",
+  "meaning": "Four statement repetitions per method complete in this condition; whole write-mix scope remains pending. Descriptive observations, no global ranking, causal attribution or SLO approval.",
+  "sourceResults": [
+    {
+      "path": "results/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b1.json",
+      "sha256": "a57e0c0e4936bdc8e9b999a96888711d53fbe697a5f82a09d8427876c7b419aa"
+    },
+    {
+      "path": "results/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b2.json",
+      "sha256": "46ab6ed839c1bc9ca1324b46523155329b228db36231260ca72ccc3710130c6e"
+    }
+  ],
+  "condition": {
+    "rows": 20000000,
+    "mix": "indexed",
+    "target_writes_per_s": 800,
+    "fixture": "4 columns(id,k,v,pad CHAR60), not the TDE100-column service frontier",
+    "writeShape": "UPDATE indexed k by PK; target800 scheduled writes/s, not an assertion of achieved throughput",
+    "statement_limit_ms": 120000
+  },
+  "observations": [
+    {
+      "rep": 0,
+      "arm": "statement_k",
+      "status": "error_1317",
+      "outcome": "confirmed_ceiling",
+      "seconds": 120.004,
+      "rows": null,
+      "timer_counter_before": 0,
+      "timer_counter_after": 1,
+      "writeWindows": [
+        {
+          "scheduled": 96003,
+          "completed": 96003,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 1782.86,
+          "p99_ms": 5051.68,
+          "max_ms": 5687.25,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 0,
+      "arm": "statement_pk",
+      "status": "complete",
+      "outcome": "completed",
+      "seconds": 27.05,
+      "rows": 20000000,
+      "timer_counter_before": 0,
+      "timer_counter_after": 0,
+      "writeWindows": [
+        {
+          "scheduled": 21640,
+          "completed": 21640,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 12836.98,
+          "p99_ms": 19242.98,
+          "max_ms": 19347.2,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 1,
+      "arm": "statement_pk",
+      "status": "complete",
+      "outcome": "completed",
+      "seconds": 22.52,
+      "rows": 20000000,
+      "timer_counter_before": 0,
+      "timer_counter_after": 0,
+      "writeWindows": [
+        {
+          "scheduled": 18016,
+          "completed": 18016,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 24439.98,
+          "p99_ms": 25507.29,
+          "max_ms": 25763.02,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 1,
+      "arm": "statement_k",
+      "status": "error_1317",
+      "outcome": "confirmed_ceiling",
+      "seconds": 120.005,
+      "rows": null,
+      "timer_counter_before": 0,
+      "timer_counter_after": 1,
+      "writeWindows": [
+        {
+          "scheduled": 96003,
+          "completed": 96003,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 8997.67,
+          "p99_ms": 23627.09,
+          "max_ms": 24106.68,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 2,
+      "arm": "statement_k",
+      "status": "error_1317",
+      "outcome": "confirmed_ceiling",
+      "seconds": 120.006,
+      "rows": null,
+      "timer_counter_before": 0,
+      "timer_counter_after": 1,
+      "writeWindows": [
+        {
+          "scheduled": 96004,
+          "completed": 96004,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 511.54,
+          "p99_ms": 5154.79,
+          "max_ms": 6633.45,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 2,
+      "arm": "statement_pk",
+      "status": "complete",
+      "outcome": "completed",
+      "seconds": 21.8,
+      "rows": 20000000,
+      "timer_counter_before": 0,
+      "timer_counter_after": 0,
+      "writeWindows": [
+        {
+          "scheduled": 17441,
+          "completed": 17441,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 12089.52,
+          "p99_ms": 16636.35,
+          "max_ms": 16805.48,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 3,
+      "arm": "statement_pk",
+      "status": "complete",
+      "outcome": "completed",
+      "seconds": 18.957,
+      "rows": 20000000,
+      "timer_counter_before": 0,
+      "timer_counter_after": 0,
+      "writeWindows": [
+        {
+          "scheduled": 15165,
+          "completed": 15165,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 16636.38,
+          "p99_ms": 18581.55,
+          "max_ms": 18725.13,
+          "latency_status": "completed_responses"
+        }
+      ]
+    },
+    {
+      "rep": 3,
+      "arm": "statement_k",
+      "status": "error_1317",
+      "outcome": "confirmed_ceiling",
+      "seconds": 120.003,
+      "rows": null,
+      "timer_counter_before": 0,
+      "timer_counter_after": 1,
+      "writeWindows": [
+        {
+          "scheduled": 96002,
+          "completed": 96002,
+          "failed": 0,
+          "inflight_at_end": 0,
+          "queued_at_end": 0,
+          "p50_ms": 70.31,
+          "p99_ms": 10722.44,
+          "max_ms": 11540.06,
+          "latency_status": "completed_responses"
+        }
+      ]
+    }
+  ],
+  "finding": "PRIMARY4/4 completed18.957–27.050s, all20M; secondary4/4 confirmed120s timer ceilings. Censored observations cannot rank completed speed.",
+  "limitations": [
+    "Uncontrolled host/cache carryover",
+    "No matched no-count control in these main arms",
+    "Do not transfer timings or SLO claims to TDE100-column tables"
+  ],
+  "fullScopePending": true
+}

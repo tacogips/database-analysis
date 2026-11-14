@@ -1,0 +1,532 @@
+08:42:19 done seq1m
+08:42:20 t_sparse 1,000,000/10,000,000 2s
+08:42:23 t_sparse 2,000,000/10,000,000 5s
+08:42:25 t_sparse 3,000,000/10,000,000 6s
+08:42:26 t_sparse 4,000,000/10,000,000 8s
+08:42:27 t_sparse 5,000,000/10,000,000 9s
+08:42:28 t_sparse 6,000,000/10,000,000 10s
+08:42:29 t_sparse 7,000,000/10,000,000 11s
+08:42:30 t_sparse 8,000,000/10,000,000 12s
+08:42:31 t_sparse 9,000,000/10,000,000 13s
+08:42:33 t_sparse 10,000,000/10,000,000 14s
+08:42:33 t_sparse 10,000,000 rows in 14s
+08:42:33 done t_sparse
+08:42:46 done t_uuid
+08:42:48 t_composite 1,000,000/10,000,000 3s
+08:42:51 t_composite 2,000,000/10,000,000 5s
+08:42:52 t_composite 3,000,000/10,000,000 7s
+08:42:54 t_composite 4,000,000/10,000,000 8s
+08:42:55 t_composite 5,000,000/10,000,000 9s
+08:42:56 t_composite 6,000,000/10,000,000 11s
+08:42:58 t_composite 7,000,000/10,000,000 12s
+08:42:59 t_composite 8,000,000/10,000,000 13s
+08:43:00 t_composite 9,000,000/10,000,000 15s
+08:43:02 t_composite 10,000,000/10,000,000 16s
+08:43:02 t_composite 10,000,000 rows in 16s
+08:43:02 done t_composite
+08:43:04 t_nopk 1,000,000/5,000,000 2s
+08:43:05 t_nopk 2,000,000/5,000,000 4s
+08:43:07 t_nopk 3,000,000/5,000,000 6s
+08:43:09 t_nopk 4,000,000/5,000,000 8s
+08:43:11 t_nopk 5,000,000/5,000,000 10s
+08:43:11 t_nopk 5,000,000 rows in 10s
+08:43:11 done t_nopk
+08:43:12 t_uniq_notnull 1,000,000/3,000,000 1s
+08:43:14 t_uniq_notnull 2,000,000/3,000,000 3s
+08:43:16 t_uniq_notnull 3,000,000/3,000,000 5s
+08:43:16 t_uniq_notnull 3,000,000 rows in 5s
+08:43:16 done t_uniq_notnull
+08:43:19 t_uniq_nullable 1,000,000/3,000,000 2s
+08:43:21 t_uniq_nullable 2,000,000/3,000,000 4s
+08:43:22 t_uniq_nullable 3,000,000/3,000,000 6s
+08:43:22 t_uniq_nullable 3,000,000 rows in 6s
+08:43:22 done t_uniq_nullable
+08:43:24 customers 1,000,000/1,000,000 1s
+08:43:24 customers 1,000,000 rows in 1s
+08:43:24 done customers
+08:43:26 orders 1,000,000/5,000,000 2s
+08:43:29 orders 2,000,000/5,000,000 5s
+08:43:32 orders 3,000,000/5,000,000 8s
+08:43:35 orders 4,000,000/5,000,000 11s
+08:43:38 orders 5,000,000/5,000,000 14s
+08:43:38 orders 5,000,000 rows in 14s
+08:43:38 done orders
+08:43:47 order_items 3,000,000/15,000,000 9s
+08:43:54 order_items 6,000,000/15,000,000 16s
+08:44:02 order_items 9,000,000/15,000,000 24s
+08:44:11 order_items 12,000,000/15,000,000 33s
+08:44:18 order_items 15,000,000/15,000,000 40s
+08:44:18 order_items 15,000,000 rows in 40s
+08:44:18 done order_items
+08:44:18 tags 1,000 rows in 0s
+08:44:18 done tags
+08:44:20 customer_tags 1,000,000/5,000,000 2s
+08:44:22 customer_tags 2,000,000/5,000,000 5s
+08:44:25 customer_tags 3,000,000/5,000,000 7s
+08:44:28 customer_tags 4,000,000/5,000,000 10s
+08:44:30 customer_tags 5,000,000/5,000,000 13s
+08:44:30 customer_tags 5,000,000 rows in 13s
+08:44:30 done customer_tags
+08:44:33 done categories
+08:44:35 done circ
+08:45:11 t_lob 300,000 rows in 37s
+08:45:11 done t_lob
+08:45:13 t_part 1,000,000/10,000,000 1s
+08:45:14 t_part 2,000,000/10,000,000 3s
+08:45:16 t_part 3,000,000/10,000,000 4s
+08:45:17 t_part 4,000,000/10,000,000 5s
+08:45:18 t_part 5,000,000/10,000,000 7s
+08:45:20 t_part 6,000,000/10,000,000 8s
+08:45:21 t_part 7,000,000/10,000,000 10s
+08:45:22 t_part 8,000,000/10,000,000 11s
+08:45:24 t_part 9,000,000/10,000,000 12s
+08:45:26 t_part 10,000,000/10,000,000 14s
+08:45:26 t_part 10,000,000 rows in 14s
+08:45:26 done t_part
+08:45:30 done t_strpk
+08:45:33 t_events 1,000,000/5,000,000 3s
+08:45:36 t_events 2,000,000/5,000,000 6s
+08:45:40 t_events 3,000,000/5,000,000 10s
+08:45:44 t_events 4,000,000/5,000,000 14s
+08:45:48 t_events 5,000,000/5,000,000 18s
+08:45:48 t_events 5,000,000 rows in 18s
+08:45:48 done t_events
+08:47:22 t_myisam 1,000,000/3,000,000 95s
+08:48:49 t_myisam 2,000,000/3,000,000 181s
+08:50:30 t_myisam 3,000,000/3,000,000 282s
+08:50:30 t_myisam 3,000,000 rows in 282s
+08:50:30 done t_myisam
+08:50:30 t_memory 500,000 rows in 0s
+08:50:30 done t_memory
+08:50:32 t_archive 1,000,000/1,000,000 1s
+08:50:32 t_archive 1,000,000 rows in 1s
+08:50:32 done t_archive
+08:50:33 order_items_nofk 1,000,000/5,000,000 1s
+08:50:34 order_items_nofk 2,000,000/5,000,000 3s
+08:50:35 order_items_nofk 3,000,000/5,000,000 4s
+08:50:36 order_items_nofk 4,000,000/5,000,000 5s
+08:50:38 order_items_nofk 5,000,000/5,000,000 6s
+08:50:38 order_items_nofk 5,000,000 rows in 6s
+08:50:38 done order_items_nofk
+08:50:39 t_hot 1,000,000/5,000,000 1s
+08:50:40 t_hot 2,000,000/5,000,000 2s
+08:50:41 t_hot 3,000,000/5,000,000 3s
+08:50:43 t_hot 4,000,000/5,000,000 5s
+08:50:49 t_hot 5,000,000/5,000,000 11s
+08:50:49 t_hot 5,000,000 rows in 11s
+08:50:49 done t_hot
+08:51:04 t_repl 2,000,000/20,000,000 15s
+08:51:18 t_repl 4,000,000/20,000,000 29s
+08:51:30 t_repl 6,000,000/20,000,000 41s
+08:51:45 t_repl 8,000,000/20,000,000 56s
+08:51:55 t_repl 10,000,000/20,000,000 66s
+08:52:06 t_repl 12,000,000/20,000,000 77s
+08:52:18 t_repl 14,000,000/20,000,000 89s
+08:52:28 t_repl 16,000,000/20,000,000 99s
+08:52:42 t_repl 18,000,000/20,000,000 113s
+08:52:53 t_repl 20,000,000/20,000,000 124s
+08:52:53 t_repl 20,000,000 rows in 124s
+08:52:53 done t_repl
+08:53:32 t_dense 10,000,000/100,000,000 39s
+08:54:05 t_dense 20,000,000/100,000,000 72s
+08:54:37 t_dense 30,000,000/100,000,000 103s
+08:55:08 t_dense 40,000,000/100,000,000 135s
+08:55:41 t_dense 50,000,000/100,000,000 168s
+08:56:16 t_dense 60,000,000/100,000,000 203s
+08:56:46 t_dense 70,000,000/100,000,000 233s
+08:57:14 t_dense 80,000,000/100,000,000 261s
+08:58:24 t_dense 90,000,000/100,000,000 331s
+08:59:00 t_dense 100,000,000/100,000,000 367s
+08:59:00 t_dense 100,000,000 rows in 367s
+08:59:00 done t_dense
+08:59:00 t_dense building k_created
+09:05:00 t_dense k_created done
+Traceback (most recent call last):
+  File "/work/bench/load.py", line 205, in <module>
+    sys.exit(main())
+  File "/work/bench/load.py", line 194, in main
+    load_designs()
+  File "/work/bench/load.py", line 66, in load_designs
+    batches("d_negative_pk", m, "SELECT n+{off}-500000, n")
+  File "/work/bench/load.py", line 56, in batches
+    q(f"INSERT INTO {table} " + select_tmpl.format(off=off) + f" FROM seq1m WHERE n <= {size}")
+  File "/work/bench/load.py", line 19, in q
+    cur.execute(sql)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1690, "BIGINT UNSIGNED value is out of range in '((`bench`.`seq1m`.`n` + 0) - 500000)'")
+09:05:16 skip seq1m
+09:05:16 skip t_sparse
+09:05:16 skip t_uuid
+09:05:16 skip t_composite
+09:05:16 skip t_nopk
+09:05:16 skip t_uniq_notnull
+09:05:16 skip t_uniq_nullable
+09:05:16 skip customers
+09:05:16 skip orders
+09:05:16 skip order_items
+09:05:16 skip tags
+09:05:16 skip customer_tags
+09:05:16 skip categories
+09:05:16 skip t_lob
+09:05:16 skip t_part
+09:05:16 skip t_strpk
+09:05:16 skip t_events
+09:05:16 skip t_myisam
+09:05:16 skip t_memory
+09:05:16 skip t_archive
+09:05:16 skip order_items_nofk
+09:05:16 skip t_hot
+09:05:16 skip t_repl
+09:05:16 skip t_dense
+09:05:18 d_negative_pk 1,000,000/1,000,000 2s
+09:05:18 d_negative_pk 1,000,000 rows in 2s
+09:05:18 done d_negative_pk
+09:05:21 d_float_pk 1,000,000/1,000,000 2s
+09:05:21 d_float_pk 1,000,000 rows in 2s
+09:05:21 done d_float_pk
+09:05:23 d_decimal_pk 1,000,000/1,000,000 2s
+09:05:23 d_decimal_pk 1,000,000 rows in 2s
+09:05:23 done d_decimal_pk
+09:05:25 d_datetime_pk 1,000,000/1,000,000 2s
+09:05:25 d_datetime_pk 1,000,000 rows in 2s
+09:05:25 done d_datetime_pk
+09:05:27 d_timestamp_pk 1,000,000/1,000,000 2s
+09:05:27 d_timestamp_pk 1,000,000 rows in 2s
+09:05:27 done d_timestamp_pk
+09:05:29 d_enum_pk 1,000,000/1,000,000 2s
+09:05:29 d_enum_pk 1,000,000 rows in 2s
+09:05:29 done d_enum_pk
+09:05:31 d_desc_pk 1,000,000/1,000,000 2s
+09:05:31 d_desc_pk 1,000,000 rows in 2s
+09:05:31 done d_desc_pk
+09:05:33 d_snowflake 1,000,000/1,000,000 2s
+09:05:33 d_snowflake 1,000,000 rows in 2s
+09:05:33 done d_snowflake
+09:05:33 d_unsigned_max 100,000 rows in 0s
+09:05:33 done d_unsigned_max
+09:05:34 done d_str_bin
+09:05:41 d_prefix_unique 500,000 rows in 7s
+09:05:41 done d_prefix_unique
+09:05:43 d_gipk 1,000,000/1,000,000 2s
+09:05:43 d_gipk 1,000,000 rows in 2s
+09:05:43 done d_gipk
+09:05:48 d_compressed 500,000 rows in 4s
+09:05:48 done d_compressed
+Traceback (most recent call last):
+  File "/work/bench/load.py", line 205, in <module>
+    sys.exit(main())
+  File "/work/bench/load.py", line 194, in main
+    load_designs()
+  File "/work/bench/load.py", line 81, in load_designs
+    batches("d_json_virtual", 500_000, "SELECT n+{off}, JSON_OBJECT('k',MOD(n,100),'v',MD5(n)), DEFAULT")
+  File "/work/bench/load.py", line 56, in batches
+    q(f"INSERT INTO {table} " + select_tmpl.format(off=off) + f" FROM seq1m WHERE n <= {size}")
+  File "/work/bench/load.py", line 19, in q
+    cur.execute(sql)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM seq1m WHERE n <= 100000' at line 1")
+09:07:01 skip seq1m
+09:07:01 skip t_sparse
+09:07:01 skip t_uuid
+09:07:01 skip t_composite
+09:07:01 skip t_nopk
+09:07:01 skip t_uniq_notnull
+09:07:01 skip t_uniq_nullable
+09:07:01 skip customers
+09:07:01 skip orders
+09:07:01 skip order_items
+09:07:01 skip tags
+09:07:01 skip customer_tags
+09:07:01 skip categories
+09:07:01 skip t_lob
+09:07:01 skip t_part
+09:07:01 skip t_strpk
+09:07:01 skip t_events
+09:07:01 skip t_myisam
+09:07:01 skip t_memory
+09:07:01 skip t_archive
+09:07:01 skip order_items_nofk
+09:07:01 skip t_hot
+09:07:01 skip t_repl
+09:07:01 skip t_dense
+09:07:01 skip d_negative_pk
+09:07:01 skip d_float_pk
+09:07:01 skip d_decimal_pk
+09:07:01 skip d_datetime_pk
+09:07:01 skip d_timestamp_pk
+09:07:01 skip d_enum_pk
+09:07:01 skip d_desc_pk
+09:07:01 skip d_snowflake
+09:07:01 skip d_unsigned_max
+09:07:01 skip d_str_bin
+09:07:01 skip d_prefix_unique
+09:07:01 skip d_gipk
+09:07:01 skip d_compressed
+09:07:04 d_json_virtual 500,000 rows in 3s
+09:07:04 done d_json_virtual
+09:07:07 d_fulltext 200,000 rows in 3s
+09:07:07 done d_fulltext
+Traceback (most recent call last):
+  File "/work/bench/load.py", line 205, in <module>
+    sys.exit(main())
+  File "/work/bench/load.py", line 194, in main
+    load_designs()
+  File "/work/bench/load.py", line 83, in load_designs
+    batches("d_spatial", 200_000, "SELECT n+{off}, ST_SRID(POINT(MOD(n,90),MOD(n,180)),4326)")
+  File "/work/bench/load.py", line 56, in batches
+    q(f"INSERT INTO {table} {columns} " + select_tmpl.format(off=off) + f" FROM seq1m WHERE n <= {size}")
+  File "/work/bench/load.py", line 19, in q
+    cur.execute(sql)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (3732, 'A parameter of function st_srid contains a geometry with latitude 91.000000, which is out of range. It must be within [-90.000000, 90.000000].')
+09:08:10 skip seq1m
+09:08:10 skip t_sparse
+09:08:10 skip t_uuid
+09:08:10 skip t_composite
+09:08:10 skip t_nopk
+09:08:10 skip t_uniq_notnull
+09:08:10 skip t_uniq_nullable
+09:08:10 skip customers
+09:08:10 skip orders
+09:08:10 skip order_items
+09:08:10 skip tags
+09:08:10 skip customer_tags
+09:08:10 skip categories
+09:08:10 skip t_lob
+09:08:10 skip t_part
+09:08:10 skip t_strpk
+09:08:10 skip t_events
+09:08:10 skip t_myisam
+09:08:10 skip t_memory
+09:08:10 skip t_archive
+09:08:10 skip order_items_nofk
+09:08:10 skip t_hot
+09:08:10 skip t_repl
+09:08:10 skip t_dense
+09:08:10 skip d_negative_pk
+09:08:10 skip d_float_pk
+09:08:10 skip d_decimal_pk
+09:08:10 skip d_datetime_pk
+09:08:10 skip d_timestamp_pk
+09:08:10 skip d_enum_pk
+09:08:10 skip d_desc_pk
+09:08:10 skip d_snowflake
+09:08:10 skip d_unsigned_max
+09:08:10 skip d_str_bin
+09:08:10 skip d_prefix_unique
+09:08:10 skip d_gipk
+09:08:10 skip d_compressed
+09:08:10 skip d_json_virtual
+09:08:10 skip d_fulltext
+09:08:59 d_spatial 200,000 rows in 49s
+09:08:59 done d_spatial
+09:09:02 d_soft_delete 1,000,000/2,000,000 3s
+09:09:05 d_soft_delete 2,000,000/2,000,000 6s
+09:09:05 d_soft_delete 2,000,000 rows in 6s
+09:09:05 done d_soft_delete
+09:09:08 d_history 1,000,000/1,000,000 2s
+09:09:08 d_history 1,000,000 rows in 2s
+09:09:08 done d_history
+09:09:12 d_eav 1,000,000/1,000,000 4s
+09:09:12 d_eav 1,000,000 rows in 4s
+09:09:12 done d_eav
+09:09:18 d_polymorphic 1,000,000/1,000,000 6s
+09:09:18 d_polymorphic 1,000,000 rows in 6s
+09:09:18 done d_polymorphic
+09:09:19 d_triggered 500,000 rows in 1s
+09:09:19 done d_triggered
+09:09:19 fk_diamond_a 100,000 rows in 0s
+09:09:19 done fk_diamond_a
+09:09:20 fk_diamond_b 500,000 rows in 1s
+09:09:20 done fk_diamond_b
+09:09:22 fk_diamond_c 500,000 rows in 2s
+09:09:22 done fk_diamond_c
+09:09:26 fk_diamond_d 1,000,000/1,000,000 5s
+09:09:26 fk_diamond_d 1,000,000 rows in 5s
+09:09:26 done fk_diamond_d
+09:09:27 fk_comp_parent 500,000 rows in 1s
+09:09:27 done fk_comp_parent
+09:09:32 fk_comp_child 1,000,000/1,000,000 4s
+09:09:32 fk_comp_child 1,000,000 rows in 4s
+09:09:32 done fk_comp_child
+09:09:33 fk_uq_parent 500,000 rows in 2s
+09:09:33 done fk_uq_parent
+09:09:37 fk_uq_child 1,000,000/1,000,000 4s
+09:09:37 fk_uq_child 1,000,000 rows in 4s
+09:09:37 done fk_uq_child
+09:09:37 fk_null_parent 100,000 rows in 0s
+09:09:37 done fk_null_parent
+09:09:42 fk_null_child 500,000 rows in 5s
+09:09:42 done fk_null_child
+09:09:43 bench_other.parent 100,000 rows in 1s
+09:09:43 done bench_other.parent
+09:09:45 fk_cross_schema 500,000 rows in 3s
+09:09:45 done fk_cross_schema
+09:09:47 done tenants
+09:09:56 all done
+11:05:34 skip seq1m
+11:05:34 skip t_sparse
+11:05:34 skip t_uuid
+11:05:34 skip t_composite
+11:05:34 skip t_nopk
+11:05:34 skip t_uniq_notnull
+11:05:34 skip t_uniq_nullable
+11:05:34 skip customers
+11:05:34 skip orders
+11:05:34 skip order_items
+11:05:34 skip tags
+11:05:34 skip customer_tags
+11:05:34 skip categories
+11:05:34 skip t_lob
+11:05:34 skip t_part
+11:05:34 skip t_strpk
+11:05:34 skip t_events
+11:05:34 skip t_myisam
+11:05:34 skip t_memory
+11:05:34 skip t_archive
+11:05:34 skip order_items_nofk
+11:05:34 skip t_hot
+11:05:34 skip t_repl
+11:05:34 skip t_dense
+11:05:34 skip d_negative_pk
+11:05:34 skip d_float_pk
+11:05:34 skip d_decimal_pk
+11:05:34 skip d_datetime_pk
+11:05:34 skip d_timestamp_pk
+11:05:34 skip d_enum_pk
+11:05:34 skip d_desc_pk
+11:05:34 skip d_snowflake
+11:05:34 skip d_unsigned_max
+11:05:34 skip d_str_bin
+11:05:34 skip d_prefix_unique
+11:05:36 d_noindex 1,000,000/1,000,000 2s
+11:05:36 d_noindex 1,000,000 rows in 2s
+11:05:36 done d_noindex
+11:05:36 skip d_gipk
+11:05:36 skip d_compressed
+11:05:36 skip d_json_virtual
+11:05:36 skip d_fulltext
+11:05:36 skip d_spatial
+11:05:36 skip d_soft_delete
+11:05:36 skip d_history
+11:05:36 skip d_eav
+11:05:36 skip d_polymorphic
+11:05:36 skip d_triggered
+11:05:36 skip fk_diamond_a
+11:05:36 skip fk_diamond_b
+11:05:36 skip fk_diamond_c
+11:05:36 skip fk_diamond_d
+11:05:36 skip fk_comp_parent
+11:05:36 skip fk_comp_child
+11:05:36 skip fk_uq_parent
+11:05:36 skip fk_uq_child
+11:05:36 skip fk_null_parent
+11:05:36 skip fk_null_child
+11:05:36 skip bench_other.parent
+11:05:36 skip fk_cross_schema
+11:05:37 all done
+11:06:54 skip seq1m
+11:06:54 skip t_sparse
+11:06:54 skip t_uuid
+11:06:54 skip t_composite
+11:06:54 skip t_nopk
+11:06:54 skip t_uniq_notnull
+11:06:54 skip t_uniq_nullable
+11:06:54 skip customers
+11:06:54 skip orders
+11:06:54 skip order_items
+11:06:54 skip tags
+11:06:54 skip customer_tags
+11:06:54 skip categories
+11:06:54 skip t_lob
+11:06:54 skip t_part
+11:06:54 skip t_strpk
+11:06:54 skip t_events
+11:06:54 skip t_myisam
+11:06:54 t_memory 500,000 rows in 0s
+11:06:54 done t_memory
+11:06:54 skip t_archive
+11:06:54 skip order_items_nofk
+11:06:54 skip t_hot
+11:06:54 skip t_repl
+11:06:54 skip t_dense
+11:06:54 skip d_negative_pk
+11:06:54 skip d_float_pk
+11:06:54 skip d_decimal_pk
+11:06:54 skip d_datetime_pk
+11:06:54 skip d_timestamp_pk
+11:06:54 skip d_enum_pk
+11:06:54 skip d_desc_pk
+11:06:54 skip d_snowflake
+11:06:54 skip d_unsigned_max
+11:06:54 skip d_str_bin
+11:06:54 skip d_prefix_unique
+11:06:54 skip d_noindex
+11:06:54 skip d_gipk
+11:06:54 skip d_compressed
+11:06:54 skip d_json_virtual
+11:06:54 skip d_fulltext
+11:06:54 skip d_spatial
+11:06:54 skip d_soft_delete
+11:06:54 skip d_history
+11:06:54 skip d_eav
+11:06:54 skip d_polymorphic
+11:06:54 skip d_triggered
+11:06:54 skip fk_diamond_a
+11:06:54 skip fk_diamond_b
+11:06:54 skip fk_diamond_c
+11:06:54 skip fk_diamond_d
+11:06:54 skip fk_comp_parent
+11:06:54 skip fk_comp_child
+11:06:54 skip fk_uq_parent
+11:06:54 skip fk_uq_child
+11:06:54 skip fk_null_parent
+11:06:54 skip fk_null_child
+11:06:54 skip bench_other.parent
+11:06:54 skip fk_cross_schema
+11:06:55 all done

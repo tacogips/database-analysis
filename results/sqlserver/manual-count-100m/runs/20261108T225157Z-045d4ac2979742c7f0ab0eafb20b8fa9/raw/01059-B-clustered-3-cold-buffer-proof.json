@@ -1,0 +1,15 @@
+{
+  "sql": "SELECT COUNT_BIG(*) AS cached_target_pages,\n       COALESCE(SUM(CONVERT(bigint,b.is_modified)),0) AS dirty_target_pages\nFROM sys.dm_os_buffer_descriptors b\nJOIN sys.allocation_units a ON a.allocation_unit_id=b.allocation_unit_id\nJOIN sys.partitions p\n  ON (a.type IN (1,3) AND a.container_id=p.hobt_id)\n  OR (a.type=2 AND a.container_id=p.partition_id)\nWHERE b.database_id=DB_ID() AND p.object_id=OBJECT_ID(N\u0027dbo.Target\u0027,N\u0027U\u0027);",
+  "start_ns": 361000209032348,
+  "end_ns": 361000216456556,
+  "elapsed_ns": 7424208,
+  "raw": [
+    [
+      {
+        "cached_target_pages": 0,
+        "dirty_target_pages": 0
+      }
+    ]
+  ],
+  "error": null
+}

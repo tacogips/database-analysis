@@ -1,0 +1,3633 @@
+{
+ "id": "40-EXP-R11",
+ "answers": [
+  "EXP-R11",
+  "EXP-5",
+  "FIND-LOCK-FORMS-01"
+ ],
+ "started": "2026-11-06T17:53:56",
+ "sections": {
+  "forms": {
+   "pk_only": [
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 15,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 11,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 20,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 26,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 11,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 23,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 22,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 34,
+     "peak_rows_locked": 37,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 20
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 16,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 12
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 6,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 42,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 11,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 12,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 16,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 21,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 25,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 4,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 10,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 5,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 22,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 29,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 5,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 27,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 35,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1011
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 38,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 21,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1009
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 35,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 33,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 52,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 25,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1009
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 30,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 28,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1011
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 27,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 31,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 33,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 31,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1009
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 27,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 20,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 35,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 23,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1010
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 26,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 40,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 21,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200455,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     }
+    }
+   ],
+   "pk_and_small_secondary": [
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 26,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 19
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 2
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 10,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 20,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 6,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 10,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 24,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 8,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1013
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 12,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 7,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 23,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 27,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 25,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 25,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1010
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 32,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 25,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1012
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 27,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 30,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 31,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 35,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 38,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 35,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 28,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1012
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 24,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 0
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200304,
+     "update_row": {
+      "blocked": false,
+      "ms": 1
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     }
+    }
+   ],
+   "no_pk_no_index": [
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 3
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 28,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 34
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 17,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 26
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 28,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 34
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 20,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 39
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 22,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 45
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 19,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 14,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 17,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-UNCOMMITTED",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 24,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 2
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 6,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 39
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 17,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 26
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 4,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 27
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 6,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 35
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 27
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 3
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 29,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 34
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 26
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "READ-COMMITTED",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200000,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 1
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 27,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 9,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 42
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 28
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 4,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 26
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 5,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 26
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 3,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 5,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 25
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 10,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 44
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 20,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1012
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 6,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 36
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 6,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 27
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 37,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1011
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 34,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 30
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "REPEATABLE-READ",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1001
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "do_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 40,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "select_assign_subquery",
+     "ok": true,
+     "errors": [],
+     "ms": 24,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "select_assign_aggregate",
+     "ok": true,
+     "errors": [],
+     "ms": 39,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1011
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "derived_table",
+     "ok": true,
+     "errors": [],
+     "ms": 37,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1009
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "cte",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1009
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "scalar_subquery_in_select",
+     "ok": true,
+     "errors": [],
+     "ms": 35,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "explain_analyze",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "prepared",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "prepared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_plain",
+     "ok": true,
+     "errors": [],
+     "ms": 37,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1012
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_declared_set",
+     "ok": true,
+     "errors": [],
+     "ms": 36,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1004
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "call_select_into_local",
+     "ok": true,
+     "errors": [],
+     "ms": 26,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "stored_function",
+     "ok": true,
+     "errors": [],
+     "ms": 23,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "trigger_body",
+     "ok": true,
+     "errors": [],
+     "ms": 37,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1007
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "replace_select",
+     "ok": true,
+     "errors": [],
+     "ms": 25,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1003
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1006
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "ctas_permanent",
+     "ok": true,
+     "errors": [],
+     "ms": 41,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 0,
+     "update_row": {
+      "blocked": false,
+      "ms": 32
+     },
+     "insert_row": {
+      "blocked": false,
+      "ms": 0
+     }
+    },
+    {
+     "iso": "SERIALIZABLE",
+     "form": "lock_in_share_mode",
+     "ok": true,
+     "errors": [],
+     "ms": 18,
+     "peak_rows_locked": 0,
+     "record_locks_held_after": 200533,
+     "update_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1005
+     },
+     "insert_row": {
+      "blocked": true,
+      "error": 1205,
+      "ms": 1002
+     }
+    }
+   ],
+   "_seconds": 164.77
+  },
+  "EXP5_indexed_update": {
+   "plan_key": "k_v",
+   "non_indexed_update": {
+    "blocked": false,
+    "ms": 1
+   },
+   "indexed_update": {
+    "blocked": true,
+    "error": 1205,
+    "ms": 1005
+   },
+   "_seconds": 1.47
+  }
+ },
+ "elapsed_seconds": 166,
+ "section_errors": []
+}

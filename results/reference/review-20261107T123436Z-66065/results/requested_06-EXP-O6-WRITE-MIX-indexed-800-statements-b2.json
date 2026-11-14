@@ -1,0 +1,315 @@
+{
+ "id": "06-EXP-O6-WRITE-MIX-indexed-800-statements-b2",
+ "answers": [
+  "EXP-O6-WRITE-MIX",
+  "FIND-O6-WRITE-SHAPE-01",
+  "FIND-O8-CLIENT-TIMEOUT"
+ ],
+ "started": "2026-11-07T12:29:45",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 130944,
+    "k_k": 39423
+   },
+   "_seconds": 119.73
+  },
+  "arms": {
+   "runs": [
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "status": "error_1317",
+     "t0": 1794054715.5521314,
+     "connection_id": 1725,
+     "timer_counter_before": 0,
+     "error": "OperationalError(1317, 'Query execution was interrupted')",
+     "t1": 1794054835.5554209,
+     "seconds": 120.003,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_last": 0,
+      "Handler_read_next": 2680726,
+      "Handler_read_prev": 0,
+      "Handler_read_rnd": 0,
+      "Handler_read_rnd_next": 0
+     },
+     "timer_counter_after": 1,
+     "cleanup": {
+      "rollback": "ok",
+      "close": "ok",
+      "connection_ids": [
+       1725
+      ],
+      "confirmed": true,
+      "kill_attempts": [
+       {
+        "id": 1725,
+        "status": "already_gone",
+        "error": "OperationalError(1094, 'Unknown thread id: 1725')"
+       }
+      ],
+      "observations": [
+       {
+        "sessions": [],
+        "transactions": [
+         1725
+        ]
+       },
+       {
+        "sessions": [],
+        "transactions": []
+       }
+      ],
+      "status": "confirmed_terminated"
+     },
+     "pool_read_requests": 5233055.0,
+     "disk_reads": 378120.0,
+     "cleanup_finished_at": 1794054835.6600823,
+     "outcome": "confirmed_ceiling",
+     "rep": 2,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 96004,
+       "p50_ms": 1110.13,
+       "p95_ms": 3561.86,
+       "p99_ms": 4034.58,
+       "max_ms": 4300.26,
+       "errors": 0,
+       "scheduled": 96004,
+       "started": 96004,
+       "completed": 96004,
+       "failed": 0,
+       "inflight_at_end": 0,
+       "queued_at_end": 0,
+       "stuck_at_end": 0,
+       "slo_assessable": true,
+       "latency_status": "completed_responses",
+       "dispatch_delay": {
+        "n": 96004,
+        "p50_ms": 1105.13,
+        "p95_ms": 3556.87,
+        "p99_ms": 4029.58,
+        "max_ms": 4295.27
+       },
+       "client_execution": {
+        "n": 96004,
+        "p50_ms": 3.53,
+        "p95_ms": 11.57,
+        "p99_ms": 26.32,
+        "max_ms": 252.17
+       }
+      }
+     ],
+     "read": {
+      "n": 24000,
+      "p50_ms": 0.6,
+      "p95_ms": 7.55,
+      "p99_ms": 38.59,
+      "max_ms": 239.69,
+      "errors": 0,
+      "scheduled": 24000,
+      "started": 24000,
+      "completed": 24000,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 0,
+      "stuck_at_end": 0,
+      "slo_assessable": true,
+      "latency_status": "completed_responses",
+      "dispatch_delay": {
+       "n": 24000,
+       "p50_ms": 0.25,
+       "p95_ms": 2.75,
+       "p99_ms": 33.6,
+       "max_ms": 234.71
+      },
+      "client_execution": {
+       "n": 24000,
+       "p50_ms": 0.26,
+       "p95_ms": 3.83,
+       "p99_ms": 8.64,
+       "max_ms": 215.33
+      }
+     },
+     "server": {
+      "observation_capabilities": {
+       "table_data_locks": "not_measured",
+       "replica_lag": "not_measured"
+      },
+      "samples": 120,
+      "table_data_lock_samples": 0,
+      "seconds": 119.0,
+      "rows_read_per_s": 11863,
+      "bp_disk_reads_per_s": 3135,
+      "bp_miss_pct": 7.425,
+      "row_lock_time_ms": 0,
+      "row_lock_waits": 0,
+      "table_locks_waited": 0,
+      "peak_threads_running": 9.0,
+      "peak_row_lock_current_waits": 0.0,
+      "hll_start": 779,
+      "hll_end": 95965,
+      "hll_peak": 95965,
+      "peak_trx_age_s": 120,
+      "peak_mdl_waiters": 0,
+      "peak_table_mdl_exclusive": 0,
+      "peak_global_read_lock": 0,
+      "peak_row_locks_seen": null,
+      "peak_table_level_locks": null,
+      "peak_replica_lag_s": null
+     }
+    }
+   ],
+   "_seconds": 136.6
+  },
+  "windows": {
+   "arrival_accounting": [
+    {
+     "scheduled": 146630,
+     "started": 141346,
+     "completed": 141346,
+     "failed": 0,
+     "inflight": 0,
+     "unstarted": 5284,
+     "consistent": true,
+     "arrival_window_seconds": 146.62916773700272
+    }
+   ],
+   "raw_service_samples": [
+    {
+     "format": "jsonl+gzip-v1",
+     "samples": 146630,
+     "chunk_uncompressed_byte_cap": 8388608,
+     "chunks": [
+      {
+       "path": "raw/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b2/service-0/00000.jsonl.gz",
+       "samples": 93895,
+       "uncompressed_bytes": 8388594,
+       "uncompressed_sha256": "fa93a5d1a0cadda6cb6fab0574679ddf78fd9979cb9990dc5808b78ec26e693a",
+       "bytes": 3072987,
+       "sha256": "07b7ae37f5137a601811f719d3ef436290f0117a2b1cb21fe8143c95ed2fda70"
+      },
+      {
+       "path": "raw/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b2/service-0/00001.jsonl.gz",
+       "samples": 52735,
+       "uncompressed_bytes": 4583499,
+       "uncompressed_sha256": "fabdc4f7eb1bb932ff26f9de2fa7afded88a7fd05a8ffc8ce99fbed7daf7bfd9",
+       "bytes": 1590321,
+       "sha256": "11fae49e273038f97091dff7017119578dc0146e4619bbc755f6e2ad796aa17f"
+      }
+     ]
+    }
+   ],
+   "raw_server_samples": {
+    "format": "jsonl+gzip-v1",
+    "samples": 147,
+    "chunk_uncompressed_byte_cap": 8388608,
+    "chunks": [
+     {
+      "path": "raw/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b2/server/00000.jsonl.gz",
+      "samples": 147,
+      "uncompressed_bytes": 62528,
+      "uncompressed_sha256": "58e7cc2388b23c6e59e4fbb4829ea60f6daa128df420a7f51e3394cddc5f8a8c",
+      "bytes": 5914,
+      "sha256": "7d52ac070fad2e7e8eab26b0647a310e2067706e1c6ccf15708eaea32423da03"
+     }
+    ]
+   },
+   "quiet_truth_status": "not_requested; no write-count drift bound claimed",
+   "_seconds": 2.26
+  }
+ },
+ "protocol": "partitioned-v3",
+ "mix": "indexed",
+ "target_writes_per_s": 800,
+ "group": "statements",
+ "block": 1,
+ "rows": 20000000,
+ "note": "k moves, so split_k is a labelled negative control: the guideline forbids walking it.",
+ "split_seconds_ceiling": 150,
+ "statement_limit_ms": 120000,
+ "split_settings": {
+  "width": 10000,
+  "limit_ms": 500,
+  "duty": null
+ },
+ "required_repeats_across_scripts": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "scopeComplete": false,
+ "opportunities": [
+  {
+   "rep": 2,
+   "arm": "statement_k",
+   "outcome": "confirmed_ceiling",
+   "run_index": 0
+  },
+  {
+   "rep": 2,
+   "arm": "statement_pk",
+   "outcome": "unexpected_failure",
+   "reason": "section exception before arm result; cleanup unknown"
+  },
+  {
+   "rep": 3,
+   "arm": "statement_pk",
+   "outcome": "not_started",
+   "reason": "prior_failure_or_section_exception; no later comparison started"
+  },
+  {
+   "rep": 3,
+   "arm": "statement_k",
+   "outcome": "not_started",
+   "reason": "prior_failure_or_section_exception; no later comparison started"
+  }
+ ],
+ "tolerance_fixed_in_advance": "Completed medians require all4repeats,20% lower and no overlap. Censored outcomes cannot rank completed speed.",
+ "limitations": "Uncontrolled host/cache carryover,10s warmup and5s recovery do not certify restoration or SLO. Main arms have no matched no-count control. Auxiliary quiet truth is not a bounded drift estimate.",
+ "elapsed_seconds": 269,
+ "section_errors": [
+  "cleanup_unconfirmed; retained fixture; stop lab before later measurement",
+  "incomplete_scope"
+ ],
+ "cleanup": {
+  "confirmed": false,
+  "workloads": [
+   {
+    "confirmed": true,
+    "status": "confirmed_terminated",
+    "errors": [],
+    "child_exitcode": 0,
+    "child_terminated": false,
+    "child_alive": false,
+    "connection_registry_complete": true,
+    "connection_ids": [
+     1716,
+     1718,
+     1719,
+     1720,
+     1721
+    ],
+    "kill_attempts": [],
+    "observations": [
+     {
+      "sessions": [],
+      "transactions": []
+     }
+    ]
+   }
+  ],
+  "builder": {
+   "confirmed": false,
+   "error": "OperationalError(2003, \"Can't connect to MySQL server on 'primary' ([Errno 111] Connection refused)\")"
+  }
+ },
+ "required_seconds_after_setup": 570,
+ "fixture_cleanup": {
+  "status": "retained_after_failure; no further SQL on builder"
+ }
+}

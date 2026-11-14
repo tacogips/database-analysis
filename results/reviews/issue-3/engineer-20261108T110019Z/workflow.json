@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-issue3-engineer-sol",
+  "description": "Issue3 documentation correction engineer",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "engineer",
+  "nodes": [
+    {
+      "id": "engineer",
+      "nodeFile": "nodes/engineer.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "engineer",
+      "nodeId": "engineer",
+      "role": "worker"
+    }
+  ]
+}

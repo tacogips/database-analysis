@@ -1,0 +1,61 @@
+{
+ "id": "49-EXP-SOL-5",
+ "answers": [
+  "EXP-SOL-5",
+  "FIND-SOL-COUNTER-01"
+ ],
+ "started": "2026-11-06T17:59:26",
+ "sections": {
+  "methods": {
+   "old_count_then_trigger": {
+    "true_count": 50037,
+    "counter": 50005,
+    "drift": -32,
+    "writer_ops": 3119
+   },
+   "stop_writes": {
+    "true_count": 50035,
+    "counter": 50035,
+    "drift": 0,
+    "writer_ops": 2582
+   },
+   "n_minus_d_with_id": {
+    "true_count": 49966,
+    "counter": 49966,
+    "drift": 0,
+    "n": 49958,
+    "d": -42,
+    "first": "applied",
+    "retry": "already applied",
+    "writer_ops": 2942
+   },
+   "n_minus_d_retried_without_id": {
+    "true_count": 50028,
+    "counter": 100028,
+    "drift": 50000,
+    "correction": 50000
+   },
+   "paths": {
+    "replace_existing": {
+     "true_count": 50000,
+     "counter": 50000,
+     "drift": 0
+    },
+    "upsert_existing": {
+     "true_count": 50000,
+     "counter": 50000,
+     "drift": 0
+    },
+    "truncate": {
+     "true_count": 0,
+     "counter": 50000,
+     "drift": 50000
+    }
+   },
+   "_seconds": 12.83
+  }
+ },
+ "method_note": "The replica's stopped state is stood in for by one REPEATABLE READ snapshot; the replica itself is covered by EXP-R15.",
+ "elapsed_seconds": 13,
+ "section_errors": []
+}

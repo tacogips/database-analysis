@@ -1,0 +1,217 @@
+SQL Server 2025 will run as non-root by default.
+This container is running as user .
+To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+2026-11-08 21:37:59.79 Server      Setup step is copying system data file 'C:\templatedata\master.mdf' to '/var/opt/mssql/data/master.mdf'.
+2026-11-08 21:37:59.82 Server      Did not find an existing master data file /var/opt/mssql/data/master.mdf, copying the missing default master and other system database files. If you have moved the database location, but not moved the database files, startup may fail. To repair: shutdown SQL Server, move the master database to configured location, and restart.
+2026-11-08 21:37:59.82 Server      Setup step is copying system data file 'C:\templatedata\mastlog.ldf' to '/var/opt/mssql/data/mastlog.ldf'.
+2026-11-08 21:37:59.82 Server      Setup step is copying system data file 'C:\templatedata\model.mdf' to '/var/opt/mssql/data/model.mdf'.
+2026-11-08 21:37:59.83 Server      Setup step is copying system data file 'C:\templatedata\modellog.ldf' to '/var/opt/mssql/data/modellog.ldf'.
+2026-11-08 21:37:59.84 Server      Setup step is copying system data file 'C:\templatedata\msdbdata.mdf' to '/var/opt/mssql/data/msdbdata.mdf'.
+2026-11-08 21:37:59.85 Server      Setup step is copying system data file 'C:\templatedata\msdblog.ldf' to '/var/opt/mssql/data/msdblog.ldf'.
+2026-11-08 21:37:59.85 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_replicatedmaster.mdf' to '/var/opt/mssql/data/model_replicatedmaster.mdf'.
+2026-11-08 21:37:59.86 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_replicatedmaster.ldf' to '/var/opt/mssql/data/model_replicatedmaster.ldf'.
+2026-11-08 21:37:59.86 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_msdbdata.mdf' to '/var/opt/mssql/data/model_msdbdata.mdf'.
+2026-11-08 21:37:59.87 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_msdblog.ldf' to '/var/opt/mssql/data/model_msdblog.ldf'.
+2026-11-08 21:37:59.89 Server      Microsoft SQL Server 2025 (RTM-CU10) (KB5125471) - 17.0.5035.5 (X64) 
+	Oct 15 2026 19:55:26 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.5 LTS) <X64>
+2026-11-08 21:37:59.90 Server      UTC adjustment: 0:00
+2026-11-08 21:37:59.90 Server      (c) Microsoft Corporation.
+2026-11-08 21:37:59.90 Server      All rights reserved.
+2026-11-08 21:37:59.90 Server      Server process ID is 692.
+2026-11-08 21:37:59.90 Server      Logging SQL Server messages in file '/var/opt/mssql/log/errorlog'.
+2026-11-08 21:37:59.90 Server      Registry startup parameters: 
+	 -d /var/opt/mssql/data/master.mdf
+	 -l /var/opt/mssql/data/mastlog.ldf
+	 -e /var/opt/mssql/log/errorlog
+2026-11-08 21:37:59.90 Server      SQL Server detected 1 sockets with 4 cores per socket and 4 logical processors per socket, 4 total logical processors; using 4 logical processors based on SQL Server licensing. This is an informational message; no user action is required.
+2026-11-08 21:37:59.90 Server      SQL Server is starting at normal priority base (=7). This is an informational message only. No user action is required.
+2026-11-08 21:37:59.90 Server      Using conventional memory in the memory manager.
+2026-11-08 21:37:59.90 Server      SQL Server detected the following NUMA node configuration (NUMA Node number 0, Processor Group number 0, CPU Mask 0x000000000000000f).
+2026-11-08 21:37:59.90 Server      Page exclusion bitmap is enabled.
+2026-11-08 21:37:59.92 Server      Detected 2048 MB of RAM, 1719 MB of available memory, 1719 MB of available page file. This is an informational message; no user action is required.
+2026-11-08 21:37:59.92 Server      Buffer pool extension is not supported on Linux platform.
+2026-11-08 21:37:59.92 Server      Buffer Pool: Allocating 4194304 bytes for 266956 hashPages.
+2026-11-08 21:38:00.23 Server      Buffer pool extension is already disabled. No action is necessary.
+[EnableRbpexForGP] : Rbpex non HS FS Toggled, isGeneralPurpose:[0] 
+[EnableRbpexForLogicalMaster] : Rbpex for LM Toggled
+[RbpexEnableGrowWithoutShrink] : Rbpex Thin Provisioning FS Toggled
+2026-11-08 21:38:00.86 Server      Skipping small memory environment configuration. State 1.
+[INFO] [InitXdbSrvGlobals]: In InitXdbSrvGlobals, FAlternateIoFactorEnabled() = [1]. IsRBPEXEnabledNonHyperscaleEdition() = [0].
+[RSC Capacity config] MaximumNumberOfCachePerDb: 0, MaximumSpaceForCachePerDbInMB: -1, MaximumNumberOfCacheGlobal: -1
+[INFO] [InitServerComponents]: IsRBPEXEnabledNonHyperscaleEdition() = [0], IsSubCoreCPUAllocation = [0], GetSchedulersNumber*100 = [400], GetCPUCorePercentCap = [400.000000], EnableResilientBufferPoolExtension = [0], , RbpexEnableShrink (thin provisioning)  = [0], RbpexEnableGrowWithoutShrink = [0].
+2026-11-08 21:38:00.94 Server      Installing Client TLS certificates to the store.
+2026-11-08 21:38:00.95 Server      CPU vectorization level(s) detected:  SSE SSE2 SSE3 SSSE3 SSE41 SSE42 AVX AVX2 POPCNT BMI1 BMI2
+SqlInstanceNetworkManager: Finished setting callback functions for network IO tracking in UCS broker.
+2026-11-08 21:38:00.99 Server      Successfully initialized the TLS configuration. Allowed TLS protocol versions are ['1.0 1.1 1.2 1.3']. Allowed TLS ciphers are ['TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA'].
+2026-11-08 21:38:01.03 Server      Query Store settings initialized with enabled = 1, 
+2026-11-08 21:38:01.03 Server      The maximum number of dedicated administrator connections for this instance is '1'
+2026-11-08 21:38:01.04 Server      Node configuration: node 0: CPU mask: 0x000000000000000f:0 Active CPU mask: 0x000000000000000f:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+2026-11-08 21:38:01.05 Server      Using dynamic lock allocation.  Initial allocation of 2500 Lock blocks and 5000 Lock Owner blocks per node.  This is an informational message only.  No user action is required.
+2026-11-08 21:38:01.08 Server      In-Memory OLTP initialized on lowend machine.
+2026-11-08 21:38:01.12 Server      [INFO] Created Extended Events session 'hkenginexesession'
+2026-11-08 21:38:01.13 Server      Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.
+ForceFlush is enabled for this instance. 
+2026-11-08 21:38:01.14 Server      Total Log Writer threads: 2. This is an informational message; no user action is required.
+2026-11-08 21:38:01.16 Server      clflush is selected for pmem flush operation.
+2026-11-08 21:38:01.16 Server      Software Usage Metrics is disabled.
+Failed to open password policy registry path. Using default password policy values.
+2026-11-08 21:38:01.18 spid19s     [1]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:01.19 spid19s     Starting up database 'master'.
+2026-11-08 21:38:01.21 Server      CLR version v4.0.30319 loaded.
+BulkAdmin AllowedPathsList cleared (path filtering disabled)
+ForceFlush feature is enabled for log durability.
+2026-11-08 21:38:01.71 Server      Common language runtime (CLR) functionality initialized.
+2026-11-08 21:38:01.82 spid19s     Converting database 'master' from version 984 to the current version 998.
+2026-11-08 21:38:01.82 spid19s     Database 'master' running the upgrade step from version 984 to version 985.
+2026-11-08 21:38:01.93 Server      External governance manager initialized
+2026-11-08 21:38:01.93 Server      Detected pause instruction latency: 0 cycles.
+2026-11-08 21:38:01.93 spid19s     Database 'master' running the upgrade step from version 985 to version 986.
+2026-11-08 21:38:01.93 spid19s     Database 'master' running the upgrade step from version 986 to version 987.
+2026-11-08 21:38:01.94 spid19s     Database 'master' running the upgrade step from version 987 to version 988.
+2026-11-08 21:38:01.94 spid19s     Database 'master' running the upgrade step from version 988 to version 989.
+2026-11-08 21:38:01.94 spid19s     Database 'master' running the upgrade step from version 989 to version 990.
+2026-11-08 21:38:01.95 spid19s     Database 'master' running the upgrade step from version 990 to version 991.
+2026-11-08 21:38:01.95 spid19s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 21:38:01.95 spid19s     Database 'master' running the upgrade step from version 991 to version 992.
+2026-11-08 21:38:01.95 spid19s     Database 'master' running the upgrade step from version 992 to version 993.
+2026-11-08 21:38:01.95 spid19s     Database 'master' running the upgrade step from version 993 to version 994.
+2026-11-08 21:38:01.95 spid19s     [METADATA] Successfully updated max_duration metadata of XE session 65536
+2026-11-08 21:38:01.96 spid19s     [METADATA] Successfully updated max_duration metadata of XE session 65537
+2026-11-08 21:38:01.96 spid19s     Database 'master' running the upgrade step from version 994 to version 995.
+2026-11-08 21:38:01.97 spid19s     Database 'master' running the upgrade step from version 995 to version 996.
+2026-11-08 21:38:01.97 spid19s     Database 'master' running the upgrade step from version 996 to version 997.
+2026-11-08 21:38:01.97 spid19s     Database 'master' running the upgrade step from version 997 to version 998.
+[INFO] [StartUp::OpenDBsAndRecover]: In Startup, FEnableResilientBufferPoolExtensionEnabled() = [0]. IsRBPEXSupportedNonHyperscaleEdition() = [0]. IsSubCore = [0].
+2026-11-08 21:38:02.04 spid22s     [32767]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:02.05 spid22s     Starting up database 'mssqlsystemresource'.
+2026-11-08 21:38:02.05 spid22s     The resource database build version is 17.00.5035. This is an informational message only. No user action is required.
+2026-11-08 21:38:02.06 spid30s     Password policy update was successful.
+2026-11-08 21:38:02.07 spid22s     [3]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:02.07 spid22s     Starting up database 'model'.
+[INFO][DBDDLAgent::AttachDatabase] Starting Database Attach.
+2026-11-08 21:38:02.11 spid19s     [32762]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:02.11 spid19s     Starting up database 'model_replicatedmaster'.
+2026-11-08 21:38:02.11 spid22s     Converting database 'model' from version 984 to the current version 998.
+2026-11-08 21:38:02.11 spid22s     Database 'model' running the upgrade step from version 984 to version 985.
+2026-11-08 21:38:02.12 spid22s     Database 'model' running the upgrade step from version 985 to version 986.
+2026-11-08 21:38:02.12 spid22s     Database 'model' running the upgrade step from version 986 to version 987.
+2026-11-08 21:38:02.12 spid22s     Database 'model' running the upgrade step from version 987 to version 988.
+2026-11-08 21:38:02.12 spid22s     Database 'model' running the upgrade step from version 988 to version 989.
+2026-11-08 21:38:02.12 spid22s     Database 'model' running the upgrade step from version 989 to version 990.
+2026-11-08 21:38:02.12 spid22s     Database 'model' running the upgrade step from version 990 to version 991.
+2026-11-08 21:38:02.12 spid22s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 21:38:02.13 spid22s     Database 'model' running the upgrade step from version 991 to version 992.
+2026-11-08 21:38:02.13 spid22s     Database 'model' running the upgrade step from version 992 to version 993.
+2026-11-08 21:38:02.13 spid22s     Database 'model' running the upgrade step from version 993 to version 994.
+2026-11-08 21:38:02.13 spid22s     Database 'model' running the upgrade step from version 994 to version 995.
+2026-11-08 21:38:02.13 spid22s     Database 'model' running the upgrade step from version 995 to version 996.
+2026-11-08 21:38:02.13 spid22s     Database 'model' running the upgrade step from version 996 to version 997.
+2026-11-08 21:38:02.14 spid22s     Database 'model' running the upgrade step from version 997 to version 998.
+2026-11-08 21:38:02.14 spid22s     Synchronize Database 'model' (3) with Resource Database.
+2026-11-08 21:38:02.17 spid19s     Converting database 'model_replicatedmaster' from version 984 to the current version 998.
+2026-11-08 21:38:02.17 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 984 to version 985.
+2026-11-08 21:38:02.17 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 985 to version 986.
+2026-11-08 21:38:02.17 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 986 to version 987.
+2026-11-08 21:38:02.17 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 987 to version 988.
+2026-11-08 21:38:02.17 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 988 to version 989.
+2026-11-08 21:38:02.18 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 989 to version 990.
+2026-11-08 21:38:02.18 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 990 to version 991.
+2026-11-08 21:38:02.18 spid19s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 21:38:02.18 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 991 to version 992.
+2026-11-08 21:38:02.18 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 992 to version 993.
+2026-11-08 21:38:02.18 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 993 to version 994.
+2026-11-08 21:38:02.18 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 994 to version 995.
+2026-11-08 21:38:02.19 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 995 to version 996.
+2026-11-08 21:38:02.19 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 996 to version 997.
+2026-11-08 21:38:02.19 spid19s     Database 'model_replicatedmaster' running the upgrade step from version 997 to version 998.
+2026-11-08 21:38:02.19 spid19s     Synchronize Database 'model_replicatedmaster' (32762) with Resource Database.
+[INFO][DBDDLAgent::AttachDatabase] Starting Database Attach.
+2026-11-08 21:38:02.23 spid19s     [32761]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:02.23 spid19s     Starting up database 'model_msdb'.
+2026-11-08 21:38:02.28 spid19s     Converting database 'model_msdb' from version 984 to the current version 998.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 984 to version 985.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 985 to version 986.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 986 to version 987.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 987 to version 988.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 988 to version 989.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 989 to version 990.
+2026-11-08 21:38:02.28 spid19s     Database 'model_msdb' running the upgrade step from version 990 to version 991.
+2026-11-08 21:38:02.29 spid19s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 21:38:02.29 spid19s     Database 'model_msdb' running the upgrade step from version 991 to version 992.
+2026-11-08 21:38:02.29 spid19s     Database 'model_msdb' running the upgrade step from version 992 to version 993.
+2026-11-08 21:38:02.29 spid19s     Database 'model_msdb' running the upgrade step from version 993 to version 994.
+2026-11-08 21:38:02.29 spid19s     Database 'model_msdb' running the upgrade step from version 994 to version 995.
+2026-11-08 21:38:02.29 spid19s     Database 'model_msdb' running the upgrade step from version 995 to version 996.
+2026-11-08 21:38:02.30 spid19s     Database 'model_msdb' running the upgrade step from version 996 to version 997.
+2026-11-08 21:38:02.30 spid19s     Database 'model_msdb' running the upgrade step from version 997 to version 998.
+2026-11-08 21:38:02.30 spid19s     Synchronize Database 'model_msdb' (32761) with Resource Database.
+2026-11-08 21:38:02.31 spid19s     Resource governor reconfiguration succeeded.
+2026-11-08 21:38:02.31 spid19s     SQL Server Audit is starting the audits. This is an informational message. No user action is required.
+[Auditing][SecAuditPkg::AutoStartAuditSessions] Entered function.
+2026-11-08 21:38:02.31 spid19s     [AutoStartAuditSessions] Starting audit session task
+2026-11-08 21:38:02.31 spid19s     SQL Server Audit has started the audits. This is an informational message. No user action is required.
+2026-11-08 21:38:02.34 spid19s     SQL Trace ID 1 was started by login "sa".
+2026-11-08 21:38:02.35 spid19s     Server name is 'countprimary'. This is an informational message only. No user action is required.
+2026-11-08 21:38:02.36 spid22s     Clearing tempdb database.
+2026-11-08 21:38:02.36 spid39s     Always On Availability Groups: The availability replica manager is starting. This is an informational message only. No user action is required.
+2026-11-08 21:38:02.36 spid39s     Always On Availability Groups: The availability replica manager is waiting for the instance of SQL Server to allow client connections. This is an informational message only. No user action is required.
+2026-11-08 21:38:02.36 spid40s     [4]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:02.36 spid40s     Starting up database 'msdb'.
+2026-11-08 21:38:02.57 spid40s     Converting database 'msdb' from version 984 to the current version 998.
+2026-11-08 21:38:02.57 spid40s     Database 'msdb' running the upgrade step from version 984 to version 985.
+2026-11-08 21:38:02.57 spid40s     Database 'msdb' running the upgrade step from version 985 to version 986.
+2026-11-08 21:38:02.57 spid40s     Database 'msdb' running the upgrade step from version 986 to version 987.
+2026-11-08 21:38:02.57 spid40s     Database 'msdb' running the upgrade step from version 987 to version 988.
+2026-11-08 21:38:02.57 spid40s     Database 'msdb' running the upgrade step from version 988 to version 989.
+2026-11-08 21:38:02.58 spid40s     Database 'msdb' running the upgrade step from version 989 to version 990.
+2026-11-08 21:38:02.58 spid40s     Database 'msdb' running the upgrade step from version 990 to version 991.
+2026-11-08 21:38:02.58 spid40s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 21:38:02.58 spid40s     Database 'msdb' running the upgrade step from version 991 to version 992.
+2026-11-08 21:38:02.58 spid40s     Database 'msdb' running the upgrade step from version 992 to version 993.
+2026-11-08 21:38:02.58 spid40s     Database 'msdb' running the upgrade step from version 993 to version 994.
+2026-11-08 21:38:02.58 spid40s     Database 'msdb' running the upgrade step from version 994 to version 995.
+2026-11-08 21:38:02.59 spid40s     Database 'msdb' running the upgrade step from version 995 to version 996.
+2026-11-08 21:38:02.59 spid22s     [2]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:02.59 spid22s     Starting up database 'tempdb'.
+2026-11-08 21:38:02.59 spid40s     Database 'msdb' running the upgrade step from version 996 to version 997.
+2026-11-08 21:38:02.60 spid40s     Database 'msdb' running the upgrade step from version 997 to version 998.
+2026-11-08 21:38:02.60 spid40s     Synchronize Database 'msdb' (4) with Resource Database.
+2026-11-08 21:38:02.63 spid22s     The tempdb database has 1 data file(s).
+2026-11-08 21:38:02.64 spid30s     A self-generated certificate was successfully loaded for encryption.
+2026-11-08 21:38:02.64 spid30s     Server is listening on [ 'any' <ipv6> 1433] accept sockets 1.
+2026-11-08 21:38:02.64 spid42s     The Service Broker endpoint is in disabled or stopped state.
+2026-11-08 21:38:02.64 spid42s     The Database Mirroring endpoint is in disabled or stopped state.
+2026-11-08 21:38:02.65 spid30s     Server is listening on [ 'any' <ipv4> 1433] accept sockets 1.
+2026-11-08 21:38:02.66 spid42s     Service Broker manager has started.
+2026-11-08 21:38:02.67 Server      Server is listening on [ ::1 <ipv6> 1434] accept sockets 1.
+2026-11-08 21:38:02.67 Server      Server is listening on [ 127.0.0.1 <ipv4> 1434] accept sockets 1.
+2026-11-08 21:38:02.67 Server      Dedicated admin connection support was established for listening locally on port 1434.
+TDS initialization result: 0.
+2026-11-08 21:38:02.68 spid30s     Server is listening on [ ::1 <ipv6> 1431] accept sockets 1.
+2026-11-08 21:38:02.69 spid30s     Server is listening on [ 127.0.0.1 <ipv4> 1431] accept sockets 1.
+SQLSERVR_SSL_CERTIFICATE_DNS_OR_SUBJECT_NAME environment variable was not set as SSL cert is self signed or untrusted.
+2026-11-08 21:38:02.69 spid30s     Recovery is complete. This is an informational message only. No user action is required.
+2026-11-08 21:38:02.70 spid30s     SQL Server is now ready for client connections. This is an informational message; no user action is required.
+2026-11-08 21:38:02.80 spid28s     The default language (LCID 0) has been set for engine and full-text services.
+2026-11-08 21:38:02.91 spid28s     The tempdb database has 4 data file(s).
+2026-11-08 21:38:03.38 spid52      Configuration option 'show advanced options' changed from 0 to 1. Run the RECONFIGURE statement to install.
+2026-11-08 21:38:03.39 spid52      Configuration option 'max server memory (MB)' changed from 2147483647 to 2048. Run the RECONFIGURE statement to install.
+2026-11-08 21:38:03.40 spid52      [DBMgr::FindFreeDatabaseID] Next available DbId EX locked: 5
+2026-11-08 21:38:03.51 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:03.51 spid52      Starting up database 'ManualCount100m'.
+2026-11-08 21:38:03.54 spid52      Parallel redo is started for database 'ManualCount100m' with worker pool size [2].
+2026-11-08 21:38:03.55 spid52      Parallel redo is shutdown for database 'ManualCount100m' with worker pool size [2].
+2026-11-08 21:38:03.57 spid52      Setting database option RECOVERY to SIMPLE for database 'ManualCount100m'.
+2026-11-08 21:38:03.57 spid52      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'ManualCount100m'.
+RecoveryUnit::Shutdown. IsOnline: 0
+[DeleteDbName] Database ManualCount100m with id 5 is deleted.
+2026-11-08 21:38:03.59 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 21:38:03.59 spid52      Starting up database 'ManualCount100m'.
+2026-11-08 21:38:03.62 spid52      Parallel redo is started for database 'ManualCount100m' with worker pool size [2].
+2026-11-08 21:38:03.64 spid52      Setting database option ALLOW_SNAPSHOT_ISOLATION to OFF for database 'ManualCount100m'.
+2026-11-08 21:38:03.64 spid32s     Parallel redo is shutdown for database 'ManualCount100m' with worker pool size [2].
+2026-11-08 21:43:04.59 spid56      Attempting to load library 'xplog70.dll' into memory. This is an informational message only. No user action is required.
+2026-11-08 21:43:04.68 spid56      Using 'xplog70.dll' version '2025.170.5035' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
+2026-11-08 21:43:10.76 spid56      Using 'dbghelp.dll' version '4.0.5'

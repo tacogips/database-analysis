@@ -1,0 +1,28 @@
+{
+  "meaning": "Root response to immutable pre-fix design review; closure awaits final Sol review and DB execution. Not self-approval.",
+  "reviewSha256": "2541678b1bb35304eb493f3feacbfcc86ccd8c2acafe5d50ed2c3cccdaa699dc",
+  "currentSourceSha256": "d04acca3889f68d43223b46e0d18a39e4263e9253154e288a7d655791300b89a",
+  "regressionEvidence": "results/reviews/accuracy-frontier-failure-regression.json",
+  "responses": [
+    {
+      "id": "SOL-FRONTIER-001",
+      "status": "root_fixed_pending_review",
+      "change": "record_sample persists identifiers and sample before comparison; unexpected sample failure stops without reusing connection; comparison error saved alongside sample before raising."
+    },
+    {
+      "id": "SOL-FRONTIER-002",
+      "status": "root_fixed_pending_review",
+      "change": "new experiment wrapper sample_with_budgets preserves errno/raw status; only confirmed3024 plus successful rollback permits statement_budget_exhausted and continuation. Overall budget remains independent; unknown1317/failed cleanup remain unexpected. Core sampler still returns raw query_failed, intentionally unchanged while owner runs."
+    },
+    {
+      "id": "SOL-FRONTIER-003",
+      "status": "unresolved",
+      "requiredChange": "After current owner ends, fix lab.rb with_version cleanup to persist container/data teardown outcome and propagate failed/unknown cleanup. Do not mutate runner during owner batch. Experiment completion and cleanup separate."
+    },
+    {
+      "id": "SOL-FRONTIER-004",
+      "status": "unresolved_low",
+      "requiredChange": "After current owner ends, make disabled lock observations null/not_measured with capability state instead of observed zero in Sampler aggregates. Preserve historical raw results and qualify them."
+    }
+  ]
+}

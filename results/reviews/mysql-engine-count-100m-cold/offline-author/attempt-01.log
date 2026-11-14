@@ -1,0 +1,32 @@
+/Users/taco/gits/tacogips/database-analysis/mysql/engine-count-100m-cold/reference_flow.rb:60:in 'Engine100MCold::Controller#start_boot': undefined local variable or method 'process_name' for #<Engine100MCold::Controller:0x0000000122ebf460> (NameError)
+
+      @boot[:pid1] = process_name.strip
+                     ^^^^^^^^^^^^
+Did you mean?  @processes
+	from mysql/engine-count-100m-cold/verify_offline.rb:265:in 'Object#synthetic_controller'
+	from mysql/engine-count-100m-cold/verify_offline.rb:272:in 'block in Object#simulated_stages'
+	from mysql/engine-count-100m-cold/verify_offline.rb:271:in 'Array#each'
+	from mysql/engine-count-100m-cold/verify_offline.rb:271:in 'Object#simulated_stages'
+	from mysql/engine-count-100m-cold/verify_offline.rb:286:in '<main>'
+PASS authoritative baseline hash
+PASS all 10971 protected files exact
+PASS two engines in fixed order
+PASS exactly four planned conditions with twelve preserved slots
+PASS runtime source includes executable inputs and frozen manual; final report independently bound
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping batches, 100 physical values and varied numeric records
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS offline Compose YAML parses; only fixed mysql service and no named volumes/networks
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+PASS delayed boundary affects full request but not scalar arrival; preflight df and slow raw log excluded
+PASS EOF after exact scalar still fails and preserves value and arrival timing
+
+OFFLINE_SHELL_ACTUAL_EXIT_STATUS=1

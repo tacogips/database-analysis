@@ -1,0 +1,42 @@
+{"name": "ruby_4_available", "passed": true, "detail": null}
+argv=["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby", "-c", "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/lab.rb"]
+Syntax OK
+
+exit_status=0
+{"name": "command_exit", "passed": true, "detail": ["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby", "-c", "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/lab.rb"]}
+argv=["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby", "-rjson", "-ryaml", "-e", "puts JSON.generate(YAML.load_file(ARGV[0]))", "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml"]
+{"name":"lab-sqlserver-issue1","services":{"server":{"image":"mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3","platform":"linux/amd64","container_name":"lab-sqlserver-issue1","labels":{"count.issue1.owner":"${ISSUE1_OWNER:?controller only}"},"environment":{"ACCEPT_EULA":"Y","MSSQL_PID":"Developer","MSSQL_SA_PASSWORD":"CountLab_Only_2026!","MSSQL_MEMORY_LIMIT_MB":"3072"},"mem_limit":"4g","cpus":2,"volumes":["data:/var/opt/mssql"],"networks":["runtime"]},"client":{"image":"lab-sqlserver-issue1-client:${ISSUE1_OWNER:?controller only}","container_name":"lab-sqlserver-issue1-client","labels":{"count.issue1.owner":"${ISSUE1_OWNER:?controller only}"},"mem_limit":"2g","cpus":2,"networks":["runtime"]}},"networks":{"runtime":{"name":"lab-sqlserver-issue1-network","internal":true,"labels":{"count.issue1.owner":"${ISSUE1_OWNER:?controller only}"}}},"volumes":{"data":{"name":"lab-sqlserver-issue1-data","labels":{"count.issue1.owner":"${ISSUE1_OWNER:?controller only}"}}}}
+
+exit_status=0
+{"name": "command_exit", "passed": true, "detail": ["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby", "-rjson", "-ryaml", "-e", "puts JSON.generate(YAML.load_file(ARGV[0]))", "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml"]}
+{"name": "fixed_project", "passed": true, "detail": null}
+{"name": "pinned_server", "passed": true, "detail": null}
+{"name": "fixed_runtime_names", "passed": true, "detail": null}
+{"name": "internal_no_published_ports", "passed": true, "detail": null}
+{"name": "resource_limits", "passed": true, "detail": null}
+{"name": "net10_locked_restore_enabled", "passed": true, "detail": null}
+{"name": "sqlclient_exact_version", "passed": true, "detail": null}
+{"name": "nuget_official_only", "passed": true, "detail": null}
+{"name": "fiction_marked", "passed": true, "detail": null}
+{"name": "independent_copy_response_budget_arithmetic", "passed": true, "detail": null}
+{"name": "independent_copy_arrival_accounting", "passed": true, "detail": null}
+{"name": "dedicated_replica_response_budget_arithmetic", "passed": true, "detail": null}
+{"name": "dedicated_replica_arrival_accounting", "passed": true, "detail": null}
+{"name": "fiction_space_headroom_arithmetic", "passed": true, "detail": null}
+{"name": "old_measurement_and_acceptance_hashes_unchanged", "passed": true, "detail": {"protected_count": 362, "changed": []}}
+argv=["git", "diff", "--check"]
+
+exit_status=0
+{"name": "command_exit", "passed": true, "detail": ["git", "diff", "--check"]}
+argv=["git", "diff", "--name-only"]
+docs/README.md
+docs/guidelines/mysql.md
+docs/guidelines/sql-server.md
+
+exit_status=0
+{"name": "command_exit", "passed": true, "detail": ["git", "diff", "--name-only"]}
+{"name": "tracked_write_scope", "passed": true, "detail": ["docs/README.md", "docs/guidelines/mysql.md", "docs/guidelines/sql-server.md"]}
+{"name": "local_document_links_except_owner_receipt", "passed": true, "detail": []}
+{"name": "current_receipt_in_all_guides", "passed": true, "detail": null}
+host_compilers={"dotnet": null, "csc": null, "mcs": null}
+AUTHOR_STATIC_FINAL_EXIT_STATUS=0

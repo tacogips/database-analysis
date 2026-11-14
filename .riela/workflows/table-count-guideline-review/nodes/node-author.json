@@ -1,0 +1,77 @@
+{
+  "id": "author",
+  "description": "Write or revise the guideline from measurements; run experiments that reviewers request.",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "high",
+  "agentSandbox": "workspace-write",
+  "sessionPolicy": {
+    "mode": "reuse"
+  },
+  "variables": {},
+  "promptTemplateFile": "prompts/author.md",
+  "output": {
+    "jsonSchema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "authorResponses": {
+          "type": "array"
+        },
+        "experimentsRun": {
+          "type": "array"
+        },
+        "unresolvedQuestions": {
+          "type": "array"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "requestedExperiments": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "reviewEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "discussionHistory": {
+          "type": "array"
+        },
+        "workflowInput": {
+          "type": "object"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "guidelinePath": {
+          "type": "string"
+        },
+        "guidelineSha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "workflowInput",
+        "revision",
+        "guidelinePath",
+        "guidelineSha256",
+        "authorResponses"
+      ]
+    },
+    "maxValidationAttempts": 2
+  },
+  "promptVariants": {
+    "integrate": {
+      "promptTemplateFile": "prompts/integrate.md"
+    }
+  }
+}

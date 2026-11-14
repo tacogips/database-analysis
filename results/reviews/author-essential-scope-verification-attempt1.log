@@ -1,0 +1,15 @@
+$ mise exec -- ruby -c lab.rb
+Syntax OK
+exit_code=0
+$ python3 bench/test_nonlocking_scope.py
+{"blocked_before_cursor": 20, "allowed_dispatch": 16, "static_sink_templates_checked": 1034, "baseImpactCount": 9, "skippedBaseImpacts": 13, "requestedScripts": 7, "skippedRequestedScripts": 137, "availableRequestedScripts": 144, "requestedProcesses": 9, "writeMixScripts": 41, "primaryScaleScripts": 30, "db_operations": 0, "scope_catalog_matches": true}
+exit_code=0
+$ python3 bench/test_scope_audit.py
+{"db_access": false, "actual_owner_audit": true, "selected_missing_only": true, "optional_evidence_uncredited": true, "scope_provenance": true, "version_mismatch": true, "cached_artifact_hash_size_and_presence": true}
+exit_code=0
+$ mise exec -- ruby bench/test_nonlocking_runner.rb
+{"db_access":false,"actual_default_experiment_dispatch":true,"actual_default_requested_loop":true,"selectedImpacts":["baseline","baseline_end","count_default","count_estimate","count_force_primary","count_force_secondary","count_on_replica_t_repl","replica_control_no_count","count_timeout_hint"],"selectedRequestedProcesses":9,"versions_encryption_outputs_verified":true,"all_optional_ids_reachable":true,"explicit_id_semantics":true,"unknown_and_empty_default_fail_closed_before_io":true,"scope_hash_and_skip_inventory":true,"final_integrity":true}
+exit_code=0
+$ mise exec -- ruby bench/test_resource_preflight.rb
+{"db_access":false,"all_images_inspected":true,"space_pass_and_failure":true,"failed_run_blocks_later_experiments":true,"all_unstarted_retained":true}
+exit_code=0

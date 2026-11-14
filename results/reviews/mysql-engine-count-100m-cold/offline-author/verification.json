@@ -1,0 +1,72 @@
+{
+  "status": "author_complete_ready_for_owner",
+  "role": "author",
+  "workflowExecutionId": "temp-mysql-cold100m-author-sol-session-56",
+  "stepId": "author",
+  "authorCompletedAt": "2026-11-08T16:24:10.570883+00:00",
+  "bindings": {
+    "baselineSha256": "0e184ba5a0ee10e3e87440295f0e342f9a198066a176f1328e99f4ef4a73a5db",
+    "manualSha256": "df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e",
+    "promptSha256": "ad354af0c1266d4590759f3fa59bb310217d220d85175317b1e75a3fcf168994"
+  },
+  "offline": {
+    "actualExitStatus": 0,
+    "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/reviews/mysql-engine-count-100m-cold/offline-author/final.log",
+    "checks": 63,
+    "protectedFilesExact": 10971,
+    "execution": "Foreground; all yielded sessions polled through terminal exit; only stdlib/local synthetic Ruby children, no Docker/DB/build/measurement/download/network/delegation"
+  },
+  "attempts": [
+    {
+      "path": "/Users/taco/gits/tacogips/database-analysis/results/reviews/mysql-engine-count-100m-cold/offline-author/attempt-01.log",
+      "actualExitStatus": 1,
+      "sha256": "a1b7ac5f867426e7542e9eceec8cc331905f011b9923f54fb15b01281bc29a1e",
+      "complete": true,
+      "final": false
+    },
+    {
+      "path": "/Users/taco/gits/tacogips/database-analysis/results/reviews/mysql-engine-count-100m-cold/offline-author/attempt-02.log",
+      "actualExitStatus": 1,
+      "sha256": "c8812cb7048a15a8d10a11cf0eb5615658c74e60fcd206a040116ec05279ee67",
+      "complete": true,
+      "final": false
+    },
+    {
+      "path": "/Users/taco/gits/tacogips/database-analysis/results/reviews/mysql-engine-count-100m-cold/offline-author/attempt-03.log",
+      "actualExitStatus": 0,
+      "sha256": "1850d1d4251038f7aaf3209fdc5b9047f44b1c38b605078f4d05f469ddb28bb2",
+      "complete": true,
+      "final": false
+    },
+    {
+      "path": "/Users/taco/gits/tacogips/database-analysis/results/reviews/mysql-engine-count-100m-cold/offline-author/final.log",
+      "actualExitStatus": 0,
+      "sha256": "361d8792e539eb94eb2d411108ce1b94da3023f195a32ff8e1d345f9f0bb2115",
+      "complete": true,
+      "final": true
+    }
+  ],
+  "sourceSha256": {
+    "mysql/engine-count-100m-cold/lab.rb": "854e9d62e3e63f86cea0ff0ecb93cd4700dcd5c2c6de1c47cde9df615a425911",
+    "mysql/engine-count-100m-cold/reference_flow.rb": "25df7786dc582d4e712c68c584f287f23ecc11cefada4a9ef68f9b843531d019",
+    "mysql/engine-count-100m-cold/compose.yaml": "00288110a6c076e04879b94aecb9fe779e6e0e4aaefdc85b1eb4c4b71ae6256e",
+    "mysql/engine-count-100m-cold/mise.toml": "cf4df1fc461300be52009322df74c33303cc4f9aa9868f6b46dbcaa5af6da7a4",
+    "mysql/engine-count-100m-cold/README.md": "7526f3890f4494775739caeba034347e1a1d143801fe68a7529eeef1412d7247",
+    "mysql/engine-count-100m-cold/verify_offline.rb": "a01470b6960386ed931e34c7740498d6cbd94d4b4cd99d78b3413ae75b5e2766",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/mysql-innodb.md": "df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/source.json": "d4f1c9217493eec79e4df2c1d7a28358a973cb4606ca318ad3c63019ca3a5991"
+  },
+  "reportSha256": "352400dd294e4fa3bc4550c8df6ed1eb1a1d9ba332fc10468454b5c1135c786c",
+  "sourceStillMatchesFinalOfflineLog": true,
+  "readyCommand": "mise -C mysql/engine-count-100m-cold run all",
+  "measurementStatus": "not_started_by_author",
+  "unresolvedIssues": [],
+  "pendingOwnerSteps": [
+    "Wait for author terminal and independently verify old original controller/attach/client/container exit and cleanup; resolve retained old payload separately, never via this runner.",
+    "Execute dedicated command using the pinned existing native ARM image in the owned foreground Riela lifecycle; do not use root all.",
+    "Audit exactly two 100M-row loads, 1000 batch receipts per load, all 12 full-table COUNTs, current per-sample manual/catalogue/plan/session/page evidence, all 14 boots and actual clean terminal states.",
+    "Audit source before/after, host/VM/resource settings, count timing boundaries, OS/VM/macOS cache disclosure, separate completion/precision/cold policy/service budget/cleanup, logs and artifact hashes.",
+    "Integrate measured evidence into standalone Japanese report and bind final report hash only after successful owner audit; retain old SIGINT run as incomplete uncontrolled-cache reference.",
+    "Obtain final adversarial reviews of final bytes in two separate GPT-6.1 Sol reviewer sessions."
+  ]
+}

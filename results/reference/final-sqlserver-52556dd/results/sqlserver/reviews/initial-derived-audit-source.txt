@@ -1,0 +1,100 @@
+# Owner evidence audit. Run from repository root: python3 sqlserver/audit.py
+# Never connects to SQL; checks only the pinned local lab Docker daemon for absence.
+from pathlib import Path
+from datetime import datetime,timezone,timedelta
+import json,hashlib,subprocess,math,statistics
+root=Path.cwd()
+def read(p):return json.loads((root/p).read_text())
+def sha(p):return hashlib.sha256((root/p).read_bytes()).hexdigest()
+inv=read('results/sqlserver/reviews/canonical-invocation.json');assert inv['status']=='process_finished' and inv['exitCode']==0,inv
+paths=sorted((root/'results/sqlserver/runs').glob('*/result.json'));path=paths[-1];rel=str(path.relative_to(root));d=json.loads(path.read_text());assert d['exit_status']==0 and d['status']=='completed_pending_owner_review',d.get('failure')
+# Runner ISO8601 is whole seconds (floor), invocation uses fractional seconds.
+assert datetime.fromisoformat(d['started_at'].replace('Z','+00:00'))+timedelta(seconds=1)>datetime.fromisoformat(inv['startedAt'])
+outer_log=(root/'results/sqlserver/reviews/canonical-invocation.log').read_text()
+assert 'run_id='+d['run_id']+';' in outer_log and 'exit_status=0; cleanup=verified;' in outer_log
+assert str(path.parent.relative_to(root)) in outer_log
+assert datetime.fromisoformat(d['finished_at'].replace('Z','+00:00'))<=datetime.fromisoformat(inv['finishedAt'])
+assert d['source_before']==d['source_after'] and d['source_unchanged']
+for p,h in d['source_after'].items():assert sha(p)==h,p
+for a in d['artifact_integrity']:
+ assert sha(a['path'])==a['sha256'] and (root/a['path']).stat().st_size==a['bytes'] and a['complete'],a
+assert sha(d['complete_log_path'])==d['runner_log_sha256']
+assert d['cleanup']['status']=='verified' and not any(d['cleanup']['remaining'].values())
+assert not d['cleanup']['sql_termination_failure_seen']
+assert d['final_owned_sessions']['remaining']==0
+assert d['tde']['encryption_state']==3 and d['final_tde']['encryption_state']==3
+assert d['versioning']['is_read_committed_snapshot_on'] is True and d['versioning']['snapshot_isolation_state']==1
+expected={'empty_table':0,'heap_table':50000,'clustered_table':200000,'partitioned_table':200000,'columnstore_table':200000,'skew_gaps':100000,'wide80':750000,'wide100':750000,'service_table':100000,'thin_100m':100000000}
+assert set(d['fixtures'])==set(expected)
+verified=[];unmeasured=[]
+for table,f in d['fixtures'].items():
+ assert f['planned_rows']==expected[table]
+ if f['status']!='verified':
+  assert table=='thin_100m' and f['status']=='notrun' and f.get('reason');unmeasured.append({'table':table,'reason':f['reason']});continue
+ initial=expected[table];final=initial+(21 if table in ['heap_table','clustered_table'] else 0)
+ assert f['initial_oracle']['rows']==initial and f['actual_rows']==final and f['final_oracle']['rows']==final,(table,f)
+ verified.append(table)
+assert d['service']['status']=='diagnostic_complete' and d['service']['slo']=='unavailable'
+arrivals=0
+for arm in d['service']['arms']:
+ rows=arm['arrivals'];assert len(rows)==arm['planned']==12 and arm['missing_arrivals']==0 and arm['unfinished']==0 and arm['failed']==0
+ assert [r['request'] for r in rows]==list(range(12))
+ for i,r in enumerate(rows):
+  assert math.isclose(r['scheduled_monotonic'],arm['monotonic_start']+0.5*i,abs_tol=1e-6)
+  assert r['finished_monotonic']>=r['started_monotonic']>=r['scheduled_monotonic'] and r['outcome']=='committed' and r['committed_row_delta']==0
+  assert math.isclose(r['latency_seconds'],r['finished_monotonic']-r['scheduled_monotonic'],abs_tol=1e-5)
+ assert arm['initial_oracle']==arm['final_oracle']==100000
+ if arm['arm']!='baseline':assert arm['probe']['rows']==100000
+ arrivals+=len(rows)
+bycmd={c['stdout_log']:c for c in d['commands']}
+for o in d['observations']:
+ assert o['status']=='completed' and o['exit_status']==0 and not o['timed_out'] and o['termination']['status']=='verified'
+ assert o['server_execution_times']
+ assert (root/o['command_log']).is_file()
+ assert bycmd[o['command_log']]['server_termination']['remaining_sessions']==0
+ envelope=[x[len('LABJSON:'):] for x in (root/o['command_log']).read_text().splitlines() if x.startswith('LABJSON:')];assert len(envelope)==1
+ assert json.loads(envelope[0])==o['value']
+for e in d['errors']:
+ assert isinstance(e['truth'],int) and isinstance(e['value'],int)
+ expected_truth=expected[e['table']]+(7*e['repeat']*(e['repeat']+1)//2 if e['table'] in ['heap_table','clustered_table'] else 0)
+ assert e['truth']==expected_truth,(e,expected_truth)
+ if e['truth']==0:assert e['signed_error_pct'] is None and e['absolute_error_pct'] is None and e['empty_match']==(e['value']==0)
+ else:
+  signed=100*(e['value']-e['truth'])/e['truth'];assert math.isclose(signed,e['signed_error_pct'],abs_tol=1e-12);assert math.isclose(abs(signed),e['absolute_error_pct'],abs_tol=1e-12)
+ if e['method'] in ['rcsi','snapshot']:assert e['truth']==e['value']
+extrema={}
+for method in sorted(set(e['method'] for e in d['errors'])):
+ es=[e for e in d['errors'] if e['method']==method and e['truth']>0];assert es
+ vals=[e['absolute_error_pct'] for e in es];mi,ma=min(vals),max(vals)
+ extrema[method]={'observations':len(es),'absolute_min_pct':mi,'absolute_max_pct':ma,'minimum_cases':[e for e in es if e['absolute_error_pct']==mi],'maximum_cases':[e for e in es if e['absolute_error_pct']==ma]}
+ assert d['extrema'][method]['absolute_min']['absolute_error_pct']==mi and d['extrema'][method]['absolute_max']['absolute_error_pct']==ma
+invobjs=d['inventory']['objects']
+for table,cols in [('wide80',80),('wide100',100)]:
+ assert all(x['columns_count']==cols for x in invobjs if x['name']==table)
+ assert any(x['name']==table and x['index_id']>1 for x in invobjs)
+parts=[x for x in invobjs if x['name']=='partitioned_table' and x['index_id']==1];assert len(parts)==3 and sum(x['row_count'] for x in parts)==200000
+probes={p['stage']:p for p in d['permission_probes']};assert probes['invisible']['visible_object_id'] is None and probes['invisible']['catalog_rows'] is None
+assert probes['select_only']['dmv_rows'] is None and isinstance(probes['select_only']['dmv_error_number'],int)
+assert probes['dmv_granted']['dmv_rows']==200000 and probes['dmv_granted']['dmv_error_number'] is None
+# Independent current absence on exactly the measured local Unix daemon.
+import os
+endpoint=d['docker_connection']['endpoint'];assert endpoint.startswith('unix:///')
+docker_env={k:v for k,v in os.environ.items() if not k.startswith(('DOCKER_','COMPOSE_','SQLCMD','MSSQL'))};docker_env['DOCKER_HOST']=endpoint
+# Unchanged previous MySQL proof inputs.
+for kind,name,args in [('container','lab-sqlserver-count',['container','ls','-a','--format','{{.Names}}']),('volume','lab-sqlserver-count-data',['volume','ls','--format','{{.Name}}']),('network','lab-sqlserver-count-network',['network','ls','--format','{{.Name}}'])]:
+ assert name not in subprocess.check_output(['docker',*args],text=True,env=docker_env).splitlines(),kind
+mysql=read('results/reviews/final-all-candidate.json')
+for p,h in mysql['measurementSourceAfter'].items():assert sha(p)==h,('oldMySQLsourceChanged',p)
+previous=read('results/reviews/final-operational-review-acceptance.json')
+for p,h in previous['documents'].items():assert sha(p)==h,('oldMySQLdocumentChanged',p)
+manifest={'files':{str(p.relative_to(path.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in path.parent.rglob('*') if p.is_file() and p.name!='manifest.json'}}
+(path.parent/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+metrics={}
+for method in ['rcsi','snapshot','partition-dmv','partitions']:
+ for table in verified:
+  obs=[o for o in d['observations'] if o['label'].endswith('-'+table+'-'+method) and '-r' in o['label']]
+  if obs:metrics[table+':'+method]={'repeats':len(obs),'median_client_seconds':statistics.median(o['client_seconds_including_docker_cli'] for o in obs),'median_server_elapsed_ms':statistics.median(sum(t['elapsed_ms'] for t in o['server_execution_times']) for o in obs),'scope':'Instrumented SELECT including JSON; emulated, carryover cache/order uncontrolled; not native or global ranking.'}
+now=datetime.now(timezone.utc).isoformat();report={'status':'owner_verified','at':now,'resultPath':rel,'resultSha256':sha(rel),'sourceFilesVerified':len(d['source_after']),'rawArtifactsVerified':len(d['artifact_integrity']),'verifiedFixtures':verified,'unmeasuredFixtures':unmeasured,'errorRowsRecomputed':len(d['errors']),'extrema':extrema,'metrics':metrics,'serviceArrivalsRecomputed':arrivals,'serviceSLO':'unavailable','permissionChecks':probes,'initialFinalAndTDE':True,'sourceCurrent':True,'cleanupCurrentAbsent':True,'previousMySQLSourceAndDocsUnchanged':True}
+Path('results/sqlserver/owner-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+proof={'schemaVersion':1,'ownerAuditSource':{'path':'sqlserver/audit.py','sha256':sha('sqlserver/audit.py')},'status':'owner_verified_container_benchmark','at':now,'command':inv['command'],'processExitCode':inv['exitCode'],'invocationPath':'results/sqlserver/reviews/canonical-invocation.json','invocationSha256':sha('results/sqlserver/reviews/canonical-invocation.json'),'resultPath':rel,'resultSha256':sha(rel),'auditPath':'results/sqlserver/owner-audit.json','auditSha256':sha('results/sqlserver/owner-audit.json'),'manifestPath':str((path.parent/'manifest.json').relative_to(root)),'manifestSha256':sha(str((path.parent/'manifest.json').relative_to(root))),'measurementSources':d['source_after'],'supportBoundary':d['host'],'separateJudgments':{'completion':d['completion'],'precision':d['precision'],'exactMethodBudget':d['exact_method_budget'],'serviceBudget':'unavailable; no SLO certification','cleanup':d['cleanup']},'unmeasured':unmeasured,'documentAcceptance':'Separate final Sol two-role review required. This proof alone does not accept the document.'}
+Path('results/sqlserver/owner-proof.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:report[k] for k in ['status','resultPath','verifiedFixtures','unmeasuredFixtures','errorRowsRecomputed','serviceArrivalsRecomputed','rawArtifactsVerified']}))

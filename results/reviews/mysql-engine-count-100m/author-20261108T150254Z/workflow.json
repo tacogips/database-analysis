@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-engine-count-100m-author-sol",
+  "description": "EngineCount100M documentation correction author",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "author",
+  "nodes": [
+    {
+      "id": "author",
+      "nodeFile": "nodes/author.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "author",
+      "nodeId": "author",
+      "role": "worker"
+    }
+  ]
+}

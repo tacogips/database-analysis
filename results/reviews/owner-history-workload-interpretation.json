@@ -1,0 +1,18 @@
+{
+  "recordedAt": "2026-11-07T11:14:46.796231+00:00",
+  "meaning": "Owner interpretation limit for an existing diagnostic, not unexpected benchmark failure or a request for new experiments/source changes.",
+  "artifact": "results/impact_count_under_history.json",
+  "sha256": "410a96ab671e893107d71d9ef4bf04c3f557918b998bdf8944d3db3be1a19b07",
+  "source": "bench/experiments.py count_under_history",
+  "observation": "The method callback includes20s of explicit UPDATE t_hot SET v=v+1 WHERE id BETWEEN1AND20000 to build history, timedCOUNTs and15s recovery. The broad method-window business-write p99 therefore includes this churn as well as COUNT.",
+  "actualTimedCountSeconds": {
+    "quiet_rr": 0.22,
+    "history_rr_old_snapshot_held_by_other": 0.23,
+    "history_read_uncommitted": 0.2,
+    "after_snapshot_released": 0.21,
+    "hll_after_release": 263
+  },
+  "prohibitedInference": "Do not attribute broad method-window writep99 increase solely to the COUNT query or solely to MVCC/history. The added bulk UPDATE can contend with ordinary workload writes. These are natural locks of simulated writes, not row-locking COUNT.",
+  "requiredDocumentationTreatment": "Report per-COUNT timings as observations in the specified changing state, and label whole-window latency as combined churn+count+recovery diagnostic. No matched churn-without-count control means no isolated COUNT-latency causal estimate.",
+  "remediation": "Documentation/interpretation only. Keep current nonlocking scope and data. Do not add new mandatoryexperiments or restart currentall."
+}

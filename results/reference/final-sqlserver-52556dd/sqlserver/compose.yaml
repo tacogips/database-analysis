@@ -1,0 +1,38 @@
+name: sqlserver-count-lab
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3
+    platform: linux/amd64
+    container_name: lab-sqlserver-count
+    hostname: lab-sqlserver-count
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      # Public disposable-lab credential; never use for any other database.
+      MSSQL_SA_PASSWORD: CountLab_Only_2026!
+      MSSQL_MEMORY_LIMIT_MB: "3072"
+    mem_limit: 4g
+    cpus: 2
+    pids_limit: 512
+    stop_grace_period: 30s
+    restart: "no"
+    labels:
+      org.count-lab.scope: sqlserver-count-only
+    volumes:
+      - lab-data:/var/opt/mssql
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "2"
+    # No published ports, bind mounts, or external networks.
+    networks: [lab]
+volumes:
+  lab-data:
+    name: lab-sqlserver-count-data
+    labels:
+      org.count-lab.scope: sqlserver-count-only
+networks:
+  lab:
+    name: lab-sqlserver-count-network
+    internal: true

@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-11-07T08:34:26.874446+00:00",
+  "meaning": "Completed50-column observation/provenance only. Confidence target attainment differs from production coverage/SLO, no causal ranking or final all proof.",
+  "allStartedAt": "2026-11-07T07:28:15Z",
+  "artifact": "results/requested_probability_wide_50.json",
+  "sha256": "a67b685ce4715b193c76a9943a84ac2c0d11e1c27044cbb27a77ede766ecab17",
+  "statusArtifact": "results/requested/01a-PROB-WIDE-50.status.json",
+  "freshNumericExitZero": true,
+  "dependencyInputsChangedDuringRequestedRun": false,
+  "artifactHashesVerified": 3,
+  "declaredSamplerCallerHashMatchesAllSourceBefore": true,
+  "ownedMatrixCleanupConfirmed": true,
+  "staticCases": 20,
+  "serviceCases": 36,
+  "serviceOutcomesBySmallSecondaryIndex": {
+    "False": {
+      "count": {
+        "error": 6
+      },
+      "sample": {
+        "target_reached": 5,
+        "budget_exhausted": 1
+      }
+    },
+    "True": {
+      "count": {
+        "complete": 6
+      },
+      "sample": {
+        "target_reached": 6
+      }
+    }
+  },
+  "independentAudit": "results/reviews/owner-wide50-completed-audit.json",
+  "limitations": [
+    "Dense750000-row synthetic TDE50-column fixture, index absent/present, two UPDATE shapes, fixed seeds and short windows.",
+    "Error count in service COUNT is a confirmed statement timer observation in this result, not a hidden unexpected failure.",
+    "No3/5/10% frontier or100-column conclusion established by this50-column result alone.",
+    "Still need complete150requested, full source-after/raw/semantic/finalintegrity audit, docs integration and two final Sol approvals."
+  ]
+}

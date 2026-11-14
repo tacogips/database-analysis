@@ -1,0 +1,41 @@
+{
+  "scope": "Documentation-only clarification of previously obtained counts and reuse criteria",
+  "accepted": true,
+  "documents": {
+    "docs/README.md": "edeb1b532b8e85a4f15599538007e4aa4c489f98ba1ab0097e5e59174d11bb90",
+    "docs/guidelines/mysql.md": "8d12d7b2ca623acfc8c4d2993758b96de2085deaa6152b9a42cb276671cc661b",
+    "docs/guidelines/sql-server.md": "5215febd9c0b4e5afef77e012bc6c22ec633d41ea2ded8319d5cfa08b2a311dd",
+    "docs/guidelines/operations-runbook.md": "ce057e107a59c74a95bedf090532b3e6321faad6a6cf44db9651c60e8e31b9c2"
+  },
+  "reviewers": [
+    {
+      "agent": "/root/qa_engineer_review",
+      "model": "gpt-6.1-sol",
+      "accepted": true,
+      "documents": {
+        "docs/README.md": "edeb1b532b8e85a4f15599538007e4aa4c489f98ba1ab0097e5e59174d11bb90",
+        "docs/guidelines/mysql.md": "8d12d7b2ca623acfc8c4d2993758b96de2085deaa6152b9a42cb276671cc661b",
+        "docs/guidelines/sql-server.md": "5215febd9c0b4e5afef77e012bc6c22ec633d41ea2ded8319d5cfa08b2a311dd",
+        "docs/guidelines/operations-runbook.md": "ce057e107a59c74a95bedf090532b3e6321faad6a6cf44db9651c60e8e31b9c2"
+      }
+    },
+    {
+      "agent": "/root/qa_validation_review",
+      "model": "gpt-6.1-sol",
+      "accepted": true,
+      "documents": {
+        "docs/README.md": "edeb1b532b8e85a4f15599538007e4aa4c489f98ba1ab0097e5e59174d11bb90",
+        "docs/guidelines/mysql.md": "8d12d7b2ca623acfc8c4d2993758b96de2085deaa6152b9a42cb276671cc661b",
+        "docs/guidelines/sql-server.md": "5215febd9c0b4e5afef77e012bc6c22ec633d41ea2ded8319d5cfa08b2a311dd",
+        "docs/guidelines/operations-runbook.md": "ce057e107a59c74a95bedf090532b3e6321faad6a6cf44db9651c60e8e31b9c2"
+      }
+    }
+  ],
+  "checks": [
+    "git diff --check",
+    "terminology",
+    "Mermaid rendered both products",
+    "HTML refreshed"
+  ],
+  "newDatabaseMeasurement": false
+}

@@ -1,0 +1,11 @@
+Documentation-only verification; no DB/network/Docker/benchmark/test suite invoked.
+startedAt 2026-11-07T10:13:40.393126+00:00
+snapshot hash check 536 matched
+source/config hashes 336 unchanged before/during/after integration
+requested result/log/status reads 112 statuses 24 raw chunks 42 records 986653 maxcompressedbytes 3067957
+semantic metrics {"impactWindows": 216, "impactConservationViolations": [], "impactCensoredWindows": 8, "impactEmptyWindows": 1, "wide": [{"file": "requested_probability_wide_50.json", "arms": 36, "unstarted": 4, "inflight": 0, "allCleanupConfirmed": true, "allAccountingConsistent": true, "statuses": {"control": 12, "error": 6, "target_reached": 11, "budget_exhausted": 1, "complete": 6}}, {"file": "requested_probability_wide_100.json", "arms": 36, "unstarted": 6, "inflight": 0, "allCleanupConfirmed": true, "allAccountingConsistent": true, "statuses": {"control": 12, "error": 6, "target_reached": 8, "budget_exhausted": 4, "complete": 6}}, {"file": "requested_accuracy_service_100.json", "arms": 48, "unstarted": 12, "inflight": 0, "allCleanupConfirmed": true, "allAccountingConsistent": true, "statuses": {"control": 12, "error": 9, "target_reached": 23, "complete": 3, "budget_exhausted": 1}}]}
+completed partitioned scripts 15 08 no exit/log: excluded
+document checks: main 216 lines; local links resolve; original workflowInput/history/requests preserved; all stable IDs answered; schema types valid; no proof claim
+git diff --check 0  
+finalExitCode 0
+finishedAt 2026-11-07T10:13:42.854899+00:00

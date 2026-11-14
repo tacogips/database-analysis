@@ -1,0 +1,376 @@
+{
+  "meaning": "Owner checks of actual fresh observations and source control flow. Not production SLO acceptance.",
+  "base": {
+    "baseline": {
+      "outcome": "control_window",
+      "notes": {},
+      "windowSeconds": 40,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.05997932600439526,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "baseline_end": {
+      "outcome": "control_window",
+      "notes": {},
+      "windowSeconds": 40,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.06988385299337097,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "count_default": {
+      "outcome": "completed_exact",
+      "notes": {
+        "result": 100000000,
+        "seconds": 8.58
+      },
+      "windowSeconds": 900,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.04821484402054921,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "count_estimate": {
+      "outcome": "reference_statistics",
+      "notes": {
+        "table_rows": 99619308,
+        "table_rows_ms": 1.05,
+        "stats_n_rows": 99619308,
+        "stats_n_rows_ms": 2.04,
+        "pk_span": 100000000,
+        "pk_span_ms": 0.44
+      },
+      "windowSeconds": 40,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.04574475999106653,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "count_force_primary": {
+      "outcome": "completed_exact",
+      "notes": {
+        "result": 100000000,
+        "seconds": 42.06
+      },
+      "windowSeconds": 900,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.06269131498993374,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "count_force_secondary": {
+      "outcome": "completed_exact",
+      "notes": {
+        "result": 100000000,
+        "seconds": 6.55
+      },
+      "windowSeconds": 900,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.057075360004091635,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "count_on_replica_t_repl": {
+      "outcome": "completed_exact",
+      "notes": {
+        "result": 20000000,
+        "seconds": 5.65
+      },
+      "windowSeconds": 900,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.05732794900541194,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "replica_control_no_count": {
+      "outcome": "control_window",
+      "notes": {},
+      "windowSeconds": 40,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.05717162697692402,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    },
+    "count_timeout_hint": {
+      "outcome": "statement_ceiling",
+      "notes": {
+        "error": "3024: Query execution was interrupted, maximum statement execution time exceeded",
+        "seconds_until_return": 5.0
+      },
+      "windowSeconds": 40,
+      "methodWorkerEnded": true,
+      "postRecoveryFinishSeconds": 0.04259390098741278,
+      "cleanupMeaning": "Workload.finish defaults to server confirmation and raises on unconfirmed cleanup; successful case control flow proves it returned. Sampler.join25 returned before post-finish monotonic anchor less than25s after recovery end, so it did not time out. No per-case sampler cleanup object is saved."
+    }
+  },
+  "quietCatalog": {
+    "baseExactMethodResults": 235,
+    "splitWalks": 53,
+    "logicalViewCount": 5000000,
+    "viewMeaning": "Specific fixture orders JOIN customers is total1:1 by fixture FK; not a generic base-count oracle for views.",
+    "nonInnoDB": "Quiet catalog only, not compliant serving candidates."
+  },
+  "matrix": {
+    "8.4.0": {
+      "exactCounts": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": 4,
+      "ordinaryCountWriteProbe": "ok",
+      "diagnosticSyntaxErrors": {
+        "SHOW SLAVE STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW MASTER STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW SLAVE HOSTS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv"
+      }
+    },
+    "8.4.13": {
+      "exactCounts": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": 4,
+      "ordinaryCountWriteProbe": "ok",
+      "diagnosticSyntaxErrors": {
+        "SHOW SLAVE STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW MASTER STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW SLAVE HOSTS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv"
+      }
+    },
+    "9.7.0": {
+      "exactCounts": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": 4,
+      "ordinaryCountWriteProbe": "ok",
+      "diagnosticSyntaxErrors": {
+        "SHOW SLAVE STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW MASTER STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW SLAVE HOSTS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv"
+      }
+    },
+    "9.7.4": {
+      "exactCounts": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": 4,
+      "ordinaryCountWriteProbe": "ok",
+      "diagnosticSyntaxErrors": {
+        "SHOW SLAVE STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW MASTER STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW SLAVE HOSTS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv"
+      }
+    },
+    "26.10.0": {
+      "exactCounts": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": 4,
+      "ordinaryCountWriteProbe": "ok",
+      "diagnosticSyntaxErrors": {
+        "SHOW SLAVE STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW MASTER STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+        "SHOW SLAVE HOSTS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv"
+      }
+    }
+  },
+  "encrypted": {
+    "8.4.13": {
+      "source": "results/requested_encrypted_count_8.4.13.json",
+      "sha256": "d100d397650bd3d3e785ca61f065a890ed2fa3256f81b7217ec70b6945ebd864",
+      "timedExactCounts": 96,
+      "truth": 4000000,
+      "splitRows": 4000000,
+      "tdeTablespaceVerified": true,
+      "keyringActive": true,
+      "plainCountRecordLocksPointObservation": 0,
+      "limits": "Point observation, not continuous MDL/latch-free or causal TDE/cold-cache/SLO proof."
+    },
+    "9.7.4": {
+      "source": "results/requested_encrypted_count_9.7.4.json",
+      "sha256": "d15e1c878461b543b5e392f9d1d5cc5cae72d8b667699a7295d586ae751a1b47",
+      "timedExactCounts": 96,
+      "truth": 4000000,
+      "splitRows": 4000000,
+      "tdeTablespaceVerified": true,
+      "keyringActive": true,
+      "plainCountRecordLocksPointObservation": 0,
+      "limits": "Point observation, not continuous MDL/latch-free or causal TDE/cold-cache/SLO proof."
+    },
+    "26.10.0": {
+      "source": "results/requested_encrypted_count_26.10.0.json",
+      "sha256": "916a9623eadee2f141d29b2e263f8571cdeda812ffd28953b682903fd457c363",
+      "timedExactCounts": 96,
+      "truth": 4000000,
+      "splitRows": 4000000,
+      "tdeTablespaceVerified": true,
+      "keyringActive": true,
+      "plainCountRecordLocksPointObservation": 0,
+      "limits": "Point observation, not continuous MDL/latch-free or causal TDE/cold-cache/SLO proof."
+    }
+  },
+  "metadata93": {
+    "truthOraclesMatchInitial": 58,
+    "defaultSamplePages": 20,
+    "freshExtrema": "results/reviews/owner-essential-fresh-metadata-extrema.json"
+  },
+  "replica94": {
+    "truthScenarios": [
+      [
+        "quiet",
+        20000000,
+        20000000
+      ],
+      [
+        "inserted_replica_stopped",
+        22000000,
+        20000000
+      ],
+      [
+        "inserted_replica_caught_up",
+        22000000,
+        22000000
+      ],
+      [
+        "inserted_30s_later",
+        22000000,
+        22000000
+      ]
+    ],
+    "restoredFinalCounts": [
+      20000000,
+      20000000
+    ],
+    "localStatsIndependent": true,
+    "expectedPrivilegeDenials": [
+      1142,
+      1227,
+      1290
+    ],
+    "note": "No production source-time freshness or physical resource isolation guarantee."
+  },
+  "matrixCleanup": {
+    "results/matrix_cleanup/lab-matrix-8-4-0-26745-1794064304-495730029519000.json": {
+      "sha256": "8e4cd60547ac70ae74e36975f15bd810b88db56386defece707b8a52283939b9",
+      "container": "lab-matrix-8-4-0",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794065510-496935309363000.json": {
+      "sha256": "2a4decc982f72be1ec3dd6eea5ec7dae26ce5fb7905c24a191004e9e4c64dd35",
+      "container": "lab-matrix-8-4-13",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-9-7-0-26745-1794064321-495747059078000.json": {
+      "sha256": "b8783597160b7af7e0b942e7d01999ac2a35282844d07910a5e832fb6ee0d55e",
+      "container": "lab-matrix-9-7-0",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-9-7-4-26745-1794064330-495755546705000.json": {
+      "sha256": "59906b15d2bc091bd92384996b970b79f53cf6a328c78e586aca412ab8c94599",
+      "container": "lab-matrix-9-7-4",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-26-10-0-26745-1794064338-495764076486000.json": {
+      "sha256": "bf88f6f4eb1afb8411702643328493913cf3adf0c4bc562f164ae4613328cd21",
+      "container": "lab-matrix-26-10-0",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794066503-497928929682000.json": {
+      "sha256": "e85cb5d7824e85c7521d7686a6ed63a4d6253b177a3425fe1c470580d9cb9a46",
+      "container": "lab-matrix-8-4-13",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-26-10-0-26745-1794066781-498206128328000.json": {
+      "sha256": "40becf2bea58f7c34ea6f7bae8e64418f733de12d4711b7d78144d072c3349b3",
+      "container": "lab-matrix-26-10-0",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794065016-496441869673000.json": {
+      "sha256": "27c20d6f224b1042f5c501ff5fe0beec5b41318d4b9425d130146d4e4d1bb495",
+      "container": "lab-matrix-8-4-13",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794066370-497795865758000.json": {
+      "sha256": "95ffcbb8c3fead24e77faa4519ed0b86ad86fdbf93495dfa88dede3d7f9da9dc",
+      "container": "lab-matrix-8-4-13",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-9-7-4-26745-1794066641-498066316724000.json": {
+      "sha256": "4dabbf13a204bce81c82fbdbffd5d36c196e4b44893afc940f04a36a1de81482",
+      "container": "lab-matrix-9-7-4",
+      "containerRemoved": true,
+      "dataRemoved": true
+    },
+    "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794064313-495738472434000.json": {
+      "sha256": "343b7b91d2c0938efa6bb72d06ee96436148b453387017524674247cf2507e1e",
+      "container": "lab-matrix-8-4-13",
+      "containerRemoved": true,
+      "dataRemoved": true
+    }
+  },
+  "callerReview": {
+    "files": [
+      "bench/experiments.py",
+      "bench/lablib.py",
+      "bench/reqwide.py",
+      "bench/reqlib.py",
+      "bench/reqmix.py",
+      "bench/reqscale.py",
+      "bench/reqruns.py"
+    ],
+    "sqlSinkASTComparison": {
+      "bench/experiments.py": {
+        "before": 25,
+        "after": 25,
+        "same": true
+      },
+      "bench/lablib.py": {
+        "before": 13,
+        "after": 13,
+        "same": true
+      },
+      "bench/reqwide.py": {
+        "before": 30,
+        "after": 30,
+        "same": true
+      },
+      "bench/reqlib.py": {
+        "before": 9,
+        "after": 9,
+        "same": true
+      },
+      "bench/reqmix.py": {
+        "before": 28,
+        "after": 28,
+        "same": true
+      },
+      "bench/reqscale.py": {
+        "before": 17,
+        "after": 17,
+        "same": true
+      },
+      "bench/reqruns.py": {
+        "before": 40,
+        "after": 40,
+        "same": true
+      }
+    },
+    "manualContext": "Reviewed selected dispatcher9/7 and concrete Ctx count_once, reqwide.arm count/sample, Workload read/update callbacks,91 plain/TDE SELECT,93 offline calibration and94 staleness/restore. Counts remain ordinary InnoDB SELECT; business/fixture writes and offline ANALYZE are not count candidates. No locking clauses/count-to-DML/artificial conflict injection restored. Guard/static search is additional, not sole evidence. Clock changes preserve concrete SQL sink expressions."
+  },
+  "remaining": "Runtime quiescence and final lab teardown verified in owner-essential-runtime-quiescence.json and owner-essential-final-cleanup.json; this report still does not certify production SLO or document acceptance."
+}

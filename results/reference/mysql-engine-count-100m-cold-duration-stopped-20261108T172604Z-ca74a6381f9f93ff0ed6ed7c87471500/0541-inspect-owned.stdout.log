@@ -1,0 +1,280 @@
+[
+    {
+        "Id": "5d10e226f8c3a388badd88c43be8dd0da4988cfef7c0b965559f6dd2eebea63f",
+        "Created": "2026-11-08T17:26:05.882946114Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "mysqld",
+            "--datadir=/labdata/data",
+            "--tmpdir=/labdata/tmp",
+            "--socket=/labdata/mysql.sock",
+            "--pid-file=/labdata/mysql.pid",
+            "--secure-file-priv=NULL",
+            "--skip-networking",
+            "--mysqlx=OFF",
+            "--skip-log-bin",
+            "--innodb-buffer-pool-size=1073741824",
+            "--key-buffer-size=134217728",
+            "--innodb-redo-log-capacity=1073741824",
+            "--innodb-buffer-pool-load-at-startup=OFF",
+            "--innodb-buffer-pool-dump-at-shutdown=OFF",
+            "--innodb-flush-method=O_DIRECT"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1037656,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-08T17:51:10.523620457Z",
+            "FinishedAt": "2026-11-08T17:51:10.304527539Z"
+        },
+        "Image": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+        "ResolvConfPath": "/var/lib/docker/containers/5d10e226f8c3a388badd88c43be8dd0da4988cfef7c0b965559f6dd2eebea63f/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/5d10e226f8c3a388badd88c43be8dd0da4988cfef7c0b965559f6dd2eebea63f/hostname",
+        "HostsPath": "/var/lib/docker/containers/5d10e226f8c3a388badd88c43be8dd0da4988cfef7c0b965559f6dd2eebea63f/hosts",
+        "LogPath": "/var/lib/docker/containers/5d10e226f8c3a388badd88c43be8dd0da4988cfef7c0b965559f6dd2eebea63f/5d10e226f8c3a388badd88c43be8dd0da4988cfef7c0b965559f6dd2eebea63f-json.log",
+        "Name": "/lab-mysql-engine-count-100m-cold",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": [
+            "44ee9920d3c974eca59f53c7330a291bdcbe214e577c5a07bc4d02709650c54b"
+        ],
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "none",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/var/lib/mysql": "size=1048576,mode=0700"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 3000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/InnoDB/stage",
+                    "Target": "/labdata",
+                    "BindOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/InnoDB/stage",
+                "Destination": "/labdata",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "5d10e226f8c3",
+            "Domainname": "",
+            "User": "501:20",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "3306/tcp": {},
+                "33060/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MYSQL_ROOT_PASSWORD=public-disposable-engine100m-cold",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.19",
+                "MYSQL_MAJOR=8.4",
+                "MYSQL_VERSION=8.4.13-1.el9",
+                "MYSQL_SHELL_VERSION=8.4.10-1.el9"
+            ],
+            "Cmd": [
+                "mysqld",
+                "--datadir=/labdata/data",
+                "--tmpdir=/labdata/tmp",
+                "--socket=/labdata/mysql.sock",
+                "--pid-file=/labdata/mysql.pid",
+                "--secure-file-priv=NULL",
+                "--skip-networking",
+                "--mysqlx=OFF",
+                "--skip-log-bin",
+                "--innodb-buffer-pool-size=1073741824",
+                "--key-buffer-size=134217728",
+                "--innodb-redo-log-capacity=1073741824",
+                "--innodb-buffer-pool-load-at-startup=OFF",
+                "--innodb-buffer-pool-dump-at-shutdown=OFF",
+                "--innodb-flush-method=O_DIRECT"
+            ],
+            "Image": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "Volumes": {
+                "/var/lib/mysql": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "de2a3ea9d45189318c3a5e6fc17c0dc997c2a40feb62b4083318466e60918075",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:f4539b86c82f2c168fc95b439448bde3b9f48e8460344ce41e39081867d2b58e",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-mysql-engine-count-100m-cold",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/mysql/engine-count-100m-cold/compose.yaml",
+                "com.docker.compose.project.environment_file": "/dev/null",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/mysql/engine-count-100m-cold",
+                "com.docker.compose.service": "mysql",
+                "com.docker.compose.version": "5.6.1",
+                "count.engine100m.cold.owner": "ca74a6381f9f93ff0ed6ed7c87471500"
+            },
+            "StopTimeout": 25
+        },
+        "NetworkSettings": {
+            "SandboxID": "f54b94bb92353e88c75c1992de26559a77aa70f5ccd7599d1a5341acd0a8e007",
+            "SandboxKey": "/var/run/docker/netns/f54b94bb9235",
+            "Ports": {},
+            "Networks": {
+                "none": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "e85af2f9479416cb870c589adee6acb81c82b4f7d2030bedb33ff2bbbc6a9e52",
+                    "EndpointID": "af9c0d34fe707200080d502eed7058a3bfeb10df54efcabef0e2920918333e92",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:f4539b86c82f2c168fc95b439448bde3b9f48e8460344ce41e39081867d2b58e",
+            "size": 2859,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "arm64v8",
+                "org.opencontainers.image.base.digest": "sha256:37b6cb3854c7542905db7a82e6f0e3e5d725fb964d111ad93755211b5e5c9bd9",
+                "org.opencontainers.image.base.name": "oraclelinux:9-slim",
+                "org.opencontainers.image.created": "2026-11-03T00:25:51Z",
+                "org.opencontainers.image.revision": "c92fbc392511086e6c1500f28a21421413f0bb51",
+                "org.opencontainers.image.source": "https://github.com/docker-library/mysql.git#c92fbc392511086e6c1500f28a21421413f0bb51:8.4",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/mysql",
+                "org.opencontainers.image.version": "8.4.13"
+            },
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux",
+                "variant": "v8"
+            }
+        }
+    }
+]

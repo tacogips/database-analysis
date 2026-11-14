@@ -1,0 +1,86 @@
+{
+  "meaning": "Independent static structural comparison; not runtime/final approval. New arm cleanup loops differ intentionally, comparison cases/repetitions audited separately.",
+  "baseline": "results/reference/review-20261107T065608Z-99980",
+  "problems": [],
+  "reports": {
+    "bench/reqwide.py": {
+      "moduleAssignmentsUnchanged": true,
+      "functions": {
+        "build": {
+          "entireFunctionAstUnchanged": true
+        },
+        "run": {
+          "forIteratorsUnchanged": true,
+          "additionalForIterators": [],
+          "removedForIterators": [],
+          "queryExpressionSequenceUnchanged": true,
+          "addedQueryExpressions": [],
+          "removedQueryExpressions": []
+        },
+        "arm": {
+          "forIteratorsUnchanged": false,
+          "additionalForIterators": [
+            "Name(id='windows', ctx=Load())",
+            "Tuple(elts=[Constant(value='statement'), Constant(value='method')], ctx=Load())"
+          ],
+          "removedForIterators": [
+            "Tuple(elts=[Tuple(elts=[Constant(value='baseline'), Name(id='t0', ctx=Load()), Name(id='t1', ctx=Load()), Name(id='start', ctx=Load()), Name(id='before', ctx=Load())], ctx=Load()), Tuple(elts=[Constant(value='trial'), Name(id='t1', ctx=Load()), Name(id='t2', ctx=Load()), Name(id='before', ctx=Load()), Name(id='after', ctx=Load())], ctx=Load()), Tuple(elts=[Constant(value='recovery'), Name(id='t2', ctx=Load()), Name(id='t3', ctx=Load()), Name(id='after', ctx=Load()), Name(id='end', ctx=Load())], ctx=Load())], ctx=Load())"
+          ],
+          "queryExpressionSequenceUnchanged": false,
+          "addedQueryExpressions": [],
+          "removedQueryExpressions": []
+        }
+      }
+    },
+    "bench/reqsamplewide.py": {
+      "moduleAssignmentsUnchanged": true,
+      "functions": {
+        "run": {
+          "forIteratorsUnchanged": true,
+          "additionalForIterators": [],
+          "removedForIterators": [],
+          "queryExpressionSequenceUnchanged": false,
+          "addedQueryExpressions": [
+            "Constant(value=\"SHOW SESSION STATUS LIKE 'Max_execution_time_exceeded'\")",
+            "Constant(value=\"SHOW SESSION STATUS LIKE 'Max_execution_time_exceeded'\")"
+          ],
+          "removedQueryExpressions": []
+        }
+      }
+    },
+    "bench/accuracy_frontier.py": {
+      "moduleAssignmentsUnchanged": true,
+      "functions": {
+        "static_frontier": {
+          "forIteratorsUnchanged": true,
+          "additionalForIterators": [],
+          "removedForIterators": [],
+          "queryExpressionSequenceUnchanged": true,
+          "addedQueryExpressions": [],
+          "removedQueryExpressions": []
+        },
+        "wide_service_frontier": {
+          "forIteratorsUnchanged": true,
+          "additionalForIterators": [],
+          "removedForIterators": [],
+          "queryExpressionSequenceUnchanged": true,
+          "addedQueryExpressions": [],
+          "removedQueryExpressions": []
+        },
+        "sample_with_budgets": {
+          "entireFunctionAstUnchanged": true
+        },
+        "exact": {
+          "entireFunctionAstUnchanged": true
+        }
+      }
+    }
+  },
+  "earlierAuditAttempt": "Initial blanket assertion for all arm For nodes was too broad: cleanup loops were added. No production bug or measurement failure inferred.",
+  "manualInterpretation": {
+    "additionalStaticQueries": "Two SHOW SESSION STATUS Max_execution_time_exceeded calls bracket static COUNT to substantiate timeout classification. They do not change COUNT SQL, row fixture, cap or planned repetitions.",
+    "armLoopChanges": "Incrementally collect baseline/trial/recovery windows and preserve method/statement intervals after exceptions; normal planned window durations/constants unchanged. Additional loops process windows, not extra/missing comparison arms.",
+    "timingQualification": "reqsamplewide static seconds include method setup/timer status roundtrips. Treat as instrumented invocation cost, not uninstrumented COUNT SQL time; final guide precision/performance comparisons must retain this qualification.",
+    "sourceRead": "bench/reqsamplewide.py run and bench/reqwide.py arm were read against archived baseline during author-revision21 start audit; no DB access or source change."
+  }
+}

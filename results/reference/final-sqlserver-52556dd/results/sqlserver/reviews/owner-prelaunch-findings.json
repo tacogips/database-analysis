@@ -1,0 +1,47 @@
+{
+  "status": "corrected_before_canonical_measurement",
+  "findings": [
+    {
+      "id": "OWNER-SQLCMD-OPTIONS",
+      "evidence": "Actual sqlcmd invocation on feasibility container rejected -h with -y 0 as mutually exclusive.",
+      "correction": "Remove -h -1; keep -y 0 and parse unique LABJSON data line.",
+      "status": "corrected_before_measurement"
+    },
+    {
+      "id": "OWNER-LOCAL-SOCKET",
+      "evidence": "unix:///var/run/docker.sock is absent. Current docker context uses a local Colima unix socket.",
+      "correction": "Resolve configured default docker context with inherited connection overrides removed; require existing local unix socket, pin it for all child calls, reject TCP/SSH endpoints. Do not hardcode a machine path.",
+      "status": "corrected_before_measurement"
+    },
+    {
+      "id": "OWNER-SOURCE-BOUNDARY",
+      "evidence": "Runner SOURCES currently includes guideline/README, whose doc-only evidence integration follows measurement.",
+      "correction": "Separate measurement input source hashes from document hashes; preserve exact measured code and bind final docs independently at review.",
+      "status": "corrected_before_measurement"
+    },
+    {
+      "id": "OWNER-SQLVARIANT-JSON",
+      "evidence": "Actual SQL2025CU10 FOR JSON successfully serialized SERVERPROPERTY ProductVersion/EngineEdition and sys.configurations.value_in_use, exit0. Earlier unsupported-type concern was an unverified hypothesis and is withdrawn.",
+      "correction": "No correction required on this measured server version.",
+      "status": "disputed_by_actual_probe_no_fix_required"
+    },
+    {
+      "id": "OWNER-MYSQL-SOURCE-PRESERVATION",
+      "evidence": "Existing accepted MySQL proof binds root mise.toml; appending a new SQL Server task changes that historical measured input.",
+      "correction": "Keep root mise.toml byte-identical; create sqlserver/mise.toml with its own all task and run mise -C sqlserver run all. Include the new SQL Server config in its measurement sources.",
+      "status": "corrected_before_measurement"
+    },
+    {
+      "id": "OWNER-TASK-RUBY-PATH",
+      "status": "corrected_before_db_execution",
+      "evidence": "First task shell resolved system Ruby and failed parsing endless method syntax before any lab resources/results existed.",
+      "correction": "Task explicitly invokes mise exec -- ruby, same as existing root runner; preserve failed invocation logs."
+    }
+  ],
+  "serializationProbe": {
+    "product_version": "17.0.5035.5",
+    "engine_edition": 3,
+    "configuration_value_in_use": 0,
+    "exitCode": 0
+  }
+}

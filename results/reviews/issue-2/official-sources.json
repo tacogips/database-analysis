@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-11-08",
+  "method": "official documentation read, not DB experiment",
+  "sources": [
+    {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/replication-gtids-lifecycle.html",
+      "observation": "Replica-filtered transactions still persist GTIDs; GTID membership alone does not prove that a particular table was populated or kept equivalent."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_read_only",
+      "observation": "read_only has privileged-write exceptions and is a changeable setting; it is not a complete topology or historical integrity attestation."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/configure-read-only-routing-for-an-availability-group-sql-server?view=sql-server-ver17",
+      "observation": "Read-only routing concerns qualifying connection requests and current role-specific routing lists; application intent alone is not an invariant for an existing session through role changes."
+    }
+  ]
+}

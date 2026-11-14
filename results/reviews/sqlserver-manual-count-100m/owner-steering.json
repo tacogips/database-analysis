@@ -1,0 +1,24 @@
+{
+  "phase": "Owner source audit after state-matrix author57, before any SQL images/build/DB, supersedes earlier B-only owner-steering.json archived before-state-matrix-steering/.",
+  "authorSnapshot": "results/reviews/sqlserver-manual-count-100m/author57-before-owner-audit/manifest.json",
+  "latestScope": "Six cells, 18 cold-buffer counts, actual A/B/C/D states.",
+  "corrections": [
+    "Preopen/reuse primary AG monitoring connection for A counts; retain primary monitor raw states in memory and flush with probe outside COUNT timer, including failed state proofs.",
+    "Initial primary/remote AG synchronization metadata may trail secondary; bounded120s readiness retry before A only, while count-time role/writes/queue changes still fail immediately.",
+    "Require effective compression for full data backup but allow tiny log compressed size to include fixed header overhead; retain raw full/log checksums and sizes.",
+    "Cast RCSI and AG bit state fields to SQL int for stable numeric0/1 admission, preserving actual SQLNULL for nonAG.",
+    "After all18 actual SQL counts, recapture both server PID/exe Rosetta proofs beyond startup entrypoint; preserve initial proofs separately.",
+    "Respect manual A priority: actual readable secondary qualifies independently of overlapping RCSI/SNAPSHOT options; retain actual flags and reject missing metadata. Added admission test.",
+    "Use guarded guest-side unlink for the exact owned nonce directory after runtime absence, so virtiofs receives deletion and releases descriptors; real1MiB filesystem-only smoke passed, no DB/Docker/build.",
+    "Uniform max SQL memory2048MB on both servers/all6cases to leave headroom in8GBVM; containerlimits remain4GiB/3CPU each; no VM resize."
+  ],
+  "offlineVerification": "results/reviews/sqlserver-manual-count-100m/owner-state-matrix-offline-final.json",
+  "pending": [
+    "Locked restore/C# build after MySQL completion",
+    "Actual native-ARM client and Rosetta SQL2instances",
+    "100M rows and all18 actual counts",
+    "Allstate/precision/cold/release/source/cleanup audit",
+    "Two final fresh Sol reviewers",
+    "commit/push"
+  ]
+}

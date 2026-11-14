@@ -1,0 +1,99 @@
+{
+  "image": "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+  "capturedAt": "2026-11-08T23:28:23.802074+00:00",
+  "purpose": "read-only file inspection only; no SQL startup",
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver2022-entrypoint-read",
+        "--read-only",
+        "--network",
+        "none",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+        "/opt/mssql/bin/launch_sqlservr.sh"
+      ],
+      "exitCode": 0,
+      "file": "launch_sqlservr.sh",
+      "sha256": "500ea91aeedd62ab69c34a5e859bd35a3b663e748676a46df8cecfd21211ba7d"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver2022-entrypoint-read",
+        "--read-only",
+        "--network",
+        "none",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+        "/opt/mssql/bin/permissions_check.sh"
+      ],
+      "exitCode": 0,
+      "file": "permissions_check.sh",
+      "sha256": "f68c04ae1bb1f0bd8374f8c76ac8da8efc8409d60737083c9fb775adfb4ca3c9"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver2022-entrypoint-read",
+        "--read-only",
+        "--network",
+        "none",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+        "/opt/mssql/bin/init_custom_setup.sh"
+      ],
+      "exitCode": 0,
+      "file": "init_custom_setup.sh",
+      "sha256": "ae5f7bd1e6ebdb2710b7156158017cb4bf4f8ded36cfeb326823c2e582c910c0"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver2022-entrypoint-read",
+        "--read-only",
+        "--network",
+        "none",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+        "/opt/mssql/bin/run_custom_setup.sh"
+      ],
+      "exitCode": 0,
+      "file": "run_custom_setup.sh",
+      "sha256": "c35b27324dbe4e0e11757cb7f74b8f95ce86642c6dc0856192c5461c0078dc77"
+    }
+  ]
+}

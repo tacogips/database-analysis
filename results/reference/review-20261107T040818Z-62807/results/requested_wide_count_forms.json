@@ -1,0 +1,2627 @@
+{
+ "cols_60_no_secondary": {
+  "columns": 60,
+  "rows": 3000000,
+  "data_bytes": 2896166912,
+  "index_bytes": 0,
+  "avg_row": 1025,
+  "forms": {
+   "count_star": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 12.897,
+      "disk_page_reads": 12277,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 12.877,
+      "disk_page_reads": 12774,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 13.374,
+      "disk_page_reads": 12318,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 3.604,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 3.269,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 3.417,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 1.446,
+      "disk_page_reads": 12826,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 1.369,
+      "disk_page_reads": 12799,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 1.658,
+      "disk_page_reads": 12801,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1_single_thread": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 6.586,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 4.002,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 5.375,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 1.447,
+      "disk_page_reads": 12826,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 1.509,
+      "disk_page_reads": 12801,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 2.874,
+      "disk_page_reads": 12801,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id_single_thread": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 5.606,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 10.562,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 10.196,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 3.773,
+      "disk_page_reads": 12828,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 11.973,
+      "disk_page_reads": 12799,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 4.504,
+      "disk_page_reads": 13178,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed_single_thread": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 9.686,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 18.513,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 12.543,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 2000010,
+      "seconds": 10.956,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 5.449,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 4.495,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed_single_thread": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_60_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 2000010,
+      "seconds": 4.19,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 4.703,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 11.735,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     }
+    ]
+   },
+   "count_star_force_primary": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_no_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 3.049,
+      "disk_page_reads": 12828,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 2.224,
+      "disk_page_reads": 12799,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 2.105,
+      "disk_page_reads": 12798,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_no_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 5.29,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 10.073,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 6.446,
+      "disk_page_reads": 1218,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "cols_60_with_small_secondary": {
+  "columns": 60,
+  "rows": 3000000,
+  "data_bytes": 2896166912,
+  "index_bytes": 75120640,
+  "avg_row": 1025,
+  "forms": {
+   "count_star": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.113,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.129,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.122,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.117,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.117,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.123,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.123,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.121,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.123,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1_single_thread": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.166,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.15,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.125,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.143,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.161,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.168,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id_single_thread": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.171,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.236,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.248,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 11.987,
+      "disk_page_reads": 12645,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 10.811,
+      "disk_page_reads": 12906,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 10.917,
+      "disk_page_reads": 13144,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed_single_thread": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 4.852,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 4.333,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 4.431,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 2000010,
+      "seconds": 4.52,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 4.466,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 5.951,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed_single_thread": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 2000010,
+      "seconds": 4.312,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 4.321,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     },
+     {
+      "count": 2000010,
+      "seconds": 4.277,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 3000001
+      }
+     }
+    ]
+   },
+   "count_indexed_col": {
+    "sql": "SELECT COUNT(small_idx) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.112,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.116,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.118,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_indexed_col_single_thread": {
+    "sql": "SELECT COUNT(small_idx) FROM bench_wide.cols_60_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.119,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.119,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.118,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_secondary": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_with_small_secondary FORCE INDEX (k_small)",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.107,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.109,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.112,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_secondary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_with_small_secondary FORCE INDEX (k_small)",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 0.112,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.112,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 0.115,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 3000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_with_small_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 1.664,
+      "disk_page_reads": 13141,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 1.721,
+      "disk_page_reads": 13143,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 1.906,
+      "disk_page_reads": 13143,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_60_with_small_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 3000000,
+      "seconds": 7.556,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 4.385,
+      "disk_page_reads": 1238,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 3000000,
+      "seconds": 4.296,
+      "disk_page_reads": 1613,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "cols_200_no_secondary": {
+  "columns": 200,
+  "rows": 500000,
+  "data_bytes": 1642070016,
+  "index_bytes": 0,
+  "avg_row": 4104,
+  "forms": {
+   "count_star": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 3.883,
+      "disk_page_reads": 4119,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.63,
+      "disk_page_reads": 3577,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.73,
+      "disk_page_reads": 3305,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 1.676,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.77,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.658,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.567,
+      "disk_page_reads": 4394,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.608,
+      "disk_page_reads": 3306,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.612,
+      "disk_page_reads": 3306,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1_single_thread": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 1.592,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.637,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 2.972,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 1.826,
+      "disk_page_reads": 4395,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.921,
+      "disk_page_reads": 3306,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.814,
+      "disk_page_reads": 3305,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id_single_thread": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 1.702,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.415,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.478,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.537,
+      "disk_page_reads": 4394,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.514,
+      "disk_page_reads": 3307,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.525,
+      "disk_page_reads": 3306,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed_single_thread": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 1.481,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.513,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.429,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 333335,
+      "seconds": 1.416,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.479,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.465,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed_single_thread": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_200_no_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 333335,
+      "seconds": 1.508,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.44,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.536,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     }
+    ]
+   },
+   "count_star_force_primary": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_no_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.514,
+      "disk_page_reads": 4394,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.512,
+      "disk_page_reads": 3306,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.451,
+      "disk_page_reads": 3307,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_no_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 2.87,
+      "disk_page_reads": 1302,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.606,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.592,
+      "disk_page_reads": 910,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "cols_200_with_small_secondary": {
+  "columns": 200,
+  "rows": 500000,
+  "data_bytes": 1642070016,
+  "index_bytes": 11026432,
+  "avg_row": 4104,
+  "forms": {
+   "count_star": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.022,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.018,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.018,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.018,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1_single_thread": {
+    "sql": "SELECT COUNT(1) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.018,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.045,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.038,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.037,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.05,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.052,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id_single_thread": {
+    "sql": "SELECT COUNT(id) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.035,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.054,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.05,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 5.188,
+      "disk_page_reads": 4123,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.69,
+      "disk_page_reads": 3958,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.719,
+      "disk_page_reads": 3486,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_notnull_unindexed_single_thread": {
+    "sql": "SELECT COUNT(notnull_col) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 1.96,
+      "disk_page_reads": 1053,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.65,
+      "disk_page_reads": 1053,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.697,
+      "disk_page_reads": 1061,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 333335,
+      "seconds": 1.802,
+      "disk_page_reads": 1051,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.785,
+      "disk_page_reads": 1053,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.799,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     }
+    ]
+   },
+   "count_nullable_unindexed_single_thread": {
+    "sql": "SELECT COUNT(nullable_col) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "ALL",
+    "explain_key": null,
+    "explain_extra": null,
+    "runs": [
+     {
+      "count": 333335,
+      "seconds": 1.8,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.698,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     },
+     {
+      "count": 333335,
+      "seconds": 1.714,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 500001
+      }
+     }
+    ]
+   },
+   "count_indexed_col": {
+    "sql": "SELECT COUNT(small_idx) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.032,
+      "disk_page_reads": 135,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_indexed_col_single_thread": {
+    "sql": "SELECT COUNT(small_idx) FROM bench_wide.cols_200_with_small_secondary",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.023,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.023,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.024,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_secondary": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_with_small_secondary FORCE INDEX (k_small)",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.022,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.023,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.023,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_secondary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_with_small_secondary FORCE INDEX (k_small)",
+    "explain_type": "index",
+    "explain_key": "k_small",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.022,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.022,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.022,
+      "disk_page_reads": 0,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 500000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_with_small_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 0.618,
+      "disk_page_reads": 4790,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.733,
+      "disk_page_reads": 3829,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 0.705,
+      "disk_page_reads": 3765,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench_wide.cols_200_with_small_secondary FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 500000,
+      "seconds": 3.186,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 3.09,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 500000,
+      "seconds": 1.682,
+      "disk_page_reads": 1439,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "t_dense_100m": {
+  "rows": 100000000,
+  "forms": {
+   "count_star": {
+    "sql": "SELECT COUNT(*) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 9.561,
+      "disk_page_reads": 112177,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 8.363,
+      "disk_page_reads": 112562,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 11.161,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 9.295,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 13.592,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 8.538,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1": {
+    "sql": "SELECT COUNT(1) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 8.671,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 10.48,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 8.088,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_1_single_thread": {
+    "sql": "SELECT COUNT(1) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 7.741,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 10.289,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 7.363,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id": {
+    "sql": "SELECT COUNT(id) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 7.606,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 9.02,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 7.673,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_id_single_thread": {
+    "sql": "SELECT COUNT(id) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 7.553,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 8.518,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 9.711,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_indexed_col": {
+    "sql": "SELECT COUNT(created_at) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 13.416,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 12.623,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 13.961,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_indexed_col_single_thread": {
+    "sql": "SELECT COUNT(created_at) FROM bench.t_dense",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 12.024,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 12.947,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 13.107,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_secondary": {
+    "sql": "SELECT COUNT(*) FROM bench.t_dense FORCE INDEX (k_created)",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 11.481,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 10.619,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 11.683,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_secondary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench.t_dense FORCE INDEX (k_created)",
+    "explain_type": "index",
+    "explain_key": "k_created",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 13.273,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 10.695,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 9.324,
+      "disk_page_reads": 112169,
+      "handler": {
+       "Handler_read_first": 1,
+       "Handler_read_next": 100000000,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary": {
+    "sql": "SELECT COUNT(*) FROM bench.t_dense FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 41.82,
+      "disk_page_reads": 39313,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 46.851,
+      "disk_page_reads": 39228,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 45.883,
+      "disk_page_reads": 39155,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   },
+   "count_star_force_primary_single_thread": {
+    "sql": "SELECT COUNT(*) FROM bench.t_dense FORCE INDEX (PRIMARY)",
+    "explain_type": "index",
+    "explain_key": "PRIMARY",
+    "explain_extra": "Using index",
+    "runs": [
+     {
+      "count": 100000000,
+      "seconds": 32.121,
+      "disk_page_reads": 1461,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 30.374,
+      "disk_page_reads": 1461,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     },
+     {
+      "count": 100000000,
+      "seconds": 31.921,
+      "disk_page_reads": 1461,
+      "handler": {
+       "Handler_read_first": 0,
+       "Handler_read_next": 0,
+       "Handler_read_rnd_next": 0
+      }
+     }
+    ]
+   }
+  }
+ }
+}

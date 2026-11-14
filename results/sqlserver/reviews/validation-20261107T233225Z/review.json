@@ -1,0 +1,59 @@
+{
+  "id": "review",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "high",
+  "agentSandbox": "read-only",
+  "sessionPolicy": {
+    "mode": "new"
+  },
+  "variables": {},
+  "promptTemplate": "You are a separate new GPT-6.1 Sol adversarial reviewer of the SQL Server whole-table count guideline. READ ONLY: no writing, DB/Docker connections, measurements, delegation, workflows, commit or push. Read AGENTS.md SQL Server override and results/sqlserver/reviews/acceptance-criteria.json. Review docs/sqlserver-table-count-guideline.md and its links, sqlserver source and actual raw results, results/sqlserver/owner-proof.json. Verify all claimed hashes, actual status/exit/source/integrity/cleanup evidence and the support boundary ARM64/amd64 emulation. Owner summaries and author claims are not independent proof.\nAct as adversarial validation/operations reviewer, first independently reviewing current guide/evidence BEFORE opening the first review results/sqlserver/reviews/final-engineer-result.json; then assess each first-review finding using evidence and include independentFindingAssessment array. Your priority is whether an unfamiliar engineer can obtain whole-table counts for huge service DBs without degradation, with explicit safe deferral where prerequisites cannot be met. Do not substitute engine encyclopedia or exhaustive grids. Challenge metadata visibility/partition/index doublecount, approximate vs exact vs stats-at-update, RLS count scope, bigint overflow, zero/NULL/permissions/errors not empty, ROWVERSION read assumptions vs default locking RC, Sch-S/DDL, tempdb/PVS/version retention, backup provisioning/resource isolation/shared readable secondaries/redo/freshness, commandtimeout vs locktimeout, query/session ownership/currentSPID/cancellation/serverend/recovery, live workload conservation/unfinished/censored/sparse windows, cache/index/order/TDE state, client key vs server keys and unmeasured AlwaysEncrypted. Check claimed max/min error and conditions by recomputing cited raw JSON; do not accept universal few%/10% guarantees or N-only safe primary scan thresholds. No oldMySQL nonlocking assumptions imported. NOLOCK/READPAST/whole-table-lock or deliberate contention injection not allowed. Do not request excluded dangerous experiments. Counts must be RCSI or SNAPSHOT qualified; no automatic production isolationconfiguration change. Existing inventory/approvedexport first, no primaryextraSQL withoutbudget, resourcecaps before monitoring, no viablepath=>defer. Compare simpler/faster viable alternatives forrequiredprecision andfreshness, no unsupported globalranking. 100M/80/100col/encryption actual measurement vs missing combinations must be distinguishable, nativeproductionperformance not inferred fromemulation.\nRaise only actual operational material defects with concrete scenario/source/evidence/correction, not stylistic preferences. High/middle and necessary measurement gaps block acceptance. Do not demand every possible experiment if safe explicitly limited guidance resolves the decision. Accept only exact current guide and linked details/proof/source verified, no blocking defect/necessary experiment pending. Preserve failures/unknowns, never mark skipped coveragepassed. Return SMALL JSON: accepted boolean, decision accepted/rejected, role, guidelineSha256, proofSha256, findings array(id,severity,scenario,evidence,requiredCorrection), requestedExperiments array(onlyindispensable,whydecisiondepends), reviewQuestions object(betterMethods,designCoverage,omissions,lockFactors,fastCount), reviewEvidence array concrete files/fields/hash/recomputation. Do not assert otherrole acceptance without artifact.\n\nRead results/sqlserver/reviews/owner-open-findings.json and independently verify the actual corrections to every owner material finding; disposition labels alone are not proof.\n\nExact inputs: {\"guideSha256\": \"a2430a338a44b52103009c9612020898c2066c0d18836a39532067f77f3e95bb\", \"proofSha256\": \"83067594c7760061f4c74145b11916ee2f70b8f7343086e7abe49e93e2e26d11\"}",
+  "output": {
+    "jsonSchema": {
+      "type": "object",
+      "required": [
+        "accepted",
+        "decision",
+        "guidelineSha256",
+        "proofSha256",
+        "findings",
+        "requestedExperiments",
+        "reviewQuestions",
+        "reviewEvidence"
+      ],
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        },
+        "decision": {
+          "enum": [
+            "accepted",
+            "rejected"
+          ]
+        },
+        "guidelineSha256": {
+          "type": "string"
+        },
+        "proofSha256": {
+          "type": "string"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "requestedExperiments": {
+          "type": "array"
+        },
+        "reviewQuestions": {
+          "type": "object"
+        },
+        "reviewEvidence": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "maxValidationAttempts": 2
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "status": "owner_verified_narrowed_benchmark",
+  "verifiedAt": "2026-11-07T16:16:59.284972+00:00",
+  "scopeOfProof": "Selected benchmark reproduction, observed semantics, unchanged measurement and audit code, artifact integrity and cleanup only. Document usability and acceptance are separate final Sol review artifacts. This is not a production SLO, cache-controlled causal comparison, universal accuracy bound or globally optimal count certification.",
+  "command": [
+    "mise",
+    "run",
+    "all"
+  ],
+  "processExitCode": 0,
+  "runStartedAt": "2026-11-07T14:50:53Z",
+  "runFinishedAt": "2026-11-07T15:57:50Z",
+  "runnerBoundary": {
+    "rielaSession": "table-count-guideline-review-session-30",
+    "executionId": "lab-runner-attempt-1-exec-63",
+    "outerCLIExit": 1,
+    "reason": "maxStepsExceeded1 is the deliberate boundary before obsolete integration; inner mise run all numeric exit0 is separately verified."
+  },
+  "scope": {
+    "definition": "bench/nonlocking-scope.json",
+    "sha256": "fc448f35097bd89e8ca56a2a16a71f6a21ab1e024f31483b277e5bb149d5004c",
+    "revision": 24,
+    "definitionStatusMeaning": "Static declaration authored before execution; actual execution status is this proof and fresh runner summary.",
+    "selectedBaseImpacts": 9,
+    "quietDesigns": 58,
+    "ordinaryRC_RRCountCases": 12,
+    "matrixVersions": [
+      "8.4.0",
+      "8.4.13",
+      "9.7.0",
+      "9.7.4",
+      "26.10.0"
+    ],
+    "requestedScripts": [
+      "00-budget-start",
+      "01a-PROB-WIDE-50",
+      "01c-ACCURACY-COST",
+      "01d-ACCURACY-SERVICE-100",
+      "91-encrypted-count",
+      "93-metadata-accuracy",
+      "94-metadata-on-replica"
+    ],
+    "requestedProcesses": 9,
+    "skippedRequestedScripts": 137,
+    "skipsArePasses": false
+  },
+  "measurementSource": {
+    "candidatePath": "results/reference/review-20261107T155750Z-26743/results/reviews/final-all-candidate.json",
+    "candidateSha256": "4058cff71c1eb179a5bcf0cba923310d7db98f0834c6d7e30c9591419ca53003",
+    "files": 344,
+    "beforeEqualsAfter": true,
+    "currentMatchesAfter": true,
+    "dictionarySha256": "b051e779492e78339a9c833d7fc2078af8768676437b4bf5f71fac7a017e6fa9"
+  },
+  "auditSource": {
+    "before": {
+      "audit/audit-wide-probability.py": "78d7c28451f2cc6e671cec34d921a7adbd0ec42744c5050acd20223f82c7498c",
+      "audit/audit-final-results.py": "1bff3ce1fc561a9d6d0056e08311db5bd7b8ff128f4011b6b36d1109d6616180",
+      "audit/audit-write-mix.py": "5bae196812b36b0bd99176228d6fe3d13b1b00d5e3cfd20a3d0df05457a22d1c",
+      "audit/audit-extra-evidence.py": "986ecd42e6f5a1b5d6b903fa5f90f303e29ea58d4b864300da45caaee0564e00",
+      "audit/summarize-service-frontier.py": "d6918d7594515b9e2933c6b4d283e9fb858f47061edf3c6cff076eff4a15db23",
+      "audit/audit-arrival-windows.py": "8d74529c68cce2181f662c0a5748c56d267bc80591e26d7bf4d58ce74ce937b9",
+      "audit/summarize-accuracy-frontier.py": "4ff91b23660ab2e9d0f31633c8ea3fff53a41cb0ff417f84491319baf118b432"
+    },
+    "afterEqualsBefore": true,
+    "runtimeClockRegressionAuditorSha256": "8d74529c68cce2181f662c0a5748c56d267bc80591e26d7bf4d58ce74ce937b9",
+    "sourceBundle": "results/reference/owner-acceptance-20261107T161659Z",
+    "sourceBundleManifestSha256": "143a2a08e6daaf911dacc401e7b4c892e14de6dacd72aba41838ca7b1c1cbf53",
+    "note": "Historical clock-repair verification also hashes README documentation. Those original docs are preserved in verification-source; documentation-only final integration may change them, while benchmark inputs and seven public Python auditors must remain unchanged."
+  },
+  "measurementSnapshot": {
+    "path": "results/reference/review-20261107T155750Z-26743",
+    "manifestSha256": "da3f08178b5ed5353bd0c1033dae89e54ffed907ca18d2725e438db2497b4832",
+    "filesVerified": 426,
+    "allMatch": true
+  },
+  "evidence": {
+    "owner-essential-inventory.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-inventory.json",
+      "sha256": "d9bcef6bbfee8012f092dffcc7ed62625725762566f3c71afa75f2d7388e1ad6"
+    },
+    "owner-essential-evidence-checks.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-evidence-checks.json",
+      "sha256": "0b2dea9f413d7a8d33829cc1339beae5fea087d82c789cdeb8019ed7197db1c4"
+    },
+    "owner-essential-integrity.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-integrity.json",
+      "sha256": "7e0b5166e98308c1589caa6d2a5fc0450fb63ff65ea42846cea49d6ac7ee3d0d"
+    },
+    "owner-essential-snapshot-check.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-snapshot-check.json",
+      "sha256": "058fa232b3d69d34b00c7c84ec6caa8eff0a9b1d5c2f59ea6a0570b6247cfc70"
+    },
+    "owner-essential-accuracy-summary.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-accuracy-summary.json",
+      "sha256": "8af0bd08396bfa2a2cb9dc96e00fc214736a40abc549e69e2374e927c4b29c1d"
+    },
+    "owner-essential-service-summary.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-service-summary.json",
+      "sha256": "56bb58de7af03941ef18c63ba14fbbf9e721921eac962d66f49e5b2f80133951"
+    },
+    "owner-essential-method-semantics.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-method-semantics.json",
+      "sha256": "3f011f60aa79763345ff8b5ef44316e85c72ba3735806246e4248753ba187793"
+    },
+    "owner-essential-budget-assessment.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-budget-assessment.json",
+      "sha256": "ebdb63108af6f576556bb577f850eca8824eb9a79bad9d270980541214f062b8"
+    },
+    "owner-essential-runtime-quiescence.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-runtime-quiescence.json",
+      "sha256": "0e035873d8831b479b7402ee6ba141873ea86cb192e3546ae689fd647d2b3f51"
+    },
+    "owner-essential-final-cleanup.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-final-cleanup.json",
+      "sha256": "66254122b98ef9cf157e88634bb535df21b755828ab2e918df8c7abe8c51e2be"
+    },
+    "owner-essential-initial-capture.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-initial-capture.json",
+      "sha256": "17198c9d2a4337820a9f2631e79318a8f03ded0310d44ae2c23d7f5660a1f8d9"
+    },
+    "essential-initial-data-check.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/essential-initial-data-check.json",
+      "sha256": "b1ce15e31e1d72977d25ecee2639b9690b7255681d55c8e8378f75084cd65e55"
+    },
+    "owner-essential-fresh-metadata-extrema.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-fresh-metadata-extrema.json",
+      "sha256": "3c8ee68baa2200d8f2f6476ad8797d246f3f7bc136d64456ba301ae30c81ee4b"
+    },
+    "owner-clock-repair-prelaunch.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-clock-repair-prelaunch.json",
+      "sha256": "0d4b0314926a6ed7f50d49e9a75bf7a6d167b2abd63610a62d225b5eb3d18aff"
+    },
+    "author-clock-repair-verification.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/author-clock-repair-verification.json",
+      "sha256": "9b9dd44f5d4f825bf1744c9845ce1de21d6ed34670533052d3aa97d195ccc721"
+    },
+    "owner-essential-semantic-rejection.json": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-semantic-rejection.json",
+      "sha256": "e405d7fd2d2ba7a66c89483e8065e401f195a2acaf2b00c68dd9bfb8e9b87ed1"
+    }
+  },
+  "freshSummarySha256": "734496436445d10c71f1df42729eb056753727299791fc6cdbca4ef492dd58c7",
+  "imageReferencesMatchPinned": true,
+  "benchImageId": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+  "separateAcceptance": {
+    "experimentCompletion": "completed within selected scope; all9requested processes fresh exit0",
+    "precisionAndBudgets": {
+      "path": "results/reference/owner-acceptance-20261107T161659Z/reports/owner-essential-budget-assessment.json",
+      "sha256": "ebdb63108af6f576556bb577f850eca8824eb9a79bad9d270980541214f062b8"
+    },
+    "serviceSLO": "not_certified; sparse/censored observations remain visible",
+    "dataIntegrity": "58 initial/final counts and20M replica agree before deliberate teardown",
+    "cleanup": "owned containers and generated data removed; shared image cache and all measurement artifacts retained"
+  },
+  "history": "The first narrowed run had valid counts but rejected wall-clock service windows; never retrofitted or silently promoted. Earlier engine/scale grids remain skipped by explicit user scope."
+}

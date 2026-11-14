@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-11-08T15:59:50.385154+00:00",
+  "scope": "Final user steering supplements original author request; original request and author attempts remain unchanged.",
+  "rowsPerEngine": 100000000,
+  "storedColumns": 100,
+  "engineLoads": [
+    "InnoDB",
+    "MyISAM"
+  ],
+  "conditions": [
+    "innodb_primary_only",
+    "innodb_secondary_present",
+    "innodb_composite_secondary",
+    "myisam_primary_only"
+  ],
+  "countSql": "SELECT COUNT(*) FROM lab.count_target;",
+  "countsPerCondition": 3,
+  "measuredCountsTotal": 12,
+  "cancelled": [
+    "COUNT(1)",
+    "COUNT(column)",
+    "WHERE counts"
+  ],
+  "data": "Deterministically varied c001/c002/c003; c004..c099 constants; same data across InnoDB index phases and same generator in MyISAM.",
+  "manualBeforeCount": [
+    "inventory",
+    "fresh session RC identity",
+    "EXPLAIN traditional planned key",
+    "actual index catalogue",
+    "persisted size/leaf page statistics with page size and last_update"
+  ],
+  "separateTimes": [
+    "load",
+    "narrow index creation",
+    "narrow removal/composite creation",
+    "COUNT scalar arrival",
+    "full response boundary"
+  ],
+  "macSpec": "results/reviews/mysql-engine-count-100m/host-spec.json",
+  "productionClaims": "Quiet catalogue only; MyISAM implicit table read locks; service budget unavailable; no row-count-only safe threshold.",
+  "additionalQueuedWork": "SQL Server manual-based same-scale benchmark AFTER MySQL complete, Rosetta required, separate evidence/report and final reviews."
+}

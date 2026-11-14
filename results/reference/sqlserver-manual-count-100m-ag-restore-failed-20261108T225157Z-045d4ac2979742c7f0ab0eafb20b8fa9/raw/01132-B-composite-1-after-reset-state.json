@@ -1,0 +1,31 @@
+{
+  "sql": "SELECT d.name,CONVERT(int,d.is_read_committed_snapshot_on) is_read_committed_snapshot_on,d.snapshot_isolation_state,d.snapshot_isolation_state_desc,\n  CONVERT(int,sys.fn_hadr_is_primary_replica(d.name)) is_ag_primary,\n  SERVERPROPERTY(\u0027IsHadrEnabled\u0027) is_hadr_enabled,@@SERVERNAME server_name,\n  rs.role_desc,ar.secondary_role_allow_connections_desc,rs.connected_state_desc,\n  ds.synchronization_state_desc,ds.synchronization_health_desc,ds.is_suspended,\n  ds.redo_queue_size,ds.last_redone_lsn,ds.last_hardened_lsn,ds.last_commit_time,\n  (SELECT COUNT(*) FROM sys.dm_exec_requests r JOIN sys.dm_exec_sessions s ON s.session_id=r.session_id\n   WHERE s.is_user_process=1 AND r.database_id=d.database_id AND r.command IN\n     (\u0027INSERT\u0027,\u0027UPDATE\u0027,\u0027DELETE\u0027,\u0027MERGE\u0027,\u0027BULK INSERT\u0027,\u0027SELECT INTO\u0027)) active_user_writes\nFROM sys.databases d\nLEFT JOIN sys.dm_hadr_database_replica_states ds ON ds.database_id=d.database_id AND ds.is_local=1\nLEFT JOIN sys.dm_hadr_availability_replica_states rs ON rs.replica_id=ds.replica_id AND rs.group_id=ds.group_id AND rs.is_local=1\nLEFT JOIN sys.availability_replicas ar ON ar.replica_id=ds.replica_id\nWHERE d.database_id=DB_ID();",
+  "start_ns": 361358952860856,
+  "end_ns": 361358955505058,
+  "elapsed_ns": 2644202,
+  "raw": [
+    [
+      {
+        "name": "ManualCount100m",
+        "is_read_committed_snapshot_on": 1,
+        "snapshot_isolation_state": 0,
+        "snapshot_isolation_state_desc": "OFF",
+        "is_ag_primary": null,
+        "is_hadr_enabled": 1,
+        "server_name": "countprimary",
+        "role_desc": null,
+        "secondary_role_allow_connections_desc": null,
+        "connected_state_desc": null,
+        "synchronization_state_desc": null,
+        "synchronization_health_desc": null,
+        "is_suspended": null,
+        "redo_queue_size": null,
+        "last_redone_lsn": null,
+        "last_hardened_lsn": null,
+        "last_commit_time": null,
+        "active_user_writes": 0
+      }
+    ]
+  ],
+  "error": null
+}

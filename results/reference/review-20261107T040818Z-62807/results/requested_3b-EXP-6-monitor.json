@@ -1,0 +1,107 @@
+{
+ "id": "3b-EXP-6-monitor",
+ "answers": [
+  "EXP-6",
+  "FIND-R3-HINT-01",
+  "EXP-S6-MONITOR-RECHECK",
+  "FIND-S6-MONITOR-RECHECK-01",
+  "EXP-O6-THREADS-SCOPE",
+  "FIND-O6-THREADS-FILTER-01"
+ ],
+ "started": "2026-11-06T21:07:48",
+ "sections": {
+  "long_success_rule": {
+   "plain_statement": {
+    "limit_printed_ms": 1000,
+    "elapsed_ms": 4222,
+    "value": 15000000,
+    "rule_fires": true
+   },
+   "no_limit_killed_at_4s": {
+    "ok": false,
+    "errno": 1317,
+    "ms": 4006.01
+   },
+   "next_statement_after_join": true,
+   "_seconds": 8.23
+  },
+  "full_filter_statements": {
+   "printed_filter": {
+    "ok": true,
+    "ms": 0.18,
+    "rows": [
+     [
+      0
+     ]
+    ]
+   },
+   "job_mdl_statement": {
+    "ok": true,
+    "ms": 0.13,
+    "rows": []
+   },
+   "_seconds": 0.0
+  },
+  "instrument_lost_after_start": {
+   "earlier_monitor_no_recheck": {
+    "recheck": false,
+    "status": "complete",
+    "rows": 300000,
+    "steps": 3001,
+    "monitor_reason": null,
+    "statements_after_flag": [],
+    "restored": "YES"
+   },
+   "current_monitor": [
+    {
+     "recheck": true,
+     "status": "stopped:stop_flag",
+     "rows": null,
+     "steps": 22,
+     "monitor_reason": "monitor_lost:instrument_disabled",
+     "statements_after_flag": [],
+     "restored": "YES"
+    },
+    {
+     "recheck": true,
+     "status": "stopped:stop_flag",
+     "rows": null,
+     "steps": 21,
+     "monitor_reason": "monitor_lost:instrument_disabled",
+     "statements_after_flag": [],
+     "restored": "YES"
+    },
+    {
+     "recheck": true,
+     "status": "stopped:stop_flag",
+     "rows": null,
+     "steps": 21,
+     "monitor_reason": "monitor_lost:instrument_disabled",
+     "statements_after_flag": [],
+     "restored": "YES"
+    }
+   ],
+   "_seconds": 14.18
+  },
+  "ddl_waiting_on_an_unrelated_table": {
+   "old_filter_would_match": 1,
+   "new_filter_matches": 0,
+   "job": {
+    "status": "complete",
+    "rows": 300000,
+    "monitor_reason": null
+   },
+   "_seconds": 0.57
+  },
+  "flush_still_stops_the_job": {
+   "filter_sees_flush": 1,
+   "job": {
+    "status": "stopped:stop_flag",
+    "monitor_reason": "server_wide_wait"
+   },
+   "_seconds": 1.02
+  }
+ },
+ "elapsed_seconds": 24,
+ "section_errors": []
+}

@@ -1,0 +1,132 @@
+{
+  "recordedAt": "2026-11-07T10:11:52.898254+00:00",
+  "meaning": "Publication provenance for pure owner auditors; no benchmark-source changes, DB connections, result approval or final-all proof.",
+  "files": [
+    {
+      "path": "audit/audit-arrival-windows.py",
+      "sha256": "e3beb6eef63ab0125ea55dc39aea2ba5fbdc2fa4eb4c64b07efe333e98e8f860",
+      "privateSource": ".private.handover/audit-arrival-windows.py",
+      "privateSha256": "e3beb6eef63ab0125ea55dc39aea2ba5fbdc2fa4eb4c64b07efe333e98e8f860",
+      "change": "Only internal helper path rewrites to committed audit/; otherwise exact source copy."
+    },
+    {
+      "path": "audit/audit-extra-evidence.py",
+      "sha256": "0d255a6dbab6614bcb7511c4e14e58cbe9f8e01df6a7c189d9b809ee21cd21a7",
+      "privateSource": ".private.handover/audit-extra-evidence.py",
+      "privateSha256": "e6db4c60de0601ab261ccb394fbf6fd4186240701d5bf86fd2cb99b18d6f29eb",
+      "change": "Only internal helper path rewrites to committed audit/; otherwise exact source copy."
+    },
+    {
+      "path": "audit/audit-write-mix.py",
+      "sha256": "ed5b852e09faa2237493929839820b1bcf47ecc801122bdfbb944f9628a39226",
+      "privateSource": ".private.handover/audit-write-mix.py",
+      "privateSha256": "5c73aa49523c5c784dc767b1850bba72ebc1c2f68e3d1796448cc1434b51cba8",
+      "change": "Only internal helper path rewrites to committed audit/; otherwise exact source copy."
+    },
+    {
+      "path": "audit/audit-wide-probability.py",
+      "sha256": "fa172b3292f61b2502c048fcee92789847251dcbe0d33e58260cc142086db938",
+      "privateSource": ".private.handover/audit-wide-probability.py",
+      "privateSha256": "fa172b3292f61b2502c048fcee92789847251dcbe0d33e58260cc142086db938",
+      "change": "Only internal helper path rewrites to committed audit/; otherwise exact source copy."
+    },
+    {
+      "path": "audit/summarize-accuracy-frontier.py",
+      "sha256": "4ff91b23660ab2e9d0f31633c8ea3fff53a41cb0ff417f84491319baf118b432",
+      "privateSource": ".private.handover/summarize-accuracy-frontier.py",
+      "privateSha256": "4ff91b23660ab2e9d0f31633c8ea3fff53a41cb0ff417f84491319baf118b432",
+      "change": "Only internal helper path rewrites to committed audit/; otherwise exact source copy."
+    },
+    {
+      "path": "audit/summarize-service-frontier.py",
+      "sha256": "d6918d7594515b9e2933c6b4d283e9fb858f47061edf3c6cff076eff4a15db23",
+      "privateSource": ".private.handover/summarize-service-frontier.py",
+      "privateSha256": "d6918d7594515b9e2933c6b4d283e9fb858f47061edf3c6cff076eff4a15db23",
+      "change": "Only internal helper path rewrites to committed audit/; otherwise exact source copy."
+    }
+  ],
+  "verification": {
+    "at": "2026-11-07T10:12:37.382649+00:00",
+    "actualSavedResults": {
+      "owner-public-accuracy-frontier.json": {
+        "sameAsPriorOwnerResult": true,
+        "problems": null
+      },
+      "owner-public-service-frontier.json": {
+        "sameAsPriorOwnerResult": true,
+        "problems": null
+      },
+      "owner-public-wide50-audit.json": {
+        "sameAsPriorOwnerResult": true,
+        "problems": []
+      },
+      "owner-public-wide100-audit.json": {
+        "sameAsPriorOwnerResult": true,
+        "problems": []
+      }
+    },
+    "meaning": "Published pure helpers ran against actual105/48/50wide/100wide saved data, no DB work. Exact frontier aggregate equality confirmed; not final all or SLO acceptance."
+  },
+  "readmeSha256": "527f1f52c28461d20736dee39156e816f4ac94a11cb80649982dc048bb9599bc",
+  "rawVerification": {
+    "at": "2026-11-07T10:13:04.835291+00:00",
+    "scripts": 15,
+    "observations": 52,
+    "resultsEqualPrivateAuditor": true,
+    "allProblemListsEmpty": true,
+    "meaning": "Actual retained completed subset only, after measurement stopped; not whole41script scope/final proof/SLO."
+  },
+  "nonlockingInventoryPublication": {
+    "at": "2026-11-07T10:47:56.474825+00:00",
+    "path": "audit/audit-final-results.py",
+    "sha256": "8917e8d505f2a66cd220decc9076df96bc73bad5d0ada012ef8df6bf1bfe70d9",
+    "change": "Source-derived current RC/RR12-case grid; no obsolete SERIALIZABLE autocommit additions. Adds expectedversionedprocesses, unexpected coverage, per-script version sequence and explicit row-lock/blocking flags.",
+    "actualProgressInvocationExpectedScope": {
+      "impactExperiments": 22,
+      "tableShapes": 58,
+      "lockCases": 12,
+      "matrixVersions": [
+        "26.10.0",
+        "8.4.0",
+        "8.4.13",
+        "9.7.0",
+        "9.7.4"
+      ],
+      "requestedScripts": 144,
+      "requestedProcesses": 158
+    },
+    "meaning": "Ran on live load-stage partial directory; missing results expected, no final acceptance. No DB/benchmark imports or changes."
+  },
+  "inlineWindowAuditEnhancement": {
+    "at": "2026-11-07T12:16:56.372418+00:00",
+    "actual48Regression": "results/reviews/owner-inline-window-actual-regression.json",
+    "actualWideChecks": [
+      {
+        "columns": 50,
+        "problems": [],
+        "arms": 36,
+        "savedTrialCohorts": 36,
+        "timestampedMethodWindows": 24,
+        "limitation": "Trial cohort quantiles/membership verified; original broad-window timestamp boundaries and baseline/recovery quantiles cannot be reconstructed from this artifact. No SLO approval."
+      },
+      {
+        "columns": 100,
+        "problems": [],
+        "arms": 36,
+        "savedTrialCohorts": 36,
+        "timestampedMethodWindows": 24,
+        "limitation": "Trial cohort quantiles/membership verified; original broad-window timestamp boundaries and baseline/recovery quantiles cannot be reconstructed from this artifact. No SLO approval."
+      }
+    ],
+    "currentHelperHashes": {
+      "audit/audit-wide-probability.py": "78d7c28451f2cc6e671cec34d921a7adbd0ec42744c5050acd20223f82c7498c",
+      "audit/audit-final-results.py": "8917e8d505f2a66cd220decc9076df96bc73bad5d0ada012ef8df6bf1bfe70d9",
+      "audit/audit-write-mix.py": "ed5b852e09faa2237493929839820b1bcf47ecc801122bdfbb944f9628a39226",
+      "audit/audit-extra-evidence.py": "075165e0ead43c23f1ebebc33d568f2a36fae7e3ee6cca428cc5e5c10ec2f77e",
+      "audit/summarize-service-frontier.py": "d6918d7594515b9e2933c6b4d283e9fb858f47061edf3c6cff076eff4a15db23",
+      "audit/audit-arrival-windows.py": "1f2457a82c035ae0df22c5606c9f7d6c363022d31a4544cd6eddacf9dd813376",
+      "audit/summarize-accuracy-frontier.py": "4ff91b23660ab2e9d0f31633c8ea3fff53a41cb0ff417f84491319baf118b432"
+    },
+    "meaning": "Public helpers now add raw-cohort quantile reconstruction beyond original private copies. Measurement sources unchanged. Actual48+36+36arm savedcohorts and timestamped methods verified;7 in-memorycorruptionsrejected. Broadphase originaltimestampsnotretained, limitation explicit."
+  }
+}

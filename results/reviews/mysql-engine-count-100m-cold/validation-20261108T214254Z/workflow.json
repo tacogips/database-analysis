@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-mysql-cold100m-validation-sol",
+  "description": "MySQL cold buffer 100M validation",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "validation",
+  "nodes": [
+    {
+      "id": "validation",
+      "nodeFile": "nodes/validation.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "validation",
+      "nodeId": "validation",
+      "role": "worker"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "Author implementation in progress; observations to reassess AFTER author terminal, not applied to live author files.",
+  "items": [
+    {
+      "id": "colima-home",
+      "observed": "Current Docker endpoint/config under ~/.config/colima/brotli-verify, while controller draft reads ~/.colima/brotli-verify. Resolve exact VM home from validated Unix endpoint or fixed owner-checked config, pass sanitized COLIMA_HOME explicitly."
+    },
+    {
+      "id": "proc-read-permission",
+      "observed": "Actual Rosetta /proc/PID/exe reading may require sudo -n in VM for sqlservr. Verify exact runtime only after MySQL complete."
+    },
+    {
+      "id": "idle-lock-proof",
+      "observed": "Review which lock classes must disappear before session disposal; database/session lock lifetime must not cause false release failure. All matching DMV raw data must be retained, and active requests/transactions/snapshots independently checked."
+    },
+    {
+      "id": "mac-spec",
+      "observed": "Latest user asks Mac spec in result. Supplementary host-spec.json saved in own review scope; integrate into final report/proof without mutating frozen MySQL runtime inputs."
+    }
+  ]
+}

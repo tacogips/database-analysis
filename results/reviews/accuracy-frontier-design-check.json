@@ -1,0 +1,37 @@
+{
+  "checkType": "pure arithmetic and static dependency check, not a DB measurement",
+  "checks": [
+    {
+      "target": 0.03,
+      "looks": [
+        512,
+        2048,
+        8192
+      ],
+      "zero_variance_first_look_bound": 0.02705256455025368,
+      "meets_first_look_target": true
+    },
+    {
+      "target": 0.05,
+      "looks": [
+        320,
+        1280,
+        5120,
+        8192
+      ],
+      "zero_variance_first_look_bound": 0.04405203555345198,
+      "meets_first_look_target": true
+    },
+    {
+      "target": 0.1,
+      "looks": [
+        160,
+        640,
+        2560,
+        8192
+      ],
+      "zero_variance_first_look_bound": 0.09247908266716387,
+      "meets_first_look_target": true
+    }
+  ]
+}

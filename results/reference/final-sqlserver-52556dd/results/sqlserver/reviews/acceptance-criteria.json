@@ -1,0 +1,28 @@
+{
+  "objective": "SQL Serverをコンテナに導入し、第三者のエンジニアが自分の巨大DBの全表件数を安全に把握できる日本語ガイドラインを作る",
+  "authority": "最新ユーザー依頼とAGENTS.mdのSQL Server追加スコープ。MySQLのロック挙動や統計の誤差を転用しない。",
+  "requiredEvidence": [
+    "固定digestの公式SQL Serverコンテナの実起動・SQL実行・実バージョン",
+    "専用composeだけを接続対象とする白紙再生成runnerと実行結果、source hash、初期/最終整合と後始末",
+    "DMV/カタログ概数、オプティマイザ統計、COUNT_BIGの区別と代表fixtureにおける誤差・費用",
+    "100M細表、80/100列・暗号化を含む条件の実測または明示的な未計測/失敗記録。組合せへ外挿しない",
+    "TDEのサーバー鍵とクライアントの鍵/seedを区別。アプリ暗号文・Always Encryptedの実測/推論を区別",
+    "正常業務負荷での小さな比較を保存。到着/失敗/未完了や短い窓を除いてSLO合格にしない",
+    "執筆とは別のGPT-6.1 Solの運用者役と検証役が最終文書と根拠を査読"
+  ],
+  "operatorCases": [
+    "対象所有者/権限不足、対象なし、未初期化、0、NULL、失敗を空表と混同しない",
+    "metadataのsecondary index二重計上とpartition欠落を防ぎ、RLS/実行文脈と全体件数を区別する",
+    "SQL Server既定のlocking READ COMMITTEDと既存RCSI/SNAPSHOTを区別し、NOLOCK/READPASTを解決策にしない",
+    "Sch-S/DDL、version store/tempdb/PVS、CPU/IO/cache、レプリカredo等の残存影響を説明する",
+    "本番でRCSIを件数取得のため自動で有効化せず、所有者が管理する取得先/構成へ分岐する",
+    "追加primary負荷不可なら既存exportか資源分離先、なければ保留。backup/replica構築負荷にも予算を要求",
+    "LOCK_TIMEOUT、driver command timeout、接続期限、サーバー上の取消/終了/回復確認を区別する",
+    "現在の所有セッションを照合し、SPID再利用先への盲目的KILLを避ける",
+    "snapshot時点、AG遅延/redo/共有資源、世代/シャード欠落を返却値と併記する",
+    "未校正の小さい概数をprimary無制限COUNTの許可にしない",
+    "最大/最小誤差は観測集合・条件に限定。全設定10%以内/一律安全行数/普遍的最速を約束しない",
+    "ARM64上のamd64実行はMicrosoft非サポート。ネイティブ本番性能へ外挿しない"
+  ],
+  "completionGate": "実コンテナ検証の根拠・最終source/意味/後始末監査と別Sol2役の最終受入れ。必要作業が残れば完了扱いにしない。"
+}

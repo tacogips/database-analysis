@@ -1,0 +1,18 @@
+{
+  "receivedAt": "2026-11-08T16:05:27.686096+00:00",
+  "userInstruction": "Avoid using cache for performance measurement.",
+  "currentRunClassification": "Uncontrolled cache reference only; do not certify cold or use repeated warm results as uncached comparison. Preserve all raw results and frozen runtime inputs.",
+  "requiredInvestigation": [
+    "Actual MySQL flush method and physical/logical read deltas",
+    "Buffer pool preload/dump behavior and per-sample fresh instance feasibility",
+    "Guest and macOS host file-cache layers on virtiofs",
+    "Safe targeted control only; no shared host/VM global cache purge without authorization"
+  ],
+  "finalUncachedClaim": "Pending demonstrated control; distinguish query-result cache, DB buffer pool, guest OS cache and macOS file cache.",
+  "userChoice": "Reset dedicated DB buffer before every COUNT; OS/macOS cache residual explicitly disclosed.",
+  "ownerDecision": "Interrupt uncontrolled baseline with SIGINT, retain three completed PK counts and actual incomplete/cleanup/exit evidence, implement new cold-buffer runner in separate scope; no runtime-input edits to live baseline.",
+  "interruptedAt": "2026-11-08T16:08:31.765518+00:00",
+  "signalPid": 89127,
+  "verifiedProcess": "89127 89126 /Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby lab.rb all",
+  "verifiedParent": "mise -C mysql/engine-count-100m run all"
+}

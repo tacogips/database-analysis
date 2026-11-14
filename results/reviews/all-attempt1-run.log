@@ -1,0 +1,23 @@
+[all] $ ruby lab.rb all
+lab.rb:49: syntax error, unexpected '=', expecting ';' or '\n'
+  def up = run("docker", "compose", "up...
+         ^
+lab.rb:71: syntax error, unexpected '=', expecting ';' or '\n'
+  def load = bench("load.py", log: "load")
+           ^
+lab.rb:72: syntax error, unexpected '=', expecting ';' or '\n'
+  def verify = bench("verify_data.py")
+             ^
+lab.rb:73: syntax error, unexpected '=', expecting ';' or '\n'
+  def count_shapes = bench("count_shapes.py", log...
+                   ^
+lab.rb:74: syntax error, unexpected '=', expecting ';' or '\n'
+  def lock_factors = bench("lock_factors.py", log...
+                   ^
+lab.rb:75: syntax error, unexpected '=', expecting ';' or '\n'
+  def experiments = bench("experiments.py", "all...
+                  ^
+lab.rb:76: syntax error, unexpected '=', expecting ';' or '\n'
+  def summarize = bench("summarize.py")
+                ^
+[all] ERROR task failed

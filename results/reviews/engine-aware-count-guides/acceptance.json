@@ -1,0 +1,57 @@
+{
+  "recordedAt": "2026-11-08T14:04:30.215863+00:00",
+  "scope": "Plain language terms, metadata-first MySQL engine-aware flow, actionable acquisition switches, MyISAM cache/locking/RDS support, backup creation vs restore impact",
+  "documents": {
+    "README.md": "b83259f08c63be7280a6fde2882fc86a2cb8e8d22672fa86a9673b33c01a1fd7",
+    "docs/README.md": "7756999ef0707910185a62b7fb0acd3164a62829fab651730cca92535e3d0c42",
+    "docs/guidelines/mysql.md": "897a01748bb4052b886f75dc686008781ad7ee1db41e837a638a877e901e8e33",
+    "docs/guidelines/sql-server.md": "27107b70bdde4024a6dcf9ca6e4a36938e69b28d77459f04c29e05d07940d371",
+    "docs/guidelines/operations-runbook.md": "6f9ecc83c58f262faf67ef02cbd81e61c12ffe994e97031bd93c1e57b2161744",
+    "docs/guidelines/count-qa.md": "cce2df007cc06437a32829703d8ea4ed018ba34abc6ceec3745048e6dcd51b78"
+  },
+  "accepted": true,
+  "reviews": [
+    {
+      "agent": "/root/qa_engineer_review",
+      "model": "gpt-6.1-sol",
+      "separateSession": true,
+      "accepted": true,
+      "documents": {
+        "README.md": "b83259f08c63be7280a6fde2882fc86a2cb8e8d22672fa86a9673b33c01a1fd7",
+        "docs/README.md": "7756999ef0707910185a62b7fb0acd3164a62829fab651730cca92535e3d0c42",
+        "docs/guidelines/mysql.md": "897a01748bb4052b886f75dc686008781ad7ee1db41e837a638a877e901e8e33",
+        "docs/guidelines/sql-server.md": "27107b70bdde4024a6dcf9ca6e4a36938e69b28d77459f04c29e05d07940d371",
+        "docs/guidelines/operations-runbook.md": "6f9ecc83c58f262faf67ef02cbd81e61c12ffe994e97031bd93c1e57b2161744",
+        "docs/guidelines/count-qa.md": "cce2df007cc06437a32829703d8ea4ed018ba34abc6ceec3745048e6dcd51b78"
+      },
+      "unresolvedFindings": []
+    },
+    {
+      "agent": "/root/qa_validation_review",
+      "model": "gpt-6.1-sol",
+      "separateSession": true,
+      "accepted": true,
+      "documents": {
+        "README.md": "b83259f08c63be7280a6fde2882fc86a2cb8e8d22672fa86a9673b33c01a1fd7",
+        "docs/README.md": "7756999ef0707910185a62b7fb0acd3164a62829fab651730cca92535e3d0c42",
+        "docs/guidelines/mysql.md": "897a01748bb4052b886f75dc686008781ad7ee1db41e837a638a877e901e8e33",
+        "docs/guidelines/sql-server.md": "27107b70bdde4024a6dcf9ca6e4a36938e69b28d77459f04c29e05d07940d371",
+        "docs/guidelines/operations-runbook.md": "6f9ecc83c58f262faf67ef02cbd81e61c12ffe994e97031bd93c1e57b2161744",
+        "docs/guidelines/count-qa.md": "cce2df007cc06437a32829703d8ea4ed018ba34abc6ceec3745048e6dcd51b78"
+      },
+      "unresolvedFindings": []
+    }
+  ],
+  "checks": [
+    "git diff --check",
+    "local file and heading anchors",
+    "Mermaid both product flows rendered",
+    "HTML regenerated using marked file output"
+  ],
+  "newDatabaseOrDockerMeasurement": false,
+  "limitations": [
+    "RDS runtime performance not measured",
+    "Zero-lock behavior not certified",
+    "Render not independently verified by reviewers"
+  ]
+}

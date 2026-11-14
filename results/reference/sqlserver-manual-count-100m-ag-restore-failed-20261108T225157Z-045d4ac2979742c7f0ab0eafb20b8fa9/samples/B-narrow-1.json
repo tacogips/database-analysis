@@ -1,0 +1,32 @@
+{
+  "condition": "B-narrow",
+  "sample": 1,
+  "id": {
+    "Server": "countprimary",
+    "Database": "ManualCount100m",
+    "Spid": 51,
+    "LoginTime": "2026-11-08T23:16:16.913",
+    "ConnectionId": "e5cc1c0e-eabf-4ada-ba05-d8604feda42e",
+    "Login": "sa",
+    "Isolation": 2
+  },
+  "sql": "SELECT COUNT_BIG(*) AS exact_rows FROM [dbo].[Target];",
+  "route": "B",
+  "index": "narrow",
+  "precision": "exact_rows_static_fixture",
+  "start_ns": 361217774099923,
+  "first_result_ns": 2074455732,
+  "full_completion_ns": 2074463472,
+  "value": 100000000,
+  "completed": true,
+  "completion_unknown": false,
+  "error": null,
+  "cold_buffer_reset_verified": true,
+  "cold_buffer_proof": {
+    "cached_target_pages": 0,
+    "dirty_target_pages": 0,
+    "verified": true,
+    "method": "CHECKPOINT_then_DBCC"
+  },
+  "accepted": true
+}

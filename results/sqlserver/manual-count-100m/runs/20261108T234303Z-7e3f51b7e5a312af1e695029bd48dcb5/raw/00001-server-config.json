@@ -1,0 +1,10 @@
+{
+  "sql": "EXEC sys.sp_configure \u0027show advanced options\u0027,1; RECONFIGURE;\nEXEC sys.sp_configure \u0027max server memory (MB)\u0027,2048; RECONFIGURE;\nALTER DATABASE tempdb MODIFY FILE (NAME=tempdev,MAXSIZE=8192MB);\nALTER DATABASE tempdb MODIFY FILE (NAME=templog,MAXSIZE=4096MB);\nCREATE DATABASE ManualCount100m ON PRIMARY\n  (NAME=ManualCount100m_data,FILENAME=\u0027/var/opt/mssql/data/ManualCount100m.mdf\u0027,SIZE=64MB,MAXSIZE=81920MB,FILEGROWTH=256MB)\n  LOG ON (NAME=ManualCount100m_log,FILENAME=\u0027/var/opt/mssql/log/ManualCount100m.ldf\u0027,SIZE=64MB,MAXSIZE=4096MB,FILEGROWTH=64MB);\nALTER DATABASE ManualCount100m SET RECOVERY SIMPLE;\nALTER DATABASE ManualCount100m SET READ_COMMITTED_SNAPSHOT ON;\nALTER DATABASE ManualCount100m SET ALLOW_SNAPSHOT_ISOLATION OFF;",
+  "start_ns": 362717378862290,
+  "end_ns": 362717721029786,
+  "elapsed_ns": 342167496,
+  "raw": [
+    []
+  ],
+  "error": null
+}

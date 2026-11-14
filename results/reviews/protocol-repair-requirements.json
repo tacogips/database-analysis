@@ -1,0 +1,52 @@
+{
+  "rubyVersion": "4.0.9",
+  "reviewPaths": [
+    "results/reviews/sol-internal-rollout-review.json",
+    "results/reviews/sol-sampling-review.json",
+    "results/reviews/sol-validation-review.json",
+    "results/reviews/sol-frontier-review.json",
+    "results/reviews/sol-protocol-review.json"
+  ],
+  "phaseSpecificWork": "Repair confirmed reqmix2 semantic classification, mandatory comparison scheduling, server/worker cleanup. Keep ALL prior hypothesis coverage, partitioned primary-scale5x2x3 plan,3/5/10%105static and100column48service. Do not restart old author design or change SQL methods for unrelated reasons. Add meaningful DB-free regressions and register selfchecks. Pre-pull/inspectallpinnedMySQLimages andcheckVMheadroombeforeanyperformance measurement;never pruneuserimages/volumes/dataautomatically. Nextfixedrunner mustrunWHITE mise run all on finalmeasurementcode.",
+  "phaseControl": "Fresh single Sol author after session14 integration terminal;then fixedwhiteall;documentation-onlyintegrate(max3steps). Owner semantic/source auditandtwofreshSol finalreviewsremainrequired. Interruptedattempt2isnotacceptance.",
+  "fixes": [
+    {
+      "id": "SOL-PROTOCOL-001",
+      "severity": "high",
+      "evidence": "results/reviews/sol-protocol-review.json",
+      "requiredCorrection": "完了、確認済みの予定上限、予期しない失敗、原因不明、未着手を明示的に分類する。2013・接続断・計画拒否等はceiling hitに加算せず、保存後にsemantic failureへ反映する。1317は経過時間だけでタイマー扱いせず、既存split_countと同様にタイマーカウンタ等の裏付けを要求する。scale側の2013拒否は維持する。",
+      "boundedRemediation": "既存結果にerror_2013等が残っていれば、所有者監査で失敗・原因不明へ再分類するための再測定は不要。タイマーの裏付けが保存されていない1317を確定した予定上限へ昇格させない。欠けた有効比較を主張する場合だけ、その比較を補測する。"
+    },
+    {
+      "id": "SOL-PROTOCOL-002",
+      "severity": "high",
+      "evidence": "results/reviews/sol-protocol-review.json",
+      "requiredCorrection": "各条件・arm・反復機会を事前に列挙し、実行済み、確認済み打切り、規定による省略、予算不足、失敗をすべて記録する。必要反復と比較成立条件を別に判定し、不足はsemantic incompleteにする。必要な方式群・反復を分割する等で、先行armが後続比較の予算を消費し尽くさない設計にする。",
+      "boundedRemediation": "確認済み上限2回だけなら「その2観測で未完了」と限定でき、完走順位を主張しなければ追加反復は不要。速いarmの中央値・順位を必要とする場合だけ不足比較を補測する。scaleの300秒statement・150秒split上限を短縮して穴埋めしてはならない。"
+    },
+    {
+      "id": "SOL-PROTOCOL-003",
+      "severity": "middle",
+      "evidence": "results/reviews/sol-protocol-review.json",
+      "requiredCorrection": "中断時は所有する接続IDについて別接続から処理終了を確認し、必要なKILL・rollback・closeとその成否を保存する。確認できなければ次の比較を開始せず、後続結果を比較不能にする。負荷停止はfinallyで実施し、quiet truthを使う場合は未完了writeの解決とDB処理終了を別途確認する。意図した打切り観測にCOUNT全件完走を要求する必要はない。",
+      "boundedRemediation": "既存証拠で終了が確認できない窓は、後始末未確認・比較不能と分類できる。quiet truthやdrift境界の主張を撤回すれば、そのためだけの再測定は不要。中断後の影響やdriftを結論に必要とする場合だけ、該当経路を補測する。"
+    },
+    {
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "evidence": "results/reviews/build-cache-cleanup-evidence.json",
+      "requiredCorrection": "ActualVMrootfilledduringmatriximagepullsafterbaselinephase. Rootalreadyreclaimedunusedbuildcacheonly;VMnow2.6GiBfreeandall5pinnedimagespulled. KeepDBdataonhostbindmounts. Make imagepreparation/VMspacepreflight occur beforebenchmarkperformance sofuturewhiteallfailsbeforemeasurementifspaceunavailable. Do not perform automatic cache/image/container/volume pruning. Document measuredlabresource requirements and no cache-controlled claim. No extra DB experiments outside fixedrunner."
+    }
+  ],
+  "protocolDesignReviewPath": "results/reviews/sol-protocol-review.json",
+  "protocolOwnerAssessmentPath": "results/reviews/sol-protocol-assessment.json",
+  "priorWhiteAllInterruptionPath": "results/reviews/white-all-interruption.json",
+  "capacityMaintenanceEvidencePath": "results/reviews/build-cache-cleanup-evidence.json",
+  "protocolRepairAcceptance": [
+    "2013/unknown1317/planreject/cleanupfailurecannotbeplannedceilingorcacheablegreen;savefailureandpropagatesemantic failure.",
+    "Everyrequiredmethod/case/repetitionopportunityhasoutcomeorvalidpredeclaredcensoringrule;budgetabsencecannotpretendcomplete. Preventslowarmstarvation,partitionnecessarycomparisonswithoutshorteningdeclared300s/150sscalecapsor droppinghypotheses.",
+    "ConfirmownedinterruptedDBstatementterminationbeforelaterarm;savecleanupstatus;finallystopload;quiettruth/driftrequiresresolvedunfinishedwrites. Withdrawunprovedclaimsinsteadoffakingquietness.",
+    "Pureclassificationregression(E01),static149/150/120/1sbudgetcounterexample(E02),sectionexception/cleanupregressionregisteredin allselfchecks.",
+    "ReuseexistingRuby4.0.9bootstrap,boundedrawchunkstorage/cachehashes/freshsummaryfixes. KeepSolonly andno commit/push.",
+    "Do not count root cache maintenance,partial01aorcompletedbase36/matrix5 as finalall. Sourcechangedrequiresnewwhiteall. Freshmeasurementsmustbeownedonlybyfixedrunner."
+  ]
+}

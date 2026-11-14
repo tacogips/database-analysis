@@ -1,0 +1,102 @@
+{
+  "status": "interrupted_not_accepted_resource_absence_verified",
+  "checkedAt": "2026-11-08T16:11:31.301396+00:00",
+  "rawResult": "results/mysql-engine-count-100m/runs/20261108T153004Z-820d48697878bf5220e73128219ca4d3/result.json",
+  "rawResultSha256": "754c156304c6ae7084f9bd4f7a0a7788d0c455909327c18ff87e2f553a110101",
+  "canonicalExitCode": 1,
+  "experimentCompletion": "incomplete",
+  "reason": "User selected DB buffer reset before every COUNT; old uncontrolled-cache run SIGINT interrupted during index build.",
+  "completedReferenceOnly": {
+    "condition": "innodb_primary_only",
+    "counts": [
+      {
+        "rows": 100000000,
+        "callerNs": 275066854000
+      },
+      {
+        "rows": 100000000,
+        "callerNs": 274050766000
+      },
+      {
+        "rows": 100000000,
+        "callerNs": 278455706000
+      }
+    ]
+  },
+  "stageCleanupReported": "failed_or_unknown",
+  "stageCleanupErrors": [
+    "RuntimeError: mysql client EOF/reap timeout"
+  ],
+  "clientExits": [
+    {
+      "phase": "fixture-loader",
+      "exit_status": 0
+    },
+    {
+      "phase": "count-innodb_primary_only",
+      "exit_status": 0
+    },
+    {
+      "phase": "fixture-index-k_count",
+      "exit_status": 0
+    }
+  ],
+  "containerExitStatus": 0,
+  "finalRuntimeAndDataAbsent": true,
+  "allChildProcessesReaped": true,
+  "sourceUnchanged": true,
+  "independentInventories": [
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=lab-mysql-engine-count-100m",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--filter",
+        "label=com.docker.compose.project=lab-mysql-engine-count-100m",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "label=com.docker.compose.project=lab-mysql-engine-count-100m",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "archive": "results/reference/mysql-engine-count-100m-uncontrolled-interrupted-20261108T153004Z-820d48697878bf5220e73128219ca4d3",
+  "manifestSha256": "929414f33b2edb91cb3e8be2267ea8ea38b7766fbc4b2eef00dbdec6274ccaa5",
+  "nextAction": "New independently frozen cold-buffer runner from blank data; no reuse of uncontrolled-cache figures as final comparison."
+}

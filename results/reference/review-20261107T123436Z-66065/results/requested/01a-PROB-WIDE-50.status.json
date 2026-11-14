@@ -1,0 +1,52 @@
+{
+  "id": "01a-PROB-WIDE-50",
+  "ok": true,
+  "seconds": 641,
+  "reused": false,
+  "log": "results/requested/01a-PROB-WIDE-50.log",
+  "runs": [
+    {
+      "ok": true,
+      "exit_code": 0,
+      "signal": null,
+      "version": "8.4.13",
+      "mysql_image": {
+        "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+        "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+      },
+      "bench_image_id": "sha256:b22e0be9afd6803b06bd6794ec6aab25bf09d3b7acaa802fae36dfeced0e3547",
+      "cleanup": {
+        "container": "lab-matrix-8-4-13",
+        "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+        "ok": true,
+        "container_removed": true,
+        "data_removed": true,
+        "image_disposition": "shared_immutable_cache_retained",
+        "remove_exit_code": 0,
+        "remove_output": "lab-matrix-8-4-13\n",
+        "verify_exit_code": 0,
+        "record": "results/matrix_cleanup/lab-matrix-8-4-13-66068-1794050964-482390754236000.json"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/requested_probability_wide_50.json",
+      "sha256": "d8297107ccff60e098b3876b8a5d32701f8563c5b7db913122c6c9a5a1401a3a",
+      "bytes": 18458327
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-8-4-13-66068-1794050964-482390754236000.json",
+      "sha256": "990fcfbbca984525a9267988599c9a35370e848c5ba18236c5ce425e3e4035ac",
+      "bytes": 434
+    },
+    {
+      "path": "results/requested/01a-PROB-WIDE-50.log",
+      "sha256": "28376610591ffd0a6aade39918b3c01e2a26f12e2d227e5688fd88674ba8a40b",
+      "bytes": 3980
+    }
+  ],
+  "missing_outputs": [],
+  "fingerprint": "91ca9ac880fca93fa489aa15fb9dddc4a777f7ac1418688cdaf310ad353c06e7",
+  "inputs_changed_during_run": false
+}

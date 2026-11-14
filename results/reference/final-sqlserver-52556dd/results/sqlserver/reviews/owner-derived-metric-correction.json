@@ -1,0 +1,14 @@
+{
+  "status": "corrected_derived_summary_only",
+  "at": "2026-11-07T23:13:43.200913+00:00",
+  "issue": "Unanchored substring -r in label also matched -rcsi, including initial/final oracle counts. Those were genuine count observations, but not the intended three comparison repetitions.",
+  "correction": "Anchor prepared/quiet_delta phase and repetition prefix. All method comparison medians now use exactly three scheduled comparison observations; original raw results unchanged.",
+  "oldProof": "results/sqlserver/reviews/initial-derived-owner-proof.json",
+  "oldProofSha256": "17f29964b7909c7016fa7bc985ba1159479ea51f33f9533d6fe2d02a859d327e",
+  "newProof": "results/sqlserver/owner-proof.json",
+  "newProofSha256": "83067594c7760061f4c74145b11916ee2f70b8f7343086e7abe49e93e2e26d11",
+  "rawResultSha256": "2cfa21fbabc69699dacfb87a855bea9b21ad9e8ec6da6afb5f6f24888d1eaa42",
+  "thin100M_RCSI_serverMedianMs": 6360,
+  "measurementRerunRequired": false,
+  "reason": "No measurement source, SQL, scope, raw evidence or experiment changed; correction is independent derived aggregation only."
+}

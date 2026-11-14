@@ -1,0 +1,231 @@
+{
+  "workflowInput": {
+    "acceptanceCriteria": [
+      "GPT-6.1 Solのみを使用し、執筆と2つの査読を別の役割・セッションで実施する。未解決high/middleは0とし、異種モデルの独立性は主張しない。ラウンド上限を合格にしない。",
+      "未知の任意表で数%精度や本番無影響を無条件に保証しない。参考統計・条件付き確率推定・正確COUNTを区別し、精度と予算と後始末を別判定する",
+      "暗号化され内容不明の50〜100列表に具体的な経路と根拠を示す。TDEと列暗号化を区別する",
+      "cache/index/暗号化/条件漏れ/検証不備の査読を含め、主要結論ごとに根拠の適用範囲を確認する",
+      "本文数値はハッシュ付きの保持されたresults/reference配下へ対応。実験完了・精度達成・SLO合格を区別する",
+      "固定runnerが白紙DBからのmise run allを実施し、文書反映後に所有者が結果の意味と最終計測ソースの不変性を監査する。reproductionProofPathが無い間は完了としない",
+      "Latest user accepts about10% when few-percent is costly: compare3/5/10% accuracy-cost frontiers and exactCOUNT, show how conditions improve or worsen accuracy, and recommend methods under explicit error/freshness/service budgets."
+    ],
+    "accuracyFrontierExistingEvidencePath": "results/reviews/accuracy-frontier-existing-evidence.json",
+    "additionalExperimentRequired": {
+      "budget": "必要なら仮説を変えず複数scriptへ分割。timeout/guardの部分結果を完走としない。追加・変更したコードのセルフチェックも更新する。",
+      "coverage": "少なくとも100列TDEについて、小さい索引があればexact COUNTが勝つ条件と、索引なしでbounded samplingが負荷/読取量を減らせるか、索引更新で何が変わるかを確認する。service負荷なしの精度/コスト比較とservice負荷中の診断を区別する。",
+      "currentImplementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "implementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "protocol": "順序交替、対照、warmup/回復の明示、actual method区間と広いtrialの区別、予定数保存則・unfinished/censoredを保存。固定乱数は再現用であり本番信頼度の根拠ではない。ホストcacheは未制御。短窓からSLO合格や無影響を認定しない。",
+      "purpose": "確率的推定を50/100列表という実対象へ対応させる。同じコードで整数PK・TDE・小さい索引有無・indexed/nonindexed UPDATEを比較し、精度とコストと負荷を別判定する。"
+    },
+    "capacityMaintenanceEvidencePath": "results/reviews/build-cache-cleanup-evidence.json",
+    "completionAuditPath": "results/reviews/pre-final-audit.json",
+    "constraints": [
+      "実データベース接続禁止。Composeのprimary/replicaとLabが起動するmatrixサーバーだけ",
+      "table dataをコミットしない。測定JSONを捏造・書換えしない",
+      "人が読む主文書は日本語・220行以内。詳細は分離したまま維持",
+      "commit/pushはワークフローから実施しない",
+      "測定と別の実験を重ねない。固定runnerと.lab.lockを使う",
+      "フィールドcold/warmはキャッシュ同等性を意味しない。暗号化の一律倍率を結論にしない",
+      "有限ラボで実施不能な本番条件は未計測と適用制限を明記し、無意味な追加実験を要求しない"
+    ],
+    "currentRevision": 22,
+    "detailPaths": [
+      "docs/table-count-evidence.md",
+      "docs/probability-count.md"
+    ],
+    "environmentRetryEvidencePath": "results/reviews/space-retry-evidence.json",
+    "findingRegisterPath": "results/reviews/finding-register.json",
+    "fixes": [
+      {
+        "boundedRemediation": "callerの失敗集計・保存・終了判定を限定修正する。失敗結果を保存して非0終了する方式、または診断完了を維持しつつ必須範囲の再利用を明示的に禁止する方式で足りる。precision_not_reached、全体budget_exhausted、確認済みdeadlineを一律失敗へ変更しない。既存の失敗観測は診断として保持し、成功比較から除外できるが、必須条件を満たしたことには代用できない。",
+        "evidence": "results/reviews/sol-wide-errors-review.json",
+        "id": "SOL-WIDE-ERROR-001",
+        "requiredCorrection": "staticとserviceの双方について、期待された観測と予期しない失敗を区別して保存する。未解決の予期しない失敗を必須範囲の再利用可能な完了として扱わない。",
+        "severity": "middle"
+      },
+      {
+        "boundedRemediation": "既存のWorkload.finish(confirm_server=True)と所有connection確認機構を利用し、失敗時にも現在のarm情報・到着会計・cleanup診断をcallerへ保存してから停止する。後始末失敗を単なる遅延観測へ変換しない。SQL、caps、fixture、arm数の変更は不要。",
+        "evidence": "results/reviews/sol-wide-errors-review.json",
+        "id": "SOL-WIDE-ERROR-002",
+        "requiredCorrection": "各wide armの所有workloadについて終了確認を行い、確認できない場合は後続比較を開始しない。accounting、打切り観測、cleanup結果を別々に保存する。",
+        "severity": "middle"
+      }
+    ],
+    "frontierDesignReview": {
+      "assessmentPath": "results/reviews/sol-frontier-assessment.json",
+      "log": "results/reviews/sol-frontier-run.log",
+      "resultPath": "results/reviews/sol-frontier-review.json",
+      "snapshot": "results/reference/20261107-frontier-design",
+      "status": "completed,rejected middle3/low1 on immutable pre-fix design",
+      "workflow": "temp-table-count-frontier-sol"
+    },
+    "guidelinePath": "docs/table-count-guideline.md",
+    "historicalCurrentEvidence": [
+      "Interrupted white-all attempt2 actually used Ruby4.0.9, passed10self-checks, verified generated data/replica, completed58shapes,99lock cases,36impact experiments and5matrix versions. It was deliberately stopped during01a because new high2/middle1 protocol defects require source changes. Exit130 is intentional, not a Ruby/bootstrap or DB failure. This is NOT final reproduction.",
+      "Read results/reviews/white-all-interruption.json and the immutable results/reference/review-20261107T053954Z-72116/manifest.json. 01a is partial; later requested scripts were not run in this attempt. The source stayed unchanged during attempt2; no final proof exists.",
+      "Read the new results/reviews/sol-protocol-review.json and owner assessment. The findings are static counterexamples, not an assertion that current-run reqmix hit2013. Repair classification, necessary repetition budgeting and cleanup; preserve hypotheses.",
+      "All5pinned images are now downloaded. Docker VM filled during image pulls. Root removed only confirmed unused build caches; VM now has2.6GiB free, host142GiB. No images, containers, volumes or DB data were deleted for space. Read build-cache-cleanup-evidence.json; prepare images/check space before performance in future.",
+      "The original31finding register and five focused Sol reviews remain pending final closure. Original Opus records are historical only; all new agents must be GPT-6.1 Sol.",
+      "Keep prior runtime selection, lossless8MiB raw chunks, artifact/cache hashes, fresh-summary attribution, partitioned scale30scripts and tolerance105static/48service scope. The current requested glob has118scripts before this repair; derive final scope from source.",
+      "LATEST environment-only retry: source unchanged through completed integration revision19. See space-retry-evidence.json. Current VMfreeKiB=6710280. Prior preflight failure is NOT DB/measurement failure; final all still required. Use current prepared image/cache without further cleanup during measurements."
+    ],
+    "latestAccuracySteering": {
+      "additionalServicePriority": "Because actual100-column3%-target sampling exhausted the1s service budget in all6 no-small-index arms, include a minimal bounded100-column TDE under-load comparison at relaxed10% (plus matched control and existing3% evidence). Test whether reduced draws actually improve budget/precision outcomes, rather than infer from static checkpoints.5% can be static if a full service factorial would add little. Split scripts within20min limits; avoid an exhaustive redundant factorial.",
+      "conditionMechanisms": "Distinguish effects on statistical accuracy, cost under a fixed budget, and freshness. Key-space sparsity/cell-density variance affect sampling interval convergence; page-level row-size/density heterogeneity, stats sample pages and staleness affect metadata error. A small index, cache, TDE, row width and MVCC mainly change read/CPU/time cost and therefore attainable precision within a fixed budget; they do not make a completed snapshotCOUNT approximate. Concurrent writes/replica lag can change the represented time/population and must not be conflated with estimator error. More sample pages/ANALYZE does not guarantee monotonic accuracy and has separate maintenance impact.",
+      "implementation": "Root added isolated bench/accuracy_frontier.py plus01c-ACCURACY-COST and01d-ACCURACY-SERVICE-100 (.versions8.4.13/.encrypted/.outputs). No active imported source was edited. Code is prepared, NOT DB-executed. Review/fix these scripts rather than duplicate.01c uses seven fixtures xfive seeds x3targets, fullCOUNT paired comparisons, target-specific predeclared looks and same alpha.01d uses100-column TDE with control/exact/3%/10%, index absent/present, indexed/nonindexed writes x3repeats=48arms.5% service is explicitly unmeasured; static includes it. Pure arithmetic verifies each first look can meet its target at zero variance; static closure includes new module and sampling dependencies. Both new wrappers honor the review-only aggregate guard (exit3, never success) and declare their required .outputs. Final all has no aggregate cap.",
+      "interpretation": "Compare accuracy, elapsed time, read volume and service impact rather than require only3%. Include exactCOUNT at0% error. Choose the most favorable method within the accepted error, freshness and service budget;10% is not an unconditional guarantee for arbitrary unknown tables.",
+      "newExperiment": "Review and run the isolated implementation named in implementation after the current owner ends. Retain hypotheses and proper confidence/look allocation. Repair demonstrated issues or split if20min is insufficient; do not duplicate experiments or infer unobserved service effects.",
+      "reporting": "Give a compact condition-by-method comparison with accuracy/freshness/cost/limitations and recommended paths. Distinguish interval target from realized error and from global confidence. Relaxed accuracy does not prove no service impact.",
+      "requiredComparison": [
+        "Metadata realized errors and freshness; no guaranteed error bound",
+        "Conditional cell sampling at3%,5%,10% relative-error targets with matched confidence, precision failures, realized error, runtime and read volume",
+        "ExactCOUNT runtime/reads/impact, including cases where a small index beats sampling",
+        "50/100 columns,TDE,index presence,key gaps/density skew,concurrent changes,MVCC and caches; separate measured from unmeasured"
+      ],
+      "userInstruction": "数%に収まらなければ10%程度でもよい。どの条件で精度がどれくらい上がる/下がるかを知り、そのうえで最高精度でperformance最大の件数取得方法を知りたい。"
+    },
+    "latestRubyProbePath": "results/reviews/mise-runtime-latest-probe.json",
+    "latestRubySourceFixApplied": true,
+    "latestUserSteering": "Latest explicit user scope: 全行lockは絶対に避けるので計測しなくていい。lockを発生させない方法で計測。This supersedes older requests for intentional locking COUNT comparisons; do not reintroduce them merely to satisfy old reviewer IDs/150-script grids.",
+    "modelPolicy": "User explicitly instructed on 2026-11-07: Riela must use GPT-6.1 Sol only. No Opus step or Opus approval is required.",
+    "officialSupportCheckPath": "results/reviews/mysql-support-check-20261107.json",
+    "originalReviewExportPath": "results/reviews/original-revision10-reviews.json",
+    "previousPhaseFixes": [
+      {
+        "boundedRemediation": "既存結果にerror_2013等が残っていれば、所有者監査で失敗・原因不明へ再分類するための再測定は不要。タイマーの裏付けが保存されていない1317を確定した予定上限へ昇格させない。欠けた有効比較を主張する場合だけ、その比較を補測する。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-001",
+        "requiredCorrection": "完了、確認済みの予定上限、予期しない失敗、原因不明、未着手を明示的に分類する。2013・接続断・計画拒否等はceiling hitに加算せず、保存後にsemantic failureへ反映する。1317は経過時間だけでタイマー扱いせず、既存split_countと同様にタイマーカウンタ等の裏付けを要求する。scale側の2013拒否は維持する。",
+        "severity": "high"
+      },
+      {
+        "boundedRemediation": "確認済み上限2回だけなら「その2観測で未完了」と限定でき、完走順位を主張しなければ追加反復は不要。速いarmの中央値・順位を必要とする場合だけ不足比較を補測する。scaleの300秒statement・150秒split上限を短縮して穴埋めしてはならない。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-002",
+        "requiredCorrection": "各条件・arm・反復機会を事前に列挙し、実行済み、確認済み打切り、規定による省略、予算不足、失敗をすべて記録する。必要反復と比較成立条件を別に判定し、不足はsemantic incompleteにする。必要な方式群・反復を分割する等で、先行armが後続比較の予算を消費し尽くさない設計にする。",
+        "severity": "high"
+      },
+      {
+        "boundedRemediation": "既存証拠で終了が確認できない窓は、後始末未確認・比較不能と分類できる。quiet truthやdrift境界の主張を撤回すれば、そのためだけの再測定は不要。中断後の影響やdriftを結論に必要とする場合だけ、該当経路を補測する。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-003",
+        "requiredCorrection": "中断時は所有する接続IDについて別接続から処理終了を確認し、必要なKILL・rollback・closeとその成否を保存する。確認できなければ次の比較を開始せず、後続結果を比較不能にする。負荷停止はfinallyで実施し、quiet truthを使う場合は未完了writeの解決とDB処理終了を別途確認する。意図した打切り観測にCOUNT全件完走を要求する必要はない。",
+        "severity": "middle"
+      },
+      {
+        "evidence": "results/reviews/build-cache-cleanup-evidence.json",
+        "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+        "requiredCorrection": "ActualVMrootfilledduringmatriximagepullsafterbaselinephase. Rootalreadyreclaimedunusedbuildcacheonly;VMnow2.6GiBfreeandall5pinnedimagespulled. KeepDBdataonhostbindmounts. Make imagepreparation/VMspacepreflight occur beforebenchmarkperformance sofuturewhiteallfailsbeforemeasurementifspaceunavailable. Do not perform automatic cache/image/container/volume pruning. Document measuredlabresource requirements and no cache-controlled claim. No extra DB experiments outside fixedrunner."
+      }
+    ],
+    "primaryCoverageSnapshotPath": "results/reference/20261107-primary-coverage",
+    "priorCoverageBatchOutcome": {
+      "benchPythonProcessesAbsent": true,
+      "completeExperiments": [
+        "01a-PROB-WIDE-50",
+        "01b-PROB-WIDE-100",
+        "0d-EXP-O10-INDEXED-100-STALL",
+        "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+        "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct"
+      ],
+      "confirmedAt": "2026-11-07T03:50:15.786519+00:00",
+      "coverageIsComplete": false,
+      "forcedKillRequired": false,
+      "matrixContainersAbsent": true,
+      "notYetRun": [
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "ownerBirth": "Sat Nov  7 11:45:33 2026",
+      "ownerCliExitCode": 130,
+      "ownerPid": 40467,
+      "ownerPidAbsent": true,
+      "partialExperiment": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+      "partialSnapshot": "results/reference/20261107-primary-coverage/results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct.json",
+      "reason": "Confirmed ROOT-INTRA-ARM-BUDGET-PARTIAL:300s secondary scans crowd out required fast-arm repetitions. Preserve scope, fix protocol before final all, avoid continuing known defective allocation.",
+      "requestedAt": "2026-11-07T03:49:14.764359+00:00",
+      "requiredRerun": [
+        "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+        "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "status": "confirmed_interrupted_for_protocol_repair"
+    },
+    "priorOriginalSession": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+    "priorPhaseOutputPath": "results/reviews/sol-only-wide-phase-output.json",
+    "priorWhiteAllInterruptionPath": "results/reviews/wide-errors-interruption.json",
+    "protocolDesignReviewPath": "results/reviews/sol-protocol-review.json",
+    "protocolOwnerAssessmentPath": "results/reviews/sol-protocol-assessment.json",
+    "reproductionCandidatePath": "results/reviews/final-all-candidate.json",
+    "reproductionProofPath": "results/reviews/final-all-proof.json",
+    "requestedWork": "件数も内容も分からない巨大MySQLテーブルで、暗号化され通常50列・最大100列程度という条件を含め、稼働サービスのDB performanceへの影響を最小限にして誤差数%の概数を得る最適な方法を調査・検証する。概数から小さいと判断して正確COUNTへ進む案と、その許可閾値の考え方も扱う。社内の不特定メンバー・サービスへ案内した際の疑問、不満、より良い案と、検証方法への疑問・条件漏れ・不備を敵対的に洗い出し解消する。 Latest steering: about10% error may be acceptable if few-percent is not attainable affordably; quantify conditions and identify the accuracy-performance frontier.",
+    "reviewPaths": [
+      "results/reviews/sol-internal-rollout-review.json",
+      "results/reviews/sol-sampling-review.json",
+      "results/reviews/sol-validation-review.json",
+      "results/reviews/sol-frontier-review.json",
+      "results/reviews/sol-protocol-review.json",
+      "results/reviews/sol-wide-errors-review.json",
+      "results/reviews/sol-encryption-state-review.json"
+    ],
+    "rubyLatestSource": "https://www.ruby-lang.org/en/downloads/",
+    "rubyVersion": "4.0.9",
+    "wideErrorsAssessmentPath": "results/reviews/sol-wide-errors-assessment.json",
+    "wideErrorsReviewPath": "results/reviews/sol-wide-errors-review.json",
+    "wideSamplingSnapshotPath": "results/reference/20261107-wide-sampling",
+    "historicalPhaseRequirements": {
+      "wideRepairAcceptance": [
+        "Persist original method error/errno, raw samples/accounting, accuracy/budget/cleanup dimensions and workload cleanup BEFORE stopping. No later arm after unconfirmed cleanup.",
+        "Expected precision_not_reached, total budget_exhausted and confirmed statement deadlines remain legitimate observations; do not turn all non-success into fatal failure. Genuine2013,cleanup_failed and unknown interruption cannot become reusable mandatory-success results.",
+        "Cover reqsamplewide01a/01b,reqwide96/97 and accuracy_frontier01d shared arm/callers. Preserve valid sample/count behavior and all planned cases.",
+        "Use Workload.finish(confirm_server=True) or equivalent existing owned-session confirmation, save its results and fail closed. Audit other repeated-load callers for the SAME defaultFalse leak risk; use shared safe behavior or explicit required gating where appropriate, without unrelated SQL/protocol redesign.",
+        "DB-free exact-function/fake regressions must cover genuine2013 with failed rollback, achieved precision plus cleanup failure, unknown1317 with timer delta0, confirmed deadline, precision_not_reached,total budget_exhausted,successful sample/count; and consistent accounting plus incomplete registry/stuck,observer/KILL/child-exit failure,combined failures. Verify persistence,no nextarm,and no invalid cache reuse.",
+        "Do not shorten scopes, lower resource reserve or delete more environment caches. VM was restored to6.4GiB,all5MySQL/currentbenchimages prepared; currentbenchbuild cache reuse confirmed. DBs intentionally stopped and will be recreated by fixed all.",
+        "Read current guide/detail history and retain source/method qualifications. No commit/push; all new Riela nodes Sol only."
+      ],
+      "protocolRepairAcceptance": [
+        "2013/unknown1317/planreject/cleanupfailurecannotbeplannedceilingorcacheablegreen;savefailureandpropagatesemantic failure.",
+        "Everyrequiredmethod/case/repetitionopportunityhasoutcomeorvalidpredeclaredcensoringrule;budgetabsencecannotpretendcomplete. Preventslowarmstarvation,partitionnecessarycomparisonswithoutshorteningdeclared300s/150sscalecapsor droppinghypotheses.",
+        "ConfirmownedinterruptedDBstatementterminationbeforelaterarm;savecleanupstatus;finallystopload;quiettruth/driftrequiresresolvedunfinishedwrites. Withdrawunprovedclaimsinsteadoffakingquietness.",
+        "Pureclassificationregression(E01),static149/150/120/1sbudgetcounterexample(E02),sectionexception/cleanupregressionregisteredin allselfchecks.",
+        "ReuseexistingRuby4.0.9bootstrap,boundedrawchunkstorage/cachehashes/freshsummaryfixes. KeepSolonly andno commit/push.",
+        "Do not count root cache maintenance,partial01aorcompletedbase36/matrix5 as finalall. Sourcechangedrequiresnewwhiteall. Freshmeasurementsmustbeownedonlybyfixedrunner."
+      ],
+      "phaseSpecificWork": "Bounded wide failure/cleanup repair only. Preserve all estimator math, SQL methods, statement/total caps, fixtures, required150scripts/41write-mixplan/30scaleplan,105accuracy and48service scope. New review confirms two middle defects. Keep all previous startup/raw/cache/freshness/resource/reqmix fixes. No DB experiments outside the fixed runner. Add actual-function/fake regressions and register selfchecks. Then final-source WHITE mise run all and docs-only integration.",
+      "phaseControl": "Single Sol author after phase17 integration terminal; fixedWHITEall; docs-only integration(max3steps). Source changes require new final-code reproduction. Owner semantic/source audit, proof and two fresh final Sol roles remain required.",
+      "currentEvidence": [
+        "Latest source is Sol author18, integrated through19 and now phase17 documentation-only integration after an intentional stop. Source repairs are needed only for confirmed SOL-WIDE-ERROR001/002; no observed live wide failure is claimed.",
+        "Actual WHITE attempt4 started2026-11-07T06:33:58Z underRuby4.0.9, passed resource preflight and12selfchecks, generated/verified initial data and replica, completed58shapes/99lock cases and8impact files before controlled interruption. It is NOT final reproduction. Wide/requested phase was not reached.",
+        "Read results/reviews/wide-errors-interruption.json and sol-wide-errors-review.json/assessment.json. Middle2 are confirmed exact-function/fake counterexamples: service errors omitted from failure/reuse decision, and defaultFalse workload server confirmation before next wide arm.",
+        "Root paused orchestrator, SIGINT exact bench Python, stopped only owned compose primary/replica cleanly(exit0), confirmed no bench Python, then orchestratorSIGINT130. Data files retained; MEMORY is volatile. Final data integrity was not reached, not falsely approved.",
+        "VM capacity is resolved without lowering2GiBreserve. Unused publicSwift6.2SDKcache removed after exact registry digest resolved and zero container references; MySQL5 and currentbenchimages preserved. Last actual preflight VM6.4GiBfree/host sufficient. Do not prune caches or alter Docker/runtime for this repair.",
+        "All prior reqmix partitioned-v3 outcome/cleanup/fail-fast changes,150requested scripts,41write-mix plan with112main opportunities+aux/tail,30scale plan,105accuracy/48service scope and source/raw/cache/freshness/Ruby/resource fixes remain required. No math/SQL/cap/fixture changes merely to pass.",
+        "Registry now33unique reviewer IDs,41occurrences;all final closures pending. Six focused Sol reviews are prior evidence. Only two fresh final proof-based Sol roles can close high/middle after successful all and owner audit."
+      ]
+    },
+    "phaseControl": "AUTHOR ONLY max1. No DB/Docker/benchmark/workflow/delegation/commit/push. File edits, pure isolated selfchecks and syntax checks allowed. Owner will inspect actual default scope before starting the fixed lab runner. No automatic all in this phase.",
+    "phaseSpecificWork": "Bounded user-directed default-suite scope change: remove intentional row/table/global-lock acquisition probes from default mise run all. Retain ordinary nonlocking InnoDB SELECT COUNT, rough metadata and conditional sampler, static accuracy and concurrent normal-business-load comparisons. Integrate pending latest crypto-state taxonomy/seventh Sol review and user concurrent-workload clarification into concise Japanese guide. Preserve prior evidence and all stable IDs with explicit user-out-of-scope dispositions rather than pretending excluded tests passed. Do not introduce unrelated redesign or new optimization grids.",
+    "nonlockingScopeRequirements": [
+      "Read results/reviews/nonlocking-scope-interruption.json. Attempt5 intentionally interrupted for user scope, not a harness failure: source336 unchanged, actual command exit130, owned compose DBs stopped and bench Python quiescent. Snapshot results/reference/review-20261107T100132Z-16034 is partial/historical only.",
+      "Audit actual execution paths, not only script names/grep. Default all must not execute FOR SHARE/FOR UPDATE COUNT, count-to-DML/CTAS/SET subquery, explicit LOCK TABLES/FTWRL, SERIALIZABLE-in-transaction COUNT, or intentional blocking-lock injection diagnostic probes. Small pure parser/safety/selfcheck fixtures containing strings are allowed; they execute no DB SQL.",
+      "Change lock_factors/default impact stages and relevant requested mixed scripts at arm/section level when practical; explicitly retain nonlocking parts and current crypto/COUNT-form experiments. Candidate paths to inspect include40/41/42/50/57/91 and14/02/0c plus shared experiments/lock_factors. SELECT-only TDE comparison must remain even if91 locking insert-select section is excluded. No blanket removal of all request scripts or all concurrent writes.",
+      "Restriction applies to COUNT/estimator candidates and intentional lock-injection comparisons, NOT the locks naturally needed by fixture CREATE/INSERT/ANALYZE/DROP before or after service measurement or by simulated business writes. Do not demand an impossible lock-free entire DB lifecycle. ANALYZE/statistics refresh is not a compliant automatic count step; label its locking/operational caveats and do not benchmark its blocking as a candidate. Metadata-only reads, needed MDL monitoring and nonlocking read-only runtime-state diagnostics remain applicable.",
+      "Ordinary SELECT necessarily takes MDL; document this rather than promising zero locks of all kinds. Count candidate must avoid row-locking reads. InnoDB session isolation/autocommit/read-only snapshot settings matter. Business workload UPDATE/INSERT/DELETE naturally takes its own locks and is separate from the counter. Avoid presenting non-InnoDB table-locking scans as compliant service-impact candidates.",
+      "Existing nonlocking150 grid coverage is superseded ONLY for user-excluded lock probes. Preserve41writeMix/112main opportunities+aux/tails,30primaryScale,105static3/5/10%,48TDE100service3/10%,50/100wide and all other applicable nonlocking scope/protocols/budgets. Derive and write exact new default expected scope and an explicit exclusion catalog mapping prior IDs/reasons; do not count skips as measurements.",
+      "Make mise run all from white reproduce the CURRENT nonlocking default without executing excluded probes. Optional legacy negative probes need not be runnable; if retained require explicit separate opt-in and never default all. Update README/AGENTS/workflow prompts/gates so old mandatory locking experiments do not override new user instruction. Preserve source/cache/freshness/raw/cleanup/fail-fast guards; no cap/fixture/math changes merely to pass.",
+      "No DB experiments by author. Run relevant DB-free selfchecks; add focused meaningful guard that default execution paths cannot dispatch prohibited probes. Do not duplicate every implementation assertion in tests. New full all remains pending owner launch; do not fabricate process/evidence/proof.",
+      "Integrate sol-encryption-state-review/assessment, encryption-state-coverage and encrypted-keyless-research including latestUserConcurrentWorkloadQuestion. Main guide<=220Japanese lines, linked state catalog: TDE server decrypt capability required/client key possession separate; real appcrypto/storage/key-loss experiments unmeasured or spec-only; SQL-visible integer PK applicability conditional. Read relatedCurrentEvidence actual105/48frontiers/50/100provenance and preliminarywriteMix4column results with boundaries. Do not force new crypto destructive experiments.",
+      "Preserve36stable findings and all discussions/requests. User-excluded lock probes may be dispositioned superseded_by_explicit_user_scope, with exact reason and boundaries; owner/final Sol reviewers still decide technical closure for all remaining material findings. Final proof and two fresh Sol roles still required, same-model role separation only."
+    ],
+    "currentEvidence": [
+      "Attempt5 actual source-frozen all started07:28:15Z, stopped10:01:32Z exit130 due latest user nonlocking-only scope. Initial58table integrity,58shapes/99historical lockcases,36impacts,5matrix,105static+48service,50/100wide completed before stop; later requested partial. This is not finalall/proof.",
+      "Owner write-mix progress audit13scripts44obs clean before interruption, raw not decompressed. Current08aux was intentionally interrupted, never mandatory success. No actual DB beyond compose was used.",
+      "Stale crypto-docs waiting supervisor PID15785 was terminated before launch; latest crypto requirements are folded into THIS author. Current session19 docs writer must finish before author starts."
+    ],
+    "encryptionStateReviewPath": "results/reviews/sol-encryption-state-review.json",
+    "encryptionStateCoveragePath": "results/reviews/encryption-state-coverage.json",
+    "encryptionResearchPath": "results/reviews/encrypted-keyless-research.json"
+  }
+}

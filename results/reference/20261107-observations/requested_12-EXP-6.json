@@ -1,0 +1,1292 @@
+{
+ "id": "12-EXP-6",
+ "answers": [
+  "EXP-6",
+  "EXP-O2-1",
+  "FIND-STEP-01",
+  "FIND-R3-HINT-01",
+  "FIND-SOL-ISO-01"
+ ],
+ "started": "2026-11-06T16:16:34",
+ "sections": {
+  "SQL0": {
+   "SET SESSION autocommit = 1": {
+    "sql": "SET SESSION autocommit = 1",
+    "ok": true,
+    "ms": 0.31,
+    "rows": []
+   },
+   "SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ": {
+    "sql": "SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ",
+    "ok": true,
+    "ms": 0.09,
+    "rows": []
+   },
+   "SET SESSION lock_wait_timeout = 3": {
+    "sql": "SET SESSION lock_wait_timeout = 3",
+    "ok": true,
+    "ms": 0.06,
+    "rows": []
+   },
+   "SET SESSION time_zone = '+00:00'": {
+    "sql": "SET SESSION time_zone = '+00:00'",
+    "ok": true,
+    "ms": 0.09,
+    "rows": []
+   },
+   "SET NAMES utf8mb4": {
+    "sql": "SET NAMES utf8mb4",
+    "ok": true,
+    "ms": 0.04,
+    "rows": []
+   },
+   "SET SESSION max_execution_time = 1000": {
+    "sql": "SET SESSION max_execution_time = 1000",
+    "ok": true,
+    "ms": 0.06,
+    "rows": []
+   },
+   "check": {
+    "sql": "SELECT VERSION(), @@server_uuid, @@read_only, @@autocommit, @@transaction_isolation, @@time_zone, @@character_set_results",
+    "ok": true,
+    "ms": 0.22,
+    "rows": [
+     [
+      "8.4.13",
+      "ed17919e-d9bd-11f1-a295-a6801bb0058f",
+      0,
+      1,
+      "REPEATABLE-READ",
+      "+00:00",
+      "utf8mb4"
+     ]
+    ]
+   },
+   "_seconds": 0.0
+  },
+  "SQLM": {
+   "mdl": {
+    "sql": "SELECT ENABLED FROM performance_schema.setup_instruments WHERE NAME = 'wait/lock/metadata/sql/mdl'",
+    "ok": true,
+    "ms": 0.36,
+    "rows": [
+     [
+      "YES"
+     ]
+    ]
+   },
+   "hll": {
+    "sql": "SELECT `count` FROM information_schema.INNODB_METRICS WHERE name = 'trx_rseg_history_len'",
+    "ok": true,
+    "ms": 0.69,
+    "rows": [
+     [
+      0
+     ]
+    ]
+   },
+   "trx": {
+    "sql": "SELECT COUNT(*) FROM information_schema.INNODB_TRX",
+    "ok": true,
+    "ms": 0.15,
+    "rows": [
+     [
+      0
+     ]
+    ]
+   },
+   "_seconds": 0.0
+  },
+  "SQL1": {
+   "expiry": {
+    "sql": "SET SESSION information_schema_stats_expiry = 0",
+    "ok": true,
+    "ms": 0.1,
+    "rows": []
+   },
+   "tables_t_dense": {
+    "sql": "SELECT TABLE_ROWS, DATA_LENGTH, INDEX_LENGTH, ENGINE, TABLE_TYPE\nFROM information_schema.TABLES WHERE TABLE_SCHEMA = 'bench' AND TABLE_NAME = 't_dense'",
+    "ok": true,
+    "ms": 1.34,
+    "rows": [
+     [
+      99619308,
+      6434062336,
+      2136981504,
+      "InnoDB",
+      "BASE TABLE"
+     ]
+    ]
+   },
+   "explain_t_dense": {
+    "sql": "EXPLAIN SELECT COUNT(*) FROM t_dense",
+    "ok": true,
+    "ms": 0.3,
+    "rows": [
+     [
+      1,
+      "SIMPLE",
+      "t_dense",
+      null,
+      "index",
+      null,
+      "k_created",
+      "5",
+      null,
+      99619308,
+      100.0,
+      "Using index"
+     ]
+    ]
+   },
+   "tables_d_soft_delete": {
+    "sql": "SELECT TABLE_ROWS, DATA_LENGTH, INDEX_LENGTH, ENGINE, TABLE_TYPE\nFROM information_schema.TABLES WHERE TABLE_SCHEMA = 'bench' AND TABLE_NAME = 'd_soft_delete'",
+    "ok": true,
+    "ms": 0.36,
+    "rows": [
+     [
+      2003772,
+      76136448,
+      38371328,
+      "InnoDB",
+      "BASE TABLE"
+     ]
+    ]
+   },
+   "explain_d_soft_delete": {
+    "sql": "EXPLAIN SELECT COUNT(*) FROM d_soft_delete",
+    "ok": true,
+    "ms": 0.16,
+    "rows": [
+     [
+      1,
+      "SIMPLE",
+      "d_soft_delete",
+      null,
+      "index",
+      null,
+      "k_deleted",
+      "6",
+      null,
+      2003772,
+      100.0,
+      "Using index"
+     ]
+    ]
+   },
+   "_seconds": 0.0
+  },
+  "SQL2": {
+   "small_table": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(1000) */ COUNT(*) FROM d_gipk",
+    "ok": true,
+    "ms": 216.44,
+    "rows": [
+     [
+      1000000
+     ]
+    ]
+   },
+   "t_dense_1000ms": [
+    {
+     "ok": false,
+     "ms": 1000.35,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.34,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.33,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.33,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.37,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    }
+   ],
+   "t_dense_500ms": [
+    {
+     "ok": false,
+     "ms": 500.33,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 500.32,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 500.34,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 500.33,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 500.36,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+    }
+   ],
+   "_seconds": 7.72
+  },
+  "SQL3": {
+   "indexes_t_dense": {
+    "ok": true,
+    "ms": 1.9,
+    "rows": [
+     [
+      "k_created",
+      1,
+      "created_at",
+      "A",
+      1,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "datetime",
+      ""
+     ],
+     [
+      "PRIMARY",
+      1,
+      "id",
+      "A",
+      0,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "bigint",
+      "auto_increment"
+     ]
+    ]
+   },
+   "pages_t_dense": {
+    "sql": "SELECT index_name, stat_value AS pages FROM mysql.innodb_index_stats\nWHERE database_name = 'bench' AND table_name = 't_dense' AND stat_name = 'size'",
+    "ok": true,
+    "ms": 0.16,
+    "rows": [
+     [
+      "PRIMARY",
+      392704
+     ],
+     [
+      "k_created",
+      130431
+     ]
+    ]
+   },
+   "indexes_t_composite": {
+    "ok": true,
+    "ms": 0.7,
+    "rows": [
+     [
+      "PRIMARY",
+      1,
+      "tenant_id",
+      "A",
+      0,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "int",
+      ""
+     ],
+     [
+      "PRIMARY",
+      2,
+      "seq",
+      "A",
+      0,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "bigint",
+      ""
+     ]
+    ]
+   },
+   "pages_t_composite": {
+    "sql": "SELECT index_name, stat_value AS pages FROM mysql.innodb_index_stats\nWHERE database_name = 'bench' AND table_name = 't_composite' AND stat_name = 'size'",
+    "ok": true,
+    "ms": 0.1,
+    "rows": [
+     [
+      "PRIMARY",
+      27904
+     ]
+    ]
+   },
+   "indexes_t_nopk": {
+    "ok": true,
+    "ms": 0.35,
+    "rows": [
+     [
+      "k_a",
+      1,
+      "a",
+      "A",
+      1,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "int",
+      ""
+     ]
+    ]
+   },
+   "pages_t_nopk": {
+    "sql": "SELECT index_name, stat_value AS pages FROM mysql.innodb_index_stats\nWHERE database_name = 'bench' AND table_name = 't_nopk' AND stat_name = 'size'",
+    "ok": true,
+    "ms": 0.07,
+    "rows": [
+     [
+      "GEN_CLUST_INDEX",
+      10732
+     ],
+     [
+      "k_a",
+      6890
+     ]
+    ]
+   },
+   "indexes_t_part": {
+    "ok": true,
+    "ms": 0.4,
+    "rows": [
+     [
+      "PRIMARY",
+      1,
+      "id",
+      "A",
+      0,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "bigint",
+      ""
+     ],
+     [
+      "PRIMARY",
+      2,
+      "created_at",
+      "A",
+      0,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "date",
+      ""
+     ]
+    ]
+   },
+   "pages_t_part": {
+    "sql": "SELECT index_name, stat_value AS pages FROM mysql.innodb_index_stats\nWHERE database_name = 'bench' AND table_name = 't_part' AND stat_name = 'size'",
+    "ok": true,
+    "ms": 0.08,
+    "rows": []
+   },
+   "indexes_d_gipk": {
+    "ok": true,
+    "ms": 0.43,
+    "rows": [
+     [
+      "PRIMARY",
+      1,
+      "my_row_id",
+      "A",
+      0,
+      "",
+      "BTREE",
+      null,
+      "YES",
+      null,
+      "bigint",
+      "auto_increment INVISIBLE"
+     ]
+    ]
+   },
+   "pages_d_gipk": {
+    "sql": "SELECT index_name, stat_value AS pages FROM mysql.innodb_index_stats\nWHERE database_name = 'bench' AND table_name = 'd_gipk' AND stat_name = 'size'",
+    "ok": true,
+    "ms": 0.09,
+    "rows": [
+     [
+      "PRIMARY",
+      2276
+     ]
+    ]
+   },
+   "pages_partition_names": {
+    "sql": "SELECT DISTINCT table_name FROM mysql.innodb_index_stats WHERE database_name = 'bench' AND table_name LIKE 't\\_part%'",
+    "ok": true,
+    "ms": 0.42,
+    "rows": [
+     [
+      "t_part#p#p1"
+     ],
+     [
+      "t_part#p#p2"
+     ],
+     [
+      "t_part#p#p3"
+     ],
+     [
+      "t_part#p#p4"
+     ],
+     [
+      "t_part#p#p5"
+     ]
+    ]
+   },
+   "_seconds": 0.01
+  },
+  "SQL4_form_A": {
+   "first": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ tenant_id, seq FROM t_composite FORCE INDEX (`PRIMARY`)\nWHERE tenant_id IS NOT NULL ORDER BY tenant_id, seq LIMIT 1 OFFSET 9999",
+    "ok": true,
+    "ms": 5.43,
+    "rows": [
+     [
+      1,
+      20000
+     ]
+    ]
+   },
+   "mid": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ tenant_id, seq FROM t_composite FORCE INDEX (`PRIMARY`)\nWHERE tenant_id > %s OR (tenant_id = %s AND seq > %s) ORDER BY tenant_id, seq LIMIT 1 OFFSET 9999",
+    "ok": true,
+    "ms": 2.79,
+    "rows": [
+     [
+      1,
+      40000
+     ]
+    ]
+   },
+   "tail_near_end": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ COUNT(*) FROM t_composite FORCE INDEX (`PRIMARY`)\nWHERE tenant_id > %s OR (tenant_id = %s AND seq > %s)",
+    "ok": true,
+    "ms": 24.2,
+    "rows": [
+     [
+      55055
+     ]
+    ]
+   },
+   "rule2_explain": {
+    "sql": "EXPLAIN FORMAT=JSON SELECT tenant_id, seq FROM t_composite FORCE INDEX (`PRIMARY`)\nWHERE tenant_id > %s OR (tenant_id = %s AND seq > %s) ORDER BY tenant_id, seq LIMIT 1 OFFSET 9999",
+    "ok": true,
+    "ms": 0.21,
+    "rows": [
+     [
+      "{\n  \"query_block\": {\n    \"select_id\": 1,\n    \"cost_info\": {\n      \"query_cost\": \"2.40\"\n    },\n    \"ordering_operation\": {\n      \"using_filesort\": false,\n      \"table\": {\n        \"table_name\": \"t_composite\",\n        \"access_type\": \"range\",\n        \"possible_keys\": [\n          \"PRIMARY\"\n        ],\n        \"key\": \"PRIMARY\",\n        \"used_key_parts\": [\n          \"tenant_id\",\n          \"seq\"\n        ],\n        \"key_length\": \"12\",\n        \"rows_examined_per_scan\": 2,\n        \"rows_produced_per_join\": 2,\n        \"filtered\": \"100.00\",\n        \"using_index\": true,\n        \"cost_info\": {\n          \"read_cost\": \"2.20\",\n          \"eval_cost\": \"0.20\",\n          \"prefix_cost\": \"2.40\",\n          \"data_read_per_join\": \"48\"\n        },\n        \"used_columns\": [\n          \"tenant_id\",\n          \"seq\"\n        ],\n        \"attached_condition\": \"((`bench`.`t_composite`.`tenant_id` > 1) or ((`bench`.`t_composite`.`tenant_id` = 1) and (`bench`.`t_composite`.`seq` > 20000)))\"\n      }\n    }\n  }\n}"
+     ]
+    ]
+   },
+   "rule3_roundtrip": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ 1 FROM t_composite FORCE INDEX (`PRIMARY`) WHERE tenant_id = %s AND seq = %s LIMIT 1",
+    "ok": true,
+    "ms": 0.09,
+    "rows": [
+     [
+      1
+     ]
+    ]
+   },
+   "probe": {
+    "sql": "SELECT 9007199254740993 AS probe",
+    "ok": true,
+    "ms": 0.06,
+    "rows": [
+     [
+      9007199254740993
+     ]
+    ]
+   },
+   "probe_back": {
+    "sql": "SELECT CAST(%s AS CHAR) = '9007199254740993' AS ok",
+    "ok": true,
+    "ms": 0.06,
+    "rows": [
+     [
+      1
+     ]
+    ]
+   },
+   "probe_unsigned": {
+    "sql": "SELECT 18446744073709551615 AS probe",
+    "ok": true,
+    "ms": 0.05,
+    "rows": [
+     [
+      18446744073709551615
+     ]
+    ]
+   },
+   "secondary_mid": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ created_at, id FROM t_events FORCE INDEX (`k_created`)\nWHERE created_at > %s OR (created_at = %s AND id > %s) ORDER BY created_at, id LIMIT 1 OFFSET 9999",
+    "ok": true,
+    "ms": 2.98,
+    "rows": [
+     [
+      "2026-01-01 00:10:09",
+      429359514909615
+     ]
+    ]
+   },
+   "_seconds": 0.04
+  },
+  "SQL4_form_B": {
+   "upper_first": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ a FROM t_nopk FORCE INDEX (`k_a`) WHERE a IS NOT NULL ORDER BY a LIMIT 1 OFFSET 9999",
+    "ok": true,
+    "ms": 1.05,
+    "rows": [
+     [
+      1
+     ]
+    ]
+   },
+   "upper_mid": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ a FROM t_nopk FORCE INDEX (`k_a`) WHERE a > %s ORDER BY a LIMIT 1 OFFSET 9999",
+    "ok": true,
+    "ms": 2.84,
+    "rows": [
+     [
+      3
+     ]
+    ]
+   },
+   "range_first": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ COUNT(*) FROM t_nopk FORCE INDEX (`k_a`) WHERE a IS NOT NULL AND a <= %s",
+    "ok": true,
+    "ms": 1.2,
+    "rows": [
+     [
+      10000
+     ]
+    ]
+   },
+   "range_mid": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ COUNT(*) FROM t_nopk FORCE INDEX (`k_a`) WHERE a > %s AND a <= %s",
+    "ok": true,
+    "ms": 1.27,
+    "rows": [
+     [
+      10000
+     ]
+    ]
+   },
+   "tail": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ COUNT(*) FROM t_nopk FORCE INDEX (`k_a`) WHERE a > %s",
+    "ok": true,
+    "ms": 3.32,
+    "rows": [
+     [
+      10000
+     ]
+    ]
+   },
+   "null_count": {
+    "sql": "SELECT /*+ MAX_EXECUTION_TIME(500) */ COUNT(*) FROM t_uniq_nullable FORCE INDEX (`uk_code`) WHERE code IS NULL",
+    "ok": true,
+    "ms": 86.65,
+    "rows": [
+     [
+      1000000
+     ]
+    ]
+   },
+   "_seconds": 0.1
+  },
+  "limits_on_every_statement_kind": {
+   "boundary_1000": [
+    {
+     "ok": false,
+     "ms": 1000.34,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1002.0,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1003.82,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.64,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.41,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "boundary_500": [
+    {
+     "ok": false,
+     "ms": 500.33,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.34,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.33,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.29,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.34,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "null_count_shape_1000": [
+    {
+     "ok": false,
+     "ms": 1000.27,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.31,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.29,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.3,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.29,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "null_count_shape_500": [
+    {
+     "ok": false,
+     "ms": 500.29,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.3,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.29,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.3,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.3,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "tail_1000": [
+    {
+     "ok": false,
+     "ms": 1000.29,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.28,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.29,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.28,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.28,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "tail_500": [
+    {
+     "ok": false,
+     "ms": 500.31,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.29,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.29,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.26,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.28,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "roundtrip_shape_1000": [
+    {
+     "ok": false,
+     "ms": 1000.3,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.28,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1001.85,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.27,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 1000.31,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "roundtrip_shape_500": [
+    {
+     "ok": false,
+     "ms": 504.38,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.46,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.31,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.3,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    },
+    {
+     "ok": false,
+     "ms": 500.29,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')",
+     "timer_counter_delta": 1
+    }
+   ],
+   "_seconds": 30.1
+  },
+  "session_limit_and_lost_hint": {
+   "hint_only_session_0": [
+    {
+     "ok": false,
+     "ms": 1000.32,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.34,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.37,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.31,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1001.04,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    }
+   ],
+   "session_1000_hint_lost": [
+    {
+     "ok": false,
+     "ms": 1000.3,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.32,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.32,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.34,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.31,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    }
+   ],
+   "session_1000_hint_3000": [
+    {
+     "ok": false,
+     "ms": 3000.37,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 3000.45,
+     "errno": 3024,
+     "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+    },
+    {
+     "ok": false,
+     "ms": 3000.32,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 3008.64,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 3000.49,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    }
+   ],
+   "session_3000_hint_1000": [
+    {
+     "ok": false,
+     "ms": 1000.37,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.35,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.53,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.41,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    {
+     "ok": false,
+     "ms": 1000.33,
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    }
+   ],
+   "no_limit_killed_at_4s": {
+    "ok": true,
+    "ms": 3923.54,
+    "rows": [
+     [
+      100000000
+     ]
+    ]
+   },
+   "_error": "Traceback (most recent call last):\n  File \"/work/bench/reqlib.py\", line 51, in section\n    yield d\n  File \"/work/bench/requested/12-EXP-6.py\", line 136, in <module>\n    value = query(s, \"SELECT COUNT(*) FROM order_items FORCE INDEX (`PRIMARY`)\")[0][0]\n  File \"/work/bench/lablib.py\", line 28, in query\n    c.execute(sql, args)\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/cursors.py\", line 153, in execute\n    result = self._query(query)\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/cursors.py\", line 322, in _query\n    conn.query(q)\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/connections.py\", line 563, in query\n    self._affected_rows = self._read_query_result(unbuffered=unbuffered)\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/connections.py\", line 825, in _read_query_result\n    result.read()\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/connections.py\", line 1206, in read\n    self._read_result_packet(first_packet)\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/connections.py\", line 1283, in _read_result_packet\n    self._read_rowdata_packet()\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/connections.py\", line 1330, in _read_rowdata_packet\n    packet = self.connection._read_packet()\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/connections.py\", line 775, in _read_packet\n    packet.raise_for_error()\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/protocol.py\", line 219, in raise_for_error\n    err.raise_mysql_exception(self._data)\n  File \"/usr/local/lib/python3.9/site-packages/pymysql/err.py\", line 150, in raise_mysql_exception\n    raise errorclass(errno, errval)\npymysql.err.OperationalError: (1317, 'Query execution was interrupted')\n",
+   "_seconds": 34.15
+  },
+  "monitoring_statements": {
+   "metadata_locks": {
+    "sql": "SELECT OBJECT_SCHEMA, OBJECT_NAME, LOCK_TYPE, LOCK_STATUS, OWNER_THREAD_ID\nFROM performance_schema.metadata_locks\nWHERE OBJECT_TYPE = 'TABLE' AND OBJECT_SCHEMA = 'bench' AND OBJECT_NAME = 't_dense'",
+    "ok": true,
+    "ms": 0.21,
+    "rows": []
+   },
+   "threads": {
+    "sql": "SELECT PROCESSLIST_ID, PROCESSLIST_STATE, PROCESSLIST_TIME, LEFT(PROCESSLIST_INFO, 120)\nFROM performance_schema.threads\nWHERE PROCESSLIST_STATE LIKE 'Waiting for table%'",
+    "ok": true,
+    "ms": 0.14,
+    "rows": []
+   },
+   "innodb_trx": {
+    "sql": "SELECT trx_mysql_thread_id, trx_isolation_level, trx_rows_locked, trx_lock_structs,\n       TIMESTAMPDIFF(SECOND, trx_started, NOW()) AS age_s, LEFT(trx_query, 120) AS q\nFROM information_schema.INNODB_TRX WHERE trx_rows_locked > 1000 ORDER BY trx_rows_locked DESC",
+    "ok": true,
+    "ms": 0.14,
+    "rows": []
+   },
+   "table_id": {
+    "sql": "SELECT NAME, TABLE_ID FROM information_schema.INNODB_TABLES WHERE NAME = 'bench/t_part' OR NAME LIKE 'bench/t\\_part#p#%'",
+    "ok": true,
+    "ms": 17.56,
+    "rows": [
+     [
+      "bench/t_part#p#p1",
+      1085
+     ],
+     [
+      "bench/t_part#p#p2",
+      1086
+     ],
+     [
+      "bench/t_part#p#p3",
+      1087
+     ],
+     [
+      "bench/t_part#p#p4",
+      1088
+     ],
+     [
+      "bench/t_part#p#p5",
+      1089
+     ]
+    ]
+   },
+   "fk": {
+    "sql": "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, REFERENCED_TABLE_SCHEMA, REFERENCED_TABLE_NAME\nFROM information_schema.KEY_COLUMN_USAGE\nWHERE REFERENCED_TABLE_NAME IS NOT NULL\n  AND ((TABLE_SCHEMA='bench' AND TABLE_NAME='orders') OR (REFERENCED_TABLE_SCHEMA='bench' AND REFERENCED_TABLE_NAME='orders'))",
+    "ok": true,
+    "ms": 1.61,
+    "rows": [
+     [
+      "bench",
+      "orders",
+      "customer_id",
+      "bench",
+      "customers"
+     ],
+     [
+      "bench",
+      "order_items",
+      "order_id",
+      "bench",
+      "orders"
+     ]
+    ]
+   },
+   "routines": {
+    "sql": "SELECT ROUTINE_SCHEMA, ROUTINE_NAME FROM information_schema.ROUTINES WHERE ROUTINE_DEFINITION LIKE '%COUNT(%'",
+    "ok": true,
+    "ms": 5.19,
+    "rows": [
+     [
+      "sys",
+      "diagnostics"
+     ],
+     [
+      "sys",
+      "ps_trace_statement_digest"
+     ],
+     [
+      "sys",
+      "ps_setup_disable_background_threads"
+     ],
+     [
+      "sys",
+      "ps_setup_disable_consumer"
+     ],
+     [
+      "sys",
+      "ps_setup_disable_instrument"
+     ]
+    ]
+   },
+   "triggers": {
+    "sql": "SELECT TRIGGER_SCHEMA, TRIGGER_NAME FROM information_schema.TRIGGERS WHERE ACTION_STATEMENT LIKE '%COUNT(%'",
+    "ok": true,
+    "ms": 0.67,
+    "rows": []
+   },
+   "events": {
+    "sql": "SELECT EVENT_SCHEMA, EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_DEFINITION LIKE '%COUNT(%'",
+    "ok": true,
+    "ms": 0.78,
+    "rows": []
+   },
+   "status_threads_running": {
+    "sql": "SELECT VARIABLE_VALUE FROM performance_schema.global_status WHERE VARIABLE_NAME='Threads_running'",
+    "ok": true,
+    "ms": 0.29,
+    "rows": [
+     [
+      "3"
+     ]
+    ]
+   },
+   "handler_diff": {
+    "sql": "SHOW SESSION STATUS LIKE 'Handler_read%'",
+    "ok": true,
+    "ms": 0.24,
+    "rows": [
+     [
+      "Handler_read_first",
+      "73"
+     ],
+     [
+      "Handler_read_key",
+      "253"
+     ],
+     [
+      "Handler_read_last",
+      "0"
+     ],
+     [
+      "Handler_read_next",
+      "674064499"
+     ],
+     [
+      "Handler_read_prev",
+      "0"
+     ]
+    ]
+   },
+   "replica_status": {
+    "sql": "SHOW REPLICA STATUS",
+    "ok": true,
+    "ms": 0.48,
+    "rows": "(present)"
+   },
+   "replica_gtid": {
+    "sql": "SELECT @@GLOBAL.gtid_executed",
+    "ok": true,
+    "ms": 0.09,
+    "rows": [
+     [
+      "ed17919e-d9bd-11f1-a295-a6801bb0058f:1-216272,\nf30e808d-d9bd-11f1-bcc6-fadf7eb592dc:1-6"
+     ]
+    ]
+   },
+   "_seconds": 0.03
+  },
+  "job_code_search": {
+   "note": "rg itself was not executed; this applies the same pattern.",
+   "results": {
+    "insert_select": {
+     "expected": true,
+     "matched": true
+    },
+    "set_var": {
+     "expected": true,
+     "matched": true
+    },
+    "for_share": {
+     "expected": true,
+     "matched": true
+    },
+    "ctas": {
+     "expected": true,
+     "matched": true
+    },
+    "lock": {
+     "expected": true,
+     "matched": true
+    },
+    "do": {
+     "expected": true,
+     "matched": true
+    },
+    "plain": {
+     "expected": false,
+     "matched": false
+    },
+    "plain_after_set_stmt": {
+     "expected": false,
+     "matched": false
+    },
+    "orm_like": {
+     "expected": true,
+     "matched": true
+    },
+    "update_elsewhere": {
+     "expected": true,
+     "matched": false
+    }
+   },
+   "_seconds": 0.0
+  }
+ },
+ "elapsed_seconds": 72,
+ "section_errors": [
+  "session_limit_and_lost_hint"
+ ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "independent-review",
+  "description": "GPT-6.1 Sol adversarial review of the guideline and its evidence.",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "high",
+  "agentSandbox": "read-only",
+  "sessionPolicy": {
+    "mode": "new"
+  },
+  "variables": {},
+  "promptTemplateFile": "prompts/independent-review.md",
+  "output": {
+    "jsonSchema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "independentDecision": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "rejected"
+          ]
+        },
+        "findingDispositions": {
+          "type": "array"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "requestedExperiments": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "reviewEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "discussionHistory": {
+          "type": "array"
+        },
+        "workflowInput": {
+          "type": "object"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "guidelinePath": {
+          "type": "string"
+        },
+        "guidelineSha256": {
+          "type": "string"
+        },
+        "reviewQuestions": {
+          "type": "object",
+          "required": [
+            "betterMethods",
+            "designCoverage",
+            "omissions",
+            "lockFactors",
+            "fastCount"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "workflowInput",
+        "revision",
+        "guidelinePath",
+        "guidelineSha256",
+        "independentDecision",
+        "findings",
+        "requestedExperiments",
+        "reviewEvidence",
+        "reviewQuestions"
+      ]
+    },
+    "maxValidationAttempts": 2
+  }
+}

@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+raise SystemExit("Historical source only: superseded_by_explicit_user_scope; never execute this locking probe")
+"""Answers EXP-S8-REPLICA-STOP-FAILURE (FIND-S8-REPLICA-STOP-FAILURE-01). The local compose replica only.
+
+A session on the replica locks one row, a primary update of that row makes the applier wait, and a short rpl_stop_replica_timeout makes STOP fail. Does the stop take effect later, after the caller has gone?
+The earlier procedure is reproduced by hand; the current function follows. rpl_stop_replica_timeout, the row and the applier are restored in finally."""
+import threading, time
+import pymysql
+from countlib import replica_channels, replica_point_count
+from lablib import REPLICA, connect, query
+from reqlib import Results, guard, sql_try
+
+ID = "02-EXP-S8-REPLICA-STOP-FAILURE"
+guard(ID, 4)
+r = Results(ID, ["EXP-S8-REPLICA-STOP-FAILURE", "FIND-S8-REPLICA-STOP-FAILURE-01"])
+p = connect(read_timeout=60)
+rc = connect(REPLICA, read_timeout=120)
+RID = 50_000_001
+original_timeout = query(rc, "SELECT @@GLOBAL.rpl_stop_replica_timeout")[0][0]
+HOLD_SECONDS = 8
+
+
+def running():
+    rows = replica_channels(rc)
+    return rows[0].get("Replica_SQL_Running") if rows else None
+
+
+def wait_caught_up(seconds=60):
+    target = query(p, "SELECT @@GLOBAL.gtid_executed")[0][0]
+    return query(rc, "SELECT WAIT_FOR_EXECUTED_GTID_SET(%s, %s)", (target, seconds))[0][0]
+
+
+def block_applier():
+    """Returns the session holding the row. The applier then waits on the primary's update of that row."""
+    h = connect(REPLICA, autocommit=False, read_timeout=120)
+    query(h, "START TRANSACTION")
+    query(h, "SELECT v FROM t_repl WHERE id=%s FOR UPDATE", (RID,))
+    query(p, "UPDATE t_repl SET v=v+1 WHERE id=%s", (RID,))
+    time.sleep(1)
+    return h
+
+
+def timeline(release_at, seconds, h):
+    """The applier's state every half second, releasing the row at release_at."""
+    out, t0, released = [], time.monotonic(), False
+    while time.monotonic() - t0 < seconds:
+        at = time.monotonic() - t0
+        if not released and at >= release_at:
+            query(h, "ROLLBACK")
+            released = True
+        out.append([round(at, 1), running()])
+        time.sleep(.5)
+    if not released:
+        query(h, "ROLLBACK")
+    return out
+
+
+try:
+    query(p, "INSERT INTO t_repl (id,v,note) VALUES (%s,0,'s8')", (RID,))
+    r.data["caught_up_before"] = wait_caught_up()
+    query(rc, "SET GLOBAL rpl_stop_replica_timeout=2")
+
+    with r.section("earlier_procedure") as d:
+        # STOP with no restore on failure: the caller sees an error and leaves.
+        h = block_applier()
+        c = connect(REPLICA, read_timeout=30)
+        t = time.monotonic()
+        stop = sql_try(c, "STOP REPLICA SQL_THREAD")
+        d["stop"] = {"ok": stop["ok"], "errno": stop.get("errno"), "msg": stop.get("msg"), "ms": round((time.monotonic() - t) * 1000)}
+        d["state_right_after"] = running()
+        d["timeline"] = timeline(2, HOLD_SECONDS, h)
+        d["left_stopped"] = running() != "Yes"
+        c.close()
+        sql_try(rc, "START REPLICA SQL_THREAD")
+        d["caught_up_after_manual_start"] = wait_caught_up()
+
+    with r.section("current_function") as d:
+        d["runs"] = []
+        for trial in range(3):
+            h = block_applier()
+            c = connect(REPLICA, read_timeout=60)
+            # The row is released while the function is still in its grace period, which is when a late stop lands.
+            threading.Timer(4, lambda hh=h: query(hh, "ROLLBACK")).start()
+            res = replica_point_count(c, "t_repl", max_execution_ms=60_000, stop_failure_grace=12)
+            res.pop("gtid_at_stop", None)
+            time.sleep(2)
+            res["applier_two_seconds_later"] = running()
+            res["catch_up_result"] = wait_caught_up()
+            d["runs"].append(res)
+            c.close()
+            r.save()
+            if running() != "Yes":
+                sql_try(rc, "START REPLICA SQL_THREAD")
+
+    with r.section("connection_cut_during_stop") as d:
+        # The connection issuing STOP is killed while it waits. Nothing can say whether the stop went through, so an owner must look.
+        h = block_applier()
+        c = connect(REPLICA, read_timeout=30)
+        res = {}
+        th = threading.Thread(target=lambda: res.update(sql_try(c, "STOP REPLICA SQL_THREAD")), daemon=True)
+        th.start()
+        time.sleep(.5)
+        k = connect(REPLICA, read_timeout=10)
+        d["kill"] = sql_try(k, f"KILL {c.thread_id()}")["ok"]
+        k.close()
+        th.join(10)
+        d["stop_call"] = {"ok": res.get("ok"), "errno": res.get("errno")}
+        d["timeline"] = timeline(1, HOLD_SECONDS, h)
+        d["left_stopped"] = running() != "Yes"
+        if running() != "Yes":
+            sql_try(rc, "START REPLICA SQL_THREAD")
+        d["caught_up"] = wait_caught_up()
+finally:
+    sql_try(rc, f"SET GLOBAL rpl_stop_replica_timeout={int(original_timeout)}")
+    sql_try(rc, "START REPLICA SQL_THREAD")
+    sql_try(p, "DELETE FROM t_repl WHERE id>=50000000")
+    sql_try(p, "ALTER TABLE t_repl AUTO_INCREMENT=20000001")
+    r.data["final_timeout"] = query(rc, "SELECT @@GLOBAL.rpl_stop_replica_timeout")[0][0]
+    r.data["final_running"] = running()
+    r.data["final_catch_up"] = wait_caught_up(120)
+r.finish()

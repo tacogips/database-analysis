@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-11-08T01:47:40.642434+00:00",
+  "documents": {
+    "docs/README.md": "9783f53da8b3e4613628d3f6798d7f5753cbcf9be3a7fadd9e6b7c67c27c48a3",
+    "docs/guidelines/mysql.md": "ffb3ae5b8d189b90418c9fb9efa8e5d2787c2bcae328a60e9c3fedcf907c2b2f",
+    "docs/guidelines/sql-server.md": "bbfdada6f71acc91010c8457c076cae1b79d00e6aac07247ff6f66ec547ff47c",
+    "docs/guidelines/operations-runbook.md": "27ae9f91f863acb759abf913459755f502108af33c4524650e214ce1e2cf73d1"
+  },
+  "protectedFileCount": 362,
+  "oldReceiptPreserved": true,
+  "sourceHashes": {
+    "sqlserver/issue1/lab.rb": "7401978cd34d13111e8a763c457cce4ba972885ce7de0b6b0c3615f8260cc437",
+    "sqlserver/issue1/mise.toml": "9200d44b709fb4266977ad0eea81e11a56849d716c14e901706fe946f8092e4c",
+    "sqlserver/issue1/compose.yaml": "1826cfb7e8ac74f869b93c4415e039357ebe224f389d3faa9c43f9fc12f27b3a",
+    "sqlserver/issue1/Dockerfile": "fc330088772578d04b795cd5630ddebe7c58c0ff4e3b74f9e8acf0b58bdd5f90",
+    "sqlserver/issue1/.dockerignore": "f4a08bffb3077b9356083081520f9987342a4988dd06574763311c2b776417d4",
+    "sqlserver/issue1/CountIssue1.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/issue1/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/issue1/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/issue1/Program.cs": "2de684668ce01307b4a4f514c3979cdeb6cb579eadacbaee3b204495e8c17e96",
+    "sqlserver/issue1/runbook-example-inputs.json": "5ffd82e6295f0003e86c31dd2c5defbb18cade1d381b6d99fb0b80124d588e0b",
+    "sqlserver/issue1/README.md": "0a5da3b23737b0d1e89ab8fb53ef4e7de2bf1602579b4f25a68e33ba4a576d73",
+    "sqlserver/issue1/verify_author.py": "e647f6d794ccd32c5e186431cc7ea433ce22d547b4002127f933874e2f109f5a"
+  },
+  "ownerProofSha256": "56a995a783884baa76a0194d4a53ebc63b3855f10b402751fdf3e4168f3654f8",
+  "issueSha256": "5f94a59773fec11f737812e7f69d105e2b5bbf7c33e51638b607451779fbe3b9",
+  "reviews": {
+    "engineer": {
+      "sessionId": "temp-issue1-final-engineer-sol-session-44",
+      "launchSha256": "0d53a5815c84937d9714b8c573f59f64522e793c9a5fa382959e15506085f5e9",
+      "resultSha256": "0a268cc1fc151903dd651065caedde5113a8a1455e598aaf809b66753a2a3be6",
+      "attemptManifest": "results/reviews/issue-1/engineer-20261108T013937Z/manifest.json",
+      "manifestSha256": "e5a25d33addaaf9a49b8bf98c514b1d7a2bcadc2125bd7cbd0e68703e22a9edd"
+    },
+    "validation": {
+      "sessionId": "temp-issue1-final-validation-sol-session-45",
+      "launchSha256": "73561246b3027efe3a674f637a093a2342520813e06a0aa43a43ad82cc10141e",
+      "resultSha256": "281d0b9f758bfdba9f500af0de2e25a7bcd274e1253c95566b792d2731cc618a",
+      "attemptManifest": "results/reviews/issue-1/validation-20261108T014319Z/manifest.json",
+      "manifestSha256": "886191308fd88d4c3c3dba3547013e7612738d8dbaf3e1519ead00fab4c9cac2"
+    }
+  },
+  "issueItems": {
+    "1": "CONTEXT_INFO + full server identity, permissions, 2 connections and 3 mismatch refusals",
+    "2": "driver finally, fresh cleanup deadline, own rollback/guarded KILL, captured active TX IDs, unknown escalation",
+    "3": "existing settings and old OFF lab distinguished, 3 profiles/plans/stats/windows, no universal update claim",
+    "4": "fillable and 2 filled fictional examples, resource controls/observability/headroom/recovery, incomplete arrivals retained"
+  },
+  "scripts": {
+    ".riela/workflows/issue-1-remediation/scripts/audit.py": "19392009898b4e8852d0c5f1f813c548013cb5ba1927fdb162219213d3794b74",
+    ".riela/workflows/issue-1-remediation/scripts/finalize.py": "45273e9bf2737def7b2324e3e46911473b1e021eed4f748c786ae325b43f114e",
+    ".riela/workflows/issue-1-remediation/scripts/review.py": "3147da5d7f115e08f346917f68c8e6bae96115842afa2ada13bc68cccafe8d16"
+  },
+  "limitations": {
+    "completion": "passed",
+    "ownership": "5 actual two-connection identities; 3 mismatches refused",
+    "transactionRelease": "5 owned session/requests/captured transaction IDs/snapshots absent",
+    "stats": "OFF/sync ON/async ON; COUNT=4096; actual plans; update not observed in narrow schema/plan/window",
+    "precision": "fixture only",
+    "serviceBudget": "unavailable_functional_only",
+    "recovery": "retention released; physical allocation and production recovery unverified",
+    "communication": "idle connection Dispose simulation only, not network partition",
+    "leastPrivilege": "SA functional probe plus denied observer; full production role certification unmeasured",
+    "platform": "ARM64 SQL amd64 emulation, unsupported; no native performance certification"
+  }
+}

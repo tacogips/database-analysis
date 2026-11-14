@@ -1,0 +1,10 @@
+Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 2 - Connection was terminated)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Program.Read(SqlCommand cmd, CancellationToken token) in /src/Program.cs:line 53
+   at Program.Query(SqlConnection c, String name, String sql, Int32 seconds, Nullable`1 token, Action`1 parameters) in /src/Program.cs:line 72
+   at Program.Exec(SqlConnection c, String name, String sql, Int32 seconds, Nullable`1 token) in /src/Program.cs:line 77
+   at Program.SetupAg() in /src/State.cs:line 176
+   at Program.Main(String[] args) in /src/Program.cs:line 430
+ClientConnectionId:31ea6a8e-3787-4bf1-92a6-9853b08655d0

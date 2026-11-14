@@ -1,0 +1,97 @@
+{
+  "checkedAt": "2026-11-07T07:14:19.403125+00:00",
+  "userCorrection": "TDEに鍵は必要。暗号化方式と鍵の利用可否はMySQLテーブルの状態一覧として検証対象に含むこと。",
+  "status": "coverage audit, not final approval",
+  "states": [
+    {
+      "state": "InnoDB TDE; server keyring healthy; SQL caller does not supply encryption key",
+      "coverage": "implemented_and_historical_lab_evidence; final_white_all_pending",
+      "sources": [
+        "bench/requested/91-encrypted-count.py",
+        "bench/reqwide.py",
+        "bench/accuracy_frontier.py"
+      ],
+      "evidence": [
+        "results/reference/20261107-observations/requested_encrypted_count_26.10.0.json",
+        "results/reference/20261107-observations/requested_encrypted_count_8.4.13.json",
+        "results/reference/20261107-observations/requested_encrypted_count_9.7.4.json"
+      ],
+      "qualifications": [
+        "Historical91 has4000000-count results on8.4.13/9.7.4/26.10.0; old cold/warm labels do not prove equal cache residency.",
+        "Current-source all has not reached requested phase.",
+        "Current91 uses root SQL client, not a SELECT-only privilege proof."
+      ],
+      "sourceSha256": {
+        "bench/requested/91-encrypted-count.py": "9b394f5bcaf73252bad5a864f26641d88e4c03d467c315049a2122b24dfc2b1b",
+        "bench/reqwide.py": "4c10705b13337dc81e64fc833eec5afd5dfb6fb4aabf469d4e8fb6860684d90b",
+        "bench/accuracy_frontier.py": "d04acca3889f68d43223b46e0d18a39e4263e9253154e288a7d655791300b89a"
+      }
+    },
+    {
+      "state": "InnoDB TDE; required server key/keyring unavailable",
+      "coverage": "official_prerequisite_only; isolated_failure_injection_unmeasured",
+      "sources": [
+        "docs/table-count-guideline.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "Do not promise SQL exact/sampled count without server ability to decrypt.",
+        "Existing cache/statistics do not establish current exact count or bounded-percent error.",
+        "No destructive key removal on existing lab/main data; any test must use disposable owned instance."
+      ],
+      "sourceSha256": {
+        "docs/table-count-guideline.md": "a594e5fc6b947820e00bd3152fa149b25b709a54f5217cb02f70e799582a0a94"
+      }
+    },
+    {
+      "state": "Application-encrypted columns; counting client lacks application key",
+      "coverage": "COUNT semantics support key-independent row count; actual crypto-specific fixture_unmeasured",
+      "sources": [
+        "docs/table-count-guideline.md",
+        "bench/reqwide.py"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "reqwide explicitly synthetic opaque binary payload, not measured application encryption implementation.",
+        "COUNT(*) does not require plaintext meaning or decryption expression; index/row width and NULL semantics matter.",
+        "Opaque stored integer/noninteger primary-key design must be distinguished from encrypted payload columns."
+      ],
+      "sourceSha256": {
+        "docs/table-count-guideline.md": "a594e5fc6b947820e00bd3152fa149b25b709a54f5217cb02f70e799582a0a94",
+        "bench/reqwide.py": "4c10705b13337dc81e64fc833eec5afd5dfb6fb4aabf469d4e8fb6860684d90b"
+      }
+    },
+    {
+      "state": "Storage/disk encryption; transparent healthy mounted storage",
+      "coverage": "documented_unmeasured",
+      "sources": [
+        "docs/table-count-guideline.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "Storage key accessibility and physical I/O overhead not measured by this Compose."
+      ],
+      "sourceSha256": {
+        "docs/table-count-guideline.md": "a594e5fc6b947820e00bd3152fa149b25b709a54f5217cb02f70e799582a0a94"
+      }
+    },
+    {
+      "state": "Encrypted integer/UUID/binary/composite primary key or no usable integer PK",
+      "coverage": "current integer-cell estimator inapplicable; exact COUNT and metadata alternatives remain",
+      "sources": [
+        "bench/samplinglib.py",
+        "docs/probability-count.md"
+      ],
+      "evidence": [],
+      "qualifications": [
+        "No generic3/5/10% estimator for arbitrary key shapes established.",
+        "Current sampler requires single integer PRIMARY named id, snapshot and budget; full COUNT counts rows regardless payload interpretation."
+      ],
+      "sourceSha256": {
+        "bench/samplinglib.py": "a929cd2685f12b6c878de838703182abc8f9dab97ef3f1741de6e6e5da4bcc9f",
+        "docs/probability-count.md": "90159396da3d464107e2ac400dfd640d385f15ca64b21f8d313ebb02300e2fd7"
+      }
+    }
+  ],
+  "requiredFollowup": "Integrate into comprehensive table-state/condition coverage, mark measured/specification/unmeasured separately; address gaps with isolated tests without touching realDB or overlapping active lab owner. Latest request was after session19 launch and has not been delivered to its initial input."
+}

@@ -1,0 +1,768 @@
+{
+  "betterAlternatives": [
+    {
+      "benefit": "統計の参考値、信頼区間付き推定、正確COUNT、未完了を混同しない。数値が得られても精度または負荷が未達なら、その状態を保持できる。",
+      "conditions": "共通の安全行数閾値は設けず、取得先と所有者の予算で分岐する。",
+      "method": "取得結果を値・対象時点・精度状態・負荷状態の組で返す"
+    },
+    {
+      "benefit": "任意のキー分布に対する標本設計が不要。",
+      "conditions": "通常COUNTに適用停止は必須ではない。共有I/O、replicaのSLO、適用遅延、復元時点と鍵アクセスを別に確認する。復元全体の費用は未計測。",
+      "method": "許容時点を満たす既存の専用replicaまたは隔離復元先で正確COUNT"
+    },
+    {
+      "benefit": "頻繁な件数取得で繰り返し全域を読む費用を避けられる。",
+      "conditions": "初期絶対件数と差分位置を結び、削除・TRUNCATE・移行・重複排除を扱える場合だけ。単なる操作回数差分は使わない。",
+      "method": "既存の整合したカウンタ・基準件数とCDCを優先する"
+    },
+    {
+      "benefit": "平文内容や密度の事前知識に依存せず、空標本でも広い区間を返せる。",
+      "conditions": "現98は層化割当の実装ではなくセル一様復元抽出。精度未達を許す契約とsnapshot費用が必要。Empirical Bernstein候補は純粋計算段階で、実DBへ組み込み済みと扱わない。",
+      "method": "条件を限定した整数キーのセル標本を検証候補として保持する"
+    }
+  ],
+  "claimEvidenceMap": [
+    {
+      "claim": "参考統計の入口としてexpiry=0のTABLE_ROWSを採用する",
+      "confounders": "同じ統計への依存、取得順、先行COUNTによる表アクセス、静かな合成fixture。",
+      "evidence": [
+        "results/requested_metadata_accuracy_initial.json: summary_before_analyze",
+        "results/requested_metadata_accuracy.json: summary_before_analyze、summary_after_analyze",
+        "results/requested_metadata_on_replica.json: privileges、waits_on_primary"
+      ],
+      "requiredCorrection": "初回観測の履歴保存と詳細側の状態説明を揃える。",
+      "scope": "参考値を取得する入口として有用。精度保証や全環境の無待機を意味しない。",
+      "status": "supported"
+    },
+    {
+      "claim": "未知の任意InnoDB表で既存統計だけから誤差数%以内を保証できる",
+      "confounders": "標本誤差、行サイズ偏り、統計鮮度、未コミット変更。58表の観測分布は本番成功確率ではない。",
+      "evidence": [
+        "results/requested_metadata_accuracy_initial.json: uneven_row_sizesの38.731%",
+        "results/requested_metadata_accuracy.json: afterの最大23.123%"
+      ],
+      "requiredCorrection": "『小さく推定されたからCOUNT許可』を復活させない。校正・既存件数管理・限定sampling・隔離先COUNTの条件を示す。",
+      "scope": "主文書が保証を否定している結論は支持する。数%要件そのものを満たす汎用の低負荷手段は未確立。",
+      "status": "invalid"
+    },
+    {
+      "claim": "全件数は通常COUNT(*)を標準とし、COUNT(1)変更による高速化を前提にしない",
+      "confounders": "92の終了コード不明、キャッシュと実行順。NULL可列のCOUNTは別の値。",
+      "evidence": [
+        "results/requested_wide_form_order.json: 64測定",
+        "results/matrix_*.json: locks",
+        "results/lock_factors.json: statement、isolation、record_locks"
+      ],
+      "requiredCorrection": "92を実行合格に数えず、RR/RCの通常読み取りとSERIALIZABLEトランザクションを区別する。",
+      "scope": "意味・仕様と形式選択の結論。すべての実測時間が同一という証明ではない。",
+      "status": "supported"
+    },
+    {
+      "claim": "TDE表でも復号式を加えずCOUNTできる",
+      "confounders": "正常な鍵・表領域が前提。列暗号化やストレージ暗号化の性能比較ではない。",
+      "evidence": [
+        "results/requested_encrypted_count_<version>.json: count_default、plain_count_record_locks",
+        "results/requested_encrypted_wide_50.json: 完了したCOUNT腕"
+      ],
+      "requiredCorrection": "暗号化方式と正常に表を開ける前提を維持する。",
+      "scope": "全件COUNTに値の内容解釈が不要という意味。",
+      "status": "supported"
+    },
+    {
+      "claim": "91からTDEの一律速度倍率や同一resident状態の追加コストが分かる",
+      "confounders": "plainとencのBP再読取量が異なる。作成順、dirty状態、ホストキャッシュ、鍵状態の同等性が不足。",
+      "evidence": [
+        "results/requested_encrypted_count_9.7.4.json: count_single_threadのwarm bytes",
+        "results/requested_encrypted_count_26.10.0.json: count_force_secondaryのwarm bytes"
+      ],
+      "requiredCorrection": "因果的な倍率比較を捨てるか、必要な1条件だけ再検証する。",
+      "scope": "正常終了した観測資料としては使える。3列から50/100列の倍率へ一般化しない。",
+      "status": "invalid"
+    },
+    {
+      "claim": "小さい索引を優先し、PRIMARYも条件付き比較候補にする",
+      "confounders": "PK幅、MVCCクラスタ参照、飽和・持越し、索引/BP比、実行経路。",
+      "evidence": [
+        "results/requested_54-EXP-SOL-9.json: small_or_invisible_index.pages",
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800.json: sections.arms",
+        "results/requested_encrypted_wide_50.json: 索引有無・write_mix"
+      ],
+      "requiredCorrection": "索引別bytes・実行時読取量を添える。未完のPRIMARY-SCALEを既成の結論にしない。",
+      "scope": "静かな小索引の有利さと、更新時に逆転する観測は使える。PRIMARY共通推奨やparallel度の共通設定は導けない。",
+      "status": "conditional"
+    },
+    {
+      "claim": "分割はMDL・snapshot保持を短くする候補である",
+      "confounders": "文間の更新、型・照合・NULL・非一意性、表世代変更。旧高負荷結果のmax_steps停止は方式固有の完走限界ではない。",
+      "evidence": [
+        "results/count_shapes_forms.json: Handlerとplan",
+        "results/requested_23-EXP-R5.json: sum、n_end、committed_changes",
+        "bench/countlib.py: split_count、split_statements"
+      ],
+      "requiredCorrection": "旧ステップ上限の完走率を暫定扱いのまま保持し、再試行と全体予算を明記する。",
+      "scope": "新規専用接続・autocommit・不変カーソル等の条件下。総I/Oをなくさず、一瞬の正確値にもならない。",
+      "status": "conditional"
+    },
+    {
+      "claim": "余力ある専用replicaを取得先候補とし、必要時のみ適用停止する",
+      "confounders": "同一VM・共有I/O、フィルター、統計誤差、適用時点、チャネル、ローカル変更。",
+      "evidence": [
+        "results/requested_metadata_on_replica.json: staleness、final_counts",
+        "results/requested_0c-EXP-S8-REPLICA-STOP-LONG.json: 復旧各節"
+      ],
+      "requiredCorrection": "通常COUNTと適用停止を詳細側でも分ける。GTID待ち0と元の適用状態を確認する。",
+      "scope": "replicaの可視状態の件数。primary現在値や物理隔離の無影響は保証しない。0cの限定復旧挙動は支持できる。",
+      "status": "conditional"
+    },
+    {
+      "claim": "共通の安全行数閾値はなく、初回COUNTにも負荷予算が必要",
+      "confounders": "サービスSLO、余剰帯域、索引/BP比、キャッシュ回復、同時実行。",
+      "evidence": [
+        "results/requested_encrypted_wide_50.json: 1秒中断とtrial遅延・bytes",
+        "results/requested_30〜37-EXP-R9-*.json: recovery.bp_miss_pct"
+      ],
+      "requiredCorrection": "詳細側のp50無影響表現と自動的に読める延長分岐を修正する。",
+      "scope": "主文書の判断原則を支持する。1000msや推定件数の安全係数を共通の許可値にはできない。",
+      "status": "supported"
+    },
+    {
+      "claim": "整数キーのセル標本で信頼区間を構成できる",
+      "confounders": "単一整数一意キー、同一snapshot、セル一様復元抽出、硬いセル上限、宣言済み判定時点、PRNGモデル。",
+      "evidence": [
+        "bench/samplinglib.py: bounds、sample",
+        "bench/sampling_bounds.py: confidence_band",
+        "results/requested_sampling_bound_design.json: analytical_validation_not_database_measurement"
+      ],
+      "requiredCorrection": "deadlineと状態契約を修正する。98未実行、Empirical Bernstein未統合を明示し、層化実装済みと呼ばない。複数表・再実行には別途alpha配分が必要。",
+      "scope": "条件下の数理候補。空標本上限とalpha配分は妥当な方向。疎な領域では区間が広く、低コスト・予算内・サービス無影響は未証明。",
+      "status": "conditional"
+    }
+  ],
+  "decision": "rejected",
+  "engineerQuestions": [
+    {
+      "answer": "追い出し走査後という意味に限定すべき。BPの完全排除も物理ストレージのcoldも証明していない。",
+      "question": "coldは何を冷やしたのか。OSやホストのキャッシュも冷たいのか。"
+    },
+    {
+      "answer": "作成順は固定で、実測のwarm読取量もplainとencで異なる。現在の値から暗号処理倍率は分離できない。",
+      "question": "先に作ったplain表だけ条件が違わないか。"
+    },
+    {
+      "answer": "特殊COUNTや並列経路ではHandlerだけでは判断できない。計画、読取bytes、read-ahead、BP状態を併用する。PRIMARYのHandlerが空でも走査していない証拠にはならない。",
+      "question": "EXPLAINに出た索引を本当に読んだのか。Handlerが0なら読んでいないのか。"
+    },
+    {
+      "answer": "最終確認時点で100列JSONは7腕のpartial、completeと終了statusは未取得。50列の48腕は完了した。",
+      "question": "暗号化した100列を同じ負荷で試したのか。"
+    },
+    {
+      "answer": "収まらない。50列試験では1秒中断の腕で書込p99約1.2秒を観測し、回復・キャッシュへの影響も別に残る。",
+      "question": "1秒で止めればサービスへの影響も1秒分に収まるのか。"
+    },
+    {
+      "answer": "共通手順の合格根拠にはできない。約300件の書込標本とCOUNT後を含む窓であり、予定数欠落も検査する必要がある。",
+      "question": "3秒のp99でSLOを判断してよいか。"
+    },
+    {
+      "answer": "同じ統計への依存があり、独立な裏付けにならない。未初期化NUM_ROWSも除外する必要がある。",
+      "question": "TABLE_ROWSとNUM_ROWSとEXPLAINが一致したら数%以内か。"
+    },
+    {
+      "answer": "小さく出た理由を保証できないため、それだけでは進めない。初回試行にも所有者の負荷予算が必要。",
+      "question": "概数が小さければ正確COUNTへ進めてよいか。"
+    },
+    {
+      "answer": "同時更新とMVCC参照で逆転する。既存の逆転結果は特定のサイズ・高負荷条件であり、PRIMARYの全表共通推奨にはならない。",
+      "question": "小さい二次索引ならいつもPRIMARYより速いか。"
+    },
+    {
+      "answer": "フィルター、対象時点、取得先の統計誤差は別。GTID待ちは戻り値0を確認し、対象データの同一性も確認する。",
+      "question": "replicaの遅延0秒とGTID待ち成功があればprimaryの件数か。"
+    },
+    {
+      "answer": "整数一意キーのセル抽出と同一snapshot等の条件下では区間を構成できるが、疎な領域では精度未達になり得る。低コストと予算内完了は別の問題。",
+      "question": "samplingなら未知の内容でも95%信頼で3%に収まるのか。"
+    },
+    {
+      "answer": "現行のmtimeスキップではそう言えない。失敗statusと依存コード変更を検査するmanifestが必要。白紙allも未確認。",
+      "question": "miseで成功したなら全検証済みなのか。"
+    }
+  ],
+  "finalVerification": {
+    "checkedAt": "2026-11-07T01:59:58.835067+00:00",
+    "evidenceDocumentSha256": "e757f22df8c1be446e4acda274a65ca10f273a5a21546033d5de73b2ef535b8c",
+    "guidelineSha256": "077d95ae1dc88a8fe24f239b9a425128e6b0c62fc965b6c894afeed60470158a",
+    "manifestFilesChanged": 0,
+    "manifestFilesMatched": 12,
+    "mutableResults": "96は完了を確認。97は最終ハッシュ付きpartial 7腕。98は結果なし。これらの状態を超える完了は主張しない。",
+    "runningCommandHandlesOwnedByReviewer": []
+  },
+  "findings": [
+    {
+      "evidence": [
+        {
+          "field": "requested: statusのmtimeが対象.pyより新しければ無条件にnext。スキップしたstatusのokを最終判定へ含めない。reqwide.py、countlib.py、lablib.py、設定、versions/encryptedの変更も判定対象外。",
+          "file": "lab.rb"
+        },
+        {
+          "field": "ok=false。statusのmtimeは対象スクリプトより新しい。3e、3f、70の失敗statusも同じ条件。",
+          "file": "results/requested/12-EXP-6.status.json"
+        },
+        {
+          "field": "t_denseのactualはCOUNTではなくMAX(id)。内部の1行が欠けてもMAXが同じならlab_data_intactを通し得る。",
+          "file": "bench/verify_data.py"
+        }
+      ],
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "impact": "未解決の失敗や旧依存コードの結果を残したまま、後続のrequestedが成功に見える。白紙からのallではstatusが消えるため、この問題とは別に実際の全工程成功が必要であり、現在は確認されていない。",
+      "requiredCorrection": "成功した実行だけを再利用し、スキップした結果も最終合否へ含める。スクリプト・依存コード・設定・イメージ識別子・必須成果物のmanifestで再利用を判定する。MAX(id)を件数検証と表示しない。履歴を保持したうえで、最終コードの白紙allを所有された実行で一度確認する。",
+      "scenario": "失敗した追加実験の後に同じコマンドを実行する。または共通ライブラリだけ修正して再実行する。",
+      "section": "lab.rb requested、README.md 再現手順",
+      "severity": "high"
+    },
+    {
+      "evidence": [
+        {
+          "field": "threading.Timerのlambdaは実行時のs.thread_id()を参照する。Timerを保持・cancel・joinせず、直後にsを次の接続へ再代入する。",
+          "file": "bench/requested/12-EXP-6.py"
+        },
+        {
+          "field": "sections.session_limit_and_lost_hint.no_limit_killed_at_4sはok=true、ms=3923.54。その直後のCOUNTが1317で失敗し、section_errorsにsession_limit_and_lost_hintが残る。",
+          "file": "results/requested_12-EXP-6.json"
+        },
+        {
+          "field": "次のorder_itemsのCOUNTでQuery execution was interruptedが発生したトレース。",
+          "file": "results/requested/12-EXP-6.log"
+        }
+      ],
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "impact": "検査対象外の次の腕をKILLし、時間上限や長時間成功の検証を失敗させる経路がある。既存記録はこの経路と整合するが、当時のKILL対象IDそのものは保存されていない。",
+      "requiredCorrection": "KILL対象IDをTimer作成前に固定し、接続を閉じる前にTimerをcancel/joinする。予定より早く完了する場合の純粋な検査を追加し、12番の失敗節だけを再検証する。",
+      "scenario": "4秒後にKILLする予定のCOUNTが4秒より少し前に完了し、次の接続へ変数sが再代入される。",
+      "section": "bench/requested/12-EXP-6.py session_limit_and_lost_hint",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        {
+          "field": "resetはresults/referenceとresults/reviews以外を削除する。",
+          "file": "lab.rb"
+        },
+        {
+          "field": "§2はresults/requested_metadata_accuracy_initial.jsonの54/58、最大12.152%、16.591%を引用する。",
+          "file": "docs/table-count-guideline.md"
+        },
+        {
+          "field": "生成先はrequested_metadata_accuracy.json。initial.jsonの保存処理はない。確認時点でresults/reference自体が存在しない。",
+          "file": "bench/requested/93-metadata-accuracy.py"
+        },
+        {
+          "field": "ok=trueだがprocess_exit_code=null。64組とafter-load 6件は存在する一方、標準保存先results/requested/92-wide-form-order.logは存在しない。",
+          "file": "results/requested/92-wide-form-order.status.json"
+        }
+      ],
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "impact": "allを実行すると文書が引用する過去観測が消え、現行コードから同じ履歴ファイルを再生成できない。92も観測が揃ったことと実行成功が混同される。",
+      "requiredCorrection": "引用する過去観測をハッシュ付きの保持対象へ移し、新規実行と区別する。92はobservations_completeとprocess_exit_unknownを分け、合格チェックには数えない。64測定を観測資料として使うためだけに全実験をやり直す必要はない。",
+      "scenario": "READMEに従って白紙から再現し、その後ガイドラインの初回比較を開く。",
+      "section": "lab.rb reset、参考結果の保存、92の成功状態",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        {
+          "field": "evictを挟んで順序を交替するが、対象索引のBP滞在ページとdirty状態は測っていない。表の作成順はplain→encで固定。warmは単なる直後の再実行。",
+          "file": "bench/requested/91-encrypted-count.py"
+        },
+        {
+          "field": "count_single_thread.plain_warmは6回ともInnodb_data_read=0。enc_warmは6回とも約113MBを読む。count_force_secondaryも同様。",
+          "file": "results/requested_encrypted_count_9.7.4.json"
+        },
+        {
+          "field": "count_single_threadのplain_warmは0 bytes、enc_warmは約113MB。",
+          "file": "results/requested_encrypted_count_26.10.0.json"
+        },
+        {
+          "field": "pages_in_pool_after_evictは約5.9万〜6.1万ページ残る。DEFAULTの各形式は約1.91〜1.93GBを読み、時間範囲は大きく重なる。",
+          "file": "results/requested_wide_form_order.json"
+        },
+        {
+          "officialUrl": "https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html",
+          "verifiedContent": "innodb_flush_methodのUnix既定は対応していればO_DIRECT、それ以外はfsync。設定と実ストレージ層を区別する必要がある。"
+        }
+      ],
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "impact": "warmを同じBP状態と解釈すると、残留ページ・再読込の違いを暗号処理コストへ誤帰属する。これはTDE全体の挙動差を否定する指摘ではなく、原因を分離できていないという指摘。正常終了と因果比較の成立は別である。",
+      "requiredCorrection": "cold/warmを追い出し走査後/直後再実行など実際の操作名へ変更し、BP・VM/ホストキャッシュ・物理I/Oを区別する。現結果は読取量を伴う観測として保持し、暗号処理倍率には使わない。倍率を必要とする場合だけ、索引別滞在ページ・dirty状態・flush設定を確認した局所比較を追加する。",
+      "scenario": "91のwarm値から、バッファプール内でのTDE追加コストや暗号化の速度倍率を求める。",
+      "section": "91のcold/warm比較、詳細§11の公平比較という説明",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        {
+          "field": "_workload_main.workerは1スレッド1要求ずつ実行し、次の要求を開始するときにだけinflightへ登録する。停止時は現在のinflightだけをstuckとして記録する。",
+          "file": "bench/lablib.py"
+        },
+        {
+          "field": "windowは記録済みsamplesだけを分母にする。予定済み・未着手の残数やscheduled総数は返さない。",
+          "file": "bench/lablib.py"
+        },
+        {
+          "calculation": "50要求/秒の1 workerが最初の要求から10秒間停止すると、予定500件に対して記録されるstuckは1件。未着手499件を集計から落とす経路がある。DBを使わない予定数の計算。"
+        }
+      ],
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "impact": "予定時刻起点の遅延は有用だが、終了時のbacklogを完全には保存しない。飽和条件でp99・エラー率・未完了率を過小評価し、無影響と誤判定し得る。非飽和で予定数と標本数が合う観測まで無効にする必要はない。",
+      "requiredCorrection": "測定終端までのscheduled、started、completed、failed、inflight、未着手backlogを保存して保存則を検査する。未完了は打切り観測または未達として別表示する。nの不足を成功扱いせず、負荷生成器の遅れとDB応答時間も分ける。",
+      "scenario": "DBや負荷生成器が滞り、予定時刻を過ぎたリクエストを処理し切る前に測定を終了する。",
+      "section": "bench/lablib.py Workload",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        {
+          "field": "§3には『サービス性能を落とさないと言えるのは、この負荷とストレージでp50についてだけ』という表現が残る。同節自身が対照範囲を超えるp50とtail判定不能を報告している。",
+          "file": "docs/table-count-evidence.md"
+        },
+        {
+          "field": "baseline=5秒、trial=3秒、recovery=7秒。COUNTは最大約1秒で、早く終わった後もtrialを3秒まで延ばす。サンプラーは1Hz。",
+          "file": "bench/reqwide.py"
+        },
+        {
+          "field": "secondary_index=true、write_mix=indexed、repeat=2、plain/countではstatement_seconds=1.004、timer_counter_delta=1、trial.write p50=635.61ms、p99=1218.09ms。同条件plain/controlのp99は6.88ms。各trialは約300書込標本。",
+          "file": "results/requested_encrypted_wide_50.json"
+        },
+        {
+          "field": "索引なしの1秒試行はtrial全体で約449〜600MBを読む。小さい索引・非索引列更新では6回のCOUNTが約0.051〜0.076秒で完了。",
+          "file": "results/requested_encrypted_wide_50.json"
+        }
+      ],
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "impact": "時間上限で正常に中断できても、SLOを守れるとは限らない。3秒窓はCOUNT後の時間を含むため影響を薄め、少数のtail標本では安全性を判定できない。96の大きな悪化もTDE差の原因まで特定する証拠ではない。",
+      "requiredCorrection": "『無影響』を削除し、p50の限定観測とtail未判定を記す。96は短い上限でも大きな悪化を観測した反例として採用できる。SLO合格には実サービスの許容値、予定数保存、実COUNT区間と回復区間、対照との反復比較を使い、精度達成と負荷合格を別判定にする。",
+      "scenario": "範囲の重なりや短い窓のp99から、サービス性能に影響しないと判断する。",
+      "section": "詳細§3の性能表現、reqwide.pyの評価範囲",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        {
+          "field": "max_secondsはセルCOUNTの前だけで確認し、COUNT後のtarget_reached判定では再確認しない。適用可否メタ情報は計時開始前、設定とSTART TRANSACTIONはtry外。",
+          "file": "bench/samplinglib.py"
+        },
+        {
+          "calculation": "実装の関数をASTから取り出し、DB問い合わせと時計だけを置換した純粋な検査で、8192回目開始89.99秒・完了90.2秒、max_seconds=90でもtarget_reachedを返した。ROLLBACKは呼ばれた。"
+        },
+        {
+          "field": "budget_exhausted時のdrawsは最後の有効checkpointの標本数と異なり得る。終了処理失敗も独立状態として保存しない。",
+          "file": "bench/samplinglib.py"
+        }
+      ],
+      "id": "SOL-SAMP-DEADLINE",
+      "impact": "信頼区間の式が成立することと、負荷・時間予算を満たして完了したことが混同される。本番向けの厳密な90秒上限とは説明できない。",
+      "requiredCorrection": "予算の対象範囲を明示し、問い合わせ後・成功判定前にも期限を確認する。accuracyStatus、budgetStatus、cleanupStatus、completed_draws、last_valid_checkpoint_drawsを分ける。予定外の停止時点で区間を再計算するなら、その判定にもalphaを割り当てる。",
+      "scenario": "最後のセルCOUNTが全体予算の直前に始まり、予算を超えて返る。",
+      "section": "bench/samplinglib.py sample",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        {
+          "field": "通常は適用中replicaでCOUNTでき、適用停止は時点固定などの別運用とする。停止後の自動延長再試行も禁じる。",
+          "file": "docs/table-count-guideline.md"
+        },
+        {
+          "field": "詳細フローには『書き込みの負荷を避けるなら適用を止めたレプリカ』、MDL待ち後の『間を置いて最初から』、遅延replicaの代替としてprimary分割が残る。",
+          "file": "docs/table-count-evidence.md"
+        },
+        {
+          "field": "§11は92/93/94について『結果はまだありません』と記載する。§10のNUM_ROWS説明も初期化状態の条件を反映していない。",
+          "file": "docs/table-count-evidence.md"
+        },
+        {
+          "officialUrl": "https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html",
+          "verifiedContent": "ANALYZEはSTATS_INITIALIZEDをUninitializedにする。NUM_ROWSは未コミットDMLの影響も受け得る。"
+        }
+      ],
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "impact": "主文書で狭めた安全条件が、実装時に参照する詳細側で弱まる。適用停止やprimaryへの切替を不要に誘発し、完了した検証の扱いも食い違う。",
+      "requiredCorrection": "詳細の分岐を主文書へ揃える。取得先変更・適用停止・再試行には所有者判断と累積予算を明記する。NUM_ROWSの初期化条件と92/93/94の実状態を更新する。追加DB実験は不要。",
+      "scenario": "主文書を読んだ後、コピー用SQLと判断フローから実装する。",
+      "section": "詳細§1、§7、実行時の状態一覧、§10〜11",
+      "severity": "middle"
+    }
+  ],
+  "guidelineSha256": "077d95ae1dc88a8fe24f239b9a425128e6b0c62fc965b6c894afeed60470158a",
+  "limitations": [
+    "稼働中のCompose環境には干渉していない。DB上の状態、実行中プロセス、物理I/Oを新たに観測していない。",
+    "最終コードのmise run allは未確認。既存の個別成功を全工程成功へ置き換えていない。",
+    "97はpartial、98は結果なし。査読後に更新されても本判定へ自動的には含まれない。",
+    "数値終了コードを保存しない通常statusについては、lab.rbの実装に基づく0相当と明示した。92の終了コード不明は補完していない。",
+    "本ターンのRielaログはresults/reviews/sol-validation-run.logにあるが、確認時点では実行中で完全ログではない。これを完了した検証の証拠にしていない。",
+    "物理隔離replica、ストレージ暗号化、クラウドKMS・停止API、数時間のundo、他チームとの同時実行の効果は未検証。共通の安全倍率を求めず、採用対象サービスの確認事項とする。",
+    "鍵ローテーションは成功結果とCOUNT時間があるが、0.2秒sleep以外に実際のSQL重複を証明する時系列はない。鍵不在・再起動の性能や復旧は未検証。",
+    "固定seedの有限fixtureは被覆保証の実証ではない。数理境界の成立条件と実行費用を分けて評価した。"
+  ],
+  "priorityFixes": [
+    {
+      "findingIds": [
+        "SOL-VALIDATION-RUN-CACHE"
+      ],
+      "fix": "失敗・旧依存コードの結果を成功へ混入させない。再利用manifestと全結果の合否集計を修正する。",
+      "priority": "P0"
+    },
+    {
+      "findingIds": [
+        "SOL-VALIDATION-TIMER-TARGET",
+        "SOL-VALIDATION-EVIDENCE-LIFECYCLE"
+      ],
+      "fix": "12のKILL対象とTimer寿命を固定する。引用履歴を保持し、92の観測完了と終了不明を分離する。",
+      "priority": "P1"
+    },
+    {
+      "findingIds": [
+        "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+        "SOL-VALIDATION-SERVICE-ACCEPTANCE"
+      ],
+      "fix": "予定数保存と未完了分類を実装し、短窓・p50から無影響を認定する表現を除く。",
+      "priority": "P1"
+    },
+    {
+      "findingIds": [
+        "SOL-SAMP-DEADLINE",
+        "SOL-SAMP-EVIDENCE-DRIFT"
+      ],
+      "fix": "samplingの精度・予算・後始末を分け、主文書と詳細の停止・再試行・replica分岐を揃える。",
+      "priority": "P1"
+    },
+    {
+      "findingIds": [
+        "SOL-VALIDATION-TDE-CACHE"
+      ],
+      "fix": "warm/coldと公平比較の表現を観測条件へ狭める。暗号処理倍率を述べる追加比較自体はP2でよい。",
+      "priority": "P1"
+    },
+    {
+      "fix": "進行中作業終了後に最終コードの白紙allを一度確認し、数値終了コード・完全ログ・成果物manifestを保存する。",
+      "priority": "P1"
+    }
+  ],
+  "requestedExperiments": [
+    {
+      "acceptanceCriteria": "失敗・依存変更は再利用されない。Timerは元の対象以外を参照しない。scheduled件数が完了・失敗・実行中・未着手の合計と一致する。",
+      "decisionChanged": "再実行成功と負荷標本数を検証根拠として扱えるようになる。",
+      "execution": "本査読では起動していない。",
+      "id": "SOL-EXP-HARNESS-PURE",
+      "minimumComparison": "失敗statusの再利用、依存ファイルだけ変更、Timer対象の早期完了と変数再代入、停止時の未着手予定数を、それぞれ決定的に検査する。",
+      "priority": "P0",
+      "scope": "DB不要の局所検査"
+    },
+    {
+      "acceptanceCriteria": "最終終了コード0、完全ログ、source/config manifest、必須成果物、失敗・skip・partial内訳、後始末とデータ検証が揃う。対象外へ移した実験は明示し、黙って飛ばさない。",
+      "decisionChanged": "再現可能という成果物要件の判定。",
+      "execution": "本査読では禁止条件に従い未実行。",
+      "id": "SOL-EXP-FINAL-REPRODUCTION",
+      "minimumComparison": "進行中実験終了後、履歴保存とハーネス修正を済ませ、最終コードの白紙mise run allを一度実行する。12番はTimer修正後の失敗節を先に確認する。",
+      "priority": "P1",
+      "scope": "既存Composeの所有された実行"
+    },
+    {
+      "acceptanceCriteria": "条件が同等でない組は暗号処理コストの比から除外する。ホストキャッシュと物理I/Oは未制御なら未制御とする。",
+      "decisionChanged": "TDE倍率を因果的に述べられるか。倍率を述べなければ追加実験を待つ必要はない。",
+      "execution": "未実行。全3版の全面再試験は要求しない。",
+      "id": "SOL-EXP-TDE-RESIDENCY",
+      "minimumComparison": "TDE倍率を報告する必要がある場合に限り、plain/encの作成順も交替した小比較を行う。対象索引のBP滞在ページ、dirty pages、bytes、read-ahead、flush設定を記録し、同等のresident条件と走査後条件を区別する。",
+      "priority": "P2",
+      "scope": "91の1版・1索引だけ"
+    },
+    {
+      "acceptanceCriteria": "予定数欠落がなく、エラー・未完了・SLO超過件数を報告する。原因を特定できなくても悪化を安全値から除外する。短窓p99だけで合格にしない。",
+      "decisionChanged": "1秒試行の具体的な影響と、96のplain/enc差をどう解釈するか。",
+      "execution": "未実行。既存96の大きな悪化は現時点でも反例として利用可能。",
+      "id": "SOL-EXP-WIDE-TAIL",
+      "minimumComparison": "負荷生成器の予定数保存を修正した後、無COUNTと1回だけの1000ms COUNTを3対比較する。COUNT実区間と回復を分け、baseline復帰または事前の観測上限まで記録する。",
+      "priority": "P1",
+      "scope": "96のplain・小索引あり・索引列更新100/秒の異常条件"
+    },
+    {
+      "acceptanceCriteria": "精度・予算・後始末を別判定し、非target_reachedを精度成功にしない。各seedの区間・実現誤差・読取量・問い合わせ数を保存する。既に真値COUNTをした比較はwarm条件と明記する。",
+      "decisionChanged": "数学的候補から運用可能な限定手段へ進めるか。5seedで95%被覆そのものを実証したとはしない。",
+      "execution": "本査読では98を起動していない。",
+      "id": "SOL-EXP-SAMPLING-CONTRACT",
+      "minimumComparison": "deadline前後、query失敗、ROLLBACK失敗、空標本、疎な島、端数セル、負のキーを純粋な検査で確認する。その後、既存98の実行主体が結果を取得する。",
+      "priority": "P1",
+      "scope": "samplingの純粋検査と既に計画された98"
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "finalCheckedAt": "2026-11-07T01:59:58.835067+00:00",
+      "id": "EV-HASH",
+      "initialCheckedAt": "2026-11-07T01:54:08.133592+00:00",
+      "input": "results/reviews/sol-validation-input.json",
+      "result": "記載12ファイルは開始・終了確認とも一致。主文書・詳細・実装の入力ハッシュ変化なし。"
+    },
+    {
+      "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/91-encrypted-count.log",
+      "files": [
+        "results/requested_encrypted_count_8.4.13.json",
+        "results/requested_encrypted_count_9.7.4.json",
+        "results/requested_encrypted_count_26.10.0.json"
+      ],
+      "finalExitStatus": "ok=true。lab.rbのstatus.success?から終了コード0相当。数値コード自体は未保存。",
+      "id": "EV-91",
+      "logAssessment": "過去の失敗を含む追記ログ。末尾の3版の完了出力は現在のJSONと対応する。",
+      "statusFile": "results/requested/91-encrypted-count.status.json",
+      "usableEvidence": "同一DDL・行数・集計サイズでの観測、通常COUNTのrecord locks=0、INSERT SELECTの観測上限100000。warm条件の同等性は不成立。"
+    },
+    {
+      "completeLogPath": null,
+      "files": [
+        "results/requested_wide_form_order.json",
+        "results/requested_wide_form_order_after_load.json"
+      ],
+      "finalExitStatus": null,
+      "id": "EV-92",
+      "observations": "64個の異なるthreads/round/position組とafter-load 6件を確認。DEFAULT中央値はCOUNT(*)=2.565秒、COUNT(1)=2.0665秒、COUNT(id)=3.4085秒。",
+      "passingCheck": false,
+      "reason": "実プロセス終了コード未回収。標準の実験ログも存在しない。観測値の利用と実行合格を区別する。"
+    },
+    {
+      "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/93-metadata-accuracy.log",
+      "files": [
+        "results/requested_metadata_accuracy_initial.json",
+        "results/requested_metadata_accuracy.json"
+      ],
+      "finalExitStatus": "修正版statusはok=true、終了コード0相当。ログは旧版と修正版の追記。",
+      "id": "EV-93",
+      "observations": "初回のTABLE_ROWS数値は主文書と一致。修正版ではbeforeのexpiry0は55/58が5%以内、最大15.035%、afterは53/58、最大23.123%。afterのNUM_ROWSは54表がUninitializedで集計対象外。unevenの最大38.731%も確認。"
+    },
+    {
+      "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/94-metadata-on-replica.log",
+      "file": "results/requested_metadata_on_replica.json",
+      "finalExitStatus": "ok=true、終了コード0相当。",
+      "id": "EV-94",
+      "observations": "staleness、analyze_is_local、privileges、primary/replicaのDDL待ち、final_counts=[20000000,20000000]を確認。GTID待ちは実装が戻り値0を要求する。"
+    },
+    {
+      "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/0c-EXP-S8-REPLICA-STOP-LONG.log",
+      "file": "results/requested_0c-EXP-S8-REPLICA-STOP-LONG.json",
+      "finalExitStatus": "ok=true、終了コード0相当。section_errors=[]。",
+      "id": "EV-0C",
+      "observations": "旧実装は復旧報告14.2秒後に停止。修正版の短期限2回は未確認を返し、引継ぎ後に停止観測・再開・caught_up=0。長期限2回と元から停止中の対照も確認。final_running=Yes、final_catch_up=0。"
+    },
+    {
+      "checkedAt": "2026-11-07T01:59:58.835067+00:00",
+      "completed50": {
+        "arms": 48,
+        "complete": true,
+        "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/96-encrypted-wide-50.log",
+        "file": "results/requested_encrypted_wide_50.json",
+        "finalExitStatus": "status ok=true、終了コード0相当。",
+        "mtime": "2026-11-07T01:56:10.589554+00:00",
+        "sha256": "77eac5edf71a2261ab1d548940f4eefb34d16374c4408692a6ed660deccec49e",
+        "sourceSha256Matches": true
+      },
+      "id": "EV-96-97",
+      "mutability": "50列JSONは査読中に43腕から48腕・complete=trueへ変化した。100列は進行中スナップショットのメタ情報のみ採用し、完了結果として使っていない。",
+      "partial100": {
+        "armsAtSnapshot": 7,
+        "complete": false,
+        "completeLogPath": null,
+        "file": "results/requested_encrypted_wide_100.json",
+        "finalExitStatus": null,
+        "mtime": "2026-11-07T01:59:51.991426+00:00",
+        "passingCheck": false,
+        "sha256": "c3d347a613b87dfeaaed6873b4e8da3b966306955abdf5e5a9c0e76d7310d07a",
+        "sourceSha256Matches": true
+      }
+    },
+    {
+      "analyticalFile": "results/requested_sampling_bound_design.json",
+      "analyticalSha256": "5fbbd08762bae22015ee4f55e4cc27c37049fa71b596919eaf6c0290125e5d0b",
+      "completeLogPath": null,
+      "databaseExperiment": "98の結果・status・完全ログは最終確認時点で存在しない。",
+      "finalExitStatus": "純粋計算コマンドは終了コード0。",
+      "id": "EV-SAMPLING",
+      "logLimitation": "読み取り専用のため新規検証ログは作成していない。計算結果は本ターンのツール出力に残る。実DBのpassing checkには数えない。",
+      "passingDatabaseCheck": false,
+      "pureCalculationObservations": [
+        "sampling_bounds.pyの空標本上限5268、dense例の相対誤差境界0.02705256455を再計算して一致。",
+        "4種類の二項分布の区間外確率を全65通りで再計算し、保存値と一致。",
+        "samplinglibのdense例では512、2048、8192抽出の相対誤差境界が約7.00%、3.80%、1.98%。8192×200=1638400行分を重複込みで数えるため、25万行の全件COUNTより安いとは限らない。",
+        "時計・問い合わせを置換した検査で90秒予算超過のtarget_reachedを再現。"
+      ]
+    },
+    {
+      "filesAndFields": [
+        "results/count_shapes_forms.json: tuple/and_or/or_expandedのHandlerとplan",
+        "results/matrix_{8.4.0,8.4.13,9.7.0,9.7.4,26.10.0}.json: locks",
+        "results/lock_factors.json: plain_count、insert_summary_selectのRC/RR",
+        "results/requested_21-EXP-R8-a.json: sections.plans、sections.runs.runs",
+        "results/requested_30〜37-EXP-R9-*.json: recoveryのbp_miss_pctと遅延",
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800.json: sections.arms、status、handler、write",
+        "results/requested_23-EXP-R5.json: sections.runs.runs",
+        "results/requested_54-EXP-SOL-9.json: small_or_invisible_index、key_span_sampling、performance_schema_deltas",
+        "results/requested_0a-EXP-O8-PKONLY-THREADS-large.json: build、runs",
+        "results/requested_12-EXP-6.json: section_errors、session_limit_and_lost_hint"
+      ],
+      "id": "EV-EXISTING-COMPARISONS",
+      "scopeNote": "列挙した生JSONの該当フィールドを確認した。results全ファイルの全文査読や全benchスクリプトの査読を行ったとは主張しない。"
+    },
+    {
+      "id": "EV-OFFICIAL",
+      "result": "該当原文を今回確認。対象の8.4.13、9.7.4、26.10.0は公式発表と整合する。文書末尾の全URLを再確認したとは主張しない。",
+      "sources": [
+        "[COUNTの可視性・索引選択・COUNT(1)](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+        "[SELECTとINSERT SELECTのロック](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)",
+        "[TABLE_ROWS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)",
+        "[NUM_ROWSと初期化状態](https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html)",
+        "[永続統計と未コミット変更](https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html)",
+        "[TDEとmaster key rotation](https://dev.mysql.com/doc/refman/8.4/en/innodb-data-encryption.html)",
+        "[O_DIRECT等の設定](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html)",
+        "[STOPのタイムアウト後も残る停止要求](https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html)",
+        "[GTID待ちの戻り値](https://dev.mysql.com/doc/refman/8.4/en/gtid-functions.html)",
+        "[2026年10月の対象版](https://blogs.oracle.com/mysql/mysql-october-2026-ga-releases-now-available)",
+        "[Empirical Bernstein原論文、Theorem 4](https://www.cs.mcgill.ca/~colt2009/papers/012.pdf)"
+      ]
+    },
+    {
+      "comparison": "独立検討後に既存指摘を照合した。精度要件、初回負荷予算、暗号化方式、ANALYZEを通常手順へ追加しない点、責任者・共有資源の記録は主文書で改善されている。sampling deadlineと詳細文書の分岐不整合は残る。",
+      "files": [
+        "results/reviews/sol-internal-rollout-review.json",
+        "results/reviews/sol-sampling-review.json"
+      ],
+      "id": "EV-PRIOR-REVIEW"
+    }
+  ],
+  "reviewScope": {
+    "constraintsObserved": "DB接続、Docker操作、負荷生成、実験起動、ファイル編集、workflow起動、委譲は行っていない。ファイル読取、ハッシュ、既存JSONの集計、DB処理を置き換えた純粋な計算だけを実施した。",
+    "documentsRead": [
+      "AGENTS.md",
+      "docs/table-count-guideline.md",
+      "docs/table-count-evidence.md",
+      "compose.yaml",
+      "lab.rb",
+      "mise.toml",
+      "README.md",
+      "bench/requested/README.md"
+    ],
+    "implementationRead": [
+      "bench/lablib.py",
+      "bench/reqlib.py",
+      "bench/countlib.py",
+      "bench/count_preflight.py",
+      "bench/count_shapes.py",
+      "bench/preflight.py",
+      "bench/load.py",
+      "bench/verify_data.py",
+      "bench/reqwide.py",
+      "bench/samplinglib.py",
+      "bench/sampling_bounds.py",
+      "bench/reqscale.py",
+      "bench/reqruns.pyのキャッシュ・working set・比較実行部分",
+      "bench/reqmix.pyの腕実行・負荷・計測部分",
+      "bench/experiments.pyの負荷設定・COUNT・実行管理部分",
+      "bench/requested/12-EXP-6.py",
+      "bench/requested/70-EXP-SOL-10-restart.py",
+      "bench/requested/91-encrypted-count.py",
+      "bench/requested/92-wide-form-order.py",
+      "bench/requested/93-metadata-accuracy.py",
+      "bench/requested/94-metadata-on-replica.py",
+      "bench/requested/96-encrypted-wide-50.py",
+      "bench/requested/97-encrypted-wide-100.py",
+      "bench/requested/98-stratified-sampling.py",
+      "bench/requested/99-restore-after-added-scripts.py",
+      ".riela/workflows/table-count-guideline-review/scripts/run-requested.rb"
+    ],
+    "internalRolloutDecision": "rejected",
+    "language": "ja",
+    "summary": "参考統計を入口とし、数%保証と無影響を約束しない主文書の方向は妥当。通常SELECTとロックする文の区別、分割の時点差、レプリカ復旧の根拠も利用できる。一方、再現実行の成功判定、負荷生成器の未着手リクエスト欠落、キャッシュ条件、詳細文書との不整合、samplingの予算判定に未解決事項があるため、検証済みの社内共通手順としては承認しない。",
+    "validationDesignDecision": "rejected"
+  },
+  "rolloutRecommendation": {
+    "canRetainNow": [
+      "expiry=0のTABLE_ROWSを精度保証のない参考値として使う入口",
+      "COUNT(*)を標準とし、NULL可列のCOUNTを全件数に代用しないこと",
+      "通常SELECTの非ロック読み取りと、INSERT SELECT等のロックを取る形の区別",
+      "分割のMDL保持短縮と、合計が同一時点でないこと",
+      "専用replicaへの通常COUNTと、適用停止失敗時の継続監視・復旧条件"
+    ],
+    "decision": "rejected",
+    "distributionGate": "未解決のhigh/middleを修正するか、その結論・実装を配布範囲から明示的に外して再レビューする。全P2実験や全クラウド環境の検証を待つ必要はない。参考統計だけの案内は切り出せるが、現リポジトリ全体を検証済みの共通実行手順として配布しない。",
+    "narrowBeforeUse": [
+      "ラボの速度順位は測った索引・負荷・キャッシュ条件での観測に限定する",
+      "TDE比較から暗号処理の一律倍率を出さない",
+      "p50の観測とSLO合格を分ける",
+      "92を正常終了した検証として集計しない"
+    ],
+    "servicePilotGate": "対象サービス1つについて取得時点、アプリSLO、共有資源、停止確認、回復条件を所有者が具体化する。物理隔離やマネージド停止機構の効果は、その環境で確認する。"
+  },
+  "validationCoverageMatrix": [
+    {
+      "action": "操作名と観測条件を明示。因果倍率を必要とするときだけ局所追加。",
+      "axis": "キャッシュ",
+      "covered": "追い出し走査、順序交替、bytes/read-ahead、92の残留ページ、R9の回復ミス率。",
+      "gap": "索引別BP滞在・dirty状態の同等性、flush設定、VM/ホスト/物理I/Oの分離。",
+      "misclassification": "再実行をresident warmと呼び、I/O差を暗号処理差へ帰属する。"
+    },
+    {
+      "action": "現在の限定結論を維持。未測定設計を既定推奨へ昇格しない。",
+      "axis": "索引と実行経路",
+      "covered": "複合条件の過剰走査、NULL・型・DESC等の除外、不可視索引、MVCC更新時の逆転、parallel差。",
+      "gap": "特殊COUNTのHandlerゼロを補う一貫した実行時計測、幅広いPKと索引/BP比の一般性、PRIMARYなしの追加比較。",
+      "misclassification": "EXPLAINのkeyやrowsだけで読取量・完了時間を判断する。"
+    },
+    {
+      "action": "COUNTの意味は使える。倍率・100列サービス負荷・鍵運用は未確定とする。",
+      "axis": "暗号化と行幅",
+      "covered": "91の3版、TDE・列暗号化・ストレージ暗号化の概念区別、96の50列48腕。",
+      "gap": "97の完了、鍵欠落・再起動、実クラウド鍵管理、圧縮・外部LOB・暗号文paddingとの組合せ。",
+      "misclassification": "合成VARBINARYを列暗号化の性能試験と扱う、master key rotationを全データ再暗号化と扱う。"
+    },
+    {
+      "action": "予定数保存を先に修正。高負荷結果は速度・停止の限定観測に留める。",
+      "axis": "負荷と対照",
+      "covered": "予定時刻起点遅延、複数write形、非飽和と飽和の区別、control、CPU対照。",
+      "gap": "未着手予定数、長いTX・bulk更新のサービス影響、実CPU分離。replicaとbenchのcpusetはCPU3で重なる。",
+      "misclassification": "標本不足を低エラー率と解釈する、同一VMの比較を物理隔離と解釈する。"
+    },
+    {
+      "action": "観測差と合格判定を分ける。96の異常条件だけ優先して切り分ける。",
+      "axis": "統計・性能判定",
+      "covered": "反復と順序交替、tailノイズ、R9の120秒回復、途中結果の状態。",
+      "gap": "非劣性の合格基準、短窓tailの精度、腕間のbacklog・dirty状態回復。",
+      "misclassification": "範囲が重なることを同等・無影響の証明とする。"
+    },
+    {
+      "action": "保証なしの入口は現根拠で案内可能。新たな精度保証を主張しない限り全面再試験は不要。",
+      "axis": "概数精度",
+      "covered": "58表、ANALYZE前後、サンプル数、行サイズ偏り、expiry、NUM_ROWS初期化、replica統計と遅延。",
+      "gap": "先行COUNTで表を開く前の未知・未初期化状態、未コミット大規模DMLとsnapshot真値の比較。",
+      "misclassification": "一致する推定値を独立検証と扱う、未初期化0や権限による空結果を空表と扱う。"
+    },
+    {
+      "action": "prototypeとして保持し、実行状態と精度状態を分離する。",
+      "axis": "確率的推定",
+      "covered": "セル包含確率、硬い上限、判定時点へのalpha配分、空標本、数理候補の純粋再計算。",
+      "gap": "98の実DB結果、全体deadline、失敗・後始末の契約、複数対象の同時信頼度。",
+      "misclassification": "数理検査をDB実測と呼ぶ、固定seedの成功率を95%保証と呼ぶ、予算超過の精度達成を運用成功とする。"
+    },
+    {
+      "action": "全環境をラボで証明しようとせず、採用するサービス1つのpilot条件を必須にする。",
+      "axis": "外的妥当性",
+      "covered": "小ラボ・共有VM・ホストキャッシュ・バージョン差の制限を概ね開示。",
+      "gap": "物理隔離、クラウド停止権限・鍵、共有ストレージ、実SLO、複数チーム同時実行。",
+      "misclassification": "方式間比較のローカル倍率を本番時間・安全設定へ移す。"
+    },
+    {
+      "action": "成功判定と履歴保存を修正。benchはCompose専用のままとし、任意LAB_HOST/--hostを受ける現実装を接続先制約の証明にはしない。",
+      "axis": "再現性と来歴",
+      "covered": "固定版、個別status・ログ、96のsource SHA、失敗節保存。",
+      "gap": "失敗status再利用、依存manifest、92終了コード・完全ログ、履歴保持、白紙all、接続先のコード上のallowlist。",
+      "misclassification": "requestedの再実行成功を全実験成功とする、MAX(id)を件数検証とする。"
+    }
+  ]
+}

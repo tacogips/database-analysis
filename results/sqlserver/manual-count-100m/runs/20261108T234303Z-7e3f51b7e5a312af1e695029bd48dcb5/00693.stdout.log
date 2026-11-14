@@ -1,0 +1,62 @@
+[
+    {
+        "Name": "lab-sqlserver-manual100m-network",
+        "Id": "dcfaebfa2534c5100f57d4b8241feff00c960cc7e44f4e99d7f2274fd2583963",
+        "Created": "2026-11-09T08:43:06.534029803+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "be865f59166520eda755f9700cb3f7520232af4856f403aafbc9f3e903d6bb95",
+            "com.docker.compose.network": "runtime",
+            "com.docker.compose.project": "lab-sqlserver-manual100m",
+            "com.docker.compose.version": "5.6.1",
+            "count.manual100m.owner": "7e3f51b7e5a312af1e695029bd48dcb5"
+        },
+        "Containers": {
+            "146ed02d772987c771bc55e7031dc7dac7afd64c895b099671f9ff8f8b95513a": {
+                "Name": "lab-sqlserver-manual100m-secondary",
+                "EndpointID": "26c3db41064ea2277b80f9d258078c437013d2ff88d2c6011c75bd44291df82c",
+                "MacAddress": "6a:d0:3c:c4:cd:6f",
+                "IPv4Address": "172.19.0.4/16",
+                "IPv6Address": ""
+            },
+            "ce5810eced5de7f6f5a3cbf68c062f520d0fc20e04ef56ef845b91ff6d09dedc": {
+                "Name": "lab-sqlserver-manual100m",
+                "EndpointID": "2e3eb12dcaeee5193531e913720af5d6e5a33355aff51660766b1883f4ad4b92",
+                "MacAddress": "fe:10:63:9e:59:30",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    }
+]

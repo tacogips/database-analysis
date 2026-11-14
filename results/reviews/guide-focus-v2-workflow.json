@@ -1,0 +1,75 @@
+{
+  "workflow": {
+    "workflowId": "temp-safe-table-count-guide-sol-v2",
+    "description": "Guide-focused Sol author; exhaustive engine suite explicitly skipped by latest user",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 1800000
+    },
+    "entryStepId": "guide-author",
+    "nodes": [
+      {
+        "id": "guide-author",
+        "nodeFile": "nodes/guide-author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "guide-author",
+        "nodeId": "guide-author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/guide-author.json": {
+      "id": "guide-author",
+      "description": "Focused practical engineering guide using existing representative evidence",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Finish the partially written practical Japanese guideline NOW. Main guide is already 127 lines, but its linked docs/table-count-calibration.md DOES NOT EXIST. Create that missing companion first with actual checked existing measurements. Do not overwrite useful current text needlessly. Then verify every relative link in these three docs. Read AGENTS.md and .private.handover/20261107_125237-checkpoint-and-next.md first. GPT-6.1 Sol only. The user is frustrated by delays and explicitly stopped the exhaustive MySQL engine investigation. First read docs/table-count-guideline.md and the small input file, then WRITE a concise first version before further evidence exploration. Do not spend the turn producing plans or huge history adapters.\nEdit ONLY docs/table-count-guideline.md, docs/table-count-calibration.md, README.md. NO DB/Docker/benchmark commands, new experiments, workflow calls, delegation, commit or push. Pure link/hash/format/numeric checks allowed. All old measurement artifacts/history remain intact. Do not restart the144-script suite. Latest AGENTS.md remains authoritative: narrowed fixed-runner white all, owner semantic/source/cleanup audit and two fresh final Sol reviews remain required before project completion. This author must only document current incomplete status, not run these gates.\nLatest exact user intent: 巨大DB/tableの件数取得を安全に行う方法をエンジニア向けガイドラインにしたい。engine挙動調査自体は不要。COUNT検証は判断フローに説得力を与える目的の必要分だけ。どんなtable状態でも最初何を取り、その精度・規模・設定から次をどう選ぶか提示せよ。代表sample tables（1億件、80列、暗号化などの少数組合せ）で校正し、事前統計から精度を推測できるか示せ。主要検証済み結果を再利用し、不足条件は明記。曖昧な全設定10%保証や行数のみの安全閾値は捏造しない。\nMain guide target120–180lines(max220), practical decision flow and copy-ready SQL FIRST, not research chronology or engine encyclopedia. Clearly distinguish: rough existing stats / empirically calibrated error expectation / conditional certified prototype / exact snapshotCOUNT / freshness. Default no primary full-table COUNT for fleet inventory. Use existing cached stats in small scoped batches, preserve UNKNOWN/NULL/error instead of0; do not force information_schema_stats_expiry=0 or run ANALYZE on primary as an automatic counting step. Requiredfew%/exactness => dedicated resource-isolated replica or isolated restoration/measurementDB, with source/time/lag recorded. Shared replica is not automatically safe; separateCPU/IO/storage/readtraffic and replication-apply impact. If no compliant acquisition path exists, state required condition/infrastructure/accuracy or freshness tradeoff, not pretend a magic estimate.\nCOUNT may be cheap for a small index but N alone is not a safe-primary threshold: rowwidth/indexbytes/cache/writes/DDL change cost. Recommend COUNT(*) semantics, RC/RR dedicated connection, no FOR SHARE/UPDATE, count-to-DML/SET/CTAS, SERIALIZABLEtransaction or full-table lock. Ordinary MDL still exists. Offload job: initiallyone table/DB at a time; owner-defined service/IO/lag/DDL stop budgets; bounded statement/lock waits plus actual cancellation confirmation, errors/timeouts notzero. Long multi-table snapshot notdefault; eachcount has its own time unless isolated fixedrestore. TDE server must possess needed decryptcapability, SQL client neednot knowkey/seed; restored encryptedbackup requires administrator/key handling. Appcipher rowcount needsnot plaintext; unreadable/noSQL case cannot be counted this way.\nCalibration companion: how few representative fixtures should be chosen from observable rowcount/rowbytes/columncount/index/PK/encryption/stat-age/change/skew/samplepages. Use existing58metadata accuracy cases,100Mthin and750k50/100TDE plus105static/48service only as bounded evidence. 100M80columnsTDE is NOT measured; cannot infer cost/storage fromcolumncount alone. Explain how operator obtains approximate rowwidth/allocatedbytes and matches a measured profile, when to reject the calibration, and how to compare statistics with exacttruth on a nonproduction measurementDB. Statsage,MODIFIED_COUNTER,samplepages help diagnose but do NOT yield distribution-free error bars; INNODB_TABLESTATS requiresPROCESS so optionaladmincheck, no privilege escalation default. TABLE_ROWS/SHOWTABLESTATUS/n_rows/EXPLAIN often share stats, agreement is not independent validation. More samplepages/ANALYZE cancostIO and neednot monotonically improve an individual estimate; onlycalibrate offproduction. Provide clear acceptance/reject/routing rules tied to measured conditions; don't merely say everythingdepends.\nSelected evidence: results/reference/20261107-observations/requested_metadata_accuracy.json (147KB): beforeTABLE_ROWS58cases medianabs.208%,max15.035%,57/58within10%; afterANALYZEmax23.123%; uneven2.1M-row case default20pages5runs4.56–38.731%errors,200pages5runs-2.131%,2000pages-2.131to-2.812%. Verify these selected facts fromfile beforecitation. All are historical fixedsnapshot observations, not futurecoverage guarantees. Other source: results/reference/review-20261107T123436Z-66065/manifest.json currentpartial339source whiteattempt, allwas intentionallystoppeduserfocus; initial58,22basicimpacts,5matrix,wide01a/01b,105static01c,48service01d completed; restskipped/notpass. Owner current evidence files list in input. Read only relevant small summaries, not hundreds offiles/fulladapters. Prototype results justify conditional alternatives in appendix, not primarydefault or a largeimplementation guide. Currentservice48:3%5/12target7budget,10%12target,COUNT9caps3complete; fasterquerynotnecessarilylowerp99. Main text needs only decision-relevant numbers, not large benchmark tables.\nREADME should lead to guideline, explain supporting lab optional and long; users do not need to run miseall to use theguide. Do not edit AGENTS.md. Preserve its final gates. Correct the current guide final paragraph suggesting white all is not a prerequisite: completion still requires the narrowed validation and reviews. Preserve reproducible lab files, do not changebench/scripts or claim fullmiseall completed. Return a SMALL adapter JSON {when:{always:true},payload:{guidelinePath,guidelineSha256,changedFiles,decisionCoverage,evidenceChecks,remainingGaps}}. Cite files and official primary URLs. No fullhistory copy. Finish actualfiles and read backhashes.\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "guidelinePath",
+            "guidelineSha256",
+            "changedFiles",
+            "decisionCoverage",
+            "evidenceChecks",
+            "remainingGaps"
+          ],
+          "properties": {
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "changedFiles": {
+              "type": "array"
+            },
+            "decisionCoverage": {
+              "type": "array"
+            },
+            "evidenceChecks": {
+              "type": "array"
+            },
+            "remainingGaps": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

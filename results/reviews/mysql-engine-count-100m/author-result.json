@@ -1,0 +1,29 @@
+{
+  "exitStatus": 0,
+  "files": [
+    "mysql/engine-count-100m/lab.rb",
+    "mysql/engine-count-100m/compose.yaml",
+    "mysql/engine-count-100m/mise.toml",
+    "mysql/engine-count-100m/README.md",
+    "mysql/engine-count-100m/verify_offline.rb",
+    "docs/mysql-engine-count-100m.md"
+  ],
+  "pendingWorkflowSteps": [
+    "所有者が新規セッションで専用allを実行し、終了まで保持する",
+    "所有者が実測根拠・最終source・後始末を監査する",
+    "実測結果を日本語文書へ反映し、最終文書ハッシュを別途固定する",
+    "新規セッションのGPT-6.1 Sol 2役で最終敵対的レビューする"
+  ],
+  "readyCommand": "mise -C mysql/engine-count-100m run all",
+  "status": "author_complete_ready_for_owner",
+  "unresolvedIssues": [],
+  "verification": {
+    "dockerDatabaseBuildOrMeasurementStarted": false,
+    "exitStatus": 0,
+    "log": "/Users/taco/gits/tacogips/database-analysis/mysql/engine-count-100m/offline-session54-final.log",
+    "offlineChecksPassed": 38,
+    "plannedConditions": 3,
+    "plannedMeasuredCounts": 9,
+    "protectedFilesHashMatched": 10963
+  }
+}

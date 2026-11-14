@@ -1,0 +1,361 @@
+{
+  "checkedAt": "2026-11-08T17:23:53.022627+00:00",
+  "cause": "Host VZ virtiofs process retained read descriptors to already unlinked owned fixture files. No APFS snapshots or active TimeMachine backup. Earlier targeted guest stat for both deleted count_target.ibd files released ~97GB handles; remaining owned descriptors revalidated here.",
+  "benchmarkStatus": "Previous whole cold run incomplete exit1 despite all9 InnoDBcounts valid; MyISAM not started. No failed sample omitted or all-success claimed.",
+  "action": "Read-only guest stat on exact already absent owned paths; no VM restart, global cache purge, unrelated resource deletion or database access.",
+  "ownedRootsAbsent": true,
+  "remainingBefore": [
+    {
+      "pid": 66961,
+      "fd": "762r",
+      "size": 56,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/auto.cnf"
+    },
+    {
+      "pid": 66961,
+      "fd": "777r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2049_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "782r",
+      "size": 12582912,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/ibdata1"
+    },
+    {
+      "pid": 66961,
+      "fd": "783r",
+      "size": 4194304,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_0.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "785r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2050_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "786r",
+      "size": 12582912,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_1.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "795r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2048_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "812r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2051_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "825r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2052_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "827r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2053_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "855r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2031"
+    },
+    {
+      "pid": 66961,
+      "fd": "857r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2032_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "859r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2033_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "860r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2034_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "866r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2035_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "867r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2036_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "870r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2037_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "871r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2038_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "872r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2039_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "881r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2040_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "893r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2041_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "908r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2042_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "920r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2043_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "930r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2044_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "967r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2045_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "969r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2046_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "971r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2047_tmp"
+    }
+  ],
+  "guestMetadataRevalidation": {
+    "argv": [
+      "env",
+      "COLIMA_HOME=/Users/taco/.config/colima",
+      "colima",
+      "--profile",
+      "brotli-verify",
+      "ssh",
+      "--",
+      "sh",
+      "-c",
+      "stat -- '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_0.dblwr' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_1.dblwr' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2031' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2032_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2033_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2034_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2035_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2036_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2037_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2038_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2039_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2040_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2041_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2042_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2043_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2044_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2045_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2046_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2047_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2048_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2049_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2050_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2051_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2052_tmp' '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2053_tmp' /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/auto.cnf /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/ibdata1"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "stat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_0.dblwr': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_1.dblwr': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2031': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2032_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2033_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2034_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2035_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2036_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2037_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2038_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2039_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2040_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2041_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2042_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2043_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2044_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2045_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2046_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2047_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2048_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2049_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2050_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2051_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2052_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2053_tmp': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/auto.cnf': No such file or directory\nstat: cannot statx '/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/ibdata1': No such file or directory\ntime=\"2026-11-09T02:23:52+09:00\" level=fatal msg=\"exit status 1\"\n"
+  },
+  "remainingAfter": [
+    {
+      "pid": 66961,
+      "fd": "762r",
+      "size": 56,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/auto.cnf"
+    },
+    {
+      "pid": 66961,
+      "fd": "777r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2049_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "782r",
+      "size": 12582912,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/ibdata1"
+    },
+    {
+      "pid": 66961,
+      "fd": "783r",
+      "size": 4194304,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_0.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "785r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2050_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "786r",
+      "size": 12582912,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#ib_16384_1.dblwr"
+    },
+    {
+      "pid": 66961,
+      "fd": "795r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2048_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "812r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2051_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "825r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2052_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "827r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2053_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "855r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2031"
+    },
+    {
+      "pid": 66961,
+      "fd": "857r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2032_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "859r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2033_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "860r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2034_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "866r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2035_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "867r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2036_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "870r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2037_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "871r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2038_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "872r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2039_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "881r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2040_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "893r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2041_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "908r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2042_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "920r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2043_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "930r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2044_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "967r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2045_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "969r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2046_tmp"
+    },
+    {
+      "pid": 66961,
+      "fd": "971r",
+      "size": 33554432,
+      "path": "/Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m/820d48697878bf5220e73128219ca4d3/InnoDB/stage/data/#innodb_redo/#ib_redo2047_tmp"
+    }
+  ],
+  "lsofExitCodes": [
+    0,
+    0
+  ],
+  "hostDf": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 773150368 167322072    83%    /System/Volumes/Data\n",
+  "hostFreeBytes": 171337801728,
+  "nextAction": "Repeat immutable dedicated all from blank with restored capacity; archive prior incomplete run separately.",
+  "capacityStatus": "restored_above_140GiB; large_table_file_handles_released",
+  "descriptorStatus": "27 small old-interrupted-reference runtime descriptors remain in VZ; not claimed fully reclaimed"
+}

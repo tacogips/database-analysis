@@ -1,0 +1,42 @@
+verify_offline.rb: --> verify_offline.rb
+
+unexpected constant; expected a `)` to close the arguments
+unexpected constant, expecting end-of-input
+unexpected ')', expecting end-of-input
+unexpected ')', ignoring it
+
+  320  check('actual AG manual seeding, finite setup, unchanged composite and cold buffer proof source') do
+> 321    state=File.read(File.join(__dir__,'State.cs')); program=File.read(File.join(__dir__,'Program.cs'))
+> 322    primary=File.read(File.join(__dir__,'sql/ag-primary-setup.sql'))
+> 323    secondary=File.read(File.join(__dir__,'sql/ag-secondary-setup.sql'))
+> 324    expect(primary.include?('CLUSTER_TYPE=NONE') && primary.scan('SEEDING_MODE=MANUAL').size==2 && primary.scan('FAILOVER_MODE=MANUAL').size==2)
+> 325    expect(primary.scan('WITH COMPRESSION,CHECKSUM').size==2 && !primary.include?('AUTOMATIC'))
+> 326    expect(secondary.scan('WITH NORECOVERY,CHECKSUM').size==2 && secondary.include?('SET HADR AVAILABILITY GROUP=ManualCountAg'))
+> 327    expect(state.include?('TimeSpan.FromHours(2)') && state.include?('TimeSpan.FromSeconds(120)'))
+> 328    expect(state.include?('"SECONDARY"') && state.include?('"SYNCHRONIZED"') && state.include?('"redo_queue_size"'))
+> 329    expect(state.include?('NoDatabaseSessions') && !state.include?('ROLLBACK IMMEDIATE'))
+> 330    expect(program.include?('secondary-dirty-proof') && program.include?('CompositeStructure==structure'))
+> 331    expect(program.index('if(cell.Secondary) {
+> 332              await PrimaryStatic'.gsub('\n',"\n")))
+> 333    expect(!state.include?('INSERT INTO') && !state.include?('FixtureSetup()'))
+> 334    lab=File.read(File.join(__dir__,'lab.rb'))
+> 335    expect(lab.include?('["#{PREFIX}-client", "#{PREFIX}-secondary", PREFIX]'))
+> 336    expect(lab.include?('started && obj.dig('State', 'ExitCode') != 0'))
+> 337    expect(lab.include?('ManualModel.topology_stage!') && lab.include?('ManualModel.server_mounts!'))
+> 338    expect(lab.include?('secondary gate/probe mismatch') && lab.include?('readiness: 90'))
+  339  end
+
+verify_offline.rb:336: syntax errors found (SyntaxError)
+  334 |   lab=File.read(File.join(__dir__,'lab.rb'))
+  335 |   expect(lab.include?('["#{PREFIX}-client", "#{PREFIX}-secondary", PREFIX]'))
+> 336 | ... State', 'ExitCode') != 0'))
+      |     ^~~~~ unexpected constant, expecting end-of-input
+      |     ^~~~~ unexpected constant; expected a `)` to close the arguments
+      |     ^~~~~ unexpected constant; expected a `)` to close the arguments
+      |              ^~~~~~~~ unexpected constant, expecting end-of-input
+      |                              ^ unexpected ')', ignoring it
+      |                              ^ unexpected ')', expecting end-of-input
+      |                               ^ unexpected ')', ignoring it
+  337 |   expect(lab.include?('ManualModel.topology_stage!') && lab.include?('ManualModel.server_mounts!'))
+  338 |   expect(lab.include?('secondary gate/probe mismatch') && lab.include?('readiness: 90'))
+

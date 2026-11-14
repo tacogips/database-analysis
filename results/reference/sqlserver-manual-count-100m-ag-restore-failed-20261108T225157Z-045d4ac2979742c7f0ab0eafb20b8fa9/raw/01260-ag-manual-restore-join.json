@@ -1,0 +1,11 @@
+{
+  "sql": "ALTER AVAILABILITY GROUP ManualCountAg JOIN WITH(CLUSTER_TYPE=NONE);\nRESTORE DATABASE ManualCount100m FROM DISK=N\u0027/backup/fixture-full.bak\u0027\n WITH NORECOVERY,CHECKSUM,\n MOVE N\u0027ManualCount100m_data\u0027 TO N\u0027/var/opt/mssql/data/ManualCount100m.mdf\u0027,\n MOVE N\u0027ManualCount100m_log\u0027 TO N\u0027/var/opt/mssql/log/ManualCount100m.ldf\u0027;\nRESTORE LOG ManualCount100m FROM DISK=N\u0027/backup/fixture-log.trn\u0027 WITH NORECOVERY,CHECKSUM;\nALTER DATABASE ManualCount100m SET HADR AVAILABILITY GROUP=ManualCountAg;\n",
+  "start_ns": 361494245665385,
+  "end_ns": 361621814564611,
+  "elapsed_ns": 127568899226,
+  "raw": null,
+  "error": {
+    "type": "SqlException",
+    "Message": "A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 2 - Connection was terminated)"
+  }
+}

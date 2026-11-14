@@ -1,0 +1,29 @@
+{
+  "authority": "Latest user: 朝までにできていればいい。第三者のエンジニアがみて、自分が運営するサービスをデグレさせずに安心してtableデータ数を取得できるガイドラインになっているかどうかを重視。",
+  "priority": "Engineer can safely decide and execute in their own environment; evidence volume and engine coverage are secondary. Do not promise universal zero performance effect.",
+  "finalReviewRoles": [
+    {
+      "role": "unfamiliar-service-engineer",
+      "task": "Use only guide and linked calibration to walk through own unfamiliar encrypted huge service DB. Identify ambiguous instructions, hidden prerequisites, burdensome permissions, unsafe copy/paste, missing failure handling, and better simpler alternatives."
+    },
+    {
+      "role": "adversarial-validation-and-operations",
+      "task": "Challenge causal/accuracy/performance claims, evidence provenance, cache/index/TDE and missing-key conditions, snapshot/replica freshness, cancellation/DDL/undo/resource contention and unmeasured production extrapolation."
+    }
+  ],
+  "acceptanceCases": [
+    "No existing stats / TABLE_ROWS NULL or0 / denied stats access must not become empty table",
+    "Unknown50/100column encrypted table with no application seed; separate TDE server key availability from app ciphertext",
+    "Existing stats good enough for inventory vs few% required vs exact required",
+    "Approximate smallness must not authorize an unbounded primary scan",
+    "No dedicated replica: choose resource-isolated restoration or explicit deferral/tradeoff",
+    "Shared replica or storage: identify resources and application/replication SLO impact, not unconditional safe label",
+    "Operational budgets specified by service owner and monitored before/during/after; query deadline alone insufficient",
+    "Timeout/client disconnect/cancel must confirm owned server work stopped; failure never0",
+    "Normal InnoDBRC/RR consistent COUNT vs locking DML and unavoidableMDL; no long sharedtransaction",
+    "Multi-table/shard generation/missing targets and acquisition times explicit",
+    "Observed best/worst stats and sample errors separated; roundedzero, uninitializedzero, unacceptedzero distinct",
+    "Need not run lab to use guide; initial safe step and escalation are clear to third party"
+  ],
+  "completionGate": "Narrow fixed white-all process success + owner semantic/source/cleanup audit + 2 separate finalSol sessions; fix material defects then commit/push. Latest overnight allowance does not justify restoring exhaustive skipped suite."
+}

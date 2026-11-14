@@ -1,0 +1,37 @@
+{
+  "status": "owner_verified",
+  "command": "mise -C sqlserver/issue1 run all",
+  "actualExitCode": 0,
+  "runtimeArchive": "results/reference/issue-1-runtime-20261108T013522-6bd01cec80ff",
+  "archiveManifestSha256": "f8e81e1e1d4adc9ba7a0d6fffe8e2eeafd4e12231ec59cb12b6dab3a74daeef6",
+  "sourceHashes": {
+    "sqlserver/issue1/lab.rb": "7401978cd34d13111e8a763c457cce4ba972885ce7de0b6b0c3615f8260cc437",
+    "sqlserver/issue1/mise.toml": "9200d44b709fb4266977ad0eea81e11a56849d716c14e901706fe946f8092e4c",
+    "sqlserver/issue1/compose.yaml": "1826cfb7e8ac74f869b93c4415e039357ebe224f389d3faa9c43f9fc12f27b3a",
+    "sqlserver/issue1/Dockerfile": "fc330088772578d04b795cd5630ddebe7c58c0ff4e3b74f9e8acf0b58bdd5f90",
+    "sqlserver/issue1/.dockerignore": "f4a08bffb3077b9356083081520f9987342a4988dd06574763311c2b776417d4",
+    "sqlserver/issue1/CountIssue1.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/issue1/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/issue1/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/issue1/Program.cs": "2de684668ce01307b4a4f514c3979cdeb6cb579eadacbaee3b204495e8c17e96",
+    "sqlserver/issue1/runbook-example-inputs.json": "5ffd82e6295f0003e86c31dd2c5defbb18cade1d381b6d99fb0b80124d588e0b",
+    "sqlserver/issue1/README.md": "0a5da3b23737b0d1e89ab8fb53ef4e7de2bf1602579b4f25a68e33ba4a576d73",
+    "sqlserver/issue1/verify_author.py": "e647f6d794ccd32c5e186431cc7ea433ce22d547b4002127f933874e2f109f5a"
+  },
+  "ownerAuditSha256": "d50ff3cb01b3fdb00dd1d5ae88aca2b340f5deef1e37c5d6f2fa14ebccad5ee3",
+  "auditScriptSha256": "19392009898b4e8852d0c5f1f813c548013cb5ba1927fdb162219213d3794b74",
+  "canonicalInvocationSha256": "13ca14eb43616a11c13e023cab1e881fa308a4179d9080e9560a8b4754bb8faf",
+  "canonicalLogSha256": "12404efa6f578d6efed187f76295fd7dc7826ce91fd8b70ddf7195c44eda0f1f",
+  "scope": {
+    "completion": "passed",
+    "ownership": "5 actual two-connection identities; 3 mismatches refused",
+    "transactionRelease": "5 owned session/requests/captured transaction IDs/snapshots absent",
+    "stats": "OFF/sync ON/async ON; COUNT=4096; actual plans; update not observed in narrow schema/plan/window",
+    "precision": "fixture only",
+    "serviceBudget": "unavailable_functional_only",
+    "recovery": "retention released; physical allocation and production recovery unverified",
+    "communication": "idle connection Dispose simulation only, not network partition",
+    "leastPrivilege": "SA functional probe plus denied observer; full production role certification unmeasured",
+    "platform": "ARM64 SQL amd64 emulation, unsupported; no native performance certification"
+  }
+}

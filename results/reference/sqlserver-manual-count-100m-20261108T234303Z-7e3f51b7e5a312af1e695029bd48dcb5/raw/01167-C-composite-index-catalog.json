@@ -1,0 +1,27 @@
+{
+  "sql": "SELECT t.lock_escalation_desc, i.index_id, i.name AS index_name,\n       i.type_desc, i.allow_row_locks, i.allow_page_locks\nFROM sys.tables AS t\nJOIN sys.indexes AS i ON i.object_id = t.object_id\nWHERE t.object_id = OBJECT_ID(N\u0027dbo.Target\u0027, N\u0027U\u0027);\n",
+  "start_ns": 364384097584348,
+  "end_ns": 364384111962289,
+  "elapsed_ns": 14377941,
+  "raw": [
+    [
+      {
+        "lock_escalation_desc": "TABLE",
+        "index_id": 1,
+        "index_name": "PK_Target",
+        "type_desc": "CLUSTERED",
+        "allow_row_locks": true,
+        "allow_page_locks": true
+      },
+      {
+        "lock_escalation_desc": "TABLE",
+        "index_id": 2,
+        "index_name": "k_count_v2",
+        "type_desc": "NONCLUSTERED",
+        "allow_row_locks": true,
+        "allow_page_locks": true
+      }
+    ]
+  ],
+  "error": null
+}

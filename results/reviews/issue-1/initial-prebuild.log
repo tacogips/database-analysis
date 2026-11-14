@@ -1,0 +1,66 @@
+#0 building with "colima-brotli-verify" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 730B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 120B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 33.17kB done
+#4 DONE 0.0s
+
+#5 [1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#5 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e done
+#5 DONE 0.0s
+
+#6 [2/7] WORKDIR /src
+#6 DONE 0.0s
+
+#7 [3/7] COPY . ./
+#7 DONE 0.0s
+
+#8 [4/7] RUN if [ -f packages.lock.json ]; then dotnet restore --locked-mode; else dotnet restore --use-lock-file; fi
+#8 0.332   Determining projects to restore...
+#8 26.22 /src/CountIssue1.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.18 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+#8 26.22 /src/CountIssue1.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.18 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+#8 26.28   Restored /src/CountIssue1.csproj (in 25.82 sec).
+#8 DONE 26.3s
+
+#9 [5/7] RUN dotnet build -c Release --no-restore -o /app
+#9 0.343 /src/CountIssue1.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.18 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+#9 0.343 /src/CountIssue1.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.18 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+#9 1.108   CountIssue1 -> /app/CountIssue1.dll
+#9 1.114 
+#9 1.114 Build succeeded.
+#9 1.114 
+#9 1.114 /src/CountIssue1.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.18 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+#9 1.114 /src/CountIssue1.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.18 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+#9 1.114     2 Warning(s)
+#9 1.114     0 Error(s)
+#9 1.115 
+#9 1.115 Time Elapsed 00:00:00.94
+#9 DONE 1.1s
+
+#10 [6/7] RUN mkdir /evidence && cp packages.lock.json /evidence/packages.lock.json && dotnet --info > /evidence/dotnet-info.txt
+#10 DONE 0.2s
+
+#11 [7/7] WORKDIR /app
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 1.1s done
+#12 exporting manifest sha256:bd85caa3ff9462d258b7d775b60c863f33adffc108325c9a4198adbb5592ebdd done
+#12 exporting config sha256:07f0d187f0f5315dab90df00b8cef65ed6a204c1f63f6c77f841efb208573c07 done
+#12 exporting attestation manifest sha256:e9cf594a3b1cff09c76d236ec5eda22e6e4331dc77639466a3f9bc2e223cd15f done
+#12 exporting manifest list sha256:3666f2ad85966fac6bc9bae06785d23f42fbd8aa1e00f0eee7ea386aa5770ab1 done
+#12 naming to docker.io/library/lab-sqlserver-issue1-client:preflight done
+#12 unpacking to docker.io/library/lab-sqlserver-issue1-client:preflight
+#12 unpacking to docker.io/library/lab-sqlserver-issue1-client:preflight 0.2s done
+#12 DONE 1.3s

@@ -1,0 +1,59 @@
+{
+  "id": "review",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "high",
+  "agentSandbox": "read-only",
+  "sessionPolicy": {
+    "mode": "new"
+  },
+  "variables": {},
+  "promptTemplate": "You are GPT-6.1 Sol independent adversarial reviewer, NEW read-only session separate from authors and other reviewers. Never write, start DB/Docker/measurements, delegate, run workflows or publish. Read AGENTS.md and results/reviews/final-guidelines/criteria.json. Review ONLY current final operator deliverables docs/guidelines/mysql.md, docs/guidelines/sql-server.md, docs/README.md plus supporting existing accepted detail/evidence as needed. These are new Japanese final whole-table COUNT selection playbooks, not a new benchmark. role: adversarial validation/operations reviewer: review both current guides and cited evidence independently FIRST, then open results/reviews/final-guidelines/final-engineer-result.json and assess its findings with concrete evidence in independentFindingAssessment.\nUser objective: 最終的に、mysql, sql serverそれぞれで、大部分のmysql table(あらゆるtableの状態を想定) で最適なデータ量取得方法のガイドラインを日本語で作成してcommit,pushせよ. In context data volume means whole-table rowcount without businessWHERE, notbytes or appactivefilter. Most normal physical tables must have an executable common reference->qualified exact path despite PK/index/width/compression/partition/encryption/churn variants. Broad condition coverage is routing, not a claim that every cross-product state was experimentally measured. Do not accept blanket deferral of most ordinary tables. Unknown/special states must have countmeaning, reference source or owner nextaction and safe deferral, not just vaguewarning. Do not insist on fullperformancegrid for unsupportedclaims that safely defer.\nVerify actual baseline protected file hashes (previous sources/accepted docs/evidence unchanged), current three docs hashes, copied SQL archive manifest and underlying cited numeric facts from resultsJSON. New final docs may combine official standard SQL semantics and established validated methods, but cannot claim new measurement, universal10%/few%bound, N-only safe-primaryscan threshold, zero schema locks, zeroextraCPU or globalfastest. Do not import MySQL row-nonlocking into SQLdefaultlockingRC. Approximate smallness/uncertifiedsample0 never productionfullCOUNT permission. Unsupported native performance/100M80or100colTDEcross/AlwaysEncrypted/RLSruntime/etc remain limited, not fabricated.\nChallenge practical operator steps: approvedexistingexportfirst; budgets beforemetadataSQL; metadata0/NULL/uninitialized/absent/denied/errors unknown; no assumption allmetadata iscacheonly; reference vs empiricalcalibration vs exactsnapshot/freshness. Row/index width/cache/optimizerstats vs counters must be distinct. No automaticANALYZE/UPDATESTATS/indexcreation/cacheflush, EXPLAINANALYZE or productionRCSI migration. TABLES vsPARTITIONS andSQLbaseindex0/1/allpartitions avoiddoublecounts. RLS/tenant/applogic/softdeletes/temporalcurrent-history/views/shards all definewhatrowsmean. MySQLnonInnoDB andtemp objects cannotinherit InnoDB COUNT assumptions. Normal SQLdiskcolumnstore should get a viable qualified standardCOUNT_BIG route without certifying unmeasureddelete/delta performance; memoryoptimized/external/remote/synonym require scopeappropriateowner path.\nFor exact: resourceisolation/caps BEFOREmonitoring; existingreplicas/backups provisioning itselfbudgeted; primarycurrentvsreplicasnapshot/GTIDLSN andcross-tabletimesnotexactglobalcurrent. MySQLRC/RRplainCOUNT row-nonlockingbutMDL/undo remain; SQLonlyexistingRCSI/SNAPSHOT with dedicatednonambient/nonpooled newconnection, @@TRANCOUNT/XACT_STATEguard, IMPLICITOFF, shortexplicitSNAPSHOT andconfirmedend. NoNOLOCK/READPAST/lockingreads/SERIALIZABLE/tablelocks/embeddedDMLcounts. Driverdeadlinesvslockwaits, separateownedcancel path/currentidentitynotblindreusedID, rollback/serverend/recovery, SLOheadroombeforeviolations. AGsecondary evenindependenthardware affectsprimaryghost/space/logreuse; primary+secondarymonitor/budget/data-movementdisconnect recovery requiredorindependentrestoredcopy/defer. TDE serverkeys vsclientseed/apps columnciphertext; SQLvisibilityandprivilegesnotkeybypass. No key means failedrestore/read not0. Never certify productionSLO fromsmall/censored/unfinishedwindows. Readers must be able to use guide without runninglab/Riela.\nAnswer five reviewQuestions: betterMethods,designCoverage,omissions,lockFactors,fastCount. Include coverageReport forbothproducts explaining ordinary-case route and any state/failure cases that do not have usable routing. Newpolicy unsupported table settings must be named and reference/nextaction clear, not universalallstatespromise. Real findings must have stableid,severityhigh/middle/low, concrete scenario/source andrequiredcorrection. Necessaryexperiments ONLY if indispensable to a current stated recommendation, with whyofficialsemantics/existingdata cannotresolve; prefer fixing/removingunsupportedclaim when sufficient. Do not waive material defects. Final acceptance requires exactcurrentthreefiles reviewed, no own/confirmedhigh-middle or indispensablemeasurement pending, preservedbaseline and soundevidence. New final aggregate acceptance.json is pending untilbothrolescomplete; don't demand it beaccepted beforeyour own verdict. Return SMALL JSON accepted(bool),decision(accepted/rejected),documentHashes,findings,requestedExperiments,reviewQuestions,coverageReport,reviewEvidence. Avoid largecat/raw dumps; usePython allowlisted summaries andread hashes.\n\nExact inputs: {\"documents\": {\"docs/guidelines/mysql.md\": \"97e9cfd5016684d27acd1995599d1b08bb64118810f31a272891952fb4557078\", \"docs/guidelines/sql-server.md\": \"2a8e6d1b4a75abb6a9bb27e601d176c3e08f34f99be6fa081c02e7e2a7f9b899\", \"docs/README.md\": \"1dec0cc28ee32b1e707c312ed3a3a6aef7d5d08ecc3de7c2c259dc0f64a8fc8b\"}, \"baselineSha256\": \"b0e31b25d5786de7ffd52f1fdebdf2c553a7a9ff6e02fa0812dcd592c2d73256\", \"criteriaSha256\": \"470848426329fcd212f59599a1a0cc8526876f9c15d46384504b6c7110d3b2c7\", \"mysqlProofSha256\": \"0ef235cd8832593093b25335121253fae8ab2fc5c2bf9feb1384c30ba2e93350\", \"sqlserverProofSha256\": \"83067594c7760061f4c74145b11916ee2f70b8f7343086e7abe49e93e2e26d11\", \"sqlserverArchiveManifestSha256\": \"9dc945d48939a68bca35b60b711ccecf740798b5d5b85719a3f2be30336baeb2\"}",
+  "output": {
+    "jsonSchema": {
+      "type": "object",
+      "required": [
+        "accepted",
+        "decision",
+        "documentHashes",
+        "findings",
+        "requestedExperiments",
+        "reviewQuestions",
+        "coverageReport",
+        "reviewEvidence"
+      ],
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        },
+        "decision": {
+          "enum": [
+            "accepted",
+            "rejected"
+          ]
+        },
+        "documentHashes": {
+          "type": "object"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "requestedExperiments": {
+          "type": "array"
+        },
+        "reviewQuestions": {
+          "type": "object"
+        },
+        "coverageReport": {
+          "type": "object"
+        },
+        "reviewEvidence": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "maxValidationAttempts": 2
+  }
+}

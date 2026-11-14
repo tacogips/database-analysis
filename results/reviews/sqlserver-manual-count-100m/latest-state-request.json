@@ -1,0 +1,20 @@
+{
+  "receivedAt": "2026-11-08T16:22:24.079180+00:00",
+  "userRequest": "Measure performance of each SQL selected by SQL Server DB state, following current manual.",
+  "manualPath": "docs/guidelines/sql-server.md",
+  "manualSha256": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682",
+  "snapshot": "results/reviews/sqlserver-manual-count-100m/manual-sources/sql-server-latest-states.md",
+  "branches": [
+    "A actual AG readable secondary",
+    "B RCSI=1 nonAG",
+    "C RCSI=0 SNAPSHOT ON nonAG",
+    "D RCSI=0 SNAPSHOT OFF, explicit NOLOCK observed count"
+  ],
+  "commonScale": {
+    "rows": 100000000,
+    "columns": 100
+  },
+  "focusedDesign": "Retain B clustered/narrow/composite index comparison. Add C,D,A on unchanged composite index for DB-state comparison: six cells x3=18 scalar counts, no full index-by-state Cartesian product.",
+  "cache": "Reset dedicated DB data buffers before every sample, OS/macOS cache residual explicitly disclosed.",
+  "status": "Implementation pending; no actual SQL DB/build/download/measurement yet."
+}

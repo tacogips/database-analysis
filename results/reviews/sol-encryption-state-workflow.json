@@ -1,0 +1,101 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-encryption-states-sol",
+    "description": "Sol-only read-only adversarial audit of encryption/key availability table-state coverage",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "Sol-only read-only adversarial audit of encryption/key availability table-state coverage",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "You are GPT-6.1 Sol. Review in Japanese. Read results/reviews/sol-encryption-state-input.json and verify immutable snapshot hashes at start/end. Work only from this snapshot and explicit official specification evidence saved there; any new web lookup must be official MySQL only. This is focused design/coverage review, NOT final rollout approval.\nABSOLUTE: no source/results/file edits, DB connections, Docker commands, benchmark execution, delegation or workflow calls. File/hash reads and isolated pure computations allowed. Do not import modules with DB side effects. Main session19 author edits source and next runs WHITE all; do not inspect its growing outputs or assume snapshot is final source.\nLatest user clarification: seed means encryption/decryption key, NOT RNG seed. User correctly rejects wording that sounds like TDE can work without any key. They require these to be table-state/condition coverage, rather than a new trivial observation that ciphertext cells can be counted.\nAudit actual state taxonomy and evidence: unencrypted vs TDE healthy keyring vs TDE key unavailable, client key possession vs server decrypt capability, application-encrypted payload with unknown key vs encrypted/noninteger/UUID/composite primary-key designs vs opaque binary surrogate, storage-layer encryption vs encrypted file with no SQL access. Consider healthy-running service scope and what is meaningful to promise in key-loss states. Trace91,wide50/100,accuracy sampling and metadata and docs state catalog. No automatic demand for all combinations or physicalstorage test: explain which missing experiments can actually change a method decision. No keys/plaintext are necessary inputs to a SQL row counter when server can access table, but missing server TDE key cannot be bypassed. An engine may need MVCC access beyond nominal chosen secondary index; do not suggest indexes bypass TDE.\nIndependently assess owner coverage artifact; it is a hypothesis, not an approved diagnosis. Distinguish implemented/planned, historic measured, actual cryptographic fixture vs opaque bytes, official-specification only and unmeasured. Missing final all is expected, not a new finding. Is an actual application-crypto fixture/SELECT-only client test necessary to support current claims, or do row-count semantics and explicit width/index limits suffice? Is destructive missing-key experiment necessary, or can honest inapplicability/restoration precondition suffice? If necessary, propose disposable compose-only bounded design with no key removal from existing main data. No method/cap/scope reduction merely to pass.\nGive concrete material findings only, stable IDs SOL-ENCRYPTION-STATE-001 etc, severity, scenario, exact snapshot file/function/line/claim, requiredCorrection and boundedRemediation. A doc-only misleading scope statement can be corrected without new all if measurement source remains unchanged. Do not overstate universal3/5/10% accuracy/no service impact. Preserve exactCOUNT vs metadata rough values vs conditional estimator distinction. Give a state coverage matrix and mandatory vs optional experiments with rationale. Return adapter JSON {\"when\":{},\"payload\":{...}} matching schema: decision accepted/rejected(DESIGN ONLY), guidelineSha256,reviewScope,findings,engineerQuestions,betterAlternatives,requestedExperiments,rolloutRecommendation,reviewEvidence,limitations,claimEvidenceMap,validationCoverageMatrix,priorityFixes. No files written. Final approval still requires actual all/owner audit/proof/two fresh Sol roles.\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations",
+            "claimEvidenceMap",
+            "validationCoverageMatrix",
+            "priorityFixes"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            },
+            "claimEvidenceMap": {
+              "type": "array"
+            },
+            "validationCoverageMatrix": {
+              "type": "array"
+            },
+            "priorityFixes": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

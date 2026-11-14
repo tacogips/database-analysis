@@ -1,0 +1,1136 @@
+{
+ "id": "07-EXP-O6-WRITE-MIX-uniform-100",
+ "answers": [
+  "EXP-O6-WRITE-MIX",
+  "FIND-O6-WRITE-SHAPE-01",
+  "FIND-O8-CLIENT-TIMEOUT"
+ ],
+ "started": "2026-11-06T23:24:48",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 130944,
+    "k_k": 39423
+   },
+   "_seconds": 209.78
+  },
+  "arms": {
+   "runs": [
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 19999986,
+     "partial_rows": 19999986,
+     "steps": 2000,
+     "stmt_ms_p50": 1.28,
+     "stmt_ms_p99": 2.26,
+     "stmt_ms_max": 3.32,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 1999,
+      "tail": 1
+     },
+     "t0": 1794007708.696518,
+     "t1": 1794007711.3444827,
+     "seconds": 2.648,
+     "pool_read_requests": 6714243.0,
+     "disk_reads": 99.0,
+     "pool_read_requests_per_s": 2535624,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 4001,
+      "Handler_read_next": 20007973
+     },
+     "rep": 0,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 132,
+       "p50_ms": 3.36,
+       "p95_ms": 8.56,
+       "p99_ms": 10.06,
+       "max_ms": 10.53,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 132,
+       "p50_ms": 4.35,
+       "p95_ms": 9.47,
+       "p99_ms": 11.45,
+       "max_ms": 12.62,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 66,
+      "p50_ms": 2.05,
+      "p95_ms": 6.66,
+      "p99_ms": 7.22,
+      "max_ms": 7.22,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 268,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 96,
+      "peak_threads_running": 6.0
+     },
+     "committed_writes_in_window": 264
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "rows": 20000189,
+     "partial_rows": 20000189,
+     "steps": 2001,
+     "stmt_ms_p50": 4.19,
+     "stmt_ms_p99": 14.41,
+     "stmt_ms_max": 53.29,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "t0": 1794007711.3498905,
+     "t1": 1794007720.8013005,
+     "seconds": 9.451,
+     "pool_read_requests": 2500979.0,
+     "disk_reads": 1180.0,
+     "pool_read_requests_per_s": 264614,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_next": 19998378
+     },
+     "rep": 0,
+     "arm": "split_pk",
+     "write": [
+      {
+       "n": 472,
+       "p50_ms": 1.92,
+       "p95_ms": 6.68,
+       "p99_ms": 22.02,
+       "max_ms": 30.55,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 472,
+       "p50_ms": 2.12,
+       "p95_ms": 7.54,
+       "p99_ms": 23.01,
+       "max_ms": 35.28,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 236,
+      "p50_ms": 1.07,
+      "p95_ms": 3.28,
+      "p99_ms": 6.28,
+      "max_ms": 6.75,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 252,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 263,
+      "peak_threads_running": 6.0
+     },
+     "committed_writes_in_window": 944
+    },
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "rows": 20000001,
+     "status": "complete",
+     "t0": 1794007720.8241968,
+     "t1": 1794007732.18323,
+     "seconds": 11.359,
+     "pool_read_requests": 3597522.0,
+     "disk_reads": 158752.0,
+     "pool_read_requests_per_s": 316710,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 20000001
+     },
+     "rep": 0,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 568,
+       "p50_ms": 2.49,
+       "p95_ms": 20.36,
+       "p99_ms": 52.19,
+       "max_ms": 83.02,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 568,
+       "p50_ms": 2.76,
+       "p95_ms": 20.92,
+       "p99_ms": 50.99,
+       "max_ms": 83.23,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 284,
+      "p50_ms": 1.62,
+      "p95_ms": 6.09,
+      "p99_ms": 11.76,
+      "max_ms": 15.05,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 1190,
+      "peak_trx_age_s": 11,
+      "bp_disk_reads_per_s": 15345,
+      "peak_threads_running": 6.0
+     },
+     "committed_writes_in_window": 1136
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 20000001,
+     "status": "complete",
+     "t0": 1794007732.188841,
+     "t1": 1794007734.0174563,
+     "seconds": 1.829,
+     "pool_read_requests": 221940.0,
+     "disk_reads": 75271.0,
+     "pool_read_requests_per_s": 121371,
+     "handler": {},
+     "rep": 0,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 92,
+       "p50_ms": 2.08,
+       "p95_ms": 6.4,
+       "p99_ms": 12.88,
+       "max_ms": 12.88,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 91,
+       "p50_ms": 2.12,
+       "p95_ms": 7.68,
+       "p99_ms": 11.35,
+       "max_ms": 11.35,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 45,
+      "p50_ms": 0.81,
+      "p95_ms": 3.6,
+      "p99_ms": 4.03,
+      "max_ms": 4.03,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 1190,
+      "peak_trx_age_s": 11,
+      "bp_disk_reads_per_s": 30106,
+      "peak_threads_running": 6.0
+     },
+     "committed_writes_in_window": 183
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "rows": 20000108,
+     "partial_rows": 20000108,
+     "steps": 2001,
+     "stmt_ms_p50": 2.32,
+     "stmt_ms_p99": 5.89,
+     "stmt_ms_max": 14.29,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "t0": 1794007734.0233665,
+     "t1": 1794007739.015066,
+     "seconds": 4.992,
+     "pool_read_requests": 2459934.0,
+     "disk_reads": 81267.0,
+     "pool_read_requests_per_s": 492805,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_next": 19998216
+     },
+     "rep": 1,
+     "arm": "split_pk",
+     "write": [
+      {
+       "n": 250,
+       "p50_ms": 1.88,
+       "p95_ms": 5.76,
+       "p99_ms": 11.36,
+       "max_ms": 19.03,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 250,
+       "p50_ms": 1.87,
+       "p95_ms": 5.88,
+       "p99_ms": 7.35,
+       "max_ms": 23.21,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 125,
+      "p50_ms": 1.24,
+      "p95_ms": 3.98,
+      "p99_ms": 5.41,
+      "max_ms": 5.81,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 251,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 14573,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 500
+    },
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 20000005,
+     "partial_rows": 20000005,
+     "steps": 2001,
+     "stmt_ms_p50": 1.14,
+     "stmt_ms_p99": 7.48,
+     "stmt_ms_max": 14.75,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "t0": 1794007739.0176256,
+     "t1": 1794007742.6337903,
+     "seconds": 3.616,
+     "pool_read_requests": 6738588.0,
+     "disk_reads": 22182.0,
+     "pool_read_requests_per_s": 1863463,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 4003,
+      "Handler_read_next": 19998010
+     },
+     "rep": 1,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 180,
+       "p50_ms": 2.39,
+       "p95_ms": 7.04,
+       "p99_ms": 9.59,
+       "max_ms": 12.43,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 181,
+       "p50_ms": 3.04,
+       "p95_ms": 7.27,
+       "p99_ms": 9.47,
+       "max_ms": 9.94,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 91,
+      "p50_ms": 1.67,
+      "p95_ms": 6.08,
+      "p99_ms": 7.19,
+      "max_ms": 7.19,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 276,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 7841,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 361
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 20000000,
+     "status": "complete",
+     "t0": 1794007742.6363912,
+     "t1": 1794007743.4555542,
+     "seconds": 0.819,
+     "pool_read_requests": 217665.0,
+     "disk_reads": 80965.0,
+     "pool_read_requests_per_s": 265716,
+     "handler": {},
+     "rep": 1,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 42,
+       "p50_ms": 1.28,
+       "p95_ms": 3.43,
+       "p99_ms": 5.44,
+       "max_ms": 5.44,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 41,
+       "p50_ms": 1.24,
+       "p95_ms": 2.98,
+       "p99_ms": 7.74,
+       "max_ms": 7.74,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 20,
+      "p50_ms": 0.91,
+      "p95_ms": 1.65,
+      "p99_ms": 1.65,
+      "max_ms": 1.65,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 196,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 48593,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 83
+    },
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "rows": 20000001,
+     "status": "complete",
+     "t0": 1794007743.458112,
+     "t1": 1794007745.2776186,
+     "seconds": 1.82,
+     "pool_read_requests": 2477446.0,
+     "disk_reads": 42388.0,
+     "pool_read_requests_per_s": 1361603,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 20000001
+     },
+     "rep": 1,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 90,
+       "p50_ms": 2.19,
+       "p95_ms": 6.4,
+       "p99_ms": 9.6,
+       "max_ms": 9.6,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 91,
+       "p50_ms": 1.93,
+       "p95_ms": 6.14,
+       "p99_ms": 8.1,
+       "max_ms": 8.1,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 46,
+      "p50_ms": 1.29,
+      "p95_ms": 4.29,
+      "p99_ms": 4.83,
+      "max_ms": 4.83,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 223,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 41047,
+      "peak_threads_running": 5.0
+     },
+     "committed_writes_in_window": 181
+    },
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 20000006,
+     "partial_rows": 20000006,
+     "steps": 2001,
+     "stmt_ms_p50": 1.2,
+     "stmt_ms_p99": 14.49,
+     "stmt_ms_max": 49.49,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "t0": 1794007745.2801025,
+     "t1": 1794007749.144828,
+     "seconds": 3.865,
+     "pool_read_requests": 6730081.0,
+     "disk_reads": 11837.0,
+     "pool_read_requests_per_s": 1741412,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 4003,
+      "Handler_read_next": 19998012
+     },
+     "rep": 2,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 194,
+       "p50_ms": 3.82,
+       "p95_ms": 31.77,
+       "p99_ms": 41.63,
+       "max_ms": 43.88,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 193,
+       "p50_ms": 3.84,
+       "p95_ms": 32.32,
+       "p99_ms": 48.79,
+       "max_ms": 53.53,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 96,
+      "p50_ms": 2.27,
+      "p95_ms": 7.36,
+      "p99_ms": 15.93,
+      "max_ms": 15.93,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 223,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 7653,
+      "peak_threads_running": 7.0
+     },
+     "committed_writes_in_window": 387
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "rows": 20000084,
+     "partial_rows": 20000084,
+     "steps": 2001,
+     "stmt_ms_p50": 1.99,
+     "stmt_ms_p99": 4.04,
+     "stmt_ms_max": 23.35,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "t0": 1794007749.148106,
+     "t1": 1794007753.0495439,
+     "seconds": 3.901,
+     "pool_read_requests": 2467620.0,
+     "disk_reads": 47180.0,
+     "pool_read_requests_per_s": 632490,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_next": 19998168
+     },
+     "rep": 2,
+     "arm": "split_pk",
+     "write": [
+      {
+       "n": 195,
+       "p50_ms": 1.42,
+       "p95_ms": 5.15,
+       "p99_ms": 17.97,
+       "max_ms": 20.01,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 195,
+       "p50_ms": 1.41,
+       "p95_ms": 5.29,
+       "p99_ms": 18.55,
+       "max_ms": 20.47,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 97,
+      "p50_ms": 1.07,
+      "p95_ms": 4.43,
+      "p99_ms": 17.65,
+      "max_ms": 17.65,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 251,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 12139,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 390
+    },
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "rows": 20000000,
+     "status": "complete",
+     "t0": 1794007753.052028,
+     "t1": 1794007754.7043161,
+     "seconds": 1.652,
+     "pool_read_requests": 2485567.0,
+     "disk_reads": 36636.0,
+     "pool_read_requests_per_s": 1504318,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 20000000
+     },
+     "rep": 2,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 83,
+       "p50_ms": 1.8,
+       "p95_ms": 5.28,
+       "p99_ms": 7.09,
+       "max_ms": 7.09,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 82,
+       "p50_ms": 2.37,
+       "p95_ms": 5.51,
+       "p99_ms": 7.04,
+       "max_ms": 7.04,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 41,
+      "p50_ms": 2.22,
+      "p95_ms": 4.35,
+      "p99_ms": 5.26,
+      "max_ms": 5.26,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 281,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 32824,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 165
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 20000001,
+     "status": "complete",
+     "t0": 1794007754.7068791,
+     "t1": 1794007755.5662963,
+     "seconds": 0.859,
+     "pool_read_requests": 218618.0,
+     "disk_reads": 55517.0,
+     "pool_read_requests_per_s": 254379,
+     "handler": {},
+     "rep": 2,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 43,
+       "p50_ms": 1.33,
+       "p95_ms": 3.11,
+       "p99_ms": 3.94,
+       "max_ms": 3.94,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 44,
+       "p50_ms": 1.18,
+       "p95_ms": 2.25,
+       "p99_ms": 3.07,
+       "max_ms": 3.07,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 22,
+      "p50_ms": 0.59,
+      "p95_ms": 1.02,
+      "p99_ms": 1.37,
+      "max_ms": 1.37,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 281,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 57042,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 87
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "rows": 20000089,
+     "partial_rows": 20000089,
+     "steps": 2001,
+     "stmt_ms_p50": 1.87,
+     "stmt_ms_p99": 3.79,
+     "stmt_ms_max": 7.0,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "t0": 1794007755.5694728,
+     "t1": 1794007759.2010915,
+     "seconds": 3.632,
+     "pool_read_requests": 2465822.0,
+     "disk_reads": 45305.0,
+     "pool_read_requests_per_s": 678987,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_next": 19998178
+     },
+     "rep": 3,
+     "arm": "split_pk",
+     "write": [
+      {
+       "n": 181,
+       "p50_ms": 1.35,
+       "p95_ms": 4.38,
+       "p99_ms": 6.76,
+       "max_ms": 7.66,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 181,
+       "p50_ms": 1.34,
+       "p95_ms": 4.85,
+       "p99_ms": 6.97,
+       "max_ms": 7.38,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 91,
+      "p50_ms": 1.09,
+      "p95_ms": 4.3,
+      "p99_ms": 6.69,
+      "max_ms": 6.69,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 281,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 21547,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 362
+    },
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 19999998,
+     "partial_rows": 19999998,
+     "steps": 2000,
+     "stmt_ms_p50": 0.83,
+     "stmt_ms_p99": 1.53,
+     "stmt_ms_max": 3.13,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 1999,
+      "tail": 1
+     },
+     "t0": 1794007759.2041006,
+     "t1": 1794007761.0711067,
+     "seconds": 1.867,
+     "pool_read_requests": 6724335.0,
+     "disk_reads": 11587.0,
+     "pool_read_requests_per_s": 3601667,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 4001,
+      "Handler_read_next": 20007997
+     },
+     "rep": 3,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 93,
+       "p50_ms": 2.2,
+       "p95_ms": 5.83,
+       "p99_ms": 8.3,
+       "max_ms": 8.3,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 93,
+       "p50_ms": 2.95,
+       "p95_ms": 6.64,
+       "p99_ms": 8.03,
+       "max_ms": 8.03,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 47,
+      "p50_ms": 1.89,
+      "p95_ms": 5.45,
+      "p99_ms": 6.54,
+      "max_ms": 6.54,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 208,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 15777,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 186
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 20000000,
+     "status": "complete",
+     "t0": 1794007761.07382,
+     "t1": 1794007762.0879936,
+     "seconds": 1.014,
+     "pool_read_requests": 226806.0,
+     "disk_reads": 50381.0,
+     "pool_read_requests_per_s": 223636,
+     "handler": {},
+     "rep": 3,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 51,
+       "p50_ms": 1.59,
+       "p95_ms": 3.3,
+       "p99_ms": 4.17,
+       "max_ms": 4.17,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 51,
+       "p50_ms": 1.51,
+       "p95_ms": 4.13,
+       "p99_ms": 5.19,
+       "max_ms": 5.19,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 25,
+      "p50_ms": 0.59,
+      "p95_ms": 1.94,
+      "p99_ms": 3.76,
+      "max_ms": 3.76,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 228,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 31988,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 102
+    },
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "rows": 20000000,
+     "status": "complete",
+     "t0": 1794007762.0907352,
+     "t1": 1794007763.7391186,
+     "seconds": 1.648,
+     "pool_read_requests": 2484612.0,
+     "disk_reads": 36194.0,
+     "pool_read_requests_per_s": 1507302,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 20000000
+     },
+     "rep": 3,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 83,
+       "p50_ms": 1.71,
+       "p95_ms": 6.6,
+       "p99_ms": 7.61,
+       "max_ms": 7.61,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 82,
+       "p50_ms": 2.19,
+       "p95_ms": 6.51,
+       "p99_ms": 8.76,
+       "max_ms": 8.76,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 41,
+      "p50_ms": 1.45,
+      "p95_ms": 5.7,
+      "p99_ms": 6.35,
+      "max_ms": 6.35,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 262,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 27671,
+      "peak_threads_running": 4.0
+     },
+     "committed_writes_in_window": 165
+    }
+   ],
+   "_seconds": 55.05
+  },
+  "drift_arm": {
+   "status": "complete",
+   "rows": 20000077,
+   "seconds": 3.523,
+   "t0": 1794007763.7424645,
+   "t1": 1794007767.2652423,
+   "_seconds": 3.52
+  },
+  "windows": {
+   "quiet_true_count_after": 19999999,
+   "drift": {
+    "sum": 20000077,
+    "true_count_after": 19999999,
+    "difference": 78,
+    "write_statements_during_split": 352,
+    "within_write_statements": true
+   },
+   "whole_run_write": [
+    {
+     "n": 3402,
+     "p50_ms": 2.07,
+     "p95_ms": 9.59,
+     "p99_ms": 118.72,
+     "max_ms": 737.7,
+     "errors": 0,
+     "stuck_at_end": 0
+    },
+    {
+     "n": 3401,
+     "p50_ms": 2.26,
+     "p95_ms": 9.47,
+     "p99_ms": 132.62,
+     "max_ms": 741.91,
+     "errors": 0,
+     "stuck_at_end": 0
+    }
+   ],
+   "_seconds": 1.13
+  }
+ },
+ "mix": "uniform_insert_delete",
+ "target_writes_per_s": 100,
+ "rows": 20000000,
+ "note": "Both touch every index at random places. k does not move, so split_k is eligible.",
+ "split_seconds_ceiling": 150,
+ "statement_limit_ms": 120000,
+ "split_settings": {
+  "width": 10000,
+  "limit_ms": 500,
+  "duty": null
+ },
+ "tolerance_fixed_in_advance": "As EXP-R8: a median at least 20% lower and no overlap between the fastest and slowest repeats. An arm that reached its ceiling is reported as such, not as a time.",
+ "elapsed_seconds": 280,
+ "section_errors": []
+}

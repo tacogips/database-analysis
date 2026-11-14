@@ -1,0 +1,214 @@
+{
+  "workflowInput": {
+    "acceptanceCriteria": [
+      "GPT-6.1 Solのみを使用し、執筆と2つの査読を別の役割・セッションで実施する。未解決high/middleは0とし、異種モデルの独立性は主張しない。ラウンド上限を合格にしない。",
+      "未知の任意表で数%精度や本番無影響を無条件に保証しない。参考統計・条件付き確率推定・正確COUNTを区別し、精度と予算と後始末を別判定する",
+      "暗号化され内容不明の50〜100列表に具体的な経路と根拠を示す。TDEと列暗号化を区別する",
+      "cache/index/暗号化/条件漏れ/検証不備の査読を含め、主要結論ごとに根拠の適用範囲を確認する",
+      "本文数値はハッシュ付きの保持されたresults/reference配下へ対応。実験完了・精度達成・SLO合格を区別する",
+      "固定runnerが白紙DBからのmise run allを実施し、文書反映後に所有者が結果の意味と最終計測ソースの不変性を監査する。reproductionProofPathが無い間は完了としない",
+      "Latest user accepts about10% when few-percent is costly: compare3/5/10% accuracy-cost frontiers and exactCOUNT, show how conditions improve or worsen accuracy, and recommend methods under explicit error/freshness/service budgets."
+    ],
+    "accuracyFrontierExistingEvidencePath": "results/reviews/accuracy-frontier-existing-evidence.json",
+    "additionalExperimentRequired": {
+      "budget": "必要なら仮説を変えず複数scriptへ分割。timeout/guardの部分結果を完走としない。追加・変更したコードのセルフチェックも更新する。",
+      "coverage": "少なくとも100列TDEについて、小さい索引があればexact COUNTが勝つ条件と、索引なしでbounded samplingが負荷/読取量を減らせるか、索引更新で何が変わるかを確認する。service負荷なしの精度/コスト比較とservice負荷中の診断を区別する。",
+      "currentImplementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "implementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "protocol": "順序交替、対照、warmup/回復の明示、actual method区間と広いtrialの区別、予定数保存則・unfinished/censoredを保存。固定乱数は再現用であり本番信頼度の根拠ではない。ホストcacheは未制御。短窓からSLO合格や無影響を認定しない。",
+      "purpose": "確率的推定を50/100列表という実対象へ対応させる。同じコードで整数PK・TDE・小さい索引有無・indexed/nonindexed UPDATEを比較し、精度とコストと負荷を別判定する。"
+    },
+    "capacityMaintenanceEvidencePath": "results/reviews/build-cache-cleanup-evidence.json",
+    "completionAuditPath": "results/reviews/pre-final-audit.json",
+    "constraints": [
+      "実データベース接続禁止。Composeのprimary/replicaとLabが起動するmatrixサーバーだけ",
+      "table dataをコミットしない。測定JSONを捏造・書換えしない",
+      "人が読む主文書は日本語・220行以内。詳細は分離したまま維持",
+      "commit/pushはワークフローから実施しない",
+      "測定と別の実験を重ねない。固定runnerと.lab.lockを使う",
+      "フィールドcold/warmはキャッシュ同等性を意味しない。暗号化の一律倍率を結論にしない",
+      "有限ラボで実施不能な本番条件は未計測と適用制限を明記し、無意味な追加実験を要求しない"
+    ],
+    "currentEvidence": [
+      "Interrupted white-all attempt2 actually used Ruby4.0.9, passed10self-checks, verified generated data/replica, completed58shapes,99lock cases,36impact experiments and5matrix versions. It was deliberately stopped during01a because new high2/middle1 protocol defects require source changes. Exit130 is intentional, not a Ruby/bootstrap or DB failure. This is NOT final reproduction.",
+      "Read results/reviews/white-all-interruption.json and the immutable results/reference/review-20261107T053954Z-72116/manifest.json. 01a is partial; later requested scripts were not run in this attempt. The source stayed unchanged during attempt2; no final proof exists.",
+      "Read the new results/reviews/sol-protocol-review.json and owner assessment. The findings are static counterexamples, not an assertion that current-run reqmix hit2013. Repair classification, necessary repetition budgeting and cleanup; preserve hypotheses.",
+      "All5pinned images are now downloaded. Docker VM filled during image pulls. Root removed only confirmed unused build caches; VM now has2.6GiB free, host142GiB. No images, containers, volumes or DB data were deleted for space. Read build-cache-cleanup-evidence.json; prepare images/check space before performance in future.",
+      "The original31finding register and five focused Sol reviews remain pending final closure. Original Opus records are historical only; all new agents must be GPT-6.1 Sol.",
+      "Keep prior runtime selection, lossless8MiB raw chunks, artifact/cache hashes, fresh-summary attribution, partitioned scale30scripts and tolerance105static/48service scope. The current requested glob has118scripts before this repair; derive final scope from source.",
+      "LATEST environment-only retry: source unchanged through completed integration revision19. See space-retry-evidence.json. Current VMfreeKiB=6710280. Prior preflight failure is NOT DB/measurement failure; final all still required. Use current prepared image/cache without further cleanup during measurements."
+    ],
+    "currentRevision": 19,
+    "detailPaths": [
+      "docs/table-count-evidence.md",
+      "docs/probability-count.md"
+    ],
+    "findingRegisterPath": "results/reviews/finding-register.json",
+    "fixes": [
+      {
+        "boundedRemediation": "既存結果にerror_2013等が残っていれば、所有者監査で失敗・原因不明へ再分類するための再測定は不要。タイマーの裏付けが保存されていない1317を確定した予定上限へ昇格させない。欠けた有効比較を主張する場合だけ、その比較を補測する。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-001",
+        "requiredCorrection": "完了、確認済みの予定上限、予期しない失敗、原因不明、未着手を明示的に分類する。2013・接続断・計画拒否等はceiling hitに加算せず、保存後にsemantic failureへ反映する。1317は経過時間だけでタイマー扱いせず、既存split_countと同様にタイマーカウンタ等の裏付けを要求する。scale側の2013拒否は維持する。",
+        "severity": "high"
+      },
+      {
+        "boundedRemediation": "確認済み上限2回だけなら「その2観測で未完了」と限定でき、完走順位を主張しなければ追加反復は不要。速いarmの中央値・順位を必要とする場合だけ不足比較を補測する。scaleの300秒statement・150秒split上限を短縮して穴埋めしてはならない。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-002",
+        "requiredCorrection": "各条件・arm・反復機会を事前に列挙し、実行済み、確認済み打切り、規定による省略、予算不足、失敗をすべて記録する。必要反復と比較成立条件を別に判定し、不足はsemantic incompleteにする。必要な方式群・反復を分割する等で、先行armが後続比較の予算を消費し尽くさない設計にする。",
+        "severity": "high"
+      },
+      {
+        "boundedRemediation": "既存証拠で終了が確認できない窓は、後始末未確認・比較不能と分類できる。quiet truthやdrift境界の主張を撤回すれば、そのためだけの再測定は不要。中断後の影響やdriftを結論に必要とする場合だけ、該当経路を補測する。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-003",
+        "requiredCorrection": "中断時は所有する接続IDについて別接続から処理終了を確認し、必要なKILL・rollback・closeとその成否を保存する。確認できなければ次の比較を開始せず、後続結果を比較不能にする。負荷停止はfinallyで実施し、quiet truthを使う場合は未完了writeの解決とDB処理終了を別途確認する。意図した打切り観測にCOUNT全件完走を要求する必要はない。",
+        "severity": "middle"
+      },
+      {
+        "evidence": "results/reviews/build-cache-cleanup-evidence.json",
+        "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+        "requiredCorrection": "ActualVMrootfilledduringmatriximagepullsafterbaselinephase. Rootalreadyreclaimedunusedbuildcacheonly;VMnow2.6GiBfreeandall5pinnedimagespulled. KeepDBdataonhostbindmounts. Make imagepreparation/VMspacepreflight occur beforebenchmarkperformance sofuturewhiteallfailsbeforemeasurementifspaceunavailable. Do not perform automatic cache/image/container/volume pruning. Document measuredlabresource requirements and no cache-controlled claim. No extra DB experiments outside fixedrunner."
+      }
+    ],
+    "frontierDesignReview": {
+      "assessmentPath": "results/reviews/sol-frontier-assessment.json",
+      "log": "results/reviews/sol-frontier-run.log",
+      "resultPath": "results/reviews/sol-frontier-review.json",
+      "snapshot": "results/reference/20261107-frontier-design",
+      "status": "completed,rejected middle3/low1 on immutable pre-fix design",
+      "workflow": "temp-table-count-frontier-sol"
+    },
+    "guidelinePath": "docs/table-count-guideline.md",
+    "historicalCurrentEvidence": [
+      "91修正版は3版で実行成功。ただし暗号化なし/ありのBP再読込量が違い、暗号処理倍率の因果比較は未成立。新コードの操作ラベルはafter_evict/immediate_repeat。master-key rotationのserver-event重複確認も追加済み、最終allで再計測する。",
+      "92は64観測が揃うが旧起動元の終了コード不明。statusはok=false/observations_complete=trueへ修正済み。最終allで正常終了を取り直す。",
+      "93初期化状態付き再試験と94replica全項目は正常終了。54表のANALYZE後NUM_ROWSはUninitializedで誤差集計から除外。メタ情報取得前の真値COUNTが状態を初期化する影響も検証設計として確認する。",
+      "0c遅延STOP復旧は正常終了。0d/0g〜0lの元レビュー要求が未解決。現在の完了状態と必要性を原文から確認する。",
+      "96/97は旧負荷生成器で48腕ずつ完了。新Workloadは未着手要求を保存し保存則を検査、dispatch/client実行時間を分離。reqwideにactual statement区間・trial raw samples・global arrival accountingを追加、親CPU3/負荷CPU2/DB0,1へ分離済み。新コードの再試験が必要。",
+      "98は修正後に7 fixture×5seedの35腕で正常終了。target25/precision-not-reached10。中程度欠番と密度偏りも含む。metadata→MDL取得→metadata再確認、query後/rollback後の期限判定、accuracy/budget/cleanup分類を修正。直近のDecimal判定とpreflight二重確認はセルフチェック済みで最終all再試験待ち。",
+      "12のTimer対象固定・cancel/join修正版が実DBで正常終了。数値exit_code=0、fingerprint/成果物hash保存。成功キャッシュの実再利用も12/98で確認済み。",
+      "P0 harness修正: 静的import依存グラフ、設定、immutable image digest、実image ID、成功終了コード、成果物hashでのみ再利用。失敗と旧入力は再実行。t_denseの検証はMAX(id)でなく本当のCOUNT(*)。allに5つのセルフチェックを追加。",
+      "全体のwhite allは未実行。resetはDB/生成結果を消しreference/reviewsだけ保持し、再利用はしない。元数値はresults/reference/20261107-observationsへ160 JSONとmanifest保存。最新samplingはresults/reference/20261107-fixed-samplingへcode/exit/statusと共に保存。",
+      "Root pre-final audit at results/reviews/pre-final-audit.json verifies historical hashes/local links and flags that experiments.py main currently does not propagate result.errors into exit status; final white-all proof must inspect semantic errors and intentional cancellation separately, not just process exit.",
+      "Root confirmed historical 3e/3f failed with OperationalError2013 on the superseded unbounded reqruns.write_mix_body design; reqmix.py explicitly documents its replacement but old wrappers still enter all. See ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS in completionAuditPath. Preserve old evidence and full write-mix hypothesis coverage, but fix or explicitly retire superseded invalid protocols before final all rather than accepting partial output.",
+      "Derived existing accuracy curves are in accuracyFrontierExistingEvidencePath, with source hashes. In this later58-fixture observation TABLE_ROWS expiry0 was57/58 within10% beforeANALYZE and55/58 afterANALYZE; do not overwrite the distinct initial corpus or call these production success probabilities. UUID sample-pages20/200/2000 had maxabs errors21.59/8.211/1.547%; uneven-row fixture20pages reached38.731%,200pages2.131%,2000pages2.812%. More sampling is not monotonic per run and ANALYZE is separate maintenance.",
+      "Existing checkpoint replay in accuracyFrontierExistingEvidencePath: uneven_density first recorded target bounds at3/5/10%=8192/2048/512 draws in all5seeds; moderate_gaps=2048/512/512; gaps/islands never meet even10%. These use the same predeclared simultaneous bands, not new post-hoc looks, and lack checkpoint elapsed/counter measurements. Do not infer runtimes or claim this replaces the new tolerance-cost experiment.",
+      "01a AND01b completed successfully with unchanged source and verified artifact hashes; immutable snapshot results/reference/20261107-wide-sampling. Each has20 static and36 service arms with consistent arrival accounting. Static no-index100-column COUNT6.8817-8.1966s vs sample0.7568-1.0313s; small-index COUNT0.0494-0.0723s vs sample1.1712-3.1946s. Under1s service budget,100-column sampling had6/6 exhausted without small index and3/6 exhausted with index. Do not call static speed an SLO pass.",
+      "Isolated3/5/10% comparison code has been prepared without changing running imports; see latestAccuracySteering. Syntax/diff checks and pure band/dependency checks pass; actual measurement is pending.",
+      "0d completed exit0,all sections present.0g completed exit0,all20arms/five repeats/windows present,no skipped arms or section errors. At10M rows,indexed-column updates310/s,256MB pool, statement_k18.758-26.480s,statement_pk0.719-1.254s,split_pk2.307-2.405s. This counters any blanket small-secondary-index rule under MVCC/write churn. Exact SQL forms/settings and physical reads must be interpreted; do not attribute the whole difference solely to index size. Growing immutable-source snapshot at primaryCoverageSnapshotPath. Other0h-0l still running.",
+      "Root fixed a concrete new-frontier failure-loss path discovered during the read-only review: record_sample persists the sample before comparison, skips comparison on unexpected sample failure, and persists a comparison failure without losing the sample. Pure regression uses actual function AST and failed fake connections; results/reviews/accuracy-frontier-failure-regression.json passes. New bench/test_accuracy_frontier.py should be added to lab.self_checks after current owner ends. The design-review immutable snapshot intentionally retains the pre-fix code; do not claim its final findings already closed without checking live correction.",
+      "Focused Sol design review session8 completed rejected,middle3/low1. Root already fixed001 failed-result persistence and002 statement-budget classification in isolated new module, with actual-function AST regressions.003 matrix teardown outcome propagation and004 disabled lock observations remain for author after current owner ends. Read sol-frontier-assessment.json; final reviewer decides closure, not root. Add newtest to self_checks only after owner ends.",
+      "Pipeline updated BEFORE queued launch: fixed runner now attempts white-database all, streaming log in preserved reviews; records source-before/after/exit candidate and immutable measurement snapshot. Integrate is documentation-only. Owner must still audit all scope and semantic outcomes and create final proof, but does not repeat an unchanged successful all only because documentation changed. Existing proof is archived before each new all attempt.",
+      "New bench/test_white_all_runner.rb tests actual fixed workflow script in isolated fake project, no DB. Success,nonzeroexit7,source mutation,stale proof archival,log/snapshot retention all pass; no automatic final proof. results/reviews/white-all-runner-regression.json. Add this hostRuby check to self_checks along with test_accuracy_frontier.py after owner ends.",
+      "Actual0h finished exit0/987s but ONLY 13 arms, with5planned PRIMARY/split repetitions in not_run_near_limit. Slow secondary COUNT195.570s then two300s interruptions crowded them out; no full20-arm success claim. See ROOT-INTRA-ARM-BUDGET-PARTIAL in completionAuditPath and immutable primaryCoverageSnapshotPath. Repair per-arm time allocation/ceiling with preserved hypothesis or report incomplete scope honestly before final all.",
+      "Reconciliation register merges duplicate stable IDs across original revision10 and4temporary reviews:28unique reviewer findings(high2,middle19,low7),36occurrences retained. Every closure remains pending current Sol verification, not root self-approval. See findingRegisterPath and originalReviewExportPath; historical Opus data is retained but new Opus approval is not required.",
+      "Owner batch is intentionally being stopped for proven time-allocation design defect, not treated as completed.0h lacks required PRIMARY repetitions;0j partial archived,0k/0l not yet run. See priorCoverageBatchOutcome and coverage-interruption.json. Fix reqscale allocation/ceiling or split while preserving hypothesis and minimum required repeats before your WHITE mise run all. Complete existing measurements remain preserved. Current root will terminate only this owned local experiment and confirm quiescence before measurement runner. Author may edit after owner exits; do not create a second writer/experiment.",
+      "Coverage interruption is confirmed: owner CLIexit130,owned0j Python/timeout/workload processes terminated,bench has only sleep,matrix container absent. No active DB experiment remains. See coverage-interruption.json and coverage-interrupted-run.log. Proceed with one Sol author then corrected white mise run all; unmeasured0k/0l and incomplete0h/0j remain required scope.",
+      "First exact mise run all failed before reset at Ruby parsing, producing NO new DB measurement. Actual guarded Riela probe confirms task mise exec fixes selection from2.6.10 to3.4.10. Raw evidence-size projection and stale-summary attribution also need bounded fixes before retry. See phaseSpecificWork/fixes; retain full primary-scale and tolerance scope and all raw samples.",
+      "LATEST USER STEERING: latest Ruby is fine. Root installed official latest stable4.0.9, pinned mise.toml4.0.9, changed all5tasks to explicit mise exec, and changed command node to run-white-all.sh bootstrap. Actual guarded Riela latest probe confirms BOTH launcher and child4.0.9. Syntax/project workflow checks pass; real all still pending. Do not restore3.4 or legacy2.6 support. Finish raw-artifact/freshness/cache/launch-chain regressions, then retry all."
+    ],
+    "latestAccuracySteering": {
+      "additionalServicePriority": "Because actual100-column3%-target sampling exhausted the1s service budget in all6 no-small-index arms, include a minimal bounded100-column TDE under-load comparison at relaxed10% (plus matched control and existing3% evidence). Test whether reduced draws actually improve budget/precision outcomes, rather than infer from static checkpoints.5% can be static if a full service factorial would add little. Split scripts within20min limits; avoid an exhaustive redundant factorial.",
+      "conditionMechanisms": "Distinguish effects on statistical accuracy, cost under a fixed budget, and freshness. Key-space sparsity/cell-density variance affect sampling interval convergence; page-level row-size/density heterogeneity, stats sample pages and staleness affect metadata error. A small index, cache, TDE, row width and MVCC mainly change read/CPU/time cost and therefore attainable precision within a fixed budget; they do not make a completed snapshotCOUNT approximate. Concurrent writes/replica lag can change the represented time/population and must not be conflated with estimator error. More sample pages/ANALYZE does not guarantee monotonic accuracy and has separate maintenance impact.",
+      "implementation": "Root added isolated bench/accuracy_frontier.py plus01c-ACCURACY-COST and01d-ACCURACY-SERVICE-100 (.versions8.4.13/.encrypted/.outputs). No active imported source was edited. Code is prepared, NOT DB-executed. Review/fix these scripts rather than duplicate.01c uses seven fixtures xfive seeds x3targets, fullCOUNT paired comparisons, target-specific predeclared looks and same alpha.01d uses100-column TDE with control/exact/3%/10%, index absent/present, indexed/nonindexed writes x3repeats=48arms.5% service is explicitly unmeasured; static includes it. Pure arithmetic verifies each first look can meet its target at zero variance; static closure includes new module and sampling dependencies. Both new wrappers honor the review-only aggregate guard (exit3, never success) and declare their required .outputs. Final all has no aggregate cap.",
+      "interpretation": "Compare accuracy, elapsed time, read volume and service impact rather than require only3%. Include exactCOUNT at0% error. Choose the most favorable method within the accepted error, freshness and service budget;10% is not an unconditional guarantee for arbitrary unknown tables.",
+      "newExperiment": "Review and run the isolated implementation named in implementation after the current owner ends. Retain hypotheses and proper confidence/look allocation. Repair demonstrated issues or split if20min is insufficient; do not duplicate experiments or infer unobserved service effects.",
+      "reporting": "Give a compact condition-by-method comparison with accuracy/freshness/cost/limitations and recommended paths. Distinguish interval target from realized error and from global confidence. Relaxed accuracy does not prove no service impact.",
+      "requiredComparison": [
+        "Metadata realized errors and freshness; no guaranteed error bound",
+        "Conditional cell sampling at3%,5%,10% relative-error targets with matched confidence, precision failures, realized error, runtime and read volume",
+        "ExactCOUNT runtime/reads/impact, including cases where a small index beats sampling",
+        "50/100 columns,TDE,index presence,key gaps/density skew,concurrent changes,MVCC and caches; separate measured from unmeasured"
+      ],
+      "userInstruction": "数%に収まらなければ10%程度でもよい。どの条件で精度がどれくらい上がる/下がるかを知り、そのうえで最高精度でperformance最大の件数取得方法を知りたい。"
+    },
+    "latestRubyProbePath": "results/reviews/mise-runtime-latest-probe.json",
+    "latestRubySourceFixApplied": true,
+    "latestUserSteering": "User explicitly permits latest Ruby. Use latest stable4.0.9 confirmed by official downloads and mise latest on2026-11-07; pin exact4.0.9 for reproduction, no need support system2.6.",
+    "modelPolicy": "User explicitly instructed on 2026-11-07: Riela must use GPT-6.1 Sol only. No Opus step or Opus approval is required.",
+    "officialSupportCheckPath": "results/reviews/mysql-support-check-20261107.json",
+    "originalReviewExportPath": "results/reviews/original-revision10-reviews.json",
+    "phaseControl": "Environment-only retry of unchanged revision18 measurement source after valid preflight capacity failure. Start at fixed lab-runner, then documentation-only integrate(max2steps). No author/code changes. Owner semantic/source audit and final two fresh Sol roles remain required.",
+    "phaseSpecificWork": "All source repairs were submitted by Sol author revision18. Prior all failed before measurements because VM reserve check correctly rejected low space. Root restored6.4GiB by identified regenerable caches only; source hashes still match. Fixedrunner now reruns exact WHITE mise run all. Integration must preserve measurement source and audit new data honestly; no final proof from candidate alone.",
+    "previousPhaseFixes": [
+      {
+        "evidence": "results/reviews/ruby-runtime-fix-evidence.json",
+        "id": "ROOT-RUBY-RUNTIME",
+        "requiredCorrection": "Latest user permits current Ruby: pin latest stable4.0.9 in mise.toml (official downloads and mise latest agree; root is installing it). Keep public mise run all; explicitly use mise exec -- ruby lab.rb <command> in each of5tasks and include mise.toml in cache fingerprint. Bootstrap Riela command node through an executable POSIX shell wrapper that execs mise exec -- ruby <workflow Ruby controller>, so controller itself starts on configured4.0.9. Preserve project cwd; capture wrapper in source-before/after fingerprint/snapshot. Do not add legacy2.6 compatibility. Update actual-launch-chain fake regression plus early-failure stale-summary case. Existing real Riela guarded probes establish the plain-task/explicit-exec mechanism; latest4.0.9 bootstrap probe will be supplied. Do not change database algorithms for this startup failure."
+      },
+      {
+        "evidence": "results/reviews/raw-evidence-size-projection.json",
+        "id": "ROOT-RAW-ARTIFACT-SIZE",
+        "requiredCorrection": "New reqscale embeds full raw_service_samples in indented mainJSON. Existing observed1105writes/s and planned620s imply about162MB prettyJSON, over GitHub100MiB file limit. Preserve ALL raw numeric samples losslessly in bounded-size standard gzip JSONL chunks with sample counts and SHA manifests; main results JSON retains summaries/metadata/chunk refs. Enforce a conservative uncompressed chunk byte cap, not one unbounded gzip. No table data. Add pure roundtrip/count/hash/bound tests. Include generated nested raw files in per-script artifact collection/cache validation and immutable runner snapshot, and prove deleting/changing a raw chunk invalidates reuse. Keep sampling/load/timing protocols unchanged; representation happens after collection. Document how to verify/read chunks. This projection is not a DB measurement."
+      },
+      {
+        "evidence": "results/reviews/final-all-candidate.json and final-all-run.log first attempt",
+        "id": "ROOT-FAILED-ALL-SUMMARY",
+        "requiredCorrection": "Failure occurred at Ruby parsing BEFORE reset. Controller read prior interrupted requested/last_run.json(status started), not a summary produced by this all attempt. Detect summary freshness with pre/post file signature or equivalent read-only evidence; report not_reached on unchanged prior summary. Do not move/delete another potential lab owner data before the CLI lock. Snapshot collection may contain pre-run files on early failure; label honestly. Extend isolated actual-runner regression to an early failure leaving an old completed summary, ensuring no prior ran entries are credited. Preserve first failed candidate/log in existing immutable snapshot or dedicated reviews copy before next all."
+      }
+    ],
+    "primaryCoverageSnapshotPath": "results/reference/20261107-primary-coverage",
+    "priorCoverageBatchOutcome": {
+      "benchPythonProcessesAbsent": true,
+      "completeExperiments": [
+        "01a-PROB-WIDE-50",
+        "01b-PROB-WIDE-100",
+        "0d-EXP-O10-INDEXED-100-STALL",
+        "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+        "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct"
+      ],
+      "confirmedAt": "2026-11-07T03:50:15.786519+00:00",
+      "coverageIsComplete": false,
+      "forcedKillRequired": false,
+      "matrixContainersAbsent": true,
+      "notYetRun": [
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "ownerBirth": "Sat Nov  7 11:45:33 2026",
+      "ownerCliExitCode": 130,
+      "ownerPid": 40467,
+      "ownerPidAbsent": true,
+      "partialExperiment": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+      "partialSnapshot": "results/reference/20261107-primary-coverage/results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct.json",
+      "reason": "Confirmed ROOT-INTRA-ARM-BUDGET-PARTIAL:300s secondary scans crowd out required fast-arm repetitions. Preserve scope, fix protocol before final all, avoid continuing known defective allocation.",
+      "requestedAt": "2026-11-07T03:49:14.764359+00:00",
+      "requiredRerun": [
+        "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+        "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "status": "confirmed_interrupted_for_protocol_repair"
+    },
+    "priorOriginalSession": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+    "priorPhaseOutputPath": "results/reviews/sol-only-protocol-phase-output.json",
+    "priorWhiteAllInterruptionPath": "results/reviews/white-all-interruption.json",
+    "protocolDesignReviewPath": "results/reviews/sol-protocol-review.json",
+    "protocolOwnerAssessmentPath": "results/reviews/sol-protocol-assessment.json",
+    "protocolRepairAcceptance": [
+      "2013/unknown1317/planreject/cleanupfailurecannotbeplannedceilingorcacheablegreen;savefailureandpropagatesemantic failure.",
+      "Everyrequiredmethod/case/repetitionopportunityhasoutcomeorvalidpredeclaredcensoringrule;budgetabsencecannotpretendcomplete. Preventslowarmstarvation,partitionnecessarycomparisonswithoutshorteningdeclared300s/150sscalecapsor droppinghypotheses.",
+      "ConfirmownedinterruptedDBstatementterminationbeforelaterarm;savecleanupstatus;finallystopload;quiettruth/driftrequiresresolvedunfinishedwrites. Withdrawunprovedclaimsinsteadoffakingquietness.",
+      "Pureclassificationregression(E01),static149/150/120/1sbudgetcounterexample(E02),sectionexception/cleanupregressionregisteredin allselfchecks.",
+      "ReuseexistingRuby4.0.9bootstrap,boundedrawchunkstorage/cachehashes/freshsummaryfixes. KeepSolonly andno commit/push.",
+      "Do not count root cache maintenance,partial01aorcompletedbase36/matrix5 as finalall. Sourcechangedrequiresnewwhiteall. Freshmeasurementsmustbeownedonlybyfixedrunner."
+    ],
+    "reproductionCandidatePath": "results/reviews/final-all-candidate.json",
+    "reproductionProofPath": "results/reviews/final-all-proof.json",
+    "requestedWork": "件数も内容も分からない巨大MySQLテーブルで、暗号化され通常50列・最大100列程度という条件を含め、稼働サービスのDB performanceへの影響を最小限にして誤差数%の概数を得る最適な方法を調査・検証する。概数から小さいと判断して正確COUNTへ進む案と、その許可閾値の考え方も扱う。社内の不特定メンバー・サービスへ案内した際の疑問、不満、より良い案と、検証方法への疑問・条件漏れ・不備を敵対的に洗い出し解消する。 Latest steering: about10% error may be acceptable if few-percent is not attainable affordably; quantify conditions and identify the accuracy-performance frontier.",
+    "reviewPaths": [
+      "results/reviews/sol-internal-rollout-review.json",
+      "results/reviews/sol-sampling-review.json",
+      "results/reviews/sol-validation-review.json",
+      "results/reviews/sol-frontier-review.json",
+      "results/reviews/sol-protocol-review.json"
+    ],
+    "rubyLatestSource": "https://www.ruby-lang.org/en/downloads/",
+    "rubyVersion": "4.0.9",
+    "wideSamplingSnapshotPath": "results/reference/20261107-wide-sampling",
+    "environmentRetryEvidencePath": "results/reviews/space-retry-evidence.json"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "test": "six arrivals while first query runs",
+  "scheduled_arrivals": 6,
+  "observed_samples": 6,
+  "samples": [
+    [
+      0.0,
+      "read",
+      55.0,
+      "ok",
+      0.0,
+      55.0,
+      0,
+      0,
+      0.0,
+      0.055,
+      "d508f9012224496b9ea3095d964ea174"
+    ],
+    [
+      0.01,
+      "read",
+      45.0,
+      "queued",
+      null,
+      null,
+      0,
+      1,
+      null,
+      0.055,
+      "d508f9012224496b9ea3095d964ea174"
+    ],
+    [
+      0.02,
+      "read",
+      35.0,
+      "queued",
+      null,
+      null,
+      0,
+      2,
+      null,
+      0.055,
+      "d508f9012224496b9ea3095d964ea174"
+    ],
+    [
+      0.03,
+      "read",
+      25.0,
+      "queued",
+      null,
+      null,
+      0,
+      3,
+      null,
+      0.055,
+      "d508f9012224496b9ea3095d964ea174"
+    ],
+    [
+      0.04,
+      "read",
+      15.0,
+      "queued",
+      null,
+      null,
+      0,
+      4,
+      null,
+      0.055,
+      "d508f9012224496b9ea3095d964ea174"
+    ],
+    [
+      0.05,
+      "read",
+      4.999999999999997,
+      "queued",
+      null,
+      null,
+      0,
+      5,
+      null,
+      0.055,
+      "d508f9012224496b9ea3095d964ea174"
+    ]
+  ],
+  "accounting": {
+    "scheduled": 6,
+    "started": 1,
+    "completed": 1,
+    "failed": 0,
+    "inflight": 0,
+    "unstarted": 5,
+    "consistent": true,
+    "arrival_window_seconds": 0.055,
+    "clock": {
+      "format": "lab-monotonic-v2",
+      "domain_id": "d508f9012224496b9ea3095d964ea174",
+      "clock": "time.monotonic",
+      "unit": "seconds",
+      "system": {
+        "boot_id": "9bbcf1f4-72c8-4bf2-875b-88f928a6cc61",
+        "time_namespace": "time:[4026532670]"
+      },
+      "implementation": "fake",
+      "monotonic": true,
+      "adjustable": false,
+      "anchor": {
+        "monotonic": 0.0,
+        "wall_before": 1000.0,
+        "wall_after": 1000.0
+      }
+    },
+    "end_anchor": {
+      "monotonic": 0.055,
+      "wall_before": 1000.055,
+      "wall_after": 1000.055
+    },
+    "origin": 0.0,
+    "cutoff": 0.055,
+    "interval": 0.01,
+    "schedules": [
+      {
+        "worker": 0,
+        "kind": "read",
+        "first_at": 0.0
+      }
+    ]
+  },
+  "source_sha256": "d65295edcdcc8795c94e382ac8c0f38467101e7d507874599d662028131f866e",
+  "no_database_or_real_threads": true
+}

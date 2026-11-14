@@ -1,0 +1,316 @@
+{
+ "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+ "answers": [
+  "EXP-S8-REPLICA-STOP-FAILURE",
+  "FIND-S8-REPLICA-STOP-FAILURE-01"
+ ],
+ "started": "2026-11-07T01:38:24",
+ "sections": {
+  "earlier_restore": {
+   "applier_waiting": 1,
+   "stop": {
+    "ok": false,
+    "errno": 1875,
+    "ms": 4002
+   },
+   "returned": {
+    "restored": true,
+    "starts_issued": 0,
+    "seconds": 20.15
+   },
+   "state_when_it_returned": "Yes",
+   "timeline_after_return": [
+    [
+     0.0,
+     "Yes"
+    ],
+    [
+     0.5,
+     "Yes"
+    ],
+    [
+     1.0,
+     "Yes"
+    ],
+    [
+     1.5,
+     "Yes"
+    ],
+    [
+     2.0,
+     "Yes"
+    ],
+    [
+     2.5,
+     "Yes"
+    ],
+    [
+     3.0,
+     "Yes"
+    ],
+    [
+     3.5,
+     "Yes"
+    ],
+    [
+     4.0,
+     "Yes"
+    ],
+    [
+     4.6,
+     "Yes"
+    ],
+    [
+     5.1,
+     "Yes"
+    ],
+    [
+     5.6,
+     "Yes"
+    ],
+    [
+     6.1,
+     "Yes"
+    ],
+    [
+     6.6,
+     "Yes"
+    ],
+    [
+     7.1,
+     "Yes"
+    ],
+    [
+     7.6,
+     "Yes"
+    ],
+    [
+     8.1,
+     "Yes"
+    ],
+    [
+     8.6,
+     "Yes"
+    ],
+    [
+     9.1,
+     "Yes"
+    ],
+    [
+     9.6,
+     "Yes"
+    ],
+    [
+     10.1,
+     "Yes"
+    ],
+    [
+     10.6,
+     "Yes"
+    ],
+    [
+     11.1,
+     "Yes"
+    ],
+    [
+     11.6,
+     "Yes"
+    ],
+    [
+     12.2,
+     "Yes"
+    ],
+    [
+     12.7,
+     "Yes"
+    ],
+    [
+     13.2,
+     "Yes"
+    ],
+    [
+     13.7,
+     "Yes"
+    ],
+    [
+     14.2,
+     "No"
+    ]
+   ],
+   "stopped_after_reporting_restored": true,
+   "caught_up": 0,
+   "_seconds": 38.55
+  },
+  "current_short_deadline_then_handover": {
+   "runs": [
+    {
+     "applier_waiting": 1,
+     "first_call": {
+      "channels": [
+       ""
+      ],
+      "stop_requested": true,
+      "stopped_by_us": false,
+      "rows": null,
+      "sql_thread_before": "Yes",
+      "error": {
+       "errno": 1875,
+       "msg": "(1875, 'STOP REPLICA command execution is incomplete: Replica SQL thread got the stop signal, thread is busy, SQL thread will stop once the current task is comp",
+       "during_stop": true
+      },
+      "restore": {
+       "stop_failed": true,
+       "starts_issued": 0,
+       "saw_stopped": false,
+       "restored": false,
+       "unresolved_stop": true,
+       "last_state": "Yes",
+       "seconds": 15.14
+      },
+      "status": "failed:applier_not_confirmed"
+     },
+     "state_when_it_returned": "Yes",
+     "second_call": {
+      "stop_failed": true,
+      "starts_issued": 1,
+      "saw_stopped": true,
+      "restored": true,
+      "unresolved_stop": false,
+      "last_state": "Yes",
+      "seconds": 19.73
+     },
+     "state_at_end": "Yes",
+     "caught_up": 0
+    },
+    {
+     "applier_waiting": 1,
+     "first_call": {
+      "channels": [
+       ""
+      ],
+      "stop_requested": true,
+      "stopped_by_us": false,
+      "rows": null,
+      "sql_thread_before": "Yes",
+      "error": {
+       "errno": 1875,
+       "msg": "(1875, 'STOP REPLICA command execution is incomplete: Replica SQL thread got the stop signal, thread is busy, SQL thread will stop once the current task is comp",
+       "during_stop": true
+      },
+      "restore": {
+       "stop_failed": true,
+       "starts_issued": 0,
+       "saw_stopped": false,
+       "restored": false,
+       "unresolved_stop": true,
+       "last_state": "Yes",
+       "seconds": 15.09
+      },
+      "status": "failed:applier_not_confirmed"
+     },
+     "state_when_it_returned": "Yes",
+     "second_call": {
+      "stop_failed": true,
+      "starts_issued": 1,
+      "saw_stopped": true,
+      "restored": true,
+      "unresolved_stop": false,
+      "last_state": "Yes",
+      "seconds": 19.71
+     },
+     "state_at_end": "Yes",
+     "caught_up": 0
+    }
+   ],
+   "_seconds": 78.1
+  },
+  "current_long_deadline": {
+   "runs": [
+    {
+     "applier_waiting": 1,
+     "call": {
+      "channels": [
+       ""
+      ],
+      "stop_requested": true,
+      "stopped_by_us": false,
+      "rows": null,
+      "sql_thread_before": "Yes",
+      "error": {
+       "errno": 1875,
+       "msg": "(1875, 'STOP REPLICA command execution is incomplete: Replica SQL thread got the stop signal, thread is busy, SQL thread will stop once the current task is comp",
+       "during_stop": true
+      },
+      "restore": {
+       "stop_failed": true,
+       "starts_issued": 1,
+       "saw_stopped": true,
+       "restored": true,
+       "unresolved_stop": false,
+       "last_state": "Yes",
+       "seconds": 34.7
+      },
+      "status": "failed"
+     },
+     "two_seconds_later": "Yes",
+     "caught_up": 0
+    },
+    {
+     "applier_waiting": 1,
+     "call": {
+      "channels": [
+       ""
+      ],
+      "stop_requested": true,
+      "stopped_by_us": false,
+      "rows": null,
+      "sql_thread_before": "Yes",
+      "error": {
+       "errno": 1875,
+       "msg": "(1875, 'STOP REPLICA command execution is incomplete: Replica SQL thread got the stop signal, thread is busy, SQL thread will stop once the current task is comp",
+       "during_stop": true
+      },
+      "restore": {
+       "stop_failed": true,
+       "starts_issued": 1,
+       "saw_stopped": true,
+       "restored": true,
+       "unresolved_stop": false,
+       "last_state": "Yes",
+       "seconds": 34.81
+      },
+      "status": "failed"
+     },
+     "two_seconds_later": "Yes",
+     "caught_up": 0
+    }
+   ],
+   "_seconds": 82.07
+  },
+  "already_stopped_control": {
+   "call": {
+    "channels": [
+     ""
+    ],
+    "stop_requested": false,
+    "stopped_by_us": false,
+    "rows": null,
+    "sql_thread_before": "No",
+    "error": {
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')",
+     "during_stop": false
+    },
+    "status": "failed"
+   },
+   "left_stopped": true,
+   "_seconds": 0.27
+  }
+ },
+ "elapsed_seconds": 199,
+ "section_errors": [],
+ "caught_up_before": 0,
+ "applier_lock_wait_global_s": 50,
+ "final_running": "Yes",
+ "final_catch_up": 0
+}

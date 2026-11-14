@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-07T14:27:55.340918+00:00",
+  "decision": "rejected_for_service_window_semantics_no_final_proof",
+  "processExitCode": 0,
+  "sourceUnchanged": true,
+  "meaning": "Process completion/accuracy/cleanup differ from trustworthy performance interval attribution. Do not waive auditor failures or patch old data.",
+  "findings": [
+    {
+      "file": "results/requested_accuracy_service_100.json",
+      "armIndex": 9,
+      "method": "sample10",
+      "startedAt": 1794060012.173914,
+      "finishedAt": 1794060010.2734525,
+      "monotonicSeconds": 0.2949
+    },
+    {
+      "file": "results/requested_probability_wide_50.json",
+      "armIndex": 13,
+      "method": "count",
+      "startedAt": 1794058891.5610619,
+      "finishedAt": 1794058890.4167397,
+      "monotonicSeconds": 1.002
+    }
+  ],
+  "causeBoundary": "Measured wall-clock timestamps regress; same code uses monotonic elapsed. OS/VM clock-source cause is not established. Broad positive windows may also be misattributed; no performance/SLO acceptance.",
+  "reports": [
+    "owner-essential-evidence-checks.json",
+    "owner-essential-inventory.json",
+    "owner-essential-integrity.json",
+    "owner-essential-snapshot-check.json"
+  ],
+  "auditSourceSnapshot": "results/reference/clock-audit-20261107T142755Z",
+  "next": "Stop owned lab DBs, Sol-only clock-domain repair and actual clock-jump tests; fresh narrowed white-all after source changes. No grid expansion.",
+  "immutableAuditReports": [
+    "results/reference/clock-audit-20261107T142755Z/reports/owner-essential-evidence-checks.json",
+    "results/reference/clock-audit-20261107T142755Z/reports/owner-essential-inventory.json",
+    "results/reference/clock-audit-20261107T142755Z/reports/owner-essential-integrity.json",
+    "results/reference/clock-audit-20261107T142755Z/reports/owner-essential-snapshot-check.json"
+  ]
+}

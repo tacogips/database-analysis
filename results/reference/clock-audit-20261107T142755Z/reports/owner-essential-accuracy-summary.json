@@ -1,0 +1,1431 @@
+{
+  "source": "results/requested_accuracy_cost_frontier.json",
+  "sourceSha256": "a3de8edc42c5601f61bd2d6cb2dfa04190cb0ccb4abb3a07daa58240deb2d94e",
+  "meaning": "Owner-derived measured summary only; no service SLO or universal fastest-method claim.",
+  "limitations": [
+    "Target labels are nominal per-invocation interval goals, not realized error guarantees.",
+    "Five fixed seeds do not establish production coverage or a joint95% guarantee.",
+    "Pareto labels compare observed medians and declared targets, without statistical significance.",
+    "Unknown host/VM cache and order carryover remain; counters include background server activity.",
+    "Failed/unfinished samples are described but excluded from candidate ranking.",
+    "Exact zero error refers to the static fixture snapshot population; freshness is separate.",
+    "Timing follows the implementation: sampling includes checks and rollback; COUNT times its query."
+  ],
+  "fixtures": {
+    "dense": {
+      "truth": 250000,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0436,
+            "median": 0.0448,
+            "max": 0.0527
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0436,
+            "median": 0.0448,
+            "max": 0.0527
+          },
+          "pairedExactCountSeconds": {
+            "min": 0.0073,
+            "median": 0.0073,
+            "max": 0.0073
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 2.7052564550253684,
+            "median": 2.7052564550253684,
+            "max": 2.7052564550253684
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 512,
+            "median": 512,
+            "max": 512
+          },
+          "lastValidCheckpointDraws": {
+            "min": 512,
+            "median": 512,
+            "max": 512
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0268,
+            "median": 0.0303,
+            "max": 0.0312
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0268,
+            "median": 0.0303,
+            "max": 0.0312
+          },
+          "pairedExactCountSeconds": {
+            "min": 0.0072,
+            "median": 0.0073,
+            "max": 0.0073
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 4.405494234728608,
+            "median": 4.405494234728608,
+            "max": 4.405494234728608
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 320,
+            "median": 320,
+            "max": 320
+          },
+          "lastValidCheckpointDraws": {
+            "min": 320,
+            "median": 320,
+            "max": 320
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0125,
+            "median": 0.0135,
+            "max": 0.015
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0125,
+            "median": 0.0135,
+            "max": 0.015
+          },
+          "pairedExactCountSeconds": {
+            "min": 0.0072,
+            "median": 0.0073,
+            "max": 0.0075
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 9.248067401687663,
+            "median": 9.248067401687663,
+            "max": 9.248067401687663
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 160,
+            "median": 160,
+            "max": 160
+          },
+          "lastValidCheckpointDraws": {
+            "min": 160,
+            "median": 160,
+            "max": 160
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 0.0072,
+          "median": 0.0073,
+          "max": 0.0075
+        },
+        "innodbDataReadBytes": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "sample_target_0.03",
+          "targetPercent": 3.0,
+          "medianSeconds": 0.0448,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": [
+            "exact_count"
+          ]
+        },
+        {
+          "method": "sample_target_0.05",
+          "targetPercent": 5.0,
+          "medianSeconds": 0.0303,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": [
+            "exact_count"
+          ]
+        },
+        {
+          "method": "sample_target_0.10",
+          "targetPercent": 10.0,
+          "medianSeconds": 0.0135,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": [
+            "exact_count"
+          ]
+        },
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 0.0073,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "exact_count"
+      ]
+    },
+    "gaps": {
+      "truth": 250000,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 0,
+          "statuses": {
+            "precision_not_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.6076,
+            "median": 0.6311,
+            "max": 0.6791
+          },
+          "sampleSecondsEligibleOnly": null,
+          "pairedExactCountSeconds": {
+            "min": 0.0073,
+            "median": 0.0073,
+            "max": 0.0074
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 4.7855294921875,
+            "median": 8.031803076171874,
+            "max": 12.304247265625
+          },
+          "reportedRelativeIntervalBoundPercent": null,
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 0,
+          "statuses": {
+            "precision_not_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.609,
+            "median": 0.6885,
+            "max": 1.6443
+          },
+          "sampleSecondsEligibleOnly": null,
+          "pairedExactCountSeconds": {
+            "min": 0.0073,
+            "median": 0.0074,
+            "max": 0.0074
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 4.7855294921875,
+            "median": 8.031803076171874,
+            "max": 12.304247265625
+          },
+          "reportedRelativeIntervalBoundPercent": null,
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 0,
+          "statuses": {
+            "precision_not_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.611,
+            "median": 0.6279,
+            "max": 0.6612
+          },
+          "sampleSecondsEligibleOnly": null,
+          "pairedExactCountSeconds": {
+            "min": 0.0072,
+            "median": 0.0072,
+            "max": 0.0074
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 4.7855294921875,
+            "median": 8.031803076171874,
+            "max": 12.304247265625
+          },
+          "reportedRelativeIntervalBoundPercent": null,
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 0.0072,
+          "median": 0.0073,
+          "max": 0.0074
+        },
+        "innodbDataReadBytes": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 0.0073,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "exact_count"
+      ]
+    },
+    "islands": {
+      "truth": 250000,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 0,
+          "statuses": {
+            "precision_not_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.6303,
+            "median": 0.6426,
+            "max": 0.6438
+          },
+          "sampleSecondsEligibleOnly": null,
+          "pairedExactCountSeconds": {
+            "min": 0.0073,
+            "median": 0.0073,
+            "max": 0.0074
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 100.0,
+            "median": 100.0,
+            "max": 100.0
+          },
+          "reportedRelativeIntervalBoundPercent": null,
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 0,
+          "statuses": {
+            "precision_not_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.6437,
+            "median": 0.6467,
+            "max": 0.6513
+          },
+          "sampleSecondsEligibleOnly": null,
+          "pairedExactCountSeconds": {
+            "min": 0.0072,
+            "median": 0.0072,
+            "max": 0.0075
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 100.0,
+            "median": 100.0,
+            "max": 100.0
+          },
+          "reportedRelativeIntervalBoundPercent": null,
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 0,
+          "statuses": {
+            "precision_not_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.644,
+            "median": 0.6464,
+            "max": 0.6584
+          },
+          "sampleSecondsEligibleOnly": null,
+          "pairedExactCountSeconds": {
+            "min": 0.0073,
+            "median": 0.0073,
+            "max": 0.0073
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 100.0,
+            "median": 100.0,
+            "max": 100.0
+          },
+          "reportedRelativeIntervalBoundPercent": null,
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 0.0072,
+          "median": 0.0073,
+          "max": 0.0075
+        },
+        "innodbDataReadBytes": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 0.0073,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "exact_count"
+      ]
+    },
+    "negative": {
+      "truth": 250000,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0417,
+            "median": 0.0469,
+            "max": 0.0511
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0417,
+            "median": 0.0469,
+            "max": 0.0511
+          },
+          "pairedExactCountSeconds": {
+            "min": 0.0073,
+            "median": 0.0073,
+            "max": 0.0098
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 2.7052564550253684,
+            "median": 2.7052564550253684,
+            "max": 2.7052564550253684
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 512,
+            "median": 512,
+            "max": 512
+          },
+          "lastValidCheckpointDraws": {
+            "min": 512,
+            "median": 512,
+            "max": 512
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0265,
+            "median": 0.0327,
+            "max": 0.0333
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0265,
+            "median": 0.0327,
+            "max": 0.0333
+          },
+          "pairedExactCountSeconds": {
+            "min": 0.0072,
+            "median": 0.0072,
+            "max": 0.0073
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 4.405494234728608,
+            "median": 4.405494234728608,
+            "max": 4.405494234728608
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 320,
+            "median": 320,
+            "max": 320
+          },
+          "lastValidCheckpointDraws": {
+            "min": 320,
+            "median": 320,
+            "max": 320
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0122,
+            "median": 0.0173,
+            "max": 0.0181
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0122,
+            "median": 0.0173,
+            "max": 0.0181
+          },
+          "pairedExactCountSeconds": {
+            "min": 0.0072,
+            "median": 0.0073,
+            "max": 0.0076
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 9.248067401687663,
+            "median": 9.248067401687663,
+            "max": 9.248067401687663
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 160,
+            "median": 160,
+            "max": 160
+          },
+          "lastValidCheckpointDraws": {
+            "min": 160,
+            "median": 160,
+            "max": 160
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 0,
+            "median": 0,
+            "max": 0
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 0.0072,
+          "median": 0.0073,
+          "max": 0.0098
+        },
+        "innodbDataReadBytes": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "sample_target_0.03",
+          "targetPercent": 3.0,
+          "medianSeconds": 0.0469,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": [
+            "exact_count"
+          ]
+        },
+        {
+          "method": "sample_target_0.05",
+          "targetPercent": 5.0,
+          "medianSeconds": 0.0327,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": [
+            "exact_count"
+          ]
+        },
+        {
+          "method": "sample_target_0.10",
+          "targetPercent": 10.0,
+          "medianSeconds": 0.0173,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": [
+            "exact_count"
+          ]
+        },
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 0.0073,
+          "medianInnodbDataReadBytes": 0,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "exact_count"
+      ]
+    },
+    "wide": {
+      "truth": 3000000,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.2317,
+            "median": 0.2465,
+            "max": 0.7757
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.2317,
+            "median": 0.2465,
+            "max": 0.7757
+          },
+          "pairedExactCountSeconds": {
+            "min": 7.9279,
+            "median": 8.0597,
+            "max": 8.826
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 2.7052212938050606,
+            "median": 2.7052212938050606,
+            "max": 2.7052212938050606
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 512,
+            "median": 512,
+            "max": 512
+          },
+          "lastValidCheckpointDraws": {
+            "min": 512,
+            "median": 512,
+            "max": 512
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 82804736,
+            "median": 121978880,
+            "max": 122404864
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 3342024704,
+            "median": 3350233088,
+            "max": 3353296896
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.127,
+            "median": 0.1824,
+            "max": 0.6076
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.127,
+            "median": 0.1824,
+            "max": 0.6076
+          },
+          "pairedExactCountSeconds": {
+            "min": 7.852,
+            "median": 7.931,
+            "max": 8.7727
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 4.405130885752249,
+            "median": 4.405130885752249,
+            "max": 4.405130885752249
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 320,
+            "median": 320,
+            "max": 320
+          },
+          "lastValidCheckpointDraws": {
+            "min": 320,
+            "median": 320,
+            "max": 320
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 76496896,
+            "median": 77758464,
+            "max": 78708736
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 3341844480,
+            "median": 3342024704,
+            "max": 3361308672
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.0176,
+            "median": 0.0999,
+            "max": 0.1095
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.0176,
+            "median": 0.0999,
+            "max": 0.1095
+          },
+          "pairedExactCountSeconds": {
+            "min": 7.9705,
+            "median": 8.0432,
+            "max": 8.9009
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 9.247908266716387,
+            "median": 9.247908266716387,
+            "max": 9.247908266716387
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 160,
+            "median": 160,
+            "max": 160
+          },
+          "lastValidCheckpointDraws": {
+            "min": 160,
+            "median": 160,
+            "max": 160
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 245760,
+            "median": 39026688,
+            "max": 40370176
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 3341844480,
+            "median": 3342483456,
+            "max": 3351674880
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 7.852,
+          "median": 8.0432,
+          "max": 8.9009
+        },
+        "innodbDataReadBytes": {
+          "min": 3341844480,
+          "median": 3349987328,
+          "max": 3361308672
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "sample_target_0.03",
+          "targetPercent": 3.0,
+          "medianSeconds": 0.2465,
+          "medianInnodbDataReadBytes": 121978880,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "sample_target_0.05",
+          "targetPercent": 5.0,
+          "medianSeconds": 0.1824,
+          "medianInnodbDataReadBytes": 77758464,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "sample_target_0.10",
+          "targetPercent": 10.0,
+          "medianSeconds": 0.0999,
+          "medianInnodbDataReadBytes": 39026688,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 8.0432,
+          "medianInnodbDataReadBytes": 3349987328,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "sample_target_0.03",
+        "sample_target_0.05",
+        "sample_target_0.10",
+        "exact_count"
+      ]
+    },
+    "moderate_gaps": {
+      "truth": 2400026,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.8831,
+            "median": 1.0939,
+            "max": 1.5491
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.8831,
+            "median": 1.0939,
+            "max": 1.5491
+          },
+          "pairedExactCountSeconds": {
+            "min": 6.1348,
+            "median": 6.2338,
+            "max": 7.1439
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.017837371865971452,
+            "median": 0.05445806889175367,
+            "max": 0.12251153086466564
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 1.2769734569923827,
+            "median": 1.2805227794597869,
+            "max": 1.2872818859451287
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 2048,
+            "median": 2048,
+            "max": 2048
+          },
+          "lastValidCheckpointDraws": {
+            "min": 2048,
+            "median": 2048,
+            "max": 2048
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 383975424,
+            "median": 387088384,
+            "max": 391774208
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 2640084992,
+            "median": 2645540864,
+            "max": 2659368960
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.5794,
+            "median": 0.6372,
+            "max": 0.9112
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.5794,
+            "median": 0.6372,
+            "max": 0.9112
+          },
+          "pairedExactCountSeconds": {
+            "min": 5.9772,
+            "median": 6.2012,
+            "max": 6.3659
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.05165048211977703,
+            "median": 0.10389600987655967,
+            "max": 0.12830980789374782
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 1.9528296071889606,
+            "median": 1.96544415627208,
+            "max": 1.9838604831997242
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 1280,
+            "median": 1280,
+            "max": 1280
+          },
+          "lastValidCheckpointDraws": {
+            "min": 1280,
+            "median": 1280,
+            "max": 1280
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 241631232,
+            "median": 242253824,
+            "max": 243515392
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 2640084992,
+            "median": 2640576512,
+            "max": 2658123776
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.3254,
+            "median": 0.3343,
+            "max": 0.3401
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.3254,
+            "median": 0.3343,
+            "max": 0.3401
+          },
+          "pairedExactCountSeconds": {
+            "min": 6.1954,
+            "median": 6.2558,
+            "max": 7.001
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.0653222090094024,
+            "median": 0.09461876663002818,
+            "max": 0.12098566848859138
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 3.766631059791905,
+            "median": 3.776859885206616,
+            "max": 3.810122894431647
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 640,
+            "median": 640,
+            "max": 640
+          },
+          "lastValidCheckpointDraws": {
+            "min": 640,
+            "median": 640,
+            "max": 640
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 118472704,
+            "median": 120012800,
+            "max": 121061376
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 2640461824,
+            "median": 2640576512,
+            "max": 2648604672
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 5.9772,
+          "median": 6.2338,
+          "max": 7.1439
+        },
+        "innodbDataReadBytes": {
+          "min": 2640084992,
+          "median": 2643132416,
+          "max": 2659368960
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "sample_target_0.03",
+          "targetPercent": 3.0,
+          "medianSeconds": 1.0939,
+          "medianInnodbDataReadBytes": 387088384,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "sample_target_0.05",
+          "targetPercent": 5.0,
+          "medianSeconds": 0.6372,
+          "medianInnodbDataReadBytes": 242253824,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "sample_target_0.10",
+          "targetPercent": 10.0,
+          "medianSeconds": 0.3343,
+          "medianInnodbDataReadBytes": 120012800,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 6.2338,
+          "medianInnodbDataReadBytes": 2643132416,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "sample_target_0.03",
+        "sample_target_0.05",
+        "sample_target_0.10",
+        "exact_count"
+      ]
+    },
+    "uneven_density": {
+      "truth": 2250000,
+      "targets": {
+        "0.03": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 3.5644,
+            "median": 4.1611,
+            "max": 4.2357
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 3.5644,
+            "median": 4.1611,
+            "max": 4.2357
+          },
+          "pairedExactCountSeconds": {
+            "min": 5.2414,
+            "median": 5.8013,
+            "max": 6.4593
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.04736328125,
+            "median": 0.2964680989583333,
+            "max": 0.82470703125
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 1.7399765800680416,
+            "median": 1.7501937032547434,
+            "max": 1.763895089438408
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "lastValidCheckpointDraws": {
+            "min": 8192,
+            "median": 8192,
+            "max": 8192
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 1417314304,
+            "median": 1428422656,
+            "max": 1441382400
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 2464759808,
+            "median": 2472493056,
+            "max": 2473492480
+          }
+        },
+        "0.05": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 2.3559,
+            "median": 2.5781,
+            "max": 3.5549
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 2.3559,
+            "median": 2.5781,
+            "max": 3.5549
+          },
+          "pairedExactCountSeconds": {
+            "min": 5.7415,
+            "median": 5.7976,
+            "max": 6.0841
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.028125,
+            "median": 0.13098958333333333,
+            "max": 0.73125
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 2.3065099302902294,
+            "median": 2.324706563906792,
+            "max": 2.34108599768884
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 5120,
+            "median": 5120,
+            "max": 5120
+          },
+          "lastValidCheckpointDraws": {
+            "min": 5120,
+            "median": 5120,
+            "max": 5120
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 872923136,
+            "median": 888766464,
+            "max": 907329536
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 2464759808,
+            "median": 2465333248,
+            "max": 2474213376
+          }
+        },
+        "0.10": {
+          "attempts": 5,
+          "eligibleObservedRuns": 5,
+          "statuses": {
+            "target_reached": 5
+          },
+          "sampleSecondsAllOutcomes": {
+            "min": 0.243,
+            "median": 0.3167,
+            "max": 0.3644
+          },
+          "sampleSecondsEligibleOnly": {
+            "min": 0.243,
+            "median": 0.3167,
+            "max": 0.3644
+          },
+          "pairedExactCountSeconds": {
+            "min": 4.9934,
+            "median": 5.7657,
+            "max": 6.5545
+          },
+          "realizedAbsErrorPercentWhenEstimateExists": {
+            "min": 0.20416666666666666,
+            "median": 0.5322916666666667,
+            "max": 1.1541666666666666
+          },
+          "reportedRelativeIntervalBoundPercent": {
+            "min": 8.852037631947843,
+            "median": 8.913867233486883,
+            "max": 8.997537297694448
+          },
+          "intervalCoversTruth": 5,
+          "estimateAbsent": 0,
+          "completedDraws": {
+            "min": 640,
+            "median": 640,
+            "max": 640
+          },
+          "lastValidCheckpointDraws": {
+            "min": 640,
+            "median": 640,
+            "max": 640
+          },
+          "sampleInnodbDataReadBytesAllOutcomes": {
+            "min": 104136704,
+            "median": 111837184,
+            "max": 114262016
+          },
+          "pairedExactCountInnodbDataReadBytes": {
+            "min": 2464710656,
+            "median": 2465054720,
+            "max": 2482438144
+          }
+        }
+      },
+      "allPairedExactCounts": {
+        "seconds": {
+          "min": 4.9934,
+          "median": 5.7976,
+          "max": 6.5545
+        },
+        "innodbDataReadBytes": {
+          "min": 2464710656,
+          "median": 2465972224,
+          "max": 2482438144
+        }
+      },
+      "descriptiveCandidates": [
+        {
+          "method": "sample_target_0.03",
+          "targetPercent": 3.0,
+          "medianSeconds": 4.1611,
+          "medianInnodbDataReadBytes": 1428422656,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "sample_target_0.05",
+          "targetPercent": 5.0,
+          "medianSeconds": 2.5781,
+          "medianInnodbDataReadBytes": 888766464,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "sample_target_0.10",
+          "targetPercent": 10.0,
+          "medianSeconds": 0.3167,
+          "medianInnodbDataReadBytes": 111837184,
+          "descriptivelyDominatedBy": []
+        },
+        {
+          "method": "exact_count",
+          "targetPercent": 0,
+          "medianSeconds": 5.7976,
+          "medianInnodbDataReadBytes": 2465972224,
+          "descriptivelyDominatedBy": []
+        }
+      ],
+      "descriptiveMedianFrontier": [
+        "sample_target_0.03",
+        "sample_target_0.05",
+        "sample_target_0.10",
+        "exact_count"
+      ]
+    }
+  }
+}

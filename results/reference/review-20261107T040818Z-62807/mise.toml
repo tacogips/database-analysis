@@ -1,0 +1,22 @@
+[tools]
+ruby = "3.4.10"
+
+[tasks.all]
+description = "Rebuild everything from nothing and run every measurement"
+run = "ruby lab.rb all"
+
+[tasks.prepare]
+description = "Reset, load and verify data"
+run = "ruby lab.rb prepare"
+
+[tasks.measure]
+description = "Run all measurements on the loaded data"
+run = "ruby lab.rb measure"
+
+[tasks.experiment]
+description = "Re-run named experiments without reloading data"
+run = "ruby lab.rb experiment"
+
+[tasks.reset]
+description = "Delete this project's containers, .data and results"
+run = "ruby lab.rb reset"

@@ -1,0 +1,75 @@
+{
+  "workflow": {
+    "workflowId": "temp-essential-count-scope-sol",
+    "description": "Guide-focused Sol author; exhaustive engine suite explicitly skipped by latest user",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 1800000
+    },
+    "entryStepId": "guide-author",
+    "nodes": [
+      {
+        "id": "guide-author",
+        "nodeFile": "nodes/guide-author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "guide-author",
+        "nodeId": "guide-author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/guide-author.json": {
+      "id": "guide-author",
+      "description": "Focused practical engineering guide using existing representative evidence",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Implement the important-only default verification scope now. GPT-6.1 Sol only. Read AGENTS.md and results/reviews/essential-validation-requirements.json. User explicitly rejected exhaustive remaining144suite; the goal is practical huge MySQL whole-count guideline. Preserve final narrowed white-all, owner source/semantic/cleanup audit and2Sol final reviews. Do not edit AGENTS.md. No DB/Docker/benchmark, no workflow/delegation/commit/push. DB-free checks allowed. Change bench/nonlocking-scope.json, lab.rb default dispatch, bench/test_nonlocking_scope.py and relevant runner/scope checks, audit/audit-final-results.py, mise.toml descriptions, README.md and docs/table-count-nonlocking-scope.md only as needed. Main guide/calibration docs no edits. Implement explicit fail-closed default list: requested 00-budget-start,01a-PROB-WIDE-50,01c-ACCURACY-COST,01d-ACCURACY-SERVICE-100,91-encrypted-count,93-metadata-accuracy,94-metadata-on-replica. Base impact names in requirements9; retain all58 quiet shapes,12plaincases,supported5matrix versions,load100M,initial/final integrity, existing accounting/cancellation/cleanup safeguards. Keep ALL existing scripts independently runnable via explicit requested IDs; mark other available scripts skipped by user scope, never passed. Archive current scope JSON as a versioned prior scope under bench if needed and inventory ALLselected+skipped exactly, no silent omissions. Default requested() must select allowlist; explicit IDs use existing validation and semantics. Default experiments must run selected names via supported run command, keep full historical EXPERIMENTS registry intact. Tests must exercise ACTUAL default selection/dispatcher, metadata/versions/outputs, unknown ID failclosed, no blanketexpectedglob==selectedlist; maintain historical plans as optional scopes. Update owner audit to use current selected lists, don't hardcode144/22 or treat skipped as missing. Preserve accurate source provenance and cachedresult validation. Do NOT manufacture final-all-proof or claim narrowed run complete. Run relevant DBfree tests using mise pinned Ruby and available Python dependencies; no DB imports connecting/no Docker. Fix regressions relevant to selection; do not overbuild unrelated abstractions. Return SMALL adapter with required guidelinePath(existing path),guidelineSha256,changedFiles,decisionCoverage,evidenceChecks,remainingGaps; add selectedCounts/skippedCounts and tests. First make concrete code changes, then actual DBfree checks. Final run is separate runner session.",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "guidelinePath",
+            "guidelineSha256",
+            "changedFiles",
+            "decisionCoverage",
+            "evidenceChecks",
+            "remainingGaps"
+          ],
+          "properties": {
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "changedFiles": {
+              "type": "array"
+            },
+            "decisionCoverage": {
+              "type": "array"
+            },
+            "evidenceChecks": {
+              "type": "array"
+            },
+            "remainingGaps": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

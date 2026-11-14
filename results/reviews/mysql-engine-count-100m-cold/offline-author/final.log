@@ -1,0 +1,85 @@
+OFFLINE_ONLY_COMMAND=["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby", "mysql/engine-count-100m-cold/verify_offline.rb"]
+PASS authoritative baseline hash
+PASS all 10971 protected files exact
+PASS two engines in fixed order
+PASS exactly four planned conditions with twelve preserved slots
+PASS runtime source includes executable inputs and frozen manual; final report independently bound
+PASS copied manual and original capture receipt retain exact original bytes
+PASS dedicated cold namespace, paths, resource labels and exact mise nested exec
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping batches, 100 physical values and varied numeric records
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS offline Compose YAML parses; only fixed mysql service and no named volumes/networks
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS fixed compose startup disables pool load/dump and requests O_DIRECT on every same-ID start
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+PASS delayed boundary affects full request but not scalar arrival; preflight df and slow raw log excluded
+PASS EOF after exact scalar still fails and preserves value and arrival timing
+PASS real orchestration loads 1000 batches each, PK3 before narrow/composite, 9+3 counts; optimizer actual key unforced
+PASS initial, after each index build, and every repeat reset: 12 distinct count boots, 14 total, all stopped/reaped
+PASS same connection ID across new boots valid, composite boot/UUID/connection identity unique
+PASS each sample has current manual/SHOW INDEX/EXPLAIN, SQL/raw/ns, two exact-target buffer metadata snapshots
+PASS ordering: closed loader/DDL/previous CLI, orderly stop/reap/start, own current prechecks, COUNT once, close
+PASS missing condition cannot pass or produce ratios
+PASS missing one of twelve cannot pass or produce ratios
+PASS wrong scalar cannot pass or produce ratios
+PASS zero timing cannot produce ratios
+PASS missing reset fails cold proof including first count
+PASS missing boot_ordinal fails cold proof including first count
+PASS missing count_session fails cold proof including first count
+PASS two counts in one boot cannot pass cold policy
+PASS missing actual innodb_buffer_pool_load_at_startup fails globals verification
+PASS missing actual innodb_buffer_pool_dump_at_shutdown fails globals verification
+PASS missing actual innodb_flush_method fails globals verification
+PASS nonzero_stop: first reset fails, no restart/COUNT and failed original sample retained
+PASS nonzero_attach: first reset fails, no restart/COUNT and failed original sample retained
+PASS not_reaped: first reset fails, no restart/COUNT and failed original sample retained
+PASS refuse_stop: first reset fails, no restart/COUNT and failed original sample retained
+PASS start_failure: first reset fails, no restart/COUNT and failed original sample retained
+PASS readiness failure preserves second boot and failed first sample, never sends COUNT
+PASS fully resident target/index metadata fails cold proof before COUNT
+PASS actual ON innodb_buffer_pool_load_at_startup aborts boot
+PASS actual ON innodb_buffer_pool_dump_at_shutdown aborts boot
+PASS failed index retains PK3 and all pending slots, no another condition or summaries
+PASS EOF after value stays failed in its slot, no retry/omission/statistical success
+PASS host capacity guard parses 70 GiB and uses fixed df argv without shell or recursive monitoring
+PASS index working headroom violation fails and retains actual host capacity
+PASS ongoing host floor violation fails and retains actual host capacity
+2026-11-08T16:23:33Z command synthetic-child exit=7 stdout=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261109-5233-8yjb00/0001-synthetic-child.stdout.log stderr=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261109-5233-8yjb00/0001-synthetic-child.stderr.log
+PASS stdout/stderr file drain without pipe deadlock; actual nonzero exit reaped
+PASS timed out owned local child terminated and reaped with numeric exit
+PASS valid private nonce marker accepted offline
+PASS mismatched ownership marker refuses cleanup
+PASS unowned container refuses lifecycle mutation
+PASS all counts complete: cleanup removes owned stopped runtime then guarded stage
+PASS incomplete counts: stop/remove owned runtime, retain stage payload for owner, cannot pass
+PASS stop timeout retains failure, kills only owned runtime, completed-count guarded data only
+PASS unowned runtime prevents stop/rm and guarded data deletion
+PASS interrupted uncontrolled-cache reference stays incomplete, exit1, three samples; all original artifacts unchanged
+{
+  "status": "offline_checks_passed_no_runtime_started",
+  "checks": 63,
+  "baseline_sha256": "0e184ba5a0ee10e3e87440295f0e342f9a198066a176f1328e99f4ef4a73a5db",
+  "protected_files": 10971,
+  "source_sha256": {
+    "mysql/engine-count-100m-cold/lab.rb": "854e9d62e3e63f86cea0ff0ecb93cd4700dcd5c2c6de1c47cde9df615a425911",
+    "mysql/engine-count-100m-cold/reference_flow.rb": "25df7786dc582d4e712c68c584f287f23ecc11cefada4a9ef68f9b843531d019",
+    "mysql/engine-count-100m-cold/compose.yaml": "00288110a6c076e04879b94aecb9fe779e6e0e4aaefdc85b1eb4c4b71ae6256e",
+    "mysql/engine-count-100m-cold/mise.toml": "cf4df1fc461300be52009322df74c33303cc4f9aa9868f6b46dbcaa5af6da7a4",
+    "mysql/engine-count-100m-cold/README.md": "7526f3890f4494775739caeba034347e1a1d143801fe68a7529eeef1412d7247",
+    "mysql/engine-count-100m-cold/verify_offline.rb": "a01470b6960386ed931e34c7740498d6cbd94d4b4cd99d78b3413ae75b5e2766",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/mysql-innodb.md": "df439985905ebe9c5e8b8c2c1b8a4761ce683d8d290ae9363c284e9d00e2981e",
+    "results/reviews/mysql-engine-count-100m-cold/manual-sources/source.json": "d4f1c9217493eec79e4df2c1d7a28358a973cb4606ca318ad3c63019ca3a5991"
+  },
+  "standalone_report_sha256": "352400dd294e4fa3bc4550c8df6ed1eb1a1d9ba332fc10468454b5c1135c786c"
+}
+OFFLINE_VERIFICATION_FINAL_EXIT_STATUS=0
+
+OFFLINE_SHELL_ACTUAL_EXIT_STATUS=0

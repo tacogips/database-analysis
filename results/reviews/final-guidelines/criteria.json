@@ -1,0 +1,30 @@
+{
+  "userObjective": "MySQLとSQL Serverそれぞれの、大部分の通常テーブルに同じ安全な方法を適用でき、幅広い状態と組合せ・例外も判断できる日本語の最終件数取得ガイドラインを作成しcommit/pushする",
+  "meaning": "データ量は業務WHEREなしの全件数。物理bytes・業務上の有効件数は別指標。普遍的な最速・誤差保証・安全行数閾値や未測定の適用率を主張しない。",
+  "deliverables": ["docs/guidelines/mysql.md", "docs/guidelines/sql-server.md", "docs/README.md"],
+  "normalCasesMustHaveUsablePath": [
+    "MySQL: InnoDB BASE TABLE、PKなし/整数/文字列/欠番/偏在、小/巨大、狭い索引あり/なし/複数、80/100列/LOB、partition/圧縮、TDE/アプリ暗号文、通常更新中を、概数取得と条件を満たす隔離先COUNTの共通経路で扱う",
+    "SQL Server: supported disk-based heap/clustered/partition/compressed/wide/ciphertext/columnstoreに対し、partition reference metadataと既存versioning下の隔離COUNT_BIGの条件を示す。未測定の費用は外挿しない。",
+    "要求精度・鮮度・取得先・許容負荷から方法を選べる。roughsmallnessでprimary全件走査を許可しない。"
+  ],
+  "crossCuttingScenarios": [
+    "NULL/0/空集合/未初期化/権限不足/失敗/timeout/壊れた表/未マウント/オフラインが空表にならない",
+    "更新・削除・長期transaction・DDL・TRUNCATE・移行・復元世代の変化を扱い、snapshot/取得時点と現在値を区別する",
+    "TDEサーバー鍵が必要なことと、SQLclientが鍵/seedを知らなくても読める場合を区別する。鍵のないbackup復元や未測定AEdriverを成功扱いしない",
+    "primary/専用replica/共有replica/資源を隔離した復元先/取得先なしの各分岐。構築負荷、共有資源、鮮度、AGのprimary回収影響も含む",
+    "driverの新規専用接続/自動参加防止、deadlineとlockwaittimeoutの区別、既存transactionへの誤COMMIT防止",
+    "事前資源上限、既存監視、SLO手前の停止余裕、所有query/session照合、取消・rollback・サーバー終了・回復確認が実行条件",
+    "table/view/temp/nonstandardengine/remote/external/synonym/memoryoptimized/temporal/history/shards/securityscopeは意味・取得可能な値・次の経路まで明示する。意味不明な一括COUNTへ自動投入しない",
+    "不明shardやobject世代を0で合計しない。全表同時点・primary現在値を別時点の合計で偽らない",
+    "row/indexwidth、cache、optimizerstatsと参考counter、物理配置、校正対象の一致を区別し、設定値から精度上限を発明しない"
+  ],
+  "productInvariants": [
+    "MySQL InnoDB RC/RRの通常SELECTは行非ロック、MDL/undo/resourceは残る。非InnoDBへ転用しない。",
+    "MySQL stats cache nonzeroもengine取得があり、expiry0自動設定/ANALYZE/index作成/flush/EXPLAIN ANALYZEを既定にしない。",
+    "SQL Server default locking RCと既存RCSI/SNAPSHOTを区別。IMPLICIT_TRANSACTIONS OFF、既存transaction拒否と終了確認。",
+    "SQL partitionはindex_id0/1と全partitionを集計し、secondary indexを重複計上しない。RLS tenant countと全表metadataは別。",
+    "NOLOCK/READPAST/lockingread/SERIALIZABLE/table/global locks/埋込DML countを推奨しない。"
+  ],
+  "evidenceGate": "既存測定source・受入文書・根拠hashを維持。新しい数値は足さず既存JSONまたは公式仕様で裏付け、未測定は未測定。新規最終3文書を別Sol authorと別セッションSol運用者/検証役の2最終査読へ結び付ける。doc-onlyで計測code/SQL/範囲は変えずDB/Dockerを起動しない。",
+  "operatorGoal": "実行者がlab/Rielaを起動せず、対象の状態を分類し概数/正確値/限定値/保留を選択できる。多数の一般的な状態を例外扱いへ押し出さない。"
+}

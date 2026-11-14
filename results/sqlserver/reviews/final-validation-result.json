@@ -1,0 +1,67 @@
+{
+  "accepted": true,
+  "decision": "accepted",
+  "findings": [],
+  "guidelineSha256": "a2430a338a44b52103009c9612020898c2066c0d18836a39532067f77f3e95bb",
+  "independentFindingAssessment": [
+    {
+      "assessment": "現行ガイド・source・生ログの独立確認後に開封。findings=[]。対応する保存結果・launch・manifestの一致も確認した。",
+      "source": "results/sqlserver/reviews/final-engineer-result.json"
+    },
+    {
+      "disposition": "verified_fixed",
+      "evidence": "現行§2のmetadata SQLは@@TRANCOUNT/XACT_STATEを検査し、IMPLICIT_TRANSACTIONS OFFを設定。§3は自動参加しない専用接続、SNAPSHOTにも同じ事前確認、終了後@@TRANCOUNT=0を要求する。既存の仕事を勝手にCOMMITしない。",
+      "id": "OWNER-SQL-IMPLICIT-TRANSACTIONS"
+    },
+    {
+      "disposition": "verified_fixed",
+      "evidence": "初回却下結果の指摘と現行§3–4を照合。AG primaryのghost回収・領域再利用・data/log容量・log再利用・切断状態を停止予算と回復確認に含め、監視や余裕を確保できなければ隔離復元先または保留へ戻す。追加実験は不要。[Microsoft AG制限事項](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-ver17#limitations-and-restrictions)と整合する。",
+      "id": "ENG-01"
+    }
+  ],
+  "proofSha256": "83067594c7760061f4c74145b11916ee2f70b8f7343086e7abe49e93e2e26d11",
+  "requestedExperiments": [],
+  "reviewEvidence": [
+    {
+      "check": "hash_and_source_integrity",
+      "readmeSha256": "6bfb71847c4b9f3116d555e2faff5f3fc6b993dbc6492e4c9cd60858ab3b48d8",
+      "result": "指定guide/proof、proof参照先とaudit.py、計測source8件、rawログ2662件のhash・bytes・complete、run manifest2664件を照合。一致。既存MySQL受入証跡が参照するsource・文書hashも一致。"
+    },
+    {
+      "check": "independent_raw_recomputation",
+      "finalVerificationExitCode": 0,
+      "maximumErrorRaw": "results/sqlserver/runs/20261107T230105Z-8533a31e/0859-quiet_delta_2-r2-heap_table-optimizer-stats.stdout.log",
+      "result": "178観測のLABJSON・TIME・IOを生ログと照合し、現行sourceから再構築した送信SQLのinput_sha256も全件一致。誤差147件と中央値40組を再計算。正の真値は方式ごと27観測。optimizer符号付き最小−0.04198236740568961%、最大0%、絶対最小23件・最大1件。他4方式は27件すべて0%。空表の相対誤差はNULL。",
+      "truthRaw": "results/sqlserver/runs/20261107T230105Z-8533a31e/0841-quiet_delta_2-r2-heap_table-rcsi.stdout.log"
+    },
+    {
+      "check": "execution_and_cleanup",
+      "completeLogPath": "results/sqlserver/runs/20261107T230105Z-8533a31e/runner.log",
+      "exitCode": 0,
+      "logSha256": "179e8c5447ac7c7bc127069432d38aededb6ad61b18a75fb7633d0b25e3914dd",
+      "outerCompleteLogPath": "results/sqlserver/reviews/canonical-invocation.log",
+      "outerLogSha256": "888806cc10478029d308063da3ce368dfa39492581e4f96be336c63775123bdb",
+      "result": "canonical-invocation.jsonはprocess_finished/exitCode=0。1331 commandはexit0・timeoutなし・ログ完了。生ログで所有session残数0、同一container IDと所有label、stop/remove、volume/network削除、最終一覧で専用資源不在を確認。現在のDocker状態は接続せず未確認。先行Ruby起動失敗exit1は別記録として保持されている。"
+    },
+    {
+      "check": "scope_and_workload",
+      "result": "10fixtureのload・初期/最終oracle、heap/clustered累計+21行、TDE開始/最終state=3、RCSI/SNAPSHOT有効を生ログで確認。3partition合計200000、二次索引を除く集計、80/100列と既存二次索引、OPEN columnstore 200000行も一致。36 arrivalsのcommit・予定時刻・未完了0を照合。短い固定順UPDATE診断のためservice SLO unavailableを維持。"
+    },
+    {
+      "check": "verification_diagnostics",
+      "result": "独立検算の初回はlatency整合を10ns許容で比較してexit1。sourceが終了時刻とlatencyに別々のmonotonic読取を使うことを確認した。最大差は約1µsで、10µs許容による全36件の再確認はexit0。失敗を測定成功やSLO合格へ置き換えていない。"
+    },
+    {
+      "check": "support_and_acceptance_boundary",
+      "result": "生Docker情報aarch64、image amd64・固定digest、SQL実版17.0.5035.5を確認。非サポートemulationとnative未計測の記述は[Microsoft containerサポート境界](https://learn.microsoft.com/en-us/sql/linux/containers/deploy?view=sql-server-ver17)と一致。ガイド/READMEのlocal linkと公式参照先を確認。final-acceptance.jsonはnot_yet_accepted/reviews=[]であり、本判定はこのvalidation役の受入れである。"
+    }
+  ],
+  "reviewQuestions": {
+    "betterMethods": "既存の承認済みexportを優先し、参考値ならmetadataで終了する。要求精度・鮮度を満たすversioned exactの取得先と予算が成立しなければ保留する分岐は妥当。",
+    "designCoverage": "100M細表、各750k行の80/100列表、全fixtureのTDEを実測。100M広表との組合せ、native性能、Always Encrypted等は未計測として区別されている。安全な限定・保留があるため追加必須実験はない。",
+    "fastCount": "掲載比較はcache・順序・既存索引・CLI計装・emulationの条件付き観測。普遍的最速、数%の誤差保証、行数だけによるprimary scan許可を主張していない。",
+    "lockFactors": "既定locking RCとRCSI/SNAPSHOT、Sch-S/DDL、tempdb/PVS・version保持、共有資源・AG primaryへの波及を区別する。command timeout、lock timeout、現在の所有session照合、サーバー終了、回復確認も別管理する。",
+    "omissions": "所有者のmaterial findingは本文で修正を確認した。RLSの可視範囲、権限不足・NULL・0・失敗、特殊表形式も区別されており、新たな受入阻害欠陥は認めない。"
+  },
+  "role": "validation"
+}

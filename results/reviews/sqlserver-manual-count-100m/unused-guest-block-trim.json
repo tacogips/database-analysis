@@ -1,0 +1,24 @@
+{
+  "startedAt": "2026-11-08T22:19:21.374274+00:00",
+  "argv": [
+    "env",
+    "COLIMA_HOME=/Users/taco/.config/colima",
+    "colima",
+    "--profile",
+    "brotli-verify",
+    "ssh",
+    "--",
+    "sudo",
+    "-n",
+    "fstrim",
+    "-av"
+  ],
+  "pid": 94012,
+  "beforeHostDf": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 840799096  93381324    91%    /System/Volumes/Data\n",
+  "scope": "Return already-unused VM filesystem blocks only; no DB restart, cache purge, volume deletion, or data deletion. Dedicated selected Colima profile only.",
+  "status": "process_finished",
+  "exitCode": 0,
+  "elapsedSeconds": 0.383951084,
+  "afterHostDf": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 840713400  93467020    90%    /System/Volumes/Data\n",
+  "finishedAt": "2026-11-08T22:19:21.759213+00:00"
+}

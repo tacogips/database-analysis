@@ -1,0 +1,212 @@
+Final author syntax/static verification 2026-11-07T22:59:40Z; Ruby 4.0.9
+No Docker/DB/measurement/workflow/delegation/commit/push commands run.
+{"command":["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","sqlserver/lab.rb"]}
+Syntax OK
+exit_status=0; signal=nil
+{"command":["mise","tasks","ls","--json"]}
+[
+  {
+    "name": "all",
+    "aliases": [],
+    "description": "Rebuild from nothing and run the selected essential nonlocking scope",
+    "source": "/Users/taco/gits/tacogips/database-analysis/mise.toml",
+    "config_sources": [
+      "/Users/taco/gits/tacogips/database-analysis/mise.toml"
+    ],
+    "depends": [],
+    "daemons": null,
+    "secrets": [],
+    "depends_post": [],
+    "wait_for": [],
+    "env": [],
+    "dir": "/Users/taco/gits/tacogips/database-analysis",
+    "hide": false,
+    "global": false,
+    "raw": false,
+    "interactive": false,
+    "sources": [],
+    "outputs": [],
+    "shell": null,
+    "quiet": false,
+    "silent": false,
+    "tools": {},
+    "usage": "",
+    "timeout": null,
+    "run": [
+      "mise exec -- ruby lab.rb all"
+    ],
+    "args": [],
+    "file": null
+  },
+  {
+    "name": "experiment",
+    "aliases": [],
+    "description": "Re-run named experiments without reloading data",
+    "source": "/Users/taco/gits/tacogips/database-analysis/mise.toml",
+    "config_sources": [
+      "/Users/taco/gits/tacogips/database-analysis/mise.toml"
+    ],
+    "depends": [],
+    "daemons": null,
+    "secrets": [],
+    "depends_post": [],
+    "wait_for": [],
+    "env": [],
+    "dir": "/Users/taco/gits/tacogips/database-analysis",
+    "hide": false,
+    "global": false,
+    "raw": false,
+    "interactive": false,
+    "sources": [],
+    "outputs": [],
+    "shell": null,
+    "quiet": false,
+    "silent": false,
+    "tools": {},
+    "usage": "",
+    "timeout": null,
+    "run": [
+      "mise exec -- ruby lab.rb experiment"
+    ],
+    "args": [],
+    "file": null
+  },
+  {
+    "name": "measure",
+    "aliases": [],
+    "description": "Run the selected essential nonlocking scope on loaded data",
+    "source": "/Users/taco/gits/tacogips/database-analysis/mise.toml",
+    "config_sources": [
+      "/Users/taco/gits/tacogips/database-analysis/mise.toml"
+    ],
+    "depends": [],
+    "daemons": null,
+    "secrets": [],
+    "depends_post": [],
+    "wait_for": [],
+    "env": [],
+    "dir": "/Users/taco/gits/tacogips/database-analysis",
+    "hide": false,
+    "global": false,
+    "raw": false,
+    "interactive": false,
+    "sources": [],
+    "outputs": [],
+    "shell": null,
+    "quiet": false,
+    "silent": false,
+    "tools": {},
+    "usage": "",
+    "timeout": null,
+    "run": [
+      "mise exec -- ruby lab.rb measure"
+    ],
+    "args": [],
+    "file": null
+  },
+  {
+    "name": "prepare",
+    "aliases": [],
+    "description": "Reset, load and verify data",
+    "source": "/Users/taco/gits/tacogips/database-analysis/mise.toml",
+    "config_sources": [
+      "/Users/taco/gits/tacogips/database-analysis/mise.toml"
+    ],
+    "depends": [],
+    "daemons": null,
+    "secrets": [],
+    "depends_post": [],
+    "wait_for": [],
+    "env": [],
+    "dir": "/Users/taco/gits/tacogips/database-analysis",
+    "hide": false,
+    "global": false,
+    "raw": false,
+    "interactive": false,
+    "sources": [],
+    "outputs": [],
+    "shell": null,
+    "quiet": false,
+    "silent": false,
+    "tools": {},
+    "usage": "",
+    "timeout": null,
+    "run": [
+      "mise exec -- ruby lab.rb prepare"
+    ],
+    "args": [],
+    "file": null
+  },
+  {
+    "name": "reset",
+    "aliases": [],
+    "description": "Delete this project's containers, .data and results",
+    "source": "/Users/taco/gits/tacogips/database-analysis/mise.toml",
+    "config_sources": [
+      "/Users/taco/gits/tacogips/database-analysis/mise.toml"
+    ],
+    "depends": [],
+    "daemons": null,
+    "secrets": [],
+    "depends_post": [],
+    "wait_for": [],
+    "env": [],
+    "dir": "/Users/taco/gits/tacogips/database-analysis",
+    "hide": false,
+    "global": false,
+    "raw": false,
+    "interactive": false,
+    "sources": [],
+    "outputs": [],
+    "shell": null,
+    "quiet": false,
+    "silent": false,
+    "tools": {},
+    "usage": "",
+    "timeout": null,
+    "run": [
+      "mise exec -- ruby lab.rb reset"
+    ],
+    "args": [],
+    "file": null
+  },
+  {
+    "name": "sqlserver-all",
+    "aliases": [],
+    "description": "SQL Server only: blank dedicated lab, bounded experiments, verified cleanup",
+    "source": "/Users/taco/gits/tacogips/database-analysis/mise.toml",
+    "config_sources": [
+      "/Users/taco/gits/tacogips/database-analysis/mise.toml"
+    ],
+    "depends": [],
+    "daemons": null,
+    "secrets": [],
+    "depends_post": [],
+    "wait_for": [],
+    "env": [],
+    "dir": "/Users/taco/gits/tacogips/database-analysis",
+    "hide": false,
+    "global": false,
+    "raw": false,
+    "interactive": false,
+    "sources": [],
+    "outputs": [],
+    "shell": null,
+    "quiet": false,
+    "silent": false,
+    "tools": {},
+    "usage": "",
+    "timeout": null,
+    "run": [
+      "mise exec -- ruby sqlserver/lab.rb all"
+    ],
+    "args": [],
+    "file": null
+  }
+]
+exit_status=0; signal=nil
+{"command":["git","diff","--check"]}
+exit_status=0; signal=nil
+JSON/YAML parse passed; generic YAML syntax only, no Docker compose schema/runtime invocation.
+Unchanged MySQL source/doc hashes: {"docs/table-count-guideline.md":"0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5","docs/table-count-calibration.md":"99bfd0477a19c4cf1f0f60967aa37957073ae6283d68f959979bc72669cf61a0","lab.rb":"55682469749f07f56979271e3577bdd98707b219355fef36d72730643064aae8","compose.yaml":"21eaef3550c84584c1bc74e76913b5c96c12846a187d2ff54e145f198c31a689"}
+final_exit_status=0

@@ -1,0 +1,1070 @@
+{
+ "id": "08-EXP-O6-WRITE-MIX-uniform-800",
+ "answers": [
+  "EXP-O6-WRITE-MIX",
+  "FIND-O6-WRITE-SHAPE-01",
+  "FIND-O8-CLIENT-TIMEOUT"
+ ],
+ "started": "2026-11-06T23:29:28",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 130944,
+    "k_k": 39423
+   },
+   "_seconds": 107.6
+  },
+  "arms": {
+   "runs": [
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 19999984,
+     "partial_rows": 19999984,
+     "steps": 2000,
+     "stmt_ms_p50": 1.11,
+     "stmt_ms_p99": 2.09,
+     "stmt_ms_max": 96.29,
+     "width_end": 10000,
+     "width_reductions": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": null,
+     "statements": {
+      "first": 1,
+      "mid": 1999,
+      "tail": 1
+     },
+     "t0": 1794007886.2078981,
+     "t1": 1794007888.8890748,
+     "seconds": 2.681,
+     "pool_read_requests": 6769419.0,
+     "disk_reads": 2225.0,
+     "pool_read_requests_per_s": 2524794,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 4001,
+      "Handler_read_next": 20007969
+     },
+     "rep": 0,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 1073,
+       "p50_ms": 3.14,
+       "p95_ms": 12.42,
+       "p99_ms": 34.35,
+       "max_ms": 59.4,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 1073,
+       "p50_ms": 3.11,
+       "p95_ms": 10.37,
+       "p99_ms": 21.63,
+       "max_ms": 29.96,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 536,
+      "p50_ms": 0.7,
+      "p95_ms": 3.07,
+      "p99_ms": 4.73,
+      "max_ms": 8.1,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 401,
+      "peak_trx_age_s": 0,
+      "bp_disk_reads_per_s": 898,
+      "peak_threads_running": 6.0
+     },
+     "committed_writes_in_window": 2146
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "stopped:max_steps",
+     "rows": null,
+     "partial_rows": 14510000,
+     "steps": 6000,
+     "stmt_ms_p50": 0.27,
+     "stmt_ms_p99": 43.21,
+     "stmt_ms_max": 443.4,
+     "width_end": 1250,
+     "width_reductions": 3,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 529.4,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 968.3,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 973.8,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "statements": {
+      "first": 1,
+      "mid": 5999
+     },
+     "t0": 1794007888.8938634,
+     "t1": 1794007917.7862453,
+     "seconds": 28.892,
+     "pool_read_requests": 2374018.0,
+     "disk_reads": 17934.0,
+     "pool_read_requests_per_s": 82168,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 6006,
+      "Handler_read_next": 14510992
+     },
+     "rep": 0,
+     "arm": "split_pk",
+     "write": [
+      {
+       "n": 11556,
+       "p50_ms": 1346.16,
+       "p95_ms": 3485.44,
+       "p99_ms": 3711.94,
+       "max_ms": 3784.12,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 11557,
+       "p50_ms": 1667.49,
+       "p95_ms": 3925.29,
+       "p99_ms": 4170.85,
+       "max_ms": 4233.22,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 5779,
+      "p50_ms": 1.03,
+      "p95_ms": 477.82,
+      "p99_ms": 782.56,
+      "max_ms": 883.5,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 435,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 655,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 23113
+    },
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "status": "error_1317",
+     "error": "(1317, 'Query execution was interrupted')",
+     "t0": 1794007917.791223,
+     "t1": 1794008037.7916205,
+     "seconds": 120.0,
+     "pool_read_requests": 10275912.0,
+     "disk_reads": 735112.0,
+     "pool_read_requests_per_s": 85632,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 3391582
+     },
+     "rep": 0,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 48000,
+       "p50_ms": 228.28,
+       "p95_ms": 1821.04,
+       "p99_ms": 2495.38,
+       "max_ms": 2637.95,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 48000,
+       "p50_ms": 170.18,
+       "p95_ms": 1827.22,
+       "p99_ms": 2531.83,
+       "max_ms": 2816.29,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 24000,
+      "p50_ms": 0.65,
+      "p95_ms": 395.93,
+      "p99_ms": 964.78,
+      "max_ms": 1342.47,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 96268,
+      "peak_trx_age_s": 120,
+      "bp_disk_reads_per_s": 6155,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 96000
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 19999999,
+     "status": "complete",
+     "t0": 1794008037.7976,
+     "t1": 1794008046.0588276,
+     "seconds": 8.261,
+     "pool_read_requests": 451334.0,
+     "disk_reads": 78967.0,
+     "pool_read_requests_per_s": 54633,
+     "handler": {},
+     "rep": 0,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 3305,
+       "p50_ms": 447.22,
+       "p95_ms": 1389.81,
+       "p99_ms": 1426.88,
+       "max_ms": 1461.5,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 3305,
+       "p50_ms": 490.44,
+       "p95_ms": 1424.31,
+       "p99_ms": 1484.61,
+       "max_ms": 1505.23,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 1652,
+      "p50_ms": 0.7,
+      "p95_ms": 330.85,
+      "p99_ms": 538.13,
+      "max_ms": 597.06,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 102204,
+      "peak_trx_age_s": 120,
+      "bp_disk_reads_per_s": 9578,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 6610
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "stopped:max_steps",
+     "rows": null,
+     "partial_rows": 9278219,
+     "steps": 6000,
+     "stmt_ms_p50": 0.78,
+     "stmt_ms_p99": 24.87,
+     "stmt_ms_max": 410.24,
+     "width_end": 156,
+     "width_reductions": 6,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 594.1,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 657.9,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 1044.8,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 927.2,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 780.5,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 805.0,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "statements": {
+      "first": 1,
+      "mid": 5999
+     },
+     "t0": 1794008046.0632179,
+     "t1": 1794008069.235941,
+     "seconds": 23.173,
+     "pool_read_requests": 2158435.0,
+     "disk_reads": 82093.0,
+     "pool_read_requests_per_s": 93146,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 6012,
+      "Handler_read_next": 9283177
+     },
+     "rep": 1,
+     "arm": "split_pk",
+     "write": [
+      {
+       "n": 9269,
+       "p50_ms": 669.39,
+       "p95_ms": 1874.41,
+       "p99_ms": 2011.94,
+       "max_ms": 2048.25,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 9268,
+       "p50_ms": 796.36,
+       "p95_ms": 2033.97,
+       "p99_ms": 2167.79,
+       "max_ms": 2205.51,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 4635,
+      "p50_ms": 1.46,
+      "p95_ms": 659.33,
+      "p99_ms": 886.15,
+      "max_ms": 1034.34,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 103895,
+      "peak_trx_age_s": 8,
+      "bp_disk_reads_per_s": 3783,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 18537
+    },
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 20000114,
+     "partial_rows": 20000114,
+     "steps": 3394,
+     "stmt_ms_p50": 1.38,
+     "stmt_ms_p99": 22.28,
+     "stmt_ms_max": 327.68,
+     "width_end": 5000,
+     "width_reductions": 1,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 774.3,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "statements": {
+      "first": 1,
+      "mid": 3393,
+      "tail": 1
+     },
+     "t0": 1794008069.240319,
+     "t1": 1794008080.5904374,
+     "seconds": 11.35,
+     "pool_read_requests": 7260742.0,
+     "disk_reads": 22176.0,
+     "pool_read_requests_per_s": 639706,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 6792,
+      "Handler_read_next": 19996949
+     },
+     "rep": 1,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 4540,
+       "p50_ms": 687.82,
+       "p95_ms": 1431.17,
+       "p99_ms": 1512.58,
+       "max_ms": 1565.42,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 4540,
+       "p50_ms": 859.68,
+       "p95_ms": 1577.58,
+       "p99_ms": 1608.13,
+       "max_ms": 1654.55,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 2270,
+      "p50_ms": 0.87,
+      "p95_ms": 415.85,
+      "p99_ms": 681.58,
+      "max_ms": 772.26,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 50759,
+      "peak_trx_age_s": 1,
+      "bp_disk_reads_per_s": 2285,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 9080
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 20000002,
+     "status": "complete",
+     "t0": 1794008080.5960512,
+     "t1": 1794008085.528284,
+     "seconds": 4.932,
+     "pool_read_requests": 293506.0,
+     "disk_reads": 71712.0,
+     "pool_read_requests_per_s": 59508,
+     "handler": {},
+     "rep": 1,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 1973,
+       "p50_ms": 1.47,
+       "p95_ms": 19.17,
+       "p99_ms": 35.09,
+       "max_ms": 41.81,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 1973,
+       "p50_ms": 1.58,
+       "p95_ms": 17.1,
+       "p99_ms": 42.43,
+       "max_ms": 51.09,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 986,
+      "p50_ms": 0.45,
+      "p95_ms": 2.39,
+      "p99_ms": 5.29,
+      "max_ms": 17.19,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 3707,
+      "peak_trx_age_s": 5,
+      "bp_disk_reads_per_s": 13552,
+      "peak_threads_running": 7.0
+     },
+     "committed_writes_in_window": 3946
+    },
+    {
+     "kind": "statement",
+     "index": "k_k",
+     "status": "error_1317",
+     "error": "(1317, 'Query execution was interrupted')",
+     "t0": 1794008085.5355463,
+     "t1": 1794008205.53618,
+     "seconds": 120.001,
+     "pool_read_requests": 25940449.0,
+     "disk_reads": 1769584.0,
+     "pool_read_requests_per_s": 216169,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 11108857
+     },
+     "rep": 1,
+     "arm": "statement_k",
+     "write": [
+      {
+       "n": 48000,
+       "p50_ms": 1.15,
+       "p95_ms": 763.81,
+       "p99_ms": 1233.58,
+       "max_ms": 1714.33,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 48001,
+       "p50_ms": 1.08,
+       "p95_ms": 755.7,
+       "p99_ms": 1233.4,
+       "max_ms": 1701.82,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 24000,
+      "p50_ms": 0.54,
+      "p95_ms": 350.35,
+      "p99_ms": 804.45,
+      "max_ms": 1147.36,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 94930,
+      "peak_trx_age_s": 120,
+      "bp_disk_reads_per_s": 14672,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 96001
+    },
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "stopped:max_steps",
+     "rows": null,
+     "partial_rows": 17996250,
+     "steps": 6000,
+     "stmt_ms_p50": 0.56,
+     "stmt_ms_p99": 12.54,
+     "stmt_ms_max": 208.68,
+     "width_end": 1250,
+     "width_reductions": 3,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 578.1,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 1063.9,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 1168.0,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "statements": {
+      "first": 1,
+      "mid": 5999
+     },
+     "t0": 1794008205.5462341,
+     "t1": 1794008219.1918776,
+     "seconds": 13.646,
+     "pool_read_requests": 6954191.0,
+     "disk_reads": 58827.0,
+     "pool_read_requests_per_s": 509627,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 12008,
+      "Handler_read_next": 18001647
+     },
+     "rep": 2,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 5458,
+       "p50_ms": 1078.27,
+       "p95_ms": 1691.24,
+       "p99_ms": 1737.28,
+       "max_ms": 1769.44,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 5458,
+       "p50_ms": 1210.19,
+       "p95_ms": 1767.36,
+       "p99_ms": 1990.36,
+       "max_ms": 2103.22,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 2729,
+      "p50_ms": 1.07,
+      "p95_ms": 745.16,
+      "p99_ms": 1029.52,
+      "max_ms": 1141.19,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 96413,
+      "peak_trx_age_s": 120,
+      "bp_disk_reads_per_s": 4428,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 10916
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 19999996,
+     "status": "complete",
+     "t0": 1794008219.1990683,
+     "t1": 1794008236.301194,
+     "seconds": 17.102,
+     "pool_read_requests": 771126.0,
+     "disk_reads": 102936.0,
+     "pool_read_requests_per_s": 45089,
+     "handler": {},
+     "rep": 2,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 6840,
+       "p50_ms": 662.86,
+       "p95_ms": 2519.98,
+       "p99_ms": 2946.73,
+       "max_ms": 3122.1,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 6841,
+       "p50_ms": 915.45,
+       "p95_ms": 2892.5,
+       "p99_ms": 3263.23,
+       "max_ms": 3382.32,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 3421,
+      "p50_ms": 8.51,
+      "p95_ms": 792.53,
+      "p99_ms": 1332.23,
+      "max_ms": 1464.51,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 77448,
+      "peak_trx_age_s": 17,
+      "bp_disk_reads_per_s": 5977,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 13681
+    },
+    {
+     "kind": "split",
+     "index": "k_k",
+     "status": "complete",
+     "rows": 20000033,
+     "partial_rows": 20000033,
+     "steps": 5451,
+     "stmt_ms_p50": 0.41,
+     "stmt_ms_p99": 6.09,
+     "stmt_ms_max": 206.95,
+     "width_end": 2500,
+     "width_reductions": 2,
+     "plan_check": {
+      "access_type": "range",
+      "key": "k_k",
+      "used_key_parts": [
+       "k",
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 2,
+      "ok": true
+     },
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 799.2,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 771.8,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "statements": {
+      "first": 1,
+      "mid": 5450,
+      "tail": 1
+     },
+     "t0": 1794008236.3062885,
+     "t1": 1794008242.844423,
+     "seconds": 6.538,
+     "pool_read_requests": 6999994.0,
+     "disk_reads": 15186.0,
+     "pool_read_requests_per_s": 1070641,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 10909,
+      "Handler_read_next": 20001512
+     },
+     "rep": 3,
+     "arm": "split_k",
+     "write": [
+      {
+       "n": 2616,
+       "p50_ms": 144.59,
+       "p95_ms": 715.63,
+       "p99_ms": 795.77,
+       "max_ms": 820.68,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 2615,
+       "p50_ms": 211.9,
+       "p95_ms": 714.8,
+       "p99_ms": 794.85,
+       "max_ms": 820.85,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 1307,
+      "p50_ms": 0.86,
+      "p95_ms": 651.73,
+      "p99_ms": 770.46,
+      "max_ms": 795.31,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 13084,
+      "peak_trx_age_s": 17,
+      "bp_disk_reads_per_s": 4968,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 5231
+    },
+    {
+     "kind": "statement",
+     "index": "PRIMARY",
+     "rows": 20000024,
+     "status": "complete",
+     "t0": 1794008242.848116,
+     "t1": 1794008246.7322438,
+     "seconds": 3.884,
+     "pool_read_requests": 283633.0,
+     "disk_reads": 94910.0,
+     "pool_read_requests_per_s": 73024,
+     "handler": {},
+     "rep": 3,
+     "arm": "statement_pk",
+     "write": [
+      {
+       "n": 1553,
+       "p50_ms": 136.66,
+       "p95_ms": 1236.0,
+       "p99_ms": 1369.55,
+       "max_ms": 1402.25,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      {
+       "n": 1553,
+       "p50_ms": 114.25,
+       "p95_ms": 1188.51,
+       "p99_ms": 1279.72,
+       "max_ms": 1308.68,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     ],
+     "read": {
+      "n": 777,
+      "p50_ms": 1.0,
+      "p95_ms": 619.62,
+      "p99_ms": 702.14,
+      "max_ms": 711.98,
+      "errors": 0,
+      "stuck_at_end": 0
+     },
+     "server": {
+      "hll_peak": 2741,
+      "peak_trx_age_s": 4,
+      "bp_disk_reads_per_s": 21257,
+      "peak_threads_running": 9.0
+     },
+     "committed_writes_in_window": 3106
+    }
+   ],
+   "_seconds": 360.53
+  },
+  "client_timeout": {
+   "client_read_timeout_s": 5,
+   "client_saw": "error 2013",
+   "client_returned_s": 5.0,
+   "seen": [
+    {
+     "at_s": 5.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 6.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 7.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 8.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 9.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 10.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 11.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 12.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 13.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 14.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 15.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 16.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 17.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 18.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 19.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 20.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 21.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 22.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 23.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    },
+    {
+     "at_s": 24.0,
+     "server_statement_running": true,
+     "mdl_rows": 1
+    }
+   ],
+   "still_running_when_probe_ended": true,
+   "seconds_after_kill_until_gone": 0.4,
+   "_seconds": 25.44
+  },
+  "drift_arm": {
+   "status": "complete",
+   "rows": 20001785,
+   "seconds": 8.753,
+   "t0": 1794008272.1747348,
+   "t1": 1794008280.9274406,
+   "_seconds": 8.76
+  },
+  "windows": {
+   "quiet_true_count_after": 19999977,
+   "drift": {
+    "sum": 20001785,
+    "true_count_after": 19999977,
+    "difference": 1808,
+    "write_statements_during_split": 7002,
+    "within_write_statements": true
+   },
+   "whole_run_write": [
+    {
+     "n": 161654,
+     "p50_ms": 57.87,
+     "p95_ms": 1739.91,
+     "p99_ms": 2946.53,
+     "max_ms": 3784.12,
+     "errors": 0,
+     "stuck_at_end": 0
+    },
+    {
+     "n": 161654,
+     "p50_ms": 61.69,
+     "p95_ms": 1974.34,
+     "p99_ms": 3351.33,
+     "max_ms": 4233.22,
+     "errors": 0,
+     "stuck_at_end": 0
+    }
+   ],
+   "_seconds": 1.35
+  }
+ },
+ "mix": "uniform_insert_delete",
+ "target_writes_per_s": 800,
+ "rows": 20000000,
+ "note": "Both touch every index at random places. k does not move, so split_k is eligible.",
+ "split_seconds_ceiling": 150,
+ "statement_limit_ms": 120000,
+ "split_settings": {
+  "width": 10000,
+  "limit_ms": 500,
+  "duty": null
+ },
+ "tolerance_fixed_in_advance": "As EXP-R8: a median at least 20% lower and no overlap between the fastest and slowest repeats. An arm that reached its ceiling is reported as such, not as a time.",
+ "elapsed_seconds": 514,
+ "section_errors": []
+}

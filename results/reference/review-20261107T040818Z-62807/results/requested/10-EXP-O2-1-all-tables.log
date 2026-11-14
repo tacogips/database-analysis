@@ -1,0 +1,128 @@
+$ 
+t_sparse 10000000 complete True
+t_uuid 5000000 complete True
+t_composite 10000000 complete True
+t_nopk 5000000 complete True
+t_uniq_notnull 3000000 complete True
+t_uniq_nullable 3000000 complete True
+customers 1000000 complete True
+orders 5000000 complete True
+order_items 15000000 complete True
+order_items_nofk 5000000 complete True
+tags 1000 complete True
+customer_tags 5000000 complete True
+categories 1000000 complete True
+circ_a 100000 complete True
+circ_b 100000 complete True
+t_lob 300000 complete True
+t_part 10000000 complete True
+t_strpk 1000000 complete True
+t_events 5000000 complete True
+t_myisam 3000000 not applicable: flow does not split this table 
+t_memory 500000 not applicable: flow does not split this table 
+t_archive 1006001 not applicable: flow does not split this table 
+t_hot 5000000 complete True
+t_repl 20000000 complete True
+d_negative_pk 1000000 complete True
+d_float_pk 1000000 complete True
+d_decimal_pk 1000000 complete True
+d_datetime_pk 1000000 complete True
+d_timestamp_pk 1000000 complete True
+d_enum_pk 1000000 no eligible index: flow goes to the 'cannot split' choices 
+d_desc_pk 1000000 complete True
+d_snowflake 1000000 complete True
+d_unsigned_max 100000 complete True
+d_str_bin 500000 complete True
+d_prefix_unique 500000 no eligible index: flow goes to the 'cannot split' choices 
+d_gipk 1000000 complete True
+d_noindex 1000000 no eligible index: flow goes to the 'cannot split' choices 
+d_compressed 500000 complete True
+d_json_virtual 500000 complete True
+d_fulltext 200000 complete True
+d_spatial 200000 complete True
+d_soft_delete 2000000 complete True
+d_history 1000000 complete True
+d_eav 1000000 complete True
+d_polymorphic 1000000 complete True
+d_triggered 500000 complete True
+fk_diamond_a 100000 complete True
+fk_diamond_b 500000 complete True
+fk_diamond_c 500000 complete True
+fk_diamond_d 1000000 complete True
+fk_comp_parent 500000 complete True
+fk_comp_child 1000000 complete True
+fk_uq_parent 500000 complete True
+fk_uq_child 1000000 complete True
+fk_null_parent 100000 complete True
+fk_null_child 500000 complete True
+fk_cross_schema 500000 complete True
+v_orders_with_customer 5000000 not applicable: flow does not split this table 
+section tables: 65.69 s
+section secondary_plus_pk_plan_rule: 0.15 s
+section old_timer_vs_new_timer: 2.71 s
+{"id": "10-EXP-O2-1-all-tables", "section_errors": [], "elapsed_seconds": 69}
+
+$ 
+t_sparse 10000000 complete True
+t_uuid 5000000 complete True
+t_composite 10000000 complete True
+t_nopk 5000000 complete True
+t_uniq_notnull 3000000 complete True
+t_uniq_nullable 3000000 complete True
+customers 1000000 complete True
+orders 5000000 complete True
+order_items 15000000 complete True
+order_items_nofk 5000000 complete True
+tags 1000 complete True
+customer_tags 5000000 complete True
+categories 1000000 complete True
+circ_a 100000 complete True
+circ_b 100000 complete True
+t_lob 300000 complete True
+t_part 10000000 complete True
+t_strpk 1000000 complete True
+t_events 5000000 complete True
+t_myisam 3000000 not applicable: flow does not split this table 
+t_memory 500000 not applicable: flow does not split this table 
+t_archive 1006001 not applicable: flow does not split this table 
+t_hot 5000000 complete True
+t_repl 20000000 complete True
+d_negative_pk 1000000 complete True
+d_float_pk 1000000 complete True
+d_decimal_pk 1000000 complete True
+d_datetime_pk 1000000 complete True
+d_timestamp_pk 1000000 complete True
+d_enum_pk 1000000 no eligible index: flow goes to the 'cannot split' choices 
+d_desc_pk 1000000 complete True
+d_snowflake 1000000 complete True
+d_unsigned_max 100000 complete True
+d_str_bin 500000 complete True
+d_prefix_unique 500000 no eligible index: flow goes to the 'cannot split' choices 
+d_gipk 1000000 complete True
+d_noindex 1000000 no eligible index: flow goes to the 'cannot split' choices 
+d_compressed 500000 complete True
+d_json_virtual 500000 complete True
+d_fulltext 200000 complete True
+d_spatial 200000 complete True
+d_soft_delete 2000000 complete True
+d_history 1000000 complete True
+d_eav 1000000 complete True
+d_polymorphic 1000000 complete True
+d_triggered 500000 complete True
+fk_diamond_a 100000 complete True
+fk_diamond_b 500000 complete True
+fk_diamond_c 500000 complete True
+fk_diamond_d 1000000 complete True
+fk_comp_parent 500000 complete True
+fk_comp_child 1000000 complete True
+fk_uq_parent 500000 complete True
+fk_uq_child 1000000 complete True
+fk_null_parent 100000 complete True
+fk_null_child 500000 complete True
+fk_cross_schema 500000 complete True
+v_orders_with_customer 5000000 not applicable: flow does not split this table 
+section tables: 59.27 s
+section secondary_plus_pk_plan_rule: 0.02 s
+section old_timer_vs_new_timer: 1.17 s
+{"id": "10-EXP-O2-1-all-tables", "section_errors": [], "elapsed_seconds": 60}
+

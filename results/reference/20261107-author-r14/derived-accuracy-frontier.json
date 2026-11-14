@@ -1,0 +1,655 @@
+{
+  "meaning": "Derived from preserved historical observations, not a new measurement, production error guarantee, or final reproduction proof. The metadata fixture set is not a random sample of production tables. TruthCOUNT ran before metadata and changes cache/initialization. ANALYZE sampling is owner-controlled maintenance, not the initial recommendation. Sampling data uses the earlier source hashes in the cited snapshot; new3/5/10 protocol is pending.",
+  "createdAt": "2026-11-07T03:05:30.078166+00:00",
+  "sources": {
+    "results/reference/20261107-observations/requested_metadata_accuracy.json": "5f21dcb3561cadf0a7a1cc74ab70aa8188158986c43cd0a25ee2a620824a0d56",
+    "results/reference/20261107-fixed-sampling/results/requested_probability_sampling.json": "9f98dfa6788e4d1d7c2ef57f09ad12f5537b1de8cdd59cc6fef4d5f0cfb20a27"
+  },
+  "metadataThresholds": {
+    "before_analyze": {
+      "table_rows_default_cache": {
+        "eligible": 58,
+        "within_percent": {
+          "3": 53,
+          "5": 55,
+          "10": 57
+        },
+        "max_abs_error_percent": 15.035
+      },
+      "table_rows_expiry0": {
+        "eligible": 58,
+        "within_percent": {
+          "3": 53,
+          "5": 55,
+          "10": 57
+        },
+        "max_abs_error_percent": 15.035
+      },
+      "innodb_table_stats_n_rows": {
+        "eligible": 54,
+        "within_percent": {
+          "3": 49,
+          "5": 51,
+          "10": 53
+        },
+        "max_abs_error_percent": 15.035
+      },
+      "innodb_tablestats_num_rows": {
+        "eligible": 54,
+        "within_percent": {
+          "3": 49,
+          "5": 51,
+          "10": 53
+        },
+        "max_abs_error_percent": 15.035
+      },
+      "explain_count_rows": {
+        "eligible": 55,
+        "within_percent": {
+          "3": 50,
+          "5": 52,
+          "10": 54
+        },
+        "max_abs_error_percent": 15.035
+      },
+      "auto_increment_minus_1": {
+        "eligible": 9,
+        "within_percent": {
+          "3": 6,
+          "5": 6,
+          "10": 6
+        },
+        "max_abs_error_percent": 100.0
+      },
+      "pk_span": {
+        "eligible": 39,
+        "within_percent": {
+          "3": 35,
+          "5": 35,
+          "10": 35
+        },
+        "max_abs_error_percent": 15518909181.133
+      }
+    },
+    "after_analyze": {
+      "table_rows_default_cache": {
+        "eligible": 58,
+        "within_percent": {
+          "3": 53,
+          "5": 53,
+          "10": 55
+        },
+        "max_abs_error_percent": 23.123
+      },
+      "table_rows_expiry0": {
+        "eligible": 58,
+        "within_percent": {
+          "3": 53,
+          "5": 53,
+          "10": 55
+        },
+        "max_abs_error_percent": 23.123
+      },
+      "innodb_table_stats_n_rows": {
+        "eligible": 54,
+        "within_percent": {
+          "3": 49,
+          "5": 49,
+          "10": 51
+        },
+        "max_abs_error_percent": 23.123
+      },
+      "innodb_tablestats_num_rows": {
+        "eligible": 0,
+        "within_percent": {
+          "3": 0,
+          "5": 0,
+          "10": 0
+        },
+        "max_abs_error_percent": null
+      },
+      "explain_count_rows": {
+        "eligible": 55,
+        "within_percent": {
+          "3": 50,
+          "5": 50,
+          "10": 52
+        },
+        "max_abs_error_percent": 23.123
+      },
+      "auto_increment_minus_1": {
+        "eligible": 9,
+        "within_percent": {
+          "3": 6,
+          "5": 6,
+          "10": 6
+        },
+        "max_abs_error_percent": 100.0
+      },
+      "pk_span": {
+        "eligible": 39,
+        "within_percent": {
+          "3": 35,
+          "5": 35,
+          "10": 35
+        },
+        "max_abs_error_percent": 15518909181.133
+      }
+    }
+  },
+  "samplePagesByDesign": {
+    "t_dense": {
+      "20": {
+        "abs_error_percent_range": [
+          0.381,
+          0.381
+        ],
+        "analyze_seconds_each": 0.011,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          0.381,
+          0.632
+        ],
+        "analyze_seconds_each": 0.054,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.392,
+          0.392
+        ],
+        "analyze_seconds_each": 0.519,
+        "repetitions": 5
+      }
+    },
+    "t_uuid": {
+      "20": {
+        "abs_error_percent_range": [
+          8.441,
+          21.59
+        ],
+        "analyze_seconds_each": 0.001,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          1.563,
+          8.211
+        ],
+        "analyze_seconds_each": 0.002,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.296,
+          1.547
+        ],
+        "analyze_seconds_each": 0.055,
+        "repetitions": 5
+      }
+    },
+    "t_composite": {
+      "20": {
+        "abs_error_percent_range": [
+          0.084,
+          13.586
+        ],
+        "analyze_seconds_each": 0.003,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          0.011,
+          1.945
+        ],
+        "analyze_seconds_each": 0.047,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.035,
+          0.569
+        ],
+        "analyze_seconds_each": 0.287,
+        "repetitions": 5
+      }
+    },
+    "t_lob": {
+      "20": {
+        "abs_error_percent_range": [
+          0.295,
+          0.295
+        ],
+        "analyze_seconds_each": 0.005,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          0.295,
+          0.554
+        ],
+        "analyze_seconds_each": 0.02,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.345,
+          0.345
+        ],
+        "analyze_seconds_each": 0.021,
+        "repetitions": 5
+      }
+    },
+    "t_part": {
+      "20": {
+        "abs_error_percent_range": [
+          0.195,
+          0.195
+        ],
+        "analyze_seconds_each": 0.036,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          0.195,
+          0.235
+        ],
+        "analyze_seconds_each": 0.27,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.0,
+          0.0
+        ],
+        "analyze_seconds_each": 0.381,
+        "repetitions": 5
+      }
+    },
+    "d_soft_delete": {
+      "20": {
+        "abs_error_percent_range": [
+          0.189,
+          0.576
+        ],
+        "analyze_seconds_each": 0.006,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          0.194,
+          0.27
+        ],
+        "analyze_seconds_each": 0.031,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.217,
+          0.251
+        ],
+        "analyze_seconds_each": 0.191,
+        "repetitions": 5
+      }
+    },
+    "orders": {
+      "20": {
+        "abs_error_percent_range": [
+          0.258,
+          0.258
+        ],
+        "analyze_seconds_each": 0.008,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          0.258,
+          0.508
+        ],
+        "analyze_seconds_each": 0.061,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          0.258,
+          0.283
+        ],
+        "analyze_seconds_each": 0.457,
+        "repetitions": 5
+      }
+    },
+    "d_compressed": {
+      "20": {
+        "abs_error_percent_range": [
+          1.145,
+          3.878
+        ],
+        "analyze_seconds_each": 0.005,
+        "repetitions": 5
+      },
+      "200": {
+        "abs_error_percent_range": [
+          1.145,
+          1.145
+        ],
+        "analyze_seconds_each": 0.028,
+        "repetitions": 5
+      },
+      "2000": {
+        "abs_error_percent_range": [
+          1.17,
+          1.172
+        ],
+        "analyze_seconds_each": 0.106,
+        "repetitions": 5
+      }
+    }
+  },
+  "sampling3PercentByFixture": {
+    "dense": {
+      "truth": 250000,
+      "full_count_seconds": 0.0023,
+      "repetitions": 5,
+      "outcomes": {
+        "target_reached": 5
+      },
+      "sampling_seconds_range": [
+        0.0421,
+        0.047
+      ],
+      "realized_abs_error_percent_range": [
+        0.0,
+        0.0
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.05": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.10": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    },
+    "gaps": {
+      "truth": 250000,
+      "full_count_seconds": 0.0025,
+      "repetitions": 5,
+      "outcomes": {
+        "precision_not_reached": 5
+      },
+      "sampling_seconds_range": [
+        0.602,
+        0.645
+      ],
+      "realized_abs_error_percent_range": [
+        4.785529492187502,
+        12.304247265625001
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "0.05": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "0.10": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    },
+    "islands": {
+      "truth": 250000,
+      "full_count_seconds": 0.0022,
+      "repetitions": 5,
+      "outcomes": {
+        "precision_not_reached": 5
+      },
+      "sampling_seconds_range": [
+        0.5441,
+        0.6403
+      ],
+      "realized_abs_error_percent_range": [
+        100.0,
+        100.0
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "0.05": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "0.10": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    },
+    "negative": {
+      "truth": 250000,
+      "full_count_seconds": 0.0022,
+      "repetitions": 5,
+      "outcomes": {
+        "target_reached": 5
+      },
+      "sampling_seconds_range": [
+        0.0428,
+        0.0511
+      ],
+      "realized_abs_error_percent_range": [
+        0.0,
+        0.0
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.05": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.10": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    },
+    "wide": {
+      "truth": 3000000,
+      "full_count_seconds": 2.766,
+      "repetitions": 5,
+      "outcomes": {
+        "target_reached": 5
+      },
+      "sampling_seconds_range": [
+        0.2385,
+        0.3329
+      ],
+      "realized_abs_error_percent_range": [
+        0.0,
+        0.0
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.05": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.10": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    },
+    "moderate_gaps": {
+      "truth": 2400026,
+      "full_count_seconds": 2.268,
+      "repetitions": 5,
+      "outcomes": {
+        "target_reached": 5
+      },
+      "sampling_seconds_range": [
+        0.8102,
+        1.8217
+      ],
+      "realized_abs_error_percent_range": [
+        0.017837371865980778,
+        0.12251153086466626
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          2048,
+          2048,
+          2048,
+          2048,
+          2048
+        ],
+        "0.05": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "0.10": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    },
+    "uneven_density": {
+      "truth": 2250000,
+      "full_count_seconds": 2.3466,
+      "repetitions": 5,
+      "outcomes": {
+        "target_reached": 5
+      },
+      "sampling_seconds_range": [
+        3.2547,
+        4.7291
+      ],
+      "realized_abs_error_percent_range": [
+        0.04736328125000133,
+        0.8247070312500049
+      ],
+      "firstRecordedCheckpointMeetingTarget": {
+        "0.03": [
+          8192,
+          8192,
+          8192,
+          8192,
+          8192
+        ],
+        "0.05": [
+          2048,
+          2048,
+          2048,
+          2048,
+          2048
+        ],
+        "0.10": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "checkpointReplayLimit": "Same predeclared simultaneous confidence bands, observed checkpoints only. No elapsed timing at each checkpoint; cannot derive stopping runtimes or earlier unobserved looks. This does not replace the new accuracy-cost experiment."
+    }
+  },
+  "unevenRowSizesBySamplePages": {
+    "20": {
+      "abs_error_percent_range": [
+        4.56,
+        38.731
+      ],
+      "repetitions": 5
+    },
+    "200": {
+      "abs_error_percent_range": [
+        2.131,
+        2.131
+      ],
+      "repetitions": 5
+    },
+    "2000": {
+      "abs_error_percent_range": [
+        2.131,
+        2.812
+      ],
+      "repetitions": 5
+    }
+  }
+}

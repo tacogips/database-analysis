@@ -1,0 +1,69 @@
+[
+    {
+        "Id": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+        "RepoTags": [
+            "mcr.microsoft.com/dotnet/sdk@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+        ],
+        "RepoDigests": [
+            "mcr.microsoft.com/dotnet/sdk@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-05T23:01:00.459953208Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=true",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Labels": {
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 344584636,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:107ffca6dcd3fc87a7bed8c062f5ddc0d6a4b107205c82c0b49efdb7c1aff967",
+                "sha256:09112df7245c4f71290b9e2adc8d59c2fd8c239077deaeb0135fc738754afec6",
+                "sha256:2c128d2a22173723650e57eee883644c9fa3b72b7da8e000a71939f60a81c073",
+                "sha256:fc56b1452eeabd83861375b79b04ce1a3730eea53a8ac2cecdadf2e7d077c8e9",
+                "sha256:99ca1d93e777e729c265afb2cbde52972289803a9c3bc2cf87e6870568a0b77d",
+                "sha256:4c7e58bb242d8ca617fb2ab42357f37d9e982e10f5362284feed907e0b488e1c",
+                "sha256:5d0233e1ec0a359ca65b500f05e305f65ba8a36add9fcb1f51400f68c989527e",
+                "sha256:02122b6c3f177fe7bdeb85b6e15a605da4483301f9d393b6e0a97112b451dac3",
+                "sha256:67d056a5e8ac1b68348481be543b22a52e1c6f5ad95608f1aeeec550de0277fc",
+                "sha256:68d2d4f1cb1fdf9a0ff8c5ab1b6cafe2787fa2d33b8fd1080a043f1ec890785d",
+                "sha256:8e4d3b307f83e559d6fcffdfb28f8ed3878cf435dc691e95aea13ac23381f8ff"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-08T22:51:57.96933769Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+            "digest": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+            "size": 1079
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "mcr.microsoft.com/dotnet/sdk"
+                }
+            ]
+        }
+    }
+]

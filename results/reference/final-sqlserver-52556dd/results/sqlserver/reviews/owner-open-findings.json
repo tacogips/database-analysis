@@ -1,0 +1,23 @@
+{
+  "findings": [
+    {
+      "id": "OWNER-SQL-IMPLICIT-TRANSACTIONS",
+      "severity": "middle",
+      "status": "verified_fixed",
+      "scenario": "The COUNT snippet already rejected existing transactions and disabled implicit mode in the first reviewed bytes. The initial owner concern was too broad; remaining correction applies that preflight explicitly to metadata and SNAPSHOT prose.",
+      "evidence": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-implicit-transactions-transact-sql?view=sql-server-ver17 (remarks and Test C)",
+      "impact": "Current dedicated/no-ambient guidance does not explicitly establish SQL autocommit mode. Long transactions and retained schema/version state can survive apparent count completion.",
+      "requiredCorrection": "Before metadata/count snippets require @@TRANCOUNT=0 and SET IMPLICIT_TRANSACTIONS OFF on new non-enlisted dedicated connection; stop/discard unexpected transaction without committing unrelated work. Require same preflight for explicit SNAPSHOT and @@TRANCOUNT=0 after cleanup. Correct documentation only; measured sqlcmd scope unchanged. Review final new hashes in both Sol roles.",
+      "resolution": "Metadata snippet now rejects @@TRANCOUNT/XACT_STATE !=0 and sets IMPLICIT_TRANSACTIONS OFF. SNAPSHOT prose explicitly requires the same preflight and @@TRANCOUNT=0 after end; official documentation linked. No measurement source changed."
+    },
+    {
+      "id": "ENG-01",
+      "severity": "middle",
+      "status": "verified_fixed",
+      "source": "results/sqlserver/reviews/engineer-20261107T232136Z/result.json",
+      "resolution": "Guide §§3–4 now explicitly includes primary ghost/space reuse, data/log capacity and log reuse, data movement/disconnect state in existing approved monitoring, stop budgets, cancellation and recovery. If unavailable, isolated backup restoration or deferral; no forced conflict experiments or independent AG mutation.",
+      "requiredExperiments": []
+    }
+  ],
+  "correctedGuideSha256": "a2430a338a44b52103009c9612020898c2066c0d18836a39532067f77f3e95bb"
+}

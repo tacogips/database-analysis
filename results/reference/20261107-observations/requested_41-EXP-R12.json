@@ -1,0 +1,246 @@
+{
+ "id": "41-EXP-R12",
+ "answers": [
+  "EXP-R12",
+  "FIND-MDL-FLUSH-01"
+ ],
+ "started": "2026-11-06T17:56:42",
+ "sections": {
+  "arms": {
+   "long_count_flush_tables": {
+    "method": {
+     "ok": true,
+     "ms": 7010.66
+    },
+    "method_seconds": 7.01,
+    "flush": {
+     "ok": true,
+     "ms": 5011.48
+    },
+    "flush_ended_after_method_s": 0.0,
+    "probes": {
+     "read_counted": {
+      "n": 40,
+      "max_ms": 4949.7,
+      "errors": 0,
+      "over_1s": 1
+     },
+     "read_other": {
+      "n": 89,
+      "max_ms": 1.4,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "write_other": {
+      "n": 88,
+      "max_ms": 5.8,
+      "errors": 0,
+      "over_1s": 0
+     }
+    },
+    "watcher_saw": {
+     "pending_mdl_samples": 0,
+     "state_samples": 10,
+     "states": [
+      "Waiting for table flush"
+     ],
+     "pending_objects": []
+    }
+   },
+   "long_count_ftwrl": {
+    "flush": {
+     "ok": true,
+     "ms": 5408.79
+    },
+    "method": {
+     "ok": true,
+     "ms": 7407.72
+    },
+    "method_seconds": 7.41,
+    "flush_ended_after_method_s": 0.0,
+    "release": true,
+    "probes": {
+     "read_counted": {
+      "n": 69,
+      "max_ms": 5356.4,
+      "errors": 0,
+      "over_1s": 1
+     },
+     "read_other": {
+      "n": 121,
+      "max_ms": 2.6,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "write_other": {
+      "n": 39,
+      "max_ms": 8369.9,
+      "errors": 0,
+      "over_1s": 1
+     }
+    },
+    "watcher_saw": {
+     "pending_mdl_samples": 16,
+     "state_samples": 18,
+     "states": [
+      "Waiting for global read lock",
+      "Waiting for table flush",
+      "waiting for handler commit"
+     ],
+     "pending_objects": [
+      "GLOBAL:None:INTENTION_EXCLUSIVE"
+     ]
+    }
+   },
+   "split_flush_tables": {
+    "flush": {
+     "ok": true,
+     "ms": 7.16
+    },
+    "method": {
+     "status": "stopped:max_steps",
+     "steps": 300,
+     "stmt_ms_max": 17.53,
+     "seconds": 7.472,
+     "errors": null
+    },
+    "method_seconds": 7.47,
+    "flush_ended_after_method_s": 0.0,
+    "probes": {
+     "read_counted": {
+      "n": 94,
+      "max_ms": 0.3,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "read_other": {
+      "n": 94,
+      "max_ms": 0.4,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "write_other": {
+      "n": 94,
+      "max_ms": 1.4,
+      "errors": 0,
+      "over_1s": 0
+     }
+    },
+    "watcher_saw": {
+     "pending_mdl_samples": 0,
+     "state_samples": 2,
+     "states": [
+      "Waiting for table flush",
+      "waiting for handler commit"
+     ],
+     "pending_objects": []
+    }
+   },
+   "split_ftwrl": {
+    "flush": {
+     "ok": true,
+     "ms": 0.39
+    },
+    "method": {
+     "status": "stopped:max_steps",
+     "steps": 300,
+     "stmt_ms_max": 35.5,
+     "seconds": 5.748,
+     "errors": null
+    },
+    "method_seconds": 5.75,
+    "flush_ended_after_method_s": 0.0,
+    "release": true,
+    "probes": {
+     "read_counted": {
+      "n": 105,
+      "max_ms": 10.7,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "read_other": {
+      "n": 105,
+      "max_ms": 7.2,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "write_other": {
+      "n": 40,
+      "max_ms": 6682.9,
+      "errors": 0,
+      "over_1s": 1
+     }
+    },
+    "watcher_saw": {
+     "pending_mdl_samples": 13,
+     "state_samples": 14,
+     "states": [
+      "Waiting for global read lock",
+      "waiting for handler commit"
+     ],
+     "pending_objects": [
+      "GLOBAL:None:INTENTION_EXCLUSIVE"
+     ]
+    }
+   },
+   "split_monitor_with_flush_tables": {
+    "flush": {
+     "ok": true,
+     "ms": 0.43
+    },
+    "method": {
+     "status": "stopped:max_steps",
+     "steps": 400,
+     "monitor_reason": null,
+     "kill": null,
+     "errors": null
+    },
+    "method_seconds": 7.38,
+    "flush_ended_after_method_s": 0.0,
+    "probes": {
+     "read_counted": {
+      "n": 93,
+      "max_ms": 0.4,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "read_other": {
+      "n": 93,
+      "max_ms": 0.3,
+      "errors": 0,
+      "over_1s": 0
+     },
+     "write_other": {
+      "n": 93,
+      "max_ms": 4.1,
+      "errors": 0,
+      "over_1s": 0
+     }
+    },
+    "watcher_saw": {
+     "pending_mdl_samples": 0,
+     "state_samples": 3,
+     "states": [
+      "waiting for handler commit"
+     ],
+     "pending_objects": []
+    }
+   },
+   "_seconds": 51.4
+  },
+  "killing_the_count_releases_the_flush": {
+   "kill_sent_at_s": 2.0,
+   "count": {
+    "errno": 1317
+   },
+   "flush": {
+    "ok": true,
+    "errno": null,
+    "seconds_from_issue": 2.0
+   },
+   "_seconds": 3.01
+  }
+ },
+ "elapsed_seconds": 54,
+ "section_errors": []
+}

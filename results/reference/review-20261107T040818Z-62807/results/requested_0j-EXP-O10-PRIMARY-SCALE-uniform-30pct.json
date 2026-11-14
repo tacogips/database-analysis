@@ -1,0 +1,242 @@
+{
+ "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+ "answers": [
+  "EXP-O10-PRIMARY-SCALE",
+  "FIND-O10-PRIMARY-SCALE"
+ ],
+ "started": "2026-11-07T03:41:49",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 65472,
+    "k_k": 15222
+   },
+   "pool_pages": "16384.0000",
+   "_seconds": 22.3
+  },
+  "rate": {
+   "closed_loop_per_s": 6227,
+   "target_writes_per_s": 1868,
+   "_seconds": 15.02
+  },
+  "arms": {
+   "runs": [
+    {
+     "arm": "statement_k",
+     "rows": 10000010,
+     "status": "complete",
+     "index_entries_read": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1,
+      "Handler_read_next": 10000010
+     },
+     "t0": 1794022957.0549164,
+     "t1": 1794023221.9215941,
+     "seconds": 264.867,
+     "pool_read_requests": 49759074.0,
+     "disk_reads": 7605652.0,
+     "rep": 0
+    },
+    {
+     "arm": "statement_pk",
+     "rows": 10000028,
+     "status": "complete",
+     "index_entries_read": {},
+     "t0": 1794023226.924441,
+     "t1": 1794023230.8096583,
+     "seconds": 3.885,
+     "pool_read_requests": 279791.0,
+     "disk_reads": 36415.0,
+     "rep": 0
+    },
+    {
+     "arm": "split_pk",
+     "status": "complete",
+     "rows": 10006729,
+     "partial_rows": 10006729,
+     "steps": 1470,
+     "stmt_ms_p50": 6.39,
+     "stmt_ms_p99": 44.43,
+     "stmt_ms_max": 85.18,
+     "width_end": 5000,
+     "width_reductions": 1,
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 508.3,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "index_entries_read": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 1473,
+      "Handler_read_next": 10012399
+     },
+     "t0": 1794023235.8142684,
+     "t1": 1794023248.8119583,
+     "seconds": 12.998,
+     "pool_read_requests": 2196973.0,
+     "disk_reads": 104539.0,
+     "rep": 0
+    },
+    {
+     "arm": "control",
+     "status": "nothing ran",
+     "rows": null,
+     "t0": 1794023253.818539,
+     "t1": 1794023258.8199477,
+     "seconds": 5.001,
+     "pool_read_requests": 392774.0,
+     "disk_reads": 34181.0,
+     "rep": 0
+    },
+    {
+     "arm": "split_k",
+     "status": "complete",
+     "rows": 10000950,
+     "partial_rows": 10000950,
+     "steps": 1703,
+     "stmt_ms_p50": 2.88,
+     "stmt_ms_p99": 58.43,
+     "stmt_ms_max": 150.66,
+     "width_end": 5000,
+     "width_reductions": 1,
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 692.5,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "index_entries_read": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 3410,
+      "Handler_read_next": 10008167
+     },
+     "t0": 1794023263.846709,
+     "t1": 1794023272.776138,
+     "seconds": 8.929,
+     "pool_read_requests": 3961231.0,
+     "disk_reads": 81308.0,
+     "rep": 0
+    },
+    {
+     "arm": "statement_pk",
+     "rows": 10001825,
+     "status": "complete",
+     "index_entries_read": {},
+     "t0": 1794023277.7849739,
+     "t1": 1794023280.459996,
+     "seconds": 2.675,
+     "pool_read_requests": 299291.0,
+     "disk_reads": 28718.0,
+     "rep": 1
+    },
+    {
+     "arm": "split_pk",
+     "status": "complete",
+     "rows": 10012165,
+     "partial_rows": 10012165,
+     "steps": 4570,
+     "stmt_ms_p50": 0.28,
+     "stmt_ms_p99": 39.24,
+     "stmt_ms_max": 477.97,
+     "width_end": 1250,
+     "width_reductions": 3,
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 526.7,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 1684.8,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 691.1,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "index_entries_read": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 4577,
+      "Handler_read_next": 10012472
+     },
+     "t0": 1794023285.4659433,
+     "t1": 1794023306.0736747,
+     "seconds": 20.608,
+     "pool_read_requests": 2426360.0,
+     "disk_reads": 121916.0,
+     "rep": 1
+    },
+    {
+     "arm": "control",
+     "status": "nothing ran",
+     "rows": null,
+     "t0": 1794023311.077813,
+     "t1": 1794023316.0829506,
+     "seconds": 5.005,
+     "pool_read_requests": 215712.0,
+     "disk_reads": 23151.0,
+     "rep": 1
+    },
+    {
+     "arm": "split_k",
+     "status": "complete",
+     "rows": 10003135,
+     "partial_rows": 10003135,
+     "steps": 3302,
+     "stmt_ms_p50": 1.39,
+     "stmt_ms_p99": 32.24,
+     "stmt_ms_max": 176.01,
+     "width_end": 2500,
+     "width_reductions": 2,
+     "errors": [
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 610.2,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      },
+      {
+       "kind": "mid",
+       "errno": 3024,
+       "ms": 1121.2,
+       "msg": "(3024, 'Query execution was interrupted, maximum statement execution time exceeded')"
+      }
+     ],
+     "index_entries_read": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 6611,
+      "Handler_read_next": 10012309
+     },
+     "t0": 1794023321.0870268,
+     "t1": 1794023331.7689803,
+     "seconds": 10.682,
+     "pool_read_requests": 4016128.0,
+     "disk_reads": 86205.0,
+     "rep": 1
+    }
+   ]
+  }
+ },
+ "version": "8.4.13",
+ "mix": "uniform_insert_delete",
+ "share_of_capacity": 0.3,
+ "rows": 10000000,
+ "buffer_pool_mb": 256,
+ "statement_limit_ms": 300000,
+ "split_seconds_ceiling": 150,
+ "tolerance_fixed_in_advance": "As EXP-R8: a median at least 20% lower and no overlap. An arm that reached its limit is reported as such.",
+ "limits_of_this_test": "One size and rate per script, small server. A result here does not make a general rule beyond the sizes and rates measured.",
+ "elapsed_seconds": 422,
+ "section_errors": []
+}

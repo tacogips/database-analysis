@@ -1,0 +1,186 @@
+{
+ "id": "14-EXP-SOL-1",
+ "answers": [
+  "EXP-SOL-1",
+  "EXP-SOL-2",
+  "FIND-SOL-TX-01",
+  "FIND-SOL-ISO-01"
+ ],
+ "started": "2026-11-06T16:19:19",
+ "sections": {
+  "paths": {
+   "fresh_connection": {
+    "session": {
+     "autocommit": 1,
+     "isolation": "REPEATABLE-READ"
+    },
+    "between_steps": [
+     {
+      "job_mdl": [],
+      "job_trx": [],
+      "update": {
+       "ok": true,
+       "errno": null
+      },
+      "alter": {
+       "ok": true,
+       "errno": null,
+       "ms": 3.65
+      }
+     }
+    ],
+    "status": "stopped:max_steps"
+   },
+   "start_transaction_before_sql0": {
+    "session": {
+     "autocommit": 1,
+     "isolation": "REPEATABLE-READ"
+    },
+    "between_steps": [
+     {
+      "job_mdl": [
+       [
+        "SHARED_READ",
+        "GRANTED"
+       ]
+      ],
+      "job_trx": [],
+      "update": {
+       "ok": true,
+       "errno": null
+      },
+      "alter": {
+       "ok": false,
+       "errno": 1205,
+       "ms": 1010.79
+      }
+     }
+    ],
+    "status": "stopped:max_steps"
+   },
+   "start_transaction_then_read_before_sql0": {
+    "session": {
+     "autocommit": 1,
+     "isolation": "REPEATABLE-READ"
+    },
+    "between_steps": [
+     {
+      "job_mdl": [
+       [
+        "SHARED_READ",
+        "GRANTED"
+       ]
+      ],
+      "job_trx": [
+       [
+        0,
+        "REPEATABLE READ"
+       ]
+      ],
+      "update": {
+       "ok": true,
+       "errno": null
+      },
+      "alter": {
+       "ok": false,
+       "errno": 1205,
+       "ms": 1004.54
+      }
+     }
+    ],
+    "status": "stopped:max_steps"
+   },
+   "serializable_transaction_before_sql0": {
+    "session": {
+     "autocommit": 1,
+     "isolation": "REPEATABLE-READ"
+    },
+    "between_steps": [
+     {
+      "job_mdl": [
+       [
+        "SHARED_READ",
+        "GRANTED"
+       ]
+      ],
+      "job_trx": [
+       [
+        1003,
+        "SERIALIZABLE"
+       ]
+      ],
+      "update": {
+       "ok": false,
+       "errno": 1205
+      },
+      "alter": {
+       "ok": false,
+       "errno": 1205,
+       "ms": 1003.01
+      }
+     }
+    ],
+    "status": "stopped:max_steps"
+   },
+   "driver_autocommit_off": {
+    "open_before_sql0": 1,
+    "between_steps": [
+     {
+      "job_mdl": [],
+      "job_trx": [
+       [
+        0,
+        "REPEATABLE READ"
+       ]
+      ],
+      "update": {
+       "ok": true,
+       "errno": null
+      },
+      "alter": {
+       "ok": true,
+       "errno": null,
+       "ms": 8.96
+      }
+     }
+    ],
+    "status": "stopped:max_steps"
+   },
+   "autocommit_disabled_after_sql0": {
+    "between_steps": [
+     {
+      "job_mdl": [
+       [
+        "SHARED_READ",
+        "GRANTED"
+       ]
+      ],
+      "job_trx": [],
+      "update": {
+       "ok": true,
+       "errno": null
+      },
+      "alter": {
+       "ok": false,
+       "errno": 1205,
+       "ms": 1004.37
+      }
+     }
+    ],
+    "status": "stopped:max_steps"
+   },
+   "_seconds": 5.11
+  },
+  "SOL_2_read_uncommitted": {
+   "read_uncommitted": 101000,
+   "read_committed": 100000,
+   "repeatable_read": 100000,
+   "inherited_ru_before_sql0": 101000,
+   "after_sql0": 100000,
+   "after_rollback": 100000,
+   "_seconds": 0.03
+  }
+ },
+ "elapsed_seconds": 5,
+ "section_errors": []
+}

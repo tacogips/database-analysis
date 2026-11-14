@@ -1,0 +1,100 @@
+{
+  "status": "passed_post_terminal_owned_cleanup_and_capacity",
+  "checkedAt": "2026-11-09T00:18:53.765963+00:00",
+  "rawRun": "results/sqlserver/manual-count-100m/runs/20261108T234303Z-7e3f51b7e5a312af1e695029bd48dcb5/result.json",
+  "rawRunSha256": "3a304239d5d5be1382060c218d593739be01a3ae3d24bdfebcab3b259e738d26",
+  "canonicalInvocationSha256": "afebc386d3a2414bef33287a45ae1e1c8d86ad9b55e3b38bea06f08dec440f3a",
+  "controllerExitCode": 1,
+  "controllerCleanupErrors": [
+    "RuntimeError: host capacity not restored within 1 GiB (shared-host observation)"
+  ],
+  "measurementCompletion": "passed_all_18_commands",
+  "measurementClientExitCode": 0,
+  "sqlServerExitCodes": [
+    0,
+    0
+  ],
+  "ownedRuntimeAbsent": true,
+  "ownedRootAbsent": true,
+  "hostFreeBeforeBytes": 144941678592,
+  "hostFreeObservedBytes": 144670986240,
+  "capacityRestoredWithin1GiBAtAdditionalCheck": true,
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "label=count.manual100m.owner=7e3f51b7e5a312af1e695029bd48dcb5",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=7e3f51b7e5a312af1e695029bd48dcb5",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=7e3f51b7e5a312af1e695029bd48dcb5",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=7e3f51b7e5a312af1e695029bd48dcb5",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 794997476 141280260    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    }
+  ],
+  "meaning": "Raw controller exit1 and failed immediate capacity observation remain unchanged. Independent later check uses SAME1GiB criterion and confirms owned resource/path absence. No DB restart/re-execution, source change, deletion, cache purge or measurement was performed. Free space observation does not certify physical block erasure or global cache purge."
+}

@@ -1,0 +1,230 @@
+[
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 6,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_only",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 4,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 1
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 9,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 1
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "pk_and_small_secondary",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 7,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 0
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 4,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 27
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "READ-COMMITTED",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 32
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count",
+  "in_transaction": true,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 3,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 25
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ },
+ {
+  "design": "no_pk_no_index",
+  "isolation": "REPEATABLE-READ",
+  "statement": "plain_count_autocommit",
+  "in_transaction": false,
+  "sql": "SELECT COUNT(*) FROM lk",
+  "outcome": "ok",
+  "ms": 2,
+  "record_locks": 0,
+  "lock_modes": {},
+  "update_row": {
+   "blocked": false,
+   "ms": 26
+  },
+  "insert_row": {
+   "blocked": false,
+   "ms": 0
+  }
+ }
+]

@@ -1,0 +1,117 @@
+{
+  "status": "implemented_unmeasured_local_checks_passed",
+  "workflow_execution_id": "sqlserver-count-review-session-35",
+  "step_id": "author",
+  "files": [
+    {
+      "path": "sqlserver/compose.yaml",
+      "sha256": "610abb7f25914f3cc5f3fab913c32b3e54e43ed61e1a8139e97fbc4d4e4a9450"
+    },
+    {
+      "path": "sqlserver/lab.rb",
+      "sha256": "2d9698d62f8da563a933913d4651eac0936eaeb845695c533c529697541a8145"
+    },
+    {
+      "path": "sqlserver/setup.sql",
+      "sha256": "9cb22c2f93ab3b97d988dbaaa9d895353703991ef89b912fbf3af1c870cfd90a"
+    },
+    {
+      "path": "sqlserver/fixtures.sql",
+      "sha256": "4be28dac33dc0ad37aaa8a1259eb4c331c5440878deb4b2a576378258f02c356"
+    },
+    {
+      "path": "sqlserver/README.md",
+      "sha256": "4e55362ac22e1514da9faefb5f7c791b074f774d58bf8a5577cb001431cc8766"
+    },
+    {
+      "path": "docs/sqlserver-table-count-guideline.md",
+      "sha256": "1e24833b97aca010300fa9a46c28b18e4d091bfc07cbc4af53ab0e45509b54d3"
+    },
+    {
+      "path": "results/sqlserver/plan.json",
+      "sha256": "d51106cd7821e955894baedc7506e87c798bc60291654e7175517b011459aefb"
+    },
+    {
+      "path": "results/sqlserver/.gitignore",
+      "sha256": "3205b20485b2d845ccb790c90606be3990fbd5c2c6ca323a5edaf75c8f996c1e"
+    },
+    {
+      "path": "mise.toml",
+      "sha256": "dc750f1d83cb7361cd8d251c6066ebeba26ec4097fbc23318bbb7d4af5bebeae"
+    }
+  ],
+  "verification": {
+    "scope": "local syntax/config parsing and read-only source integrity only",
+    "ruby": "4.0.9",
+    "checks": [
+      {
+        "kind": "local_syntax_or_config",
+        "command": [
+          "/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby",
+          "-c",
+          "sqlserver/lab.rb"
+        ],
+        "exit_status": 0,
+        "signal": null,
+        "passed": true
+      },
+      {
+        "kind": "local_syntax_or_config",
+        "command": [
+          "mise",
+          "tasks",
+          "ls",
+          "--json"
+        ],
+        "exit_status": 0,
+        "signal": null,
+        "passed": true
+      },
+      {
+        "kind": "local_syntax_or_config",
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_status": 0,
+        "signal": null,
+        "passed": true
+      },
+      {
+        "kind": "JSON/YAML_parse",
+        "passed": true,
+        "exit_status": 0
+      },
+      {
+        "kind": "readonly_source_integrity",
+        "passed": true,
+        "exit_status": 0,
+        "mysql_sha256": {
+          "docs/table-count-guideline.md": "0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5",
+          "docs/table-count-calibration.md": "99bfd0477a19c4cf1f0f60967aa37957073ae6283d68f959979bc72669cf61a0",
+          "lab.rb": "55682469749f07f56979271e3577bdd98707b219355fef36d72730643064aae8",
+          "compose.yaml": "21eaef3550c84584c1bc74e76913b5c96c12846a187d2ff54e145f198c31a689"
+        },
+        "existing_mise_prefix_unchanged": true
+      }
+    ],
+    "final_exit_status": 0,
+    "complete_log_path": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/reviews/author-local-verification.log",
+    "log_sha256": "c2bea4bc2e3edaeaf36c933f5e5afa05a99d3c7fab64a51954d3d2e27687e742"
+  },
+  "ready_command": "mise run sqlserver-all",
+  "database_execution": "notrun_by_author",
+  "docker_execution": "notrun_by_author",
+  "service_slo": "unavailable",
+  "remaining": [
+    "Owner must remove their disposable feasibility lab before blank-only canonical all; no Docker command was run by author.",
+    "T-SQL and sqlcmd compatibility, image startup, permissions probes, TDE state=3, 750k wide fixtures and optional 100M feasibility require owner runtime evidence; local Ruby/YAML/JSON checks do not validate SQL execution.",
+    "Owner must audit raw failures, exact oracles, extrema, source hashes, actual exit status, server termination and resource cleanup after canonical all.",
+    "Service test is a narrow fixed-order CLI diagnostic; production SLO/headroom/recovery and native performance remain unavailable regardless of diagnostic completion.",
+    "Controlled columnstore deletes/delta transitions, TABLESAMPLE accuracy, RLS tenant behavior, memory-optimized/external/temporal/views/shards are deferred, not certified.",
+    "Existing MySQL lab.rb reset removes results/sqlserver; unchanged per scope. Owner must preserve SQL Server evidence before MySQL all/reset and resolve retention at acceptance.",
+    "Disk bounds use DB/tempdb caps and before/after-fixture volume checks, not a hard filesystem quota; owner verifies actual peak/storage headroom.",
+    "Separate-session GPT-6.1 Sol two-role final adversarial review remains required after owner proof."
+  ]
+}

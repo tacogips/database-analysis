@@ -1,0 +1,13 @@
+{
+  "manualIndexCheck": true,
+  "saveReferenceSQLRawResultsAndElapsedNs": true,
+  "adaptiveRefinement": "Replace unexecuted constant-only data design with deterministic varied c001, skewed c002, high-cardinality c003 before full execution. After actual narrow-index inspection/counts, record limited reference coverage and replace it with a wider three-column secondary index, then remeasure without changing rows. Preserve the baseline narrow case.",
+  "plannedMySQLConditions": [
+    "innodb_primary_only",
+    "innodb_secondary_present",
+    "innodb_composite_secondary",
+    "myisam_primary_only"
+  ],
+  "mysqlCountsPerCondition": 3,
+  "sqlServerQueuedAfterMySQL": "Run 100M-row/100-column manual-based count/index comparisons only after MySQL phase is complete. Native performance cannot be claimed on ARM/amd64 SQL emulation."
+}

@@ -1,0 +1,236 @@
+{
+ "id": "01-EXP-S8-ENUM-DOMAIN-8.4.13",
+ "answers": [
+  "EXP-S8-ENUM-DOMAIN",
+  "FIND-S8-ENUM-DOMAIN-01"
+ ],
+ "started": "2026-11-07T11:18:28",
+ "sections": {
+  "clean": {
+   "facts": {
+    "truth": 30000,
+    "by_internal_number": {
+     "1": 10000,
+     "2": 10000,
+     "3": 10000
+    },
+    "explain_first_entry": [
+     "index",
+     "None",
+     "PRIMARY",
+     "9"
+    ],
+    "first_entry_number": 1.0
+   },
+   "walk_without_guard": {
+    "status": "complete",
+    "rows": 30000,
+    "steps": 63,
+    "labels": [
+     "z",
+     "a",
+     "m"
+    ],
+    "per_label": {
+     "z": 10000,
+     "a": 10000,
+     "m": 10000
+    },
+    "first_entry_number": 1,
+    "truth": 30000,
+    "correct": true,
+    "short_by": 0
+   },
+   "walk_with_guard": {
+    "status": "complete",
+    "rows": 30000,
+    "steps": 63,
+    "labels": [
+     "z",
+     "a",
+     "m"
+    ],
+    "per_label": {
+     "z": 10000,
+     "a": 10000,
+     "m": 10000
+    },
+    "first_entry_number": 1,
+    "truth": 30000,
+    "correct": true,
+    "short_by": 0
+   },
+   "equals_empty_string": 0,
+   "equals_zero": 0,
+   "explain_equals_zero": [
+    "ref",
+    "PRIMARY",
+    "PRIMARY",
+    "1",
+    "const",
+    "1"
+   ],
+   "explain_equals_empty": [
+    "ref",
+    "PRIMARY",
+    "PRIMARY",
+    "1",
+    "const",
+    "1"
+   ],
+   "_seconds": 0.02
+  },
+  "dirty": {
+   "facts": {
+    "truth": 30700,
+    "by_internal_number": {
+     "0": 700,
+     "1": 10000,
+     "2": 10000,
+     "3": 10000
+    },
+    "explain_first_entry": [
+     "index",
+     "None",
+     "PRIMARY",
+     "9"
+    ],
+    "first_entry_number": 0.0
+   },
+   "walk_without_guard": {
+    "status": "complete",
+    "rows": 30000,
+    "steps": 63,
+    "labels": [
+     "z",
+     "a",
+     "m"
+    ],
+    "per_label": {
+     "z": 10000,
+     "a": 10000,
+     "m": 10000
+    },
+    "first_entry_number": 0,
+    "truth": 30700,
+    "correct": false,
+    "short_by": 700
+   },
+   "walk_with_guard": {
+    "status": "refused:enum_index_zero",
+    "rows": null,
+    "steps": 0,
+    "labels": [
+     "z",
+     "a",
+     "m"
+    ],
+    "per_label": {},
+    "first_entry_number": 0,
+    "truth": 30700,
+    "correct": null,
+    "short_by": null
+   },
+   "equals_empty_string": 700,
+   "equals_zero": 700,
+   "explain_equals_zero": [
+    "ref",
+    "PRIMARY",
+    "PRIMARY",
+    "1",
+    "const",
+    "700"
+   ],
+   "explain_equals_empty": [
+    "ref",
+    "PRIMARY",
+    "PRIMARY",
+    "1",
+    "const",
+    "700"
+   ],
+   "_seconds": 0.01
+  },
+  "real_empty": {
+   "facts": {
+    "truth": 30700,
+    "by_internal_number": {
+     "0": 700,
+     "1": 10000,
+     "2": 10000,
+     "3": 10000
+    },
+    "explain_first_entry": [
+     "index",
+     "None",
+     "PRIMARY",
+     "9"
+    ],
+    "first_entry_number": 0.0
+   },
+   "walk_without_guard": {
+    "status": "complete",
+    "rows": 30000,
+    "steps": 63,
+    "labels": [
+     "",
+     "a",
+     "m"
+    ],
+    "per_label": {
+     "": 10000,
+     "a": 10000,
+     "m": 10000
+    },
+    "first_entry_number": 0,
+    "truth": 30700,
+    "correct": false,
+    "short_by": 700
+   },
+   "walk_with_guard": {
+    "status": "refused:enum_index_zero",
+    "rows": null,
+    "steps": 0,
+    "labels": [
+     "",
+     "a",
+     "m"
+    ],
+    "per_label": {},
+    "first_entry_number": 0,
+    "truth": 30700,
+    "correct": null,
+    "short_by": null
+   },
+   "equals_empty_string": 10000,
+   "equals_zero": 700,
+   "explain_equals_zero": [
+    "ref",
+    "PRIMARY",
+    "PRIMARY",
+    "1",
+    "const",
+    "700"
+   ],
+   "explain_equals_empty": [
+    "ref",
+    "PRIMARY",
+    "PRIMARY",
+    "1",
+    "const",
+    "15350"
+   ],
+   "_seconds": 0.01
+  }
+ },
+ "version": "8.4.13",
+ "elapsed_seconds": 0,
+ "section_errors": [],
+ "strict_mode_restored": true,
+ "strict_rejects_it_now": {
+  "ok": false,
+  "ms": 0.05,
+  "errno": 1265,
+  "msg": "(1265, \"Data truncated for column 'status' at row 1\")"
+ }
+}

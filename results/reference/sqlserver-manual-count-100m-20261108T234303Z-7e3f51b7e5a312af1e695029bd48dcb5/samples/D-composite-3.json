@@ -1,0 +1,32 @@
+{
+  "condition": "D-composite",
+  "sample": 3,
+  "id": {
+    "Server": "countprimary",
+    "Database": "ManualCount100m",
+    "Spid": 52,
+    "LoginTime": "2026-11-09T00:11:07.807",
+    "ConnectionId": "f904ab91-9334-4f66-a482-a7731199cfbe",
+    "Login": "sa",
+    "Isolation": 2
+  },
+  "sql": "SELECT COUNT_BIG(*) AS observed_rows FROM [dbo].[Target] WITH (NOLOCK);",
+  "route": "D",
+  "index": "composite",
+  "precision": "observed_rows_quiet_match_only",
+  "start_ns": 364393939086440,
+  "first_result_ns": 1703953519,
+  "full_completion_ns": 1703964894,
+  "value": 100000000,
+  "completed": true,
+  "completion_unknown": false,
+  "error": null,
+  "cold_buffer_reset_verified": true,
+  "cold_buffer_proof": {
+    "cached_target_pages": 0,
+    "dirty_target_pages": 0,
+    "verified": true,
+    "method": "CHECKPOINT_then_DBCC"
+  },
+  "accepted": true
+}

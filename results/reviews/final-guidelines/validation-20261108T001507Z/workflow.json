@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-final-count-guidelines-validation-sol",
+  "description": "Final product-wide Japanese row-count playbook review validation",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "review",
+  "nodes": [
+    {
+      "id": "review",
+      "nodeFile": "nodes/review.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "review",
+      "nodeId": "review",
+      "role": "worker"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-issue1-final-validation-sol",
+  "description": "Issue 1 final adversarial remediation review validation",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "review",
+  "nodes": [
+    {
+      "id": "review",
+      "nodeFile": "nodes/review.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "review",
+      "nodeId": "review",
+      "role": "worker"
+    }
+  ]
+}

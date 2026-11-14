@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-11-07T22:44:57.315900+00:00",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/linux/install-upgrade/setup",
+      "claim": "Official SQL Server container requires x86-64 Linux; emulation unsupported.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-objects/sys-dm-db-partition-stats-transact-sql?view=sql-server-ver17",
+      "claim": "row_count approximate; add relevant partitions, avoid secondary index duplication. SQL2022+ permission split.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-stats-properties-transact-sql?view=sql-server-ver17",
+      "claim": "Optimizer rows is stats-update-time value, not current DMV counter; filtered statistics differ.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/count-big-transact-sql?view=sql-server-ver17",
+      "claim": "COUNT_BIG returns bigint and counts NULL rows with star.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver17",
+      "claim": "NOLOCK can miss/duplicate/read uncommitted rows and still takes Sch-S.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver17",
+      "claim": "SYSTEM TABLESAMPLE samples pages; not a guaranteed percentage of rows.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17",
+      "claim": "TDE protects DEK using server certificate/asymmetric key; server decryption prerequisites remain.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-lock-timeout-transact-sql?view=sql-server-ver17",
+      "claim": "LOCK_TIMEOUT controls lock waits, not whole command runtime.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server",
+      "claim": "RCSI statement view vs SNAPSHOT transaction view; ADR/PVS vs tempdb version-store cost.",
+      "kind": "official_documentation_not_lab_measurement"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-ver17",
+      "claim": "Readable secondary maps reads to snapshot, but redo, freshness and primary ghost-cleanup consequences remain.",
+      "kind": "official_documentation_not_lab_measurement"
+    }
+  ]
+}

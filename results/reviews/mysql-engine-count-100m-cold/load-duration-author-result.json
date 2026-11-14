@@ -1,0 +1,38 @@
+{
+  "offlineChecksRequired": {
+    "command": "mise exec -- ruby mysql/engine-count-100m-cold/verify_offline.rb",
+    "compatibility": "Static inspection found no assertion requiring the old load-deadline literal or README wording. Synthetic stages include engine identity, and current cold files are outside baseline protectedFiles. No verify_offline.rb or reference_flow.rb changes are needed.",
+    "completeLogPath": null,
+    "evidenceRequirement": "The owner must retain the complete offline-suite log path and actual terminal exit status. An incomplete log is not a passing check.",
+    "executed": false,
+    "finalExitStatus": null,
+    "newTestsRequired": false,
+    "ownerRerunRequired": true,
+    "timing": "After the current invocation is terminal, cleanup and archiving are audited, and the owner applies the proposal; before the fresh blank all run."
+  },
+  "rationale": [
+    "All eight source hashes match the supplied bindings. Each exact old string occurs once in its target file.",
+    "Only the cumulative MyISAM load-stage allowance increases. InnoDB loading remains7200seconds, and each batch request remains7200seconds. The existing limit method preserves the global6hour cap.",
+    "The supplied approximately7.3seconds/batch observation implies approximately7300seconds for1000batches, exceeding7200seconds before additional overhead. This is motivation supplied by the owner, not a new measurement or completion guarantee.",
+    "README now distinguishes cumulative load-stage deadlines from individual request deadlines.",
+    "Ownership, failure handling, data generation, SQL, cold resets before every COUNT, COUNT timing, index bounds and cleanup behavior remain unchanged. No files were edited and no tests, SQL, Docker lifecycle, measurements or cleanup were executed."
+  ],
+  "replacements": [
+    {
+      "new": "      load_deadline = limit(@stage[:engine] == 'MyISAM' ? 14_400 : 7200)\n",
+      "old": "      load_deadline = limit(7200)\n",
+      "path": "mysql/engine-count-100m-cold/lab.rb"
+    },
+    {
+      "new": "Global6h; cumulative load-stage deadline InnoDB7200s (2h), MyISAM14400s (4h); each individual load-batch SQL request7200s (2h), each index build7200s (2h), each COUNT1200s (20min), per-boot readiness120s, final cleanup120s. Load-stage and SQL-request deadlines are additionally capped by the remaining global6h budget; the MyISAM allowance does not extend that budget. Other SQL requests retain their existing shorter limits, and cleanup retains its existing separate allowance.",
+      "old": "Global6h, load/index2h, COUNT20min, per-boot readiness120s, final cleanup120s.",
+      "path": "mysql/engine-count-100m-cold/README.md"
+    }
+  ],
+  "status": "proposal_ready",
+  "unresolvedIssues": [
+    "Apply only after the current invocation is terminal and its cleanup and archiving are audited; its frozen source must remain unchanged while alive.",
+    "The unchanged global6hour budget can shorten the MyISAM allowance. Successful completion remains unverified.",
+    "Acceptance requires one complete reproducible all from blank, followed by owner source/evidence/cleanup audit and two separate GPT-6.1 Sol reviewer sessions. Failed runs remain separate references; existing InnoDB counts cannot be combined with a later run."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "status": "complete_before_publication",
+  "at": "2026-11-07T16:52:28.355725+00:00",
+  "authority": "Latest user operational guideline priority and current AGENTS.md, with explicitly narrowed nonlocking scope.",
+  "documents": {
+    "docs/table-count-guideline.md": "0d0680c03caf17e9e36524d051f0247e0e9f77fe7ac7d0298289c6cdf673f5b5",
+    "docs/table-count-calibration.md": "99bfd0477a19c4cf1f0f60967aa37957073ae6283d68f959979bc72669cf61a0",
+    "README.md": "823ef857270dc21710214834dc65a18adc1ce23e32cec6387a24eea4964ba4a9"
+  },
+  "reviewAcceptance": {
+    "path": "results/reviews/final-operational-review-acceptance.json",
+    "sha256": "0abad961dc703a5d30a68aab6ebb22ff29787f499590413a9e029b33fe2c9758"
+  },
+  "benchmarkProof": {
+    "path": "results/reviews/final-all-proof.json",
+    "sha256": "0ef235cd8832593093b25335121253fae8ab2fc5c2bf9feb1384c30ba2e93350"
+  },
+  "measurementSnapshot": {
+    "path": "results/reference/review-20261107T155750Z-26743/manifest.json",
+    "sha256": "da3f08178b5ed5353bd0c1033dae89e54ffed907ca18d2725e438db2497b4832",
+    "filesVerified": 426
+  },
+  "ownerBundle": {
+    "path": "results/reference/owner-acceptance-20261107T161659Z/manifest.json",
+    "sha256": "143a2a08e6daaf911dacc401e7b4c892e14de6dacd72aba41838ca7b1c1cbf53",
+    "filesVerified": 51
+  },
+  "measurementSourceFilesVerified": 344,
+  "publicAuditFilesVerified": 7,
+  "checks": {
+    "fixedBlankAllExitZero": true,
+    "actualMethodSemanticsVerified": true,
+    "sourceUnchangedSinceMeasurement": true,
+    "initialFinalDataIntegrityVerified": true,
+    "ownedLabAndGeneratedDataCleaned": true,
+    "twoSeparateSolRolesAccepted": true,
+    "reviewedTextUnchanged": true,
+    "noMaterialFindingsOrNecessaryExperimentsPending": true,
+    "gitDiffCheck": {
+      "editableFiles": "passed",
+      "stagedImmutableReferences": "four blank-line-at-EOF warnings retained to preserve original bytes and manifest hashes",
+      "paths": [
+        "results/reference/owner-acceptance-20261107T161659Z/verification-source/bench/test_reqmix_protocol.py",
+        "results/reference/review-20261107T142407Z-3330/bench/test_reqmix_protocol.py",
+        "results/reference/review-20261107T144940Z-26388/bench/test_reqmix_protocol.py",
+        "results/reference/review-20261107T155750Z-26743/bench/test_reqmix_protocol.py"
+      ]
+    }
+  },
+  "limits": [
+    "Selected scope only; excluded grids are not passed.",
+    "Production service SLO and all-settings accuracy are not certified.",
+    "100M rows × 80 columns × TDE remains unmeasured and is not extrapolated.",
+    "Sparse/censored and rejected historical clock windows remain visible and do not certify SLO."
+  ],
+  "publication": "Commit and push after this audit; record actual resulting commit and remote equality in local handover."
+}

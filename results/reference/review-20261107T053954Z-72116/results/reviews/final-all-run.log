@@ -1,0 +1,701 @@
+controller Ruby 4.0.9 /Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby; cwd=/Users/taco/gits/tacogips/database-analysis; command=mise run all
+[all] $ mise exec -- ruby lab.rb all
+lab Ruby 4.0.9 /Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby; command=["all"]
+==> docker compose down --volumes --remove-orphans
+ Container lab-replica Stopping 
+ Container lab-bench Stopping 
+ Container lab-replica Stopped 
+ Container lab-replica Removing 
+ Container lab-replica Removed 
+ Container lab-bench Stopped 
+ Container lab-bench Removing 
+ Container lab-bench Removed 
+ Container lab-primary Stopping 
+ Container lab-primary Stopped 
+ Container lab-primary Removing 
+ Container lab-primary Removed 
+ Network bulk-read-lab_default Removing 
+ Network bulk-read-lab_default Removed 
+==> docker compose up -d --build --wait primary replica bench
+ Image bulk-read-lab-bench Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 558B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 325B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+#5 resolve docker.io/library/mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 0.0s done
+#5 DONE 0.0s
+
+#6 [2/3] RUN microdnf install -y python3 python3-pip perl-DBD-MySQL 2>/dev/null || microdnf install -y python3 python3-pip
+#6 CACHED
+
+#7 [3/3] RUN pip3 install --no-cache-dir pymysql==1.1.1 cryptography==43.0.3
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:c2888e87e02df3f1ec6a04fcbf5d3b063e7f0abf2f15680506387eb8175bd32e done
+#8 exporting config sha256:6d59d5d14cb91c50fed8d78d5f36af92ca48a12047d7556ee3eb367471bb29fb done
+#8 exporting attestation manifest sha256:211726719b3b6073a9c83b9cd280596e1769d12c840e1c319efec5d2af2e14da 0.0s done
+#8 exporting manifest list sha256:2636ac9e25cfe57150e27fe4ecdd3e8cc7e9cedaa78410f36cf2155ad42dad44
+#8 exporting manifest list sha256:2636ac9e25cfe57150e27fe4ecdd3e8cc7e9cedaa78410f36cf2155ad42dad44 done
+#8 naming to docker.io/library/bulk-read-lab-bench:latest done
+#8 unpacking to docker.io/library/bulk-read-lab-bench:latest 0.0s done
+#8 DONE 0.1s
+
+#9 resolving provenance for metadata file
+#9 DONE 0.0s
+ Image bulk-read-lab-bench Built 
+ Network bulk-read-lab_default Creating 
+ Network bulk-read-lab_default Creating 
+ Network bulk-read-lab_default Created 
+ Network bulk-read-lab_default Created 
+ Container lab-primary Creating 
+ Container lab-primary Created 
+ Container lab-replica Creating 
+ Container lab-bench Creating 
+ Container lab-bench Created 
+ Container lab-replica Created 
+ Container lab-primary Starting 
+ Container lab-primary Started 
+ Container lab-primary Waiting 
+ Container lab-primary Waiting 
+ Container lab-primary Healthy 
+ Container lab-primary Healthy 
+ Container lab-bench Starting 
+ Container lab-replica Starting 
+ Container lab-bench Started 
+ Container lab-replica Started 
+ Container lab-bench Waiting 
+ Container lab-primary Waiting 
+ Container lab-replica Waiting 
+ Container lab-bench Healthy 
+ Container lab-primary Healthy 
+ Container lab-replica Healthy 
+self-checks: accounting, sampling, dependencies, timer, protocols, cache, white-all and matrix cleanup passed
+==> docker exec lab-bench python3 -u /work/bench/load.py
+04:45:18 done seq1m
+04:45:20 t_sparse 1,000,000/10,000,000 1s
+04:45:20 t_sparse 2,000,000/10,000,000 2s
+04:45:21 t_sparse 3,000,000/10,000,000 3s
+04:45:22 t_sparse 4,000,000/10,000,000 4s
+04:45:23 t_sparse 5,000,000/10,000,000 4s
+04:45:23 t_sparse 6,000,000/10,000,000 5s
+04:45:24 t_sparse 7,000,000/10,000,000 6s
+04:45:25 t_sparse 8,000,000/10,000,000 7s
+04:45:26 t_sparse 9,000,000/10,000,000 7s
+04:45:26 t_sparse 10,000,000/10,000,000 8s
+04:45:26 t_sparse 10,000,000 rows in 8s
+04:45:26 done t_sparse
+04:45:36 done t_uuid
+04:45:37 t_composite 1,000,000/10,000,000 1s
+04:45:37 t_composite 2,000,000/10,000,000 2s
+04:45:38 t_composite 3,000,000/10,000,000 3s
+04:45:39 t_composite 4,000,000/10,000,000 4s
+04:45:40 t_composite 5,000,000/10,000,000 5s
+04:45:41 t_composite 6,000,000/10,000,000 6s
+04:45:42 t_composite 7,000,000/10,000,000 7s
+04:45:44 t_composite 8,000,000/10,000,000 8s
+04:45:45 t_composite 9,000,000/10,000,000 9s
+04:45:46 t_composite 10,000,000/10,000,000 10s
+04:45:46 t_composite 10,000,000 rows in 10s
+04:45:46 done t_composite
+04:45:47 t_nopk 1,000,000/5,000,000 1s
+04:45:49 t_nopk 2,000,000/5,000,000 3s
+04:45:50 t_nopk 3,000,000/5,000,000 4s
+04:45:51 t_nopk 4,000,000/5,000,000 5s
+04:45:52 t_nopk 5,000,000/5,000,000 7s
+04:45:52 t_nopk 5,000,000 rows in 7s
+04:45:52 done t_nopk
+04:45:53 t_uniq_notnull 1,000,000/3,000,000 1s
+04:45:54 t_uniq_notnull 2,000,000/3,000,000 1s
+04:45:55 t_uniq_notnull 3,000,000/3,000,000 2s
+04:45:55 t_uniq_notnull 3,000,000 rows in 2s
+04:45:55 done t_uniq_notnull
+04:45:56 t_uniq_nullable 1,000,000/3,000,000 1s
+04:45:57 t_uniq_nullable 2,000,000/3,000,000 3s
+04:45:59 t_uniq_nullable 3,000,000/3,000,000 4s
+04:45:59 t_uniq_nullable 3,000,000 rows in 4s
+04:45:59 done t_uniq_nullable
+04:45:59 customers 1,000,000/1,000,000 1s
+04:45:59 customers 1,000,000 rows in 1s
+04:45:59 done customers
+04:46:01 orders 1,000,000/5,000,000 2s
+04:46:03 orders 2,000,000/5,000,000 4s
+04:46:06 orders 3,000,000/5,000,000 6s
+04:46:09 orders 4,000,000/5,000,000 9s
+04:46:11 orders 5,000,000/5,000,000 12s
+04:46:11 orders 5,000,000 rows in 12s
+04:46:11 done orders
+04:46:15 order_items 3,000,000/15,000,000 4s
+04:46:19 order_items 6,000,000/15,000,000 8s
+04:46:24 order_items 9,000,000/15,000,000 13s
+04:46:28 order_items 12,000,000/15,000,000 17s
+04:46:34 order_items 15,000,000/15,000,000 22s
+04:46:34 order_items 15,000,000 rows in 22s
+04:46:34 done order_items
+04:46:34 tags 1,000 rows in 0s
+04:46:34 done tags
+04:46:35 customer_tags 1,000,000/5,000,000 1s
+04:46:36 customer_tags 2,000,000/5,000,000 3s
+04:46:38 customer_tags 3,000,000/5,000,000 4s
+04:46:39 customer_tags 4,000,000/5,000,000 6s
+04:46:41 customer_tags 5,000,000/5,000,000 7s
+04:46:41 customer_tags 5,000,000 rows in 7s
+04:46:41 done customer_tags
+04:46:42 done categories
+04:46:43 done circ
+04:47:00 t_lob 300,000 rows in 18s
+04:47:00 done t_lob
+04:47:01 t_part 1,000,000/10,000,000 1s
+04:47:02 t_part 2,000,000/10,000,000 2s
+04:47:03 t_part 3,000,000/10,000,000 3s
+04:47:04 t_part 4,000,000/10,000,000 4s
+04:47:05 t_part 5,000,000/10,000,000 5s
+04:47:06 t_part 6,000,000/10,000,000 6s
+04:47:07 t_part 7,000,000/10,000,000 7s
+04:47:08 t_part 8,000,000/10,000,000 8s
+04:47:09 t_part 9,000,000/10,000,000 9s
+04:47:10 t_part 10,000,000/10,000,000 10s
+04:47:10 t_part 10,000,000 rows in 10s
+04:47:10 done t_part
+04:47:12 done t_strpk
+04:47:14 t_events 1,000,000/5,000,000 2s
+04:47:16 t_events 2,000,000/5,000,000 5s
+04:47:19 t_events 3,000,000/5,000,000 8s
+04:47:23 t_events 4,000,000/5,000,000 11s
+04:47:26 t_events 5,000,000/5,000,000 14s
+04:47:26 t_events 5,000,000 rows in 14s
+04:47:26 done t_events
+04:48:40 t_myisam 1,000,000/3,000,000 75s
+04:49:54 t_myisam 2,000,000/3,000,000 148s
+04:51:08 t_myisam 3,000,000/3,000,000 223s
+04:51:08 t_myisam 3,000,000 rows in 223s
+04:51:08 done t_myisam
+04:51:09 t_memory 500,000 rows in 0s
+04:51:09 done t_memory
+04:51:09 t_archive 1,000,000/1,000,000 1s
+04:51:09 t_archive 1,000,000 rows in 1s
+04:51:09 done t_archive
+04:51:10 order_items_nofk 1,000,000/5,000,000 1s
+04:51:11 order_items_nofk 2,000,000/5,000,000 2s
+04:51:12 order_items_nofk 3,000,000/5,000,000 2s
+04:51:13 order_items_nofk 4,000,000/5,000,000 3s
+04:51:13 order_items_nofk 5,000,000/5,000,000 4s
+04:51:13 order_items_nofk 5,000,000 rows in 4s
+04:51:13 done order_items_nofk
+04:51:14 t_hot 1,000,000/5,000,000 1s
+04:51:15 t_hot 2,000,000/5,000,000 1s
+04:51:16 t_hot 3,000,000/5,000,000 2s
+04:51:16 t_hot 4,000,000/5,000,000 3s
+04:51:17 t_hot 5,000,000/5,000,000 4s
+04:51:17 t_hot 5,000,000 rows in 4s
+04:51:17 done t_hot
+04:51:23 t_repl 2,000,000/20,000,000 6s
+04:51:28 t_repl 4,000,000/20,000,000 11s
+04:51:32 t_repl 6,000,000/20,000,000 15s
+04:51:37 t_repl 8,000,000/20,000,000 20s
+04:51:42 t_repl 10,000,000/20,000,000 25s
+04:51:48 t_repl 12,000,000/20,000,000 31s
+04:51:53 t_repl 14,000,000/20,000,000 36s
+04:51:58 t_repl 16,000,000/20,000,000 41s
+04:52:03 t_repl 18,000,000/20,000,000 46s
+04:52:08 t_repl 20,000,000/20,000,000 51s
+04:52:08 t_repl 20,000,000 rows in 51s
+04:52:08 done t_repl
+04:52:28 t_dense 10,000,000/100,000,000 20s
+04:52:45 t_dense 20,000,000/100,000,000 37s
+04:53:03 t_dense 30,000,000/100,000,000 54s
+04:53:19 t_dense 40,000,000/100,000,000 71s
+04:53:36 t_dense 50,000,000/100,000,000 88s
+04:53:54 t_dense 60,000,000/100,000,000 105s
+04:54:10 t_dense 70,000,000/100,000,000 122s
+04:54:27 t_dense 80,000,000/100,000,000 139s
+04:54:45 t_dense 90,000,000/100,000,000 156s
+04:55:01 t_dense 100,000,000/100,000,000 173s
+04:55:01 t_dense 100,000,000 rows in 173s
+04:55:01 done t_dense
+04:55:01 t_dense building k_created
+04:56:43 t_dense k_created done
+04:56:44 d_negative_pk 1,000,000/1,000,000 1s
+04:56:44 d_negative_pk 1,000,000 rows in 1s
+04:56:44 done d_negative_pk
+04:56:45 d_float_pk 1,000,000/1,000,000 1s
+04:56:45 d_float_pk 1,000,000 rows in 1s
+04:56:45 done d_float_pk
+04:56:46 d_decimal_pk 1,000,000/1,000,000 1s
+04:56:46 d_decimal_pk 1,000,000 rows in 1s
+04:56:46 done d_decimal_pk
+04:56:47 d_datetime_pk 1,000,000/1,000,000 1s
+04:56:47 d_datetime_pk 1,000,000 rows in 1s
+04:56:47 done d_datetime_pk
+04:56:48 d_timestamp_pk 1,000,000/1,000,000 1s
+04:56:48 d_timestamp_pk 1,000,000 rows in 1s
+04:56:48 done d_timestamp_pk
+04:56:49 d_enum_pk 1,000,000/1,000,000 1s
+04:56:49 d_enum_pk 1,000,000 rows in 1s
+04:56:49 done d_enum_pk
+04:56:49 d_desc_pk 1,000,000/1,000,000 1s
+04:56:49 d_desc_pk 1,000,000 rows in 1s
+04:56:49 done d_desc_pk
+04:56:50 d_snowflake 1,000,000/1,000,000 1s
+04:56:50 d_snowflake 1,000,000 rows in 1s
+04:56:50 done d_snowflake
+04:56:50 d_unsigned_max 100,000 rows in 0s
+04:56:50 done d_unsigned_max
+04:56:51 done d_str_bin
+04:56:52 d_prefix_unique 500,000 rows in 1s
+04:56:52 done d_prefix_unique
+04:56:53 d_noindex 1,000,000/1,000,000 1s
+04:56:53 d_noindex 1,000,000 rows in 1s
+04:56:53 done d_noindex
+04:56:54 d_gipk 1,000,000/1,000,000 1s
+04:56:54 d_gipk 1,000,000 rows in 1s
+04:56:54 done d_gipk
+04:56:55 d_compressed 500,000 rows in 2s
+04:56:55 done d_compressed
+04:56:56 d_json_virtual 500,000 rows in 1s
+04:56:56 done d_json_virtual
+04:56:57 d_fulltext 200,000 rows in 1s
+04:56:57 done d_fulltext
+04:57:18 d_spatial 200,000 rows in 20s
+04:57:18 done d_spatial
+04:57:19 d_soft_delete 1,000,000/2,000,000 1s
+04:57:20 d_soft_delete 2,000,000/2,000,000 3s
+04:57:20 d_soft_delete 2,000,000 rows in 3s
+04:57:20 done d_soft_delete
+04:57:21 d_history 1,000,000/1,000,000 1s
+04:57:21 d_history 1,000,000 rows in 1s
+04:57:21 done d_history
+04:57:23 d_eav 1,000,000/1,000,000 1s
+04:57:23 d_eav 1,000,000 rows in 1s
+04:57:23 done d_eav
+04:57:24 d_polymorphic 1,000,000/1,000,000 2s
+04:57:24 d_polymorphic 1,000,000 rows in 2s
+04:57:24 done d_polymorphic
+04:57:25 d_triggered 500,000 rows in 0s
+04:57:25 done d_triggered
+04:57:25 fk_diamond_a 100,000 rows in 0s
+04:57:25 done fk_diamond_a
+04:57:25 fk_diamond_b 500,000 rows in 1s
+04:57:25 done fk_diamond_b
+04:57:26 fk_diamond_c 500,000 rows in 1s
+04:57:26 done fk_diamond_c
+04:57:28 fk_diamond_d 1,000,000/1,000,000 2s
+04:57:28 fk_diamond_d 1,000,000 rows in 2s
+04:57:28 done fk_diamond_d
+04:57:29 fk_comp_parent 500,000 rows in 1s
+04:57:29 done fk_comp_parent
+04:57:31 fk_comp_child 1,000,000/1,000,000 2s
+04:57:31 fk_comp_child 1,000,000 rows in 2s
+04:57:31 done fk_comp_child
+04:57:31 fk_uq_parent 500,000 rows in 1s
+04:57:31 done fk_uq_parent
+04:57:33 fk_uq_child 1,000,000/1,000,000 1s
+04:57:33 fk_uq_child 1,000,000 rows in 1s
+04:57:33 done fk_uq_child
+04:57:33 fk_null_parent 100,000 rows in 0s
+04:57:33 done fk_null_parent
+04:57:34 fk_null_child 500,000 rows in 1s
+04:57:34 done fk_null_child
+04:57:34 bench_other.parent 100,000 rows in 0s
+04:57:34 done bench_other.parent
+04:57:34 fk_cross_schema 500,000 rows in 1s
+04:57:34 done fk_cross_schema
+04:57:35 done tenants
+04:57:39 all done
+==> docker exec lab-bench python3 -u /work/bench/verify_data.py
+mismatched: none | replica caught up: True | replica t_repl: 20000000
+==> docker exec lab-bench python3 -u /work/bench/count_shapes.py
+{'tuple': {'ms': 600.4, 'handler_read_next': 4504999, 'plan': {'access': 'index', 'key': 'PRIMARY', 'used_key_parts': ['tenant_id', 'seq'], 'covering': True, 'rows_estimate': 5000, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'ordering_operation', 'select_id']}}, 'and_or': {'ms': 312.7, 'handler_read_next': 4504999, 'plan': {'access': 'range', 'key': 'PRIMARY', 'used_key_parts': ['tenant_id'], 'covering': True, 'rows_estimate': 4749022, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'ordering_operation', 'select_id']}}, 'or_expanded': {'ms': 3.0, 'handler_read_next': 4999, 'plan': {'access': 'range', 'key': 'PRIMARY', 'used_key_parts': ['tenant_id', 'seq'], 'covering': True, 'rows_estimate': 5783914, 'select_tables_optimized_away': False, 'message': None, 'raw_keys': ['cost_info', 'ordering_operation', 'select_id']}}}
+t_sparse                   COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.846 default_run2=0.088 single_thread=0.303 force_primary=0.083 split_walk_100k=0.54 estimate_table_rows=2.69 pk_span=10009600.0 | split_ok=True
+t_uuid                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=2.266 default_run2=0.053 single_thread=0.173 force_primary=0.067 split_walk_100k=0.29 estimate_table_rows=6.7 pk_span=- | split_ok=True
+t_composite                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.458 default_run2=0.103 single_thread=0.311 force_primary=0.104 split_walk_100k=0.8 estimate_table_rows=5.02 | split_ok=True
+t_nopk                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.226 default_run2=0.406 single_thread=0.377 force_smallest=0.349 split_walk_100k=0.94 estimate_table_rows=0.2 | split_ok=True
+t_uniq_notnull             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.587 default_run2=0.026 single_thread=0.093 force_smallest=0.027 split_walk_100k=0.17 estimate_table_rows=0.18 | split_ok=True
+t_uniq_nullable            COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.346 default_run2=0.245 single_thread=0.243 force_smallest=0.243 split_walk_100k=0.39 estimate_table_rows=0.21 | split_ok=True
+customers                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.167 default_run2=0.01 single_thread=0.031 force_primary=0.011 split_walk_100k=0.05 estimate_table_rows=0.47 pk_span=0.0 | split_ok=True
+orders                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.219 default_run2=0.179 single_thread=0.176 force_primary=1.496 force_smallest=0.338 split_walk_100k=0.6 estimate_table_rows=0.26 pk_span=0.0 | split_ok=True
+order_items                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=2.343 default_run2=0.537 single_thread=0.503 force_primary=4.135 force_smallest=0.498 split_walk_100k=1.0 estimate_table_rows=2.77 pk_span=0.0 | split_ok=True
+order_items_nofk           COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.296 default_run2=0.049 single_thread=0.165 force_primary=0.049 split_walk_100k=0.28 estimate_table_rows=0.28 pk_span=0.0 | split_ok=True
+tags                       COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.001 default_run2=0.0 single_thread=0.0 force_primary=0.0 split_walk_100k=0.0 estimate_table_rows=0.0 pk_span=0.0 | split_ok=True
+customer_tags              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.047 default_run2=0.17 single_thread=0.167 force_primary=1.391 force_smallest=0.161 split_walk_100k=0.33 estimate_table_rows=8.49 | split_ok=True
+categories                 COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.069 default_run2=0.033 single_thread=0.034 force_primary=0.193 force_smallest=0.034 split_walk_100k=0.06 estimate_table_rows=0.19 pk_span=0.0 | split_ok=True
+circ_a                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.01 default_run2=0.004 single_thread=0.003 force_primary=0.015 force_smallest=0.004 split_walk_100k=0.0 estimate_table_rows=0.34 pk_span=0.0 | split_ok=True
+circ_b                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.01 default_run2=0.003 single_thread=0.003 force_primary=0.014 force_smallest=0.003 split_walk_100k=0.0 estimate_table_rows=2.17 pk_span=0.0 | split_ok=True
+t_lob                      COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.107 default_run2=0.003 single_thread=0.01 force_primary=0.003 split_walk_100k=0.02 estimate_table_rows=0.29 pk_span=0.0 | split_ok=True
+t_part                     PARTITION_SUM_THEN_SPLIT default_run1=2.017 default_run2=0.09 single_thread=0.321 force_primary=0.093 split_walk_100k=1.47 sum_of_partitions=0.097 estimate_table_rows=0.2 | split_ok=True
+t_strpk                    COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.33 default_run2=0.018 single_thread=0.035 force_primary=0.019 split_walk_100k=0.07 estimate_table_rows=0.69 pk_span=- | split_ok=True
+t_events                   COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.458 default_run2=0.18 single_thread=0.181 force_primary=1.325 force_smallest=0.173 split_walk_100k=0.37 estimate_table_rows=1.07 pk_span=8589930476.2 | split_ok=True
+t_myisam                   COUNT_STORED             default_run1=0.0 default_run2=0.0 single_thread=0.0 split_walk_100k=0.15 estimate_table_rows=0.0 pk_span=0.0 | split_ok=True
+t_memory                   COUNT_STORED             default_run1=0.0 default_run2=0.0 single_thread=0.0 estimate_table_rows=0.0 pk_span=0.0 | split_ok=None
+t_archive                  COUNT_STORED             default_run1=0.0 default_run2=0.0 single_thread=0.0 estimate_table_rows=0.0 pk_span=0.0 | split_ok=None
+t_hot                      COUNT_WITH_LIMIT_THEN_SPLIT default_run1=1.86 default_run2=0.059 single_thread=0.187 force_primary=0.055 split_walk_100k=0.3 estimate_table_rows=0.25 pk_span=0.0 | split_ok=True
+t_repl                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=8.175 default_run2=8.066 single_thread=3.245 force_primary=1.123 split_walk_100k=5.54 estimate_table_rows=0.41 pk_span=0.0 | split_ok=True
+d_negative_pk              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.047 default_run2=0.01 single_thread=0.042 force_primary=0.012 split_walk_100k=0.06 estimate_table_rows=0.15 pk_span=0.0 | split_ok=True
+d_float_pk                 COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.048 default_run2=0.011 single_thread=0.04 force_primary=0.013 split_walk_100k=0.07 estimate_table_rows=0.15 pk_span=66.67 | split_ok=True
+d_decimal_pk               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.044 default_run2=0.015 single_thread=0.041 force_primary=0.013 split_walk_100k=0.08 estimate_table_rows=0.16 pk_span=85.71 | split_ok=True
+d_datetime_pk              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.042 default_run2=0.014 single_thread=0.037 force_primary=0.01 split_walk_100k=0.07 estimate_table_rows=0.15 pk_span=- | split_ok=True
+d_timestamp_pk             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.059 default_run2=0.017 single_thread=0.04 force_primary=0.013 split_walk_100k=0.09 estimate_table_rows=0.14 pk_span=- | split_ok=True
+d_enum_pk                  COUNT_WITH_LIMIT_ELSE_UNSPLITTABLE default_run1=0.041 default_run2=0.014 single_thread=0.041 force_primary=0.013 split_walk_100k=0.55 estimate_table_rows=0.02 | split_ok=True
+d_desc_pk                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.042 default_run2=0.012 single_thread=0.039 force_primary=0.01 split_walk_100k=0.09 estimate_table_rows=0.15 pk_span=0.0 | split_ok=True
+d_snowflake                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.044 default_run2=0.014 single_thread=0.039 force_primary=0.013 split_walk_100k=0.06 estimate_table_rows=0.15 pk_span=15518909181.13 | split_ok=True
+d_unsigned_max             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.009 default_run2=0.002 single_thread=0.003 force_primary=0.002 split_walk_100k=0.0 estimate_table_rows=0.1 pk_span=0.0 | split_ok=True
+d_str_bin                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.036 default_run2=0.01 single_thread=0.02 force_primary=0.01 split_walk_100k=0.04 estimate_table_rows=3.44 pk_span=- | split_ok=True
+d_prefix_unique            COUNT_WITH_LIMIT_ELSE_UNSPLITTABLE default_run1=0.09 default_run2=0.051 single_thread=0.051 estimate_table_rows=0.36 | split_ok=None
+d_gipk                     COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.179 default_run2=0.009 single_thread=0.038 force_primary=0.014 split_walk_100k=0.06 estimate_table_rows=0.16 pk_span=27.96 | split_ok=True
+d_noindex                  COUNT_WITH_LIMIT_ELSE_UNSPLITTABLE default_run1=0.176 default_run2=0.01 single_thread=0.097 estimate_table_rows=0.16 | split_ok=None
+d_compressed               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.321 default_run2=0.008 single_thread=0.019 force_primary=0.009 split_walk_100k=0.03 estimate_table_rows=1.15 pk_span=0.0 | split_ok=True
+d_json_virtual             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.107 default_run2=0.02 single_thread=0.02 force_primary=0.256 force_smallest=0.02 split_walk_100k=0.04 estimate_table_rows=0.51 pk_span=0.0 | split_ok=True
+d_fulltext                 COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.09 default_run2=0.002 single_thread=0.01 force_primary=0.003 split_walk_100k=0.01 estimate_table_rows=0.38 pk_span=0.0 | split_ok=True
+d_spatial                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.036 default_run2=0.003 single_thread=0.008 force_primary=0.004 split_walk_100k=0.01 estimate_table_rows=0.15 pk_span=0.0 | split_ok=True
+d_soft_delete              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.178 default_run2=0.084 single_thread=0.083 force_primary=0.231 force_smallest=0.079 split_walk_100k=0.18 estimate_table_rows=0.58 pk_span=0.0 | split_ok=True
+d_history                  COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.288 default_run2=0.014 single_thread=0.037 force_primary=0.015 split_walk_100k=0.09 estimate_table_rows=4.83 | split_ok=True
+d_eav                      COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.411 default_run2=0.013 single_thread=0.038 force_primary=0.015 split_walk_100k=0.09 estimate_table_rows=0.39 | split_ok=True
+d_polymorphic              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.41 default_run2=0.038 single_thread=0.039 force_primary=0.257 split_walk_100k=0.06 estimate_table_rows=0.26 pk_span=0.0 | split_ok=True
+d_triggered                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.08 default_run2=0.004 single_thread=0.016 force_primary=0.004 split_walk_100k=0.03 estimate_table_rows=0.1 pk_span=0.0 | split_ok=True
+fk_diamond_a               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.008 default_run2=0.001 single_thread=0.003 force_primary=0.001 split_walk_100k=0.0 estimate_table_rows=0.28 pk_span=0.0 | split_ok=True
+fk_diamond_b               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.181 default_run2=0.018 single_thread=0.018 force_primary=0.103 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+fk_diamond_c               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.157 default_run2=0.018 single_thread=0.018 force_primary=0.104 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+fk_diamond_d               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.323 default_run2=0.038 single_thread=0.037 force_primary=0.265 force_smallest=0.037 split_walk_100k=0.07 estimate_table_rows=0.25 pk_span=0.0 | split_ok=True
+fk_comp_parent             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.036 default_run2=0.008 single_thread=0.016 force_primary=0.006 split_walk_100k=0.03 estimate_table_rows=0.07 | split_ok=True
+fk_comp_child              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.282 default_run2=0.038 single_thread=0.038 force_primary=0.171 split_walk_100k=0.06 estimate_table_rows=0.16 pk_span=0.0 | split_ok=True
+fk_uq_parent               COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.04 default_run2=0.017 single_thread=0.017 force_primary=0.04 force_smallest=0.017 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+fk_uq_child                COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.28 default_run2=0.037 single_thread=0.037 force_primary=0.181 split_walk_100k=0.06 estimate_table_rows=0.16 pk_span=0.0 | split_ok=True
+fk_null_parent             COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.011 default_run2=0.001 single_thread=0.003 force_primary=0.001 split_walk_100k=0.0 estimate_table_rows=1.15 pk_span=0.0 | split_ok=True
+fk_null_child              COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.118 default_run2=0.018 single_thread=0.018 force_primary=0.085 split_walk_100k=0.03 estimate_table_rows=0.16 pk_span=0.0 | split_ok=True
+fk_cross_schema            COUNT_WITH_LIMIT_THEN_SPLIT default_run1=0.131 default_run2=0.018 single_thread=0.018 force_primary=0.127 split_walk_100k=0.03 estimate_table_rows=0.12 pk_span=0.0 | split_ok=True
+v_orders_with_customer     DECIDE_TARGET            view_count=1.961 | split_ok=None
+==> docker exec lab-bench python3 -u /work/bench/lock_factors.py
+pk_only                  READ-UNCOMMITTED  plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  count_for_share            locks= 200000 update_blocked=True  insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  count_for_update           locks= 200000 update_blocked=True  insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  set_variable_subquery      locks= 200000 update_blocked=True  insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  insert_summary_select      locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  update_summary_subquery    locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-UNCOMMITTED  create_table_as_select     locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-COMMITTED    plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-COMMITTED    count_for_share            locks= 200000 update_blocked=True  insert_blocked=False ok
+pk_only                  READ-COMMITTED    count_for_update           locks= 200000 update_blocked=True  insert_blocked=False ok
+pk_only                  READ-COMMITTED    select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-COMMITTED    set_variable_subquery      locks= 200000 update_blocked=True  insert_blocked=False ok
+pk_only                  READ-COMMITTED    insert_summary_select      locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-COMMITTED    update_summary_subquery    locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  READ-COMMITTED    create_table_as_select     locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  REPEATABLE-READ   plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  REPEATABLE-READ   count_for_share            locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  REPEATABLE-READ   count_for_update           locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  REPEATABLE-READ   select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+pk_only                  REPEATABLE-READ   set_variable_subquery      locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  REPEATABLE-READ   insert_summary_select      locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  REPEATABLE-READ   update_summary_subquery    locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  REPEATABLE-READ   create_table_as_select     locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      plain_count                locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      count_for_share            locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      count_for_update           locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      select_into_variable       locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      set_variable_subquery      locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      insert_summary_select      locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      update_summary_subquery    locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      create_table_as_select     locks= 200455 update_blocked=True  insert_blocked=True  ok
+pk_only                  SERIALIZABLE      plain_count_autocommit     locks=      0 update_blocked=False
+pk_and_small_secondary   READ-UNCOMMITTED  plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  count_for_share            locks= 200000 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  count_for_update           locks= 400000 update_blocked=True  insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  set_variable_subquery      locks= 200000 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  insert_summary_select      locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  update_summary_subquery    locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-UNCOMMITTED  create_table_as_select     locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    count_for_share            locks= 200000 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    count_for_update           locks= 400000 update_blocked=True  insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    set_variable_subquery      locks= 200000 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    insert_summary_select      locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    update_summary_subquery    locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   READ-COMMITTED    create_table_as_select     locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   REPEATABLE-READ   plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   REPEATABLE-READ   count_for_share            locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   REPEATABLE-READ   count_for_update           locks= 400304 update_blocked=True  insert_blocked=True  ok
+pk_and_small_secondary   REPEATABLE-READ   select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+pk_and_small_secondary   REPEATABLE-READ   set_variable_subquery      locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   REPEATABLE-READ   insert_summary_select      locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   REPEATABLE-READ   update_summary_subquery    locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   REPEATABLE-READ   create_table_as_select     locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      plain_count                locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      count_for_share            locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      count_for_update           locks= 400304 update_blocked=True  insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      select_into_variable       locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      set_variable_subquery      locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      insert_summary_select      locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      update_summary_subquery    locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      create_table_as_select     locks= 200304 update_blocked=False insert_blocked=True  ok
+pk_and_small_secondary   SERIALIZABLE      plain_count_autocommit     locks=      0 update_blocked=False
+no_pk_no_index           READ-UNCOMMITTED  plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  count_for_share            locks= 200000 update_blocked=True  insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  count_for_update           locks= 200000 update_blocked=True  insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  set_variable_subquery      locks= 200000 update_blocked=True  insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  insert_summary_select      locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  update_summary_subquery    locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-UNCOMMITTED  create_table_as_select     locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    count_for_share            locks= 200000 update_blocked=True  insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    count_for_update           locks= 200000 update_blocked=True  insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    set_variable_subquery      locks= 200000 update_blocked=True  insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    insert_summary_select      locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    update_summary_subquery    locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           READ-COMMITTED    create_table_as_select     locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           REPEATABLE-READ   plain_count                locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           REPEATABLE-READ   count_for_share            locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           REPEATABLE-READ   count_for_update           locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           REPEATABLE-READ   select_into_variable       locks=      0 update_blocked=False insert_blocked=False ok
+no_pk_no_index           REPEATABLE-READ   set_variable_subquery      locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           REPEATABLE-READ   insert_summary_select      locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           REPEATABLE-READ   update_summary_subquery    locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           REPEATABLE-READ   create_table_as_select     locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      plain_count                locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      count_for_share            locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      count_for_update           locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      select_into_variable       locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      set_variable_subquery      locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      insert_summary_select      locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      update_summary_subquery    locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      create_table_as_select     locks= 200533 update_blocked=True  insert_blocked=True  ok
+no_pk_no_index           SERIALIZABLE      plain_count_autocommit     locks=      0 update_blocked=False
+==> docker exec lab-bench python3 -u /work/bench/experiments.py all
+baseline                                   rows/s=       0 write p99 4.8->11.35 ms max=38.48 err=0 read p99 4.72->5.52 ms
+count_estimate                             rows/s=       0 write p99 16.83->None ms max=None err=0 read p99 4.31->0.46 ms
+count_default                              rows/s=       0 write p99 5.72->33.01 ms max=53.01 err=0 read p99 4.64->6.82 ms
+count_single_thread                        rows/s=       0 write p99 20.18->3.82 ms max=10.29 err=0 read p99 4.4->3.98 ms
+count_force_primary                        rows/s=       0 write p99 35.19->208.16 ms max=312.72 err=0 read p99 8.27->15.99 ms
+count_force_secondary                      rows/s=       0 write p99 21.19->42.33 ms max=104.46 err=0 read p99 4.7->6.69 ms
+count_split_100k_nosleep                   rows/s= 5709722 write p99 131.38->6.4 ms max=54.73 err=0 read p99 14.4->3.98 ms
+count_split_100k_duty50                    rows/s= 3575156 write p99 5.28->10.94 ms max=27.79 err=0 read p99 4.6->4.12 ms
+count_split_1m_duty50                      rows/s= 3222847 write p99 5.58->74.25 ms max=181.78 err=0 read p99 5.28->13.04 ms
+count_split_10k_duty50                     rows/s= 2256960 write p99 16.76->30.99 ms max=109.65 err=0 read p99 13.55->7.06 ms
+baseline_mid                               rows/s=       0 write p99 271.74->250.13 ms max=311.42 err=0 read p99 77.26->19.11 ms
+count_timeout_hint                         rows/s=       0 write p99 124.43->5.39 ms max=23.51 err=0 read p99 24.85->3.91 ms
+count_kill_latency                         rows/s=       0 write p99 36.03->19.42 ms max=36.02 err=0 read p99 20.52->4.42 ms
+lock_baseline                              rows/s=       0 write p99 74.3->22.17 ms max=77.41 err=0 read p99 14.11->4.8 ms
+lock_plain_count                           rows/s=       0 write p99 8.13->72.54 ms max=199.14 err=0 read p99 4.45->10.48 ms
+lock_count_for_share                       rows/s=       0 write p99 4.98->24197.68 ms max=25170.31 err=0 read p99 4.42->11.73 ms
+lock_insert_summary_rr                     rows/s=       0 write p99 9.84->23079.54 ms max=23657.54 err=0 read p99 4.44->8.4 ms
+lock_insert_summary_rc                     rows/s=       0 write p99 14.41->45.73 ms max=96.51 err=0 read p99 4.5->5.89 ms
+lock_set_variable_rr                       rows/s=       0 write p99 5.25->24484.47 ms max=25168.89 err=0 read p99 4.45->10.56 ms
+lock_serializable_autocommit               rows/s=       0 write p99 5.15->87.44 ms max=174.9 err=0 read p99 4.35->9.87 ms
+lock_serializable_in_trx                   rows/s=       0 write p99 13.81->21702.11 ms max=22350.26 err=0 read p99 4.45->8.53 ms
+lock_tables_then_count                     rows/s=       0 write p99 5.11->2050.38 ms max=2290.91 err=0 read p99 4.42->8.58 ms
+mdl_long_count_then_ddl                    rows/s=       0 write p99 5.08->7053.83 ms max=7168.7 err=0 read p99 4.56->7051.26 ms
+mdl_split_count_then_ddl                   rows/s= 4088429 write p99 19.7->11.95 ms max=36.72 err=0 read p99 4.9->7.1 ms
+engine_myisam_count                        rows/s=       0 write p99 16.04->17.39 ms max=63.01 err=0 read p99 10.44->16.85 ms
+engine_memory_count                        rows/s=       0 write p99 7.75->20.04 ms max=44.85 err=0 read p99 8.36->15.21 ms
+engine_archive_count                       rows/s=       0 write p99 31.75->27.96 ms max=134.56 err=0 read p99 1787.24->8968.04 ms
+count_under_history                        rows/s=       0 write p99 20.92->354.81 ms max=503.47 err=0 read p99 8.15->7.87 ms
+replica_control_no_count                   rows/s=       0 write p99 8.7->17.69 ms max=70.83 err=0 read p99 8.67->8.87 ms
+count_on_primary_t_repl                    rows/s=       0 write p99 23.91->71.0 ms max=102.7 err=0 read p99 8.41->6.03 ms
+count_on_replica_t_repl                    rows/s=       0 write p99 20.99->42.7 ms max=88.69 err=0 read p99 7.73->7.0 ms
+replica_count_vs_ddl                       rows/s=       0 write p99 12.21->14.06 ms max=44.11 err=0 read p99 7.75->7.75 ms
+fk_lock_tables_child_blocks_parent         rows/s=       0 write p99 19.61->19.62 ms max=144.76 err=0 read p99 8.65->7.28 ms
+counter_no_trigger                         rows/s=       0 write p99 7.66->17.33 ms max=41.41 err=0 read p99 7.52->7.72 ms
+counter_trigger_one_row                    rows/s=       0 write p99 23.29->12.25 ms max=48.87 err=0 read p99 7.78->7.71 ms
+baseline_end                               rows/s=       0 write p99 7.86->15.89 ms max=34.06 err=0 read p99 7.6->7.92 ms
+==> docker run -d --name lab-matrix-8-4-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.0@sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:8.4.0@sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0' locally
+docker.io/library/mysql@sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0: Pulling from library/mysql
+ddeaac00f5df: Pulling fs layer
+361d3d3a6688: Pulling fs layer
+8dbb8564b525: Pulling fs layer
+20ed4303a4e5: Pulling fs layer
+60ea4dc82df4: Pulling fs layer
+126b0c167328: Pulling fs layer
+b9690ceac92f: Pulling fs layer
+93611301cba5: Pulling fs layer
+dc1bd0a565d7: Pulling fs layer
+9687d48bd5ee: Pulling fs layer
+7e4242312b76: Download complete
+dc1bd0a565d7: Download complete
+3de42c8f2b5a: Download complete
+126b0c167328: Download complete
+8dbb8564b525: Download complete
+20ed4303a4e5: Download complete
+ddeaac00f5df: Download complete
+93611301cba5: Download complete
+9687d48bd5ee: Download complete
+60ea4dc82df4: Download complete
+b9690ceac92f: Download complete
+dc1bd0a565d7: Pull complete
+8dbb8564b525: Pull complete
+ddeaac00f5df: Pull complete
+93611301cba5: Pull complete
+9687d48bd5ee: Pull complete
+60ea4dc82df4: Pull complete
+361d3d3a6688: Download complete
+20ed4303a4e5: Pull complete
+361d3d3a6688: Pull complete
+126b0c167328: Pull complete
+b9690ceac92f: Pull complete
+Digest: sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0
+Status: Downloaded newer image for mysql@sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0
+819c9fd7e752deb5e5688efea438107817683f0fafbe79bd338ceefdfdc00f7d
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-8-4-0 8.4.0
+8.4.0 8.4.0 -> /work/results/matrix_8.4.0.json
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+5949b18d3e10a035ee4e3b07200c881d4f2b289fb5d210aee824fc6bd55bb1b2
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-8-4-13 8.4.13
+8.4.13 8.4.13 -> /work/results/matrix_8.4.13.json
+==> docker run -d --name lab-matrix-9-7-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.0@sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.0@sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc' locally
+docker.io/library/mysql@sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc: Pulling from library/mysql
+98a0c748a764: Pulling fs layer
+40919faf9eb7: Pulling fs layer
+f3c5770eff97: Pulling fs layer
+e16a7551afaf: Pulling fs layer
+000edcaa94f8: Pulling fs layer
+c7e993edb915: Pulling fs layer
+6591e9dc6192: Pulling fs layer
+6a2ad1ff17eb: Pulling fs layer
+5a09fca0124b: Pulling fs layer
+0a13c12c93c1: Pulling fs layer
+98a0c748a764: Download complete
+e16a7551afaf: Download complete
+6a2ad1ff17eb: Download complete
+40919faf9eb7: Download complete
+5a09fca0124b: Download complete
+0a13c12c93c1: Download complete
+f3c5770eff97: Download complete
+000edcaa94f8: Download complete
+cba395b333a7: Download complete
+6a2ad1ff17eb: Pull complete
+40919faf9eb7: Pull complete
+5a09fca0124b: Pull complete
+0a13c12c93c1: Pull complete
+f3c5770eff97: Pull complete
+000edcaa94f8: Pull complete
+6591e9dc6192: Download complete
+e16a7551afaf: Pull complete
+6591e9dc6192: Pull complete
+f89612214b00: Download complete
+c7e993edb915: Download complete
+98a0c748a764: Pull complete
+c7e993edb915: Pull complete
+Digest: sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc
+Status: Downloaded newer image for mysql@sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc
+ade76229e689bc5abf58c97362bcd8b102207bfce8ac06f878f037e8b3d8be43
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-9-7-0 9.7.0
+9.7.0 9.7.0 -> /work/results/matrix_9.7.0.json
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8' locally
+docker.io/library/mysql@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8: Pulling from library/mysql
+6d0bdba5eb82: Pulling fs layer
+cea84603e890: Pulling fs layer
+ee15add96297: Pulling fs layer
+1eb2512f0309: Pulling fs layer
+b76013fbb918: Pulling fs layer
+0faccbb03700: Pulling fs layer
+053fec689bfc: Pulling fs layer
+332288060cf8: Pulling fs layer
+84d412465407: Pulling fs layer
+cea84603e890: Download complete
+b76013fbb918: Download complete
+053fec689bfc: Download complete
+ee15add96297: Download complete
+332288060cf8: Download complete
+0faccbb03700: Download complete
+84d412465407: Download complete
+6d0bdba5eb82: Download complete
+1eb2512f0309: Download complete
+332288060cf8: Pull complete
+0faccbb03700: Pull complete
+053fec689bfc: Pull complete
+ee15add96297: Pull complete
+84d412465407: Pull complete
+db5edd9c75b0: Download complete
+71b7f8695596: Download complete
+cea84603e890: Pull complete
+1eb2512f0309: Pull complete
+6d0bdba5eb82: Pull complete
+b76013fbb918: Pull complete
+Digest: sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+Status: Downloaded newer image for mysql@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+140e1cf1079f506d766c1637717d213402488a61c70689144f6dba1157e8765d
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-9-7-4 9.7.4
+9.7.4 9.7.4 -> /work/results/matrix_9.7.4.json
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5' locally
+docker.io/library/mysql@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5: Pulling from library/mysql
+f589dac8ec1f: Pulling fs layer
+7f360cfcd0c6: Pulling fs layer
+0ac49b392b78: Pulling fs layer
+111940a3af7a: Pulling fs layer
+abb8b963bc24: Pulling fs layer
+59a4b8888e49: Pulling fs layer
+f66cb2d4f38d: Pulling fs layer
+01ab56bed6cf: Pulling fs layer
+b44aa14e230f: Pulling fs layer
+abb8b963bc24: Download complete
+7f360cfcd0c6: Download complete
+f589dac8ec1f: Download complete
+111940a3af7a: Download complete
+59a4b8888e49: Download complete
+01ab56bed6cf: Download complete
+0ac49b392b78: Download complete
+f66cb2d4f38d: Download complete
+abb8b963bc24: Pull complete
+7f360cfcd0c6: Pull complete
+f589dac8ec1f: Pull complete
+111940a3af7a: Pull complete
+0ac49b392b78: Pull complete
+5e5100be39ae: Download complete
+01ab56bed6cf: Pull complete
+f66cb2d4f38d: Pull complete
+b44aa14e230f: Download complete
+1b185e2dd510: Download complete
+59a4b8888e49: Pull complete
+b44aa14e230f: Pull complete
+Digest: sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+Status: Downloaded newer image for mysql@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+670b04991db3fa1bb7b1d811bc5ea975214a9bff80d4a8dc79c31209c1776073
+==> docker exec lab-bench python3 -u /work/bench/matrix_probe.py lab-matrix-26-10-0 26.10.0
+26.10.0 26.10.0 -> /work/results/matrix_26.10.0.json
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+d9c6e69e3dfca74ae928bfeb7c5045603e3bb7d022bad99e9dc4cd160b4177cc
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+81a40114350dd39b8ccdeaad1f5351b84c38ee1144f2377ffa1d0e41e2623a90
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+b91ff0733d4aa67699525f4c095384afc1484d6b7d586fb9694f191c84122b2a
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+63d480d7e2add991c3ea1ebb0a84f07592c9ba5d941a80be78d04c207ce24372
+/Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:929:in 'Thread#value': Interrupt
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:929:in 'block in Open3.capture2e'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:540:in 'Open3.popen_run'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:522:in 'Open3.popen2e'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/open3.rb:912:in 'Open3.capture2e'
+	from lab.rb:343:in 'Lab#capture'
+	from lab.rb:257:in 'Lab#requested_process'
+	from lab.rb:243:in 'block in Lab#run_requested'
+	from lab.rb:193:in 'Lab#with_version'
+	from lab.rb:243:in 'Lab#run_requested'
+	from lab.rb:116:in 'block (2 levels) in Lab#requested'
+	from lab.rb:116:in 'Array#map'
+	from lab.rb:116:in 'block in Lab#requested'
+	from lab.rb:100:in 'Array#map'
+	from lab.rb:100:in 'Lab#requested'
+	from lab.rb:389:in 'Kernel#public_send'
+	from lab.rb:389:in 'block in <main>'
+	from lab.rb:389:in 'Array#each'
+	from lab.rb:389:in '<main>'

@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-07T16:09:51.841682+00:00",
+  "meaning": "Actual owned compose metadata checks after all measurement, before shutdown. Inspect outputs; replication system threads are expected, not active benchmark queries.",
+  "databaseChecks": {
+    "lab-primary": {
+      "exitCode": 0,
+      "sql": "SELECT ID,USER,COMMAND,COALESCE(DB,'-'),LEFT(COALESCE(INFO,''),120) FROM information_schema.PROCESSLIST WHERE ID<>CONNECTION_ID() AND COMMAND<>'Sleep'; SELECT COUNT(*) FROM information_schema.INNODB_TRX; SELECT COUNT(*) FROM mysql.user WHERE User='lab_reader'; SELECT @@GLOBAL.read_only,@@GLOBAL.super_read_only;",
+      "output": "5\tevent_scheduler\tDaemon\t-\t\n14\troot\tBinlog Dump GTID\t-\t\n0\n0\n0\t0"
+    },
+    "lab-replica": {
+      "exitCode": 0,
+      "sql": "SELECT ID,USER,COMMAND,COALESCE(DB,'-'),LEFT(COALESCE(INFO,''),120) FROM information_schema.PROCESSLIST WHERE ID<>CONNECTION_ID() AND COMMAND<>'Sleep'; SELECT COUNT(*) FROM information_schema.INNODB_TRX; SELECT COUNT(*) FROM mysql.user WHERE User='lab_reader'; SELECT @@GLOBAL.read_only,@@GLOBAL.super_read_only; SELECT SERVICE_STATE FROM performance_schema.replication_applier_status_by_worker;",
+      "output": "779\tsystem user\tQuery\t-\t\n11\tsystem user\tConnect\t-\t\n780\tsystem user\tQuery\t-\t\n5\tevent_scheduler\tDaemon\t-\t\n781\tsystem user\tQuery\t-\t\n0\n0\n1\t0\nON\nON"
+    }
+  },
+  "noExpectedMatrixContainersRemain": true,
+  "composeIdentities": "/lab-primary /Users/taco/gits/tacogips/database-analysis sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902\n/lab-replica /Users/taco/gits/tacogips/database-analysis sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902\n/lab-bench /Users/taco/gits/tacogips/database-analysis sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea"
+}

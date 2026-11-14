@@ -1,0 +1,57 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 674B done
+#1 WARN: FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/arm64" (line 1)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 244B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#4 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 37.79kB done
+#5 DONE 0.0s
+
+#6 [2/8] WORKDIR /src
+#6 CACHED
+
+#7 [3/8] COPY . ./
+#7 DONE 0.0s
+
+#8 [4/8] RUN mkdir /provenance && dotnet --info > /provenance/dotnet-info.txt && cp packages.lock.json /provenance/packages.lock.json
+#8 DONE 0.2s
+
+#9 [5/8] RUN dotnet restore --locked-mode > /provenance/restore.log 2>&1 || (cat /provenance/restore.log; exit 1)
+#9 DONE 39.6s
+
+#10 [6/8] RUN dotnet build -c Release --no-restore -o /app > /provenance/build.log 2>&1 || (cat /provenance/build.log; exit 1)
+#10 DONE 1.2s
+
+#11 [7/8] RUN cp -r sql /app/sql
+#11 DONE 0.1s
+
+#12 [8/8] WORKDIR /app
+#12 DONE 0.0s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 1.0s done
+#13 exporting manifest sha256:61108d1f7de99abfeed816604bb74b01ed76b4fef90f78eec0729b9441046d2e done
+#13 exporting config sha256:5324bd1f0558274aafe17dedb4f6dd3bf463db69261f968d0d6ad5520d3db1bf done
+#13 exporting attestation manifest sha256:30beb965d4a89671ae8a9fa7e8abe3ec1854d6a5f8b97227ff98986ad4da776f done
+#13 exporting manifest list sha256:2d9bbf77360e18b722e4c25f16e6aaadf6a3511994de91ef043837e9d9677e62 done
+#13 naming to docker.io/library/lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e done
+#13 unpacking to docker.io/library/lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e
+#13 unpacking to docker.io/library/lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e 0.2s done
+#13 DONE 1.3s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/arm64" (line 1)

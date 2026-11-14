@@ -1,0 +1,124 @@
+{
+  "workflowId": "table-count-guideline-review",
+  "description": "GPT-6.1 Sol authors and adversarially reviews the MySQL row-count guideline in separate role sessions. Same-model multiple passes; no cross-model independence is claimed.",
+  "defaults": {
+    "maxLoopIterations": 4,
+    "nodeTimeoutMs": 5400000
+  },
+  "entryStepId": "author",
+  "prompts": {
+    "workerSystemPromptTemplate": "Return adapter JSON with when and payload. Preserve workflowInput, guideline revision, findings, requested experiments and discussion history. Never connect to any database other than the local compose lab."
+  },
+  "nodes": [
+    {
+      "id": "author",
+      "nodeFile": "nodes/node-author.json"
+    },
+    {
+      "id": "lab-runner",
+      "nodeFile": "nodes/node-lab-runner.json"
+    },
+    {
+      "id": "independent-review",
+      "nodeFile": "nodes/node-independent-review.json"
+    },
+    {
+      "id": "sol-review",
+      "nodeFile": "nodes/node-sol-review.json"
+    },
+    {
+      "id": "workflow-output",
+      "nodeFile": "nodes/node-workflow-output.json",
+      "kind": "output"
+    }
+  ],
+  "steps": [
+    {
+      "id": "author",
+      "nodeId": "author",
+      "role": "worker",
+      "transitions": [
+        {
+          "toStepId": "lab-runner"
+        }
+      ]
+    },
+    {
+      "id": "lab-runner",
+      "nodeId": "lab-runner",
+      "role": "worker",
+      "timeoutMs": 43200000,
+      "transitions": [
+        {
+          "toStepId": "integrate"
+        }
+      ]
+    },
+    {
+      "id": "integrate",
+      "nodeId": "author",
+      "role": "worker",
+      "promptVariant": "integrate",
+      "transitions": [
+        {
+          "toStepId": "independent-review"
+        }
+      ]
+    },
+    {
+      "id": "independent-review",
+      "nodeId": "independent-review",
+      "role": "worker",
+      "transitions": [
+        {
+          "toStepId": "sol-review"
+        }
+      ]
+    },
+    {
+      "id": "sol-review",
+      "nodeId": "sol-review",
+      "role": "worker",
+      "transitions": [
+        {
+          "toStepId": "workflow-output",
+          "label": "accepted"
+        },
+        {
+          "toStepId": "author",
+          "label": "!(accepted)"
+        }
+      ],
+      "loop": {
+        "role": "gate",
+        "gateId": "multi-pass-adversarial-review"
+      }
+    },
+    {
+      "id": "workflow-output",
+      "nodeId": "workflow-output",
+      "role": "worker"
+    }
+  ],
+  "loop": {
+    "kind": "guideline-review",
+    "required": false,
+    "convergence": {
+      "maxGateVisits": 4,
+      "maxRepeatedFindingRounds": 2,
+      "onStall": "fail"
+    },
+    "gates": [
+      {
+        "id": "multi-pass-adversarial-review",
+        "stepId": "sol-review",
+        "required": false,
+        "acceptWhen": {
+          "decision": "accepted",
+          "maxHighFindings": 0,
+          "maxMediumFindings": 0
+        }
+      }
+    ]
+  }
+}

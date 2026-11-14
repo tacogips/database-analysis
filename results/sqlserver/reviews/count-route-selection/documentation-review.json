@@ -1,0 +1,15 @@
+{
+  "scope": "documentation_only",
+  "change": "Explicit destination gate and A/B/C count selection, autocommit SNAPSHOT, requested QA removals",
+  "reviews": [
+    {"agent": "qa_engineer_review", "accepted": true},
+    {"agent": "qa_validation_review", "accepted": true}
+  ],
+  "files": {
+    "docs/guidelines/sql-server.md": "067f7a2a53a0b100a91456d898f888b5c66406160ef9723be00fb25af939ecd6",
+    "docs/guidelines/count-check-rationale.md": "ca059b81a271de8f6c52042e881688f348c47234b57d68a38e1bce7a0be73d30"
+  },
+  "checks": ["git diff --check", "local links and heading anchors", "removed heading references"],
+  "database_execution": false,
+  "performance_validation": false
+}

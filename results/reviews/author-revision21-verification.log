@@ -1,0 +1,299 @@
+{"command": ["python3", "bench/test_wide_outcomes.py"], "startedAt": "2026-11-07T07:16:18.498982+00:00"}
+Traceback (most recent call last):
+  File "/Users/taco/gits/tacogips/database-analysis/bench/test_wide_outcomes.py", line 97, in <module>
+    assert any('observer' in e for e in cleanup_records['combined']['errors'])
+AssertionError
+{"command": ["python3", "bench/test_wide_outcomes.py"], "exitCode": 1}
+{"command": ["python3", "bench/test_reqmix_protocol.py"], "startedAt": "2026-11-07T07:16:18.546397+00:00"}
+{"db_access": false, "actual_function_tests": true, "classification_cases": 12, "static_149_150_120_1_counterexample": true, "all_caps": true, "all_wrappers_match_plan": true, "declared_scripts": 41, "body_scenarios": 6, "owned_cleanup_scenarios": 5, "workload_registry_scenarios": 4}
+{"command": ["python3", "bench/test_reqmix_protocol.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_accuracy_frontier.py"], "startedAt": "2026-11-07T07:16:18.807107+00:00"}
+{"check": "actual AST function, fake failed connection; no DB", "failed_sample_saved_before_comparison": true, "comparison_not_called_after_unexpected_sample_failure": true, "sample_and_comparison_error_both_preserved": true, "confirmed_statement_limit_distinct_from_total_budget": true, "unknown_interrupt_or_failed_cleanup_not_normalized": true}
+{"command": ["python3", "bench/test_accuracy_frontier.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_protocol_integrity.py"], "startedAt": "2026-11-07T07:16:18.841110+00:00"}
+{"actual_functions_only": true, "db_access": false, "three_repeats_and_partition_outputs": true, "disabled_locks_distinct_from_zero": true, "semantic_exit_status": true}
+{"command": ["python3", "bench/test_protocol_integrity.py"], "exitCode": 0}
+RETRY after fixing assertion: confirm_connections stores observer error in cleanup.error
+Traceback (most recent call last):
+  File "/Users/taco/gits/tacogips/database-analysis/bench/test_wide_outcomes.py", line 190, in <module>
+    assert len(arm_calls)==1,(caller,len(arm_calls))
+AssertionError: ('sample50', 2)
+exitCode=1
+RETRY correcting test injection to fail sampling after valid control/count, asserting no following arm
+Traceback (most recent call last):
+  File "/Users/taco/gits/tacogips/database-analysis/bench/test_wide_outcomes.py", line 197, in <module>
+    if caller.startswith('sample') and scenario=='2013': assert saved['unexpected_sampling_failures']
+AssertionError
+exitCode=1
+RETRY correcting assertion: cleanup failure on first control rightly prevents sample from starting
+{"db_access": false, "actual_functions": true, "sampler_cases": 4, "workload_cleanup_cases": 8, "arm_cases": 11, "caller_failure_cases": 15, "static_failure_saved": true, "no_next_arm": true, "nonzero_exception_reaches_wrappers": true, "recursive_cache_closure": ["01a-PROB-WIDE-50", "01b-PROB-WIDE-100", "96-encrypted-wide-50", "97-encrypted-wide-100", "01d-ACCURACY-SERVICE-100"], "expected_observations_preserved": true, "combined_failures_preserved": true}
+exitCode=0
+FINAL SUITE after adding expected-outcome and full successful caller coverage
+{"pythonSyntaxFiles": 185, "exitCode": 0}
+{"command": ["python3", "bench/test_accuracy_frontier.py"], "startedAt": "2026-11-07T07:18:02.605164+00:00"}
+{"check": "actual AST function, fake failed connection; no DB", "failed_sample_saved_before_comparison": true, "comparison_not_called_after_unexpected_sample_failure": true, "sample_and_comparison_error_both_preserved": true, "confirmed_statement_limit_distinct_from_total_budget": true, "unknown_interrupt_or_failed_cleanup_not_normalized": true}
+{"command": ["python3", "bench/test_accuracy_frontier.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_dependencies.py"], "startedAt": "2026-11-07T07:18:02.655660+00:00"}
+{"unrelated_change_preserves_cache": true, "indirect_import_change_invalidates_cache": true, "invalid_source_rejected": true}
+{"command": ["python3", "bench/test_dependencies.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_kill_timer.py"], "startedAt": "2026-11-07T07:18:02.726305+00:00"}
+{"early_completion_cancels_and_joins": true, "reassigned_connection_not_killed": true, "kill_queries": ["KILL QUERY 11"]}
+{"command": ["python3", "bench/test_kill_timer.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_protocol_integrity.py"], "startedAt": "2026-11-07T07:18:02.768914+00:00"}
+{"actual_functions_only": true, "db_access": false, "three_repeats_and_partition_outputs": true, "disabled_locks_distinct_from_zero": true, "semantic_exit_status": true}
+{"command": ["python3", "bench/test_protocol_integrity.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_raw_evidence.py"], "startedAt": "2026-11-07T07:18:02.830836+00:00"}
+{"db_access": false, "lossless_numeric_roundtrip": true, "standard_gzip_jsonl": true, "chunk_count_hash_and_byte_bounds": true, "deterministic_representation": true, "boundary_and_empty_streams": true, "corruption_and_missing_chunk_rejected": true}
+{"command": ["python3", "bench/test_raw_evidence.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_reqmix_protocol.py"], "startedAt": "2026-11-07T07:18:03.053144+00:00"}
+{"db_access": false, "actual_function_tests": true, "classification_cases": 12, "static_149_150_120_1_counterexample": true, "all_caps": true, "all_wrappers_match_plan": true, "declared_scripts": 41, "body_scenarios": 6, "owned_cleanup_scenarios": 5, "workload_registry_scenarios": 4}
+{"command": ["python3", "bench/test_reqmix_protocol.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_sampling_contract.py"], "startedAt": "2026-11-07T07:18:03.345342+00:00"}
+{
+  "normal": {
+    "seed": 42,
+    "width": 200,
+    "looks": [
+      512
+    ],
+    "target_relative_error": 0.03,
+    "family_alpha": 0.05,
+    "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+    "budget_scope": "first SQL through rollback; connection established separately by caller",
+    "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+    "max_seconds": 1,
+    "checkpoints": [
+      {
+        "estimate": "10000",
+        "lower": 9736,
+        "upper": 10000,
+        "relative_error_bound": 0.027115858668857847,
+        "look_alpha": "0.025",
+        "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+        "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+        "cell_sample_variance": "0",
+        "interval_method": "intersection with half look alpha allocated to each bound",
+        "checkpoint_draws": 512,
+        "sampled_rows_with_repeats": 102400,
+        "sampled_squared_counts": 20480000
+      }
+    ],
+    "attempted_draws": 512,
+    "completed_draws": 512,
+    "last_valid_checkpoint_draws": 512,
+    "accuracyStatus": "target_reached",
+    "budgetStatus": "within_budget",
+    "cleanupStatus": "rolled_back",
+    "status": "target_reached",
+    "min_id": 1,
+    "max_id": 10000,
+    "domain": 10000,
+    "cells": 50,
+    "estimate": "10000",
+    "lower": 9736,
+    "upper": 10000,
+    "relative_error_bound": 0.027115858668857847,
+    "look_alpha": "0.025",
+    "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+    "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+    "cell_sample_variance": "0",
+    "interval_method": "intersection with half look alpha allocated to each bound",
+    "checkpoint_draws": 512,
+    "sampled_rows_with_repeats": 102400,
+    "sampled_squared_counts": 20480000,
+    "seconds": 0.0,
+    "draws": 512
+  },
+  "late_final_query": {
+    "seed": 42,
+    "width": 200,
+    "looks": [
+      512
+    ],
+    "target_relative_error": 0.03,
+    "family_alpha": 0.05,
+    "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+    "budget_scope": "first SQL through rollback; connection established separately by caller",
+    "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+    "max_seconds": 1,
+    "checkpoints": [],
+    "attempted_draws": 512,
+    "completed_draws": 512,
+    "last_valid_checkpoint_draws": 0,
+    "accuracyStatus": "not_assessed",
+    "budgetStatus": "exhausted",
+    "cleanupStatus": "rolled_back",
+    "status": "budget_exhausted",
+    "min_id": 1,
+    "max_id": 10000,
+    "domain": 10000,
+    "cells": 50,
+    "seconds": 1.1,
+    "draws": 512
+  },
+  "rollback_failure": {
+    "seed": 42,
+    "width": 200,
+    "looks": [
+      512
+    ],
+    "target_relative_error": 0.03,
+    "family_alpha": 0.05,
+    "method": "uniform integer-key cells with replacement; simultaneous Hoeffding/empirical Bernstein bands",
+    "budget_scope": "first SQL through rollback; connection established separately by caller",
+    "budget_mode": "cooperative checks at query boundaries, not a hard server shutdown deadline",
+    "max_seconds": 1,
+    "checkpoints": [
+      {
+        "estimate": "10000",
+        "lower": 9736,
+        "upper": 10000,
+        "relative_error_bound": 0.027115858668857847,
+        "look_alpha": "0.025",
+        "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+        "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+        "cell_sample_variance": "0",
+        "interval_method": "intersection with half look alpha allocated to each bound",
+        "checkpoint_draws": 512,
+        "sampled_rows_with_repeats": 102400,
+        "sampled_squared_counts": 20480000
+      }
+    ],
+    "attempted_draws": 512,
+    "completed_draws": 512,
+    "last_valid_checkpoint_draws": 512,
+    "accuracyStatus": "target_reached",
+    "budgetStatus": "within_budget",
+    "cleanupStatus": "failed",
+    "status": "cleanup_failed",
+    "min_id": 1,
+    "max_id": 10000,
+    "domain": 10000,
+    "cells": 50,
+    "estimate": "10000",
+    "lower": 9736,
+    "upper": 10000,
+    "relative_error_bound": 0.027115858668857847,
+    "look_alpha": "0.025",
+    "hoeffding_margin": "704.0045759041118692329307684919917303811403885750562302758990214310079",
+    "empirical_bernstein_margin": "263.3936527759713347536142494052624222821279525310524770153757054079699",
+    "cell_sample_variance": "0",
+    "interval_method": "intersection with half look alpha allocated to each bound",
+    "checkpoint_draws": 512,
+    "sampled_rows_with_repeats": 102400,
+    "sampled_squared_counts": 20480000,
+    "cleanup_errno": 2013,
+    "seconds": 0.0,
+    "draws": 512
+  }
+}
+{"command": ["python3", "bench/test_sampling_contract.py"], "exitCode": 0}
+{"command": ["python3", "bench/test_wide_outcomes.py"], "startedAt": "2026-11-07T07:18:03.395330+00:00"}
+Traceback (most recent call last):
+  File "/Users/taco/gits/tacogips/database-analysis/bench/test_wide_outcomes.py", line 49, in <module>
+    r = sample_ns['sample'](None,'bench.enc',42,looks=(1,) if mode=='precision' else (512,),max_seconds=1)
+  File "samplinglib.py", line 86, in sample
+    band=confidence_band(total,sum_squares,n,cells,width,domain,look_alpha)
+  File "/Users/taco/gits/tacogips/database-analysis/bench/sampling_bounds.py", line 13, in confidence_band
+    raise ValueError('requires n>=2 and 0<alpha<1')
+ValueError: requires n>=2 and 0<alpha<1
+{"command": ["python3", "bench/test_wide_outcomes.py"], "exitCode": 1}
+{"command": ["python3", "bench/test_workload_accounting.py"], "startedAt": "2026-11-07T07:18:03.435906+00:00"}
+{
+  "test": "six arrivals while first query runs",
+  "scheduled_arrivals": 6,
+  "observed_samples": 6,
+  "samples": [
+    [
+      1000.0,
+      "read",
+      55.0,
+      "ok",
+      0.0,
+      55.0
+    ],
+    [
+      1000.01,
+      "read",
+      45.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.02,
+      "read",
+      35.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.03,
+      "read",
+      25.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.04,
+      "read",
+      15.0,
+      "queued",
+      null,
+      null
+    ],
+    [
+      1000.05,
+      "read",
+      4.999999999999997,
+      "queued",
+      null,
+      null
+    ]
+  ],
+  "accounting": {
+    "scheduled": 6,
+    "started": 1,
+    "completed": 1,
+    "failed": 0,
+    "inflight": 0,
+    "unstarted": 5,
+    "consistent": true,
+    "arrival_window_seconds": 0.055
+  },
+  "source_sha256": "fdf44473231202b073f4168993e9b4a061487fbd43a6fdf9c1358f932542d0e4",
+  "no_database_or_real_threads": true
+}
+{"command": ["python3", "bench/test_workload_accounting.py"], "exitCode": 0}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_matrix_cleanup.rb"], "startedAt": "2026-11-07T07:18:03.475272+00:00"}
+{"fake_docker_only":true,"actual_teardown_checks":["success","remove_failed","verify_failed","still_present"],"cleanup_failure_propagated":true}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_matrix_cleanup.rb"], "exitCode": 0}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_resource_preflight.rb"], "startedAt": "2026-11-07T07:18:03.755885+00:00"}
+{"db_access":false,"all_images_inspected":true,"space_pass_and_failure":true,"failed_run_blocks_later_experiments":true,"all_unstarted_retained":true}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_resource_preflight.rb"], "exitCode": 0}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_runner_cache.rb"], "startedAt": "2026-11-07T07:18:03.835515+00:00"}
+{"success_reused":true,"failure_rejected":true,"old_inputs_rejected":true,"failed_process_rejected":true,"wide_failure_exit1_rejected":true,"changed_or_missing_artifact_rejected":true,"nested_raw_collected":true,"changed_or_missing_raw_chunk_rejected":true,"mise_config_invalidates_cache":true,"db_access":false}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_runner_cache.rb"], "exitCode": 0}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_white_all_runner.rb"], "startedAt": "2026-11-07T07:18:03.908273+00:00"}
+{"check":"actual bootstrap/controller/task chain with isolated fake mise/lab; no DB","cases":["success","failure","source_change","early_failure"],"nonzero_exit_propagated":true,"source_change_rejected":true,"stale_proof_archived":true,"previous_attempt_retained":true,"stale_completed_summary_uncredited":true,"old_lab_summary_untouched":true,"nested_raw_in_snapshot":true,"wrapper_fingerprinted":true,"explicit_exec_chain_and_cwd":true,"process_success_requires_owner_audit":true,"logs_and_snapshot_hashes_verified":true}
+{"command": ["mise", "exec", "--", "ruby", "bench/test_white_all_runner.rb"], "exitCode": 0}
+{"command": ["mise", "exec", "--", "ruby", "-c", "lab.rb"], "startedAt": "2026-11-07T07:18:05.475247+00:00"}
+Syntax OK
+{"command": ["mise", "exec", "--", "ruby", "-c", "lab.rb"], "exitCode": 0}
+FINAL SUITE COMPLETE
+FINAL targeted retry: precision fixture uses valid n>=2 for unchanged empirical-Bernstein function
+Traceback (most recent call last):
+  File "/Users/taco/gits/tacogips/database-analysis/bench/test_wide_outcomes.py", line 154, in <module>
+    if scenario=='unknown1317': assert r['errno']==1317 and r['timer_counter_delta']==0
+KeyError: 'errno'
+exitCode=1
+Targeted retry: raw sampler errno is nested under sampling, count timer evidence is top-level
+{"db_access": false, "actual_functions": true, "sampler_cases": 7, "workload_cleanup_cases": 8, "arm_cases": 13, "caller_failure_cases": 15, "static_failure_saved": true, "no_next_arm": true, "nonzero_exception_reaches_wrappers": true, "recursive_cache_closure": ["01a-PROB-WIDE-50", "01b-PROB-WIDE-100", "96-encrypted-wide-50", "97-encrypted-wide-100", "01d-ACCURACY-SERVICE-100"], "expected_observations_preserved": true, "combined_failures_preserved": true, "successful_callers": [["sample50", "ok", 36], ["sample50", "precision", 36], ["sample50", "budget", 36], ["sample50", "deadline", 36], ["sample100", "ok", 36], ["sample100", "precision", 36], ["sample100", "budget", 36], ["sample100", "deadline", 36], ["wide50", "ok", 48], ["wide50", "precision", 48], ["wide50", "budget", 48], ["wide50", "deadline", 48], ["wide100", "ok", 48], ["wide100", "precision", 48], ["wide100", "budget", 48], ["wide100", "deadline", 48], ["frontier100", "ok", 48], ["frontier100", "precision", 48], ["frontier100", "budget", 48], ["frontier100", "deadline", 48]]}
+exitCode=0
+FINAL CHECK on final wide test source; other suite sources unchanged
+{"db_access": false, "actual_functions": true, "sampler_cases": 7, "workload_cleanup_cases": 8, "arm_cases": 13, "caller_failure_cases": 15, "static_failure_saved": true, "no_next_arm": true, "nonzero_exception_reaches_wrappers": true, "recursive_cache_closure": ["01a-PROB-WIDE-50", "01b-PROB-WIDE-100", "96-encrypted-wide-50", "97-encrypted-wide-100", "01d-ACCURACY-SERVICE-100"], "expected_observations_preserved": true, "combined_failures_preserved": true, "successful_callers": [["sample50", "ok", 36], ["sample50", "precision", 36], ["sample50", "budget", 36], ["sample50", "deadline", 36], ["sample100", "ok", 36], ["sample100", "precision", 36], ["sample100", "budget", 36], ["sample100", "deadline", 36], ["wide50", "ok", 48], ["wide50", "precision", 48], ["wide50", "budget", 48], ["wide50", "deadline", 48], ["wide100", "ok", 48], ["wide100", "precision", 48], ["wide100", "budget", 48], ["wide100", "deadline", 48], ["frontier100", "ok", 48], ["frontier100", "precision", 48], ["frontier100", "budget", 48], ["frontier100", "deadline", 48]]}
+{"command": ["python3", "bench/test_wide_outcomes.py"], "exitCode": 0}
+{"invariants": {"checkedBaselineBenchFiles": 327, "changedBaselineBenchFiles": ["bench/accuracy_frontier.py", "bench/lablib.py", "bench/reqsamplewide.py", "bench/reqwide.py", "bench/test_reqmix_protocol.py", "bench/test_runner_cache.rb"], "newSelfcheck": "bench/test_wide_outcomes.py", "protectedSamplingCountFixtureAndPlansUnchanged": true, "requestedScripts": 150, "guidelineLines": 216, "databaseAccess": false, "reproductionProofExists": false}, "exitCode": 0}
+FINAL VERIFIED COMPLETE

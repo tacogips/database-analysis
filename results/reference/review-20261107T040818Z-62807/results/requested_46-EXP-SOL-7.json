@@ -1,0 +1,110 @@
+{
+ "id": "46-EXP-SOL-7",
+ "answers": [
+  "EXP-SOL-7",
+  "EXP-R14",
+  "FIND-SOL-DDL-01",
+  "FIND-RESUME-01"
+ ],
+ "started": "2026-11-06T17:59:06",
+ "sections": {
+  "swap_during_walk": {
+   "swap": {
+    "status": "complete",
+    "sum": 3,
+    "table_id_same": false,
+    "errors": null,
+    "a_at_start": 3,
+    "a_at_end": 2
+   },
+   "swap_and_back": {
+    "status": "complete",
+    "sum": 2,
+    "table_id_same": true,
+    "errors": null,
+    "a_at_start": 3,
+    "a_at_end": 3
+   },
+   "truncate": {
+    "status": "rejected:plan",
+    "sum": null,
+    "table_id_same": false,
+    "errors": null,
+    "a_at_start": 3,
+    "a_at_end": 0
+   },
+   "_seconds": 0.06
+  },
+  "partition_ddl_during_walk": {
+   "drop_partition": {
+    "status": "complete",
+    "sum": 99,
+    "table_id_same": false,
+    "errors": null,
+    "end_count": 99,
+    "start_count": 150
+   },
+   "truncate_partition": {
+    "status": "complete",
+    "sum": 99,
+    "table_id_same": false,
+    "errors": null,
+    "end_count": 99,
+    "start_count": 150
+   },
+   "exchange_partition": {
+    "status": "complete",
+    "sum": 119,
+    "table_id_same": false,
+    "errors": null,
+    "end_count": 119,
+    "start_count": 150
+   },
+   "_seconds": 0.05
+  },
+  "resume_R14": {
+   "plan": "PRIMARY",
+   "interrupted": {
+    "status": "stopped:max_steps",
+    "state": {
+     "rows": 300000,
+     "cursor": [
+      300000
+     ],
+     "steps": 3,
+     "server_uuid": "ed17919e-d9bd-11f1-a295-a6801bb0058f",
+     "table_id": 1094,
+     "plan_index": "PRIMARY"
+    }
+   },
+   "identity_check_refuses_other_server": true,
+   "old_method_on_paused_replica": {
+    "mixed_sum": 20000000,
+    "primary_true_count": 20000100,
+    "difference": -100,
+    "rows_committed_while_paused": 100
+   },
+   "replica_caught_up_wait": 0,
+   "connection_killed": {
+    "statement_after_kill": {
+     "ok": false,
+     "errno": 2013
+    }
+   },
+   "resumed_with_new_session": [
+    1,
+    "+00:00",
+    1000
+   ],
+   "resume_same_server": {
+    "counted_before_loss": 10000,
+    "counted_after_loss": 19990000,
+    "sum": 20000000,
+    "truth": 20000000
+   },
+   "_seconds": 20.41
+  }
+ },
+ "elapsed_seconds": 21,
+ "section_errors": []
+}

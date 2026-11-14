@@ -1,0 +1,74 @@
+{
+  "meaning": "Current-run prerequisite evidence only; not DB correctness/precision/performance/final approval.",
+  "allStartedAt": "2026-11-07T07:28:15Z",
+  "capacity": {
+    "vm_available_kib": 6709792,
+    "host_available_kib": 175295924,
+    "exit_code": 0,
+    "ok": true
+  },
+  "selfChecks": {
+    "results/self_check_test_accuracy_frontier.json": {
+      "sha256": "8baba1fefbbe0bc40df6b8c6d77ec775c9bd96115401dbbb51fd58f78a64121a",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_dependencies.json": {
+      "sha256": "646d945ab42525c5ab1e11f09062d4e2bb983d2839bcd0f843128696cb0274b0",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_kill_timer.json": {
+      "sha256": "2d73aee8e218dbf6cf5dc4731a1599de187c644407e69f396a9d8d17cff1dc1e",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_matrix_cleanup.json": {
+      "sha256": "7df6dff89885666363268c66b7901a5327af373013d03b7de7de37120e3ef6ab",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_protocol_integrity.json": {
+      "sha256": "70f97c67def19e08ba7c9e66e6a755da51a8d82b4ac38421a0957d1f005b5f1f",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_raw_evidence.json": {
+      "sha256": "6395be09018b7709ea6359fadeb3acf6eb079b1fdd640ca19111f4d4409076c8",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_reqmix_protocol.json": {
+      "sha256": "7b299a6ca7bffa3d2ad3fdccd9c1b3e45fb52189a24d43fbca77dcc7133109d6",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_resource_preflight.json": {
+      "sha256": "9a45db4ea0356fa3fb0df83d827422ce2a642b40a84b977fef8d9f5359460a25",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_runner_cache.json": {
+      "sha256": "141cfe57475f0233bb2c09c6f960ac840a01026d486ee74a5f41cfada173ce39",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_sampling_contract.json": {
+      "sha256": "b5c2cbc2e9d41187983188a8118a64727fac1efe72609bbec906641b27191b4e",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_white_all_runner.json": {
+      "sha256": "b9dce9c49cafee6a033fb02cdc1ee2f960906d670d9cd437fb8e062b97f7096f",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_wide_outcomes.json": {
+      "sha256": "848d028b826b6470cecf76855f4df814cbaff424de08e52a9b99eaead6df148a",
+      "generatedAfterRunStart": true
+    },
+    "results/self_check_test_workload_accounting.json": {
+      "sha256": "aa08386ae0f56393b67a6f1d8cebe29db6e972168277ec3b5cbd37b60483b8d3",
+      "generatedAfterRunStart": true
+    }
+  },
+  "executionSplit": "9 Python checks inside lab-bench,4 Ruby checks under orchestrator Ruby4.0.9",
+  "exitEvidence": "Individual numeric exits are not included in check JSON; actual Lab.self_checks aborts on any nonzero child, and current all log reached its passed marker and subsequent load.py. This proves the13 gated child checks returned success in this run.",
+  "currentPhase": "load.py generating lab data",
+  "pending": [
+    "initial/final COUNT integrity",
+    "all150requested and full baseline/matrix coverage",
+    "semantic/raw/source-after audit",
+    "crypto state docs integration",
+    "proof/two final Sol approvals/commit/push"
+  ]
+}

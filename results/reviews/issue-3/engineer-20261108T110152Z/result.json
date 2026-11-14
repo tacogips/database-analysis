@@ -1,0 +1,80 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "contextContract": "合格。Initialize、PrepareAndCount、GuardedCandidateCountは同じ既定拒否gateを使用し、承認欠落・UNKNOWN・BUSINESS_USEをタグ書込みと候補COUNT前に拒否する。明示的な所有者承認はRLS依存先・業務初期化・後続SET・監査・trigger・lease寿命を対象とする。NULL、管理者、非pool、可視policy不在からの許可推定はない。候補callerとraw COUNTの配置も確認した。",
+    "ordinaryOwnershipAndCleanup": "合格。予約済み非RLS経路は5ケースで別接続identity照合を維持。誤tag・login_time・connection_idを拒否し、元接続は使用可能。実Cancel、server error 51010、timeout -2を確認。finallyの独立期限、rollbackと管理KILL、保存TX ID 3103/3431/3716/3987/4192の追跡があり、各最終pollはsession/request/transaction/snapshot/active transactionすべて空。HOLD側4接続も所有Dispose後に解放確認済み。",
+    "priorFixesAndHistory": "合格。保護対象10,885ファイルと旧snapshot7ファイルの全hash一致。Issue1/2証跡は不変で旧受入は旧hash限定。来歴・鮮度・HA失効・資源制御を維持。rootから現行4文書とIssue3受入先は各1クリック。集約受入ファイルは未作成だが、文書は欠落時HOLDを明記しており、この査読の欠陥とはしない。4096行非RLS成功をRLS安全性へ転用していない。",
+    "rlsRejectionRuntime": "合格。有効なCONTEXT_INFO依存RLSで可視2/3/0、既知の物理seed5を対照として確認。7検査パスは通常候補と同じ入口および直接wrapperを呼び、通常Target指定でも契約拒否を確認する。全パスでタグ書込み0・候補COUNT送信0、ownerとobserverの実identity/contextが前後一致。初期NULLと後続業務initも含む。RLS運用COUNT＋取消は未対応/HOLDと明記されている。"
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "README.md": "02ded6ef68b1d7395ea302c24e322b75be10e047763886ea1ea33fa629a6b30e",
+    "docs/README.md": "1eedc7a9e9c3b097ed8e18ee6d34e205702f690000450a6a8f33b6b75ec88de3",
+    "docs/guidelines/mysql.md": "01d464cc9055116411e3ed5494496bdbadc4505aac7338503f9a7e094bf64362",
+    "docs/guidelines/operations-runbook.md": "819fac46993c6a49a94eb5cf8dfef8869c86554bf0222e5c912693d2d1439628",
+    "docs/guidelines/sql-server.md": "ab015810b4f4d1231cc81aa71de1555b0f2988d4b4987b2cfbb96af231a59656"
+  },
+  "findings": [],
+  "requestedExperiments": [],
+  "reviewEvidence": {
+    "actualProbe": {
+      "observation": "122イベントがcontroller logと完全一致。RLS対照値、7拒否、context保持、5異常系、解放poll、3統計profileを実データで確認。",
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/probe.json",
+      "sha256": "c469ba8822a07d60341f39ba598f9819210e3dfc7d5e72acacfb3a706cf56bc4"
+    },
+    "baseline": {
+      "mismatches": 0,
+      "path": "results/reviews/issue-3/baseline.json",
+      "protectedFilesVerified": 10885,
+      "sha256": "f01ced311ed3f67f12d3c739c9cf1b22528194880e841f0c696f07611fb1e1ea"
+    },
+    "completeRuntimeLog": {
+      "finalExitStatus": 0,
+      "observation": "33 CLIすべてに対応する終了記録がありexit0・timeoutなし。CLIENT_FINAL_EXIT_STATUS=0と末尾CONTROLLER_FINAL_EXIT_STATUS=0を確認。owner label照合後の削除と、成功した最終inventoryによる所有container/volume/network/client imageの不在を確認。",
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/controller.log",
+      "sha256": "4a6b6a16383c9d6e67358353cea024f51e3ba6c4b18c8a9d1aee8151c0316346"
+    },
+    "foregroundInvocation": {
+      "actualExitCode": 0,
+      "command": "mise -C sqlserver/issue3 run all",
+      "completeLog": "results/reviews/issue-3/canonical-invocation.log",
+      "logSha256": "7c46541da5406d1351c5fda06c1c9f1e23589e326948c8bdee8b862e608f9f0c",
+      "path": "results/reviews/issue-3/canonical-invocation.json",
+      "sha256": "ea74d75ee1510d7a42fbdcbcca347af8c4e832e15a7bcc5bb86095e5bead91c3"
+    },
+    "oldSnapshot": {
+      "observation": "旧5文書・Issue2受入・completion auditのbytesが一致。受入内の文書hashも旧snapshotと一致。",
+      "path": "results/reference/issue-3-pre-fix-16cc9b3/manifest.json",
+      "sha256": "d6e029c2e47726f6da20b382fbb9ad5a00fbae45df58b6421470a1b0a5b17793",
+      "verifiedFiles": 7
+    },
+    "ownerAudit": {
+      "observation": "passedフラグだけに依存せず、実probe・log・終了状態・hash・inventoryを独立照合した。",
+      "path": "results/reviews/issue-3/owner-audit.json",
+      "sha256": "c5189ae5def40f0cbed03c043bbb1b18b5939dd540f4d9c58c9be59dd9c3ac4f"
+    },
+    "ownerProof": {
+      "path": "results/reviews/issue-3/owner-proof.json",
+      "sha256": "69448dd438abf3f3dbc9a25408abb37c9a9c18cf379634856a6cd2254c7c86f4"
+    },
+    "reviewScope": "独立した読み取り専用engineer最終査読。現行5文書、Issue3全ソース・README、所有者証跡を確認。ファイル変更、DB/Docker/計測起動、委任、workflow起動なし。この承認は本査読の判定であり、2役の集約受入ではない。",
+    "runtimeArchive": {
+      "observation": "8成果物すべてについてarchiveと元run双方のhashを検証。11ソースのsource_before/source_after/currentおよび指定hashは全一致。",
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/manifest.json",
+      "sha256": "c9db98aea939fa909a1edd77c22eb95cc76a5d6bbfed99d95e4744943dc4a123"
+    },
+    "runtimeResult": {
+      "clientExitCode": 0,
+      "controllerExitCode": 0,
+      "path": "results/reference/issue-3-runtime-20261108T105711-1869b4437314/result.json",
+      "sha256": "b8de7484c422e8bc46ce23a716b4f00de1e2a1603762e25e93760171a36cf127"
+    }
+  },
+  "reviewQuestions": {
+    "betterMethods": "承認済みexportを優先し、競合・不明時はCOUNT前HOLDで十分。代替RLS取消実装は今回の受入に不要。SESSION_CONTEXTは現在sessionの値であり遠隔identity代替ではない。[Microsoft仕様](https://learn.microsoft.com/en-us/sql/t-sql/functions/session-context-transact-sql?view=sql-server-ver17)",
+    "designCoverage": "同じ実候補入口による拒否、契約単独拒否、実RLS対照、両接続context保持、通常経路の所有確認・取消・解放を分けて網羅している。",
+    "fastCount": "export・参考metadata・適格隔離先COUNTを精度と費用で選択する方針は妥当。RLS可視0を物理空とせず、普遍的最速・無負荷・本番SLO合格を主張していない。[RLS仕様](https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver17)",
+    "lockFactors": "locking RCとRCSI/SNAPSHOTを区別。Sch-S/Sch-M、version保持、CPU/I/O、自動統計、AG primary側回収を残存要因として扱い、危険なhintやpolicy無効化へ逃げていない。",
+    "omissions": "本番最小権限、実ネットワーク分断、native性能、物理容量回収、本番SLOは未検証と明記。安全なHOLD修正に不可欠な追加実験はない。"
+  }
+}

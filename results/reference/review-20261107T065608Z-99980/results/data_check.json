@@ -1,0 +1,738 @@
+{
+ "t_sparse": {
+  "expected": 10000000,
+  "actual": 10000000,
+  "method": "COUNT(*)"
+ },
+ "t_uuid": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "t_composite": {
+  "expected": 10000000,
+  "actual": 10000000,
+  "method": "COUNT(*)"
+ },
+ "t_nopk": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "t_uniq_notnull": {
+  "expected": 3000000,
+  "actual": 3000000,
+  "method": "COUNT(*)"
+ },
+ "t_uniq_nullable": {
+  "expected": 3000000,
+  "actual": 3000000,
+  "method": "COUNT(*)"
+ },
+ "customers": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "orders": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "order_items": {
+  "expected": 15000000,
+  "actual": 15000000,
+  "method": "COUNT(*)"
+ },
+ "tags": {
+  "expected": 1000,
+  "actual": 1000,
+  "method": "COUNT(*)"
+ },
+ "customer_tags": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "categories": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "circ_a": {
+  "expected": 100000,
+  "actual": 100000,
+  "method": "COUNT(*)"
+ },
+ "circ_b": {
+  "expected": 100000,
+  "actual": 100000,
+  "method": "COUNT(*)"
+ },
+ "t_lob": {
+  "expected": 300000,
+  "actual": 300000,
+  "method": "COUNT(*)"
+ },
+ "t_part": {
+  "expected": 10000000,
+  "actual": 10000000,
+  "method": "COUNT(*)"
+ },
+ "t_strpk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "t_events": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "t_myisam": {
+  "expected": 3000000,
+  "actual": 3000000,
+  "method": "COUNT(*)"
+ },
+ "t_memory": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "t_archive": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "order_items_nofk": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "t_hot": {
+  "expected": 5000000,
+  "actual": 5000000,
+  "method": "COUNT(*)"
+ },
+ "t_repl": {
+  "expected": 20000000,
+  "actual": 20000000,
+  "method": "COUNT(*)"
+ },
+ "t_dense": {
+  "expected": 100000000,
+  "actual": 100000000,
+  "method": "COUNT(*)"
+ },
+ "d_negative_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_float_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_decimal_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_datetime_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_timestamp_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_enum_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_desc_pk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_snowflake": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_unsigned_max": {
+  "expected": 100000,
+  "actual": 100000,
+  "method": "COUNT(*)"
+ },
+ "d_str_bin": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "d_prefix_unique": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "d_gipk": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_noindex": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_compressed": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "d_json_virtual": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "d_fulltext": {
+  "expected": 200000,
+  "actual": 200000,
+  "method": "COUNT(*)"
+ },
+ "d_spatial": {
+  "expected": 200000,
+  "actual": 200000,
+  "method": "COUNT(*)"
+ },
+ "d_soft_delete": {
+  "expected": 2000000,
+  "actual": 2000000,
+  "method": "COUNT(*)"
+ },
+ "d_history": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_eav": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_polymorphic": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "d_triggered": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "fk_diamond_a": {
+  "expected": 100000,
+  "actual": 100000,
+  "method": "COUNT(*)"
+ },
+ "fk_diamond_b": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "fk_diamond_c": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "fk_diamond_d": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "fk_comp_parent": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "fk_comp_child": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "fk_uq_parent": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "fk_uq_child": {
+  "expected": 1000000,
+  "actual": 1000000,
+  "method": "COUNT(*)"
+ },
+ "fk_null_parent": {
+  "expected": 100000,
+  "actual": 100000,
+  "method": "COUNT(*)"
+ },
+ "fk_null_child": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "fk_cross_schema": {
+  "expected": 500000,
+  "actual": 500000,
+  "method": "COUNT(*)"
+ },
+ "_sizes": [
+  [
+   "categories",
+   "InnoDB",
+   998108,
+   38354944,
+   23658496
+  ],
+  [
+   "circ_a",
+   "InnoDB",
+   100345,
+   4734976,
+   2637824
+  ],
+  [
+   "circ_b",
+   "InnoDB",
+   100345,
+   4734976,
+   2637824
+  ],
+  [
+   "count_summary",
+   "InnoDB",
+   1,
+   16384,
+   0
+  ],
+  [
+   "customer_tags",
+   "InnoDB",
+   5284022,
+   263045120,
+   130793472
+  ],
+  [
+   "customers",
+   "InnoDB",
+   996325,
+   36241408,
+   0
+  ],
+  [
+   "d_compressed",
+   "InnoDB",
+   494275,
+   48037888,
+   0
+  ],
+  [
+   "d_datetime_pk",
+   "InnoDB",
+   998490,
+   33095680,
+   0
+  ],
+  [
+   "d_decimal_pk",
+   "InnoDB",
+   998446,
+   35209216,
+   0
+  ],
+  [
+   "d_desc_pk",
+   "InnoDB",
+   998490,
+   33095680,
+   0
+  ],
+  [
+   "d_eav",
+   "InnoDB",
+   996072,
+   67747840,
+   0
+  ],
+  [
+   "d_enum_pk",
+   "InnoDB",
+   999763,
+   35192832,
+   0
+  ],
+  [
+   "d_float_pk",
+   "InnoDB",
+   998490,
+   33095680,
+   0
+  ],
+  [
+   "d_fulltext",
+   "InnoDB",
+   198949,
+   17350656,
+   4734976
+  ],
+  [
+   "d_gipk",
+   "InnoDB",
+   998360,
+   37289984,
+   0
+  ],
+  [
+   "d_history",
+   "InnoDB",
+   1005668,
+   61456384,
+   0
+  ],
+  [
+   "d_json_virtual",
+   "InnoDB",
+   497465,
+   44646400,
+   13123584
+  ],
+  [
+   "d_negative_pk",
+   "InnoDB",
+   998490,
+   33095680,
+   0
+  ],
+  [
+   "d_noindex",
+   "InnoDB",
+   998446,
+   35192832,
+   0
+  ],
+  [
+   "d_polymorphic",
+   "InnoDB",
+   997443,
+   45694976,
+   54149120
+  ],
+  [
+   "d_prefix_unique",
+   "InnoDB",
+   498200,
+   35192832,
+   21594112
+  ],
+  [
+   "d_snowflake",
+   "InnoDB",
+   998490,
+   33095680,
+   0
+  ],
+  [
+   "d_soft_delete",
+   "InnoDB",
+   2003772,
+   76136448,
+   38371328
+  ],
+  [
+   "d_spatial",
+   "InnoDB",
+   199699,
+   12075008,
+   0
+  ],
+  [
+   "d_str_bin",
+   "InnoDB",
+   538645,
+   41484288,
+   0
+  ],
+  [
+   "d_timestamp_pk",
+   "InnoDB",
+   998585,
+   32047104,
+   0
+  ],
+  [
+   "d_trigger_log",
+   "InnoDB",
+   0,
+   16384,
+   0
+  ],
+  [
+   "d_triggered",
+   "InnoDB",
+   499494,
+   17350656,
+   0
+  ],
+  [
+   "d_unsigned_max",
+   "InnoDB",
+   100098,
+   3686400,
+   0
+  ],
+  [
+   "fk_comp_child",
+   "InnoDB",
+   998360,
+   37289984,
+   40484864
+  ],
+  [
+   "fk_comp_parent",
+   "InnoDB",
+   499656,
+   15220736,
+   0
+  ],
+  [
+   "fk_cross_schema",
+   "InnoDB",
+   499400,
+   19447808,
+   20512768
+  ],
+  [
+   "fk_diamond_a",
+   "InnoDB",
+   98848,
+   3686400,
+   0
+  ],
+  [
+   "fk_diamond_b",
+   "InnoDB",
+   499400,
+   19447808,
+   20512768
+  ],
+  [
+   "fk_diamond_c",
+   "InnoDB",
+   499400,
+   19447808,
+   20512768
+  ],
+  [
+   "fk_diamond_d",
+   "InnoDB",
+   997458,
+   46743552,
+   80969728
+  ],
+  [
+   "fk_null_child",
+   "InnoDB",
+   499206,
+   18399232,
+   18399232
+  ],
+  [
+   "fk_null_parent",
+   "InnoDB",
+   100275,
+   3686400,
+   0
+  ],
+  [
+   "fk_uq_child",
+   "InnoDB",
+   998360,
+   37289984,
+   40484864
+  ],
+  [
+   "fk_uq_parent",
+   "InnoDB",
+   499400,
+   19447808,
+   11059200
+  ],
+  [
+   "load_state",
+   "InnoDB",
+   60,
+   16384,
+   0
+  ],
+  [
+   "order_items",
+   "InnoDB",
+   14959728,
+   688914432,
+   498073600
+  ],
+  [
+   "order_items_nofk",
+   "InnoDB",
+   4986219,
+   229392384,
+   0
+  ],
+  [
+   "orders",
+   "InnoDB",
+   4987125,
+   218890240,
+   158089216
+  ],
+  [
+   "seq1m",
+   "InnoDB",
+   999000,
+   24690688,
+   0
+  ],
+  [
+   "t_archive",
+   "ARCHIVE",
+   1000000,
+   3772911,
+   0
+  ],
+  [
+   "t_composite",
+   "InnoDB",
+   10248946,
+   457179136,
+   0
+  ],
+  [
+   "t_dense",
+   "InnoDB",
+   99619308,
+   6434062336,
+   2136981504
+  ],
+  [
+   "t_events",
+   "InnoDB",
+   5025138,
+   304087040,
+   190578688
+  ],
+  [
+   "t_hot",
+   "InnoDB",
+   4987646,
+   208404480,
+   0
+  ],
+  [
+   "t_lob",
+   "InnoDB",
+   299115,
+   4933074944,
+   0
+  ],
+  [
+   "t_memory",
+   "MEMORY",
+   500000,
+   8063984,
+   12159736
+  ],
+  [
+   "t_myisam",
+   "MyISAM",
+   3000000,
+   39000000,
+   43251712
+  ],
+  [
+   "t_nopk",
+   "InnoDB",
+   4989895,
+   175833088,
+   112885760
+  ],
+  [
+   "t_part",
+   "InnoDB",
+   9980496,
+   364511232,
+   0
+  ],
+  [
+   "t_repl",
+   "InnoDB",
+   19416776,
+   1373634560,
+   0
+  ],
+  [
+   "t_sparse",
+   "InnoDB",
+   9730876,
+   329121792,
+   0
+  ],
+  [
+   "t_strpk",
+   "InnoDB",
+   971982,
+   70909952,
+   0
+  ],
+  [
+   "t_uniq_notnull",
+   "InnoDB",
+   2994474,
+   99221504,
+   0
+  ],
+  [
+   "t_uniq_nullable",
+   "InnoDB",
+   2993576,
+   112869376,
+   55164928
+  ],
+  [
+   "t_uuid",
+   "InnoDB",
+   4331330,
+   456130560,
+   0
+  ],
+  [
+   "tags",
+   "InnoDB",
+   1000,
+   65536,
+   0
+  ],
+  [
+   "v_orders_with_customer",
+   null,
+   null,
+   null,
+   null
+  ]
+ ],
+ "_version": "8.4.13",
+ "_replica_rows": 20000000,
+ "_replica_caught_up": true
+}

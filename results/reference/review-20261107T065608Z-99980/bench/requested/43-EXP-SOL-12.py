@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+"""Answers EXP-SOL-12 (FIND-MDL-TRIAL-01): how long an ALTER waits on a split, by when in a step it arrives. Separates waiting from the DDL's own work.
+
+INSTANT on t_dense (the column is removed each time) with width 1M, so each step is long enough to land in. INPLACE on a private table with width 1M.
+A read probe on the same table shows the service stall."""
+import threading, time
+from countlib import forced_plan, session_setup, split_count
+from lablib import connect, query
+from reqlib import Results, builder, guard, reset_schema, sql_try
+
+ID = "43-EXP-SOL-12"
+guard(ID, 8)
+r = Results(ID, ["EXP-SOL-12", "FIND-MDL-TRIAL-01"])
+b = builder()
+reset_schema(b, "req_phase")
+query(b, "CREATE TABLE req_phase.p (id BIGINT PRIMARY KEY, a INT NOT NULL, created_at DATETIME NOT NULL, KEY k_c (created_at))")
+for off in range(0, 5_000_000, 1_000_000):
+    query(b, f"INSERT INTO req_phase.p SELECT n+{off}, n, DATE_ADD('2020-01-01', INTERVAL n+{off} SECOND) FROM bench.seq1m")
+
+
+def run_probe(table, halt, lat):
+    c = connect(read_timeout=60)
+    query(c, "SET SESSION lock_wait_timeout=30")
+    while not halt.is_set():
+        t = time.monotonic()
+        sql_try(c, f"SELECT id FROM {table} WHERE id=1")
+        lat.append((time.monotonic() - t) * 1000)
+        time.sleep(.01)
+    c.close()
+
+
+def clean(db, table):
+    """The probe index or column left by any earlier trial."""
+    x = connect(db=db, read_timeout=120)
+    if query(x, "SELECT COUNT(*) FROM information_schema.STATISTICS WHERE TABLE_SCHEMA=%s AND TABLE_NAME=%s AND INDEX_NAME='k_probe'", (db, table))[0][0]:
+        query(x, f"ALTER TABLE {table} DROP INDEX k_probe")
+    x.close()
+
+
+def trial(db, table, index, do_sql, undo_sql, phase, step_estimate_ms, fire_step=5):
+    """Issues the DDL when the walk is at the given phase of a step, once, after fire_step steps.
+    The private table has only about five wide steps, which is why the earlier trials often never reached step five."""
+    clean(db, table)
+    c = connect(db=db, read_timeout=120)
+    session_setup(c, 0)
+    plan = forced_plan(c, db, table, index)
+    fired, res = threading.Event(), {}
+
+    def ddl():
+        x = connect(db=db, read_timeout=60)
+        query(x, "SET SESSION lock_wait_timeout=30")
+        t = time.monotonic()
+        res["ddl"] = sql_try(x, do_sql)
+        res["ddl_ms"] = round((time.monotonic() - t) * 1000, 1)
+        x.close()
+
+    seen = [0]
+    th = threading.Thread(target=ddl, daemon=True)
+
+    def fire():
+        if not fired.is_set():
+            fired.set()
+            res["fired_at"] = time.monotonic()
+            th.start()
+
+    def before(kind, _sql, _args):
+        if kind != "mid":
+            return
+        seen[0] += 1
+        if seen[0] == fire_step:
+            res["step_start"] = time.monotonic()
+            if phase == "step_start":
+                fire()
+            elif phase == "mid_step":
+                threading.Timer(step_estimate_ms / 2000, fire).start()
+
+    def after(_n, ms, _cursor):
+        if seen[0] == fire_step and phase == "during_sleep" and not fired.is_set():
+            threading.Timer(.002, fire).start()
+
+    halt, lat = threading.Event(), []
+    probe = threading.Thread(target=run_probe, args=(f"{db}.{table}", halt, lat), daemon=True)
+    probe.start()
+    s = split_count(c, table, plan, width=1_000_000, limit_ms=5000, duty=.5, before_statement=before, on_step=after, max_steps=8, enforce_plan=False)
+    time.sleep(.05)  # a mid-step timer may still be counting down
+    if fired.is_set():
+        th.join(60)
+    halt.set()
+    probe.join(35)
+    c.close()
+    if res.get("ddl", {}).get("ok"):
+        query(connect(db=db, read_timeout=120), undo_sql)
+    return {"phase": phase, "fired": fired.is_set(), "ddl_ms": res.get("ddl_ms"), "ddl_ok": res.get("ddl", {}).get("ok"), "errno": res.get("ddl", {}).get("errno"), "stmt_ms_max": s["stmt_ms_max"], "status": s["status"],
+            "probe_max_ms": round(max(lat), 1) if lat else None, "probe_p50_ms": round(sorted(lat)[len(lat) // 2], 2) if lat else None}
+
+
+def quiet_ddl(db, do_sql, undo_sql, n=3):
+    out = []
+    for _ in range(n):
+        x = connect(db=db, read_timeout=120)
+        t = time.monotonic()
+        query(x, do_sql)
+        out.append(round((time.monotonic() - t) * 1000, 1))
+        query(x, undo_sql)
+        x.close()
+    return out
+
+
+CASES = {"instant_t_dense": ("bench", "t_dense", "k_created", "ALTER TABLE t_dense ADD COLUMN mdl_probe INT NULL, ALGORITHM=INSTANT", "ALTER TABLE t_dense DROP COLUMN mdl_probe", 80, 5),
+         "inplace_private": ("req_phase", "p", "k_c", "ALTER TABLE p ADD INDEX k_probe (a), ALGORITHM=INPLACE, LOCK=NONE", "ALTER TABLE p DROP INDEX k_probe", 80, 2)}
+
+with r.section("quiet_ddl_time") as d:
+    for name, (db, _t, _i, do, undo, _e, _f) in CASES.items():
+        d[name] = quiet_ddl(db, do, undo)
+
+with r.section("phases") as d:
+    for name, (db, table, index, do, undo, est, fire_step) in CASES.items():
+        out = []
+        for rep in range(5):
+            for phase in ("step_start", "mid_step", "during_sleep"):
+                if r.time_left() < 60:
+                    break
+                out.append(trial(db, table, index, do, undo, phase, est, fire_step))
+                print(name, out[-1], flush=True)
+        d[name] = out
+        r.save()
+
+query(b, "DROP DATABASE req_phase")
+r.finish()

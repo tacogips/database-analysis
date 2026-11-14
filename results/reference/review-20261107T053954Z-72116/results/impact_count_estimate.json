@@ -1,0 +1,282 @@
+{
+ "name": "count_estimate",
+ "doc": "TABLE_ROWS and MAX-MIN on the PK",
+ "target": "t_dense",
+ "window_s": 40,
+ "method_seconds": 0.0,
+ "finished_within_window": true,
+ "method_rows": 0,
+ "method_rows_per_s": 0,
+ "chunks": 0,
+ "chunk_ms": null,
+ "notes": {
+  "table_rows": 99619308,
+  "table_rows_ms": 1.39,
+  "stats_n_rows": 99619308,
+  "stats_n_rows_ms": 1.26,
+  "pk_span": 100000000,
+  "pk_span_ms": 0.67
+ },
+ "errors": [],
+ "worker_terminated": true,
+ "cancellation": "not_needed",
+ "latency": {
+  "baseline": {
+   "read": {
+    "n": 1000,
+    "p50_ms": 1.19,
+    "p95_ms": 3.64,
+    "p99_ms": 4.31,
+    "max_ms": 4.65,
+    "errors": 0,
+    "scheduled": 1000,
+    "started": 1000,
+    "completed": 1000,
+    "failed": 0,
+    "inflight_at_end": 0,
+    "queued_at_end": 0,
+    "stuck_at_end": 0,
+    "slo_assessable": true,
+    "latency_status": "completed_responses",
+    "dispatch_delay": {
+     "n": 1000,
+     "p50_ms": 0.63,
+     "p95_ms": 2.93,
+     "p99_ms": 3.6,
+     "max_ms": 3.69
+    },
+    "client_execution": {
+     "n": 1000,
+     "p50_ms": 0.57,
+     "p95_ms": 0.9,
+     "p99_ms": 1.18,
+     "max_ms": 1.8
+    }
+   },
+   "write": {
+    "n": 1000,
+    "p50_ms": 1.84,
+    "p95_ms": 4.41,
+    "p99_ms": 16.83,
+    "max_ms": 58.68,
+    "errors": 0,
+    "scheduled": 1000,
+    "started": 1000,
+    "completed": 1000,
+    "failed": 0,
+    "inflight_at_end": 0,
+    "queued_at_end": 0,
+    "stuck_at_end": 0,
+    "slo_assessable": true,
+    "latency_status": "completed_responses",
+    "dispatch_delay": {
+     "n": 1000,
+     "p50_ms": 0.38,
+     "p95_ms": 1.66,
+     "p99_ms": 2.35,
+     "max_ms": 18.7
+    },
+    "client_execution": {
+     "n": 1000,
+     "p50_ms": 1.34,
+     "p95_ms": 3.54,
+     "p99_ms": 15.5,
+     "max_ms": 58.16
+    }
+   }
+  },
+  "during": {
+   "read": {
+    "n": 1,
+    "p50_ms": 0.46,
+    "p95_ms": 0.46,
+    "p99_ms": 0.46,
+    "max_ms": 0.46,
+    "errors": 0,
+    "scheduled": 1,
+    "started": 1,
+    "completed": 1,
+    "failed": 0,
+    "inflight_at_end": 0,
+    "queued_at_end": 0,
+    "stuck_at_end": 0,
+    "slo_assessable": true,
+    "latency_status": "completed_responses",
+    "dispatch_delay": {
+     "n": 1,
+     "p50_ms": 0.26,
+     "p95_ms": 0.26,
+     "p99_ms": 0.26,
+     "max_ms": 0.26
+    },
+    "client_execution": {
+     "n": 1,
+     "p50_ms": 0.2,
+     "p95_ms": 0.2,
+     "p99_ms": 0.2,
+     "max_ms": 0.2
+    }
+   },
+   "write": {
+    "n": 0,
+    "p50_ms": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "max_ms": null,
+    "errors": 0,
+    "scheduled": 0,
+    "started": 0,
+    "completed": 0,
+    "failed": 0,
+    "inflight_at_end": 0,
+    "queued_at_end": 0,
+    "stuck_at_end": 0,
+    "slo_assessable": true,
+    "latency_status": "completed_responses",
+    "dispatch_delay": {
+     "n": 0,
+     "p50_ms": null,
+     "p95_ms": null,
+     "p99_ms": null,
+     "max_ms": null
+    },
+    "client_execution": {
+     "n": 0,
+     "p50_ms": null,
+     "p95_ms": null,
+     "p99_ms": null,
+     "max_ms": null
+    }
+   }
+  },
+  "recovery": {
+   "read": {
+    "n": 1001,
+    "p50_ms": 1.2,
+    "p95_ms": 4.0,
+    "p99_ms": 4.43,
+    "max_ms": 4.89,
+    "errors": 0,
+    "scheduled": 1001,
+    "started": 1001,
+    "completed": 1001,
+    "failed": 0,
+    "inflight_at_end": 0,
+    "queued_at_end": 0,
+    "stuck_at_end": 0,
+    "slo_assessable": true,
+    "latency_status": "completed_responses",
+    "dispatch_delay": {
+     "n": 1001,
+     "p50_ms": 0.62,
+     "p95_ms": 3.16,
+     "p99_ms": 3.65,
+     "max_ms": 4.0
+    },
+    "client_execution": {
+     "n": 1001,
+     "p50_ms": 0.57,
+     "p95_ms": 0.91,
+     "p99_ms": 1.24,
+     "max_ms": 3.68
+    }
+   },
+   "write": {
+    "n": 1000,
+    "p50_ms": 1.83,
+    "p95_ms": 3.85,
+    "p99_ms": 5.31,
+    "max_ms": 28.23,
+    "errors": 0,
+    "scheduled": 1000,
+    "started": 1000,
+    "completed": 1000,
+    "failed": 0,
+    "inflight_at_end": 0,
+    "queued_at_end": 0,
+    "stuck_at_end": 0,
+    "slo_assessable": true,
+    "latency_status": "completed_responses",
+    "dispatch_delay": {
+     "n": 1000,
+     "p50_ms": 0.4,
+     "p95_ms": 1.93,
+     "p99_ms": 2.37,
+     "max_ms": 2.71
+    },
+    "client_execution": {
+     "n": 1000,
+     "p50_ms": 1.34,
+     "p95_ms": 2.56,
+     "p99_ms": 3.81,
+     "max_ms": 28.07
+    }
+   }
+  }
+ },
+ "server": {
+  "baseline": {
+   "observation_capabilities": {
+    "table_data_locks": "not_measured",
+    "replica_lag": "not_measured"
+   },
+   "samples": 10,
+   "table_data_lock_samples": 0,
+   "seconds": 9.0,
+   "rows_read_per_s": 200,
+   "bp_disk_reads_per_s": 1,
+   "bp_miss_pct": 0.038,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 4.0,
+   "peak_row_lock_current_waits": 0.0,
+   "hll_start": 273,
+   "hll_end": 288,
+   "hll_peak": 288,
+   "peak_trx_age_s": 0,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": null,
+   "peak_table_level_locks": null,
+   "peak_replica_lag_s": null
+  },
+  "during": {
+   "observation_capabilities": {
+    "table_data_locks": "not_measured",
+    "replica_lag": "not_measured"
+   },
+   "samples": 0,
+   "peak_row_locks_seen": null,
+   "peak_table_level_locks": null
+  },
+  "recovery": {
+   "observation_capabilities": {
+    "table_data_locks": "not_measured",
+    "replica_lag": "not_measured"
+   },
+   "samples": 10,
+   "table_data_lock_samples": 0,
+   "seconds": 9.0,
+   "rows_read_per_s": 200,
+   "bp_disk_reads_per_s": 0,
+   "bp_miss_pct": 0.0,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 4.0,
+   "peak_row_lock_current_waits": 0.0,
+   "hll_start": 87,
+   "hll_end": 131,
+   "hll_peak": 287,
+   "peak_trx_age_s": 0,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": null,
+   "peak_table_level_locks": null,
+   "peak_replica_lag_s": null
+  }
+ }
+}

@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-11-07T12:15:41.128519+00:00",
+  "meaning": "Actual48-arm savedraw-to-reported cohort/latency audit passed; seven bounded in-memory corruptions of one real arm rejected. No DB/benchmark changes or gzip decompression. Original broadwindow clockboundaries not stored, so no independent baseline/recovery/time-boundary reconstruction or SLO claim.",
+  "sourceResult": "results/requested_accuracy_service_100.json",
+  "sourceSha256": "9113e982beff1a892aaa53dd03287c2bfd827aadbea954bd8f124d1e6013084d",
+  "helperPath": "audit/audit-arrival-windows.py",
+  "helperSha256": "1f2457a82c035ae0df22c5606c9f7d6c363022d31a4544cd6eddacf9dd813376",
+  "positiveArms": 48,
+  "trialCohorts": 48,
+  "actualMethodWindows": 36,
+  "negativeCases": {
+    "wrong_p99": 1,
+    "missing_trial": 1,
+    "drop_internal_trial_row": 8,
+    "foreign_trial_row": 2,
+    "missing_actual_report": 1,
+    "shift_actual_begin": 28,
+    "invalid_raw_state": 1
+  },
+  "passed": true
+}

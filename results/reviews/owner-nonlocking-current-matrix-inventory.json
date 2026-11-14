@@ -1,0 +1,153 @@
+{
+  "recordedAt": "2026-11-07T11:25:45.022010+00:00",
+  "meaning": "Five completed basic version matrices only, not wide/TDE requested-version coverage or production no-impact/SLO/all acceptance. Single normal-write probe is not a tail-latency guarantee.",
+  "expectedVersions": [
+    "8.4.0",
+    "8.4.13",
+    "9.7.0",
+    "9.7.4",
+    "26.10.0"
+  ],
+  "saved": {
+    "8.4.0": {
+      "path": "results/matrix_8.4.0.json",
+      "sha256": "76ad1ffc56d44771189ca18ef0833c450a35e68c24d9108ef659bfacb0723922",
+      "version": "8.4.0",
+      "countMethods": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": [
+        "hot",
+        "child",
+        "comp",
+        "enum_pk"
+      ],
+      "ordinaryCountWriteProbe": "ok"
+    },
+    "8.4.13": {
+      "path": "results/matrix_8.4.13.json",
+      "sha256": "902ee80b21d243dc4c19fa8259f3ad69626da1c0bf55b1ad659b1705c40a2a1b",
+      "version": "8.4.13",
+      "countMethods": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": [
+        "hot",
+        "child",
+        "comp",
+        "enum_pk"
+      ],
+      "ordinaryCountWriteProbe": "ok"
+    },
+    "9.7.0": {
+      "path": "results/matrix_9.7.0.json",
+      "sha256": "d2a7daf7d0a90765fdadaaaca1fbae54b092b801211b5e40351ed8dde3b2d50b",
+      "version": "9.7.0",
+      "countMethods": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": [
+        "hot",
+        "child",
+        "comp",
+        "enum_pk"
+      ],
+      "ordinaryCountWriteProbe": "ok"
+    },
+    "9.7.4": {
+      "path": "results/matrix_9.7.4.json",
+      "sha256": "19a95600d30da611673d6347c13a05aa89cea6d058677435d8bff40c2bc3283e",
+      "version": "9.7.4",
+      "countMethods": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": [
+        "hot",
+        "child",
+        "comp",
+        "enum_pk"
+      ],
+      "ordinaryCountWriteProbe": "ok"
+    },
+    "26.10.0": {
+      "path": "results/matrix_26.10.0.json",
+      "sha256": "a225b24b81bcc9eb07e4ebb89442b8852e0fde677483e359c5217c81721f026d",
+      "version": "26.10.0",
+      "countMethods": {
+        "default": 200000,
+        "single_thread": 200000,
+        "force_primary": 200000,
+        "force_secondary": 200000
+      },
+      "splitCases": [
+        "hot",
+        "child",
+        "comp",
+        "enum_pk"
+      ],
+      "ordinaryCountWriteProbe": "ok"
+    }
+  },
+  "problems": [],
+  "completedCleanupRecords": [
+    {
+      "path": "results/matrix_cleanup/lab-matrix-9-7-0-66068-1794050279-481705539206000.json",
+      "sha256": "abc00f946e823e2024a73f754702206a6e833cf52701f4452efe07ec7224e65b",
+      "container": "lab-matrix-9-7-0"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-26-10-0-66068-1794050298-481724721405000.json",
+      "sha256": "a180c1c8e8e0a477e7fcce66faa2cbb96c8f488b220d4bb1506180f28f22bca7",
+      "container": "lab-matrix-26-10-0"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-8-4-13-66068-1794050271-481696941258000.json",
+      "sha256": "f2153d2179af0ce56fe6c0b8bc237fd85504e482bd089d99489f9fb20623fbda",
+      "container": "lab-matrix-8-4-13"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-8-4-13-66068-1794050308-481734533549000.json",
+      "sha256": "95290fe72b034eaa24a366c9f47903d5d4e66c1e7d897d3ce674c28fa790f5cc",
+      "container": "lab-matrix-8-4-13"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-9-7-4-66068-1794050316-481742295351000.json",
+      "sha256": "b408181b2a312ae2a2e5457fb13e6317af12cff4d3ffc557ca6c7a80ca3ec222",
+      "container": "lab-matrix-9-7-4"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-9-7-4-66068-1794050288-481713993791000.json",
+      "sha256": "fe7f984a04a6002c60c5e6b047185021ac01607eae3cdaac4f6518be50a1d394",
+      "container": "lab-matrix-9-7-4"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-8-4-0-66068-1794050262-481688633297000.json",
+      "sha256": "0f2969beb9b8e0721f495da316b57bc9e9df42131742f7f5bea862e2501135a5",
+      "container": "lab-matrix-8-4-0"
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-26-10-0-66068-1794050323-481749416547000.json",
+      "sha256": "fbfca6f048a7c576f3cb9fcf2c0441a37169eba113090e2b2c922bb7e0388e74",
+      "container": "lab-matrix-26-10-0"
+    }
+  ],
+  "cleanupMeaning": "Producer uses docker container ls exact name with exit0+empty output after successfulrm; saved completed records only. Later requests can reuse names/data paths, so current absence is not required while those run.",
+  "ownerAuditCorrection": {
+    "at": "2026-11-07T11:26:31.740106+00:00",
+    "incorrectAssertion": "Expected nonzero verify_exit_code as though docker inspect was used.",
+    "actualImplementation": "lab.rb cleanup uses docker container ls and expects exit0 with empty list.",
+    "measurementSourceOrResultChanged": false
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "status": "planned_not_db_executed",
+  "actual_exit_status": null,
+  "cleanup": {
+    "status": "notrun"
+  },
+  "workflow_execution_id": "sqlserver-count-review-session-35",
+  "author_step": "author",
+  "seed": 20261108,
+  "entrypoint": "mise -C sqlserver run all",
+  "connection_scope": "Resolve configured local Unix Docker context with inherited endpoint overrides removed; pin existing socket. docker exec lab-sqlserver-count sqlcmd localhost only.",
+  "image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+  "owner_reported_feasibility": {
+    "provenance": "Owner actually booted the pinned image and executed SQL; see results/sqlserver/preflight.json. Separate from canonical all, not author verification.",
+    "product_version": "17.0.5035.5",
+    "description": "SQL2025 CU10 Ubuntu24.04.5",
+    "canonical_run": "notrun"
+  },
+  "resources": {
+    "docker_min_memory_bytes": 7900000000,
+    "container_memory_gib": 4,
+    "sql_memory_mib": 3072,
+    "cpus": 2,
+    "database_max_data_mib": 7000,
+    "database_max_log_mib": 1024,
+    "tempdb_max_aggregate_mib": 2048,
+    "volume_stop_bytes": 14000000000,
+    "disk_scope": "database file caps plus periodic volume checks; not a filesystem hard quota",
+    "host_ports": [],
+    "volume": "lab-sqlserver-count-data",
+    "blank_only": true
+  },
+  "budgets_seconds": {
+    "total_experiment": 3600,
+    "startup": 240,
+    "required_fixture_load": 480,
+    "optional_100m_load": 900,
+    "measured_query": 45,
+    "sql_termination_poll": 45
+  },
+  "fixtures": [
+    {
+      "table": "empty_table",
+      "planned_rows": 0,
+      "status": "notrun",
+      "shape": "heap; empty statistics may remain uninitialized"
+    },
+    {
+      "table": "heap_table",
+      "planned_rows": 50000,
+      "status": "notrun",
+      "shape": "heap; quiet committed +7 then +14 rows after optimizer statistics"
+    },
+    {
+      "table": "clustered_table",
+      "planned_rows": 200000,
+      "status": "notrun",
+      "shape": "clustered PK and secondary; quiet committed +7 then +14 rows"
+    },
+    {
+      "table": "partitioned_table",
+      "planned_rows": 200000,
+      "status": "notrun",
+      "shape": "three rowstore partitions; sum base index partitions only"
+    },
+    {
+      "table": "columnstore_table",
+      "planned_rows": 200000,
+      "status": "notrun",
+      "shape": "clustered columnstore; record actual delta/compressed rowgroups; controlled deletes not exercised"
+    },
+    {
+      "table": "skew_gaps",
+      "planned_rows": 100000,
+      "status": "notrun",
+      "shape": "wide/short rows; 90k low keys and 10k keys across large gap"
+    },
+    {
+      "table": "wide80",
+      "planned_rows": 750000,
+      "status": "notrun",
+      "shape": "exactly 80 columns; clustered PK plus secondary; copied generated ciphertext blob"
+    },
+    {
+      "table": "wide100",
+      "planned_rows": 750000,
+      "status": "notrun",
+      "shape": "exactly 100 columns; clustered PK plus secondary; copied generated ciphertext blob"
+    },
+    {
+      "table": "service_table",
+      "planned_rows": 100000,
+      "status": "notrun",
+      "shape": "one fixed-cardinality UPDATE worker; committed row delta zero"
+    },
+    {
+      "table": "thin_100m",
+      "planned_rows": 100000000,
+      "status": "notrun",
+      "optional": true,
+      "shape": "single bigint heap; no inferred performance if unavailable"
+    }
+  ],
+  "preconditions": [
+    "new dedicated CountLab only",
+    "RCSI on and SNAPSHOT state 1 before counts",
+    "TDE encryption_state 3 before load and after experiments",
+    "resource caps before measurement",
+    "no inherited host/DSN/Docker context override"
+  ],
+  "methods": [
+    "COUNT_BIG(*) READ COMMITTED under existing lab RCSI",
+    "COUNT_BIG(*) SNAPSHOT short transaction",
+    "sys.dm_db_partition_stats SUM(row_count) index_id IN(0,1)",
+    "sys.partitions SUM(rows) index_id IN(0,1)",
+    "separate sys.stats OUTER APPLY sys.dm_db_stats_properties including null/uninitialized"
+  ],
+  "permission_probe": "local WITHOUT LOGIN user: invisible, table SELECT only (DMV denied), then required SQL2022+ DMV grants; EXECUTE AS/REVERT; no production grants",
+  "accuracy": {
+    "repeats": 3,
+    "order_seeded": true,
+    "truth": "set-based insert counts checked against initial/final versioned exact oracle; quiet variation committed delta tracked",
+    "extrema": "programmatic by mechanism with source conditions; signed and absolute errors; empty relative error null",
+    "precision_bound": null,
+    "universal_10pct_claim": false
+  },
+  "service_diagnostic": {
+    "arms": [
+      "baseline",
+      "exact",
+      "metadata"
+    ],
+    "requests_per_arm": 12,
+    "arrival_interval_seconds": 0.5,
+    "workload": "natural autocommit PK UPDATE only",
+    "raw": [
+      "scheduled arrival",
+      "actual start/end",
+      "outcome",
+      "latency from scheduled arrival",
+      "unfinished",
+      "missing",
+      "commit delta",
+      "server termination",
+      "CLI logs"
+    ],
+    "slo": "unavailable regardless of diagnostic completion",
+    "limitations": "one pair, fixed arm order, uncontrolled cache/drift, CLI overhead, no production monitoring/headroom certification"
+  },
+  "excluded": [
+    "default locking RC COUNT on nonversioned DB",
+    "NOLOCK",
+    "READPAST",
+    "TABLOCK",
+    "SERIALIZABLE COUNT",
+    "intentional DDL/lock conflicts",
+    "global cache flush",
+    "production statistics refresh",
+    "production RCSI migration",
+    "external DB connection",
+    "TABLESAMPLE accuracy certification",
+    "RLS tenant exactness from metadata",
+    "memory-optimized/external/temporal/view/shard support certification",
+    "controlled columnstore delete/delta transition experiment"
+  ],
+  "evidence": [
+    "per-run result.json",
+    "foreground runner.log with final exit status",
+    "complete stdout/stderr per command",
+    "actual product/image/id/host arch",
+    "source SHA256 before/after",
+    "raw method failures",
+    "server logical IO/CPU/execution duration separate from client CLI",
+    "uncontrolled cache/order provenance",
+    "separate completion/precision/method budget/service budget/cleanup",
+    "fixed-resource absence checks"
+  ],
+  "acceptance": "owner canonical all, semantic/source/integrity/cleanup audit, then separate-session GPT-6.1 Sol two-role reviews; author syntax alone is not runtime acceptance"
+}

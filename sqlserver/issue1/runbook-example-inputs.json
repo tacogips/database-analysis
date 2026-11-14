@@ -1,0 +1,32 @@
+{
+  "classification": "illustrative_not_measured",
+  "meaning": "Fictional filled runbook inputs only; no recommendations, production observations or authorization.",
+  "independent_copy": {
+    "inventory": "restore-host-A, volume-A/device-A, switch-A/VLAN-A, backup-object-A; no service-shared host, storage controller, device, network uplink or backup work during COUNT; existing owner-approved backup",
+    "verification": "fictional infra owner checks VM parent hierarchy, physical device mapping, network route and backup inventory; export refs infra-A/caps-A",
+    "caps": {"cpu_quota_cores": 2, "memory_GiB": 8, "device_read_MiB_per_s": 40, "device_read_IOPS": 400, "network_Mbit_per_s": 50},
+    "cap_mechanism": "VM cgroup cpu.max/memory.max + io.max on verified backing device incl VM parent; hypervisor vNIC shaper; fictional controlled qualification confirms counters and limits, no blind Docker-hardcap claim",
+    "sources_permissions": "approved app arrivals export; hypervisor/device/vNIC counters via infra-reader; DB monitoring views below via DBA-approved observer; observer and cancellation preflight successful within fiction",
+    "baseline": {"window_min": 30, "ordinary_p99_ms_range": [72, 84], "error_percent_range": [0, 0.1], "service_cpu_percent_range": [22, 35], "device_queue_ms_range": [1, 3]},
+    "monitor": {"sample_s": 1, "aggregate_s": 2, "delivery_s": 1, "decision_s": 1, "cancel_s": 2, "rollback_s": 3, "jitter_s": 2, "total_response_budget_s": 12},
+    "thresholds": {"p99_stop_ms": 90, "p99_slo_ms": 120, "device_queue_stop_ms": 5, "free_space_stop_GiB": 8, "free_space_floor_GiB": 2, "adverse_growth_upper_GiB_per_s": 0.25, "space_headroom_s": 24, "qualification_min_latency_breach_headroom_s": 20},
+    "headroom_evidence": "fictional bounded resource envelope and repeated qualification including alarm/rollback measured >=20s latency headroom; not inferred from 120-90ms; space: (8-2)/0.25=24s; response bound 12s fits both",
+    "recovery": {"observe_s": 120, "continuous_baseline_s": 60, "require": "all owned sessions/transactions/snapshots/read views absent; undo/versions trend within baseline and capacity safe, app arrivals complete; cache/I/O recovered; no async stats work observed in approved monitoring"},
+    "arrivals": {"planned": 100, "completed": 100, "pending": 0, "failed": 0, "observed_p99_ms": 82},
+    "responsible": {"executor": "DBA A (fictional)", "observer_cancel": "SRE B (fictional)", "infra_caps": "Infra C (fictional)", "adoption_owner": "Service D (fictional)"},
+    "decisions": {"experiment_completion": "PASS within fiction", "precision": "PASS isolated snapshot/approved restore point within fiction", "budget": "PASS within fiction", "cleanup": "PASS within fiction", "qualification": "illustrative qualification PASS only", "production_adoption": "PENDING actual owner measurements/approval"}
+  },
+  "dedicated_replica": {
+    "inventory": "replica-host-B CPU/memory dedicated; shared SAN/controller/network uplink with primary; SQL AG primary ghost/PVS/log-reuse and secondary redo are dependencies; MySQL alternative includes source/replica apply/undo",
+    "caps": {"cpu_quota_cores": 2, "memory_GiB": 8, "shared_storage_IO_cap": "unverified", "shared_network_cap": "unverified"},
+    "cap_verification": "CPU/memory VM parent checked; SAN mapping and network shaper evidence absent; shared resources uncontrolled",
+    "sources_permissions": "app export and DB observer authorized; primary space/PVS/ghost/log/data-movement monitoring required but GC recovery envelope unverified; infra SAN counters unavailable",
+    "baseline": {"window_min": 30, "ordinary_p99_ms_range": [72, 84], "error_percent_range": [0, 0.1], "redo_queue_MiB_range": [0, 4]},
+    "monitor": {"sample_s": 1, "aggregate_s": 2, "delivery_s": 1, "decision_s": 1, "cancel_s": 2, "rollback_s": 3, "jitter_s": 2, "total_response_budget_s": 12},
+    "thresholds": {"p99_stop_ms": 90, "p99_slo_ms": 120, "redo_stop_MiB": 8, "headroom_s": "unverified; cannot infer time from p99 margin"},
+    "recovery": {"observe_s": 120, "continuous_baseline_s": 60, "primary_gc_capacity": "unverified; must include primary ghost/PVS/log and data movement recovery"},
+    "arrivals": {"planned": 100, "completed": 98, "pending": 2, "failed": 0, "completed_only_p99_ms": 82},
+    "responsible": {"executor": "DBA E (fictional)", "observer_cancel": "SRE F (fictional)", "infra_caps": "Infra G (fictional)", "adoption_owner": "Service H (fictional)"},
+    "decisions": {"experiment_completion": "INCOMPLETE", "precision": "UNKNOWN while COUNT/arrivals unfinished", "budget": "UNKNOWN not PASS", "cleanup": "UNKNOWN until target/primary recovery observed", "qualification": "HOLD shared caps/headroom/primary GC unverified", "production_adoption": "HOLD even if completed-only p99 looks good"}
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "01-EXP-S8-ENUM-DOMAIN",
+  "ok": true,
+  "seconds": 21,
+  "reused": false,
+  "log": "results/requested/01-EXP-S8-ENUM-DOMAIN.log",
+  "runs": [
+    {
+      "ok": true,
+      "exit_code": 0,
+      "signal": null,
+      "version": "8.4.13",
+      "mysql_image": {
+        "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+        "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+      },
+      "bench_image_id": "sha256:51a1036d8e80f3d7d924cba2991f06defa580556198f8e2506eb5e63f99f93a3",
+      "cleanup": {
+        "container": "lab-matrix-8-4-13",
+        "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+        "ok": true,
+        "container_removed": true,
+        "data_removed": true,
+        "image_disposition": "shared_immutable_cache_retained",
+        "remove_exit_code": 0,
+        "remove_output": "lab-matrix-8-4-13\n",
+        "verify_exit_code": 0,
+        "record": "results/matrix_cleanup/lab-matrix-8-4-13-16036-1794039395-470821663132000.json"
+      }
+    },
+    {
+      "ok": true,
+      "exit_code": 0,
+      "signal": null,
+      "version": "9.7.4",
+      "mysql_image": {
+        "reference": "mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8",
+        "id": "sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8"
+      },
+      "bench_image_id": "sha256:51a1036d8e80f3d7d924cba2991f06defa580556198f8e2506eb5e63f99f93a3",
+      "cleanup": {
+        "container": "lab-matrix-9-7-4",
+        "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4",
+        "ok": true,
+        "container_removed": true,
+        "data_removed": true,
+        "image_disposition": "shared_immutable_cache_retained",
+        "remove_exit_code": 0,
+        "remove_output": "lab-matrix-9-7-4\n",
+        "verify_exit_code": 0,
+        "record": "results/matrix_cleanup/lab-matrix-9-7-4-16036-1794039402-470828547401000.json"
+      }
+    },
+    {
+      "ok": true,
+      "exit_code": 0,
+      "signal": null,
+      "version": "26.10.0",
+      "mysql_image": {
+        "reference": "mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5",
+        "id": "sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5"
+      },
+      "bench_image_id": "sha256:51a1036d8e80f3d7d924cba2991f06defa580556198f8e2506eb5e63f99f93a3",
+      "cleanup": {
+        "container": "lab-matrix-26-10-0",
+        "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0",
+        "ok": true,
+        "container_removed": true,
+        "data_removed": true,
+        "image_disposition": "shared_immutable_cache_retained",
+        "remove_exit_code": 0,
+        "remove_output": "lab-matrix-26-10-0\n",
+        "verify_exit_code": 0,
+        "record": "results/matrix_cleanup/lab-matrix-26-10-0-16036-1794039409-470835496427000.json"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/requested_01-EXP-S8-ENUM-DOMAIN-26.10.0.json",
+      "sha256": "329223e9e3e5f5a91546ed3819239312b063fc9fd4e8e3bb0d40663f33d1fa84",
+      "bytes": 3241
+    },
+    {
+      "path": "results/requested_01-EXP-S8-ENUM-DOMAIN-8.4.13.json",
+      "sha256": "61f5313bae3a8f99d3a4600378002ffacf86800dd71053eeae67aeb2a97ea3a0",
+      "bytes": 3870
+    },
+    {
+      "path": "results/requested_01-EXP-S8-ENUM-DOMAIN-9.7.4.json",
+      "sha256": "693c58de6d5fad2f03955d74d2eddbc5ff46c166b512f8791f06524d59359a9b",
+      "bytes": 3237
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-8-4-13-16036-1794039395-470821663132000.json",
+      "sha256": "ab554d244b89e5d6ea2fb72282b36846ff74fba0eee0209aa5ca0d2d41b3ec7b",
+      "bytes": 434
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-9-7-4-16036-1794039402-470828547401000.json",
+      "sha256": "60dc4f574c2b8474791bb59cd14367ab552e34251fd3a8dd0bf0607b44edda1d",
+      "bytes": 430
+    },
+    {
+      "path": "results/matrix_cleanup/lab-matrix-26-10-0-16036-1794039409-470835496427000.json",
+      "sha256": "49f8e677351237c605cb581be13ca55ab24f273f8c6a1545c984220f70b5221e",
+      "bytes": 438
+    },
+    {
+      "path": "results/requested/01-EXP-S8-ENUM-DOMAIN.log",
+      "sha256": "faa6212c93dbf5d896bc71da0194be27ee2a5a92dfa8acea5ccc95a61b477447",
+      "bytes": 615
+    }
+  ],
+  "missing_outputs": [],
+  "fingerprint": "78e419f27285f105d9dc594f866e98f73cd8b37a527b0f75bea2433c782a77c6",
+  "inputs_changed_during_run": false
+}

@@ -1,0 +1,245 @@
+[
+    {
+        "Id": "4edbcbf8effaddbd9e7791001cc1bcac0e4577af8f0787221a1f2b92bf76e5ca",
+        "Created": "2026-11-07T23:01:05.687518314Z",
+        "Path": "/opt/mssql/bin/launch_sqlservr.sh",
+        "Args": [
+            "/opt/mssql/bin/sqlservr"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1001138,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-07T23:01:05.72380315Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "ResolvConfPath": "/var/lib/docker/containers/4edbcbf8effaddbd9e7791001cc1bcac0e4577af8f0787221a1f2b92bf76e5ca/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/4edbcbf8effaddbd9e7791001cc1bcac0e4577af8f0787221a1f2b92bf76e5ca/hostname",
+        "HostsPath": "/var/lib/docker/containers/4edbcbf8effaddbd9e7791001cc1bcac0e4577af8f0787221a1f2b92bf76e5ca/hosts",
+        "LogPath": "/var/lib/docker/containers/4edbcbf8effaddbd9e7791001cc1bcac0e4577af8f0787221a1f2b92bf76e5ca/4edbcbf8effaddbd9e7791001cc1bcac0e4577af8f0787221a1f2b92bf76e5ca-json.log",
+        "Name": "/lab-sqlserver-count",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "lab-sqlserver-count-data:/var/opt/mssql:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "2",
+                    "max-size": "10m"
+                }
+            },
+            "NetworkMode": "lab-sqlserver-count-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": 512,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "lab-sqlserver-count-data",
+                "Source": "/var/lib/docker/volumes/lab-sqlserver-count-data/_data",
+                "Destination": "/var/opt/mssql",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "lab-sqlserver-count",
+            "Domainname": "",
+            "User": "mssql",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ACCEPT_EULA=Y",
+                "MSSQL_PID=Developer",
+                "MSSQL_SA_PASSWORD=CountLab_Only_2026!",
+                "MSSQL_MEMORY_LIMIT_MB=3072",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "efe6f53e541e86ed50aba438b366e55d7daeb9cc9a055e9870ef3f217e2a7d50",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "sqlserver-count-lab",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver",
+                "com.docker.compose.service": "sqlserver",
+                "com.docker.compose.version": "5.6.1",
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "org.count-lab.scope": "sqlserver-count-only",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            },
+            "StopTimeout": 30
+        },
+        "NetworkSettings": {
+            "SandboxID": "9a13ee841f2fbddaac202eea9d4a6e7424f88a4d31131fe094bdecc7039e4b74",
+            "SandboxKey": "/var/run/docker/netns/9a13ee841f2f",
+            "Ports": {
+                "1433/tcp": null
+            },
+            "Networks": {
+                "lab-sqlserver-count-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-count",
+                        "sqlserver"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "fc6f92c0693e28c7b5225d106cf355c4e31bd9e7077db6d73a05ef94eb5b0bf0",
+                    "EndpointID": "192c2aa78584a665435e138c328c7dc0e6e85ca6d2093225ef33542b5da39040",
+                    "Gateway": "",
+                    "IPAddress": "172.19.0.2",
+                    "MacAddress": "ca:f0:d3:d4:3e:21",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-count",
+                        "sqlserver",
+                        "4edbcbf8effa"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

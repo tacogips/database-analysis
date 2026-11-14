@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-07",
+  "meaning": "Official-source lifecycle/release verification, separate from DB measurements. No benchmark/configuration edit was made while Sol author owns source.",
+  "currentMaintainedLines": [
+    "8.4 LTS",
+    "9.7 LTS",
+    "26.10 Innovation"
+  ],
+  "latestObservedPatches": [
+    {
+      "version": "8.4.13",
+      "releaseDate": "2026-10-20",
+      "source": "https://dev.mysql.com/doc/relnotes/mysql/8.4/en/news-8-4-13.html"
+    },
+    {
+      "version": "9.7.4",
+      "releaseDate": "2026-10-20",
+      "source": "https://dev.mysql.com/doc/relnotes/mysql/9.7/en/news-9-7-4.html"
+    },
+    {
+      "version": "26.10.0",
+      "releaseDate": "2026-10-20",
+      "source": "https://dev.mysql.com/doc/relnotes/mysql/26.10/en/news-26-10-0.html"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://blogs.oracle.com/mysql/mysql-october-2026-ga-releases-now-available",
+      "publicationDate": "2026-10-21",
+      "section": "October MySQL Server releases",
+      "finding": "Oracle announcement identifies26.10 as Innovation and9.7.4/8.4.13 as LTS maintenance releases."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/refman/9.7/en/mysql-releases.html",
+      "section": "MySQL LTS Releases;MySQL Innovation Releases",
+      "finding": "LTS follows the Lifetime Support policy with five Premier and three Extended years; Innovation maintenance lasts until the next Innovation release. Later numbering uses calendar YY.M."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/relnotes/mysql/8.0/en/",
+      "section": "Important",
+      "finding": "8.0.46 is the final8.0 release listed; the release notes explicitly declare8.0 EOL in April2026."
+    },
+    {
+      "url": "https://www.mysql.com/support/eol-notice.html",
+      "section": "April21,2026:MySQL8.0",
+      "finding": "Oracle states8.0 transitioned to Sustaining Support on April21,2026 and recommends migration to8.4 or9.7 LTS."
+    }
+  ],
+  "interpretation": [
+    "The benchmark's latest version points agree with the official release notes as checked. First8.4.0/9.7.0 points are regression comparison points, not advice to deploy old patches.",
+    "For this guideline, supported means current upstream maintained release tracks. Provider-specific legacy extensions, contracts and platform support need separate scope confirmation; this record does not assert their absence.",
+    "Do not decide maintenance eligibility from a generic FAQ or connector compatibility sentence alone. Explicit release and EOL notices are the evidence used here. The26.10 general FAQ still lists8.0 among actively supported lines, so its wording was not used to overturn explicit EOL notes."
+  ],
+  "finalIntegrationTodo": "Add/retain dated official lifecycle/release citations and upstream scope in final documentation when the author/integrator ownership phase permits. Current MATRIX does not need changing solely from this recheck.",
+  "matrixObserved": [
+    "8.4.0",
+    "8.4.13",
+    "9.7.0",
+    "9.7.4",
+    "26.10.0"
+  ]
+}

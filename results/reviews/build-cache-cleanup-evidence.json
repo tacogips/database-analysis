@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-11-07T05:36:53.716737+00:00",
+  "reason": "During version image pulls, Docker VM filesystem fell from3.6GiB through390MiB to reported0available/100%. Host data filesystem still had142GiB. No database failure was inferred solely from this observation.",
+  "scope": "Unused Docker build cache only, builder colima-brotli-verify; system df showed build cache ACTIVE0. No image/container/volume/database deletion and no reset/restart.",
+  "command": [
+    "docker",
+    "buildx",
+    "prune",
+    "--builder",
+    "colima-brotli-verify",
+    "--force"
+  ],
+  "exitCode": 0,
+  "nominalCacheRemoved": "794.6MB",
+  "vmFreeAfter": "304MiB (df reported304M),99%used",
+  "hostFreeAfter": "142GiB",
+  "hostSpaceReclaimed": "Not attributable from available measurements;142GiB after includes intervening image pulls. Nominal cache removal is not host free-space gain.",
+  "log": "results/reviews/build-cache-cleanup.log",
+  "logSha256": "edda56b504647cfc5a3699d753a6bb357f52ebcb48d09cb84f37e40d69449fb2",
+  "approximateWindow": {
+    "startFromNewLogBirthtime": "2026-11-07T05:35:42.768943+00:00",
+    "endFromLastLogWrite": "2026-11-07T05:35:43.026062+00:00",
+    "conservativePaddingSeconds": 2
+  },
+  "activeExperiment": "01a-PROB-WIDE-50 (observed10static arms and0completedservice arms just after cleanup;firstworkload child live).",
+  "performanceEvidenceDisposition": "Maintenance can perturb VM I/O/cache. Owner must compare cleanup window with firstarm raw server/service timestamps, exclude affected performance comparisons and repeat a decisive affected comparison if required. Do not call this run cache controlled. Completion/correct count and maintenance interference are separate.",
+  "remainingRisk": "VMheadroom remains narrow; all five matrix versions have now pulled, matrix/table data are hostbindmounts. Monitor, do not perform broad volume/image pruning.",
+  "additionalCleanup": {
+    "performedWhileDbMeasurementsStopped": true,
+    "command": [
+      "docker",
+      "buildx",
+      "prune",
+      "--builder",
+      "punchflow-release",
+      "--filter",
+      "until=24h",
+      "--force"
+    ],
+    "inspection": "69records allReclaimable=true,lastused2-3days,nominal2.456GB;rawinspectionkept private. No active cached build records selected.",
+    "exitCode": 0,
+    "nominalCacheRemoved": "2.456GB",
+    "log": "results/reviews/build-cache-cleanup-second.log",
+    "logSha256": "d61400f39ac9096bf2ade6e25ce705db1cbe4df1c053344652af8908cf29a173",
+    "approximateStart": "2026-11-07T05:42:09.731316+00:00",
+    "approximateEnd": "2026-11-07T05:42:10.537820+00:00",
+    "vmFreeAfter": "2.6GiB,91%used",
+    "hostFreeAfter": "142GiB",
+    "hostSpaceReclaimed": "Not claimed;VM-internal free space is the relevant observed change.",
+    "preserved": "allimages,containers,volumes,DBdata;buildcachecontentonlyremoved"
+  },
+  "finalCapacityStatus": "2.6GiBVMheadroomconfirmedafterstopped-run cachecleanup. Nextwhiteallmust pre-pull/inspectallpinnedimagesbeforeperformance andfail preflight ifinsufficient;no automatic broad cleanup."
+}

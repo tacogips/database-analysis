@@ -1,0 +1,22 @@
+{
+  "workflowId": "temp-sqlserver-manual100m-validation-sol",
+  "description": "SQL Server Rosetta manual 100M validation",
+  "defaults": {
+    "nodeTimeoutMs": 600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "validation",
+  "nodes": [
+    {
+      "id": "validation",
+      "nodeFile": "nodes/validation.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "validation",
+      "nodeId": "validation",
+      "role": "worker"
+    }
+  ]
+}

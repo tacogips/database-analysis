@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-08",
+  "method": "official documentation, not an experiment",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver17",
+      "observation": "RLS filters rows for all users including dbo; a visible empty result is not evidence of an empty physical table."
+    },
+    {
+      "url": "https://techcommunity.microsoft.com/blog/sqlserver/row-level-security-performance-and-common-patterns/384367/",
+      "observation": "Microsoft documents using CONTEXT_INFO user identity as an RLS predicate input; a job tag cannot assume the slot is unused."
+    }
+  ]
+}

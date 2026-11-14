@@ -1,0 +1,104 @@
+{
+ "id": "58-EXP-O2-3-9.7.0",
+ "answers": [
+  "EXP-O2-3",
+  "FIND-R2-CASCADE-VER-01"
+ ],
+ "started": "2026-11-06T22:18:06",
+ "sections": {
+  "cascade": {
+   "variables": {
+    "enable_cascade_triggers": "OFF",
+    "innodb_native_foreign_keys": "OFF"
+   },
+   "default": {
+    "setup": {},
+    "delete_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "update_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "delete_set_null": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 0
+     },
+     "child_rows": 20
+    }
+   },
+   "writer_session_on": {
+    "setup": {
+     "SET SESSION enable_cascade_triggers=ON": {
+      "ok": true,
+      "ms": 0.04
+     }
+    },
+    "delete_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 10,
+      "upd": 0
+     },
+     "child_rows": 20
+    },
+    "update_cascade": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 10
+     },
+     "child_rows": 20
+    },
+    "delete_set_null": {
+     "ok": true,
+     "errno": null,
+     "warnings": [],
+     "trigger_delta": {
+      "del": 0,
+      "upd": 10
+     },
+     "child_rows": 20
+    }
+   },
+   "counting_session_setting_has_no_effect_check": "cc_log moves only through the writer's statements; the session running this check holds the default setting.",
+   "native_on_attempt": {
+    "ok": false,
+    "ms": 0.05,
+    "errno": 1238,
+    "msg": "(1238, \"Variable 'innodb_native_foreign_keys' is a read only variable\")"
+   },
+   "native_off_attempt": {
+    "ok": false,
+    "ms": 0.04,
+    "errno": 1238,
+    "msg": "(1238, \"Variable 'innodb_native_foreign_keys' is a read only variable\")"
+   },
+   "_seconds": 0.04
+  }
+ },
+ "version": "9.7.0",
+ "elapsed_seconds": 0,
+ "section_errors": []
+}

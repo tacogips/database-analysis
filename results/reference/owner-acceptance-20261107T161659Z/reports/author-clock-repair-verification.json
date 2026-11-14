@@ -1,0 +1,539 @@
+{
+  "meaning": "Author DB-free clock repair verification only. No fresh measurements, service/SLO approval, cleanup audit or final review.",
+  "complete": true,
+  "exitCode": 0,
+  "log": "results/reviews/author-clock-repair-verification.log",
+  "logSha256": "fc99e1d8b9565d257c9b2795f7c8ccf2a606b57055559ddb4f22e1f29516cc3e",
+  "seconds": 6.148,
+  "python": "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+  "pythonBinarySha256": "747ca8797fea0949368e9e39d0f75b1eeadbae6c24edadda792ae22299e47a01",
+  "verificationHelperSha256": "6398c07803fb3d9a41e1a298bee0f1dce88cae305a4dfa6eb536077264bbd409",
+  "checks": [
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "--version"
+      ],
+      "exitCode": 0,
+      "seconds": 0.006
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "--version"
+      ],
+      "exitCode": 0,
+      "seconds": 0.027
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.024
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_clock_domains.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.275
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_nonlocking_scope.py"
+      ],
+      "exitCode": 0,
+      "seconds": 2.047
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_scope_audit.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.131
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_workload_accounting.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.02
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_sampling_contract.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.021
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_dependencies.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.021
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_kill_timer.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.018
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.018
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 0,
+      "seconds": 1.199
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.031
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_reqmix_protocol.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.252
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.125
+    },
+    {
+      "command": [
+        "/Users/taco/.local/share/mise/installs/python/3.13.18/bin/python3",
+        "bench/test_clock_domains.py",
+        "--auditor-stdin"
+      ],
+      "exitCode": 0,
+      "seconds": 0.277
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_nonlocking_runner.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.198
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0,
+      "seconds": 0.054
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.773
+    }
+  ],
+  "pythonSourcesCompiled": 191,
+  "sourceHashes": {
+    "bench/clocklib.py": "53a5ab94570ddfd260e44b5cb8d8696e0e06a646ab5e7c06f764031641550e4a",
+    "bench/lablib.py": "d65295edcdcc8795c94e382ac8c0f38467101e7d507874599d662028131f866e",
+    "bench/reqwide.py": "886ee8aaac7478d7cc692979437ad4cf4386cf79b69ffa30711ec0c8b6522625",
+    "bench/experiments.py": "5d0d42a6f6f8fb4cfaa2c39e0130f38b0ada188ef3f870cbafe3b64c29759ca3",
+    "bench/reqlib.py": "96163c24949bf93b40cea5b3a73e6d63189bf4e98316d4924e7339a735f4c1d7",
+    "bench/reqmix.py": "2103eb689f2738b7213d8c1144692ae49a714da397fcb2b16279e1782422af94",
+    "bench/reqscale.py": "8a50b51389eef9c28e76c23ca023bf2f9aaf68b1d0fc1922640138138e485159",
+    "bench/reqruns.py": "489b5f7d27adaab03685e9ffcaa81244060b89cc7ce08e661e0e8384a7088c25",
+    "bench/lock_factors.py": "c27fc6237b538cc85439b83c61efb001764448c8e7a3dac6355752a5d1b62a76",
+    "bench/matrix_probe.py": "83ee306c345f8a86116cf36bdcf862f2387bc5614405d9accfaae5418b0e42e5",
+    "bench/raw_evidence.py": "937521250d11f4ef17254483b13f03eff5b123a612937d5422ab38b3b810ea64",
+    "bench/requested/00-budget-start.py": "bc1bfc6c0a47437db25c7aca1ffb6598fb6dfa88593fd46cab40d4448a3167c4",
+    "bench/requested/25-EXP-R15.py": "2c900a718115b27628e3b9abd907c7a01e2582c569055d2b32605215352c8ca7",
+    "bench/requested/39a-EXP-O6-NOISE-WINDOWS.py": "37972d34af70ead85f4fb9f88a98b387979c5ad58c4b141392e2f9be1a9b0779",
+    "bench/test_clock_domains.py": "968835bf70bb9161aa01df4bcd0b6e3947eaa551e070349c4d487cd634a88d9d",
+    "bench/test_workload_accounting.py": "c3148cca48608d9827a25c038cd7365a8df37bb2ba5b282331c78dd4472a53c2",
+    "bench/test_wide_outcomes.py": "2585811410bded7139ef7bc8fd440809d66f55300be813c650df360044863cb1",
+    "bench/test_reqmix_protocol.py": "2184f397eed5185de003bcda8e572c093167d58971e2a9a76d76307cf917bce6",
+    "bench/test_protocol_integrity.py": "18ebf7e96ef9b45846c894828f3b0cf7315d9bab035e4e86d02fba4f868f1b0a",
+    "bench/test_scope_audit.py": "a2d1e4350337d66e52fa1b143257d8dd127da969f51aaaab8d38f29d54117602",
+    "bench/test_raw_evidence.py": "e55358d055e6007a8288efa0efea41a28ae63a207a8168a283d0fec89e442e7f",
+    "audit/audit-arrival-windows.py": "8d74529c68cce2181f662c0a5748c56d267bc80591e26d7bf4d58ce74ce937b9",
+    "audit/audit-extra-evidence.py": "986ecd42e6f5a1b5d6b903fa5f90f303e29ea58d4b864300da45caaee0564e00",
+    "audit/audit-final-results.py": "1bff3ce1fc561a9d6d0056e08311db5bd7b8ff128f4011b6b36d1109d6616180",
+    "audit/audit-write-mix.py": "5bae196812b36b0bd99176228d6fe3d13b1b00d5e3cfd20a3d0df05457a22d1c",
+    "audit/README.md": "86db1fa385eafba36a99d1635cca0fdb9e2c0d7d17fc12771cd62fc0813d3eda",
+    "README.md": "89403f90eb78af119215f6362484e327d73284b2f76ba8c33b991cee11c76337",
+    "lab.rb": "55682469749f07f56979271e3577bdd98707b219355fef36d72730643064aae8"
+  },
+  "sourceUnchangedDuringVerification": true,
+  "existingEvidenceFilesUnchanged": 3511,
+  "selectedScope": {
+    "revision": 24,
+    "sha256": "fc448f35097bd89e8ca56a2a16a71f6a21ab1e024f31483b277e5bb149d5004c",
+    "requestedScripts": 7,
+    "requestedProcesses": 9,
+    "impacts": 9,
+    "shapes": 58,
+    "plainCases": 12,
+    "matrix": 5
+  },
+  "legacyRejections": [
+    {
+      "file": "results/requested_accuracy_service_100.json",
+      "arm": 9,
+      "begin": 1794060012.173914,
+      "end": 1794060010.2734525,
+      "problems": 24,
+      "clockProvenance": "legacy_unsupported",
+      "accepted": false
+    },
+    {
+      "file": "results/requested_probability_wide_50.json",
+      "arm": 13,
+      "begin": 1794058891.5610619,
+      "end": 1794058890.4167397,
+      "problems": 24,
+      "clockProvenance": "legacy_unsupported",
+      "accepted": false
+    }
+  ],
+  "clockDesign": {
+    "coordinate": "Untranslated system-wide time.monotonic seconds",
+    "identity": "Per-run lineage plus system identity; Linux boot_id and time namespace; child adopts parent identity",
+    "wallClock": "Start/end bracket anchors only; never used for windows, arrival translation, elapsed or pacing",
+    "raw": "11-column arrival-tuple-v2 with unchanged six-column prefix order; saved worker schedules and censoring/completion coordinates; explicit window boundaries; server start/end coordinates",
+    "legacy": "Preserved unchanged, unsupported provenance fails public window auditing"
+  },
+  "regression": {
+    "observations": [
+      {
+        "role": "count",
+        "wall_jump_seconds": 0,
+        "wall_method_begin": 1794060105.0,
+        "wall_method_end": 1794060105.25,
+        "actual_begin": 105.0,
+        "actual_end": 105.25,
+        "arrivals": 152,
+        "states": {
+          "ok": 1,
+          "queued": 151
+        },
+        "server_samples": 16,
+        "public_audit_problems": 0,
+        "rejected_mutations": [
+          "inverted_method",
+          "missing_method",
+          "unsupported_clock",
+          "unsupported_system",
+          "missing_clock",
+          "foreign_window",
+          "inverted_broad",
+          "empty_broad",
+          "foreign_actual_boundary",
+          "missing_broad",
+          "foreign_arrival",
+          "foreign_server",
+          "inverted_server",
+          "shifted_arrival",
+          "duplicate_arrival",
+          "missing_server_end",
+          "dropped_arrival",
+          "dropped_trial",
+          "missing_schedule",
+          "legacy_tuple",
+          "dropped_arrival_with_rewritten_accounting"
+        ]
+      },
+      {
+        "role": "count",
+        "wall_jump_seconds": -3600,
+        "wall_method_begin": 1794060105.0,
+        "wall_method_end": 1794056505.25,
+        "actual_begin": 105.0,
+        "actual_end": 105.25,
+        "arrivals": 152,
+        "states": {
+          "ok": 1,
+          "queued": 151
+        },
+        "server_samples": 16,
+        "public_audit_problems": 0,
+        "rejected_mutations": [
+          "inverted_method",
+          "missing_method",
+          "unsupported_clock",
+          "unsupported_system",
+          "missing_clock",
+          "foreign_window",
+          "inverted_broad",
+          "empty_broad",
+          "foreign_actual_boundary",
+          "missing_broad",
+          "foreign_arrival",
+          "foreign_server",
+          "inverted_server",
+          "shifted_arrival",
+          "duplicate_arrival",
+          "missing_server_end",
+          "dropped_arrival",
+          "dropped_trial",
+          "missing_schedule",
+          "legacy_tuple",
+          "dropped_arrival_with_rewritten_accounting"
+        ]
+      },
+      {
+        "role": "count",
+        "wall_jump_seconds": 3600,
+        "wall_method_begin": 1794060105.0,
+        "wall_method_end": 1794063705.25,
+        "actual_begin": 105.0,
+        "actual_end": 105.25,
+        "arrivals": 152,
+        "states": {
+          "ok": 1,
+          "queued": 151
+        },
+        "server_samples": 16,
+        "public_audit_problems": 0,
+        "rejected_mutations": [
+          "inverted_method",
+          "missing_method",
+          "unsupported_clock",
+          "unsupported_system",
+          "missing_clock",
+          "foreign_window",
+          "inverted_broad",
+          "empty_broad",
+          "foreign_actual_boundary",
+          "missing_broad",
+          "foreign_arrival",
+          "foreign_server",
+          "inverted_server",
+          "shifted_arrival",
+          "duplicate_arrival",
+          "missing_server_end",
+          "dropped_arrival",
+          "dropped_trial",
+          "missing_schedule",
+          "legacy_tuple",
+          "dropped_arrival_with_rewritten_accounting"
+        ]
+      },
+      {
+        "role": "sample",
+        "wall_jump_seconds": 0,
+        "wall_method_begin": 1794060105.0,
+        "wall_method_end": 1794060105.25,
+        "actual_begin": 105.0,
+        "actual_end": 105.25,
+        "arrivals": 152,
+        "states": {
+          "ok": 1,
+          "queued": 151
+        },
+        "server_samples": 16,
+        "public_audit_problems": 0,
+        "rejected_mutations": [
+          "inverted_method",
+          "missing_method",
+          "unsupported_clock",
+          "unsupported_system",
+          "missing_clock",
+          "foreign_window",
+          "inverted_broad",
+          "empty_broad",
+          "foreign_actual_boundary",
+          "missing_broad",
+          "foreign_arrival",
+          "foreign_server",
+          "inverted_server",
+          "shifted_arrival",
+          "duplicate_arrival",
+          "missing_server_end",
+          "dropped_arrival",
+          "dropped_trial",
+          "missing_schedule",
+          "legacy_tuple",
+          "dropped_arrival_with_rewritten_accounting"
+        ]
+      },
+      {
+        "role": "sample",
+        "wall_jump_seconds": -3600,
+        "wall_method_begin": 1794060105.0,
+        "wall_method_end": 1794056505.25,
+        "actual_begin": 105.0,
+        "actual_end": 105.25,
+        "arrivals": 152,
+        "states": {
+          "ok": 1,
+          "queued": 151
+        },
+        "server_samples": 16,
+        "public_audit_problems": 0,
+        "rejected_mutations": [
+          "inverted_method",
+          "missing_method",
+          "unsupported_clock",
+          "unsupported_system",
+          "missing_clock",
+          "foreign_window",
+          "inverted_broad",
+          "empty_broad",
+          "foreign_actual_boundary",
+          "missing_broad",
+          "foreign_arrival",
+          "foreign_server",
+          "inverted_server",
+          "shifted_arrival",
+          "duplicate_arrival",
+          "missing_server_end",
+          "dropped_arrival",
+          "dropped_trial",
+          "missing_schedule",
+          "legacy_tuple",
+          "dropped_arrival_with_rewritten_accounting"
+        ]
+      },
+      {
+        "role": "sample",
+        "wall_jump_seconds": 3600,
+        "wall_method_begin": 1794060105.0,
+        "wall_method_end": 1794063705.25,
+        "actual_begin": 105.0,
+        "actual_end": 105.25,
+        "arrivals": 152,
+        "states": {
+          "ok": 1,
+          "queued": 151
+        },
+        "server_samples": 16,
+        "public_audit_problems": 0,
+        "rejected_mutations": [
+          "inverted_method",
+          "missing_method",
+          "unsupported_clock",
+          "unsupported_system",
+          "missing_clock",
+          "foreign_window",
+          "inverted_broad",
+          "empty_broad",
+          "foreign_actual_boundary",
+          "missing_broad",
+          "foreign_arrival",
+          "foreign_server",
+          "inverted_server",
+          "shifted_arrival",
+          "duplicate_arrival",
+          "missing_server_end",
+          "dropped_arrival",
+          "dropped_trial",
+          "missing_schedule",
+          "legacy_tuple",
+          "dropped_arrival_with_rewritten_accounting"
+        ]
+      }
+    ],
+    "processCoordinate": {
+      "exit_code": 0,
+      "begin": 434743.408760541,
+      "child_origin": 434743.45083725,
+      "child_cutoff": 434743.517339791,
+      "end": 434743.533060916,
+      "domain_id": "f964f925df0446b1b87d03e1e6585660",
+      "arrivals": 14,
+      "server_samples": 1
+    },
+    "inflight": {
+      "inflight": 1,
+      "queued": 5,
+      "censoring_enforced": true,
+      "unresolved_registry_not_cleanup_success": true
+    },
+    "optionalCallers": [
+      {
+        "caller": "reqmix",
+        "wall_jump": -3600,
+        "begin": 100.0,
+        "end": 100.25,
+        "seconds": 0.25
+      },
+      {
+        "caller": "reqmix",
+        "wall_jump": 3600,
+        "begin": 100.0,
+        "end": 100.25,
+        "seconds": 0.25
+      },
+      {
+        "caller": "reqscale",
+        "wall_jump": -3600,
+        "begin": 100.0,
+        "end": 100.25,
+        "seconds": 0.25
+      },
+      {
+        "caller": "reqscale",
+        "wall_jump": 3600,
+        "begin": 100.0,
+        "end": 100.25,
+        "seconds": 0.25
+      }
+    ],
+    "publicAuditorSha256": "8d74529c68cce2181f662c0a5748c56d267bc80591e26d7bf4d58ce74ce937b9"
+  },
+  "remainingLimitations": [
+    "OS/VM cause of original wall-clock regression remains unknown.",
+    "Fresh narrowed fixed white-all and owner semantic/source/cleanup audit plus two separate final Sol reviews are still required.",
+    "Synthetic fake-SQL tests and a local clock-only child do not establish production performance, confidence coverage, resource budgets or server cancellation success.",
+    "Monotonic coordinates are comparable only within the saved domain/system; wall anchors cannot reconstruct or repair legacy intervals.",
+    "Sampler windows select by observation start; server queries may span a window boundary; service cohorts retain eventual completion or collection-end censoring semantics."
+  ],
+  "exploratoryFailuresResolved": [
+    "Updated existing fake Workload/Sampler and extracted-function harnesses for explicit clock payload/manifest metadata; an initial missing fake Load.clock failure was fixed."
+  ]
+}

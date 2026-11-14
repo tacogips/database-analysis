@@ -1,0 +1,978 @@
+{
+  "meaning": "Derived from immutable measured outputs; medians are descriptive, not causal or SLO proof. Decimal MB=1000000 bytes.",
+  "inputs": {
+    "results/reference/review-20261107T100132Z-16034/results/requested_accuracy_cost_frontier.json": "5df51a45ca711dadd6a254103304feb9033f57f92200a37e7abd9c28de84e765",
+    "results/reference/review-20261107T100132Z-16034/results/requested_accuracy_service_100.json": "08160a68cb67a10a69447eac715165ba68597a5f0db04ecfe33719be5c8460b0",
+    "results/reference/review-20261107T100132Z-16034/results/requested_probability_wide_50.json": "a67b685ce4715b193c76a9943a84ac2c0d11e1c27044cbb27a77ede766ecab17",
+    "results/reference/review-20261107T100132Z-16034/results/requested_probability_wide_100.json": "3ed77a003010559e388d5ab50e2e507dfbed34e0065939d1ffd3109a7c90d308"
+  },
+  "static": [
+    {
+      "fixture": "dense",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        512
+      ],
+      "medianSeconds": 0.0432,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "dense",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        320
+      ],
+      "medianSeconds": 0.028,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0074,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "dense",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        160
+      ],
+      "medianSeconds": 0.0154,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0074,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "gaps",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "precision_not_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 0.6317,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0074,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 12.304247265625,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -2.842
+    },
+    {
+      "fixture": "gaps",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "precision_not_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 0.6193,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0074,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 12.304247265625,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -2.842
+    },
+    {
+      "fixture": "gaps",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "precision_not_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 0.6252,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 12.304247265625,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -2.842
+    },
+    {
+      "fixture": "islands",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "precision_not_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 0.6216,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 100.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "islands",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "precision_not_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 0.6331,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 100.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "islands",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "precision_not_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 0.629,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 100.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "negative",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        512
+      ],
+      "medianSeconds": 0.0456,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "negative",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        320
+      ],
+      "medianSeconds": 0.0261,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "negative",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        160
+      ],
+      "medianSeconds": 0.0163,
+      "medianReadBytes": 0,
+      "medianExactSeconds": 0.0073,
+      "medianExactReadBytes": 0,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -0.3304
+    },
+    {
+      "fixture": "wide",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        512
+      ],
+      "medianSeconds": 0.2463,
+      "medianReadBytes": 121929728,
+      "medianExactSeconds": 7.8526,
+      "medianExactReadBytes": 3350872064,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.1319
+    },
+    {
+      "fixture": "wide",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        320
+      ],
+      "medianSeconds": 0.2044,
+      "medianReadBytes": 77774848,
+      "medianExactSeconds": 7.8704,
+      "medianExactReadBytes": 3342467072,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.1319
+    },
+    {
+      "fixture": "wide",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        160
+      ],
+      "medianSeconds": 0.0821,
+      "medianReadBytes": 39108608,
+      "medianExactSeconds": 7.837,
+      "medianExactReadBytes": 3342467072,
+      "maxRealizedAbsErrorPercent": 0.0,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.1319
+    },
+    {
+      "fixture": "moderate_gaps",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        2048
+      ],
+      "medianSeconds": 0.9932,
+      "medianReadBytes": 387153920,
+      "medianExactSeconds": 6.1532,
+      "medianExactReadBytes": 2655502336,
+      "maxRealizedAbsErrorPercent": 0.12251153086466564,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.132797728024613
+    },
+    {
+      "fixture": "moderate_gaps",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        1280
+      ],
+      "medianSeconds": 0.6764,
+      "medianReadBytes": 243154944,
+      "medianExactSeconds": 6.2231,
+      "medianExactReadBytes": 2640429056,
+      "maxRealizedAbsErrorPercent": 0.12830980789374782,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.132797728024613
+    },
+    {
+      "fixture": "moderate_gaps",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        640
+      ],
+      "medianSeconds": 0.3201,
+      "medianReadBytes": 120782848,
+      "medianExactSeconds": 6.2131,
+      "medianExactReadBytes": 2640412672,
+      "maxRealizedAbsErrorPercent": 0.12098566848859138,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.132797728024613
+    },
+    {
+      "fixture": "uneven_density",
+      "target": 0.03,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        8192
+      ],
+      "medianSeconds": 3.7578,
+      "medianReadBytes": 1429438464,
+      "medianExactSeconds": 5.7427,
+      "medianExactReadBytes": 2473115648,
+      "maxRealizedAbsErrorPercent": 0.82470703125,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.1332
+    },
+    {
+      "fixture": "uneven_density",
+      "target": 0.05,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        5120
+      ],
+      "medianSeconds": 2.2312,
+      "medianReadBytes": 889274368,
+      "medianExactSeconds": 5.7805,
+      "medianExactReadBytes": 2465415168,
+      "maxRealizedAbsErrorPercent": 0.73125,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.1332
+    },
+    {
+      "fixture": "uneven_density",
+      "target": 0.1,
+      "n": 5,
+      "statuses": {
+        "target_reached": 5
+      },
+      "draws": [
+        640
+      ],
+      "medianSeconds": 0.3077,
+      "medianReadBytes": 112640000,
+      "medianExactSeconds": 5.8202,
+      "medianExactReadBytes": 2465349632,
+      "maxRealizedAbsErrorPercent": 1.1541666666666666,
+      "allIntervalsCoverTruth": true,
+      "metadataSignedErrorPercent": -7.1332
+    }
+  ],
+  "service": [
+    {
+      "secondaryIndex": false,
+      "writeMix": "nonindexed",
+      "method": "control",
+      "n": 3,
+      "statuses": {
+        "control": 3
+      },
+      "methodSeconds": [
+        null,
+        null,
+        null
+      ],
+      "medianTrialReadBytes": 2801664,
+      "trialWriteP99Ms": [
+        12.09,
+        5.59,
+        6.12
+      ],
+      "actualMethodWriteP99Ms": [
+        null,
+        null,
+        null
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "nonindexed",
+      "method": "count",
+      "n": 3,
+      "statuses": {
+        "error": 3
+      },
+      "methodSeconds": [
+        1.0011,
+        1.0007,
+        1.0016
+      ],
+      "medianTrialReadBytes": 594821120,
+      "trialWriteP99Ms": [
+        7.57,
+        7.35,
+        5.46
+      ],
+      "actualMethodWriteP99Ms": [
+        2.67,
+        3.22,
+        2.66
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "nonindexed",
+      "method": "sample3",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.7764,
+        0.797,
+        0.8093
+      ],
+      "medianTrialReadBytes": 422051840,
+      "trialWriteP99Ms": [
+        4.95,
+        4.89,
+        5.77
+      ],
+      "actualMethodWriteP99Ms": [
+        4.35,
+        2.96,
+        2.88
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "nonindexed",
+      "method": "sample10",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.3975,
+        0.7866,
+        0.2467
+      ],
+      "medianTrialReadBytes": 130416640,
+      "trialWriteP99Ms": [
+        28.9,
+        37.51,
+        24.29
+      ],
+      "actualMethodWriteP99Ms": [
+        19.31,
+        50.17,
+        2.56
+      ],
+      "unstarted": 2,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "indexed",
+      "method": "control",
+      "n": 3,
+      "statuses": {
+        "control": 3
+      },
+      "methodSeconds": [
+        null,
+        null,
+        null
+      ],
+      "medianTrialReadBytes": 1163264,
+      "trialWriteP99Ms": [
+        25.01,
+        7.24,
+        5.47
+      ],
+      "actualMethodWriteP99Ms": [
+        null,
+        null,
+        null
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "indexed",
+      "method": "count",
+      "n": 3,
+      "statuses": {
+        "error": 3
+      },
+      "methodSeconds": [
+        1.0018,
+        1.0009,
+        1.0018
+      ],
+      "medianTrialReadBytes": 568541184,
+      "trialWriteP99Ms": [
+        5.64,
+        7.13,
+        5.65
+      ],
+      "actualMethodWriteP99Ms": [
+        4.33,
+        13.75,
+        3.47
+      ],
+      "unstarted": 2,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "indexed",
+      "method": "sample3",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.7693,
+        0.7912,
+        0.7636
+      ],
+      "medianTrialReadBytes": 401162240,
+      "trialWriteP99Ms": [
+        20.15,
+        5.77,
+        6.56
+      ],
+      "actualMethodWriteP99Ms": [
+        2.73,
+        2.91,
+        2.7
+      ],
+      "unstarted": 1,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": false,
+      "writeMix": "indexed",
+      "method": "sample10",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.2689,
+        0.2596,
+        0.2531
+      ],
+      "medianTrialReadBytes": 121700352,
+      "trialWriteP99Ms": [
+        32.57,
+        23.07,
+        29.43
+      ],
+      "actualMethodWriteP99Ms": [
+        2.66,
+        4.16,
+        2.46
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "nonindexed",
+      "method": "control",
+      "n": 3,
+      "statuses": {
+        "control": 3
+      },
+      "methodSeconds": [
+        null,
+        null,
+        null
+      ],
+      "medianTrialReadBytes": 344064,
+      "trialWriteP99Ms": [
+        5.53,
+        29.15,
+        80.53
+      ],
+      "actualMethodWriteP99Ms": [
+        null,
+        null,
+        null
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "nonindexed",
+      "method": "count",
+      "n": 3,
+      "statuses": {
+        "complete": 3
+      },
+      "methodSeconds": [
+        0.1207,
+        0.0851,
+        0.0712
+      ],
+      "medianTrialReadBytes": 16564224,
+      "trialWriteP99Ms": [
+        18.76,
+        30.45,
+        6.22
+      ],
+      "actualMethodWriteP99Ms": [
+        3.87,
+        3.7,
+        1.82
+      ],
+      "unstarted": 2,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "nonindexed",
+      "method": "sample3",
+      "n": 3,
+      "statuses": {
+        "budget_exhausted": 1,
+        "target_reached": 2
+      },
+      "methodSeconds": [
+        1.001,
+        0.8291,
+        0.8197
+      ],
+      "medianTrialReadBytes": 396263424,
+      "trialWriteP99Ms": [
+        3.58,
+        4.32,
+        4.52
+      ],
+      "actualMethodWriteP99Ms": [
+        3.17,
+        2.66,
+        2.69
+      ],
+      "unstarted": 1,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "nonindexed",
+      "method": "sample10",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.328,
+        0.259,
+        0.2771
+      ],
+      "medianTrialReadBytes": 119963648,
+      "trialWriteP99Ms": [
+        5.99,
+        4.61,
+        4.74
+      ],
+      "actualMethodWriteP99Ms": [
+        3.99,
+        2.47,
+        2.51
+      ],
+      "unstarted": 0,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "indexed",
+      "method": "control",
+      "n": 3,
+      "statuses": {
+        "control": 3
+      },
+      "methodSeconds": [
+        null,
+        null,
+        null
+      ],
+      "medianTrialReadBytes": 524288,
+      "trialWriteP99Ms": [
+        18.2,
+        27.27,
+        15.13
+      ],
+      "actualMethodWriteP99Ms": [
+        null,
+        null,
+        null
+      ],
+      "unstarted": 1,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "indexed",
+      "method": "count",
+      "n": 3,
+      "statuses": {
+        "error": 3
+      },
+      "methodSeconds": [
+        1.0005,
+        1.0004,
+        1.0004
+      ],
+      "medianTrialReadBytes": 123600896,
+      "trialWriteP99Ms": [
+        32.22,
+        23.99,
+        13.97
+      ],
+      "actualMethodWriteP99Ms": [
+        35.88,
+        26.71,
+        14.69
+      ],
+      "unstarted": 1,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "indexed",
+      "method": "sample3",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.8805,
+        0.7933,
+        0.7762
+      ],
+      "medianTrialReadBytes": 404013056,
+      "trialWriteP99Ms": [
+        8.72,
+        9.6,
+        6.99
+      ],
+      "actualMethodWriteP99Ms": [
+        5.85,
+        2.97,
+        6.99
+      ],
+      "unstarted": 1,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    },
+    {
+      "secondaryIndex": true,
+      "writeMix": "indexed",
+      "method": "sample10",
+      "n": 3,
+      "statuses": {
+        "target_reached": 3
+      },
+      "methodSeconds": [
+        0.2516,
+        0.2371,
+        0.2865
+      ],
+      "medianTrialReadBytes": 121405440,
+      "trialWriteP99Ms": [
+        8.86,
+        8.08,
+        6.99
+      ],
+      "actualMethodWriteP99Ms": [
+        4.79,
+        2.89,
+        4.15
+      ],
+      "unstarted": 1,
+      "allCleanupConfirmed": true,
+      "allAccountingConsistent": true
+    }
+  ],
+  "wide": [
+    {
+      "columns": 50,
+      "secondaryIndex": false,
+      "method": "count",
+      "n": 5,
+      "secondsRange": [
+        2.9428,
+        4.3598
+      ],
+      "readBytesRange": [
+        1306656768,
+        1366032384
+      ],
+      "statuses": {
+        "exact": 5
+      }
+    },
+    {
+      "columns": 50,
+      "secondaryIndex": false,
+      "method": "sample",
+      "n": 5,
+      "secondsRange": [
+        0.3331,
+        0.4542
+      ],
+      "readBytesRange": [
+        180338688,
+        185024512
+      ],
+      "statuses": {
+        "target_reached": 5
+      }
+    },
+    {
+      "columns": 50,
+      "secondaryIndex": true,
+      "method": "count",
+      "n": 5,
+      "secondsRange": [
+        0.0454,
+        0.0485
+      ],
+      "readBytesRange": [
+        12353536,
+        15515648
+      ],
+      "statuses": {
+        "exact": 5
+      }
+    },
+    {
+      "columns": 50,
+      "secondaryIndex": true,
+      "method": "sample",
+      "n": 5,
+      "secondsRange": [
+        0.3027,
+        0.4124
+      ],
+      "readBytesRange": [
+        159367168,
+        169623552
+      ],
+      "statuses": {
+        "target_reached": 5
+      }
+    },
+    {
+      "columns": 100,
+      "secondaryIndex": false,
+      "method": "count",
+      "n": 5,
+      "secondsRange": [
+        6.9124,
+        7.8798
+      ],
+      "readBytesRange": [
+        3010805760,
+        3073228800
+      ],
+      "statuses": {
+        "exact": 5
+      }
+    },
+    {
+      "columns": 100,
+      "secondaryIndex": false,
+      "method": "sample",
+      "n": 5,
+      "secondsRange": [
+        0.6473,
+        0.9063
+      ],
+      "readBytesRange": [
+        418480128,
+        428441600
+      ],
+      "statuses": {
+        "target_reached": 5
+      }
+    },
+    {
+      "columns": 100,
+      "secondaryIndex": true,
+      "method": "count",
+      "n": 5,
+      "secondsRange": [
+        0.0615,
+        0.0677
+      ],
+      "readBytesRange": [
+        15499264,
+        15499264
+      ],
+      "statuses": {
+        "exact": 5
+      }
+    },
+    {
+      "columns": 100,
+      "secondaryIndex": true,
+      "method": "sample",
+      "n": 5,
+      "secondsRange": [
+        0.8732,
+        0.9818
+      ],
+      "readBytesRange": [
+        406552576,
+        413286400
+      ],
+      "statuses": {
+        "target_reached": 5
+      }
+    }
+  ]
+}

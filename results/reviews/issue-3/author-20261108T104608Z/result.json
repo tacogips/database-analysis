@@ -1,0 +1,32 @@
+{
+  "files": [
+    "README.md",
+    "docs/README.md",
+    "docs/guidelines/mysql.md",
+    "docs/guidelines/sql-server.md",
+    "docs/guidelines/operations-runbook.md",
+    "sqlserver/issue3/"
+  ],
+  "pending": [
+    "Owner fixed all and semantic/source/cleanup audit",
+    "Two independent final Sol reviews",
+    "Issue3 aggregate acceptance"
+  ],
+  "readyCommand": "mise -C sqlserver/issue3 run all",
+  "status": "implemented_ready_for_owner_verification",
+  "unresolvedIssues": [],
+  "verification": {
+    "completeLog": "sqlserver/issue3/author-verification.log",
+    "evidence": "sqlserver/issue3/author-verification.json",
+    "exitStatus": 0,
+    "logSha256": "efecfeb46bac2d1e0d918dc1001d414ef3df9f4928a331b7f62346cf848fb17e",
+    "notRun": [
+      "Docker",
+      "DB",
+      "C# build",
+      "measurements"
+    ],
+    "protectedFilesUnchanged": 10885,
+    "status": "passed_offline_only"
+  }
+}

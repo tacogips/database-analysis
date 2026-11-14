@@ -1,0 +1,14 @@
+{
+  "id": "workflow-output",
+  "description": "Report the accepted guideline revision and remaining risks without editing it.",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "medium",
+  "agentSandbox": "read-only",
+  "sessionPolicy": {
+    "mode": "new"
+  },
+  "variables": {},
+  "promptTemplateFile": "prompts/workflow-output.md"
+}

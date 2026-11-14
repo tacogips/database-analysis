@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-11-08T10:01:26.936734+00:00",
+  "documents": {
+    "README.md": "14130ad352ab27373d6e4cddd3a4b419dbf04f4387b5a0cdbf009fccc3ba9c27",
+    "docs/README.md": "5bc2a1ce121bfe34e1b562d3cef5b340e5424286ca3011fe21aef8bd91762434",
+    "docs/guidelines/mysql.md": "8e1a49826c92b8f77d254bda1415c8dcca49ec9afb1f45e1d360595e05734bdd",
+    "docs/guidelines/sql-server.md": "64aea4b927d552fb724a4f4ddb009f27388fcd54dae3b0be62ed36c512db97b0",
+    "docs/guidelines/operations-runbook.md": "5c31092659a94f21b0be4af6abc519712f7579ddc35b7f357f6186f1cc53612c"
+  },
+  "protectedFileCount": 10817,
+  "ownerProofSha256": "35060045e4bda2e40d9624a0f35c2a422189939b75810ea26ad32ba92064bd93",
+  "issueSha256": "656c451c48d80e3d84eb27a132748ecd05a0c6bf9dc1525d3a9a9d5c143fce4f",
+  "reviews": {
+    "engineer": {
+      "sessionId": "temp-issue2-engineer-sol-session-47",
+      "launchSha256": "3a3388ffbb1cacdb668a947e0bf2bae9206b13cd76279e92ce4db75c893861f8",
+      "resultSha256": "ab5b18a130f895c9121efb3af8ce0f6a77c58be0a5cc1118747d38b8f7e4c9ac",
+      "manifest": "results/reviews/issue-2/engineer-20261108T095153Z/manifest.json",
+      "manifestSha256": "17c7119ca8b883e18f995be3fe0e800c3d28e06d1d9abfea61a3e533a594dbfd"
+    },
+    "validation": {
+      "sessionId": "temp-issue2-validation-sol-session-48",
+      "launchSha256": "f4e648de666a309a1eed711f815f89eaffba704168dfb85109b0bf37862e1c9f",
+      "resultSha256": "c80040f9972779540d68247fe537a0286342589b40ff30e38cdb9b2c0c4c57fe",
+      "manifest": "results/reviews/issue-2/validation-20261108T095601Z/manifest.json",
+      "manifestSha256": "6ddabeebd426807656e92285bb8fe72afbae1023f81e6a03163261adaa0fce7a"
+    }
+  },
+  "authorSession": "temp-issue2-author-sol-session-46",
+  "items": {
+    "1": "Root entry explicitly separates current five documents and new receipt from frozen historical lab guides/acceptance. Link graph verifies <=2 clicks.",
+    "2": "Owner reads replica data equivalence gate separately from freshness: source/channel/table generation, filters/history, complete seed/reseed provenance, skip/empty GTID/repair/local writes; unknown means this-copy-only and original exact request HOLD, without automatic production checksums.",
+    "3": "Owner reads topology/role/routing epoch and currency source, role invalidation cancellation/recovery/requalification, fresh gate per backend/session, HA stop coordination with safe failover priority, and independent restore fallback; no poll-only race-free claim."
+  },
+  "navigation": {
+    "docs/README.md": 1,
+    "docs/guidelines/mysql.md": 1,
+    "docs/guidelines/sql-server.md": 1,
+    "docs/guidelines/operations-runbook.md": 1,
+    "results/reviews/issue-2/acceptance.json": 1
+  },
+  "scripts": {
+    ".riela/workflows/issue-2-remediation/scripts/run.py": "3e27a3b947e972a2d570d1ed52da062deff8c67a7cbba466da11f69f288e1644",
+    ".riela/workflows/issue-2-remediation/scripts/audit.py": "ab2447e955774deda55556dc5273503e5af42cd002a26d5879f66f66048d91a5",
+    ".riela/workflows/issue-2-remediation/scripts/finalize.py": "68b9c1cf092dd2cc49f70e7fc520236394a7dc1905344a28666b3aad9b7b7740"
+  },
+  "scope": "Only navigation and operator eligibility documentation changed. Existing all/runtime evidence remains historical; no benchmark rerun warranted by these source-unchanged, non-measurement changes. HA/lineage operational evidence is required from each service owner; missing => HOLD.",
+  "notExecuted": [
+    "DB/Docker/bench",
+    "replication filter/drift experiment",
+    "HA promotion/network failure experiment"
+  ]
+}

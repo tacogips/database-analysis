@@ -1,0 +1,456 @@
+{
+  "protocol": "partitioned-v3",
+  "requiredScripts": [
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-splits-b2",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-statements-b1",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "statements",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-statements-b2",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "statements",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": false
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-splits-b2",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-statements-b1",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "statements",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-statements-b2",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "statements",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": false
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100",
+      "mix": "uniform_insert_delete",
+      "rate": 100,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-splits-b2",
+      "mix": "uniform_insert_delete",
+      "rate": 100,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-statements-b1",
+      "mix": "uniform_insert_delete",
+      "rate": 100,
+      "group": "statements",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-statements-b2",
+      "mix": "uniform_insert_delete",
+      "rate": 100,
+      "group": "statements",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1",
+      "mix": "uniform_insert_delete",
+      "rate": 100,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": false
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-splits-b2",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-statements-b1",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "statements",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-statements-b2",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "statements",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-auxiliary-b1",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": false
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100",
+      "mix": "monotonic_insert_delete",
+      "rate": 100,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-splits-b2",
+      "mix": "monotonic_insert_delete",
+      "rate": 100,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-statements-b1",
+      "mix": "monotonic_insert_delete",
+      "rate": 100,
+      "group": "statements",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-statements-b2",
+      "mix": "monotonic_insert_delete",
+      "rate": 100,
+      "group": "statements",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-auxiliary-b1",
+      "mix": "monotonic_insert_delete",
+      "rate": 100,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": false
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800",
+      "mix": "monotonic_insert_delete",
+      "rate": 800,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-splits-b2",
+      "mix": "monotonic_insert_delete",
+      "rate": 800,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b1",
+      "mix": "monotonic_insert_delete",
+      "rate": 800,
+      "group": "statements",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b2",
+      "mix": "monotonic_insert_delete",
+      "rate": 800,
+      "group": "statements",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": false
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-auxiliary-b1",
+      "mix": "monotonic_insert_delete",
+      "rate": 800,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": false
+    },
+    {
+      "id": "0e-EXP-O10-ROW-CEILING-indexed-800",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": true
+    },
+    {
+      "id": "0e-EXP-O10-ROW-CEILING-indexed-800-splits-b2",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": true
+    },
+    {
+      "id": "0e-EXP-O10-ROW-CEILING-indexed-800-auxiliary-b1",
+      "mix": "indexed",
+      "rate": 800,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": true
+    },
+    {
+      "id": "0f-EXP-O10-ROW-CEILING-uniform-800",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "splits",
+      "block": 0,
+      "repeats": [
+        0,
+        1
+      ],
+      "split_only": true
+    },
+    {
+      "id": "0f-EXP-O10-ROW-CEILING-uniform-800-splits-b2",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "splits",
+      "block": 1,
+      "repeats": [
+        2,
+        3
+      ],
+      "split_only": true
+    },
+    {
+      "id": "0f-EXP-O10-ROW-CEILING-uniform-800-auxiliary-b1",
+      "mix": "uniform_insert_delete",
+      "rate": 800,
+      "group": "auxiliary",
+      "block": 0,
+      "repeats": [],
+      "split_only": true
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "tail",
+      "tail_repeat": 0
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r2",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "tail",
+      "tail_repeat": 1
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r3",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "tail",
+      "tail_repeat": 2
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r4",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "tail",
+      "tail_repeat": 3
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r5",
+      "mix": "indexed",
+      "rate": 100,
+      "group": "tail",
+      "tail_repeat": 4
+    }
+  ],
+  "required_repeats": 4,
+  "split_seconds": 150,
+  "statement_ms": 120000,
+  "invariant": "All main methods retain four opportunities; no two-hit suppression. Separate method groups/2-round blocks prevent starvation. Fresh private20M fixture for each script. Setup exhaustion fails incomplete; no count cap shortened.",
+  "tail": "Five full150s no-count controls paired with bounded PRIMARY splits; order alternates. Shared indexed100 main arms are script05, not duplicated.",
+  "withdrawal": "No quiet_true_count_after or within_write_statements bound claimed. Auxiliary drift_split records moving-population sum only; historical unconfirmed windows require owner exclusion, not fabricated quietness.",
+  "semanticAcceptance": "Every planned opportunity must have completed or confirmed_ceiling, every owned method/worker DB session terminated, no section errors; completed-time ranking additionally requires four completed repetitions across partitions. Short diagnostics do not certify SLO.",
+  "measurementStatus": "not_run_by_author"
+}

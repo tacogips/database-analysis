@@ -1,0 +1,41 @@
+{
+  "status": "complete_before_publication",
+  "at": "2026-11-08T00:18:53.354207+00:00",
+  "objective": "MySQLとSQL Serverそれぞれの、大部分の通常テーブルに同じ安全な方法を適用でき、幅広い状態と組合せ・例外も判断できる日本語の最終件数取得ガイドラインを作成しcommit/pushする",
+  "documents": {
+    "docs/guidelines/mysql.md": "97e9cfd5016684d27acd1995599d1b08bb64118810f31a272891952fb4557078",
+    "docs/guidelines/sql-server.md": "2a8e6d1b4a75abb6a9bb27e601d176c3e08f34f99be6fa081c02e7e2a7f9b899",
+    "docs/README.md": "1dec0cc28ee32b1e707c312ed3a3a6aef7d5d08ecc3de7c2c259dc0f64a8fc8b"
+  },
+  "acceptance": {
+    "path": "results/reviews/final-guidelines/acceptance.json",
+    "sha256": "a1c2cec60b5ec085ebc6f6e2e299612df32c1bf8b4355cd8f824a1a7cd554b61"
+  },
+  "checks": {
+    "japaneseProductGuidesAndIndexPresent": true,
+    "ordinaryAndSpecialStateRoutingReviewedForBothProducts": true,
+    "noMaterialFindingsOrNecessaryExperimentsPending": true,
+    "twoSeparateFinalSolRolesAcceptedExactDocumentHashes": true,
+    "existingMeasuredInputsAndAcceptedDocsPreserved": true,
+    "protectedFilesVerified": 361,
+    "archivedSQLServerFilesVerified": 2742,
+    "validLocalLinks": 32,
+    "newDatabaseMeasurementsRequiredOrClaimed": false,
+    "gitDiffCheck": true
+  },
+  "sqlserverEvidenceArchive": {
+    "path": "results/reference/final-sqlserver-52556dd/manifest.json",
+    "sha256": "9dc945d48939a68bca35b60b711ccecf740798b5d5b85719a3f2be30336baeb2",
+    "reason": "Keep SQL Server cited evidence available when the existing MySQL reset removes results/sqlserver."
+  },
+  "publication": "Commit/push and actual remote equality to be recorded in local final handover.",
+  "publicationChecks": {
+    "onlyAdditiveFiles": true,
+    "previousTrackedFilesModified": 0,
+    "stagedFiles": 2787,
+    "stagedWhitespaceCheck": "passed",
+    "knownSecretPatterns": "no matches",
+    "databaseDataOrKeyFilesStaged": false,
+    "maxFileBytes": 3260751
+  }
+}

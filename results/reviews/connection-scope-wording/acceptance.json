@@ -1,0 +1,34 @@
+{
+  "scope": "Clarify RLS connection values and job identity without destructive framing",
+  "accepted": true,
+  "documents": {
+    "docs/guidelines/sql-server.md": "ae03f29f15b84d9a892da82bea385fd415c0d0cfed583d1a40e8aca40f9ac91e",
+    "docs/guidelines/operations-runbook.md": "574d51b5bc88d947914f1db651460b55a2c8236bc92f95e48c33fed537dc6fed"
+  },
+  "reviews": [
+    {
+      "agent": "/root/qa_engineer_review",
+      "model": "gpt-6.1-sol",
+      "accepted": true,
+      "documents": {
+        "docs/guidelines/sql-server.md": "ae03f29f15b84d9a892da82bea385fd415c0d0cfed583d1a40e8aca40f9ac91e",
+        "docs/guidelines/operations-runbook.md": "574d51b5bc88d947914f1db651460b55a2c8236bc92f95e48c33fed537dc6fed"
+      }
+    },
+    {
+      "agent": "/root/qa_validation_review",
+      "model": "gpt-6.1-sol",
+      "accepted": true,
+      "documents": {
+        "docs/guidelines/sql-server.md": "ae03f29f15b84d9a892da82bea385fd415c0d0cfed583d1a40e8aca40f9ac91e",
+        "docs/guidelines/operations-runbook.md": "574d51b5bc88d947914f1db651460b55a2c8236bc92f95e48c33fed537dc6fed"
+      }
+    }
+  ],
+  "checks": [
+    "git diff --check",
+    "SQL Server Mermaid render",
+    "HTML regenerated"
+  ],
+  "newDatabaseOrDockerMeasurement": false
+}

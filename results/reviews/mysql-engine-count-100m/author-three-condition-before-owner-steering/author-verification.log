@@ -1,0 +1,180 @@
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","mysql/engine-count-100m/lab.rb"]
+Syntax OK
+COMMAND_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","mysql/engine-count-100m/verify_offline.rb"]
+Syntax OK
+COMMAND_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","mysql/engine-count-100m/verify_offline.rb"]
+mysql/engine-count-100m/verify_offline.rb:9:in 'block in <main>': FAILED: only ordinary COUNT(*) query constant; no variant/count validation call (RuntimeError)
+	from mysql/engine-count-100m/verify_offline.rb:42:in '<main>'
+PASS authoritative baseline hash
+PASS all 10963 protected files exact
+PASS two engines in fixed order
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping ascending batch ranges, constants 1..99
+PASS digits cross join produces exactly 1..100000
+COMMAND_EXIT_STATUS=1
+AUTHOR_VERIFICATION_FINAL_EXIT_STATUS=1
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","mysql/engine-count-100m/verify_offline.rb"]
+PASS authoritative baseline hash
+PASS all 10963 protected files exact
+PASS two engines in fixed order
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping ascending batch ranges, constants 1..99
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+2026-11-08T14:52:41Z command synthetic-child exit=7 stdout=/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-77950-7os1ek/0001-synthetic-child.stdout.log stderr=/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-77950-7os1ek/0001-synthetic-child.stderr.log
+PASS stdout/stderr file drain without pipe deadlock; actual nonzero exit reaped
+/Users/taco/gits/tacogips/database-analysis/mysql/engine-count-100m/lab.rb:226:in 'Engine100M::Controller#guard_stage': owner path mismatch (RuntimeError)
+	from mysql/engine-count-100m/verify_offline.rb:142:in 'block (2 levels) in <main>'
+	from mysql/engine-count-100m/verify_offline.rb:9:in 'block in <main>'
+	from mysql/engine-count-100m/verify_offline.rb:142:in 'block in <main>'
+	from /Users/taco/.local/share/mise/installs/ruby/4.0.9/lib/ruby/4.0.0/tmpdir.rb:105:in 'Dir.mktmpdir'
+	from mysql/engine-count-100m/verify_offline.rb:117:in '<main>'
+PASS timed out owned local child terminated and reaped with numeric exit
+AUTHOR_VERIFICATION_FINAL_EXIT_STATUS=1
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","mysql/engine-count-100m/verify_offline.rb"]
+PASS authoritative baseline hash
+PASS all 10963 protected files exact
+PASS two engines in fixed order
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping ascending batch ranges, constants 1..99
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+2026-11-08T14:53:40Z command synthetic-child exit=7 stdout=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-78268-sghhf9/0001-synthetic-child.stdout.log stderr=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-78268-sghhf9/0001-synthetic-child.stderr.log
+PASS stdout/stderr file drain without pipe deadlock; actual nonzero exit reaped
+PASS timed out owned local child terminated and reaped with numeric exit
+PASS valid private nonce marker accepted offline
+PASS mismatched ownership marker refuses cleanup
+PASS unowned container refuses lifecycle mutation
+{
+  "status": "offline_checks_passed_no_runtime_started",
+  "checks": 20,
+  "baseline_sha256": "2a5d8ae6d31847aa6a900191d81efa078fe4a4ad06bd5e3c4a6b7a703b6bac5e",
+  "protected_files": 10963,
+  "source_sha256": {
+    "mysql/engine-count-100m/lab.rb": "dad9bd1726fe3566c0015117e3285631398e5334fc396e32bc18a76058f442ff",
+    "mysql/engine-count-100m/compose.yaml": "bdf4cac27d3eff224a137d69d76baf16ce34e15258a5c45f975d02885440ea0a",
+    "mysql/engine-count-100m/mise.toml": "067fbc42130194546a1b82c93f2b87dcf5a906fa358f019d4f60ecfcfaddb96e",
+    "mysql/engine-count-100m/README.md": "256a0b1fa17dec8b70c73c1c84bd4337dbcd1986cc24aaa737aa870588bddc82",
+    "mysql/engine-count-100m/verify_offline.rb": "b03efee84e563cb13238637038018423452ac4a21bcdae69b5049cdebf495241",
+    "docs/mysql-engine-count-100m.md": "4d832df66fbb32eed29625d07e2c74231edc13c8ceaae9a9d79d6958044efd2d"
+  }
+}
+OFFLINE_VERIFICATION_FINAL_EXIT_STATUS=0
+AUTHOR_VERIFICATION_FINAL_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","mysql/engine-count-100m/lab.rb"]
+Syntax OK
+COMMAND_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","mysql/engine-count-100m/verify_offline.rb"]
+Syntax OK
+COMMAND_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","mysql/engine-count-100m/verify_offline.rb"]
+PASS authoritative baseline hash
+PASS all 10963 protected files exact
+PASS two engines in fixed order
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping ascending batch ranges, constants 1..99
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+2026-11-08T14:55:33Z command synthetic-child exit=7 stdout=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-78932-rvpfq4/0001-synthetic-child.stdout.log stderr=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-78932-rvpfq4/0001-synthetic-child.stderr.log
+PASS stdout/stderr file drain without pipe deadlock; actual nonzero exit reaped
+PASS timed out owned local child terminated and reaped with numeric exit
+PASS valid private nonce marker accepted offline
+PASS mismatched ownership marker refuses cleanup
+PASS unowned container refuses lifecycle mutation
+PASS partial load cleanup removes owned stopped runtime then guarded stage
+PASS stop timeout retains failure, kills only owned runtime, still removes guarded partial data
+PASS unowned runtime prevents stop/rm and guarded data deletion
+{
+  "status": "offline_checks_passed_no_runtime_started",
+  "checks": 23,
+  "baseline_sha256": "2a5d8ae6d31847aa6a900191d81efa078fe4a4ad06bd5e3c4a6b7a703b6bac5e",
+  "protected_files": 10963,
+  "source_sha256": {
+    "mysql/engine-count-100m/lab.rb": "5abaaddb07bbcfb57324b11c9cd0837cbf2c95bf9bb4efbff6e64efa9109cbea",
+    "mysql/engine-count-100m/compose.yaml": "bdf4cac27d3eff224a137d69d76baf16ce34e15258a5c45f975d02885440ea0a",
+    "mysql/engine-count-100m/mise.toml": "067fbc42130194546a1b82c93f2b87dcf5a906fa358f019d4f60ecfcfaddb96e",
+    "mysql/engine-count-100m/README.md": "256a0b1fa17dec8b70c73c1c84bd4337dbcd1986cc24aaa737aa870588bddc82",
+    "mysql/engine-count-100m/verify_offline.rb": "bcec766e0390bb5ef0dca3cd39dcb269bd060ac3fd7f8a746f2633c141b060f1",
+    "docs/mysql-engine-count-100m.md": "4d832df66fbb32eed29625d07e2c74231edc13c8ceaae9a9d79d6958044efd2d"
+  }
+}
+OFFLINE_VERIFICATION_FINAL_EXIT_STATUS=0
+COMMAND_EXIT_STATUS=0
+AUTHOR_VERIFICATION_FINAL_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","mysql/engine-count-100m/lab.rb"]
+Syntax OK
+COMMAND_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","-c","mysql/engine-count-100m/verify_offline.rb"]
+Syntax OK
+COMMAND_EXIT_STATUS=0
+["/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby","mysql/engine-count-100m/verify_offline.rb"]
+PASS authoritative baseline hash
+PASS all 10963 protected files exact
+PASS two engines in fixed order
+PASS exact 100M geometry
+PASS exact 100 columns, nonnull numeric PK only, 404 payload bytes
+PASS DDL differs only in ENGINE
+PASS 1000 nonoverlapping ascending batch ranges, constants 1..99
+PASS digits cross join produces exactly 1..100000
+PASS only ordinary COUNT(*) query constant; no variant/count validation call
+PASS foreground fixed all, no shell DSN/scale override, sanitized spawn
+PASS offline Compose YAML parses; only fixed mysql service and no named volumes/networks
+PASS pinned image, socket-only, host uid/gid bind, constrained identical server
+PASS lifecycle caller audit: no build/pull/up/down/prune or root runner calls
+PASS stream parser retains tabs/multirow and waits fragmented boundary, ns integer
+PASS EOF before boundary fails and retains partial raw/error
+PASS missing boundary timeout is failure, never fabricated scalar
+2026-11-08T14:59:05Z command synthetic-child exit=7 stdout=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-80195-gvi2g/0001-synthetic-child.stdout.log stderr=/private/var/folders/wn/q3_zjgs15t9_367s8627fd0w0000gn/T/engine100m-offline-20261108-80195-gvi2g/0001-synthetic-child.stderr.log
+PASS stdout/stderr file drain without pipe deadlock; actual nonzero exit reaped
+PASS timed out owned local child terminated and reaped with numeric exit
+PASS valid private nonce marker accepted offline
+PASS mismatched ownership marker refuses cleanup
+PASS unowned container refuses lifecycle mutation
+PASS partial load cleanup removes owned stopped runtime then guarded stage
+PASS stop timeout retains failure, kills only owned runtime, still removes guarded partial data
+PASS unowned runtime prevents stop/rm and guarded data deletion
+{
+  "status": "offline_checks_passed_no_runtime_started",
+  "checks": 24,
+  "baseline_sha256": "2a5d8ae6d31847aa6a900191d81efa078fe4a4ad06bd5e3c4a6b7a703b6bac5e",
+  "protected_files": 10963,
+  "source_sha256": {
+    "mysql/engine-count-100m/lab.rb": "cfb7aac22d56fe514e555bfd90f9aae690330be879a85807639e83cfabc4189a",
+    "mysql/engine-count-100m/compose.yaml": "bdf4cac27d3eff224a137d69d76baf16ce34e15258a5c45f975d02885440ea0a",
+    "mysql/engine-count-100m/mise.toml": "067fbc42130194546a1b82c93f2b87dcf5a906fa358f019d4f60ecfcfaddb96e",
+    "mysql/engine-count-100m/README.md": "256a0b1fa17dec8b70c73c1c84bd4337dbcd1986cc24aaa737aa870588bddc82",
+    "mysql/engine-count-100m/verify_offline.rb": "082df7b975f96c53f9c6c32ae57b0559dddf96ba10903eb7e84414f5eabfbcf7",
+    "docs/mysql-engine-count-100m.md": "4d832df66fbb32eed29625d07e2c74231edc13c8ceaae9a9d79d6958044efd2d"
+  }
+}
+OFFLINE_VERIFICATION_FINAL_EXIT_STATUS=0
+COMMAND_EXIT_STATUS=0
+AUTHOR_VERIFICATION_FINAL_EXIT_STATUS=0

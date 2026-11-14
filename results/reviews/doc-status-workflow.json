@@ -1,0 +1,75 @@
+{
+  "workflow": {
+    "workflowId": "temp-final-count-doc-status-sol",
+    "description": "Guide-focused Sol author; exhaustive engine suite explicitly skipped by latest user",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 1800000
+    },
+    "entryStepId": "guide-author",
+    "nodes": [
+      {
+        "id": "guide-author",
+        "nodeFile": "nodes/guide-author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "guide-author",
+        "nodeId": "guide-author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/guide-author.json": {
+      "id": "guide-author",
+      "description": "Focused practical engineering guide using existing representative evidence",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "low",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Make only final documentation status/citation corrections before separate final reviews. GPT-6.1 Sol only. Read AGENTS.md. Edit ONLY docs/table-count-guideline.md,docs/table-count-calibration.md,README.md and a compact verificationJSON in results/reviews. NO DB/Docker/benchmark, source/code/prompts/config changes, delegation, workflows, commit/push. Preserve all method/operational advice and benchmark proof. The author draft currently says final Sol2 reviews are unperformed/pending; these literal present-tense statements would become stale after reviews, and editing docs AFTER review would invalidate their hashes. Replace current-status statements in these THREE entry documents with TIMELESS acceptance-gate wording linking to results/reviews/final-operational-review-acceptance.json (already exists, status not_yet_accepted). Explain benchmark proof alone does not accept prose; only two separate completed hash-matching Sol reviews and the acceptance record determine document acceptance. Do NOT claim reviews have happened or set aggregate status accepted. This allows reviewers to read/freeze the actual final bytes and the acceptance record to update later without changing text. Rename calibration finalheading from remaining completionconditions to evidence/acceptanceconditions if appropriate; do not rewrite historical pending statements in archived research files. Also preserve the notable static93 observation from the first narrowed run: results/reference/review-20261107T142407Z-3330/results/requested_metadata_accuracy.json after_analyze d_str_bin truth500000 estimate361075 = -27.785%. Verify its manifest hash, initial/truth oracle and numeric93exit0. If verified add ONE short clearly separated historical static-metadata note/source link in calibration: first run service wall-clock windows rejected, so this static COUNT/statistics ratio is not service/SLO evidence or promotion of the rejected run. This complements the existing fresh24.3754%overestimate and original23.123%underestimate without hiding a larger known observation. Do not change existing maxima within their stated sets or claim a global worstcase. Run only pure link/hash/numeric/source-unchanged checks, save compact results/reviews/author-final-doc-status-verification.json and return SMALL required adapter guidelinePath,guidelineSha256,changedFiles,decisionCoverage,evidenceChecks,remainingGaps. Preserve source hashes in final-all-proof and 7publicauditors. Finish concrete changes promptly.",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "guidelinePath",
+            "guidelineSha256",
+            "changedFiles",
+            "decisionCoverage",
+            "evidenceChecks",
+            "remainingGaps"
+          ],
+          "properties": {
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "changedFiles": {
+              "type": "array"
+            },
+            "decisionCoverage": {
+              "type": "array"
+            },
+            "evidenceChecks": {
+              "type": "array"
+            },
+            "remainingGaps": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-frontier-sol",
+    "description": "Sol-only adversarial design review of3/5/10% accuracy-cost experiments",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "Sol-only adversarial design review of3/5/10% accuracy-cost experiments",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "You are GPT-6.1 Sol, an adversarial reviewer. Write the review in Japanese.\nThis is a NEW focused temporary workflow reviewing the prepared accuracy-versus-cost experiments before DB execution. It is NOT final approval of the overall guideline.\nRead results/reviews/sol-frontier-input.json first and verify its snapshot hashes. Review the immutable source snapshot paths there, not later live edits. Read snapshot bench/accuracy_frontier.py, its01c/01d wrappers, samplinglib.py, sampling_bounds.py, reqwide.py, lablib.py, dependencies.py and the protocol context. Source files may also be read live for context, but clearly distinguish revisions.\nLatest user: few-percent error is preferred, but about10% may be acceptable; quantify conditions where accuracy improves/worsens and identify the highest accuracy/performance methods. Opaque encrypted50/100-column MySQL tables, unknown row count, minimal service impact, whole-table count without business WHERE.\nAbsolute constraints: READ ONLY. No DB connections, Docker commands, load generation, experiment execution, source edits, other workflows or delegation. An existing compose lab run is active. File/hash reads and pure computations without DB access are allowed. Do not import modules that execute experiments or connect to DB.\nCritique the new design/code independently first. The scripts are NOT yet DB-executed, and source syntax/pure calculations are not measurement proof. Judge design readiness separately from rollout readiness.\nInspect:\n- Sampling targets3%,5%,10%; predeclared target-specific looks, matched alpha, optional stopping, multiple invocations, fixed paired seeds, first-look optimization, relative error denominator, finite-population bounds, precision vs realized error vs confidence. Could this falsely label an estimate accurate? Could target-dependent schedules unfairly obscure a better protocol? State limits rather than demand a perfect mathematical optimizer.\n- Seven fixtures, actual insertion oracle and fullCOUNT truth, represented population, dense/negative/sparse/islands/moderate gaps/uneven density/wide. Does density/row width/cache/index/TDE change accuracy itself, cost within budget, or freshness? Is there a decisive missing condition that would change a recommendation?\n- Actual static cost comparisons: alternating/rotating order, fullCOUNT warmup/carryover, parallel settings, counter scope, cache state, fresh connection effects, budget and cleanup. Which causal claims are invalid and which conditional method comparisons remain useful?\n-100-column service protocol48arms: control/exact/3%/10%, index absent/present, two update mixes, repeated observations, actual statement interval vs trial, arrival conservation/censoring, CPU pinning, observer overhead, recovery. Verify reduced precision can be tested against the observed3% budget failures without calling a short window an SLO pass.5% service is intentionally unmeasured.\n- Success/completion/error classification, per-script20min limit and aggregate guard, required outputs and artifact/source hashes. Capture unexpected failures honestly, retain expected precision/budget failures, do not treat process exit as accuracy or service approval. Does a failure prevent fixture cleanup or later arms?\n- Engineer objections and better alternatives: exactCOUNT on a small index may dominate sampling; metadata may be cheapest but has no universal10% guarantee; counters/isolated replicas have freshness/ownership/maintenance costs. Avoid generalizing dense synthetic payloads or arbitrary unknown distributions.\nReport concrete counterexamples with source line/function or result field, severity high/middle/low, stable IDs SOL-FRONTIER-*. No invented findings, style requests, blanket requests to remeasure all production, or \"few repeats\" without explaining a wrong decision. Only request local measurements that could change the recommended method.\nOutput adapter JSON {\"when\":{},\"payload\":{...}} with decision accepted/rejected (design-readiness only), guidelineSha256 (snapshot guideline hash), reviewScope, findings, engineerQuestions, betterAlternatives, requestedExperiments, rolloutRecommendation, reviewEvidence, limitations, claimEvidenceMap, validationCoverageMatrix, priorityFixes. High/middle open => rejected. Each finding has id,severity,section,scenario,evidence,impact,requiredCorrection. Include snapshot hash verification at start/end and identify files actually read. Rollout remains pending actual experiments, white-database all and final two-pass Sol review even if design is accepted.\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations",
+            "claimEvidenceMap",
+            "validationCoverageMatrix",
+            "priorityFixes"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            },
+            "claimEvidenceMap": {
+              "type": "array"
+            },
+            "validationCoverageMatrix": {
+              "type": "array"
+            },
+            "priorityFixes": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

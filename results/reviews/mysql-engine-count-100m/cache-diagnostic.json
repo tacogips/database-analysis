@@ -1,0 +1,30 @@
+{
+  "capturedAt": "2026-11-08T16:06:43.749702+00:00",
+  "purpose": "Supplemental read-only cache diagnostic; not a measured count, no cache state changes.",
+  "canonicalRun": "results/mysql-engine-count-100m/runs/20261108T153004Z-820d48697878bf5220e73128219ca4d3/result.json",
+  "containerId": "8ffe0020f8269b06b68978767cfd1b5368b56d5fd3f4c408a6e8294aa1cbf34f",
+  "sql": "SHOW GLOBAL VARIABLES WHERE Variable_name IN ('innodb_flush_method','innodb_buffer_pool_size','innodb_buffer_pool_load_at_startup','innodb_buffer_pool_dump_at_shutdown','innodb_buffer_pool_dump_pct','innodb_use_native_aio','innodb_parallel_read_threads');",
+  "argv": [
+    "docker",
+    "--host",
+    "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+    "exec",
+    "8ffe0020f8269b06b68978767cfd1b5368b56d5fd3f4c408a6e8294aa1cbf34f",
+    "mysql",
+    "--no-defaults",
+    "--protocol=SOCKET",
+    "--socket=/labdata/mysql.sock",
+    "-uroot",
+    "-ppublic-disposable-engine100m",
+    "--batch",
+    "--raw",
+    "--skip-column-names",
+    "-e",
+    "SHOW GLOBAL VARIABLES WHERE Variable_name IN ('innodb_flush_method','innodb_buffer_pool_size','innodb_buffer_pool_load_at_startup','innodb_buffer_pool_dump_at_shutdown','innodb_buffer_pool_dump_pct','innodb_use_native_aio','innodb_parallel_read_threads');"
+  ],
+  "exitCode": 0,
+  "elapsedNs": 77254375,
+  "stdout": "innodb_buffer_pool_dump_at_shutdown\tON\ninnodb_buffer_pool_dump_pct\t25\ninnodb_buffer_pool_load_at_startup\tON\ninnodb_buffer_pool_size\t1073741824\ninnodb_flush_method\tO_DIRECT\ninnodb_parallel_read_threads\t4\ninnodb_use_native_aio\tON\n",
+  "stderr": "mysql: [Warning] Using a password on the command line interface can be insecure.\n",
+  "sourcePolicy": "No edits to active runtime inputs; canonical measurements remain uncontrolled-cache reference."
+}

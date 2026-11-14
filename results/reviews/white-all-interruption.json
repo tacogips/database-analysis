@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-07T05:39:26.924474+00:00",
+  "state": "controlled_stop_completed",
+  "reason": "Confirmed static high2/middle1 methodology findings in sol-protocol-review.json. reqmix2 misclassifies failures as ceilings and can omit required fast-arm repeats; final source must change, so continuing current full run cannot establish final-code reproduction. This is not a DB failure or silence timeout.",
+  "review": "results/reviews/sol-protocol-review.json",
+  "ownerPid": 72118,
+  "ownerCommand": "/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby lab.rb all",
+  "controllerPidPreserved": 72116,
+  "sourceConfigUnchangedDuringAttempt": true,
+  "plan": "Pause own lab orchestrator; SIGINT exact current Python main so its arm finally stops workload/sampler; verify no bench workers remain; interrupt+continue own orchestrator so ensure tears down matrix and fixed controller records failure/snapshot. Let documentation-only integrate finish before a new author owns source.",
+  "benchPythonQuiescenceConfirmed": true,
+  "pythonMainContainerPid": 577,
+  "pythonSignal": "SIGINT",
+  "orchestratorSignal": "SIGINT_then_SIGCONT",
+  "orchestratorExitCode": 130,
+  "candidateStatus": "failed",
+  "measurementSourceUnchanged": true,
+  "requestedStatus": "started",
+  "finishedAt": "2026-11-07T05:39:54Z",
+  "snapshotManifests": [
+    "results/reference/review-20261107T053954Z-72116/manifest.json"
+  ],
+  "matrixContainersRemaining": false,
+  "benchPythonRemaining": false,
+  "pythonExitCode": "not_recovered;SIGINTandprocessquiescenceobserved",
+  "currentPhase": "documentation-only integrate;waitactualterminalbeforeauthor"
+}

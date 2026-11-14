@@ -1,0 +1,13 @@
+{
+  "scope": "full_document_consistency_review",
+  "reviews": [
+    {"agent": "qa_engineer_review", "accepted": true},
+    {"agent": "qa_validation_review", "accepted": true}
+  ],
+  "files": {
+    "docs/guidelines/sql-server.md": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682"
+  },
+  "checks": ["git diff --check", "local links and heading anchors"],
+  "database_execution": false,
+  "performance_validation": false
+}

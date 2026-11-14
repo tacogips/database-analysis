@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-07T08:26:37.778893+00:00",
+  "meaning": "Official specification check only; no SQL probe, benchmark/source changes or performance result.",
+  "question": "Can native TABLESAMPLE replace conditional key-cell sampling on ordinary supported MySQL InnoDB?",
+  "sources": [
+    {
+      "url": "https://dev.mysql.com/doc/heatwave/en/mys-hw-select.html",
+      "supports": "TABLESAMPLE is available only in HeatWave secondary engine, not in its DB System; SYSTEM/BERNOULLI syntax is engine-specific."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/relnotes/heatwave/en/news-8-3-0-u2.html",
+      "supports": "HeatWave secondary-engine TABLESAMPLE introduced in8.3.0-u2; its HLL aggregate is HeatWave-specific and addresses distinct counting, not a generic free whole-table row count."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/select.html",
+      "supports": "Ordinary SELECT reference does not document TABLESAMPLE clause."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/refman/9.7/en/select.html",
+      "supports": "Ordinary SELECT reference does not document TABLESAMPLE clause."
+    },
+    {
+      "url": "https://dev.mysql.com/doc/refman/26.10/en/select.html",
+      "supports": "Ordinary SELECT reference does not document TABLESAMPLE clause."
+    }
+  ],
+  "conclusion": "Do not recommend TABLESAMPLE as generally available on the current official MySQL Docker/InnoDB lab or arbitrary company MySQL. Reserved keyword/internal sampling-handler APIs do not establish a supported generic SQL method. HeatWave availability/performance/confidence is outside this lab evidence.",
+  "scope": "No new mandatory experiment or all rerun follows from this documentation check. Keep 150-script scope unchanged. If discussed in guideline alternatives, link official engine-specific specification and mark no lab execution."
+}

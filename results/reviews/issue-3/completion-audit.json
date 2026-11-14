@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-11-08T11:11:58.124239+00:00",
+  "documents": {
+    "README.md": "02ded6ef68b1d7395ea302c24e322b75be10e047763886ea1ea33fa629a6b30e",
+    "docs/README.md": "1eedc7a9e9c3b097ed8e18ee6d34e205702f690000450a6a8f33b6b75ec88de3",
+    "docs/guidelines/mysql.md": "01d464cc9055116411e3ed5494496bdbadc4505aac7338503f9a7e094bf64362",
+    "docs/guidelines/sql-server.md": "ab015810b4f4d1231cc81aa71de1555b0f2988d4b4987b2cfbb96af231a59656",
+    "docs/guidelines/operations-runbook.md": "819fac46993c6a49a94eb5cf8dfef8869c86554bf0222e5c912693d2d1439628"
+  },
+  "protectedFileCount": 10885,
+  "ownerProofSha256": "69448dd438abf3f3dbc9a25408abb37c9a9c18cf379634856a6cd2254c7c86f4",
+  "issueSha256": "cbfd6402c7e52f5e7eedc862fdf143bf4fce725155ac888f6103d6926f540684",
+  "reviews": {
+    "engineer": {
+      "sessionId": "temp-issue3-engineer-sol-session-51",
+      "launchSha256": "ad29905945f2d964fff06ec4dd93ca6d1ebd605133c04959e2d3479ca08160c0",
+      "resultSha256": "ca60bb67eecc2d6b0c1204d1779385ee7d736b50d60a415519eab016f898119e",
+      "manifest": "results/reviews/issue-3/engineer-20261108T110152Z/manifest.json",
+      "manifestSha256": "945d750c7e99c580cb54b43194131d5c685eb060f61379e92c59916f10fe590d"
+    },
+    "validation": {
+      "sessionId": "temp-issue3-validation-sol-session-52",
+      "launchSha256": "95ffc26225610f0c3aca9fa2fd29c0511866c9f34096bc8f719ecab162c27872",
+      "resultSha256": "6ab6f5493c58c9f4ccc25623a320cb55093281d2ccd3bab6b14d37d4c6f631d0",
+      "manifest": "results/reviews/issue-3/validation-20261108T110725Z/manifest.json",
+      "manifestSha256": "e2dcb369372f183f2297f02f62bd3b2bbc50d83ba8009b81baa4c8351d56d4c8"
+    }
+  },
+  "authorSession": "temp-issue3-author-sol-session-49",
+  "items": {
+    "contextContract": "Owner checked driver default-deny approval before context mutation/candidate COUNT, no NULL/admin/nonpool inference; clear unsupported CONTEXT_INFO-RLS HOLD/export branch and immutable matching reader/observer/KILL contract for reserved slot.",
+    "rlsHold": "Actual RLS controls visible2/3/0 with physical5; seven guarded rejections preserve raw business/NULL context, zero tag writes and candidate dispatches, four owned disposal releases; ordinary guarded cases still establish ownership/cancel/end separately.",
+    "history": "Prior Issue1/2 sources, receipts and evidence unchanged; current five-doc links and archived previous receipt separate. No production RLS COUNT/cancel or SLO claim."
+  },
+  "navigation": {
+    "docs/README.md": 1,
+    "docs/guidelines/mysql.md": 1,
+    "docs/guidelines/sql-server.md": 1,
+    "docs/guidelines/operations-runbook.md": 1,
+    "results/reviews/issue-3/acceptance.json": 1
+  },
+  "scripts": {
+    ".riela/workflows/issue-3-remediation/scripts/run.py": "d4d502a2f7b344055319a89e385080bb53faabcc63b20549b2c227876dac0502",
+    ".riela/workflows/issue-3-remediation/scripts/audit.py": "f58dfb1878d379b09b4c07fba38bcf8f66e27d82a2c9b6b298ba2c4df0e2a9da",
+    ".riela/workflows/issue-3-remediation/scripts/execute.py": "fd90d8560fedf3dc88c093c4c8921d11a638512b548f66ce0d2ece84d3166741",
+    ".riela/workflows/issue-3-remediation/scripts/finalize.py": "1cfc2a42f8cd516beb2fbd96c2a80b636a1f06434134c4785d4427fbb21a1c11"
+  },
+  "scope": {
+    "completion": "passed",
+    "ownership": "5 actual two-connection identities; 3 mismatches refused",
+    "transactionRelease": "5 owned session/requests/captured transaction IDs/snapshots absent",
+    "stats": "OFF/sync ON/async ON; COUNT=4096; actual plans; update not observed in narrow schema/plan/window",
+    "rlsContextSafety": "HOLD refusal only: 7 candidate refusals with context preserved; fixture controls visible2/3/0, physical5; no operational RLS COUNT+cancel certification",
+    "precision": "known non-RLS fixture plus explicitly separate RLS fixture controls only",
+    "serviceBudget": "unavailable_functional_only",
+    "recovery": "retention released; physical allocation and production recovery unverified",
+    "communication": "idle connection Dispose simulation only, not network partition",
+    "leastPrivilege": "SA functional probe plus denied observer; full production role certification unmeasured",
+    "platform": "ARM64 SQL amd64 emulation, unsupported; no native performance certification"
+  },
+  "runtimeScope": {
+    "completion": "passed",
+    "ownership": "5 actual two-connection identities; 3 mismatches refused",
+    "transactionRelease": "5 owned session/requests/captured transaction IDs/snapshots absent",
+    "stats": "OFF/sync ON/async ON; COUNT=4096; actual plans; update not observed in narrow schema/plan/window",
+    "rlsContextSafety": "HOLD refusal only: 7 candidate refusals with context preserved; fixture controls visible2/3/0, physical5; no operational RLS COUNT+cancel certification",
+    "precision": "known non-RLS fixture plus explicitly separate RLS fixture controls only",
+    "serviceBudget": "unavailable_functional_only",
+    "recovery": "retention released; physical allocation and production recovery unverified",
+    "communication": "idle connection Dispose simulation only, not network partition",
+    "leastPrivilege": "SA functional probe plus denied observer; full production role certification unmeasured",
+    "platform": "ARM64 SQL amd64 emulation, unsupported; no native performance certification"
+  },
+  "sourceHashes": {
+    "sqlserver/issue3/lab.rb": "4677e52443324b8b822d514e5dda1fb5ed4c94e12d0bdf0c82f70fcd47140872",
+    "sqlserver/issue3/mise.toml": "8edd7b77370cda8e5533c56273f019f4413d5f021d2e519a4ddb4c4693f14fd7",
+    "sqlserver/issue3/compose.yaml": "eec626f92b2c22c5f499647901dae9f072d9626ac71c6b16e2cebb4a1bc303a2",
+    "sqlserver/issue3/Dockerfile": "cf496117e5b596095c6f23a0b1a4c7414d041e30d3f20f4c18e92598483c2fc1",
+    "sqlserver/issue3/.dockerignore": "0f9a946f5731cf4e3563b912114dff461407e07859d4d82a1adc1867ecd247cd",
+    "sqlserver/issue3/CountIssue3.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/issue3/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/issue3/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/issue3/Program.cs": "7b8eec8503de75f848fc609a068bdc9602c726d1c6322970aae0a2e7b74d720d",
+    "sqlserver/issue3/README.md": "b2423a9bdabdba4909b26a8238463483052224c317670de8f905f333bb116607",
+    "sqlserver/issue3/verify_static.py": "99e31d4cdee94b9736bad728342d60c848c42b85cac3ce86ae449c242c6090d8"
+  },
+  "archiveManifestSha256": "c9db98aea939fa909a1edd77c22eb95cc76a5d6bbfed99d95e4744943dc4a123"
+}

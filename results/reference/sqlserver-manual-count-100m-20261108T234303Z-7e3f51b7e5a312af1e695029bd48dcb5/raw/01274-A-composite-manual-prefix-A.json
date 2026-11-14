@@ -1,0 +1,10 @@
+{
+  "sql": "IF @@TRANCOUNT \u003C\u003E 0 OR XACT_STATE() \u003C\u003E 0\n  THROW 51000, \u0027Unexpected transaction\u0027, 1;\nIF DB_NAME() \u003C\u003E N\u0027ManualCount100m\u0027 THROW 51000, \u0027Unexpected database\u0027, 1;\nIF ISNULL(sys.fn_hadr_is_primary_replica(DB_NAME()), 1) \u003C\u003E 0\n  THROW 51000, \u0027Readable AG secondary required\u0027, 1;\nSET IMPLICIT_TRANSACTIONS OFF;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\n",
+  "start_ns": 364684700493764,
+  "end_ns": 364684701495325,
+  "elapsed_ns": 1001561,
+  "raw": [
+    []
+  ],
+  "error": null
+}

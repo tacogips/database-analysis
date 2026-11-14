@@ -1,0 +1,869 @@
+{
+  "sql": "SELECT @@VERSION version,SERVERPROPERTY(\u0027ProductVersion\u0027) product_version,SERVERPROPERTY(\u0027Edition\u0027) edition;\nSELECT name,value,value_in_use FROM sys.configurations WHERE name IN (\u0027max server memory (MB)\u0027,\u0027max degree of parallelism\u0027);\nSELECT name,recovery_model_desc,is_read_committed_snapshot_on,snapshot_isolation_state_desc FROM sys.databases;\nSELECT DB_NAME(database_id) db_name,name,physical_name,size,max_size,growth FROM sys.master_files;\nSELECT * FROM sys.security_predicates WHERE target_object_id=OBJECT_ID(N\u0027dbo.Target\u0027);\nSELECT c.column_id,c.name,t.name type_name,c.max_length,c.is_nullable FROM sys.columns c\nJOIN sys.types t ON t.user_type_id=c.user_type_id WHERE c.object_id=OBJECT_ID(N\u0027dbo.Target\u0027) ORDER BY c.column_id;",
+  "start_ns": 359630745439160,
+  "end_ns": 359630867144634,
+  "elapsed_ns": 121705474,
+  "raw": [
+    [
+      {
+        "version": "Microsoft SQL Server 2025 (RTM-CU10) (KB5125471) - 17.0.5035.5 (X64) \n\tOct 15 2026 19:55:26 \n\tCopyright (C) 2025 Microsoft Corporation\n\tEnterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.5 LTS) \u003CX64\u003E",
+        "product_version": "17.0.5035.5",
+        "edition": "Enterprise Developer Edition (64-bit)"
+      }
+    ],
+    [
+      {
+        "name": "max degree of parallelism",
+        "value": 0,
+        "value_in_use": 0
+      },
+      {
+        "name": "max server memory (MB)",
+        "value": 2048,
+        "value_in_use": 2048
+      }
+    ],
+    [
+      {
+        "name": "master",
+        "recovery_model_desc": "SIMPLE",
+        "is_read_committed_snapshot_on": false,
+        "snapshot_isolation_state_desc": "ON"
+      },
+      {
+        "name": "tempdb",
+        "recovery_model_desc": "SIMPLE",
+        "is_read_committed_snapshot_on": false,
+        "snapshot_isolation_state_desc": "OFF"
+      },
+      {
+        "name": "model",
+        "recovery_model_desc": "FULL",
+        "is_read_committed_snapshot_on": false,
+        "snapshot_isolation_state_desc": "OFF"
+      },
+      {
+        "name": "msdb",
+        "recovery_model_desc": "SIMPLE",
+        "is_read_committed_snapshot_on": false,
+        "snapshot_isolation_state_desc": "ON"
+      },
+      {
+        "name": "ManualCount100m",
+        "recovery_model_desc": "SIMPLE",
+        "is_read_committed_snapshot_on": true,
+        "snapshot_isolation_state_desc": "OFF"
+      }
+    ],
+    [
+      {
+        "db_name": "master",
+        "name": "master",
+        "physical_name": "/var/opt/mssql/data/master.mdf",
+        "size": 592,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "master",
+        "name": "mastlog",
+        "physical_name": "/var/opt/mssql/data/mastlog.ldf",
+        "size": 64,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev",
+        "physical_name": "/var/opt/mssql/data/tempdb.mdf",
+        "size": 1024,
+        "max_size": 1048576,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "templog",
+        "physical_name": "/var/opt/mssql/data/templog.ldf",
+        "size": 1024,
+        "max_size": 524288,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev2",
+        "physical_name": "/var/opt/mssql/data/tempdb2.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev3",
+        "physical_name": "/var/opt/mssql/data/tempdb3.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev4",
+        "physical_name": "/var/opt/mssql/data/tempdb4.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "model",
+        "name": "modeldev",
+        "physical_name": "/var/opt/mssql/data/model.mdf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "model",
+        "name": "modellog",
+        "physical_name": "/var/opt/mssql/data/modellog.ldf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "msdb",
+        "name": "MSDBData",
+        "physical_name": "/var/opt/mssql/data/MSDBData.mdf",
+        "size": 1792,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "msdb",
+        "name": "MSDBLog",
+        "physical_name": "/var/opt/mssql/data/MSDBLog.ldf",
+        "size": 96,
+        "max_size": 268435456,
+        "growth": 10
+      },
+      {
+        "db_name": "ManualCount100m",
+        "name": "ManualCount100m_data",
+        "physical_name": "/var/opt/mssql/data/ManualCount100m.mdf",
+        "size": 8192,
+        "max_size": 10485760,
+        "growth": 32768
+      },
+      {
+        "db_name": "ManualCount100m",
+        "name": "ManualCount100m_log",
+        "physical_name": "/var/opt/mssql/log/ManualCount100m.ldf",
+        "size": 8192,
+        "max_size": 524288,
+        "growth": 8192
+      }
+    ],
+    [],
+    [
+      {
+        "column_id": 1,
+        "name": "id",
+        "type_name": "bigint",
+        "max_length": 8,
+        "is_nullable": false
+      },
+      {
+        "column_id": 2,
+        "name": "c001",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 3,
+        "name": "c002",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 4,
+        "name": "c003",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 5,
+        "name": "c004",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 6,
+        "name": "c005",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 7,
+        "name": "c006",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 8,
+        "name": "c007",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 9,
+        "name": "c008",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 10,
+        "name": "c009",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 11,
+        "name": "c010",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 12,
+        "name": "c011",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 13,
+        "name": "c012",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 14,
+        "name": "c013",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 15,
+        "name": "c014",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 16,
+        "name": "c015",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 17,
+        "name": "c016",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 18,
+        "name": "c017",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 19,
+        "name": "c018",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 20,
+        "name": "c019",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 21,
+        "name": "c020",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 22,
+        "name": "c021",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 23,
+        "name": "c022",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 24,
+        "name": "c023",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 25,
+        "name": "c024",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 26,
+        "name": "c025",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 27,
+        "name": "c026",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 28,
+        "name": "c027",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 29,
+        "name": "c028",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 30,
+        "name": "c029",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 31,
+        "name": "c030",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 32,
+        "name": "c031",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 33,
+        "name": "c032",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 34,
+        "name": "c033",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 35,
+        "name": "c034",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 36,
+        "name": "c035",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 37,
+        "name": "c036",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 38,
+        "name": "c037",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 39,
+        "name": "c038",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 40,
+        "name": "c039",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 41,
+        "name": "c040",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 42,
+        "name": "c041",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 43,
+        "name": "c042",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 44,
+        "name": "c043",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 45,
+        "name": "c044",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 46,
+        "name": "c045",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 47,
+        "name": "c046",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 48,
+        "name": "c047",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 49,
+        "name": "c048",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 50,
+        "name": "c049",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 51,
+        "name": "c050",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 52,
+        "name": "c051",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 53,
+        "name": "c052",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 54,
+        "name": "c053",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 55,
+        "name": "c054",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 56,
+        "name": "c055",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 57,
+        "name": "c056",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 58,
+        "name": "c057",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 59,
+        "name": "c058",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 60,
+        "name": "c059",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 61,
+        "name": "c060",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 62,
+        "name": "c061",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 63,
+        "name": "c062",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 64,
+        "name": "c063",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 65,
+        "name": "c064",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 66,
+        "name": "c065",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 67,
+        "name": "c066",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 68,
+        "name": "c067",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 69,
+        "name": "c068",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 70,
+        "name": "c069",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 71,
+        "name": "c070",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 72,
+        "name": "c071",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 73,
+        "name": "c072",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 74,
+        "name": "c073",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 75,
+        "name": "c074",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 76,
+        "name": "c075",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 77,
+        "name": "c076",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 78,
+        "name": "c077",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 79,
+        "name": "c078",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 80,
+        "name": "c079",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 81,
+        "name": "c080",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 82,
+        "name": "c081",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 83,
+        "name": "c082",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 84,
+        "name": "c083",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 85,
+        "name": "c084",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 86,
+        "name": "c085",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 87,
+        "name": "c086",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 88,
+        "name": "c087",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 89,
+        "name": "c088",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 90,
+        "name": "c089",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 91,
+        "name": "c090",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 92,
+        "name": "c091",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 93,
+        "name": "c092",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 94,
+        "name": "c093",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 95,
+        "name": "c094",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 96,
+        "name": "c095",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 97,
+        "name": "c096",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 98,
+        "name": "c097",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 99,
+        "name": "c098",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      },
+      {
+        "column_id": 100,
+        "name": "c099",
+        "type_name": "int",
+        "max_length": 4,
+        "is_nullable": false
+      }
+    ]
+  ],
+  "error": null
+}

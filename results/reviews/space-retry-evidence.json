@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-07T06:33:47.483216+00:00",
+  "priorSession": "table-count-guideline-review-session-16",
+  "priorIntegratedRevision": 19,
+  "failure": "Real white-all stopped at resource preflight before selfchecks/load/measurements. VMavailable1776512KiB<reserve2097152KiB; host sufficient. No synthetic measurements or failed-result reuse.",
+  "failedAttemptStartedAt": "2026-11-07T06:13:16Z",
+  "failedAttemptExitCode": 1,
+  "measurementSourceUnchangedThroughIntegration": true,
+  "sourceFileCount": 335,
+  "sourceFixNeeded": false,
+  "cleanupEvidence": [
+    "results/reviews/public-sdk-cache-cleanup.json",
+    "results/reviews/build-cache-cleanup-third.log",
+    "results/reviews/build-cache-cleanup-third-id-only.log"
+  ],
+  "buildPreparationEvidence": [
+    "results/reviews/bench-build-cache-reuse.log",
+    "results/reviews/bench-build-cache-second-check.log"
+  ],
+  "preparationBuildMeaning": "First rebuild completed; second build reused RUN layers(CACHED). No source edit. Idle owned lab-bench was recreated with current image; primary/replica and data preserved.",
+  "vmAvailableKiBAfter": 6710280,
+  "hostAvailable": "172GiB observed after reset; VMfree differs from hostfree.",
+  "nextCommand": "Riela workflow run existing project workflow with entry-step lab-runner,max-steps2; fixed WHITE all then docs-only integrate. No author repeat and no source changes."
+}

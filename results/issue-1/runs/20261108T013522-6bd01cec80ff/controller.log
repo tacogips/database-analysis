@@ -1,0 +1,2036 @@
+
+2026-11-08T01:35:22Z argv=["docker","context","inspect","colima-brotli-verify"]
+[
+    {
+        "Name": "colima-brotli-verify",
+        "Metadata": {
+            "Description": "colima [profile=brotli-verify]"
+        },
+        "Endpoints": {
+            "docker": {
+                "Host": "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+                "SkipTLSVerify": false
+            }
+        },
+        "TLSMaterial": {},
+        "Storage": {
+            "MetadataPath": "/Users/taco/.docker/contexts/meta/eea63538370158fef84139d67f16a5bafc02c3a99377260939492051b212618d",
+            "TLSPath": "/Users/taco/.docker/contexts/tls/eea63538370158fef84139d67f16a5bafc02c3a99377260939492051b212618d"
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","info","--format","{{.ID}} {{.ServerVersion}} {{.OSType}} {{.Architecture}}"]
+37dd634a-dfc4-437b-a8c0-b8ba7ee5f3cd 29.5.2 linux aarch64
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","ls","-a","--format","{{.Names}}"]
+punchflow-release-smoke
+buildx_buildkit_punchflow-release0
+docker-kestra-ec-1
+docker-remote-worker-1
+docker-remote-worker-b-1
+docker-mailpit-1
+docker-postgres-1
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","volume","ls","--format","{{.Name}}"]
+6deb00c071ff6d6eb9cd3fca9cf4744edb3c05a5dfaaaf17dcf45ab05677077d
+459c3580c016078744c141196743f93b2640e684f56f81b5d5d28146c56fe8f0
+05359f73c6c5da176e06f825e6ecdea69fc40e7043118bae63611981ce451e27
+b2e52dc24f16e1068bc80f332a5667df35e4fc5c114b627d858b57f40962128d
+buildx_buildkit_punchflow-release0_state
+c56c0e29398f21dcdb37c7f0e15d57535e2ddcac86438a6b20b72c43e4d88608
+docker_kestra-ec-data
+docker_postgres-data
+e8c3d467a9984776f1c57dac8bb8da90944bf28b8137815e4fd8744e973441b7
+fad084f251210d098e68291369d6f152072084754933486e523a5cd5f0512987
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","network","ls","--format","{{.Name}}"]
+bridge
+docker_default
+host
+none
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","image","inspect","mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"]
+[
+    {
+        "Id": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "RepoTags": [
+            "mcr.microsoft.com/mssql/server:2025-latest"
+        ],
+        "RepoDigests": [
+            "mcr.microsoft.com/mssql/server@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-20T23:06:58.70115748Z",
+        "Config": {
+            "User": "mssql",
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135",
+                "MSSQL_PID=developer"
+            ],
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Labels": {
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 635885096,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:e8bce0aabd687e9ee90e0bada33884f40b277196f72aac9934357472863a80ae",
+                "sha256:70511030faaed7d765fb6de26db73223c717782d108cc02694f89ad7a8230372",
+                "sha256:25bf9612429057d2d3e1870d3d59faff2880bb13d51fdfaf63e52ee1e6622957"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-07T22:42:24.408519761Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "mcr.microsoft.com/mssql/server"
+                }
+            ]
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","image","inspect","mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"]
+[
+    {
+        "Id": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+        "RepoTags": [
+            "mcr.microsoft.com/dotnet/sdk:10.0"
+        ],
+        "RepoDigests": [
+            "mcr.microsoft.com/dotnet/sdk@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-05T23:01:00.459953208Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=true",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Labels": {
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 344584636,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:107ffca6dcd3fc87a7bed8c062f5ddc0d6a4b107205c82c0b49efdb7c1aff967",
+                "sha256:09112df7245c4f71290b9e2adc8d59c2fd8c239077deaeb0135fc738754afec6",
+                "sha256:2c128d2a22173723650e57eee883644c9fa3b72b7da8e000a71939f60a81c073",
+                "sha256:fc56b1452eeabd83861375b79b04ce1a3730eea53a8ac2cecdadf2e7d077c8e9",
+                "sha256:99ca1d93e777e729c265afb2cbde52972289803a9c3bc2cf87e6870568a0b77d",
+                "sha256:4c7e58bb242d8ca617fb2ab42357f37d9e982e10f5362284feed907e0b488e1c",
+                "sha256:5d0233e1ec0a359ca65b500f05e305f65ba8a36add9fcb1f51400f68c989527e",
+                "sha256:02122b6c3f177fe7bdeb85b6e15a605da4483301f9d393b6e0a97112b451dac3",
+                "sha256:67d056a5e8ac1b68348481be543b22a52e1c6f5ad95608f1aeeec550de0277fc",
+                "sha256:68d2d4f1cb1fdf9a0ff8c5ab1b6cafe2787fa2d33b8fd1080a043f1ec890785d",
+                "sha256:8e4d3b307f83e559d6fcffdfb28f8ed3878cf435dc691e95aea13ac23381f8ff"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-08T01:14:35.262165292Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+            "digest": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+            "size": 1079
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "mcr.microsoft.com/dotnet/sdk"
+                }
+            ]
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:35:22Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","build","--pull=false","--label","count.issue1.owner=6bd01cec80ff31eeb09583aebd8d5340","-t","lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340","."]
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 564B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 120B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#4 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.83kB done
+#5 DONE 0.0s
+
+#6 [2/7] WORKDIR /src
+#6 CACHED
+
+#7 [3/7] COPY . ./
+#7 DONE 0.0s
+
+#8 [4/7] RUN dotnet restore --locked-mode
+#8 0.316   Determining projects to restore...
+#8 40.07   Restored /src/CountIssue1.csproj (in 39.64 sec).
+#8 DONE 40.1s
+
+#9 [5/7] RUN dotnet build -c Release --no-restore -o /app
+#9 1.073   CountIssue1 -> /app/CountIssue1.dll
+#9 1.079 
+#9 1.079 Build succeeded.
+#9 1.079     0 Warning(s)
+#9 1.079     0 Error(s)
+#9 1.079 
+#9 1.079 Time Elapsed 00:00:00.93
+#9 DONE 1.1s
+
+#10 [6/7] RUN mkdir /evidence && cp packages.lock.json /evidence/packages.lock.json && dotnet --info > /evidence/dotnet-info.txt
+#10 DONE 0.2s
+
+#11 [7/7] WORKDIR /app
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 1.0s done
+#12 exporting manifest sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a done
+#12 exporting config sha256:8467a99714c406a3f92137553aa4c438d56f9f304a34b487c62bf20d646ceb2a done
+#12 exporting attestation manifest sha256:e694e8f7238c72f0adf8d475f3b9a7e5f23ec55c2873b05c65bf08b564f91ab4 done
+#12 exporting manifest list sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92 done
+#12 naming to docker.io/library/lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340 done
+#12 unpacking to docker.io/library/lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340
+#12 unpacking to docker.io/library/lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340 0.2s done
+#12 DONE 1.3s
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:05Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","compose","-p","lab-sqlserver-issue1","-f","compose.yaml","create","--no-recreate","--no-build","--pull","never"]
+ Network lab-sqlserver-issue1-network Creating 
+ Volume lab-sqlserver-issue1-data Creating 
+ Volume lab-sqlserver-issue1-data Creating 
+ Network lab-sqlserver-issue1-network Creating 
+ Volume lab-sqlserver-issue1-data Created 
+ Volume lab-sqlserver-issue1-data Created 
+ Network lab-sqlserver-issue1-network Created 
+ Network lab-sqlserver-issue1-network Created 
+ Container lab-sqlserver-issue1 Creating 
+ Container lab-sqlserver-issue1-client Creating 
+ Container lab-sqlserver-issue1 Created 
+ Container lab-sqlserver-issue1-client Created 
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:06Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","inspect","lab-sqlserver-issue1-client"]
+[
+    {
+        "Id": "aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8",
+        "Created": "2026-11-08T01:36:05.899686683Z",
+        "Path": "dotnet",
+        "Args": [
+            "CountIssue1.dll"
+        ],
+        "State": {
+            "Status": "created",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "0001-01-01T00:00:00Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92",
+        "ResolvConfPath": "",
+        "HostnamePath": "",
+        "HostsPath": "",
+        "LogPath": "",
+        "Name": "/lab-sqlserver-issue1-client",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-issue1-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 2147483648,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 4294967296,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "aea10007266b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=1",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64",
+                "DOTNET_CLI_TELEMETRY_OPTOUT=1"
+            ],
+            "Cmd": null,
+            "Image": "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "dotnet",
+                "CountIssue1.dll"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "0af1e16474f6b88fafc7b3557e86ba2047e1a287e666324ff35482c16f0c361b",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-issue1",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1",
+                "com.docker.compose.service": "client",
+                "com.docker.compose.version": "5.6.1",
+                "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-issue1-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-issue1-client",
+                        "client"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a",
+            "size": 3537,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:06Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","inspect","lab-sqlserver-issue1"]
+[
+    {
+        "Id": "d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33",
+        "Created": "2026-11-08T01:36:05.886874007Z",
+        "Path": "/opt/mssql/bin/launch_sqlservr.sh",
+        "Args": [
+            "/opt/mssql/bin/sqlservr"
+        ],
+        "State": {
+            "Status": "created",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "0001-01-01T00:00:00Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "ResolvConfPath": "",
+        "HostnamePath": "",
+        "HostsPath": "",
+        "LogPath": "",
+        "Name": "/lab-sqlserver-issue1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "lab-sqlserver-issue1-data:/var/opt/mssql:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-issue1-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "lab-sqlserver-issue1-data",
+                "Source": "/var/lib/docker/volumes/lab-sqlserver-issue1-data/_data",
+                "Destination": "/var/opt/mssql",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "d72c6a57d61e",
+            "Domainname": "",
+            "User": "mssql",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MSSQL_PID=Developer",
+                "MSSQL_SA_PASSWORD=CountLab_Only_2026!",
+                "MSSQL_MEMORY_LIMIT_MB=3072",
+                "ACCEPT_EULA=Y",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "a6f52a8ab22598aecbb37d973e3bc6ffb464e9d782c3d7f05014b0d45f05fcb2",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-issue1",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1",
+                "com.docker.compose.service": "server",
+                "com.docker.compose.version": "5.6.1",
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-issue1-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-issue1",
+                        "server"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:06Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","volume","inspect","lab-sqlserver-issue1-data"]
+[
+    {
+        "CreatedAt": "2026-11-08T10:36:05+09:00",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "123fee8cc3700ef624a01ab59c993181a1b4d82d43f8b193cc9158c9fab3c4fa",
+            "com.docker.compose.project": "lab-sqlserver-issue1",
+            "com.docker.compose.version": "5.6.1",
+            "com.docker.compose.volume": "data",
+            "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/lab-sqlserver-issue1-data/_data",
+        "Name": "lab-sqlserver-issue1-data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:06Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","network","inspect","lab-sqlserver-issue1-network"]
+[
+    {
+        "Name": "lab-sqlserver-issue1-network",
+        "Id": "90e1ea7f211f0404d4f1ef2343be32d365b4a5cb0f292ebda9bc2d54b87b11b3",
+        "Created": "2026-11-08T10:36:05.879340747+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "de3f0c559d1cf8d122d473ac4103e2084fbd26319eed7ff9ecf903ab60b1f487",
+            "com.docker.compose.network": "runtime",
+            "com.docker.compose.project": "lab-sqlserver-issue1",
+            "com.docker.compose.version": "5.6.1",
+            "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340"
+        },
+        "Containers": {},
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 3,
+                        "DynamicIPsAvailable": 65533
+                    }
+                }
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:06Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","start","lab-sqlserver-issue1"]
+lab-sqlserver-issue1
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:06Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","start","--attach","lab-sqlserver-issue1-client"]
+{"name":"readiness_attempt","elapsed_monotonic_ms":2542.0709,"detail":{"Number":0}}
+{"name":"permission_preflight","elapsed_monotonic_ms":6465.8305,"detail":[{"performance_state":1,"alter_connection":1,"product_version":"17.0.5035.5","sysadmin":1}]}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6477.9509,"detail":{"view":"sys.dm_exec_sessions","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6481.2959,"detail":{"view":"sys.dm_exec_connections","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6484.173,"detail":{"view":"sys.dm_exec_requests","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6487.3136,"detail":{"view":"sys.dm_tran_session_transactions","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6488.7848,"detail":{"view":"sys.dm_tran_active_transactions","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6490.3774,"detail":{"view":"sys.dm_tran_active_snapshot_database_transactions","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6492.0084,"detail":{"view":"sys.dm_tran_version_store_space_usage","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"dmv_access_preflight","elapsed_monotonic_ms":6494.2498,"detail":{"view":"sys.dm_tran_persistent_version_store_stats","status":"authorized_lab_sa_not_least_privilege_certification"}}
+{"name":"fixture","elapsed_monotonic_ms":7001.6335,"detail":{"known_rows":4096,"engine":"disk rowstore SQL Server; InnoDB not applicable","privileged":"disposable lab sa"}}
+{"name":"two_connection_identity_equal","elapsed_monotonic_ms":7382.602,"detail":{"case_name":"server_error","server_identity":{"Spid":54,"LoginTime":"2026-11-08T01:36:14.067","ConnectionId":"645ba767-cc8a-4d40-8ff2-0b714c3917c0","Tag":"A3uR48kddQ1lnmyvKhP1eVMJdPGpd9zavuTh86Ed2ok=","Login":"sa","OriginalLogin":"sa","App":"issue1-server_error","Database":"CountIssue1","Server":"d72c6a57d61e"},"client_connection_id":"5a8b8476-59db-4d91-ab8c-9126a00d2226","client_id_not_assumed_equal_to_server_id":true}}
+{"name":"restricted_observer","elapsed_monotonic_ms":7716.4301,"detail":{"status":"monitor_unavailable_insufficient_visibility","target_visible":false,"meaning":"partial/empty visibility never zero sessions"}}
+{"name":"wrong_identity_refused_owner_usable","elapsed_monotonic_ms":7724.0875,"detail":{"refused":"refused_identity_mismatch_or_absent","wrong_tag":true,"wrong_time":false,"wrong_connection_id":false,"kill_sent":false}}
+{"name":"wrong_identity_refused_owner_usable","elapsed_monotonic_ms":7725.4707,"detail":{"refused":"refused_identity_mismatch_or_absent","wrong_tag":false,"wrong_time":true,"wrong_connection_id":false,"kill_sent":false}}
+{"name":"wrong_identity_refused_owner_usable","elapsed_monotonic_ms":7726.4738,"detail":{"refused":"refused_identity_mismatch_or_absent","wrong_tag":false,"wrong_time":false,"wrong_connection_id":true,"kill_sent":false}}
+{"name":"materialized_snapshot_sleeping_open_transaction","elapsed_monotonic_ms":7758.1858,"detail":{"case_name":"server_error","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3077,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3077,"is_snapshot":true,"transaction_sequence_num":9,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":3077,"transaction_type":1,"transaction_state":2}]},"space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"}}}
+{"name":"command_error","elapsed_monotonic_ms":7763.8444,"detail":{"case_name":"server_error","error":{"type":"SqlException","message":"Issue1 deliberate server error","errors":[{"number":51010,"state":1,"severity":16,"line":1,"procedure":"","message":"Issue1 deliberate server error"}]}}}
+{"name":"fault_elapsed","elapsed_monotonic_ms":7765.323,"detail":{"case_name":"server_error","elapsed_monotonic_ms":3.835099999999329}}
+{"name":"post_fault_before_finally","elapsed_monotonic_ms":7774.2333,"detail":{"case_name":"server_error","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3077,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3077,"is_snapshot":true,"transaction_sequence_num":9,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":3077,"transaction_type":1,"transaction_state":2}]}}}
+{"name":"client_finally_enter","elapsed_monotonic_ms":7775.19,"detail":{"Spid":54,"connection_state":"Open","ownTx":true,"injectRollbackFailure":false}}
+{"name":"original_rollback","elapsed_monotonic_ms":7777.1819,"detail":"completed"}
+{"name":"release_poll","elapsed_monotonic_ms":7779.4061,"detail":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":0}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":7781.8971,"detail":{"Sessions":[{"session_id":54,"status":"dormant","open_transaction_count":0}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":7938.5232,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"retention_release","elapsed_monotonic_ms":7940.59,"detail":{"status":"owner_session_transaction_and_active_snapshot_absent","space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"},"production_recovery":"unverified; physical reclamation can lag retention release"}}
+{"name":"case_passed","elapsed_monotonic_ms":7941.2376,"detail":"server_error"}
+{"name":"two_connection_identity_equal","elapsed_monotonic_ms":8113.6793,"detail":{"case_name":"client_cancel","server_identity":{"Spid":54,"LoginTime":"2026-11-08T01:36:14.81","ConnectionId":"644d34f1-f276-4722-9669-2f2641ebe74b","Tag":"eqOIt15fhW7ce/Iz2LNdzI958WUgkM5pJbMVsCUoMeM=","Login":"sa","OriginalLogin":"sa","App":"issue1-client_cancel","Database":"CountIssue1","Server":"d72c6a57d61e"},"client_connection_id":"19545c50-4965-49a1-9936-516c8a8f4dc6","client_id_not_assumed_equal_to_server_id":true}}
+{"name":"materialized_snapshot_sleeping_open_transaction","elapsed_monotonic_ms":8119.9054,"detail":{"case_name":"client_cancel","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3399,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3399,"is_snapshot":true,"transaction_sequence_num":11,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":3399,"transaction_type":1,"transaction_state":2}]},"space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"}}}
+{"name":"client_cancel_called","elapsed_monotonic_ms":8128.5606,"detail":{"result":"Cancel returned; server completion still requires observation"}}
+{"name":"command_error","elapsed_monotonic_ms":8129.5355,"detail":{"case_name":"client_cancel","error":{"type":"SqlException","message":"A severe error occurred on the current command.  The results, if any, should be discarded.\nOperation cancelled by user.","errors":[{"number":0,"state":0,"severity":11,"line":0,"procedure":"","message":"A severe error occurred on the current command.  The results, if any, should be discarded."},{"number":0,"state":0,"severity":11,"line":0,"procedure":"","message":"Operation cancelled by user."}]}}}
+{"name":"fault_elapsed","elapsed_monotonic_ms":8129.5909,"detail":{"case_name":"client_cancel","elapsed_monotonic_ms":9.240899999999783}}
+{"name":"post_fault_before_finally","elapsed_monotonic_ms":8131.1551,"detail":{"case_name":"client_cancel","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3399,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3399,"is_snapshot":true,"transaction_sequence_num":11,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":3399,"transaction_type":1,"transaction_state":2}]}}}
+{"name":"client_finally_enter","elapsed_monotonic_ms":8131.2094,"detail":{"Spid":54,"connection_state":"Open","ownTx":true,"injectRollbackFailure":false}}
+{"name":"original_rollback","elapsed_monotonic_ms":8132.1986,"detail":"completed"}
+{"name":"release_poll","elapsed_monotonic_ms":8133.6569,"detail":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":0}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":8135.8334,"detail":{"Sessions":[{"session_id":54,"status":"dormant","open_transaction_count":0}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":8289.4267,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"retention_release","elapsed_monotonic_ms":8290.6609,"detail":{"status":"owner_session_transaction_and_active_snapshot_absent","space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"},"production_recovery":"unverified; physical reclamation can lag retention release"}}
+{"name":"case_passed","elapsed_monotonic_ms":8290.715,"detail":"client_cancel"}
+{"name":"two_connection_identity_equal","elapsed_monotonic_ms":8450.3842,"detail":{"case_name":"command_timeout","server_identity":{"Spid":54,"LoginTime":"2026-11-08T01:36:15.15","ConnectionId":"1f56846b-1693-45ed-b98f-ff31df229e18","Tag":"xUwW5k9GBF/ZWUajIig1h2dQCYyCE3Pl/Ar4CTEaWsE=","Login":"sa","OriginalLogin":"sa","App":"issue1-command_timeout","Database":"CountIssue1","Server":"d72c6a57d61e"},"client_connection_id":"f78f6b70-3e4c-42c8-92ca-fc5f259a4265","client_id_not_assumed_equal_to_server_id":true}}
+{"name":"materialized_snapshot_sleeping_open_transaction","elapsed_monotonic_ms":8455.6597,"detail":{"case_name":"command_timeout","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3671,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3671,"is_snapshot":true,"transaction_sequence_num":13,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":3671,"transaction_type":1,"transaction_state":2}]},"space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"}}}
+{"name":"command_error","elapsed_monotonic_ms":9463.6218,"detail":{"case_name":"command_timeout","error":{"type":"SqlException","message":"Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.","errors":[{"number":-2,"state":0,"severity":11,"line":0,"procedure":"","message":"Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding."}]}}}
+{"name":"fault_elapsed","elapsed_monotonic_ms":9463.8479,"detail":{"case_name":"command_timeout","elapsed_monotonic_ms":1007.7378000000008}}
+{"name":"post_fault_before_finally","elapsed_monotonic_ms":9485.1751,"detail":{"case_name":"command_timeout","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3671,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3671,"is_snapshot":true,"transaction_sequence_num":13,"elapsed_time_seconds":1}],"ActiveTransactions":[{"transaction_id":3671,"transaction_type":1,"transaction_state":2}]}}}
+{"name":"client_finally_enter","elapsed_monotonic_ms":9485.3487,"detail":{"Spid":54,"connection_state":"Open","ownTx":true,"injectRollbackFailure":false}}
+{"name":"original_rollback","elapsed_monotonic_ms":9487.5794,"detail":"completed"}
+{"name":"release_poll","elapsed_monotonic_ms":9490.1778,"detail":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":0}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":9493.1697,"detail":{"Sessions":[{"session_id":54,"status":"dormant","open_transaction_count":0}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":9654.4403,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"retention_release","elapsed_monotonic_ms":9659.4452,"detail":{"status":"owner_session_transaction_and_active_snapshot_absent","space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"},"production_recovery":"unverified; physical reclamation can lag retention release"}}
+{"name":"case_passed","elapsed_monotonic_ms":9659.6226,"detail":"command_timeout"}
+{"name":"two_connection_identity_equal","elapsed_monotonic_ms":9844.5276,"detail":{"case_name":"dispose_connection","server_identity":{"Spid":54,"LoginTime":"2026-11-08T01:36:16.543","ConnectionId":"2f38204c-543e-44b4-9929-d87fa3b23e1a","Tag":"qn8lAQIqU7uBWSKwmnq5Q4d0J+3Mbg+bI/0oMJ6YUW4=","Login":"sa","OriginalLogin":"sa","App":"issue1-dispose_connection","Database":"CountIssue1","Server":"d72c6a57d61e"},"client_connection_id":"785bfd5e-b22a-4430-ae24-d912584bfbce","client_id_not_assumed_equal_to_server_id":true}}
+{"name":"materialized_snapshot_sleeping_open_transaction","elapsed_monotonic_ms":9850.2545,"detail":{"case_name":"dispose_connection","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":3915,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":3915,"is_snapshot":true,"transaction_sequence_num":15,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":3915,"transaction_type":1,"transaction_state":2}]},"space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"}}}
+{"name":"communication_failure_simulation","elapsed_monotonic_ms":9850.3697,"detail":"SqlConnection.Dispose on idle physical connection; no actual network partition exercised"}
+{"name":"client_finally_enter","elapsed_monotonic_ms":9850.3838,"detail":{"Spid":54,"connection_state":"Closed","ownTx":true,"injectRollbackFailure":false}}
+{"name":"management_cleanup","elapsed_monotonic_ms":9850.8235,"detail":"physical session already absent; no KILL sent"}
+{"name":"release_poll","elapsed_monotonic_ms":9856.4631,"detail":{"Sessions":[{"session_id":54,"status":"dormant","open_transaction_count":1}],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":10009.7522,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":10012.4032,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"retention_release","elapsed_monotonic_ms":10014.1558,"detail":{"status":"owner_session_transaction_and_active_snapshot_absent","space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"},"production_recovery":"unverified; physical reclamation can lag retention release"}}
+{"name":"case_passed","elapsed_monotonic_ms":10014.2104,"detail":"dispose_connection"}
+{"name":"two_connection_identity_equal","elapsed_monotonic_ms":10243.1511,"detail":{"case_name":"management_fallback","server_identity":{"Spid":54,"LoginTime":"2026-11-08T01:36:16.933","ConnectionId":"37b133fb-96e8-436f-820c-150188ff0dc7","Tag":"X/wwQUOFA6UAIOSZwoKSfFcnQBKDJNIEzfIwZKj812s=","Login":"sa","OriginalLogin":"sa","App":"issue1-management_fallback","Database":"CountIssue1","Server":"d72c6a57d61e"},"client_connection_id":"805880d6-43b5-49f9-9912-6b943059a717","client_id_not_assumed_equal_to_server_id":true}}
+{"name":"materialized_snapshot_sleeping_open_transaction","elapsed_monotonic_ms":10254.0341,"detail":{"case_name":"management_fallback","state":{"Sessions":[{"session_id":54,"status":"sleeping","open_transaction_count":1}],"Requests":[],"Transactions":[{"session_id":54,"transaction_id":4128,"is_user_transaction":true,"open_transaction_count":1}],"Snapshots":[{"session_id":54,"transaction_id":4128,"is_snapshot":true,"transaction_sequence_num":17,"elapsed_time_seconds":0}],"ActiveTransactions":[{"transaction_id":4128,"transaction_type":1,"transaction_state":2}]},"space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"}}}
+{"name":"cleanup_fault_injection","elapsed_monotonic_ms":10254.1248,"detail":"client rollback path forced to fail before dispatch; leased idle connection retained for guarded KILL test"}
+{"name":"client_finally_enter","elapsed_monotonic_ms":10254.1579,"detail":{"Spid":54,"connection_state":"Open","ownTx":true,"injectRollbackFailure":true}}
+{"name":"original_rollback_unavailable_or_failed","elapsed_monotonic_ms":10255.5593,"detail":{"type":"InvalidOperationException","message":"lab injected client rollback failure before SQL dispatch; connection stays leased","errors":[]}}
+{"name":"management_cleanup","elapsed_monotonic_ms":10259.7426,"detail":"kill_sent"}
+{"name":"release_poll","elapsed_monotonic_ms":10271.9725,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"release_poll","elapsed_monotonic_ms":10274.6638,"detail":{"Sessions":[],"Requests":[],"Transactions":[],"Snapshots":[],"ActiveTransactions":[]}}
+{"name":"retention_release","elapsed_monotonic_ms":10276.4323,"detail":{"status":"owner_session_transaction_and_active_snapshot_absent","space":{"tempdb":[{"database_id":5,"reserved_page_count":8,"reserved_space_kb":64}],"pvs":[{"database_id":5,"persistent_version_store_size_kb":0,"oldest_active_transaction_id":0}],"meaning":"allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"},"production_recovery":"unverified; physical reclamation can lag retention release"}}
+{"name":"case_passed","elapsed_monotonic_ms":10276.4733,"detail":"management_fallback"}
+{"name":"stats_original_settings","elapsed_monotonic_ms":10299.1077,"detail":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":true,"is_auto_update_stats_on":true,"is_auto_update_stats_async_on":false,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}]}
+{"name":"stats_low_priority_existing","elapsed_monotonic_ms":10305.9286,"detail":[{"name":"ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY","value":false,"value_for_secondary":null}]}
+{"name":"stats_before_count","elapsed_monotonic_ms":10576.9648,"detail":{"profile":"off","settings":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":false,"is_auto_update_stats_on":false,"is_auto_update_stats_async_on":false,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}],"stats":[{"name":"PK_Stats_off","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:17.08","rows":1024,"rows_sampled":1024,"modification_counter":7168}]}}
+{"name":"stats_count_plan","elapsed_monotonic_ms":10598.2162,"detail":{"profile":"off","count":4096,"elapsed_monotonic_ms":10.758599999999205,"plan_status":"actual_plan_captured","optimizer_stats_usage":[],"usage_status":"not_present_or_plan_unavailable","auto_stats_xe":"not_collected; no event absence claim"}}
+{"name":"stats_after_count","elapsed_monotonic_ms":14621.091,"detail":{"profile":"off","settings":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":false,"is_auto_update_stats_on":false,"is_auto_update_stats_async_on":false,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}],"before":[{"name":"PK_Stats_off","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:17.08","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"after":[{"name":"PK_Stats_off","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:17.08","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"recovery_windows":[{"elapsed_monotonic_ms":20.710799999998926,"stats":[{"name":"PK_Stats_off","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:17.08","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]},{"elapsed_monotonic_ms":1025.9428000000007,"stats":[{"name":"PK_Stats_off","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:17.08","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]},{"elapsed_monotonic_ms":4033.3696999999993,"stats":[{"name":"PK_Stats_off","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:17.08","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]}],"conclusion":"update not observed under this schema/plan/state/window; not never","uncertainty":"async background may outlive request and observation window; XE not collected, no production cost certification"}}
+{"name":"stats_before_count","elapsed_monotonic_ms":14752.9926,"detail":{"profile":"sync_on","settings":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":true,"is_auto_update_stats_on":true,"is_auto_update_stats_async_on":false,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}],"stats":[{"name":"PK_Stats_sync_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:21.3766667","rows":1024,"rows_sampled":1024,"modification_counter":7168}]}}
+{"name":"stats_count_plan","elapsed_monotonic_ms":14756.4757,"detail":{"profile":"sync_on","count":4096,"elapsed_monotonic_ms":2.4900999999990745,"plan_status":"actual_plan_captured","optimizer_stats_usage":[],"usage_status":"not_present_or_plan_unavailable","auto_stats_xe":"not_collected; no event absence claim"}}
+{"name":"stats_after_count","elapsed_monotonic_ms":18783.2299,"detail":{"profile":"sync_on","settings":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":true,"is_auto_update_stats_on":true,"is_auto_update_stats_async_on":false,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}],"before":[{"name":"PK_Stats_sync_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:21.3766667","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"after":[{"name":"PK_Stats_sync_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:21.3766667","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"recovery_windows":[{"elapsed_monotonic_ms":5.370300000000498,"stats":[{"name":"PK_Stats_sync_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:21.3766667","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]},{"elapsed_monotonic_ms":1014.2188000000006,"stats":[{"name":"PK_Stats_sync_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:21.3766667","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]},{"elapsed_monotonic_ms":4025.146199999999,"stats":[{"name":"PK_Stats_sync_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:21.3766667","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]}],"conclusion":"update not observed under this schema/plan/state/window; not never","uncertainty":"async background may outlive request and observation window; XE not collected, no production cost certification"}}
+{"name":"stats_before_count","elapsed_monotonic_ms":18903.1145,"detail":{"profile":"async_on","settings":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":true,"is_auto_update_stats_on":true,"is_auto_update_stats_async_on":true,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}],"stats":[{"name":"PK_Stats_async_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:25.53","rows":1024,"rows_sampled":1024,"modification_counter":7168}]}}
+{"name":"stats_count_plan","elapsed_monotonic_ms":18906.5249,"detail":{"profile":"async_on","count":4096,"elapsed_monotonic_ms":2.2443999999995867,"plan_status":"actual_plan_captured","optimizer_stats_usage":[],"usage_status":"not_present_or_plan_unavailable","auto_stats_xe":"not_collected; no event absence claim"}}
+{"name":"stats_after_count","elapsed_monotonic_ms":22938.5602,"detail":{"profile":"async_on","settings":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":true,"is_auto_update_stats_on":true,"is_auto_update_stats_async_on":true,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}],"before":[{"name":"PK_Stats_async_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:25.53","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"after":[{"name":"PK_Stats_async_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:25.53","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"recovery_windows":[{"elapsed_monotonic_ms":7.037499999998545,"stats":[{"name":"PK_Stats_async_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:25.53","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]},{"elapsed_monotonic_ms":1024.8228999999992,"stats":[{"name":"PK_Stats_async_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:25.53","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]},{"elapsed_monotonic_ms":4030.9955999999984,"stats":[{"name":"PK_Stats_async_on","stats_id":1,"auto_created":false,"user_created":false,"has_filter":false,"last_updated":null,"rows":null,"rows_sampled":null,"modification_counter":null},{"name":"fixture_value","stats_id":2,"auto_created":false,"user_created":true,"has_filter":false,"last_updated":"2026-11-08T01:36:25.53","rows":1024,"rows_sampled":1024,"modification_counter":7168}],"observed_db_requests":[]}],"conclusion":"update not observed under this schema/plan/state/window; not never","uncertainty":"async background may outlive request and observation window; XE not collected, no production cost certification"}}
+{"name":"stats_final_settings","elapsed_monotonic_ms":22939.3692,"detail":[{"name":"CountIssue1","compatibility_level":170,"is_auto_create_stats_on":true,"is_auto_update_stats_on":true,"is_auto_update_stats_async_on":true,"is_read_committed_snapshot_on":true,"snapshot_isolation_state":1,"is_accelerated_database_recovery_on":false,"product_version":"17.0.5035.5"}]}
+{"name":"stats_low_priority_final","elapsed_monotonic_ms":22942.8649,"detail":[{"name":"ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY","value":false,"value_for_secondary":null}]}
+CLIENT_FINAL_EXIT_STATUS=0
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:29Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","inspect","lab-sqlserver-issue1-client"]
+[
+    {
+        "Id": "aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8",
+        "Created": "2026-11-08T01:36:05.899686683Z",
+        "Path": "dotnet",
+        "Args": [
+            "CountIssue1.dll"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-08T01:36:06.590583523Z",
+            "FinishedAt": "2026-11-08T01:36:29.65825498Z"
+        },
+        "Image": "sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92",
+        "ResolvConfPath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/hostname",
+        "HostsPath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/hosts",
+        "LogPath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8-json.log",
+        "Name": "/lab-sqlserver-issue1-client",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-issue1-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 2147483648,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 4294967296,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "aea10007266b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=1",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64",
+                "DOTNET_CLI_TELEMETRY_OPTOUT=1"
+            ],
+            "Cmd": null,
+            "Image": "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "dotnet",
+                "CountIssue1.dll"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "0af1e16474f6b88fafc7b3557e86ba2047e1a287e666324ff35482c16f0c361b",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-issue1",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1",
+                "com.docker.compose.service": "client",
+                "com.docker.compose.version": "5.6.1",
+                "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-issue1-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-issue1-client",
+                        "client"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "90e1ea7f211f0404d4f1ef2343be32d365b4a5cb0f292ebda9bc2d54b87b11b3",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-issue1-client",
+                        "client",
+                        "aea10007266b"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a",
+            "size": 3537,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:29Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","cp","lab-sqlserver-issue1-client:/evidence/.","/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff"]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:29Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","logs","lab-sqlserver-issue1"]
+SQL Server 2025 will run as non-root by default.
+This container is running as user mssql.
+To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+2026-11-08 01:36:09.86 Server      Setup step is copying system data file 'C:\templatedata\master.mdf' to '/var/opt/mssql/data/master.mdf'.
+2026-11-08 01:36:09.89 Server      Did not find an existing master data file /var/opt/mssql/data/master.mdf, copying the missing default master and other system database files. If you have moved the database location, but not moved the database files, startup may fail. To repair: shutdown SQL Server, move the master database to configured location, and restart.
+2026-11-08 01:36:09.89 Server      Setup step is copying system data file 'C:\templatedata\mastlog.ldf' to '/var/opt/mssql/data/mastlog.ldf'.
+2026-11-08 01:36:09.89 Server      Setup step is copying system data file 'C:\templatedata\model.mdf' to '/var/opt/mssql/data/model.mdf'.
+2026-11-08 01:36:09.90 Server      Setup step is copying system data file 'C:\templatedata\modellog.ldf' to '/var/opt/mssql/data/modellog.ldf'.
+2026-11-08 01:36:09.90 Server      Setup step is copying system data file 'C:\templatedata\msdbdata.mdf' to '/var/opt/mssql/data/msdbdata.mdf'.
+2026-11-08 01:36:09.91 Server      Setup step is copying system data file 'C:\templatedata\msdblog.ldf' to '/var/opt/mssql/data/msdblog.ldf'.
+2026-11-08 01:36:09.91 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_replicatedmaster.mdf' to '/var/opt/mssql/data/model_replicatedmaster.mdf'.
+2026-11-08 01:36:09.91 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_replicatedmaster.ldf' to '/var/opt/mssql/data/model_replicatedmaster.ldf'.
+2026-11-08 01:36:09.91 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_msdbdata.mdf' to '/var/opt/mssql/data/model_msdbdata.mdf'.
+2026-11-08 01:36:09.92 Server      Setup step is FORCE copying system data file 'C:\templatedata\model_msdblog.ldf' to '/var/opt/mssql/data/model_msdblog.ldf'.
+2026-11-08 01:36:09.94 Server      Microsoft SQL Server 2025 (RTM-CU10) (KB5125471) - 17.0.5035.5 (X64) 
+	Oct 15 2026 19:55:26 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.5 LTS) <X64>
+2026-11-08 01:36:09.94 Server      UTC adjustment: 0:00
+2026-11-08 01:36:09.94 Server      (c) Microsoft Corporation.
+2026-11-08 01:36:09.94 Server      All rights reserved.
+2026-11-08 01:36:09.94 Server      Server process ID is 848.
+2026-11-08 01:36:09.94 Server      Logging SQL Server messages in file '/var/opt/mssql/log/errorlog'.
+2026-11-08 01:36:09.94 Server      Registry startup parameters: 
+	 -d /var/opt/mssql/data/master.mdf
+	 -l /var/opt/mssql/data/mastlog.ldf
+	 -e /var/opt/mssql/log/errorlog
+2026-11-08 01:36:09.94 Server      SQL Server detected 1 sockets with 4 cores per socket and 4 logical processors per socket, 4 total logical processors; using 4 logical processors based on SQL Server licensing. This is an informational message; no user action is required.
+2026-11-08 01:36:09.94 Server      SQL Server is starting at normal priority base (=7). This is an informational message only. No user action is required.
+2026-11-08 01:36:09.95 Server      Using conventional memory in the memory manager.
+2026-11-08 01:36:09.95 Server      SQL Server detected the following NUMA node configuration (NUMA Node number 0, Processor Group number 0, CPU Mask 0x000000000000000f).
+2026-11-08 01:36:09.95 Server      Page exclusion bitmap is enabled.
+2026-11-08 01:36:09.97 Server      Detected 3072 MB of RAM, 2716 MB of available memory, 2716 MB of available page file. This is an informational message; no user action is required.
+2026-11-08 01:36:09.97 Server      Buffer pool extension is not supported on Linux platform.
+2026-11-08 01:36:09.97 Server      Buffer Pool: Allocating 4194304 bytes for 426628 hashPages.
+2026-11-08 01:36:10.26 Server      Buffer pool extension is already disabled. No action is necessary.
+[EnableRbpexForGP] : Rbpex non HS FS Toggled, isGeneralPurpose:[0] 
+[EnableRbpexForLogicalMaster] : Rbpex for LM Toggled
+[RbpexEnableGrowWithoutShrink] : Rbpex Thin Provisioning FS Toggled
+2026-11-08 01:36:10.85 Server      Skipping small memory environment configuration. State 1.
+[INFO] [InitXdbSrvGlobals]: In InitXdbSrvGlobals, FAlternateIoFactorEnabled() = [1]. IsRBPEXEnabledNonHyperscaleEdition() = [0].
+[RSC Capacity config] MaximumNumberOfCachePerDb: 0, MaximumSpaceForCachePerDbInMB: -1, MaximumNumberOfCacheGlobal: -1
+[INFO] [InitServerComponents]: IsRBPEXEnabledNonHyperscaleEdition() = [0], IsSubCoreCPUAllocation = [0], GetSchedulersNumber*100 = [400], GetCPUCorePercentCap = [400.000000], EnableResilientBufferPoolExtension = [0], , RbpexEnableShrink (thin provisioning)  = [0], RbpexEnableGrowWithoutShrink = [0].
+2026-11-08 01:36:10.93 Server      Installing Client TLS certificates to the store.
+2026-11-08 01:36:10.94 Server      CPU vectorization level(s) detected:  SSE SSE2 SSE3 SSSE3 SSE41 SSE42 AVX AVX2 POPCNT BMI1 BMI2
+SqlInstanceNetworkManager: Finished setting callback functions for network IO tracking in UCS broker.
+2026-11-08 01:36:10.98 Server      Successfully initialized the TLS configuration. Allowed TLS protocol versions are ['1.0 1.1 1.2 1.3']. Allowed TLS ciphers are ['TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA'].
+2026-11-08 01:36:11.01 Server      Query Store settings initialized with enabled = 1, 
+2026-11-08 01:36:11.02 Server      The maximum number of dedicated administrator connections for this instance is '1'
+2026-11-08 01:36:11.03 Server      Node configuration: node 0: CPU mask: 0x000000000000000f:0 Active CPU mask: 0x000000000000000f:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+2026-11-08 01:36:11.04 Server      Using dynamic lock allocation.  Initial allocation of 2500 Lock blocks and 5000 Lock Owner blocks per node.  This is an informational message only.  No user action is required.
+2026-11-08 01:36:11.07 Server      In-Memory OLTP initialized on lowend machine.
+2026-11-08 01:36:11.11 Server      [INFO] Created Extended Events session 'hkenginexesession'
+2026-11-08 01:36:11.13 Server      Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.
+ForceFlush is enabled for this instance. 
+2026-11-08 01:36:11.15 Server      Total Log Writer threads: 2. This is an informational message; no user action is required.
+2026-11-08 01:36:11.16 Server      clflush is selected for pmem flush operation.
+2026-11-08 01:36:11.17 Server      Software Usage Metrics is disabled.
+Failed to open password policy registry path. Using default password policy values.
+BulkAdmin AllowedPathsList cleared (path filtering disabled)
+2026-11-08 01:36:11.20 Server      CLR version v4.0.30319 loaded.
+2026-11-08 01:36:11.23 spid21s     [1]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:11.24 spid21s     Starting up database 'master'.
+ForceFlush feature is enabled for log durability.
+2026-11-08 01:36:11.73 Server      Common language runtime (CLR) functionality initialized.
+2026-11-08 01:36:11.84 Server      External governance manager initialized
+2026-11-08 01:36:11.84 Server      Detected pause instruction latency: 0 cycles.
+2026-11-08 01:36:11.90 spid21s     Converting database 'master' from version 984 to the current version 998.
+2026-11-08 01:36:11.90 spid21s     Database 'master' running the upgrade step from version 984 to version 985.
+2026-11-08 01:36:11.91 spid21s     Database 'master' running the upgrade step from version 985 to version 986.
+2026-11-08 01:36:11.94 spid21s     Database 'master' running the upgrade step from version 986 to version 987.
+2026-11-08 01:36:11.94 spid21s     Database 'master' running the upgrade step from version 987 to version 988.
+2026-11-08 01:36:11.95 spid21s     Database 'master' running the upgrade step from version 988 to version 989.
+2026-11-08 01:36:11.96 spid21s     Database 'master' running the upgrade step from version 989 to version 990.
+2026-11-08 01:36:11.97 spid21s     Database 'master' running the upgrade step from version 990 to version 991.
+2026-11-08 01:36:11.97 spid21s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 01:36:11.97 spid21s     Database 'master' running the upgrade step from version 991 to version 992.
+2026-11-08 01:36:11.98 spid21s     Database 'master' running the upgrade step from version 992 to version 993.
+2026-11-08 01:36:11.98 spid21s     Database 'master' running the upgrade step from version 993 to version 994.
+2026-11-08 01:36:11.99 spid21s     [METADATA] Successfully updated max_duration metadata of XE session 65536
+2026-11-08 01:36:11.99 spid21s     [METADATA] Successfully updated max_duration metadata of XE session 65537
+2026-11-08 01:36:11.99 spid21s     Database 'master' running the upgrade step from version 994 to version 995.
+2026-11-08 01:36:12.00 spid21s     Database 'master' running the upgrade step from version 995 to version 996.
+2026-11-08 01:36:12.00 spid21s     Database 'master' running the upgrade step from version 996 to version 997.
+2026-11-08 01:36:12.01 spid21s     Database 'master' running the upgrade step from version 997 to version 998.
+[INFO] [StartUp::OpenDBsAndRecover]: In Startup, FEnableResilientBufferPoolExtensionEnabled() = [0]. IsRBPEXSupportedNonHyperscaleEdition() = [0]. IsSubCore = [0].
+[INFO][DBDDLAgent::AttachDatabase] Starting Database Attach.
+2026-11-08 01:36:12.09 spid30s     Password policy update was successful.
+2026-11-08 01:36:12.09 spid26s     [32767]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:12.10 spid26s     Starting up database 'mssqlsystemresource'.
+2026-11-08 01:36:12.10 spid26s     The resource database build version is 17.00.5035. This is an informational message only. No user action is required.
+2026-11-08 01:36:12.11 spid26s     [3]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:12.12 spid26s     Starting up database 'model'.
+2026-11-08 01:36:12.14 spid26s     Converting database 'model' from version 984 to the current version 998.
+2026-11-08 01:36:12.14 spid26s     Database 'model' running the upgrade step from version 984 to version 985.
+2026-11-08 01:36:12.15 spid26s     Database 'model' running the upgrade step from version 985 to version 986.
+2026-11-08 01:36:12.15 spid26s     Database 'model' running the upgrade step from version 986 to version 987.
+2026-11-08 01:36:12.15 spid26s     Database 'model' running the upgrade step from version 987 to version 988.
+2026-11-08 01:36:12.15 spid26s     Database 'model' running the upgrade step from version 988 to version 989.
+2026-11-08 01:36:12.15 spid26s     Database 'model' running the upgrade step from version 989 to version 990.
+2026-11-08 01:36:12.16 spid26s     Database 'model' running the upgrade step from version 990 to version 991.
+2026-11-08 01:36:12.16 spid26s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 01:36:12.16 spid26s     Database 'model' running the upgrade step from version 991 to version 992.
+2026-11-08 01:36:12.16 spid26s     Database 'model' running the upgrade step from version 992 to version 993.
+2026-11-08 01:36:12.16 spid26s     Database 'model' running the upgrade step from version 993 to version 994.
+2026-11-08 01:36:12.16 spid26s     Database 'model' running the upgrade step from version 994 to version 995.
+2026-11-08 01:36:12.17 spid26s     Database 'model' running the upgrade step from version 995 to version 996.
+2026-11-08 01:36:12.17 spid26s     Database 'model' running the upgrade step from version 996 to version 997.
+2026-11-08 01:36:12.17 spid26s     Database 'model' running the upgrade step from version 997 to version 998.
+2026-11-08 01:36:12.18 spid26s     Synchronize Database 'model' (3) with Resource Database.
+2026-11-08 01:36:12.43 spid30s     A self-generated certificate was successfully loaded for encryption.
+2026-11-08 01:36:12.43 spid30s     Server is listening on [ 'any' <ipv6> 1433] accept sockets 1.
+2026-11-08 01:36:12.43 spid30s     Server is listening on [ 'any' <ipv4> 1433] accept sockets 1.
+2026-11-08 01:36:12.44 Server      Server is listening on [ ::1 <ipv6> 1434] accept sockets 1.
+2026-11-08 01:36:12.44 Server      Server is listening on [ 127.0.0.1 <ipv4> 1434] accept sockets 1.
+2026-11-08 01:36:12.44 Server      Dedicated admin connection support was established for listening locally on port 1434.
+TDS initialization result: 0.
+2026-11-08 01:36:12.44 spid30s     Server is listening on [ ::1 <ipv6> 1431] accept sockets 1.
+2026-11-08 01:36:12.44 spid30s     Server is listening on [ 127.0.0.1 <ipv4> 1431] accept sockets 1.
+SQLSERVR_SSL_CERTIFICATE_DNS_OR_SUBJECT_NAME environment variable was not set as SSL cert is self signed or untrusted.
+2026-11-08 01:36:12.44 spid30s     SQL Server is now ready for client connections. This is an informational message; no user action is required.
+2026-11-08 01:36:12.45 spid21s     [32762]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:12.45 spid21s     Starting up database 'model_replicatedmaster'.
+2026-11-08 01:36:12.48 spid21s     Converting database 'model_replicatedmaster' from version 984 to the current version 998.
+2026-11-08 01:36:12.49 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 984 to version 985.
+2026-11-08 01:36:12.49 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 985 to version 986.
+2026-11-08 01:36:12.49 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 986 to version 987.
+2026-11-08 01:36:12.49 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 987 to version 988.
+2026-11-08 01:36:12.50 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 988 to version 989.
+2026-11-08 01:36:12.50 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 989 to version 990.
+2026-11-08 01:36:12.50 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 990 to version 991.
+2026-11-08 01:36:12.50 spid21s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 01:36:12.50 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 991 to version 992.
+2026-11-08 01:36:12.50 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 992 to version 993.
+2026-11-08 01:36:12.51 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 993 to version 994.
+2026-11-08 01:36:12.51 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 994 to version 995.
+2026-11-08 01:36:12.52 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 995 to version 996.
+2026-11-08 01:36:12.52 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 996 to version 997.
+2026-11-08 01:36:12.53 spid21s     Database 'model_replicatedmaster' running the upgrade step from version 997 to version 998.
+2026-11-08 01:36:12.53 spid21s     Synchronize Database 'model_replicatedmaster' (32762) with Resource Database.
+[INFO][DBDDLAgent::AttachDatabase] Starting Database Attach.
+2026-11-08 01:36:12.57 spid21s     [32761]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:12.57 spid21s     Starting up database 'model_msdb'.
+2026-11-08 01:36:12.60 spid21s     Converting database 'model_msdb' from version 984 to the current version 998.
+2026-11-08 01:36:12.60 spid21s     Database 'model_msdb' running the upgrade step from version 984 to version 985.
+2026-11-08 01:36:12.60 spid21s     Database 'model_msdb' running the upgrade step from version 985 to version 986.
+2026-11-08 01:36:12.60 spid21s     Database 'model_msdb' running the upgrade step from version 986 to version 987.
+2026-11-08 01:36:12.60 spid21s     Database 'model_msdb' running the upgrade step from version 987 to version 988.
+2026-11-08 01:36:12.61 spid21s     Database 'model_msdb' running the upgrade step from version 988 to version 989.
+2026-11-08 01:36:12.61 spid21s     Database 'model_msdb' running the upgrade step from version 989 to version 990.
+2026-11-08 01:36:12.62 spid21s     Database 'model_msdb' running the upgrade step from version 990 to version 991.
+2026-11-08 01:36:12.62 spid21s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 01:36:12.62 spid21s     Database 'model_msdb' running the upgrade step from version 991 to version 992.
+2026-11-08 01:36:12.62 spid21s     Database 'model_msdb' running the upgrade step from version 992 to version 993.
+2026-11-08 01:36:12.62 spid21s     Database 'model_msdb' running the upgrade step from version 993 to version 994.
+2026-11-08 01:36:12.62 spid21s     Database 'model_msdb' running the upgrade step from version 994 to version 995.
+2026-11-08 01:36:12.63 spid21s     Database 'model_msdb' running the upgrade step from version 995 to version 996.
+2026-11-08 01:36:12.63 spid21s     Database 'model_msdb' running the upgrade step from version 996 to version 997.
+2026-11-08 01:36:12.63 spid21s     Database 'model_msdb' running the upgrade step from version 997 to version 998.
+2026-11-08 01:36:12.64 spid21s     Synchronize Database 'model_msdb' (32761) with Resource Database.
+2026-11-08 01:36:12.65 spid21s     Resource governor reconfiguration succeeded.
+2026-11-08 01:36:12.66 spid21s     SQL Server Audit is starting the audits. This is an informational message. No user action is required.
+[Auditing][SecAuditPkg::AutoStartAuditSessions] Entered function.
+2026-11-08 01:36:12.66 spid21s     [AutoStartAuditSessions] Starting audit session task
+2026-11-08 01:36:12.66 spid21s     SQL Server Audit has started the audits. This is an informational message. No user action is required.
+2026-11-08 01:36:12.68 spid21s     SQL Trace ID 1 was started by login "sa".
+2026-11-08 01:36:12.68 spid21s     Server name is 'd72c6a57d61e'. This is an informational message only. No user action is required.
+2026-11-08 01:36:12.70 spid38s     Always On Availability Groups: The availability replica manager is starting. This is an informational message only. No user action is required.
+2026-11-08 01:36:12.70 spid38s     Always On Availability Groups: The availability replica manager is waiting for the instance of SQL Server to allow client connections. This is an informational message only. No user action is required.
+2026-11-08 01:36:12.70 spid26s     Clearing tempdb database.
+2026-11-08 01:36:12.70 spid40s     [4]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:12.70 spid40s     Starting up database 'msdb'.
+2026-11-08 01:36:12.74 spid40s     Converting database 'msdb' from version 984 to the current version 998.
+2026-11-08 01:36:12.74 spid40s     Database 'msdb' running the upgrade step from version 984 to version 985.
+2026-11-08 01:36:12.74 spid40s     Database 'msdb' running the upgrade step from version 985 to version 986.
+2026-11-08 01:36:12.74 spid40s     Database 'msdb' running the upgrade step from version 986 to version 987.
+2026-11-08 01:36:12.75 spid40s     Database 'msdb' running the upgrade step from version 987 to version 988.
+2026-11-08 01:36:12.75 spid40s     Database 'msdb' running the upgrade step from version 988 to version 989.
+2026-11-08 01:36:12.76 spid40s     Database 'msdb' running the upgrade step from version 989 to version 990.
+2026-11-08 01:36:12.76 spid40s     Database 'msdb' running the upgrade step from version 990 to version 991.
+2026-11-08 01:36:12.76 spid40s     [METADATA] XE max_rollover_files update status is : 0.
+2026-11-08 01:36:12.76 spid26s     [2]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:12.77 spid26s     Starting up database 'tempdb'.
+2026-11-08 01:36:12.77 spid40s     Database 'msdb' running the upgrade step from version 991 to version 992.
+2026-11-08 01:36:12.77 spid40s     Database 'msdb' running the upgrade step from version 992 to version 993.
+2026-11-08 01:36:12.77 spid40s     Database 'msdb' running the upgrade step from version 993 to version 994.
+2026-11-08 01:36:12.78 spid40s     Database 'msdb' running the upgrade step from version 994 to version 995.
+2026-11-08 01:36:12.78 spid40s     Database 'msdb' running the upgrade step from version 995 to version 996.
+2026-11-08 01:36:12.79 spid40s     Database 'msdb' running the upgrade step from version 996 to version 997.
+2026-11-08 01:36:12.79 spid40s     Database 'msdb' running the upgrade step from version 997 to version 998.
+2026-11-08 01:36:12.79 spid40s     Synchronize Database 'msdb' (4) with Resource Database.
+2026-11-08 01:36:12.80 spid26s     The tempdb database has 1 data file(s).
+2026-11-08 01:36:12.85 spid38s     The Service Broker endpoint is in disabled or stopped state.
+2026-11-08 01:36:12.85 spid38s     The Database Mirroring endpoint is in disabled or stopped state.
+2026-11-08 01:36:12.87 spid38s     Service Broker manager has started.
+2026-11-08 01:36:12.88 spid21s     Recovery is complete. This is an informational message only. No user action is required.
+2026-11-08 01:36:13.12 spid28s     The default language (LCID 0) has been set for engine and full-text services.
+2026-11-08 01:36:13.20 spid28s     The tempdb database has 4 data file(s).
+2026-11-08 01:36:13.23 spid52      Configuration option 'show advanced options' changed from 0 to 1. Run the RECONFIGURE statement to install.
+2026-11-08 01:36:13.23 spid52      Configuration option 'max server memory (MB)' changed from 2147483647 to 3072. Run the RECONFIGURE statement to install.
+2026-11-08 01:36:13.26 spid52      [DBMgr::FindFreeDatabaseID] Next available DbId EX locked: 5
+2026-11-08 01:36:13.32 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:13.32 spid52      Starting up database 'CountIssue1'.
+2026-11-08 01:36:13.34 spid52      Parallel redo is started for database 'CountIssue1' with worker pool size [2].
+2026-11-08 01:36:13.34 spid52      Parallel redo is shutdown for database 'CountIssue1' with worker pool size [2].
+2026-11-08 01:36:13.36 spid52      Setting database option RECOVERY to SIMPLE for database 'CountIssue1'.
+2026-11-08 01:36:13.37 spid52      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'CountIssue1'.
+RecoveryUnit::Shutdown. IsOnline: 0
+[DeleteDbName] Database CountIssue1 with id 5 is deleted.
+2026-11-08 01:36:13.39 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1. ConcurrentGAMUpdate: 1. ConcurrentSGAMUpdate: 1, CleanupUnderUserTransaction: 0. TranLevelPVS: 0. NestIdBasedHP: 0. m_nestIdBasedHPOnTempDB: 0
+2026-11-08 01:36:13.39 spid52      Starting up database 'CountIssue1'.
+2026-11-08 01:36:13.41 spid52      Parallel redo is started for database 'CountIssue1' with worker pool size [2].
+2026-11-08 01:36:13.42 spid52      Setting database option ALLOW_SNAPSHOT_ISOLATION to ON for database 'CountIssue1'.
+2026-11-08 01:36:13.42 spid32s     Parallel redo is shutdown for database 'CountIssue1' with worker pool size [2].
+2026-11-08 01:36:16.96 spid53      Process ID 54 was killed by hostname aea10007266b, host process ID 1.
+2026-11-08 01:36:17.00 spid53      Setting database option AUTO_CREATE_STATISTICS to OFF for database 'CountIssue1'.
+2026-11-08 01:36:17.00 spid53      Setting database option INCREMENTAL to OFF for database 'CountIssue1'.
+2026-11-08 01:36:17.01 spid53      Setting database option AUTO_UPDATE_STATISTICS to OFF for database 'CountIssue1'.
+2026-11-08 01:36:17.02 spid53      Setting database option AUTO_UPDATE_STATISTICS_ASYNC to OFF for database 'CountIssue1'.
+2026-11-08 01:36:21.33 spid53      Setting database option AUTO_CREATE_STATISTICS to ON for database 'CountIssue1'.
+2026-11-08 01:36:21.34 spid53      Setting database option AUTO_UPDATE_STATISTICS to ON for database 'CountIssue1'.
+2026-11-08 01:36:21.35 spid53      Setting database option AUTO_UPDATE_STATISTICS_ASYNC to OFF for database 'CountIssue1'.
+2026-11-08 01:36:25.48 spid53      Setting database option AUTO_CREATE_STATISTICS to ON for database 'CountIssue1'.
+2026-11-08 01:36:25.49 spid53      Setting database option AUTO_UPDATE_STATISTICS to ON for database 'CountIssue1'.
+2026-11-08 01:36:25.49 spid53      Setting database option AUTO_UPDATE_STATISTICS_ASYNC to ON for database 'CountIssue1'.
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","cp","lab-sqlserver-issue1-client:/evidence/.","/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff"]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","inspect","lab-sqlserver-issue1-client"]
+[
+    {
+        "Id": "aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8",
+        "Created": "2026-11-08T01:36:05.899686683Z",
+        "Path": "dotnet",
+        "Args": [
+            "CountIssue1.dll"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-08T01:36:06.590583523Z",
+            "FinishedAt": "2026-11-08T01:36:29.65825498Z"
+        },
+        "Image": "sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92",
+        "ResolvConfPath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/hostname",
+        "HostsPath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/hosts",
+        "LogPath": "/var/lib/docker/containers/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8/aea10007266bf8dc8ebe7c27e4ea9061f4c9e72e1316b327c60e93c558af36d8-json.log",
+        "Name": "/lab-sqlserver-issue1-client",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-issue1-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 2147483648,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 4294967296,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "aea10007266b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=1",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64",
+                "DOTNET_CLI_TELEMETRY_OPTOUT=1"
+            ],
+            "Cmd": null,
+            "Image": "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "dotnet",
+                "CountIssue1.dll"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "0af1e16474f6b88fafc7b3557e86ba2047e1a287e666324ff35482c16f0c361b",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-issue1",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1",
+                "com.docker.compose.service": "client",
+                "com.docker.compose.version": "5.6.1",
+                "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-issue1-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-issue1-client",
+                        "client"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "90e1ea7f211f0404d4f1ef2343be32d365b4a5cb0f292ebda9bc2d54b87b11b3",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-issue1-client",
+                        "client",
+                        "aea10007266b"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:a9473acdc13beedf42facedef47e0f1f8a1887979359dc72d3e9649d92af479a",
+            "size": 3537,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","rm","--force","lab-sqlserver-issue1-client"]
+lab-sqlserver-issue1-client
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","inspect","lab-sqlserver-issue1"]
+[
+    {
+        "Id": "d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33",
+        "Created": "2026-11-08T01:36:05.886874007Z",
+        "Path": "/opt/mssql/bin/launch_sqlservr.sh",
+        "Args": [
+            "/opt/mssql/bin/sqlservr"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1032541,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-08T01:36:06.491342587Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "ResolvConfPath": "/var/lib/docker/containers/d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33/hostname",
+        "HostsPath": "/var/lib/docker/containers/d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33/hosts",
+        "LogPath": "/var/lib/docker/containers/d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33/d72c6a57d61eadef549545474d84c92ce9c145ea4701e008bcad20b07a29ea33-json.log",
+        "Name": "/lab-sqlserver-issue1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "lab-sqlserver-issue1-data:/var/opt/mssql:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-issue1-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "lab-sqlserver-issue1-data",
+                "Source": "/var/lib/docker/volumes/lab-sqlserver-issue1-data/_data",
+                "Destination": "/var/opt/mssql",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "d72c6a57d61e",
+            "Domainname": "",
+            "User": "mssql",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MSSQL_PID=Developer",
+                "MSSQL_SA_PASSWORD=CountLab_Only_2026!",
+                "MSSQL_MEMORY_LIMIT_MB=3072",
+                "ACCEPT_EULA=Y",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "a6f52a8ab22598aecbb37d973e3bc6ffb464e9d782c3d7f05014b0d45f05fcb2",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-issue1",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1",
+                "com.docker.compose.service": "server",
+                "com.docker.compose.version": "5.6.1",
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "9c112aad64d5ff2c39d8dc245ef50aa7433569f903451f5209d73486a044e907",
+            "SandboxKey": "/var/run/docker/netns/9c112aad64d5",
+            "Ports": {
+                "1433/tcp": null
+            },
+            "Networks": {
+                "lab-sqlserver-issue1-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-issue1",
+                        "server"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "90e1ea7f211f0404d4f1ef2343be32d365b4a5cb0f292ebda9bc2d54b87b11b3",
+                    "EndpointID": "11f17fdd41dd5ce9d79429a140d1a5d87c85c3375ae0b98c0d2fb54b4bda771d",
+                    "Gateway": "",
+                    "IPAddress": "172.19.0.2",
+                    "MacAddress": "12:89:f7:86:3a:55",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-issue1",
+                        "server",
+                        "d72c6a57d61e"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","rm","--force","lab-sqlserver-issue1"]
+lab-sqlserver-issue1
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","volume","inspect","lab-sqlserver-issue1-data"]
+[
+    {
+        "CreatedAt": "2026-11-08T10:36:05+09:00",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "123fee8cc3700ef624a01ab59c993181a1b4d82d43f8b193cc9158c9fab3c4fa",
+            "com.docker.compose.project": "lab-sqlserver-issue1",
+            "com.docker.compose.version": "5.6.1",
+            "com.docker.compose.volume": "data",
+            "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/lab-sqlserver-issue1-data/_data",
+        "Name": "lab-sqlserver-issue1-data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","volume","rm","lab-sqlserver-issue1-data"]
+lab-sqlserver-issue1-data
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:30Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","network","inspect","lab-sqlserver-issue1-network"]
+[
+    {
+        "Name": "lab-sqlserver-issue1-network",
+        "Id": "90e1ea7f211f0404d4f1ef2343be32d365b4a5cb0f292ebda9bc2d54b87b11b3",
+        "Created": "2026-11-08T10:36:05.879340747+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "de3f0c559d1cf8d122d473ac4103e2084fbd26319eed7ff9ecf903ab60b1f487",
+            "com.docker.compose.network": "runtime",
+            "com.docker.compose.project": "lab-sqlserver-issue1",
+            "com.docker.compose.version": "5.6.1",
+            "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340"
+        },
+        "Containers": {},
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 3,
+                        "DynamicIPsAvailable": 65533
+                    }
+                }
+            }
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:31Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","network","rm","lab-sqlserver-issue1-network"]
+lab-sqlserver-issue1-network
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:31Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","image","inspect","lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340"]
+[
+    {
+        "Id": "sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92",
+        "RepoTags": [
+            "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340"
+        ],
+        "RepoDigests": [
+            "lab-sqlserver-issue1-client@sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-08T10:36:04.456581513+09:00",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=1",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64",
+                "DOTNET_CLI_TELEMETRY_OPTOUT=1"
+            ],
+            "Entrypoint": [
+                "dotnet",
+                "CountIssue1.dll"
+            ],
+            "WorkingDir": "/app",
+            "Labels": {
+                "count.issue1.owner": "6bd01cec80ff31eeb09583aebd8d5340",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 391505308,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:107ffca6dcd3fc87a7bed8c062f5ddc0d6a4b107205c82c0b49efdb7c1aff967",
+                "sha256:09112df7245c4f71290b9e2adc8d59c2fd8c239077deaeb0135fc738754afec6",
+                "sha256:2c128d2a22173723650e57eee883644c9fa3b72b7da8e000a71939f60a81c073",
+                "sha256:fc56b1452eeabd83861375b79b04ce1a3730eea53a8ac2cecdadf2e7d077c8e9",
+                "sha256:99ca1d93e777e729c265afb2cbde52972289803a9c3bc2cf87e6870568a0b77d",
+                "sha256:4c7e58bb242d8ca617fb2ab42357f37d9e982e10f5362284feed907e0b488e1c",
+                "sha256:5d0233e1ec0a359ca65b500f05e305f65ba8a36add9fcb1f51400f68c989527e",
+                "sha256:02122b6c3f177fe7bdeb85b6e15a605da4483301f9d393b6e0a97112b451dac3",
+                "sha256:67d056a5e8ac1b68348481be543b22a52e1c6f5ad95608f1aeeec550de0277fc",
+                "sha256:68d2d4f1cb1fdf9a0ff8c5ab1b6cafe2787fa2d33b8fd1080a043f1ec890785d",
+                "sha256:8e4d3b307f83e559d6fcffdfb28f8ed3878cf435dc691e95aea13ac23381f8ff",
+                "sha256:93643052c29fe9923d68c0938f84d03e77d1c7c06c64831167527712eeff1ca3",
+                "sha256:5c0a9ccfaba764181ed2540c8182a5061582db09a5658702e0778ed836828f72",
+                "sha256:ad37ecfa8262cc3c716093169b1dc26823d98b8b66bf57c93a39a5295ba6323d",
+                "sha256:79c9309f0a27274976a629a51bd9c456fc4e979c1e8e63472992317a10fd7092",
+                "sha256:25c74bd522cee89f9f3daa47076d125f9b6ebcdb369daac07898839625d0200e",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-08T01:36:05.477689684Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "rqckcc0l6et7h4ys3za335mgq",
+                    "CreatedAt": "2026-11-08T10:36:05.706582979+09:00"
+                }
+            ]
+        }
+    }
+]
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:31Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","image","rm","lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340"]
+Untagged: lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340
+Deleted: sha256:7261ac100fb1a2bfded685a866cb6bfae2e190d312b2886c4d5810fc02a99d92
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:31Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","container","ls","-a","--format","{{.Names}}"]
+punchflow-release-smoke
+buildx_buildkit_punchflow-release0
+docker-kestra-ec-1
+docker-remote-worker-1
+docker-remote-worker-b-1
+docker-mailpit-1
+docker-postgres-1
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:31Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","volume","ls","--format","{{.Name}}"]
+6deb00c071ff6d6eb9cd3fca9cf4744edb3c05a5dfaaaf17dcf45ab05677077d
+459c3580c016078744c141196743f93b2640e684f56f81b5d5d28146c56fe8f0
+05359f73c6c5da176e06f825e6ecdea69fc40e7043118bae63611981ce451e27
+b2e52dc24f16e1068bc80f332a5667df35e4fc5c114b627d858b57f40962128d
+buildx_buildkit_punchflow-release0_state
+c56c0e29398f21dcdb37c7f0e15d57535e2ddcac86438a6b20b72c43e4d88608
+docker_kestra-ec-data
+docker_postgres-data
+e8c3d467a9984776f1c57dac8bb8da90944bf28b8137815e4fd8744e973441b7
+fad084f251210d098e68291369d6f152072084754933486e523a5cd5f0512987
+exit_status=0 timed_out=false
+
+2026-11-08T01:36:31Z argv=["docker","--host","unix:///Users/taco/.config/colima/brotli-verify/docker.sock","network","ls","--format","{{.Name}}"]
+bridge
+docker_default
+host
+none
+exit_status=0 timed_out=false
+CONTROLLER_FINAL_EXIT_STATUS=0

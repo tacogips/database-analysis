@@ -1,0 +1,82 @@
+name: lab-sqlserver-manual100m
+services:
+  server:
+    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3
+    hostname: countprimary
+    platform: linux/amd64
+    container_name: lab-sqlserver-manual100m
+    user: "${MANUAL_UID:?controller only}:0"
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_ENABLE_HADR: "1"
+      MSSQL_SA_PASSWORD: ManualCount100m_Lab_2026!
+      MSSQL_MEMORY_LIMIT_MB: "3072"
+    mem_limit: 4g
+    cpus: 3
+    volumes:
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/primary"
+        target: /var/opt/mssql
+        bind: {create_host_path: false}
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/shared"
+        target: /backup
+        bind: {create_host_path: false}
+    networks:
+      runtime:
+        aliases: [countprimary]
+  secondary:
+    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3
+    hostname: countsecondary
+    platform: linux/amd64
+    container_name: lab-sqlserver-manual100m-secondary
+    user: "${MANUAL_UID:?controller only}:0"
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_ENABLE_HADR: "1"
+      MSSQL_SA_PASSWORD: ManualCount100m_Lab_2026!
+      MSSQL_MEMORY_LIMIT_MB: "3072"
+    mem_limit: 4g
+    cpus: 3
+    volumes:
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/secondary"
+        target: /var/opt/mssql
+        bind: {create_host_path: false}
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/shared"
+        target: /backup
+        bind: {create_host_path: false}
+    networks:
+      runtime:
+        aliases: [countsecondary]
+  client:
+    image: "lab-sqlserver-manual100m-client:${MANUAL_OWNER:?controller only}"
+    platform: linux/arm64
+    container_name: lab-sqlserver-manual100m-client
+    user: "${MANUAL_UID:?controller only}:0"
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"
+    environment:
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    mem_limit: 1g
+    cpus: 1
+    volumes:
+      - type: bind
+        source: "${MANUAL_EVIDENCE:?controller only}"
+        target: /evidence
+        bind: {create_host_path: false}
+    networks: [runtime]
+networks:
+  runtime:
+    name: lab-sqlserver-manual100m-network
+    internal: true
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"

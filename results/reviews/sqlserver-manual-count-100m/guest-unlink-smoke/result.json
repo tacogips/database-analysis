@@ -1,0 +1,66 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "sudo -n -- stat -- /Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/361b88a584875d7bc3f702f6f4440ee0/stage/primary/data/owned-fixture-probe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sqlserver-manual-count-100m/guest-unlink-smoke/00001.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sqlserver-manual-count-100m/guest-unlink-smoke/00001.stderr.log",
+      "started_at": "2026-11-08T17:48:26Z",
+      "start_monotonic": 591530.941944,
+      "exit_status": 0,
+      "end_monotonic": 591531.361814,
+      "stdout_sha256": "729c65908ceb5a4993517d8730756fc1c0ede08ac3cc2dc2c15d45640c8be663",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "sudo -n -- rm -rf -- /Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/361b88a584875d7bc3f702f6f4440ee0"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sqlserver-manual-count-100m/guest-unlink-smoke/00002.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sqlserver-manual-count-100m/guest-unlink-smoke/00002.stderr.log",
+      "started_at": "2026-11-08T17:48:26Z",
+      "start_monotonic": 591531.363346,
+      "exit_status": 0,
+      "end_monotonic": 591531.575706,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "vm_evidence": {
+    "probe-owned-file": {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "sudo -n -- stat -- /Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/361b88a584875d7bc3f702f6f4440ee0/stage/primary/data/owned-fixture-probe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sqlserver-manual-count-100m/guest-unlink-smoke/00001.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/reviews/sqlserver-manual-count-100m/guest-unlink-smoke/00001.stderr.log",
+      "started_at": "2026-11-08T17:48:26Z",
+      "start_monotonic": 591530.941944,
+      "exit_status": 0,
+      "end_monotonic": 591531.361814,
+      "stdout_sha256": "729c65908ceb5a4993517d8730756fc1c0ede08ac3cc2dc2c15d45640c8be663",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

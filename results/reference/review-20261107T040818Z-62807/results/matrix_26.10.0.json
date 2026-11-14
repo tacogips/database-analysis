@@ -1,0 +1,248 @@
+{
+ "label": "26.10.0",
+ "version": "26.10.0",
+ "variables": {
+  "innodb_parallel_read_threads": "4",
+  "innodb_redo_log_capacity": "104857600",
+  "sql_generate_invisible_primary_key": "OFF",
+  "restrict_fk_on_non_standard_key": "ON",
+  "explain_json_format_version": "2",
+  "information_schema_stats_expiry": "86400",
+  "binlog_format": "ROW",
+  "binlog_row_image": "FULL",
+  "transaction_isolation": "REPEATABLE-READ",
+  "innodb_adaptive_hash_index": "OFF",
+  "innodb_change_buffering": "all",
+  "innodb_old_blocks_time": "1000",
+  "replica_parallel_workers": "4",
+  "replica_preserve_commit_order": "ON",
+  "slave_parallel_workers": "4",
+  "lock_wait_timeout": "31536000",
+  "innodb_lock_wait_timeout": "50",
+  "max_execution_time": "0",
+  "log_bin": "ON",
+  "gtid_mode": "ON",
+  "authentication_policy": "*,,",
+  "default_authentication_plugin": null,
+  "innodb_stats_on_metadata": "OFF"
+ },
+ "statements": {
+  "SHOW REPLICA STATUS": "ok",
+  "SHOW SLAVE STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+  "SHOW MASTER STATUS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+  "SHOW BINARY LOG STATUS": "ok",
+  "SHOW REPLICAS": "ok",
+  "SHOW SLAVE HOSTS": "error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL serv",
+  "SELECT * FROM performance_schema.data_locks LIMIT 1": "ok",
+  "SELECT * FROM performance_schema.metadata_locks LIMIT 1": "ok",
+  "SELECT `count` FROM information_schema.INNODB_METRICS WHERE name='trx_rseg_history_len'": "ok",
+  "EXPLAIN FORMAT=TREE SELECT * FROM hot WHERE id>1 LIMIT 1": "ok",
+  "EXPLAIN ANALYZE SELECT * FROM hot WHERE id>1 LIMIT 1": "ok"
+ },
+ "max_execution_time_hint": "error 3024: Query execution was interrupted, maximum statement execution time exceeded",
+ "count": {
+  "explain_default_child": {
+   "access": "index",
+   "key": "k_p",
+   "used_key_parts": [
+    "parent_id"
+   ],
+   "covering": true,
+   "rows_estimate": 198059,
+   "select_tables_optimized_away": false,
+   "message": null,
+   "raw_keys": [
+    "cost_info",
+    "select_id",
+    "table"
+   ]
+  },
+  "explain_json_top_keys": [
+   "json_schema_version",
+   "query",
+   "query_plan",
+   "query_type"
+  ],
+  "default": {
+   "count": 200000,
+   "seconds": 0.01,
+   "handler": {
+    "Handler_read_first": 1,
+    "Handler_read_key": 1,
+    "Handler_read_next": 200000
+   }
+  },
+  "single_thread": {
+   "count": 200000,
+   "seconds": 0.009,
+   "handler": {
+    "Handler_read_first": 1,
+    "Handler_read_key": 1,
+    "Handler_read_next": 200000
+   }
+  },
+  "force_primary": {
+   "count": 200000,
+   "seconds": 0.009,
+   "handler": {}
+  },
+  "force_secondary": {
+   "count": 200000,
+   "seconds": 0.01,
+   "handler": {
+    "Handler_read_first": 1,
+    "Handler_read_key": 1,
+    "Handler_read_next": 200000
+   }
+  }
+ },
+ "count_tree": "-> Count rows in child\n",
+ "composite_forms_rows_read": {
+  "tuple": 50999,
+  "and_or": 999,
+  "or_expanded": 99
+ },
+ "split_correct": {
+  "hot": {
+   "index": "k_v",
+   "rows": 200000,
+   "truth": 200000,
+   "correct": true
+  },
+  "child": {
+   "index": "PRIMARY",
+   "rows": 200000,
+   "truth": 200000,
+   "correct": true
+  },
+  "comp": {
+   "index": "PRIMARY",
+   "rows": 100000,
+   "truth": 100000,
+   "correct": true
+  },
+  "enum_pk": {
+   "index": "PRIMARY",
+   "rows": 30000,
+   "truth": 30000,
+   "correct": true
+  }
+ },
+ "locks": {
+  "insert_select_count_source_row_locks_rr": 200217,
+  "insert_select_count_source_row_locks_rc": 0,
+  "plain_count_blocks_update": {
+   "write": "ok",
+   "seconds": 0.0
+  },
+  "count_for_share_blocks_update": {
+   "write": "error 1205: Lock wait timeout exceeded; try restarting transaction",
+   "seconds": 1.01
+  },
+  "set_variable_count_blocks_update_in_rr": {
+   "write": "error 1205: Lock wait timeout exceeded; try restarting transaction",
+   "seconds": 1.0
+  },
+  "lock_tables_read_blocks_update": {
+   "write": "error 1205: Lock wait timeout exceeded; try restarting transaction",
+   "seconds": 1.0
+  },
+  "lock_tables_child_blocks_parent_update": {
+   "write": "ok",
+   "seconds": 0.0
+  },
+  "lock_tables_parent_blocks_child_insert": {
+   "write": "ok",
+   "seconds": 0.0
+  }
+ },
+ "mdl": {
+  "select_during_pending_ddl": "error 1205: Lock wait timeout exceeded; try restarting transaction",
+  "explain_during_pending_ddl": "error 1205: Lock wait timeout exceeded; try restarting transaction",
+  "instant_drop_column": "ok"
+ },
+ "preflight": {
+  "hot": {
+   "method": "COUNT_STAR",
+   "index": "k_v",
+   "default_plan": {
+    "access": "index",
+    "key": "k_v",
+    "used_key_parts": [
+     "v"
+    ],
+    "covering": true,
+    "rows_estimate": 200196,
+    "select_tables_optimized_away": false,
+    "message": null,
+    "raw_keys": [
+     "cost_info",
+     "select_id",
+     "table"
+    ]
+   }
+  },
+  "child": {
+   "method": "COUNT_STAR",
+   "index": "PRIMARY",
+   "default_plan": {
+    "access": "index",
+    "key": "k_p",
+    "used_key_parts": [
+     "parent_id"
+    ],
+    "covering": true,
+    "rows_estimate": 198060,
+    "select_tables_optimized_away": false,
+    "message": null,
+    "raw_keys": [
+     "cost_info",
+     "select_id",
+     "table"
+    ]
+   }
+  },
+  "comp": {
+   "method": "COUNT_STAR",
+   "index": "PRIMARY",
+   "default_plan": {
+    "access": "index",
+    "key": "PRIMARY",
+    "used_key_parts": [
+     "a",
+     "b"
+    ],
+    "covering": true,
+    "rows_estimate": 100842,
+    "select_tables_optimized_away": false,
+    "message": null,
+    "raw_keys": [
+     "cost_info",
+     "select_id",
+     "table"
+    ]
+   }
+  },
+  "enum_pk": {
+   "method": "COUNT_STAR",
+   "index": "PRIMARY",
+   "default_plan": {
+    "access": "index",
+    "key": "PRIMARY",
+    "used_key_parts": [
+     "s",
+     "id"
+    ],
+    "covering": true,
+    "rows_estimate": 28599,
+    "select_tables_optimized_away": false,
+    "message": null,
+    "raw_keys": [
+     "cost_info",
+     "select_id",
+     "table"
+    ]
+   }
+  }
+ }
+}

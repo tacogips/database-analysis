@@ -1,0 +1,22 @@
+{
+  "workflowId": "issue-1-remediation",
+  "description": "Address Issue1 cancellation and prequalification with separate owner runtime and Sol reviews",
+  "defaults": {
+    "nodeTimeoutMs": 3600000,
+    "maxLoopIterations": 1
+  },
+  "entryStepId": "author",
+  "nodes": [
+    {
+      "id": "author",
+      "nodeFile": "nodes/author.json"
+    }
+  ],
+  "steps": [
+    {
+      "id": "author",
+      "nodeId": "author",
+      "role": "worker"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+[
+    {
+        "Name": "lab-sqlserver-manual100m-network",
+        "Id": "5b1d9120e79304e484386d038c15cb27d0d1907836754012a87708402959e191",
+        "Created": "2026-11-09T07:52:00.920681727+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "cb2be4fd75d8aa5b3f30bda7161a34b6a3a96c0fa847a7ba27f23dbed27522ff",
+            "com.docker.compose.network": "runtime",
+            "com.docker.compose.project": "lab-sqlserver-manual100m",
+            "com.docker.compose.version": "5.6.1",
+            "count.manual100m.owner": "045d4ac2979742c7f0ab0eafb20b8fa9"
+        },
+        "Containers": {
+            "71e1b967301d8dab835a19b8cb47c6542976405bf55da87fd3ec4778121f63ae": {
+                "Name": "lab-sqlserver-manual100m",
+                "EndpointID": "b2a71abde8e986808253d82e908499d2030d98ba60fcdbe01a7d67445b2fec03",
+                "MacAddress": "a6:e5:f4:44:d6:f6",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 4,
+                        "DynamicIPsAvailable": 65532
+                    }
+                }
+            }
+        }
+    }
+]

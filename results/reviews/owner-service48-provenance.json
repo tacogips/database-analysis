@@ -1,0 +1,65 @@
+{
+  "recordedAt": "2026-11-07T09:11:13.604633+00:00",
+  "meaning": "Completed48-arm100-column TDE observation/provenance and independent protocol audit; no SLO/production/finalall approval.",
+  "allStartedAt": "2026-11-07T07:28:15Z",
+  "artifact": "results/requested_accuracy_service_100.json",
+  "sha256": "08160a68cb67a10a69447eac715165ba68597a5f0db04ecfe33719be5c8460b0",
+  "statusArtifact": "results/requested/01d-ACCURACY-SERVICE-100.status.json",
+  "freshNumericExitZero": true,
+  "declaredSourceHashesMatchAllSourceBefore": true,
+  "artifactHashesVerified": 3,
+  "ownedServerCleanupConfirmed": true,
+  "arms": 48,
+  "outcomes": {
+    "sample3": {
+      "outcomes": {
+        "target_reached": 11,
+        "budget_exhausted": 1
+      },
+      "accuracyStatus": {
+        "target_reached": 11,
+        "not_assessed": 1
+      },
+      "budgetStatus": {
+        "within_budget": 11,
+        "exhausted": 1
+      }
+    },
+    "sample10": {
+      "outcomes": {
+        "target_reached": 12
+      },
+      "accuracyStatus": {
+        "target_reached": 12
+      },
+      "budgetStatus": {
+        "within_budget": 12
+      }
+    },
+    "count": {
+      "outcomes": {
+        "error": 9,
+        "complete": 3
+      },
+      "accuracyStatus": {},
+      "budgetStatus": {}
+    }
+  },
+  "independentAudit": "results/reviews/owner-service48-completed-audit.json",
+  "auditorRegression": "results/reviews/owner-service-actual-artifact-regression.json",
+  "measuredSummary": "results/reviews/owner-measured-service-frontier.json",
+  "summarySha256": "091fbeecf4a65608184e158a7feb5d2063262f82ea08d725df5884d2d258e5a7",
+  "limitations": [
+    "Three observations per index/write-shape/method; quantiles and their min/median/max are descriptive, not confidence intervals.",
+    "Time-boxed COUNT outcomes are censored query durations, not completed COUNT speed.",
+    "COUNT times its SQL statement; sampling callback includes its checks and rollback. Connection setup and owned-session confirmation are outside these method intervals.",
+    "COUNT uses a server statement timer; sampling has a cooperative aggregate budget. These are not identical hard end-to-end deadlines.",
+    "Trial windows include remaining work/cleanup and can exceed the nominal3s. Use actual durations, arrival counts and unfinished markers.",
+    "Unfinished-response quantiles are lower bounds; absent quantiles are unobserved, never zero.",
+    "Latency cohorts contain arrivals scheduled in the trial and observed through workload recording/cleanup. Saved unfinished markers are not a point-in-time count at the trial endpoint.",
+    "InnoDB read counters are global server deltas, not host physical I/O or method-only attribution.",
+    "Cache/order/carryover/host activity are uncontrolled. UPDATE shapes and a750000-row synthetic100-column TDE fixture do not cover arbitrary production traffic.",
+    "There is no5% service arm; static105-case comparison supplies the3/5/10% evidence."
+  ],
+  "pending": "Other requested experiments,41writeMix/30scale,finalintegrity/fullraw/sourceaudit,docs integration,proof/two finalSol/commitpush."
+}

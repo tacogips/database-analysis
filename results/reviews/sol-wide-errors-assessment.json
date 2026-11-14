@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-07T07:01:00.492928+00:00",
+  "review": "results/reviews/sol-wide-errors-review.json",
+  "ownerDecision": "Confirmed middle2, pending bounded author repair and final Sol closure.",
+  "reason": "Real functions/fakes demonstrate service failure omission and defaultFalse workload confirmation. Owner audit can exclude invalid results but cannot repair cache skip/retry decisions or establish earlier server termination retrospectively.",
+  "actualRunQualification": "Current attempt4 was intentionally interrupted before wide scripts for required source repair; not an observed live2013/cleanup failure. Prior measured/partial files remain observations, not final reproduction.",
+  "findings": [
+    {
+      "id": "SOL-WIDE-ERROR-001",
+      "ownerDisposition": "confirmed_pending_repair_and_final_review",
+      "requiredCorrection": "staticとserviceの双方について、期待された観測と予期しない失敗を区別して保存する。未解決の予期しない失敗を必須範囲の再利用可能な完了として扱わない。",
+      "boundedRemediation": "callerの失敗集計・保存・終了判定を限定修正する。失敗結果を保存して非0終了する方式、または診断完了を維持しつつ必須範囲の再利用を明示的に禁止する方式で足りる。precision_not_reached、全体budget_exhausted、確認済みdeadlineを一律失敗へ変更しない。既存の失敗観測は診断として保持し、成功比較から除外できるが、必須条件を満たしたことには代用できない。"
+    },
+    {
+      "id": "SOL-WIDE-ERROR-002",
+      "ownerDisposition": "confirmed_pending_repair_and_final_review",
+      "requiredCorrection": "各wide armの所有workloadについて終了確認を行い、確認できない場合は後続比較を開始しない。accounting、打切り観測、cleanup結果を別々に保存する。",
+      "boundedRemediation": "既存のWorkload.finish(confirm_server=True)と所有connection確認機構を利用し、失敗時にも現在のarm情報・到着会計・cleanup診断をcallerへ保存してから停止する。後始末失敗を単なる遅延観測へ変換しない。SQL、caps、fixture、arm数の変更は不要。"
+    }
+  ],
+  "next": "Single Sol author after phase17 documentation-only integrate terminal. Keep all method math/SQL/caps/cases; repair outcome persistence, semantic failure/cache decision and per-arm workload cleanup gating. Add exact-function/fake regressions. Then final-code WHITE all."
+}

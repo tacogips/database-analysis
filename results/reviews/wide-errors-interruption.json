@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-07T06:55:41.251818+00:00",
+  "state": "controlled_stop_completed",
+  "reason": "Confirmed source-level middle2 findings SOL-WIDE-ERROR001/002 require bounded wide caller persistence/classification/cleanup changes. Not an observed DB failure or silence timeout.",
+  "review": "results/reviews/sol-wide-errors-review.json",
+  "mainSession": "table-count-guideline-review-session-17",
+  "orchestratorPid": 99982,
+  "command": "/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby lab.rb all",
+  "sourceUnchangedDuringAttempt": true,
+  "plan": "Pause own orchestrator; interrupt exact current bench Python main; stop only owned compose primary/replica to confirm any remaining server work ended; verify bench Python quiescence; interrupt/resume orchestrator so fixed controller saves actual130/source/snapshot. Data files retained, MEMORY is volatile; no final integrity claim.",
+  "benchPythonQuiescenceConfirmed": true,
+  "ownedPrimaryReplicaStopped": true,
+  "ownedDbExitCodes": {
+    "primary": 0,
+    "replica": 0
+  },
+  "orchestratorSignal": "SIGINT_then_SIGCONT",
+  "observedAt": "2026-11-07T06:56:08.072714+00:00",
+  "orchestratorExitCode": 130,
+  "candidateStatus": "failed",
+  "measurementSourceUnchanged": true,
+  "requestedStatus": "not_reached",
+  "finishedAt": "2026-11-07T06:56:08Z",
+  "partialImpactFiles": 8,
+  "finalDataIntegrity": "not_reached; DBs stopped intentionally, MEMORY is volatile; no corruption or intactness claim"
+}

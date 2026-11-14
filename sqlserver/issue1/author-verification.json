@@ -1,0 +1,176 @@
+{
+  "status": "static_checks_passed",
+  "exit_status": 0,
+  "complete_log_path": "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/author-verification.log",
+  "complete_log_sha256": "9a7c55694b1f6ea11668bafc36248eabf8ab79d3c9e230234451b0497285a6f0",
+  "checks": [
+    {
+      "name": "ruby_4_available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "command_exit",
+      "passed": true,
+      "detail": [
+        "/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby",
+        "-c",
+        "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/lab.rb"
+      ]
+    },
+    {
+      "name": "command_exit",
+      "passed": true,
+      "detail": [
+        "/Users/taco/.local/share/mise/installs/ruby/4.0.9/bin/ruby",
+        "-rjson",
+        "-ryaml",
+        "-e",
+        "puts JSON.generate(YAML.load_file(ARGV[0]))",
+        "/Users/taco/gits/tacogips/database-analysis/sqlserver/issue1/compose.yaml"
+      ]
+    },
+    {
+      "name": "fixed_project",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pinned_server",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixed_runtime_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "internal_no_published_ports",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "resource_limits",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "net10_locked_restore_enabled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sqlclient_exact_version",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuget_official_only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fiction_marked",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_copy_response_budget_arithmetic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_copy_arrival_accounting",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dedicated_replica_response_budget_arithmetic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dedicated_replica_arrival_accounting",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fiction_space_headroom_arithmetic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old_measurement_and_acceptance_hashes_unchanged",
+      "passed": true,
+      "detail": {
+        "protected_count": 362,
+        "changed": []
+      }
+    },
+    {
+      "name": "command_exit",
+      "passed": true,
+      "detail": [
+        "git",
+        "diff",
+        "--check"
+      ]
+    },
+    {
+      "name": "command_exit",
+      "passed": true,
+      "detail": [
+        "git",
+        "diff",
+        "--name-only"
+      ]
+    },
+    {
+      "name": "tracked_write_scope",
+      "passed": true,
+      "detail": [
+        "docs/README.md",
+        "docs/guidelines/mysql.md",
+        "docs/guidelines/sql-server.md"
+      ]
+    },
+    {
+      "name": "local_document_links_except_owner_receipt",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "current_receipt_in_all_guides",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "source_hashes": {
+    "docs/README.md": "9783f53da8b3e4613628d3f6798d7f5753cbcf9be3a7fadd9e6b7c67c27c48a3",
+    "docs/guidelines/mysql.md": "ffb3ae5b8d189b90418c9fb9efa8e5d2787c2bcae328a60e9c3fedcf907c2b2f",
+    "docs/guidelines/operations-runbook.md": "17869998b2fe502cbc3df5958c5b910aa20bc1061934fd5f4cc5e70418c3291c",
+    "docs/guidelines/sql-server.md": "bbfdada6f71acc91010c8457c076cae1b79d00e6aac07247ff6f66ec547ff47c",
+    "sqlserver/issue1/.dockerignore": "f4a08bffb3077b9356083081520f9987342a4988dd06574763311c2b776417d4",
+    "sqlserver/issue1/CountIssue1.csproj": "329e43bd8cc92622b759e3fb4a3a19a549d75ad5fed1214f2a841e3824909add",
+    "sqlserver/issue1/Dockerfile": "5900edb1dde931ab176c26e6dc896cfbcc9d64d920f3bd567696ae5dbf158b8b",
+    "sqlserver/issue1/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/issue1/Program.cs": "977ed777c799c65cc80cc7f1b78f2194ef5c843a5d68baff5363d673c5b30cdb",
+    "sqlserver/issue1/README.md": "3bb158e78ba40f5a73b25896acc26c94b1c422ec7a9179badd8bf420f89b3d55",
+    "sqlserver/issue1/compose.yaml": "1826cfb7e8ac74f869b93c4415e039357ebe224f389d3faa9c43f9fc12f27b3a",
+    "sqlserver/issue1/lab.rb": "056e3d37445bfe27a15d633ff61e7a0ee3726507cb67058f85a20e54936d7bdb",
+    "sqlserver/issue1/mise.toml": "9200d44b709fb4266977ad0eea81e11a56849d716c14e901706fe946f8092e4c",
+    "sqlserver/issue1/runbook-example-inputs.json": "5ffd82e6295f0003e86c31dd2c5defbb18cade1d381b6d99fb0b80124d588e0b",
+    "sqlserver/issue1/verify_author.py": "e647f6d794ccd32c5e186431cc7ea433ce22d547b4002127f933874e2f109f5a"
+  },
+  "not_executed": [
+    "Docker",
+    "DB",
+    "measurements",
+    "C# compile: host compiler unavailable",
+    "runtime attention/rollback/KILL/stats",
+    "final owner audit",
+    "separate final Sol two-role review"
+  ],
+  "meaning": "Offline structure/integrity/arithmetic only; not runtime success or Issue acceptance."
+}

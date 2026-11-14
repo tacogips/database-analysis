@@ -1,0 +1,791 @@
+{
+  "meaning": "Automated owner evidence checks, not service SLO approval or final acceptance.",
+  "sourceProblems": [],
+  "frontier105": {
+    "problems": [],
+    "fixtures": {
+      "dense": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "gaps": {
+        "runs": 15,
+        "statuses": {
+          "precision_not_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "islands": {
+        "runs": 15,
+        "statuses": {
+          "precision_not_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "negative": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "wide": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 3000000
+      },
+      "moderate_gaps": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 2400026
+      },
+      "uneven_density": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 2250000
+      }
+    },
+    "meaning": "Observed noncoverage is reported, not automatically a code defect: nominal confidence is probabilistic per invocation."
+  },
+  "service48": {
+    "problems": [
+      [
+        "inlineWindow",
+        9,
+        "timestamped_method",
+        "read",
+        "invalid observation interval"
+      ],
+      [
+        "inlineWindow",
+        9,
+        "timestamped_method",
+        "write",
+        "invalid observation interval"
+      ]
+    ],
+    "arms": 48,
+    "inlineWindowAudit": {
+      "problems": [
+        [
+          9,
+          "timestamped_method",
+          "read",
+          "invalid observation interval"
+        ],
+        [
+          9,
+          "timestamped_method",
+          "write",
+          "invalid observation interval"
+        ]
+      ],
+      "arms": 48,
+      "savedTrialCohorts": 48,
+      "timestampedMethodWindows": 36,
+      "limitation": "Trial cohort quantiles/membership verified; original broad-window timestamp boundaries and baseline/recovery quantiles cannot be reconstructed from this artifact. No SLO approval."
+    },
+    "notAnSloApproval": true
+  },
+  "wide50": {
+    "meaning": "Completed lab observation audit, not production confidence/SLO/final acceptance.",
+    "problems": [
+      {
+        "collection": "serviceInlineWindows",
+        "problems": [
+          [
+            13,
+            "timestamped_method",
+            "read",
+            "invalid observation interval"
+          ],
+          [
+            13,
+            "timestamped_method",
+            "write",
+            "invalid observation interval"
+          ]
+        ]
+      }
+    ],
+    "staticCases": 20,
+    "serviceCases": 36,
+    "inlineWindowAudit": {
+      "problems": [
+        [
+          13,
+          "timestamped_method",
+          "read",
+          "invalid observation interval"
+        ],
+        [
+          13,
+          "timestamped_method",
+          "write",
+          "invalid observation interval"
+        ]
+      ],
+      "arms": 36,
+      "savedTrialCohorts": 36,
+      "timestampedMethodWindows": 24,
+      "limitation": "Trial cohort quantiles/membership verified; original broad-window timestamp boundaries and baseline/recovery quantiles cannot be reconstructed from this artifact. No SLO approval."
+    },
+    "staticSamplingStatuses": {
+      "target_reached": 10
+    },
+    "serviceSamplingStatuses": {
+      "target_reached": 12
+    },
+    "serviceCountStatuses": {
+      "error": 6,
+      "complete": 6
+    },
+    "limitations": [
+      "Expected precision/budget/censoring observations remain separate from unexpected failures.",
+      "Observed truth/coverage in this dense fixture does not prove general confidence coverage.",
+      "Timing/order/cache and service tails need protocol-specific interpretation, not automatic ranking."
+    ]
+  },
+  "latencyWindows": {
+    "count_shapes.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "count_shapes_forms.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "data_check.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_baseline.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_baseline_end.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_count_default.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [
+        "$.latency.recovery.read",
+        "$.latency.recovery.write"
+      ],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_count_estimate.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [
+        {
+          "path": "$.latency.during.read",
+          "scheduled": 2
+        },
+        {
+          "path": "$.latency.during.write",
+          "scheduled": 0
+        }
+      ],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_count_force_primary.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_count_force_secondary.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [
+        "$.latency.recovery.write"
+      ],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_count_on_replica_t_repl.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_count_timeout_hint.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "impact_replica_control_no_count.json": {
+      "problems": [],
+      "windows": 6,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "lock_factors.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "matrix_26.10.0.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "matrix_8.4.0.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "matrix_8.4.13.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "matrix_9.7.0.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "matrix_9.7.4.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_accuracy_cost_frontier.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_accuracy_service_100.json": {
+      "problems": [],
+      "windows": 360,
+      "sparseWindows": [
+        {
+          "path": "$.arms[3].actual_method_service.read",
+          "scheduled": 33
+        },
+        {
+          "path": "$.arms[3].actual_method_service.write",
+          "scheduled": 32
+        },
+        {
+          "path": "$.arms[4].actual_statement_service.read",
+          "scheduled": 77
+        },
+        {
+          "path": "$.arms[4].actual_statement_service.write",
+          "scheduled": 76
+        },
+        {
+          "path": "$.arms[6].actual_method_service.read",
+          "scheduled": 44
+        },
+        {
+          "path": "$.arms[6].actual_method_service.write",
+          "scheduled": 44
+        },
+        {
+          "path": "$.arms[9].actual_method_service.read",
+          "scheduled": 0
+        },
+        {
+          "path": "$.arms[9].actual_method_service.write",
+          "scheduled": 0
+        },
+        {
+          "path": "$.arms[14].actual_method_service.read",
+          "scheduled": 79
+        },
+        {
+          "path": "$.arms[14].actual_method_service.write",
+          "scheduled": 78
+        },
+        {
+          "path": "$.arms[15].actual_method_service.read",
+          "scheduled": 26
+        },
+        {
+          "path": "$.arms[15].actual_method_service.write",
+          "scheduled": 26
+        },
+        {
+          "path": "$.arms[18].actual_method_service.read",
+          "scheduled": 28
+        },
+        {
+          "path": "$.arms[18].actual_method_service.write",
+          "scheduled": 28
+        },
+        {
+          "path": "$.arms[20].actual_method_service.read",
+          "scheduled": 91
+        },
+        {
+          "path": "$.arms[20].actual_method_service.write",
+          "scheduled": 90
+        },
+        {
+          "path": "$.arms[21].actual_method_service.read",
+          "scheduled": 26
+        },
+        {
+          "path": "$.arms[21].actual_method_service.write",
+          "scheduled": 26
+        },
+        {
+          "path": "$.arms[25].actual_statement_service.read",
+          "scheduled": 7
+        },
+        {
+          "path": "$.arms[25].actual_statement_service.write",
+          "scheduled": 6
+        },
+        {
+          "path": "$.arms[27].actual_method_service.read",
+          "scheduled": 40
+        },
+        {
+          "path": "$.arms[27].actual_method_service.write",
+          "scheduled": 40
+        },
+        {
+          "path": "$.arms[28].actual_statement_service.read",
+          "scheduled": 7
+        },
+        {
+          "path": "$.arms[28].actual_statement_service.write",
+          "scheduled": 8
+        },
+        {
+          "path": "$.arms[30].actual_method_service.read",
+          "scheduled": 25
+        },
+        {
+          "path": "$.arms[30].actual_method_service.write",
+          "scheduled": 26
+        },
+        {
+          "path": "$.arms[33].actual_method_service.read",
+          "scheduled": 27
+        },
+        {
+          "path": "$.arms[33].actual_method_service.write",
+          "scheduled": 26
+        },
+        {
+          "path": "$.arms[35].actual_statement_service.read",
+          "scheduled": 7
+        },
+        {
+          "path": "$.arms[35].actual_statement_service.write",
+          "scheduled": 6
+        },
+        {
+          "path": "$.arms[39].actual_method_service.read",
+          "scheduled": 28
+        },
+        {
+          "path": "$.arms[39].actual_method_service.write",
+          "scheduled": 28
+        },
+        {
+          "path": "$.arms[42].actual_method_service.read",
+          "scheduled": 22
+        },
+        {
+          "path": "$.arms[42].actual_method_service.write",
+          "scheduled": 23
+        },
+        {
+          "path": "$.arms[44].actual_method_service.read",
+          "scheduled": 89
+        },
+        {
+          "path": "$.arms[44].actual_method_service.write",
+          "scheduled": 90
+        },
+        {
+          "path": "$.arms[45].actual_method_service.read",
+          "scheduled": 64
+        },
+        {
+          "path": "$.arms[45].actual_method_service.write",
+          "scheduled": 64
+        },
+        {
+          "path": "$.arms[47].actual_statement_service.read",
+          "scheduled": 95
+        },
+        {
+          "path": "$.arms[47].actual_statement_service.write",
+          "scheduled": 94
+        }
+      ],
+      "censoredWindows": [
+        "$.arms[31].recovery.service.read"
+      ],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_encrypted_count_26.10.0.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_encrypted_count_8.4.13.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_encrypted_count_9.7.4.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_metadata_accuracy.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_metadata_on_replica.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "requested_probability_wide_50.json": {
+      "problems": [],
+      "windows": 264,
+      "sparseWindows": [
+        {
+          "path": "$.service[2].actual_method_service.read",
+          "scheduled": 93
+        },
+        {
+          "path": "$.service[2].actual_method_service.write",
+          "scheduled": 92
+        },
+        {
+          "path": "$.service[3].actual_method_service.read",
+          "scheduled": 46
+        },
+        {
+          "path": "$.service[3].actual_method_service.write",
+          "scheduled": 46
+        },
+        {
+          "path": "$.service[8].actual_method_service.read",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[8].actual_method_service.write",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[12].actual_method_service.read",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[12].actual_method_service.write",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[13].actual_statement_service.read",
+          "scheduled": 0
+        },
+        {
+          "path": "$.service[13].actual_statement_service.write",
+          "scheduled": 0
+        },
+        {
+          "path": "$.service[17].actual_method_service.read",
+          "scheduled": 34
+        },
+        {
+          "path": "$.service[17].actual_method_service.write",
+          "scheduled": 34
+        },
+        {
+          "path": "$.service[19].actual_statement_service.read",
+          "scheduled": 5
+        },
+        {
+          "path": "$.service[19].actual_statement_service.write",
+          "scheduled": 6
+        },
+        {
+          "path": "$.service[20].actual_method_service.read",
+          "scheduled": 37
+        },
+        {
+          "path": "$.service[20].actual_method_service.write",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[21].actual_method_service.read",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[21].actual_method_service.write",
+          "scheduled": 36
+        },
+        {
+          "path": "$.service[22].actual_statement_service.read",
+          "scheduled": 5
+        },
+        {
+          "path": "$.service[22].actual_statement_service.write",
+          "scheduled": 4
+        },
+        {
+          "path": "$.service[25].actual_statement_service.read",
+          "scheduled": 6
+        },
+        {
+          "path": "$.service[25].actual_statement_service.write",
+          "scheduled": 6
+        },
+        {
+          "path": "$.service[26].trial.service.read",
+          "scheduled": 95
+        },
+        {
+          "path": "$.service[26].trial.service.write",
+          "scheduled": 94
+        },
+        {
+          "path": "$.service[26].actual_method_service.read",
+          "scheduled": 33
+        },
+        {
+          "path": "$.service[26].actual_method_service.write",
+          "scheduled": 32
+        },
+        {
+          "path": "$.service[28].actual_statement_service.read",
+          "scheduled": 24
+        },
+        {
+          "path": "$.service[28].actual_statement_service.write",
+          "scheduled": 22
+        },
+        {
+          "path": "$.service[29].actual_method_service.read",
+          "scheduled": 33
+        },
+        {
+          "path": "$.service[29].actual_method_service.write",
+          "scheduled": 32
+        },
+        {
+          "path": "$.service[30].actual_method_service.read",
+          "scheduled": 34
+        },
+        {
+          "path": "$.service[30].actual_method_service.write",
+          "scheduled": 34
+        },
+        {
+          "path": "$.service[31].actual_statement_service.read",
+          "scheduled": 21
+        },
+        {
+          "path": "$.service[31].actual_statement_service.write",
+          "scheduled": 22
+        },
+        {
+          "path": "$.service[34].actual_statement_service.read",
+          "scheduled": 25
+        },
+        {
+          "path": "$.service[34].actual_statement_service.write",
+          "scheduled": 26
+        },
+        {
+          "path": "$.service[35].actual_method_service.read",
+          "scheduled": 35
+        },
+        {
+          "path": "$.service[35].actual_method_service.write",
+          "scheduled": 34
+        }
+      ],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "resource_preflight.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_accuracy_frontier.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_dependencies.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_kill_timer.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_matrix_cleanup.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_nonlocking_runner.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_nonlocking_scope.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_protocol_integrity.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_raw_evidence.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_reqmix_protocol.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_resource_preflight.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_runner_cache.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_sampling_contract.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_white_all_runner.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_wide_outcomes.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    },
+    "self_check_test_workload_accounting.json": {
+      "problems": [],
+      "windows": 0,
+      "sparseWindows": [],
+      "censoredWindows": [],
+      "meaning": "Fewer than100 responses cannot resolve a1% empirical tail usefully. This is a descriptive warning, not a100-response sufficiency rule or an SLO approval."
+    }
+  }
+}

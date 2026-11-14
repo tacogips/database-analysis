@@ -1,0 +1,48 @@
+Documentation integration revision15; foreground verification; no DB/Docker/test execution
+Started UTC 2026-11-07T04:15:35.829262+00:00
+COMMAND ["ruby", "--version"]
+ruby 2.6.10p210 (2022-04-12 revision 67958) [universal.arm64e-darwin25]
+exit_code=0 expected=0
+COMMAND ["mise", "exec", "--", "ruby", "--version"]
+ruby 3.4.10 (2026-06-30 revision 2b0b7728dc) +PRISM [arm64-darwin23]
+exit_code=0 expected=0
+COMMAND ["mise", "exec", "--", "ruby", "-rrbconfig", "-e", "puts RbConfig.ruby"]
+/Users/taco/.local/share/mise/installs/ruby/3.4.10/bin/ruby
+exit_code=0 expected=0
+COMMAND ["ruby", "-c", "lab.rb"]
+lab.rb:49: syntax error, unexpected '=', expecting ';' or '\n'
+  def up = run("docker", "compose", "up...
+         ^
+lab.rb:71: syntax error, unexpected '=', expecting ';' or '\n'
+  def load = bench("load.py", log: "load")
+           ^
+lab.rb:72: syntax error, unexpected '=', expecting ';' or '\n'
+  def verify = bench("verify_data.py")
+             ^
+lab.rb:73: syntax error, unexpected '=', expecting ';' or '\n'
+  def count_shapes = bench("count_shapes.py", log...
+                   ^
+lab.rb:74: syntax error, unexpected '=', expecting ';' or '\n'
+  def lock_factors = bench("lock_factors.py", log...
+                   ^
+lab.rb:75: syntax error, unexpected '=', expecting ';' or '\n'
+  def experiments = bench("experiments.py", "all...
+                  ^
+lab.rb:76: syntax error, unexpected '=', expecting ';' or '\n'
+  def summarize = bench("summarize.py")
+                ^
+exit_code=1 expected=1
+COMMAND ["mise", "exec", "--", "ruby", "-c", "lab.rb"]
+Syntax OK
+exit_code=0 expected=0
+COMMAND ["git", "diff", "--check"]
+
+exit_code=0 expected=0
+PASS candidate/log/source-before-after/runnerSummary/snapshot hashes; source files=255 snapshot files=620
+PASS separate historical manifests; entries=251
+PASS local documentation link paths=393
+PASS Japanese main guideline lines=216
+PASS adapter contract, complete stable ID responses, workflowInput unchanged, final proof absent
+PASS all runner-captured extant result/log files unchanged
+Final verification exit_code=0
+Completed UTC 2026-11-07T04:15:36.318428+00:00

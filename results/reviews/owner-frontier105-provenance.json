@@ -1,0 +1,84 @@
+{
+  "recordedAt": "2026-11-07T08:53:05.102243+00:00",
+  "meaning": "Completed static105-case precision/cost scope, truth and provenance audit only; not service/SLO/production/finalall approval.",
+  "allStartedAt": "2026-11-07T07:28:15Z",
+  "artifact": "results/requested_accuracy_cost_frontier.json",
+  "sha256": "5df51a45ca711dadd6a254103304feb9033f57f92200a37e7abd9c28de84e765",
+  "statusArtifact": "results/requested/01c-ACCURACY-COST.status.json",
+  "freshNumericExitZero": true,
+  "artifactHashesVerified": 3,
+  "allDeclaredSourceHashesMatchAllSourceBefore": true,
+  "fixtureAndOwnedServerCleanupConfirmed": true,
+  "caseCount": 105,
+  "check": {
+    "problems": [],
+    "fixtures": {
+      "dense": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "gaps": {
+        "runs": 15,
+        "statuses": {
+          "precision_not_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "islands": {
+        "runs": 15,
+        "statuses": {
+          "precision_not_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "negative": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 250000
+      },
+      "wide": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 3000000
+      },
+      "moderate_gaps": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 2400026
+      },
+      "uneven_density": {
+        "runs": 15,
+        "statuses": {
+          "target_reached": 15
+        },
+        "observedNoncoverage": 0,
+        "truth": 2250000
+      }
+    },
+    "meaning": "Observed noncoverage is reported, not automatically a code defect: nominal confidence is probabilistic per invocation."
+  },
+  "measuredSummary": "results/reviews/owner-measured-accuracy-frontier.json",
+  "summarySha256": "1c4d990002b21a59419dce3a0cfe8e2cba4f7483a90d4146ad54c0b99918954a",
+  "limitations": [
+    "105observations with five fixed seeds do not establish nominal production coverage or joint95% guarantee.",
+    "3/5/10% are declared interval goals; actual COUNT-based error is reported separately.",
+    "Sparse/island intervals do not reach desired precision and their point estimates must not be used as certified counts.",
+    "All method costs are instrumented static observations with uncontrolled cache/order/background effects; no universal fastest or service-safe threshold.",
+    "Current01d100column service comparison,remaining150scope,final integrity/raw/sourceaudit,docs integration and two finalSol roles still pending."
+  ]
+}

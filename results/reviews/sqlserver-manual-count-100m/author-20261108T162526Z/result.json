@@ -1,0 +1,56 @@
+{
+  "actualAgBuilt": false,
+  "actualCompilationVerified": false,
+  "authorExitCode": 0,
+  "files": [
+    "sqlserver/manual-count-100m/Program.cs",
+    "sqlserver/manual-count-100m/Fixture.cs",
+    "sqlserver/manual-count-100m/State.cs",
+    "sqlserver/manual-count-100m/lab.rb",
+    "sqlserver/manual-count-100m/model.rb",
+    "sqlserver/manual-count-100m/verify_offline.rb",
+    "sqlserver/manual-count-100m/compose.yaml",
+    "sqlserver/manual-count-100m/mise.toml",
+    "sqlserver/manual-count-100m/.dockerignore",
+    "sqlserver/manual-count-100m/input-bindings.json",
+    "sqlserver/manual-count-100m/manual/sql-server.md",
+    "sqlserver/manual-count-100m/manual/source.json",
+    "sqlserver/manual-count-100m/sql/",
+    "sqlserver/manual-count-100m/README.md",
+    "docs/sqlserver-manual-count-100m.md",
+    "sqlserver/manual-count-100m/author-verification.json",
+    "sqlserver/manual-count-100m/author-verification.log",
+    "sqlserver/manual-count-100m/author-source-before.json",
+    "sqlserver/manual-count-100m/author-source-after.json"
+  ],
+  "implemented": "Six fixed A/B/C/D cases, 18 pending scalar-count slots, per-sample cold-buffer proof, actual AG secondary setup, route-specific guards and two-instance ownership/cleanup.",
+  "manualBinding": {
+    "resolution": "Bound to the requested latest frozen snapshot; retained the older supplied hash in provenance. Baseline unchanged.",
+    "sha256": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682"
+  },
+  "pendingOwnerSteps": [
+    "Confirm MySQL success and cleanup, then obtain pinned images and perform locked restore/build.",
+    "Verify actual C# APIs, SQL execution, real AG secondary and all 18 full-scale cold-buffer samples.",
+    "Audit source, evidence, both server exits, resource absence and capacity recovery.",
+    "Fill measured results and obtain two separate fresh GPT-6.1 Sol reviews."
+  ],
+  "performanceMeasured": false,
+  "readyCommand": {
+    "command": "mise exec -- ruby lab.rb all",
+    "cwd": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+    "ownerOnly": true,
+    "prerequisite": "Use the root fixed SQL execution gate after successful full NEW cold MySQL verification and cleanup."
+  },
+  "status": "author_complete_ready_for_owner",
+  "unresolvedIssues": [],
+  "verification": {
+    "archivedSnapshotDrift": 0,
+    "checksPassed": 14,
+    "evidence": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/author-verification.json",
+    "exitCode": 0,
+    "log": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/author-verification.log",
+    "protectedFilesChangedOrMissing": 0,
+    "protectedFilesChecked": 11046,
+    "sourceUnchangedDuringVerification": true
+  }
+}

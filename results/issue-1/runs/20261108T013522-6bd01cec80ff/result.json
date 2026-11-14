@@ -1,0 +1,2496 @@
+{
+  "status": "functional_validation_passed_owner_audit_required",
+  "started_at": "2026-11-08T01:35:22Z",
+  "run_id": "6bd01cec80ff31eeb09583aebd8d5340",
+  "raw_log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+  "source_before": {
+    "sqlserver/issue1/lab.rb": "7401978cd34d13111e8a763c457cce4ba972885ce7de0b6b0c3615f8260cc437",
+    "sqlserver/issue1/mise.toml": "9200d44b709fb4266977ad0eea81e11a56849d716c14e901706fe946f8092e4c",
+    "sqlserver/issue1/compose.yaml": "1826cfb7e8ac74f869b93c4415e039357ebe224f389d3faa9c43f9fc12f27b3a",
+    "sqlserver/issue1/Dockerfile": "fc330088772578d04b795cd5630ddebe7c58c0ff4e3b74f9e8acf0b58bdd5f90",
+    "sqlserver/issue1/.dockerignore": "f4a08bffb3077b9356083081520f9987342a4988dd06574763311c2b776417d4",
+    "sqlserver/issue1/CountIssue1.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/issue1/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/issue1/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/issue1/Program.cs": "2de684668ce01307b4a4f514c3979cdeb6cb579eadacbaee3b204495e8c17e96",
+    "sqlserver/issue1/runbook-example-inputs.json": "5ffd82e6295f0003e86c31dd2c5defbb18cade1d381b6d99fb0b80124d588e0b",
+    "sqlserver/issue1/README.md": "0a5da3b23737b0d1e89ab8fb53ef4e7de2bf1602579b4f25a68e33ba4a576d73",
+    "sqlserver/issue1/verify_author.py": "e647f6d794ccd32c5e186431cc7ea433ce22d547b4002127f933874e2f109f5a"
+  },
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "context",
+        "inspect",
+        "colima-brotli-verify"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "info",
+        "--format",
+        "{{.ID}} {{.ServerVersion}} {{.OSType}} {{.Architecture}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 769
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 1043
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 1389
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 2104
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 2313
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 4847
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "build",
+        "--pull=false",
+        "--label",
+        "count.issue1.owner=6bd01cec80ff31eeb09583aebd8d5340",
+        "-t",
+        "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340",
+        "."
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 8093
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "compose",
+        "-p",
+        "lab-sqlserver-issue1",
+        "-f",
+        "compose.yaml",
+        "create",
+        "--no-recreate",
+        "--no-build",
+        "--pull",
+        "never"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 10590
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-issue1-client"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 11386
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-issue1"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 19331
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "inspect",
+        "lab-sqlserver-issue1-data"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 27777
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "inspect",
+        "lab-sqlserver-issue1-network"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 28612
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "start",
+        "lab-sqlserver-issue1"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 30243
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "start",
+        "--attach",
+        "lab-sqlserver-issue1-client"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 30434
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-issue1-client"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 63949
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "cp",
+        "lab-sqlserver-issue1-client:/evidence/.",
+        "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 72601
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "logs",
+        "lab-sqlserver-issue1"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 72883
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "cp",
+        "lab-sqlserver-issue1-client:/evidence/.",
+        "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 99732
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-issue1-client"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 100014
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "rm",
+        "--force",
+        "lab-sqlserver-issue1-client"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 108666
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-issue1"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 108890
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "rm",
+        "--force",
+        "lab-sqlserver-issue1"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 118269
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "inspect",
+        "lab-sqlserver-issue1-data"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 118479
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "rm",
+        "lab-sqlserver-issue1-data"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 119314
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "inspect",
+        "lab-sqlserver-issue1-network"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 119521
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "rm",
+        "lab-sqlserver-issue1-network"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 121152
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 121366
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "rm",
+        "lab-sqlserver-issue1-client:6bd01cec80ff31eeb09583aebd8d5340"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 125381
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 125748
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 126094
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "log": "/Users/taco/gits/tacogips/database-analysis/results/issue-1/runs/20261108T013522-6bd01cec80ff/controller.log",
+      "offset": 126809
+    }
+  ],
+  "completion": "passed",
+  "ownership": "passed_two_connection_and_three_mismatch_refusals",
+  "transaction_release": "passed_owner_sessions_tx_ids_and_active_snapshots_absent",
+  "recovery": "retention_release_passed_allocation_return_and_production_recovery_unverified",
+  "precision": "passed_fixture_counts_only",
+  "service_budget": "unavailable_functional_only",
+  "cleanup": "passed_owned_runtime_resources_absent",
+  "exit_status": 0,
+  "limits": "ARM64/amd64 SQL emulation unsupported; no native performance or production SLO certification",
+  "context": {
+    "name": "colima-brotli-verify",
+    "endpoint": "unix:///Users/taco/.config/colima/brotli-verify/docker.sock"
+  },
+  "sdk_before_build": [
+    {
+      "Id": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+      "RepoTags": [
+        "mcr.microsoft.com/dotnet/sdk:10.0"
+      ],
+      "RepoDigests": [
+        "mcr.microsoft.com/dotnet/sdk@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+      ],
+      "Comment": "buildkit.dockerfile.v0",
+      "Created": "2026-11-05T23:01:00.459953208Z",
+      "Config": {
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "APP_UID=1654",
+          "ASPNETCORE_HTTP_PORTS=8080",
+          "DOTNET_RUNNING_IN_CONTAINER=true",
+          "DOTNET_VERSION=10.0.14",
+          "ASPNET_VERSION=10.0.14",
+          "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+          "DOTNET_NOLOGO=true",
+          "DOTNET_SDK_VERSION=10.0.403",
+          "DOTNET_USE_POLLING_FILE_WATCHER=true",
+          "NUGET_XMLDOC_MODE=skip",
+          "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64"
+        ],
+        "Cmd": [
+          "/bin/bash"
+        ],
+        "Labels": {
+          "org.opencontainers.image.version": "24.04"
+        }
+      },
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 344584636,
+      "RootFS": {
+        "Type": "layers",
+        "Layers": [
+          "sha256:107ffca6dcd3fc87a7bed8c062f5ddc0d6a4b107205c82c0b49efdb7c1aff967",
+          "sha256:09112df7245c4f71290b9e2adc8d59c2fd8c239077deaeb0135fc738754afec6",
+          "sha256:2c128d2a22173723650e57eee883644c9fa3b72b7da8e000a71939f60a81c073",
+          "sha256:fc56b1452eeabd83861375b79b04ce1a3730eea53a8ac2cecdadf2e7d077c8e9",
+          "sha256:99ca1d93e777e729c265afb2cbde52972289803a9c3bc2cf87e6870568a0b77d",
+          "sha256:4c7e58bb242d8ca617fb2ab42357f37d9e982e10f5362284feed907e0b488e1c",
+          "sha256:5d0233e1ec0a359ca65b500f05e305f65ba8a36add9fcb1f51400f68c989527e",
+          "sha256:02122b6c3f177fe7bdeb85b6e15a605da4483301f9d393b6e0a97112b451dac3",
+          "sha256:67d056a5e8ac1b68348481be543b22a52e1c6f5ad95608f1aeeec550de0277fc",
+          "sha256:68d2d4f1cb1fdf9a0ff8c5ab1b6cafe2787fa2d33b8fd1080a043f1ec890785d",
+          "sha256:8e4d3b307f83e559d6fcffdfb28f8ed3878cf435dc691e95aea13ac23381f8ff"
+        ]
+      },
+      "Metadata": {
+        "LastTagTime": "2026-11-08T01:14:35.262165292Z"
+      },
+      "Descriptor": {
+        "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+        "digest": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+        "size": 1079
+      },
+      "Identity": {
+        "Pull": [
+          {
+            "Repository": "mcr.microsoft.com/dotnet/sdk"
+          }
+        ]
+      }
+    }
+  ],
+  "client_exit_status": 0,
+  "probe": {
+    "completion": "passed",
+    "ownership": "passed_two_connection_and_three_mismatch_refusals",
+    "transaction_release": "passed_owner_sessions_tx_ids_and_active_snapshots_absent",
+    "recovery": "retention_release_passed_allocation_return_and_production_recovery_unverified",
+    "precision": "passed_fixture_counts_only",
+    "service_budget": "unavailable_functional_only",
+    "communication_scope": "SqlConnection.Dispose on idle open snapshot transaction; not a network partition",
+    "carrier": "WAITFOR after materialized snapshot: attention injector, not huge COUNT performance",
+    "events": [
+      {
+        "name": "readiness_attempt",
+        "elapsed_monotonic_ms": 2542.0709,
+        "detail": {
+          "Number": 0
+        }
+      },
+      {
+        "name": "permission_preflight",
+        "elapsed_monotonic_ms": 6465.8305,
+        "detail": [
+          {
+            "performance_state": 1,
+            "alter_connection": 1,
+            "product_version": "17.0.5035.5",
+            "sysadmin": 1
+          }
+        ]
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6477.9509,
+        "detail": {
+          "view": "sys.dm_exec_sessions",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6481.2959,
+        "detail": {
+          "view": "sys.dm_exec_connections",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6484.173,
+        "detail": {
+          "view": "sys.dm_exec_requests",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6487.3136,
+        "detail": {
+          "view": "sys.dm_tran_session_transactions",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6488.7848,
+        "detail": {
+          "view": "sys.dm_tran_active_transactions",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6490.3774,
+        "detail": {
+          "view": "sys.dm_tran_active_snapshot_database_transactions",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6492.0084,
+        "detail": {
+          "view": "sys.dm_tran_version_store_space_usage",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "dmv_access_preflight",
+        "elapsed_monotonic_ms": 6494.2498,
+        "detail": {
+          "view": "sys.dm_tran_persistent_version_store_stats",
+          "status": "authorized_lab_sa_not_least_privilege_certification"
+        }
+      },
+      {
+        "name": "fixture",
+        "elapsed_monotonic_ms": 7001.6335,
+        "detail": {
+          "known_rows": 4096,
+          "engine": "disk rowstore SQL Server; InnoDB not applicable",
+          "privileged": "disposable lab sa"
+        }
+      },
+      {
+        "name": "two_connection_identity_equal",
+        "elapsed_monotonic_ms": 7382.602,
+        "detail": {
+          "case_name": "server_error",
+          "server_identity": {
+            "Spid": 54,
+            "LoginTime": "2026-11-08T01:36:14.067",
+            "ConnectionId": "645ba767-cc8a-4d40-8ff2-0b714c3917c0",
+            "Tag": "A3uR48kddQ1lnmyvKhP1eVMJdPGpd9zavuTh86Ed2ok=",
+            "Login": "sa",
+            "OriginalLogin": "sa",
+            "App": "issue1-server_error",
+            "Database": "CountIssue1",
+            "Server": "d72c6a57d61e"
+          },
+          "client_connection_id": "5a8b8476-59db-4d91-ab8c-9126a00d2226",
+          "client_id_not_assumed_equal_to_server_id": true
+        }
+      },
+      {
+        "name": "restricted_observer",
+        "elapsed_monotonic_ms": 7716.4301,
+        "detail": {
+          "status": "monitor_unavailable_insufficient_visibility",
+          "target_visible": false,
+          "meaning": "partial/empty visibility never zero sessions"
+        }
+      },
+      {
+        "name": "wrong_identity_refused_owner_usable",
+        "elapsed_monotonic_ms": 7724.0875,
+        "detail": {
+          "refused": "refused_identity_mismatch_or_absent",
+          "wrong_tag": true,
+          "wrong_time": false,
+          "wrong_connection_id": false,
+          "kill_sent": false
+        }
+      },
+      {
+        "name": "wrong_identity_refused_owner_usable",
+        "elapsed_monotonic_ms": 7725.4707,
+        "detail": {
+          "refused": "refused_identity_mismatch_or_absent",
+          "wrong_tag": false,
+          "wrong_time": true,
+          "wrong_connection_id": false,
+          "kill_sent": false
+        }
+      },
+      {
+        "name": "wrong_identity_refused_owner_usable",
+        "elapsed_monotonic_ms": 7726.4738,
+        "detail": {
+          "refused": "refused_identity_mismatch_or_absent",
+          "wrong_tag": false,
+          "wrong_time": false,
+          "wrong_connection_id": true,
+          "kill_sent": false
+        }
+      },
+      {
+        "name": "materialized_snapshot_sleeping_open_transaction",
+        "elapsed_monotonic_ms": 7758.1858,
+        "detail": {
+          "case_name": "server_error",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3077,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3077,
+                "is_snapshot": true,
+                "transaction_sequence_num": 9,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3077,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          },
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          }
+        }
+      },
+      {
+        "name": "command_error",
+        "elapsed_monotonic_ms": 7763.8444,
+        "detail": {
+          "case_name": "server_error",
+          "error": {
+            "type": "SqlException",
+            "message": "Issue1 deliberate server error",
+            "errors": [
+              {
+                "number": 51010,
+                "state": 1,
+                "severity": 16,
+                "line": 1,
+                "procedure": "",
+                "message": "Issue1 deliberate server error"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "fault_elapsed",
+        "elapsed_monotonic_ms": 7765.323,
+        "detail": {
+          "case_name": "server_error",
+          "elapsed_monotonic_ms": 3.835099999999329
+        }
+      },
+      {
+        "name": "post_fault_before_finally",
+        "elapsed_monotonic_ms": 7774.2333,
+        "detail": {
+          "case_name": "server_error",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3077,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3077,
+                "is_snapshot": true,
+                "transaction_sequence_num": 9,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3077,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "client_finally_enter",
+        "elapsed_monotonic_ms": 7775.19,
+        "detail": {
+          "Spid": 54,
+          "connection_state": "Open",
+          "ownTx": true,
+          "injectRollbackFailure": false
+        }
+      },
+      {
+        "name": "original_rollback",
+        "elapsed_monotonic_ms": 7777.1819,
+        "detail": "completed"
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 7779.4061,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "sleeping",
+              "open_transaction_count": 0
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 7781.8971,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "dormant",
+              "open_transaction_count": 0
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 7938.5232,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "retention_release",
+        "elapsed_monotonic_ms": 7940.59,
+        "detail": {
+          "status": "owner_session_transaction_and_active_snapshot_absent",
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          },
+          "production_recovery": "unverified; physical reclamation can lag retention release"
+        }
+      },
+      {
+        "name": "case_passed",
+        "elapsed_monotonic_ms": 7941.2376,
+        "detail": "server_error"
+      },
+      {
+        "name": "two_connection_identity_equal",
+        "elapsed_monotonic_ms": 8113.6793,
+        "detail": {
+          "case_name": "client_cancel",
+          "server_identity": {
+            "Spid": 54,
+            "LoginTime": "2026-11-08T01:36:14.81",
+            "ConnectionId": "644d34f1-f276-4722-9669-2f2641ebe74b",
+            "Tag": "eqOIt15fhW7ce/Iz2LNdzI958WUgkM5pJbMVsCUoMeM=",
+            "Login": "sa",
+            "OriginalLogin": "sa",
+            "App": "issue1-client_cancel",
+            "Database": "CountIssue1",
+            "Server": "d72c6a57d61e"
+          },
+          "client_connection_id": "19545c50-4965-49a1-9936-516c8a8f4dc6",
+          "client_id_not_assumed_equal_to_server_id": true
+        }
+      },
+      {
+        "name": "materialized_snapshot_sleeping_open_transaction",
+        "elapsed_monotonic_ms": 8119.9054,
+        "detail": {
+          "case_name": "client_cancel",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3399,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3399,
+                "is_snapshot": true,
+                "transaction_sequence_num": 11,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3399,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          },
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          }
+        }
+      },
+      {
+        "name": "client_cancel_called",
+        "elapsed_monotonic_ms": 8128.5606,
+        "detail": {
+          "result": "Cancel returned; server completion still requires observation"
+        }
+      },
+      {
+        "name": "command_error",
+        "elapsed_monotonic_ms": 8129.5355,
+        "detail": {
+          "case_name": "client_cancel",
+          "error": {
+            "type": "SqlException",
+            "message": "A severe error occurred on the current command.  The results, if any, should be discarded.\nOperation cancelled by user.",
+            "errors": [
+              {
+                "number": 0,
+                "state": 0,
+                "severity": 11,
+                "line": 0,
+                "procedure": "",
+                "message": "A severe error occurred on the current command.  The results, if any, should be discarded."
+              },
+              {
+                "number": 0,
+                "state": 0,
+                "severity": 11,
+                "line": 0,
+                "procedure": "",
+                "message": "Operation cancelled by user."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "fault_elapsed",
+        "elapsed_monotonic_ms": 8129.5909,
+        "detail": {
+          "case_name": "client_cancel",
+          "elapsed_monotonic_ms": 9.240899999999783
+        }
+      },
+      {
+        "name": "post_fault_before_finally",
+        "elapsed_monotonic_ms": 8131.1551,
+        "detail": {
+          "case_name": "client_cancel",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3399,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3399,
+                "is_snapshot": true,
+                "transaction_sequence_num": 11,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3399,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "client_finally_enter",
+        "elapsed_monotonic_ms": 8131.2094,
+        "detail": {
+          "Spid": 54,
+          "connection_state": "Open",
+          "ownTx": true,
+          "injectRollbackFailure": false
+        }
+      },
+      {
+        "name": "original_rollback",
+        "elapsed_monotonic_ms": 8132.1986,
+        "detail": "completed"
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 8133.6569,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "sleeping",
+              "open_transaction_count": 0
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 8135.8334,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "dormant",
+              "open_transaction_count": 0
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 8289.4267,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "retention_release",
+        "elapsed_monotonic_ms": 8290.6609,
+        "detail": {
+          "status": "owner_session_transaction_and_active_snapshot_absent",
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          },
+          "production_recovery": "unverified; physical reclamation can lag retention release"
+        }
+      },
+      {
+        "name": "case_passed",
+        "elapsed_monotonic_ms": 8290.715,
+        "detail": "client_cancel"
+      },
+      {
+        "name": "two_connection_identity_equal",
+        "elapsed_monotonic_ms": 8450.3842,
+        "detail": {
+          "case_name": "command_timeout",
+          "server_identity": {
+            "Spid": 54,
+            "LoginTime": "2026-11-08T01:36:15.15",
+            "ConnectionId": "1f56846b-1693-45ed-b98f-ff31df229e18",
+            "Tag": "xUwW5k9GBF/ZWUajIig1h2dQCYyCE3Pl/Ar4CTEaWsE=",
+            "Login": "sa",
+            "OriginalLogin": "sa",
+            "App": "issue1-command_timeout",
+            "Database": "CountIssue1",
+            "Server": "d72c6a57d61e"
+          },
+          "client_connection_id": "f78f6b70-3e4c-42c8-92ca-fc5f259a4265",
+          "client_id_not_assumed_equal_to_server_id": true
+        }
+      },
+      {
+        "name": "materialized_snapshot_sleeping_open_transaction",
+        "elapsed_monotonic_ms": 8455.6597,
+        "detail": {
+          "case_name": "command_timeout",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3671,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3671,
+                "is_snapshot": true,
+                "transaction_sequence_num": 13,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3671,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          },
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          }
+        }
+      },
+      {
+        "name": "command_error",
+        "elapsed_monotonic_ms": 9463.6218,
+        "detail": {
+          "case_name": "command_timeout",
+          "error": {
+            "type": "SqlException",
+            "message": "Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.",
+            "errors": [
+              {
+                "number": -2,
+                "state": 0,
+                "severity": 11,
+                "line": 0,
+                "procedure": "",
+                "message": "Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "fault_elapsed",
+        "elapsed_monotonic_ms": 9463.8479,
+        "detail": {
+          "case_name": "command_timeout",
+          "elapsed_monotonic_ms": 1007.7378000000008
+        }
+      },
+      {
+        "name": "post_fault_before_finally",
+        "elapsed_monotonic_ms": 9485.1751,
+        "detail": {
+          "case_name": "command_timeout",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3671,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3671,
+                "is_snapshot": true,
+                "transaction_sequence_num": 13,
+                "elapsed_time_seconds": 1
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3671,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "client_finally_enter",
+        "elapsed_monotonic_ms": 9485.3487,
+        "detail": {
+          "Spid": 54,
+          "connection_state": "Open",
+          "ownTx": true,
+          "injectRollbackFailure": false
+        }
+      },
+      {
+        "name": "original_rollback",
+        "elapsed_monotonic_ms": 9487.5794,
+        "detail": "completed"
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 9490.1778,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "sleeping",
+              "open_transaction_count": 0
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 9493.1697,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "dormant",
+              "open_transaction_count": 0
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 9654.4403,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "retention_release",
+        "elapsed_monotonic_ms": 9659.4452,
+        "detail": {
+          "status": "owner_session_transaction_and_active_snapshot_absent",
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          },
+          "production_recovery": "unverified; physical reclamation can lag retention release"
+        }
+      },
+      {
+        "name": "case_passed",
+        "elapsed_monotonic_ms": 9659.6226,
+        "detail": "command_timeout"
+      },
+      {
+        "name": "two_connection_identity_equal",
+        "elapsed_monotonic_ms": 9844.5276,
+        "detail": {
+          "case_name": "dispose_connection",
+          "server_identity": {
+            "Spid": 54,
+            "LoginTime": "2026-11-08T01:36:16.543",
+            "ConnectionId": "2f38204c-543e-44b4-9929-d87fa3b23e1a",
+            "Tag": "qn8lAQIqU7uBWSKwmnq5Q4d0J+3Mbg+bI/0oMJ6YUW4=",
+            "Login": "sa",
+            "OriginalLogin": "sa",
+            "App": "issue1-dispose_connection",
+            "Database": "CountIssue1",
+            "Server": "d72c6a57d61e"
+          },
+          "client_connection_id": "785bfd5e-b22a-4430-ae24-d912584bfbce",
+          "client_id_not_assumed_equal_to_server_id": true
+        }
+      },
+      {
+        "name": "materialized_snapshot_sleeping_open_transaction",
+        "elapsed_monotonic_ms": 9850.2545,
+        "detail": {
+          "case_name": "dispose_connection",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 3915,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 3915,
+                "is_snapshot": true,
+                "transaction_sequence_num": 15,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 3915,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          },
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          }
+        }
+      },
+      {
+        "name": "communication_failure_simulation",
+        "elapsed_monotonic_ms": 9850.3697,
+        "detail": "SqlConnection.Dispose on idle physical connection; no actual network partition exercised"
+      },
+      {
+        "name": "client_finally_enter",
+        "elapsed_monotonic_ms": 9850.3838,
+        "detail": {
+          "Spid": 54,
+          "connection_state": "Closed",
+          "ownTx": true,
+          "injectRollbackFailure": false
+        }
+      },
+      {
+        "name": "management_cleanup",
+        "elapsed_monotonic_ms": 9850.8235,
+        "detail": "physical session already absent; no KILL sent"
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 9856.4631,
+        "detail": {
+          "Sessions": [
+            {
+              "session_id": 54,
+              "status": "dormant",
+              "open_transaction_count": 1
+            }
+          ],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 10009.7522,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 10012.4032,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "retention_release",
+        "elapsed_monotonic_ms": 10014.1558,
+        "detail": {
+          "status": "owner_session_transaction_and_active_snapshot_absent",
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          },
+          "production_recovery": "unverified; physical reclamation can lag retention release"
+        }
+      },
+      {
+        "name": "case_passed",
+        "elapsed_monotonic_ms": 10014.2104,
+        "detail": "dispose_connection"
+      },
+      {
+        "name": "two_connection_identity_equal",
+        "elapsed_monotonic_ms": 10243.1511,
+        "detail": {
+          "case_name": "management_fallback",
+          "server_identity": {
+            "Spid": 54,
+            "LoginTime": "2026-11-08T01:36:16.933",
+            "ConnectionId": "37b133fb-96e8-436f-820c-150188ff0dc7",
+            "Tag": "X/wwQUOFA6UAIOSZwoKSfFcnQBKDJNIEzfIwZKj812s=",
+            "Login": "sa",
+            "OriginalLogin": "sa",
+            "App": "issue1-management_fallback",
+            "Database": "CountIssue1",
+            "Server": "d72c6a57d61e"
+          },
+          "client_connection_id": "805880d6-43b5-49f9-9912-6b943059a717",
+          "client_id_not_assumed_equal_to_server_id": true
+        }
+      },
+      {
+        "name": "materialized_snapshot_sleeping_open_transaction",
+        "elapsed_monotonic_ms": 10254.0341,
+        "detail": {
+          "case_name": "management_fallback",
+          "state": {
+            "Sessions": [
+              {
+                "session_id": 54,
+                "status": "sleeping",
+                "open_transaction_count": 1
+              }
+            ],
+            "Requests": [],
+            "Transactions": [
+              {
+                "session_id": 54,
+                "transaction_id": 4128,
+                "is_user_transaction": true,
+                "open_transaction_count": 1
+              }
+            ],
+            "Snapshots": [
+              {
+                "session_id": 54,
+                "transaction_id": 4128,
+                "is_snapshot": true,
+                "transaction_sequence_num": 17,
+                "elapsed_time_seconds": 0
+              }
+            ],
+            "ActiveTransactions": [
+              {
+                "transaction_id": 4128,
+                "transaction_type": 1,
+                "transaction_state": 2
+              }
+            ]
+          },
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          }
+        }
+      },
+      {
+        "name": "cleanup_fault_injection",
+        "elapsed_monotonic_ms": 10254.1248,
+        "detail": "client rollback path forced to fail before dispatch; leased idle connection retained for guarded KILL test"
+      },
+      {
+        "name": "client_finally_enter",
+        "elapsed_monotonic_ms": 10254.1579,
+        "detail": {
+          "Spid": 54,
+          "connection_state": "Open",
+          "ownTx": true,
+          "injectRollbackFailure": true
+        }
+      },
+      {
+        "name": "original_rollback_unavailable_or_failed",
+        "elapsed_monotonic_ms": 10255.5593,
+        "detail": {
+          "type": "InvalidOperationException",
+          "message": "lab injected client rollback failure before SQL dispatch; connection stays leased",
+          "errors": []
+        }
+      },
+      {
+        "name": "management_cleanup",
+        "elapsed_monotonic_ms": 10259.7426,
+        "detail": "kill_sent"
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 10271.9725,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "release_poll",
+        "elapsed_monotonic_ms": 10274.6638,
+        "detail": {
+          "Sessions": [],
+          "Requests": [],
+          "Transactions": [],
+          "Snapshots": [],
+          "ActiveTransactions": []
+        }
+      },
+      {
+        "name": "retention_release",
+        "elapsed_monotonic_ms": 10276.4323,
+        "detail": {
+          "status": "owner_session_transaction_and_active_snapshot_absent",
+          "space": {
+            "tempdb": [
+              {
+                "database_id": 5,
+                "reserved_page_count": 8,
+                "reserved_space_kb": 64
+              }
+            ],
+            "pvs": [
+              {
+                "database_id": 5,
+                "persistent_version_store_size_kb": 0,
+                "oldest_active_transaction_id": 0
+              }
+            ],
+            "meaning": "allocation diagnostic; empty row is not measured zero; not per-owner retention or production recovery"
+          },
+          "production_recovery": "unverified; physical reclamation can lag retention release"
+        }
+      },
+      {
+        "name": "case_passed",
+        "elapsed_monotonic_ms": 10276.4733,
+        "detail": "management_fallback"
+      },
+      {
+        "name": "stats_original_settings",
+        "elapsed_monotonic_ms": 10299.1077,
+        "detail": [
+          {
+            "name": "CountIssue1",
+            "compatibility_level": 170,
+            "is_auto_create_stats_on": true,
+            "is_auto_update_stats_on": true,
+            "is_auto_update_stats_async_on": false,
+            "is_read_committed_snapshot_on": true,
+            "snapshot_isolation_state": 1,
+            "is_accelerated_database_recovery_on": false,
+            "product_version": "17.0.5035.5"
+          }
+        ]
+      },
+      {
+        "name": "stats_low_priority_existing",
+        "elapsed_monotonic_ms": 10305.9286,
+        "detail": [
+          {
+            "name": "ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY",
+            "value": false,
+            "value_for_secondary": null
+          }
+        ]
+      },
+      {
+        "name": "stats_before_count",
+        "elapsed_monotonic_ms": 10576.9648,
+        "detail": {
+          "profile": "off",
+          "settings": [
+            {
+              "name": "CountIssue1",
+              "compatibility_level": 170,
+              "is_auto_create_stats_on": false,
+              "is_auto_update_stats_on": false,
+              "is_auto_update_stats_async_on": false,
+              "is_read_committed_snapshot_on": true,
+              "snapshot_isolation_state": 1,
+              "is_accelerated_database_recovery_on": false,
+              "product_version": "17.0.5035.5"
+            }
+          ],
+          "stats": [
+            {
+              "name": "PK_Stats_off",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:17.08",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ]
+        }
+      },
+      {
+        "name": "stats_count_plan",
+        "elapsed_monotonic_ms": 10598.2162,
+        "detail": {
+          "profile": "off",
+          "count": 4096,
+          "elapsed_monotonic_ms": 10.758599999999205,
+          "plan_status": "actual_plan_captured",
+          "optimizer_stats_usage": [],
+          "usage_status": "not_present_or_plan_unavailable",
+          "auto_stats_xe": "not_collected; no event absence claim"
+        }
+      },
+      {
+        "name": "stats_after_count",
+        "elapsed_monotonic_ms": 14621.091,
+        "detail": {
+          "profile": "off",
+          "settings": [
+            {
+              "name": "CountIssue1",
+              "compatibility_level": 170,
+              "is_auto_create_stats_on": false,
+              "is_auto_update_stats_on": false,
+              "is_auto_update_stats_async_on": false,
+              "is_read_committed_snapshot_on": true,
+              "snapshot_isolation_state": 1,
+              "is_accelerated_database_recovery_on": false,
+              "product_version": "17.0.5035.5"
+            }
+          ],
+          "before": [
+            {
+              "name": "PK_Stats_off",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:17.08",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ],
+          "after": [
+            {
+              "name": "PK_Stats_off",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:17.08",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ],
+          "recovery_windows": [
+            {
+              "elapsed_monotonic_ms": 20.710799999998926,
+              "stats": [
+                {
+                  "name": "PK_Stats_off",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:17.08",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            },
+            {
+              "elapsed_monotonic_ms": 1025.9428000000007,
+              "stats": [
+                {
+                  "name": "PK_Stats_off",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:17.08",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            },
+            {
+              "elapsed_monotonic_ms": 4033.3696999999993,
+              "stats": [
+                {
+                  "name": "PK_Stats_off",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:17.08",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            }
+          ],
+          "conclusion": "update not observed under this schema/plan/state/window; not never",
+          "uncertainty": "async background may outlive request and observation window; XE not collected, no production cost certification"
+        }
+      },
+      {
+        "name": "stats_before_count",
+        "elapsed_monotonic_ms": 14752.9926,
+        "detail": {
+          "profile": "sync_on",
+          "settings": [
+            {
+              "name": "CountIssue1",
+              "compatibility_level": 170,
+              "is_auto_create_stats_on": true,
+              "is_auto_update_stats_on": true,
+              "is_auto_update_stats_async_on": false,
+              "is_read_committed_snapshot_on": true,
+              "snapshot_isolation_state": 1,
+              "is_accelerated_database_recovery_on": false,
+              "product_version": "17.0.5035.5"
+            }
+          ],
+          "stats": [
+            {
+              "name": "PK_Stats_sync_on",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:21.3766667",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ]
+        }
+      },
+      {
+        "name": "stats_count_plan",
+        "elapsed_monotonic_ms": 14756.4757,
+        "detail": {
+          "profile": "sync_on",
+          "count": 4096,
+          "elapsed_monotonic_ms": 2.4900999999990745,
+          "plan_status": "actual_plan_captured",
+          "optimizer_stats_usage": [],
+          "usage_status": "not_present_or_plan_unavailable",
+          "auto_stats_xe": "not_collected; no event absence claim"
+        }
+      },
+      {
+        "name": "stats_after_count",
+        "elapsed_monotonic_ms": 18783.2299,
+        "detail": {
+          "profile": "sync_on",
+          "settings": [
+            {
+              "name": "CountIssue1",
+              "compatibility_level": 170,
+              "is_auto_create_stats_on": true,
+              "is_auto_update_stats_on": true,
+              "is_auto_update_stats_async_on": false,
+              "is_read_committed_snapshot_on": true,
+              "snapshot_isolation_state": 1,
+              "is_accelerated_database_recovery_on": false,
+              "product_version": "17.0.5035.5"
+            }
+          ],
+          "before": [
+            {
+              "name": "PK_Stats_sync_on",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:21.3766667",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ],
+          "after": [
+            {
+              "name": "PK_Stats_sync_on",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:21.3766667",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ],
+          "recovery_windows": [
+            {
+              "elapsed_monotonic_ms": 5.370300000000498,
+              "stats": [
+                {
+                  "name": "PK_Stats_sync_on",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:21.3766667",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            },
+            {
+              "elapsed_monotonic_ms": 1014.2188000000006,
+              "stats": [
+                {
+                  "name": "PK_Stats_sync_on",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:21.3766667",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            },
+            {
+              "elapsed_monotonic_ms": 4025.146199999999,
+              "stats": [
+                {
+                  "name": "PK_Stats_sync_on",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:21.3766667",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            }
+          ],
+          "conclusion": "update not observed under this schema/plan/state/window; not never",
+          "uncertainty": "async background may outlive request and observation window; XE not collected, no production cost certification"
+        }
+      },
+      {
+        "name": "stats_before_count",
+        "elapsed_monotonic_ms": 18903.1145,
+        "detail": {
+          "profile": "async_on",
+          "settings": [
+            {
+              "name": "CountIssue1",
+              "compatibility_level": 170,
+              "is_auto_create_stats_on": true,
+              "is_auto_update_stats_on": true,
+              "is_auto_update_stats_async_on": true,
+              "is_read_committed_snapshot_on": true,
+              "snapshot_isolation_state": 1,
+              "is_accelerated_database_recovery_on": false,
+              "product_version": "17.0.5035.5"
+            }
+          ],
+          "stats": [
+            {
+              "name": "PK_Stats_async_on",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:25.53",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ]
+        }
+      },
+      {
+        "name": "stats_count_plan",
+        "elapsed_monotonic_ms": 18906.5249,
+        "detail": {
+          "profile": "async_on",
+          "count": 4096,
+          "elapsed_monotonic_ms": 2.2443999999995867,
+          "plan_status": "actual_plan_captured",
+          "optimizer_stats_usage": [],
+          "usage_status": "not_present_or_plan_unavailable",
+          "auto_stats_xe": "not_collected; no event absence claim"
+        }
+      },
+      {
+        "name": "stats_after_count",
+        "elapsed_monotonic_ms": 22938.5602,
+        "detail": {
+          "profile": "async_on",
+          "settings": [
+            {
+              "name": "CountIssue1",
+              "compatibility_level": 170,
+              "is_auto_create_stats_on": true,
+              "is_auto_update_stats_on": true,
+              "is_auto_update_stats_async_on": true,
+              "is_read_committed_snapshot_on": true,
+              "snapshot_isolation_state": 1,
+              "is_accelerated_database_recovery_on": false,
+              "product_version": "17.0.5035.5"
+            }
+          ],
+          "before": [
+            {
+              "name": "PK_Stats_async_on",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:25.53",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ],
+          "after": [
+            {
+              "name": "PK_Stats_async_on",
+              "stats_id": 1,
+              "auto_created": false,
+              "user_created": false,
+              "has_filter": false,
+              "last_updated": null,
+              "rows": null,
+              "rows_sampled": null,
+              "modification_counter": null
+            },
+            {
+              "name": "fixture_value",
+              "stats_id": 2,
+              "auto_created": false,
+              "user_created": true,
+              "has_filter": false,
+              "last_updated": "2026-11-08T01:36:25.53",
+              "rows": 1024,
+              "rows_sampled": 1024,
+              "modification_counter": 7168
+            }
+          ],
+          "recovery_windows": [
+            {
+              "elapsed_monotonic_ms": 7.037499999998545,
+              "stats": [
+                {
+                  "name": "PK_Stats_async_on",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:25.53",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            },
+            {
+              "elapsed_monotonic_ms": 1024.8228999999992,
+              "stats": [
+                {
+                  "name": "PK_Stats_async_on",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:25.53",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            },
+            {
+              "elapsed_monotonic_ms": 4030.9955999999984,
+              "stats": [
+                {
+                  "name": "PK_Stats_async_on",
+                  "stats_id": 1,
+                  "auto_created": false,
+                  "user_created": false,
+                  "has_filter": false,
+                  "last_updated": null,
+                  "rows": null,
+                  "rows_sampled": null,
+                  "modification_counter": null
+                },
+                {
+                  "name": "fixture_value",
+                  "stats_id": 2,
+                  "auto_created": false,
+                  "user_created": true,
+                  "has_filter": false,
+                  "last_updated": "2026-11-08T01:36:25.53",
+                  "rows": 1024,
+                  "rows_sampled": 1024,
+                  "modification_counter": 7168
+                }
+              ],
+              "observed_db_requests": []
+            }
+          ],
+          "conclusion": "update not observed under this schema/plan/state/window; not never",
+          "uncertainty": "async background may outlive request and observation window; XE not collected, no production cost certification"
+        }
+      },
+      {
+        "name": "stats_final_settings",
+        "elapsed_monotonic_ms": 22939.3692,
+        "detail": [
+          {
+            "name": "CountIssue1",
+            "compatibility_level": 170,
+            "is_auto_create_stats_on": true,
+            "is_auto_update_stats_on": true,
+            "is_auto_update_stats_async_on": true,
+            "is_read_committed_snapshot_on": true,
+            "snapshot_isolation_state": 1,
+            "is_accelerated_database_recovery_on": false,
+            "product_version": "17.0.5035.5"
+          }
+        ]
+      },
+      {
+        "name": "stats_low_priority_final",
+        "elapsed_monotonic_ms": 22942.8649,
+        "detail": [
+          {
+            "name": "ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY",
+            "value": false,
+            "value_for_secondary": null
+          }
+        ]
+      }
+    ],
+    "exit_status": 0,
+    "elapsed_monotonic_ms": 22943.0486
+  },
+  "cleanup_errors": [],
+  "source_after": {
+    "sqlserver/issue1/lab.rb": "7401978cd34d13111e8a763c457cce4ba972885ce7de0b6b0c3615f8260cc437",
+    "sqlserver/issue1/mise.toml": "9200d44b709fb4266977ad0eea81e11a56849d716c14e901706fe946f8092e4c",
+    "sqlserver/issue1/compose.yaml": "1826cfb7e8ac74f869b93c4415e039357ebe224f389d3faa9c43f9fc12f27b3a",
+    "sqlserver/issue1/Dockerfile": "fc330088772578d04b795cd5630ddebe7c58c0ff4e3b74f9e8acf0b58bdd5f90",
+    "sqlserver/issue1/.dockerignore": "f4a08bffb3077b9356083081520f9987342a4988dd06574763311c2b776417d4",
+    "sqlserver/issue1/CountIssue1.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/issue1/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/issue1/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/issue1/Program.cs": "2de684668ce01307b4a4f514c3979cdeb6cb579eadacbaee3b204495e8c17e96",
+    "sqlserver/issue1/runbook-example-inputs.json": "5ffd82e6295f0003e86c31dd2c5defbb18cade1d381b6d99fb0b80124d588e0b",
+    "sqlserver/issue1/README.md": "0a5da3b23737b0d1e89ab8fb53ef4e7de2bf1602579b4f25a68e33ba4a576d73",
+    "sqlserver/issue1/verify_author.py": "e647f6d794ccd32c5e186431cc7ea433ce22d547b4002127f933874e2f109f5a"
+  },
+  "source_unchanged": true,
+  "elapsed_monotonic_seconds": 69.58795299998019,
+  "finished_at": "2026-11-08T01:36:31Z",
+  "raw_log_sha256": "be15774a76a4e7ca555982fd83c70b22a144e59d2ae49834972a8965057c463a",
+  "artifacts": {
+    "controller.log": "be15774a76a4e7ca555982fd83c70b22a144e59d2ae49834972a8965057c463a",
+    "dotnet-info.txt": "9d714b601440586ab0d3f208ce8bc0a53090cb576dc0b7683ffdd3cc26338540",
+    "packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "plan-async_on.xml": "ace034316d7810795cf3bd27e9247a214fa9fd38b46140bbdc6f3ccd0ecf9d0d",
+    "plan-off.xml": "9f343a124a396b90f87b52ef06f2a601797816d3f29a6751928843afb829bcb0",
+    "plan-sync_on.xml": "50f86d35039eae03ff5f25beba1e00c09551df3bd734625a067bb89a519cbf59",
+    "probe.json": "c188f405dfbf1535af9f02203807ba7cbd3fc7a569df73d3b4163f4e62e75ad7"
+  }
+}

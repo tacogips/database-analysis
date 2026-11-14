@@ -1,0 +1,81 @@
+{
+  "image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+  "scope": "Read-only vendor script inspection, no database started",
+  "files": [
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver-script-inspect-0",
+        "--label",
+        "count.manual100m.diagnostic=script-read",
+        "--network",
+        "none",
+        "--read-only",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "/opt/mssql/bin/launch_sqlservr.sh"
+      ],
+      "exitCode": 0,
+      "file": "launch_sqlservr.sh",
+      "sha256": "839ea863b19705927509d12e9e5fa23b083ce80f21dde198d07ba347d5073146"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver-script-inspect-1",
+        "--label",
+        "count.manual100m.diagnostic=script-read",
+        "--network",
+        "none",
+        "--read-only",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "/opt/mssql/bin/init_custom_setup.sh"
+      ],
+      "exitCode": 0,
+      "file": "init_custom_setup.sh",
+      "sha256": "ae5f7bd1e6ebdb2710b7156158017cb4bf4f8ded36cfeb326823c2e582c910c0"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "run",
+        "--rm",
+        "--name",
+        "lab-sqlserver-script-inspect-2",
+        "--label",
+        "count.manual100m.diagnostic=script-read",
+        "--network",
+        "none",
+        "--read-only",
+        "--platform",
+        "linux/amd64",
+        "--entrypoint",
+        "/bin/cat",
+        "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "/opt/mssql/bin/run_custom_setup.sh"
+      ],
+      "exitCode": 0,
+      "file": "run_custom_setup.sh",
+      "sha256": "c35b27324dbe4e0e11757cb7f74b8f95ce86642c6dc0856192c5461c0078dc77"
+    }
+  ]
+}

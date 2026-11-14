@@ -1,0 +1,121 @@
+{
+ "id": "55-EXP-SOL-10",
+ "answers": [
+  "EXP-SOL-10",
+  "FIND-ENGINE-01"
+ ],
+ "started": "2026-11-06T18:04:56",
+ "sections": {
+  "plans_and_limits": {
+   "mi": {
+    "explain_extra": "Select tables optimized away",
+    "explain_type": null,
+    "value": [
+     [
+      1000000
+     ]
+    ],
+    "ok": true,
+    "errno": null,
+    "ms": 0.1
+   },
+   "cs": {
+    "explain_extra": null,
+    "explain_type": "ALL",
+    "value": [
+     [
+      500000
+     ]
+    ],
+    "ok": true,
+    "errno": null,
+    "ms": 18.7
+   },
+   "bh": {
+    "explain_extra": "Using index",
+    "explain_type": "index",
+    "value": [
+     [
+      0
+     ]
+    ],
+    "ok": true,
+    "errno": null,
+    "ms": 0.1
+   },
+   "mg": {
+    "explain_extra": "Select tables optimized away",
+    "explain_type": null,
+    "value": [
+     [
+      3000
+     ]
+    ],
+    "ok": true,
+    "errno": null,
+    "ms": 0.1
+   },
+   "csv_limit_50ms": {
+    "ok": true,
+    "ms": 17.44,
+    "rows": [
+     [
+      500000
+     ]
+    ]
+   },
+   "csv_write_during_scan": {
+    "ok": true,
+    "ms": 2.59,
+    "rows": []
+   },
+   "csv_write_ms": 3,
+   "csv_scan_ms": 18.33,
+   "_seconds": 0.06
+  },
+  "check_table_on_myisam": {
+   "max_ms_before": {
+    "read": 1.8,
+    "write": 2.2,
+    "count": 2.1
+   },
+   "max_ms_during": {
+    "read": 242.2,
+    "write": 252.4,
+    "count": 242.1
+   },
+   "checks": {
+    "check_medium": {
+     "seconds": 0.09,
+     "result": [
+      [
+       "req_eng.mi",
+       "check",
+       "status",
+       "OK"
+      ]
+     ]
+    },
+    "check_extended": {
+     "seconds": 0.26,
+     "result": [
+      [
+       "req_eng.mi",
+       "check",
+       "status",
+       "OK"
+      ]
+     ]
+    }
+   },
+   "_seconds": 2.87
+  },
+  "not_possible_here": {
+   "memory_one_side_restart": "See results/requested_70-EXP-SOL-10-restart-8.4.13.json. A script here cannot restart the compose containers.",
+   "myisam_after_crash": "Needs a killed server, which the shared primary must not be. Unmeasured.",
+   "_seconds": 0.0
+  }
+ },
+ "elapsed_seconds": 128,
+ "section_errors": []
+}

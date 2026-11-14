@@ -1,0 +1,1048 @@
+{
+  "authorResponses": [
+    {
+      "evidence": [
+        "results/reference/20261107-primary-coverage/manifest.json",
+        "bench/requested/primary-scale-plan.json"
+      ],
+      "id": "FIND-O10-PRIMARY-SCALE",
+      "response": "0g/0i\u4fdd\u5b58\u89b3\u6e2c\u30010h\u53cd\u5fa9\u6b20\u843d\u30010j\u4e2d\u65ad\u3092\u5206\u96e2\u3002\u5206\u5272\u5f8c\u30d7\u30ed\u30c8\u30b3\u30eb\u306f\u4eca\u56de\u672a\u5b9f\u884c\u3002",
+      "sections": "\u00a74\u3001\u8a73\u7d30\u00a711/13",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-primary-coverage/results/requested_0d-EXP-O10-INDEXED-100-STALL.json"
+      ],
+      "id": "FIND-O10-INDEXED-100-STALL",
+      "response": "\u65e766.806\u79d2\u3068write tail\u3092\u4fdd\u6301\u30020d\u4fdd\u5b58\u89b3\u6e2c\u306f\u3042\u308b\u304c\u3001\u73fe\u30b3\u30fc\u30c9\u518d\u6e2c\u5b9a\u3068\u539f\u56e0\u8a55\u4fa1\u306f\u672a\u5b8c\u4e86\u3002",
+      "sections": "\u8a73\u7d30\u00a73/11/13",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "bench/countlib.py",
+        "results/reviews/final-all-run.log"
+      ],
+      "id": "FIND-O10-STEP-CEILING",
+      "response": "\u884c\u6570\u4e0a\u9650\u306e\u4fee\u6b63\u306f\u4fdd\u6301\u30020e/0f\u30fb3a\u306e\u73fe\u30b3\u30fc\u30c9\u518d\u8a66\u9a13\u306b\u306f\u672a\u5230\u9054\u3002",
+      "sections": "\u8a73\u7d30SQL 4\u3001\u00a711",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "bench/requested/0l-EXP-O10-NOPK-FORCE.py"
+      ],
+      "id": "FIND-O10-NOPK-FORCE",
+      "response": "PRIMARY\u304c\u306a\u3051\u308c\u3070\u5f37\u5236\u3057\u306a\u3044\u5206\u5c90\u3092\u7dad\u6301\u30020l\u306e\u5b9f\u7d4c\u8def\u30fb\u901f\u5ea6\u306f\u672a\u8a08\u6e2c\u3002",
+      "sections": "\u00a74\u3001\u8a73\u7d30\u00a711",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-observations/manifest.json",
+        "docs/table-count-integration-audit.md"
+      ],
+      "id": "FIND-O10-ENCRYPTED-STALE",
+      "response": "91\u306e\u65e7\u5931\u6557\u3068\u5f8c\u7d9a\u89b3\u6e2c\u300192\u306e\u7d42\u4e86\u30b3\u30fc\u30c9\u4e0d\u660e\u3092\u5206\u96e2\u3002\u4eca\u56de\u306e\u518d\u6e2c\u5b9a\u304c\u306a\u3044\u3053\u3068\u3092\u660e\u8a18\u3002",
+      "sections": "\u00a73/7\u3001\u8a73\u7d30\u00a76/11/13",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-evidence.md"
+      ],
+      "id": "FIND-O10-P100-BOLD",
+      "response": "100/s\u306ePRIMARY\u6700\u901f\u5f37\u8abf\u3092\u9664\u53bb\u3057\u3001\u7bc4\u56f2\u91cd\u8907\u306b\u3088\u308b\u5dee\u672a\u78ba\u7acb\u3068800/s\u306e\u9650\u5b9a\u7d50\u679c\u3092\u533a\u5225\u3002",
+      "sections": "\u8a73\u7d30\u00a73/10",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md",
+        "docs/table-count-evidence.md"
+      ],
+      "id": "FIND-DOC-01",
+      "response": "\u516c\u5f0f\u539f\u6587\u5168\u4f53\u306e\u78ba\u8a8d\u6e08\u307f\u8868\u793a\u3092\u64a4\u56de\u3002\u30b5\u30dd\u30fc\u30c8\u671f\u9650\u30fb\u4ed5\u69d8\u306e\u672a\u78ba\u8a8d\u3092\u660e\u8a18\u3002",
+      "sections": "\u74b0\u5883\u8868\u3001\u8a73\u7d30\u00a712",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-observations/requested_0c-EXP-S8-REPLICA-STOP-LONG.json"
+      ],
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+      "response": "STOP\u9045\u52b9\u3001\u672a\u78ba\u8a8d\u3001\u7d99\u7d9a\u62c5\u5f53\u3078\u306e\u5f15\u7d99\u304e\u3068\u5fa9\u65e7\u78ba\u8a8d\u3092\u5206\u96e2\u3002\u4eca\u56de\u306e\u518d\u8a66\u9a13\u3068\u306f\u6271\u308f\u306a\u3044\u3002",
+      "sections": "\u00a76\u3001\u8a73\u7d30\u00a77",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-wide-sampling/results/requested_probability_wide_100.json",
+        "results/reviews/final-all-run.log"
+      ],
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "response": "\u53c2\u8003\u7d71\u8a08\u30fb\u6761\u4ef6\u4ed8\u304d\u533a\u9593\u30fb\u6b63\u78ba\u5024\u3092\u533a\u5225\u3002100\u5217TDE\u306e\u7d22\u5f15\u6709\u7121\u306b\u3088\u308b\u9759\u7684\u9806\u4f4d\u9006\u8ee2\u3092\u8ffd\u52a0\u300201c/01d\u306f\u672a\u5b9f\u884c\u3002",
+      "sections": "\u5192\u982d\u3001\u00a71/2/7\u3001\u8a73\u7d30\u00a713",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "response": "\u521d\u56de\u4e88\u7b97\u3001tail\u3001CPU/I/O\u3001\u56de\u5fa9\u3001\u4e2d\u65ad\u78ba\u8a8d\u3092\u5fc5\u9808\u5316\u3002\u7d71\u8a08\u5c0f\u5024\u3092\u8a31\u53ef\u95be\u5024\u306b\u305b\u305a\u30011000ms\u3092\u5b89\u5168\u65e2\u5b9a\u5024\u3068\u3057\u306a\u3044\u3002",
+      "sections": "\u00a74",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-wide-sampling/manifest.json"
+      ],
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "response": "TDE\u3068\u5217\u6697\u53f7\u5316\u3001\u5e45\u30fb\u7d22\u5f15\u30fbMVCC\u3092\u533a\u5225\u300201a/01b\u306f\u9650\u5b9a\u63a1\u7528\u300296/97\u73fe\u30b3\u30fc\u30c9\u306810%\u8ca0\u8377\u6bd4\u8f03\u306f\u672a\u5b9f\u884c\u3002",
+      "sections": "\u00a73\u3001\u8a73\u7d30\u00a713",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-observations/requested_metadata_on_replica.json"
+      ],
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "response": "\u7cbe\u5ea6\u30fb\u9bae\u5ea6\u30fb\u6a29\u9650\u30fb\u5f85\u6a5f\u30fbreplica\u3092\u6bd4\u8f03\u3002Uninitialized\u3092\u8aa4\u5dee\u96c6\u8a08\u304b\u3089\u9664\u5916\u3057\u3001\u521d\u56de\u3068\u5f8c\u7d9a\u30b3\u30fc\u30d1\u30b9\u3092\u5206\u96e2\u3002",
+      "sections": "\u00a72",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "response": "ANALYZE\u3092\u521d\u56de\u53c2\u7167\u306b\u8ffd\u52a0\u305b\u305a\u5225\u4fdd\u5b88\u3068\u3057\u305f\u3002\u30da\u30fc\u30b8\u5897\u91cf\u306b\u3088\u308b\u5358\u8abf\u6539\u5584\u3082\u4e3b\u5f35\u3057\u306a\u3044\u3002",
+      "sections": "\u00a72",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "response": "\u8cac\u4efb\u8005\u30fb\u505c\u6b62\u6a29\u9650\u30fb\u5171\u6709\u8cc7\u6e90\u30fbDDL/\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u30fb\u5fa9\u65e7\u62c5\u5f53\u3092\u5c0e\u5165\u7968\u306b\u8a18\u8f09\u3002\u9069\u7528\u505c\u6b62\u306f\u6240\u6709\u8005\u306e\u5225\u904b\u7528\u3002",
+      "sections": "\u00a71/4/6\u3001\u8a73\u7d30\u00a710",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/probability-count.md",
+        "results/reference/20261107-fixed-sampling/manifest.json"
+      ],
+      "id": "SOL-SAMP-DEADLINE",
+      "response": "\u554f\u3044\u5408\u308f\u305b\u5f8c\u30fbROLLBACK\u5f8c\u306e\u671f\u9650\u3068\u7cbe\u5ea6/\u4e88\u7b97/cleanup\u5206\u96e2\u3092\u8aac\u660e\u3002\u6700\u7d42\u30bd\u30fc\u30b9\u306e\u691c\u67fb\u30fbDB\u518d\u8a66\u9a13\u306f\u4eca\u56de\u672a\u5b9f\u884c\u3002",
+      "sections": "\u00a72\u3001\u78ba\u7387\u63a8\u5b9a\u4ed5\u69d8",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "docs/probability-count.md"
+      ],
+      "id": "SOL-SAMP-DOC-CONTRACT",
+      "response": "\u6574\u6570\u5358\u4e00PK\u3001\u4e00\u69d8\u5fa9\u5143\u30bb\u30eb\u3001\u56fa\u5b9asnapshot/MDL\u3001\u758e\u9818\u57df\u306e\u672a\u9054\u3001\u547c\u51fa\u3057\u5358\u4f4d\u306ealpha\u3092\u660e\u793a\u3002\u672c\u756a\u65e2\u5b9a\u306b\u306f\u3057\u306a\u3044\u3002",
+      "sections": "\u00a72\u3001\u78ba\u7387\u63a8\u5b9a\u4ed5\u69d8",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-evidence.md"
+      ],
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "response": "\u901a\u5e38replica\u306f\u9069\u7528\u4e2d\u3002\u505c\u6b62\u30fb\u53d6\u5f97\u5148\u5909\u66f4\u30fb\u518d\u8a66\u884c\u306b\u306f\u6240\u6709\u8005\u5224\u65ad\u3068\u7d2f\u7a4d\u4e88\u7b97\u304c\u5fc5\u8981\u3002DDL\u7af6\u5408\u4e2d\u306f\u958b\u59cb\u3057\u306a\u3044\u3002",
+      "sections": "\u00a71/4/6\u3001\u8a73\u7d30\u00a71/7/10/11",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-fixed-sampling/results/requested_probability_sampling.json"
+      ],
+      "id": "SOL-SAMP-98-COMPARISON",
+      "response": "\u56fa\u5b9a98\u306e35\u7d50\u679c\u3001\u7cbe\u5ea6\u9054\u621025\u30fb\u672a\u905410\u3001\u4e88\u7b97\u30fbrollback\u72b6\u614b\u3092\u5206\u96e2\u3002\u6700\u7d42\u30bd\u30fc\u30b9\u30fb01c/01d\u30fbcleanup\u76e3\u67fb\u306f\u672a\u5b8c\u4e86\u3002",
+      "sections": "\u00a72\u3001\u8a73\u7d30\u00a713\u3001\u78ba\u7387\u63a8\u5b9a\u4ed5\u69d8",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reviews/final-all-candidate.json",
+        "results/requested/last_run.json"
+      ],
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "response": "\u767d\u7d19all\u306f\u8d77\u52d5\u6642\u5931\u6557\u3002ran=[]\u3001lab_data_intact=false\u3002\u65e7snapshot\u5185\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u4eca\u56de\u306e\u5b9f\u884c\u30fb\u518d\u5229\u7528\u6210\u529f\u3068\u6570\u3048\u306a\u3044\u3002",
+      "sections": "\u00a77\u3001\u7d71\u5408\u76e3\u67fb",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "bench/test_kill_timer.py",
+        "docs/table-count-integration-audit.md"
+      ],
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "response": "\u5bfe\u8c61ID\u56fa\u5b9a\u3001cancel/join\u4fee\u6b63\u3068\u4fdd\u5b58\u6e08exit0\u3092\u4fdd\u6301\u3002\u4eca\u56de\u306eall\u518d\u691c\u8a3c\u306b\u306f\u672a\u5230\u9054\u3002",
+      "sections": "\u8a73\u7d30\u00a78\u3001\u5b9f\u9a1312",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reference/review-20261107T040818Z-62807/manifest.json",
+        "results/reviews/integrate-revision15-verification.log"
+      ],
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "response": "\u6b74\u53f2\u7684\u53c2\u7167\u3068\u4eca\u56desnapshot\u3092\u5206\u96e2\u3057\u5168\u30cf\u30c3\u30b7\u30e5\u3092\u7167\u5408\u300292\u306e\u89b3\u6e2c\u5b8c\u5099\u30fbexit\u4e0d\u660e\u30fbok=false\u3092\u7dad\u6301\u3002",
+      "sections": "\u00a73/7\u3001\u8a73\u7d30\u00a713",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md",
+        "docs/table-count-integration-audit.md"
+      ],
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "response": "\u8ffd\u3044\u51fa\u3057\u5f8c\u30fb\u76f4\u5f8c\u518d\u5b9f\u884c\u3092\u64cd\u4f5c\u3068\u3057\u3066\u6271\u3044\u3001BP/host cache\u540c\u7b49\u6027\u3084\u4e00\u5f8bTDE\u500d\u7387\u3092\u4e3b\u5f35\u3057\u306a\u3044\u3002",
+      "sections": "\u00a73\u3001\u8a73\u7d30\u00a711/13",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-wide-sampling/manifest.json"
+      ],
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "response": "01a/01b\u306e\u4fdd\u5b58\u5247\u4ed8\u304d\u4fdd\u5b58\u89b3\u6e2c\u306f\u4fdd\u6301\u3002\u73feWorkload/reqscale/reqwide\u306e\u5168\u518d\u691c\u8a3c\u306f\u672a\u5b9f\u884c\u3002slo_assessable\u3092\u5408\u683c\u3068\u3057\u306a\u3044\u3002",
+      "sections": "\u00a74\u3001\u8a73\u7d30\u00a713",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reference/20261107-wide-sampling/results/requested_probability_wide_100.json"
+      ],
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "response": "\u9759\u7684\u901f\u5ea6\u3001\u7cbe\u5ea6\u3001\u5b9fmethod/trial\u3001\u56de\u5fa9\u3001cleanup\u3092\u5206\u96e2\u30021\u79d2\u4e88\u7b97\u5230\u9054\u3092\u672c\u6587\u3078\u8ffd\u52a0\u3002SLO\u5408\u683c\u30fb\u7121\u5f71\u97ff\u306f\u8a8d\u5b9a\u3057\u306a\u3044\u3002",
+      "sections": "\u00a74/7\u3001\u8a73\u7d30\u00a713",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "bench/accuracy_frontier.py",
+        "results/reviews/accuracy-frontier-failure-regression.json"
+      ],
+      "id": "SOL-FRONTIER-001",
+      "response": "\u6a19\u672c\u3092\u6bd4\u8f03COUNT\u3088\u308a\u5148\u306b\u4fdd\u5b58\u3057\u3001\u60f3\u5b9a\u5916\u5931\u6557\u5f8c\u306b\u63a5\u7d9a\u3092\u518d\u5229\u7528\u3057\u306a\u3044\u4fee\u6b63\u3092\u4fdd\u6301\u3002\u65e2\u5b58AST\u56de\u5e30\u3068\u4eca\u56de\u672a\u5b9f\u884c\u3092\u533a\u5225\u3002",
+      "sections": "\u78ba\u7387\u63a8\u5b9a\u4ed5\u69d8\u30fb\u8a73\u7d30\u00a713\u3001record_sample",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "bench/accuracy_frontier.py",
+        "results/reviews/accuracy-frontier-failure-regression.json"
+      ],
+      "id": "SOL-FRONTIER-002",
+      "response": "\u78ba\u8a8d\u6e083024\u30fbROLLBACK\u6210\u529f\u3060\u3051\u3092\u6587\u4e88\u7b97\u5230\u9054\u3078\u5206\u985e\u3059\u308b\u4fee\u6b63\u3092\u4fdd\u6301\u3002\u5168\u4f53\u4e88\u7b97\u30fb\u672a\u77e51317\u3068\u6df7\u540c\u3057\u306a\u3044\u3002",
+      "sections": "\u78ba\u7387\u63a8\u5b9a\u4ed5\u69d8\u30fb\u8a73\u7d30\u00a713\u3001sample_with_budgets",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "lab.rb",
+        "bench/test_matrix_cleanup.rb"
+      ],
+      "id": "SOL-FRONTIER-003",
+      "response": "\u64a4\u53bb\u7d50\u679c\u4fdd\u5b58\u30fb\u5931\u6557\u4f1d\u64ad\u30b3\u30fc\u30c9\u306f\u4fdd\u6301\u3059\u308b\u304c\u3001\u767b\u9332\u56de\u5e30\u3068\u5b9f\u64a4\u53bb\u306e\u691c\u8a3c\u306b\u306f\u4eca\u56de\u672a\u5230\u9054\u3002",
+      "sections": "\u00a77\u30fb\u8a73\u7d30\u00a713\u3001Lab.with_version",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "bench/lablib.py",
+        "bench/test_protocol_integrity.py"
+      ],
+      "id": "SOL-FRONTIER-004",
+      "response": "disabled/\u6b20\u6e2c\u3092null\u306b\u3059\u308b\u4fee\u6b63\u306f\u4fdd\u6301\u3002\u65e7data_locks=False\u306e0\u306f\u672a\u6e2c\u5b9a\u3002\u767b\u9332\u56de\u5e30\u30fb\u5b9f\u6e2c\u691c\u8a3c\u306f\u672a\u5b9f\u884c\u3002",
+      "sections": "\u00a77\u30fb\u8a73\u7d30\u00a713\u3001Sampler.window",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reviews/final-all-run.log",
+        "results/reviews/integrate-revision15-verification.log"
+      ],
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "response": "Ruby2.6.10\u3067\u540c\u3058\u69cb\u6587\u30a8\u30e9\u30fc\u3001mise exec\u306eRuby3.4.10\u3067\u306fSyntax OK\u3002\u5931\u6557process\u306eRuby\u5b9f\u4f53\u306f\u672a\u8a18\u9332\u3002\u6b21author\u304c\u5b50process\u306eRuby\u9078\u629e\u3068\u8d77\u52d5\u524d\u78ba\u8a8d\u3092\u4fee\u6b63\u3059\u308b\u3002integration\u3067\u306f\u30b3\u30fc\u30c9\u3092\u5909\u66f4\u3057\u3066\u3044\u306a\u3044\u3002",
+      "sections": "\u00a77\u3001\u7d71\u5408\u76e3\u67fb\u300c\u5b9f\u884c\u5931\u6557\u300d",
+      "status": "unresolved"
+    }
+  ],
+  "completionStatus": "incomplete_failed_white_all",
+  "discussionHistory": [
+    {
+      "revision": 1,
+      "role": "history",
+      "summary": "Revisions 1 to 3 are in results/review-state-before-experiments.json. Revisions 4 to 9 are in results/workflow-run2.log."
+    },
+    {
+      "revision": 10,
+      "role": "author",
+      "summary": "Integrated the third lab run. Data intact; 18 of 19 scripts succeeded. Main change: FORCE INDEX (PRIMARY) moved from rejected to conditional, because under scattered writes the secondary-index statement hit its 120 s limit in 4/4 runs while PRIMARY finished 8/8. Under writes that do not touch the index, the earlier result stands. Also: the default parallelism is kept for PK-only tables, a client timeout does not stop the server statement, the ENUM guard, replica STOP failure and channel gate are measured, type results now cover all 5 versions, and the catalog is re-based on the re-run of script 10. New low finding: the step ceiling stops shrunken walks early. Reviewers decide closure."
+    },
+    {
+      "revision": 10,
+      "role": "opus",
+      "summary": "Rejected. The write-mix redesign is good, its numbers match, and FIND-O6-WRITE-SHAPE-01 closes. Two middle items replace it. FIND-O10-PRIMARY-SCALE answers the author's question: no, adopting FORCE PRIMARY is not shown beyond a 2 GB table near lab saturation, and at 100 writes/s the fixed tolerance is not met against k. FIND-O10-INDEXED-100-STALL: an unexplained 66.8 s split and a whole-run write p95 of 1646.57 ms at 100 writes/s are missing from the text. On 91: encrypted results now exist from a run outside this workflow, so \u00a711 is stale; I would not make them decisive, since encrypted tables are out of scope, but the owner should decide and confirm that run is finished. Scripts 90, 91 and 92 are still of unknown origin to me."
+    },
+    {
+      "revision": 10,
+      "role": "sol",
+      "summary": "Rejected\u3002digest\u4e00\u81f4\u3002\u65b0\u3057\u3044write-mix\u306e\u5b9f\u884c\u3068\u6570\u5024\u3001\u73fe\u884c\u30ab\u30bf\u30ed\u30b051\u8868\u4e00\u81f4\u3001\u51685\u7248\u306e\u578b\u3001ENUM guard\u3001\u8907\u6570\u30c1\u30e3\u30cd\u30eb\u62d2\u5426\u30011205\u3092\u72ec\u7acb\u78ba\u8a8d\u3057\u305f\u3002Opus\u306emiddle 2\u4ef6\u3092\u78ba\u8a8d\u3057\u3001\u4f4e\u3044\u901f\u5ea6\u3067\u306ePRIMARY\u512a\u4f4d\u306e\u8868\u793a\u3082\u8a02\u6b63\u304c\u5fc5\u8981\u3068\u3057\u305f\u3002STOP\u5931\u6557\u306fgrace\u5185\u306e\u5fa9\u65e7\u3057\u304b\u6e2c\u3063\u3066\u304a\u3089\u305a\u3001\u73fe\u884crestore_applier\u304c\u505c\u6b62\u3092\u89b3\u6e2c\u3057\u306a\u3044\u307e\u307erestored=true\u3092\u8fd4\u3059\u305f\u3081FIND-S8-REPLICA-STOP-FAILURE-01\u3092\u518d\u958b\u3057\u305f\u3002\u516c\u5f0f\u6587\u66f8\u306e\u88cf\u4ed8\u3051\u306f\u524d\u56de\u3068\u4eca\u56de\u306eSol\u539f\u6587\u78ba\u8a8d\u3067\u6210\u7acb\u3057FIND-DOC-01\u306f\u9589\u9396\u3002\u5f8c\u767amanual-91\u306e\u5b8c\u7d50\u6210\u529f\u30ed\u30b0\u306f\u78ba\u8a8d\u3057\u305f\u304c\u3001\u5b9f\u884c\u6240\u6709\u8005\u3084\u5225PID\u306e\u73fe\u5728\u72b6\u614b\u306f\u65ad\u5b9a\u3057\u306a\u3044\u3002DB\u63a5\u7d9a\u30fb\u5909\u66f4\u30fb\u59d4\u8b72\u306f\u3057\u3066\u3044\u306a\u3044\u3002"
+    },
+    {
+      "evidence": [
+        "results/reviews/finding-register.json",
+        "results/reviews/author-revision14-preserved-reviews.json"
+      ],
+      "revision": 13,
+      "role": "preserved-review-history",
+      "summary": "\u73fe\u5728\u306eSol rollout/sampling/validation/frontier\u67fb\u8aad\u306828\u4ef6\u306e\u7d71\u5408\u53f0\u5e33\u3092\u5f15\u304d\u7d99\u3050\u3002\u65e7Opus\u8a18\u9332\u306f\u5c65\u6b74\u3060\u3051\u3067\u3001\u65b0\u898f\u627f\u8a8d\u306f\u8981\u6c42\u3057\u306a\u3044\u3002"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision14-verification.json",
+        "bench/requested/primary-scale-plan.json"
+      ],
+      "revision": 14,
+      "role": "author",
+      "summary": "DB\u63a5\u7d9a\u30fb\u5b9f\u9a13\u30fb\u30c6\u30b9\u30c8\u5b9f\u884c\u30fb\u59d4\u8b72\u30fb\u5225workflow\u8d77\u52d5\u306a\u3057\u3002\u65e7\u6240\u6709\u8005\u4e2d\u65ad\u30ed\u30b0\u3068\u89e3\u653e\u6e08\u307flock\u3092\u78ba\u8a8d\u5f8c\u3001reqscale\u309230\u672c\u3078\u5206\u5272\u3057\u3066\u5404\u65b9\u5f0f3\u53cd\u5fa9\u3068300/150\u79d2\u4e0a\u9650\u3092\u7dad\u6301\u3002\u65e73e/3f\u3092SHA\u4ed8\u304d\u5f15\u9000\u53f0\u5e33\u3078\u79fb\u3057\u3001matrix\u64a4\u53bb\u30fb\u7121\u52b9lock\u89b3\u6e2c\u30fbsemantic exit\u3092\u4fee\u6b63\u3002\u4e3b\u6587\u66f8206\u884c\u3002white-all\u3001\u6587\u66f8\u53cd\u6620\u5f8c\u76e3\u67fb\u3001\u6700\u7d42proof\u3068\u5225Sol\u67fb\u8aad\u306f\u672a\u5b8c\u4e86\u3002"
+    },
+    {
+      "evidence": [
+        "docs/table-count-integration-audit.md",
+        "docs/table-count-integration-files.md",
+        "results/reviews/integrate-revision15-verification.log"
+      ],
+      "revision": 15,
+      "role": "integrate",
+      "summary": "\u767d\u7d19all\u306fRuby\u69cb\u6587\u89e3\u6790\u3067exit1\u3001\u5b9f\u9a13\u672a\u5230\u9054\u3002DB\u63a5\u7d9a\u30fbDocker\u64cd\u4f5c\u30fb\u5b9f\u9a13\u30fb\u30bb\u30eb\u30d5\u30c6\u30b9\u30c8\u30fb\u59d4\u8b72\u306a\u3057\u3002\u5168\u7d50\u679c\u30fb\u30ed\u30b0\u30fbstatus\u3068manifest\u3092\u7167\u5408\u3057\u3001\u65e7\u7d50\u679c\u306e\u540c\u68b1\u3092\u65b0\u898f\u6e2c\u5b9a\u3068\u533a\u5225\u3002\u65e5\u672c\u8a9e\u4e3b\u6587\u66f8216\u884c\u306b\u9759\u7684\u306a\u7d22\u5f15\u6709\u7121\u306e\u9006\u8ee2\u3068\u4e88\u7b97\u5230\u9054\u3092\u53cd\u6620\u3002\u5168\u6307\u6458\u30fb\u8981\u6c42\u306e\u72b6\u614b\u3068\u65b9\u6cd5\u8ad6\u76e3\u67fb\u3092\u8a73\u7d30\u3078\u5206\u96e2\u3002\u8a08\u6e2c\u30bd\u30fc\u30b9255\u4ef6\u306eSHA\u306f\u4e0d\u5909\u3002Ruby\u9078\u629e\u4fee\u6b63\u306f\u6b21author\u3078\u5f15\u7d99\u304e\u3001proof\u30fb\u67fb\u8aad\u9589\u9396\u306f\u672a\u5b8c\u4e86\u3002"
+    }
+  ],
+  "experimentsRun": [
+    {
+      "exitCode": 1,
+      "id": "WHITE-ALL-20261107T040818Z",
+      "lab_data_intact": false,
+      "log": "results/reviews/final-all-run.log",
+      "logComplete": true,
+      "logSha256": "c59fb4f8d8df87b074f3838655d5684b23c5f03dfffd1de71f9c9fcf0aa6a694",
+      "meaning": "Ruby\u69cb\u6587\u89e3\u6790\u3067\u5931\u6557\u3002\u767d\u7d19\u518d\u69cb\u7bc9\u30fb\u65b0\u898f\u6e2c\u5b9a\u30fb\u30c7\u30fc\u30bf\u6574\u5408\u6027\u30fb\u5f8c\u59cb\u672b\u306f\u672a\u78ba\u8a8d\u3002false\u306f\u30c7\u30fc\u30bf\u6d88\u5931\u3092\u78ba\u8a8d\u3057\u305f\u610f\u5473\u3067\u306f\u306a\u3044\u3002snapshot\u306b\u3042\u308b\u65e7\u30d5\u30a1\u30a4\u30eb\u306f\u4eca\u56de\u306e\u5b9f\u9a13\u7d50\u679c\u3067\u306f\u306a\u3044\u3002",
+      "outcome": "failed_before_reset_and_measurement",
+      "ran": [],
+      "requestIdsAnswered": [
+        "SOL-EXP-FINAL-REPRODUCTION"
+      ],
+      "resultFile": "results/reviews/final-all-candidate.json"
+    }
+  ],
+  "findings": [
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-PRIMARY-SCALE",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-INDEXED-100-STALL",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-STEP-CEILING",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-NOPK-FORCE",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-O10-ENCRYPTED-STALE",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-O10-P100-BOLD",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-DOC-01",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "reviewerClosure": "pending",
+      "severity": "high"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-SAMP-DEADLINE",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-SAMP-DOC-CONTRACT",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-SAMP-98-COMPARISON",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "reviewerClosure": "pending",
+      "severity": "high"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-FRONTIER-001",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-FRONTIER-002",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-FRONTIER-003",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-FRONTIER-004",
+      "reviewerClosure": "pending",
+      "severity": "low"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "reviewerClosure": "pending",
+      "severity": "middle"
+    }
+  ],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "ad0c7af4933c28b7c2a2f8837b38ae277e9e6b9e238841d462b3099fcf4e64bc",
+  "lab_data_intact": false,
+  "measurementSnapshot": "results/reference/review-20261107T040818Z-62807",
+  "measurementSourceUnchanged": true,
+  "preservedState": {
+    "contents": "\u5b8c\u5168\u306aworkflowInput\u3001\u516829finding\u306e\u6765\u6b74\u3068\u56de\u7b54\u3001\u516870\u5b9f\u9a13\u8981\u6c42\u306e\u72b6\u614b\u3001author14\u306e\u8981\u6c42\u30fb\u8a0e\u8b70\u5c65\u6b74\u30fb\u56de\u7b54\u3001\u4eca\u56de\u306e\u691c\u8a3c\u8a18\u9332\u3092\u4fdd\u5b58\u3002",
+    "path": "results/reviews/integrate-revision15-adapter.json",
+    "priorAuthorOutput": "results/reviews/author-revision14-adapter.json",
+    "sha256": "06b9c01d7d2a479a073eee5fa15371f26a33497d418293eae1fde0d8e1ede60a",
+    "verbatimReviewHistory": "results/reviews/author-revision14-preserved-reviews.json"
+  },
+  "reproductionProofExists": false,
+  "reproductionVerified": false,
+  "requestedExperimentHistory": {
+    "meaning": "\u5143\u306e\u8981\u6c42\u672c\u6587\u30fb\u4eee\u8aac\u30fb\u624b\u9806\u30fb\u904e\u53bb\u306e\u9589\u9396/\u64a4\u56de\u30fb\u8a0e\u8b70\u3092\u4fdd\u6301\u3002historical_closed_preserved\u306f\u4eca\u56de\u306e\u6210\u529f\u307e\u305f\u306f\u65b0\u898f\u67fb\u8aad\u9589\u9396\u3067\u306f\u306a\u3044\u3002",
+    "sha256": "136affd531f88ac7d7e52a53e768e5ef08f2d49a80eed42c2fac3282462d3c61",
+    "verbatimPath": "results/reviews/author-revision14-preserved-reviews.json"
+  },
+  "requestedExperiments": [
+    {
+      "id": "EXP-O10-PRIMARY-SCALE",
+      "outcome": "\u5206\u5272\u5f8c\u306e\u5168\u6761\u4ef6\u672a\u5b9f\u884c\u3002\u65e70h\u6b20\u843d\u30fb0j\u4e2d\u65ad\u3092\u4fdd\u6301\u3002",
+      "resultFile": "bench/requested/primary-scale-plan.json",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O10-INDEXED-100-STALL",
+      "outcome": "\u4fdd\u5b58\u89b3\u6e2c\u3042\u308a\u3001\u73fe\u30b3\u30fc\u30c9\u518d\u6e2c\u5b9a\u306a\u3057\u3002",
+      "resultFile": "results/reference/20261107-primary-coverage/results/requested_0d-EXP-O10-INDEXED-100-STALL.json",
+      "status": "unresolved_current_source_not_run"
+    },
+    {
+      "id": "EXP-O10-ROW-CEILING",
+      "outcome": "0e/0f\u30fb3a\u518d\u8a66\u9a13\u672a\u5b9f\u884c\u3002",
+      "resultFile": "bench/countlib.py",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O10-NOPK-FORCE",
+      "outcome": "\u5b9f\u7d4c\u8def\u30fb\u901f\u5ea6\u672a\u691c\u8a3c\u3002",
+      "resultFile": "bench/requested/0l-EXP-O10-NOPK-FORCE.py",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O6-WRITE-MIX",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O8-PKONLY-THREADS",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R6-float-dst",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O2-1-guideline-sql-as-written",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O8-1205",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-7-coverage-gaps",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S8-ENUM-DOMAIN",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S8-REPLICA-STOP-FAILURE",
+      "outcome": "\u4fdd\u5b58\u89b3\u6e2c\u3067\u56de\u7b54\u3002\u4eca\u56de\u518d\u8a66\u9a13\u3067\u306f\u306a\u3044\u3002",
+      "resultFile": "results/reference/20261107-observations/requested_0c-EXP-S8-REPLICA-STOP-LONG.json",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "EXP-S8-REPLICA-CHANNEL-GATE",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R9-working-set-impact",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-CPU-CONTROL",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-NOISE-WINDOWS",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-LONG-UNDO",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-6-sql-not-executed",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-LOOP-RULES",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R15-replica-procedure",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-ANALYZE",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-THREADS-SCOPE",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-MONITOR-RECHECK",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-REPLICA-FAILURE-CLEANUP",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-INCREMENTAL-SAME-SECOND",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R13-least-privilege",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-3-history",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-9-alternative-methods",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-12-mdl-phase",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R1-enum-scaling",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O2-3-cascade-trigger-version",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-10-engine-states",
+      "outcome": "70\u306e\u904e\u53bbskip\u306f\u518d\u8d77\u52d5\u306e\u5b9f\u6e2c\u3067\u306f\u306a\u3044\u3002\u73feall\u5217\u6319\u3068\u306e\u4e0d\u6574\u5408\u3092\u6b21author\u304c\u89e3\u6d88\u3002",
+      "status": "historical_withdrawn_preserved"
+    },
+    {
+      "id": "EXP-O2-2-stop-vs-timeout",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R5-split-drift",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R7-background-reader",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R8-count-repeat",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R4-primary-split-impact",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R10-estimate-churn",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-1-existing-transaction",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R2-nullable-composite",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R3-desc-index",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R11-lock-forms",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R12-flush-chain",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R14-resume-failover",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R16-incremental",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-4-fk-mdl",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-5-indexed-update-lock",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-2-read-uncommitted",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-3-null-inclusive-timing",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-4-view-semantics",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-5-counter-bootstrap",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-6-monitor-health",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-7-table-generation",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-8-timeout-context",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-11-lock-sampler-control",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "SOL-EXP-ENCRYPTED-WIDE-TRIAL",
+      "outcome": "\u65e796/97\u306801a/01b\u306e\u4fdd\u5b58\u89b3\u6e2c\u306e\u307f\u3002",
+      "resultFile": "results/reference/20261107-wide-sampling/manifest.json",
+      "status": "unresolved_current_source_not_run"
+    },
+    {
+      "id": "94-metadata-on-replica",
+      "outcome": "\u5168\u7bc0\u306e\u4fdd\u5b58\u89b3\u6e2c\u3042\u308a\u3002\u4eca\u56de\u518d\u6e2c\u5b9a\u3067\u306f\u306a\u3044\u3002",
+      "resultFile": "results/reference/20261107-observations/requested_metadata_on_replica.json",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+      "outcome": "\u5f15\u7d99\u304e\u5f8c\u5fa9\u65e7\u3092\u542b\u3080\u4fdd\u5b58\u89b3\u6e2c\u3042\u308a\u3002",
+      "resultFile": "results/reference/20261107-observations/requested_0c-EXP-S8-REPLICA-STOP-LONG.json",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-EXP-STRATIFIED-SAMPLING",
+      "outcome": "\u5b9f\u88c5\u306f\u4e00\u69d8\u5fa9\u5143\u30bb\u30eb\u3002\u5c64\u5316/KL\u6bd4\u8f03\u306f\u672a\u8a08\u6e2c\u30fb\u672a\u63a1\u7528\u3002",
+      "resultFile": "docs/probability-count.md",
+      "status": "unresolved_optional_extension"
+    },
+    {
+      "id": "SOL-SAMP-EXP-PURE-BOUNDARIES",
+      "outcome": "\u6700\u7d42all\u306eself_checks\u672a\u5230\u9054\u3002",
+      "resultFile": "bench/test_sampling_contract.py",
+      "status": "unresolved_final_checks_not_run"
+    },
+    {
+      "id": "SOL-SAMP-EXP-98-OWNED-COMPLETION",
+      "outcome": "\u56fa\u5b9a98\u306eexit0\u3001\u516835\u89b3\u6e2c\u3068\u7cbe\u5ea6\u672a\u9054\u3092\u4fdd\u5b58\u3002",
+      "resultFile": "results/reference/20261107-fixed-sampling/manifest.json",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-SAMP-EXP-OPERATING-COST",
+      "outcome": "01a/01b\u4fdd\u5b58\u89b3\u6e2c\u306e\u307f\u300201c/01d\u672a\u5b9f\u884c\u3002",
+      "resultFile": "results/reference/20261107-wide-sampling/manifest.json",
+      "status": "unresolved_frontier_not_run"
+    },
+    {
+      "id": "SOL-EXP-HARNESS-PURE",
+      "outcome": "\u767b\u9332\u3055\u308c\u305f\u6700\u7d42self_checks\u306f\u4eca\u56de\u672a\u5b9f\u884c\u3002",
+      "resultFile": "lab.rb",
+      "status": "unresolved_final_checks_not_run"
+    },
+    {
+      "id": "SOL-EXP-FINAL-REPRODUCTION",
+      "outcome": "exit1\u3001\u69cb\u6587\u89e3\u6790\u5931\u6557\u3001ran=[]\u3001lab_data_intact=false\u3001proof\u306a\u3057\u3002",
+      "resultFile": "results/reviews/final-all-candidate.json",
+      "status": "failed_unresolved"
+    },
+    {
+      "id": "SOL-EXP-TDE-RESIDENCY",
+      "outcome": "\u56e0\u679c\u500d\u7387\u3092\u4e3b\u5f35\u305b\u305a\u3001\u672a\u7d71\u5236\u306eresident/dirty/flush\u6bd4\u8f03\u3092\u8ffd\u52a0\u5fc5\u9808\u306b\u306f\u3057\u306a\u3044\u3002",
+      "resultFile": "docs/table-count-guideline.md",
+      "status": "conditional_not_requested_without_multiplier"
+    },
+    {
+      "id": "SOL-EXP-WIDE-TAIL",
+      "outcome": "\u60aa\u5316\u53cd\u4f8b\u3092\u4fdd\u5b58\u3002\u4fdd\u5b58\u5247\u4fee\u6b63\u5f8c\u306e\u518d\u8a08\u6e2c\u306a\u3057\u3002",
+      "resultFile": "results/reference/20261107-observations/requested_encrypted_wide_50.json",
+      "status": "unresolved_current_source_not_run"
+    },
+    {
+      "id": "SOL-EXP-SAMPLING-CONTRACT",
+      "outcome": "\u56fa\u5b9a98\u4fdd\u5b58\u89b3\u6e2c\u3042\u308a\u3002\u6700\u7d42\u691c\u67fb\u30fb\u73fe\u30b3\u30fc\u30c9\u5b9f\u6e2c\u306b\u306f\u672a\u5230\u9054\u3002",
+      "resultFile": "results/reference/20261107-fixed-sampling/manifest.json",
+      "status": "unresolved_final_checks_not_run"
+    },
+    {
+      "id": "SOL-FRONTIER-EXP-01",
+      "outcome": "105\u6a19\u672c\u7d50\u679c\u3068\u5bfe\u5fdcCOUNT\u672a\u8a08\u6e2c\u3002\u65e2\u5b58\u5b9f\u88c5\u306f\u91cd\u8907\u4f5c\u6210\u3057\u3066\u3044\u306a\u3044\u3002",
+      "resultFile": "bench/requested/01c-ACCURACY-COST.py",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "SOL-FRONTIER-EXP-02",
+      "outcome": "48\u8155\u672a\u8a08\u6e2c\u30025%\u30b5\u30fc\u30d3\u30b9\u306f\u610f\u56f3\u7684\u306b\u672a\u8a08\u6e2c\u3002",
+      "resultFile": "bench/requested/01d-ACCURACY-SERVICE-100.py",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "outcome": "task\u5b50process\u306eRuby\u9078\u629e\u3092\u56fa\u5b9a\u3057\u3001\u5b9f\u4f53\u30fb\u7248\u3068\u8d77\u52d5\u524d\u69cb\u6587\u78ba\u8a8d\u3092\u8a18\u9332\u3057\u3066\u304b\u3089\u56fa\u5b9arunner\u3092\u518d\u5b9f\u884c\u3059\u308b\u3002",
+      "resultFile": "results/reviews/final-all-run.log",
+      "status": "unresolved_requires_next_author"
+    }
+  ],
+  "reviewClosurePolicy": "fixed\u306f\u8457\u8005\u306e\u4fee\u6b63\u56de\u7b54\u3067\u3042\u308a\u3001\u67fb\u8aad\u9589\u9396\u30fb\u5b9f\u9a13\u6210\u529f\u30fb\u627f\u8a8d\u3067\u306f\u306a\u3044\u3002\u5168finding\u306e\u9589\u9396\u306f\u5225\u30bb\u30c3\u30b7\u30e7\u30f3\u306eSol\u67fb\u8aad\u304c\u6c7a\u3081\u308b\u3002",
+  "reviewEvidence": [
+    "docs/table-count-guideline.md",
+    "docs/table-count-evidence.md",
+    "docs/probability-count.md",
+    "docs/table-count-integration-audit.md",
+    "docs/table-count-integration-files.md",
+    "results/reviews/final-all-candidate.json",
+    "results/reviews/final-all-run.log",
+    "results/requested/last_run.json",
+    "results/reference/review-20261107T040818Z-62807/manifest.json",
+    "results/reviews/sol-internal-rollout-review.json",
+    "results/reviews/sol-sampling-review.json",
+    "results/reviews/sol-validation-review.json",
+    "results/reviews/sol-frontier-review.json",
+    "results/reviews/finding-register.json",
+    "results/reviews/author-revision14-adapter.json",
+    "results/reviews/author-revision14-preserved-reviews.json",
+    "results/reviews/integrate-revision15-verification.log"
+  ],
+  "revision": 15,
+  "unresolvedQuestions": [
+    "\u6b21author\u304ctask\u5b50process\u306eRuby\u9078\u629e\u3092\u4fee\u6b63\u3057\u3001\u5b9f\u4f53\u30fb\u7248\u30fb\u8d77\u52d5\u524d\u69cb\u6587\u78ba\u8a8d\u3092\u8a18\u9332\u3059\u308b\u3002\u5931\u6557process\u306eRuby\u30d1\u30b9\u306f\u5143\u30ed\u30b0\u672a\u8a18\u9332\u3002",
+    "runner\u304c\u53e4\u3044last_run/results\u3092\u4eca\u56de\u306e\u5b9f\u884c\u7d50\u679c\u3068\u8aa4\u8a8d\u3055\u305b\u306a\u3044\u3088\u3046\u3001\u8a66\u884c\u5c02\u7528\u306enot_reached\u521d\u671f\u8a18\u9332\u7b49\u3092\u6b21author\u3067\u6574\u5099\u3059\u308b\u3002",
+    "01c/01d\u306e3/5/10%\u8cbb\u7528\u3068100\u5217TDE\u306e3/10%\u5b9f\u8ca0\u8377\u306f\u672a\u8a08\u6e2c\u3002\u65e2\u5b58checkpoint\u304b\u3089\u5b9f\u884c\u6642\u9593\u3084\u30b5\u30fc\u30d3\u30b9\u6539\u5584\u3092\u63a8\u6e2c\u3057\u306a\u3044\u3002",
+    "\u5206\u5272\u5f8c0g\u301c0k\u30010l\u30010e/0f\u300196/97\u3001\u5168self_checks\u30fb\u5fc5\u9808outputs\u30fbsection_errors\u30fb\u6253\u5207\u308a\u30fb\u672a\u7740\u624b\u30fb\u56de\u5fa9\u30fbcleanup\u306e\u691c\u8a3c\u304c\u6b8b\u308b\u3002",
+    "70\u306e\u518d\u8d77\u52d5\u8981\u6c42\u306f\u53d6\u308a\u4e0b\u3052\u6e08\u307f\u3060\u304cwrapper\u306fall\u5217\u6319\u306b\u6b8b\u308b\u3002\u6b21author\u306fscope\u3068\u5217\u6319\u3092\u6574\u5408\u3057\u3001\u7121\u610f\u5473\u306a\u8ffd\u52a0\u5b9f\u9a13\u3092\u5fc5\u9808\u5316\u3057\u306a\u3044\u3002",
+    "\u4eca\u56de\u306e\u5b9f\u5931\u6557\u3068\u6b21phase\u306e\u30bd\u30fc\u30b9\u4fee\u6b63\u306b\u306f\u56fa\u5b9arunner\u306e\u767d\u7d19\u518d\u5b9f\u884c\u304c\u5fc5\u8981\u3002\u305d\u306e\u5f8c\u6240\u6709\u8005\u304c\u5168\u6210\u679c\u7269\u3068\u610f\u5473\u30fb\u30bd\u30fc\u30b9\u4e0d\u5909\u6027\u3092\u76e3\u67fb\u3057\u3066proof\u3092\u4f5c\u308b\u3002",
+    "final-all-proof.json\u306f\u5b58\u5728\u3057\u306a\u3044\u3002\u5225\u30bb\u30c3\u30b7\u30e7\u30f32\u5f79\u306eSol\u67fb\u8aad\u3068\u672a\u89e3\u6c7ahigh/middle\u30bc\u30ed\u306f\u672a\u9054\u3002",
+    "\u73feMATRIX\u306e\u30b5\u30dd\u30fc\u30c8\u671f\u9650\u30fb\u73fe\u884c\u7248\u306e\u516c\u5f0f\u539f\u6587\u78ba\u8a8d\u306f\u6b8b\u308b\u3002\u8a2d\u5b9a\u3078\u306e\u53ce\u9332\u3092\u30b5\u30dd\u30fc\u30c8\u78ba\u8a8d\u6e08\u307f\u3068\u6271\u308f\u306a\u3044\u3002"
+  ],
+  "verification": {
+    "benchmarkConfigurationModified": false,
+    "benchmarkRunByIntegrate": false,
+    "committedOrPushed": false,
+    "databaseConnections": 0,
+    "exitCode": 0,
+    "guidelineSha256ReadBack": "ad0c7af4933c28b7c2a2f8837b38ae277e9e6b9e238841d462b3099fcf4e64bc",
+    "historicalManifestEntriesVerified": 251,
+    "hostRubySyntaxExitCode": 1,
+    "kind": "documentation/read-only provenance and syntax checks; not benchmark or self-test success",
+    "localLinkPathsVerified": 393,
+    "log": "results/reviews/integrate-revision15-verification.log",
+    "logComplete": true,
+    "logSha256": "6f1ea6fff7820fb06b25560a34c3a9e044110e4777917870bf58f04470ff34ac",
+    "mainLines": 216,
+    "measurementFilesModified": false,
+    "measurementSourceFilesVerified": 255,
+    "miseRubySyntaxExitCode": 0,
+    "reproductionVerified": false,
+    "requestedLogsRead": 93,
+    "resultJsonFilesRead": 151,
+    "resultLogStatusInventoryEntries": 331,
+    "snapshotFilesVerified": 620
+  },
+  "workflowInput": {
+    "acceptanceCriteria": [
+      "GPT-6.1 Sol\u306e\u307f\u3092\u4f7f\u7528\u3057\u3001\u57f7\u7b46\u30682\u3064\u306e\u67fb\u8aad\u3092\u5225\u306e\u5f79\u5272\u30fb\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u5b9f\u65bd\u3059\u308b\u3002\u672a\u89e3\u6c7ahigh/middle\u306f0\u3068\u3057\u3001\u7570\u7a2e\u30e2\u30c7\u30eb\u306e\u72ec\u7acb\u6027\u306f\u4e3b\u5f35\u3057\u306a\u3044\u3002\u30e9\u30a6\u30f3\u30c9\u4e0a\u9650\u3092\u5408\u683c\u306b\u3057\u306a\u3044\u3002",
+      "\u672a\u77e5\u306e\u4efb\u610f\u8868\u3067\u6570%\u7cbe\u5ea6\u3084\u672c\u756a\u7121\u5f71\u97ff\u3092\u7121\u6761\u4ef6\u306b\u4fdd\u8a3c\u3057\u306a\u3044\u3002\u53c2\u8003\u7d71\u8a08\u30fb\u6761\u4ef6\u4ed8\u304d\u78ba\u7387\u63a8\u5b9a\u30fb\u6b63\u78baCOUNT\u3092\u533a\u5225\u3057\u3001\u7cbe\u5ea6\u3068\u4e88\u7b97\u3068\u5f8c\u59cb\u672b\u3092\u5225\u5224\u5b9a\u3059\u308b",
+      "\u6697\u53f7\u5316\u3055\u308c\u5185\u5bb9\u4e0d\u660e\u306e50\u301c100\u5217\u8868\u306b\u5177\u4f53\u7684\u306a\u7d4c\u8def\u3068\u6839\u62e0\u3092\u793a\u3059\u3002TDE\u3068\u5217\u6697\u53f7\u5316\u3092\u533a\u5225\u3059\u308b",
+      "cache/index/\u6697\u53f7\u5316/\u6761\u4ef6\u6f0f\u308c/\u691c\u8a3c\u4e0d\u5099\u306e\u67fb\u8aad\u3092\u542b\u3081\u3001\u4e3b\u8981\u7d50\u8ad6\u3054\u3068\u306b\u6839\u62e0\u306e\u9069\u7528\u7bc4\u56f2\u3092\u78ba\u8a8d\u3059\u308b",
+      "\u672c\u6587\u6570\u5024\u306f\u30cf\u30c3\u30b7\u30e5\u4ed8\u304d\u306e\u4fdd\u6301\u3055\u308c\u305fresults/reference\u914d\u4e0b\u3078\u5bfe\u5fdc\u3002\u5b9f\u9a13\u5b8c\u4e86\u30fb\u7cbe\u5ea6\u9054\u6210\u30fbSLO\u5408\u683c\u3092\u533a\u5225\u3059\u308b",
+      "\u56fa\u5b9arunner\u304c\u767d\u7d19DB\u304b\u3089\u306emise run all\u3092\u5b9f\u65bd\u3057\u3001\u6587\u66f8\u53cd\u6620\u5f8c\u306b\u6240\u6709\u8005\u304c\u7d50\u679c\u306e\u610f\u5473\u3068\u6700\u7d42\u8a08\u6e2c\u30bd\u30fc\u30b9\u306e\u4e0d\u5909\u6027\u3092\u76e3\u67fb\u3059\u308b\u3002reproductionProofPath\u304c\u7121\u3044\u9593\u306f\u5b8c\u4e86\u3068\u3057\u306a\u3044",
+      "Latest user accepts about10% when few-percent is costly: compare3/5/10% accuracy-cost frontiers and exactCOUNT, show how conditions improve or worsen accuracy, and recommend methods under explicit error/freshness/service budgets."
+    ],
+    "accuracyFrontierExistingEvidencePath": "results/reviews/accuracy-frontier-existing-evidence.json",
+    "additionalExperimentRequired": {
+      "budget": "\u5fc5\u8981\u306a\u3089\u4eee\u8aac\u3092\u5909\u3048\u305a\u8907\u6570script\u3078\u5206\u5272\u3002timeout/guard\u306e\u90e8\u5206\u7d50\u679c\u3092\u5b8c\u8d70\u3068\u3057\u306a\u3044\u3002\u8ffd\u52a0\u30fb\u5909\u66f4\u3057\u305f\u30b3\u30fc\u30c9\u306e\u30bb\u30eb\u30d5\u30c1\u30a7\u30c3\u30af\u3082\u66f4\u65b0\u3059\u308b\u3002",
+      "coverage": "\u5c11\u306a\u304f\u3068\u3082100\u5217TDE\u306b\u3064\u3044\u3066\u3001\u5c0f\u3055\u3044\u7d22\u5f15\u304c\u3042\u308c\u3070exact COUNT\u304c\u52dd\u3064\u6761\u4ef6\u3068\u3001\u7d22\u5f15\u306a\u3057\u3067bounded sampling\u304c\u8ca0\u8377/\u8aad\u53d6\u91cf\u3092\u6e1b\u3089\u305b\u308b\u304b\u3001\u7d22\u5f15\u66f4\u65b0\u3067\u4f55\u304c\u5909\u308f\u308b\u304b\u3092\u78ba\u8a8d\u3059\u308b\u3002service\u8ca0\u8377\u306a\u3057\u306e\u7cbe\u5ea6/\u30b3\u30b9\u30c8\u6bd4\u8f03\u3068service\u8ca0\u8377\u4e2d\u306e\u8a3a\u65ad\u3092\u533a\u5225\u3059\u308b\u3002",
+      "currentImplementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "implementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "protocol": "\u9806\u5e8f\u4ea4\u66ff\u3001\u5bfe\u7167\u3001warmup/\u56de\u5fa9\u306e\u660e\u793a\u3001actual method\u533a\u9593\u3068\u5e83\u3044trial\u306e\u533a\u5225\u3001\u4e88\u5b9a\u6570\u4fdd\u5b58\u5247\u30fbunfinished/censored\u3092\u4fdd\u5b58\u3002\u56fa\u5b9a\u4e71\u6570\u306f\u518d\u73fe\u7528\u3067\u3042\u308a\u672c\u756a\u4fe1\u983c\u5ea6\u306e\u6839\u62e0\u3067\u306f\u306a\u3044\u3002\u30db\u30b9\u30c8cache\u306f\u672a\u5236\u5fa1\u3002\u77ed\u7a93\u304b\u3089SLO\u5408\u683c\u3084\u7121\u5f71\u97ff\u3092\u8a8d\u5b9a\u3057\u306a\u3044\u3002",
+      "purpose": "\u78ba\u7387\u7684\u63a8\u5b9a\u309250/100\u5217\u8868\u3068\u3044\u3046\u5b9f\u5bfe\u8c61\u3078\u5bfe\u5fdc\u3055\u305b\u308b\u3002\u540c\u3058\u30b3\u30fc\u30c9\u3067\u6574\u6570PK\u30fbTDE\u30fb\u5c0f\u3055\u3044\u7d22\u5f15\u6709\u7121\u30fbindexed/nonindexed UPDATE\u3092\u6bd4\u8f03\u3057\u3001\u7cbe\u5ea6\u3068\u30b3\u30b9\u30c8\u3068\u8ca0\u8377\u3092\u5225\u5224\u5b9a\u3059\u308b\u3002"
+    },
+    "completionAuditPath": "results/reviews/pre-final-audit.json",
+    "constraints": [
+      "\u5b9f\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u63a5\u7d9a\u7981\u6b62\u3002Compose\u306eprimary/replica\u3068Lab\u304c\u8d77\u52d5\u3059\u308bmatrix\u30b5\u30fc\u30d0\u30fc\u3060\u3051",
+      "table data\u3092\u30b3\u30df\u30c3\u30c8\u3057\u306a\u3044\u3002\u6e2c\u5b9aJSON\u3092\u634f\u9020\u30fb\u66f8\u63db\u3048\u3057\u306a\u3044",
+      "\u4eba\u304c\u8aad\u3080\u4e3b\u6587\u66f8\u306f\u65e5\u672c\u8a9e\u30fb220\u884c\u4ee5\u5185\u3002\u8a73\u7d30\u306f\u5206\u96e2\u3057\u305f\u307e\u307e\u7dad\u6301",
+      "commit/push\u306f\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u304b\u3089\u5b9f\u65bd\u3057\u306a\u3044",
+      "\u6e2c\u5b9a\u3068\u5225\u306e\u5b9f\u9a13\u3092\u91cd\u306d\u306a\u3044\u3002\u56fa\u5b9arunner\u3068.lab.lock\u3092\u4f7f\u3046",
+      "\u30d5\u30a3\u30fc\u30eb\u30c9cold/warm\u306f\u30ad\u30e3\u30c3\u30b7\u30e5\u540c\u7b49\u6027\u3092\u610f\u5473\u3057\u306a\u3044\u3002\u6697\u53f7\u5316\u306e\u4e00\u5f8b\u500d\u7387\u3092\u7d50\u8ad6\u306b\u3057\u306a\u3044",
+      "\u6709\u9650\u30e9\u30dc\u3067\u5b9f\u65bd\u4e0d\u80fd\u306a\u672c\u756a\u6761\u4ef6\u306f\u672a\u8a08\u6e2c\u3068\u9069\u7528\u5236\u9650\u3092\u660e\u8a18\u3057\u3001\u7121\u610f\u5473\u306a\u8ffd\u52a0\u5b9f\u9a13\u3092\u8981\u6c42\u3057\u306a\u3044"
+    ],
+    "currentEvidence": [
+      "91\u4fee\u6b63\u7248\u306f3\u7248\u3067\u5b9f\u884c\u6210\u529f\u3002\u305f\u3060\u3057\u6697\u53f7\u5316\u306a\u3057/\u3042\u308a\u306eBP\u518d\u8aad\u8fbc\u91cf\u304c\u9055\u3044\u3001\u6697\u53f7\u51e6\u7406\u500d\u7387\u306e\u56e0\u679c\u6bd4\u8f03\u306f\u672a\u6210\u7acb\u3002\u65b0\u30b3\u30fc\u30c9\u306e\u64cd\u4f5c\u30e9\u30d9\u30eb\u306fafter_evict/immediate_repeat\u3002master-key rotation\u306eserver-event\u91cd\u8907\u78ba\u8a8d\u3082\u8ffd\u52a0\u6e08\u307f\u3001\u6700\u7d42all\u3067\u518d\u8a08\u6e2c\u3059\u308b\u3002",
+      "92\u306f64\u89b3\u6e2c\u304c\u63c3\u3046\u304c\u65e7\u8d77\u52d5\u5143\u306e\u7d42\u4e86\u30b3\u30fc\u30c9\u4e0d\u660e\u3002status\u306fok=false/observations_complete=true\u3078\u4fee\u6b63\u6e08\u307f\u3002\u6700\u7d42all\u3067\u6b63\u5e38\u7d42\u4e86\u3092\u53d6\u308a\u76f4\u3059\u3002",
+      "93\u521d\u671f\u5316\u72b6\u614b\u4ed8\u304d\u518d\u8a66\u9a13\u306894replica\u5168\u9805\u76ee\u306f\u6b63\u5e38\u7d42\u4e86\u300254\u8868\u306eANALYZE\u5f8cNUM_ROWS\u306fUninitialized\u3067\u8aa4\u5dee\u96c6\u8a08\u304b\u3089\u9664\u5916\u3002\u30e1\u30bf\u60c5\u5831\u53d6\u5f97\u524d\u306e\u771f\u5024COUNT\u304c\u72b6\u614b\u3092\u521d\u671f\u5316\u3059\u308b\u5f71\u97ff\u3082\u691c\u8a3c\u8a2d\u8a08\u3068\u3057\u3066\u78ba\u8a8d\u3059\u308b\u3002",
+      "0c\u9045\u5ef6STOP\u5fa9\u65e7\u306f\u6b63\u5e38\u7d42\u4e86\u30020d/0g\u301c0l\u306e\u5143\u30ec\u30d3\u30e5\u30fc\u8981\u6c42\u304c\u672a\u89e3\u6c7a\u3002\u73fe\u5728\u306e\u5b8c\u4e86\u72b6\u614b\u3068\u5fc5\u8981\u6027\u3092\u539f\u6587\u304b\u3089\u78ba\u8a8d\u3059\u308b\u3002",
+      "96/97\u306f\u65e7\u8ca0\u8377\u751f\u6210\u5668\u306748\u8155\u305a\u3064\u5b8c\u4e86\u3002\u65b0Workload\u306f\u672a\u7740\u624b\u8981\u6c42\u3092\u4fdd\u5b58\u3057\u4fdd\u5b58\u5247\u3092\u691c\u67fb\u3001dispatch/client\u5b9f\u884c\u6642\u9593\u3092\u5206\u96e2\u3002reqwide\u306bactual statement\u533a\u9593\u30fbtrial raw samples\u30fbglobal arrival accounting\u3092\u8ffd\u52a0\u3001\u89aaCPU3/\u8ca0\u8377CPU2/DB0,1\u3078\u5206\u96e2\u6e08\u307f\u3002\u65b0\u30b3\u30fc\u30c9\u306e\u518d\u8a66\u9a13\u304c\u5fc5\u8981\u3002",
+      "98\u306f\u4fee\u6b63\u5f8c\u306b7 fixture\u00d75seed\u306e35\u8155\u3067\u6b63\u5e38\u7d42\u4e86\u3002target25/precision-not-reached10\u3002\u4e2d\u7a0b\u5ea6\u6b20\u756a\u3068\u5bc6\u5ea6\u504f\u308a\u3082\u542b\u3080\u3002metadata\u2192MDL\u53d6\u5f97\u2192metadata\u518d\u78ba\u8a8d\u3001query\u5f8c/rollback\u5f8c\u306e\u671f\u9650\u5224\u5b9a\u3001accuracy/budget/cleanup\u5206\u985e\u3092\u4fee\u6b63\u3002\u76f4\u8fd1\u306eDecimal\u5224\u5b9a\u3068preflight\u4e8c\u91cd\u78ba\u8a8d\u306f\u30bb\u30eb\u30d5\u30c1\u30a7\u30c3\u30af\u6e08\u307f\u3067\u6700\u7d42all\u518d\u8a66\u9a13\u5f85\u3061\u3002",
+      "12\u306eTimer\u5bfe\u8c61\u56fa\u5b9a\u30fbcancel/join\u4fee\u6b63\u7248\u304c\u5b9fDB\u3067\u6b63\u5e38\u7d42\u4e86\u3002\u6570\u5024exit_code=0\u3001fingerprint/\u6210\u679c\u7269hash\u4fdd\u5b58\u3002\u6210\u529f\u30ad\u30e3\u30c3\u30b7\u30e5\u306e\u5b9f\u518d\u5229\u7528\u308212/98\u3067\u78ba\u8a8d\u6e08\u307f\u3002",
+      "P0 harness\u4fee\u6b63: \u9759\u7684import\u4f9d\u5b58\u30b0\u30e9\u30d5\u3001\u8a2d\u5b9a\u3001immutable image digest\u3001\u5b9fimage ID\u3001\u6210\u529f\u7d42\u4e86\u30b3\u30fc\u30c9\u3001\u6210\u679c\u7269hash\u3067\u306e\u307f\u518d\u5229\u7528\u3002\u5931\u6557\u3068\u65e7\u5165\u529b\u306f\u518d\u5b9f\u884c\u3002t_dense\u306e\u691c\u8a3c\u306fMAX(id)\u3067\u306a\u304f\u672c\u5f53\u306eCOUNT(*)\u3002all\u306b5\u3064\u306e\u30bb\u30eb\u30d5\u30c1\u30a7\u30c3\u30af\u3092\u8ffd\u52a0\u3002",
+      "\u5168\u4f53\u306ewhite all\u306f\u672a\u5b9f\u884c\u3002reset\u306fDB/\u751f\u6210\u7d50\u679c\u3092\u6d88\u3057reference/reviews\u3060\u3051\u4fdd\u6301\u3057\u3001\u518d\u5229\u7528\u306f\u3057\u306a\u3044\u3002\u5143\u6570\u5024\u306fresults/reference/20261107-observations\u3078160 JSON\u3068manifest\u4fdd\u5b58\u3002\u6700\u65b0sampling\u306fresults/reference/20261107-fixed-sampling\u3078code/exit/status\u3068\u5171\u306b\u4fdd\u5b58\u3002",
+      "Root pre-final audit at results/reviews/pre-final-audit.json verifies historical hashes/local links and flags that experiments.py main currently does not propagate result.errors into exit status; final white-all proof must inspect semantic errors and intentional cancellation separately, not just process exit.",
+      "Root confirmed historical 3e/3f failed with OperationalError2013 on the superseded unbounded reqruns.write_mix_body design; reqmix.py explicitly documents its replacement but old wrappers still enter all. See ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS in completionAuditPath. Preserve old evidence and full write-mix hypothesis coverage, but fix or explicitly retire superseded invalid protocols before final all rather than accepting partial output.",
+      "Derived existing accuracy curves are in accuracyFrontierExistingEvidencePath, with source hashes. In this later58-fixture observation TABLE_ROWS expiry0 was57/58 within10% beforeANALYZE and55/58 afterANALYZE; do not overwrite the distinct initial corpus or call these production success probabilities. UUID sample-pages20/200/2000 had maxabs errors21.59/8.211/1.547%; uneven-row fixture20pages reached38.731%,200pages2.131%,2000pages2.812%. More sampling is not monotonic per run and ANALYZE is separate maintenance.",
+      "Existing checkpoint replay in accuracyFrontierExistingEvidencePath: uneven_density first recorded target bounds at3/5/10%=8192/2048/512 draws in all5seeds; moderate_gaps=2048/512/512; gaps/islands never meet even10%. These use the same predeclared simultaneous bands, not new post-hoc looks, and lack checkpoint elapsed/counter measurements. Do not infer runtimes or claim this replaces the new tolerance-cost experiment.",
+      "01a AND01b completed successfully with unchanged source and verified artifact hashes; immutable snapshot results/reference/20261107-wide-sampling. Each has20 static and36 service arms with consistent arrival accounting. Static no-index100-column COUNT6.8817-8.1966s vs sample0.7568-1.0313s; small-index COUNT0.0494-0.0723s vs sample1.1712-3.1946s. Under1s service budget,100-column sampling had6/6 exhausted without small index and3/6 exhausted with index. Do not call static speed an SLO pass.",
+      "Isolated3/5/10% comparison code has been prepared without changing running imports; see latestAccuracySteering. Syntax/diff checks and pure band/dependency checks pass; actual measurement is pending.",
+      "0d completed exit0,all sections present.0g completed exit0,all20arms/five repeats/windows present,no skipped arms or section errors. At10M rows,indexed-column updates310/s,256MB pool, statement_k18.758-26.480s,statement_pk0.719-1.254s,split_pk2.307-2.405s. This counters any blanket small-secondary-index rule under MVCC/write churn. Exact SQL forms/settings and physical reads must be interpreted; do not attribute the whole difference solely to index size. Growing immutable-source snapshot at primaryCoverageSnapshotPath. Other0h-0l still running.",
+      "Root fixed a concrete new-frontier failure-loss path discovered during the read-only review: record_sample persists the sample before comparison, skips comparison on unexpected sample failure, and persists a comparison failure without losing the sample. Pure regression uses actual function AST and failed fake connections; results/reviews/accuracy-frontier-failure-regression.json passes. New bench/test_accuracy_frontier.py should be added to lab.self_checks after current owner ends. The design-review immutable snapshot intentionally retains the pre-fix code; do not claim its final findings already closed without checking live correction.",
+      "Focused Sol design review session8 completed rejected,middle3/low1. Root already fixed001 failed-result persistence and002 statement-budget classification in isolated new module, with actual-function AST regressions.003 matrix teardown outcome propagation and004 disabled lock observations remain for author after current owner ends. Read sol-frontier-assessment.json; final reviewer decides closure, not root. Add newtest to self_checks only after owner ends.",
+      "Pipeline updated BEFORE queued launch: fixed runner now attempts white-database all, streaming log in preserved reviews; records source-before/after/exit candidate and immutable measurement snapshot. Integrate is documentation-only. Owner must still audit all scope and semantic outcomes and create final proof, but does not repeat an unchanged successful all only because documentation changed. Existing proof is archived before each new all attempt.",
+      "New bench/test_white_all_runner.rb tests actual fixed workflow script in isolated fake project, no DB. Success,nonzeroexit7,source mutation,stale proof archival,log/snapshot retention all pass; no automatic final proof. results/reviews/white-all-runner-regression.json. Add this hostRuby check to self_checks along with test_accuracy_frontier.py after owner ends.",
+      "Actual0h finished exit0/987s but ONLY 13 arms, with5planned PRIMARY/split repetitions in not_run_near_limit. Slow secondary COUNT195.570s then two300s interruptions crowded them out; no full20-arm success claim. See ROOT-INTRA-ARM-BUDGET-PARTIAL in completionAuditPath and immutable primaryCoverageSnapshotPath. Repair per-arm time allocation/ceiling with preserved hypothesis or report incomplete scope honestly before final all.",
+      "Reconciliation register merges duplicate stable IDs across original revision10 and4temporary reviews:28unique reviewer findings(high2,middle19,low7),36occurrences retained. Every closure remains pending current Sol verification, not root self-approval. See findingRegisterPath and originalReviewExportPath; historical Opus data is retained but new Opus approval is not required.",
+      "Owner batch is intentionally being stopped for proven time-allocation design defect, not treated as completed.0h lacks required PRIMARY repetitions;0j partial archived,0k/0l not yet run. See priorCoverageBatchOutcome and coverage-interruption.json. Fix reqscale allocation/ceiling or split while preserving hypothesis and minimum required repeats before your WHITE mise run all. Complete existing measurements remain preserved. Current root will terminate only this owned local experiment and confirm quiescence before measurement runner. Author may edit after owner exits; do not create a second writer/experiment."
+    ],
+    "currentRevision": 13,
+    "detailPaths": [
+      "docs/table-count-evidence.md",
+      "docs/probability-count.md"
+    ],
+    "findingRegisterPath": "results/reviews/finding-register.json",
+    "frontierDesignReview": {
+      "assessmentPath": "results/reviews/sol-frontier-assessment.json",
+      "log": "results/reviews/sol-frontier-run.log",
+      "resultPath": "results/reviews/sol-frontier-review.json",
+      "snapshot": "results/reference/20261107-frontier-design",
+      "status": "completed,rejected middle3/low1 on immutable pre-fix design",
+      "workflow": "temp-table-count-frontier-sol"
+    },
+    "guidelinePath": "docs/table-count-guideline.md",
+    "latestAccuracySteering": {
+      "additionalServicePriority": "Because actual100-column3%-target sampling exhausted the1s service budget in all6 no-small-index arms, include a minimal bounded100-column TDE under-load comparison at relaxed10% (plus matched control and existing3% evidence). Test whether reduced draws actually improve budget/precision outcomes, rather than infer from static checkpoints.5% can be static if a full service factorial would add little. Split scripts within20min limits; avoid an exhaustive redundant factorial.",
+      "conditionMechanisms": "Distinguish effects on statistical accuracy, cost under a fixed budget, and freshness. Key-space sparsity/cell-density variance affect sampling interval convergence; page-level row-size/density heterogeneity, stats sample pages and staleness affect metadata error. A small index, cache, TDE, row width and MVCC mainly change read/CPU/time cost and therefore attainable precision within a fixed budget; they do not make a completed snapshotCOUNT approximate. Concurrent writes/replica lag can change the represented time/population and must not be conflated with estimator error. More sample pages/ANALYZE does not guarantee monotonic accuracy and has separate maintenance impact.",
+      "implementation": "Root added isolated bench/accuracy_frontier.py plus01c-ACCURACY-COST and01d-ACCURACY-SERVICE-100 (.versions8.4.13/.encrypted/.outputs). No active imported source was edited. Code is prepared, NOT DB-executed. Review/fix these scripts rather than duplicate.01c uses seven fixtures xfive seeds x3targets, fullCOUNT paired comparisons, target-specific predeclared looks and same alpha.01d uses100-column TDE with control/exact/3%/10%, index absent/present, indexed/nonindexed writes x3repeats=48arms.5% service is explicitly unmeasured; static includes it. Pure arithmetic verifies each first look can meet its target at zero variance; static closure includes new module and sampling dependencies. Both new wrappers honor the review-only aggregate guard (exit3, never success) and declare their required .outputs. Final all has no aggregate cap.",
+      "interpretation": "Compare accuracy, elapsed time, read volume and service impact rather than require only3%. Include exactCOUNT at0% error. Choose the most favorable method within the accepted error, freshness and service budget;10% is not an unconditional guarantee for arbitrary unknown tables.",
+      "newExperiment": "Review and run the isolated implementation named in implementation after the current owner ends. Retain hypotheses and proper confidence/look allocation. Repair demonstrated issues or split if20min is insufficient; do not duplicate experiments or infer unobserved service effects.",
+      "reporting": "Give a compact condition-by-method comparison with accuracy/freshness/cost/limitations and recommended paths. Distinguish interval target from realized error and from global confidence. Relaxed accuracy does not prove no service impact.",
+      "requiredComparison": [
+        "Metadata realized errors and freshness; no guaranteed error bound",
+        "Conditional cell sampling at3%,5%,10% relative-error targets with matched confidence, precision failures, realized error, runtime and read volume",
+        "ExactCOUNT runtime/reads/impact, including cases where a small index beats sampling",
+        "50/100 columns,TDE,index presence,key gaps/density skew,concurrent changes,MVCC and caches; separate measured from unmeasured"
+      ],
+      "userInstruction": "\u6570%\u306b\u53ce\u307e\u3089\u306a\u3051\u308c\u307010%\u7a0b\u5ea6\u3067\u3082\u3088\u3044\u3002\u3069\u306e\u6761\u4ef6\u3067\u7cbe\u5ea6\u304c\u3069\u308c\u304f\u3089\u3044\u4e0a\u304c\u308b/\u4e0b\u304c\u308b\u304b\u3092\u77e5\u308a\u3001\u305d\u306e\u3046\u3048\u3067\u6700\u9ad8\u7cbe\u5ea6\u3067performance\u6700\u5927\u306e\u4ef6\u6570\u53d6\u5f97\u65b9\u6cd5\u3092\u77e5\u308a\u305f\u3044\u3002"
+    },
+    "modelPolicy": "User explicitly instructed on 2026-11-07: Riela must use GPT-6.1 Sol only. No Opus step or Opus approval is required.",
+    "originalReviewExportPath": "results/reviews/original-revision10-reviews.json",
+    "phaseControl": "After active coverage owner exits: author fixes code/protocols, fixed lab-runner runs white-database mise run all (no aggregate skip budget,12h workflow ceiling,20min per requested script), integrate edits documentation only. Stop after3steps. Owner audits semantic completeness and unchanged final benchmark source, creates final-all-proof.json, then resumes two Sol review passes. Repeat all only if benchmark source/configuration changes or real failures require it.",
+    "primaryCoverageSnapshotPath": "results/reference/20261107-primary-coverage",
+    "priorCoverageBatchOutcome": {
+      "completeExperiments": [
+        "01a-PROB-WIDE-50",
+        "01b-PROB-WIDE-100",
+        "0d-EXP-O10-INDEXED-100-STALL",
+        "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+        "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct"
+      ],
+      "coverageIsComplete": false,
+      "notYetRun": [
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "ownerBirth": "Sat Nov  7 11:45:33 2026",
+      "ownerPid": 40467,
+      "partialExperiment": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+      "partialSnapshot": "results/reference/20261107-primary-coverage/results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct.json",
+      "reason": "Confirmed ROOT-INTRA-ARM-BUDGET-PARTIAL:300s secondary scans crowd out required fast-arm repetitions. Preserve scope, fix protocol before final all, avoid continuing known defective allocation.",
+      "requestedAt": "2026-11-07T03:49:14.764359+00:00",
+      "requiredRerun": [
+        "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+        "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "status": "interruption_requested"
+    },
+    "priorOriginalSession": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+    "reproductionCandidatePath": "results/reviews/final-all-candidate.json",
+    "reproductionProofPath": "results/reviews/final-all-proof.json",
+    "requestedWork": "\u4ef6\u6570\u3082\u5185\u5bb9\u3082\u5206\u304b\u3089\u306a\u3044\u5de8\u5927MySQL\u30c6\u30fc\u30d6\u30eb\u3067\u3001\u6697\u53f7\u5316\u3055\u308c\u901a\u5e3850\u5217\u30fb\u6700\u5927100\u5217\u7a0b\u5ea6\u3068\u3044\u3046\u6761\u4ef6\u3092\u542b\u3081\u3001\u7a3c\u50cd\u30b5\u30fc\u30d3\u30b9\u306eDB performance\u3078\u306e\u5f71\u97ff\u3092\u6700\u5c0f\u9650\u306b\u3057\u3066\u8aa4\u5dee\u6570%\u306e\u6982\u6570\u3092\u5f97\u308b\u6700\u9069\u306a\u65b9\u6cd5\u3092\u8abf\u67fb\u30fb\u691c\u8a3c\u3059\u308b\u3002\u6982\u6570\u304b\u3089\u5c0f\u3055\u3044\u3068\u5224\u65ad\u3057\u3066\u6b63\u78baCOUNT\u3078\u9032\u3080\u6848\u3068\u3001\u305d\u306e\u8a31\u53ef\u95be\u5024\u306e\u8003\u3048\u65b9\u3082\u6271\u3046\u3002\u793e\u5185\u306e\u4e0d\u7279\u5b9a\u30e1\u30f3\u30d0\u30fc\u30fb\u30b5\u30fc\u30d3\u30b9\u3078\u6848\u5185\u3057\u305f\u969b\u306e\u7591\u554f\u3001\u4e0d\u6e80\u3001\u3088\u308a\u826f\u3044\u6848\u3068\u3001\u691c\u8a3c\u65b9\u6cd5\u3078\u306e\u7591\u554f\u30fb\u6761\u4ef6\u6f0f\u308c\u30fb\u4e0d\u5099\u3092\u6575\u5bfe\u7684\u306b\u6d17\u3044\u51fa\u3057\u89e3\u6d88\u3059\u308b\u3002 Latest steering: about10% error may be acceptable if few-percent is not attainable affordably; quantify conditions and identify the accuracy-performance frontier.",
+    "reviewPaths": [
+      "results/reviews/sol-internal-rollout-review.json",
+      "results/reviews/sol-sampling-review.json",
+      "results/reviews/sol-validation-review.json",
+      "results/reviews/sol-frontier-review.json"
+    ],
+    "wideSamplingSnapshotPath": "results/reference/20261107-wide-sampling"
+  }
+}

@@ -1,0 +1,1815 @@
+{
+  "source": "results/requested_accuracy_service_100.json",
+  "sourceSha256": "93d98be74355701c9fa3cd2d5341058e6e3c05d0bb721fbf4c632457e210d5d2",
+  "meaning": "Completed48-arm descriptive summary, not SLO/production/global-optimum approval.",
+  "writeMixMeaning": {
+    "nonindexed": "UPDATE v, a non-key column",
+    "indexed": "UPDATE k; secondary-index maintenance applies only when that index exists"
+  },
+  "groups": {
+    "secondary_index=False,write_mix=nonindexed": {
+      "control": {
+        "observations": 3,
+        "eligibleMethodCompletions": null,
+        "outcomes": {
+          "control": 3
+        },
+        "methodTimeField": null,
+        "methodSecondsAllOutcomes": null,
+        "methodSecondsEligibleOnly": null,
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.001,
+          "median": 3.001,
+          "max": 3.003
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.04,
+              "median": 2.09,
+              "max": 2.19
+            },
+            "p99Ms": {
+              "min": 4.26,
+              "median": 4.47,
+              "max": 4.51
+            },
+            "maxMs": {
+              "min": 4.43,
+              "median": 4.93,
+              "max": 7.86
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.51,
+              "median": 2.63,
+              "max": 2.83
+            },
+            "p99Ms": {
+              "min": 5.35,
+              "median": 5.54,
+              "max": 8.99
+            },
+            "maxMs": {
+              "min": 7.12,
+              "median": 10.03,
+              "max": 12.03
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 2359296,
+          "median": 3211264,
+          "max": 9011200
+        }
+      },
+      "count": {
+        "observations": 3,
+        "eligibleMethodCompletions": 0,
+        "outcomes": {
+          "error": 3
+        },
+        "methodTimeField": "statement_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 1.0005795059842058,
+          "median": 1.0008987699984573,
+          "max": 1.0015831680211704
+        },
+        "methodSecondsEligibleOnly": null,
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.002,
+          "max": 3.003
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.46,
+              "median": 1.53,
+              "max": 1.74
+            },
+            "p99Ms": {
+              "min": 3.97,
+              "median": 4.29,
+              "max": 4.41
+            },
+            "maxMs": {
+              "min": 4.52,
+              "median": 4.6,
+              "max": 19.1
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.53,
+              "median": 1.99,
+              "max": 2.07
+            },
+            "p99Ms": {
+              "min": 4.89,
+              "median": 5.32,
+              "max": 5.61
+            },
+            "maxMs": {
+              "min": 5.25,
+              "median": 9.11,
+              "max": 11.35
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 549584896,
+          "median": 576094208,
+          "max": 579371008
+        }
+      },
+      "sample3": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.848297590011498,
+          "median": 0.8738947400124744,
+          "max": 0.8945672150002792
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.848297590011498,
+          "median": 0.8738947400124744,
+          "max": 0.8945672150002792
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.004,
+          "max": 3.006
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              301
+            ],
+            "completed": [
+              300,
+              300,
+              301
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.67,
+              "median": 1.83,
+              "max": 1.86
+            },
+            "p99Ms": {
+              "min": 3.91,
+              "median": 4.19,
+              "max": 4.41
+            },
+            "maxMs": {
+              "min": 4.21,
+              "median": 4.58,
+              "max": 4.63
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.93,
+              "median": 2.13,
+              "max": 2.13
+            },
+            "p99Ms": {
+              "min": 4.81,
+              "median": 4.87,
+              "max": 5.16
+            },
+            "maxMs": {
+              "min": 5.38,
+              "median": 5.59,
+              "max": 7.96
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 406667264,
+          "median": 421199872,
+          "max": 424050688
+        }
+      },
+      "sample10": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.2772026320162695,
+          "median": 0.2912010310101323,
+          "max": 0.2939826899964828
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.2772026320162695,
+          "median": 0.2912010310101323,
+          "max": 0.2939826899964828
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.004,
+          "max": 3.005
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.84,
+              "median": 1.96,
+              "max": 2.08
+            },
+            "p99Ms": {
+              "min": 4.15,
+              "median": 4.36,
+              "max": 4.39
+            },
+            "maxMs": {
+              "min": 4.51,
+              "median": 4.69,
+              "max": 4.88
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              302
+            ],
+            "completed": [
+              300,
+              300,
+              302
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.21,
+              "median": 2.51,
+              "max": 2.53
+            },
+            "p99Ms": {
+              "min": 5.22,
+              "median": 5.26,
+              "max": 5.35
+            },
+            "maxMs": {
+              "min": 7.2,
+              "median": 9.75,
+              "max": 14.48
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 125370368,
+          "median": 131694592,
+          "max": 137461760
+        }
+      }
+    },
+    "secondary_index=False,write_mix=indexed": {
+      "control": {
+        "observations": 3,
+        "eligibleMethodCompletions": null,
+        "outcomes": {
+          "control": 3
+        },
+        "methodTimeField": null,
+        "methodSecondsAllOutcomes": null,
+        "methodSecondsEligibleOnly": null,
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.003,
+          "max": 3.003
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.09,
+              "median": 2.22,
+              "max": 2.3
+            },
+            "p99Ms": {
+              "min": 4.02,
+              "median": 4.23,
+              "max": 4.56
+            },
+            "maxMs": {
+              "min": 4.33,
+              "median": 4.34,
+              "max": 4.66
+            }
+          },
+          "write": {
+            "scheduled": [
+              302,
+              301,
+              300
+            ],
+            "completed": [
+              302,
+              301,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.54,
+              "median": 2.56,
+              "max": 3.0
+            },
+            "p99Ms": {
+              "min": 4.44,
+              "median": 7.07,
+              "max": 7.76
+            },
+            "maxMs": {
+              "min": 4.61,
+              "median": 14.34,
+              "max": 22.41
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 819200,
+          "median": 933888,
+          "max": 1589248
+        }
+      },
+      "count": {
+        "observations": 3,
+        "eligibleMethodCompletions": 0,
+        "outcomes": {
+          "error": 3
+        },
+        "methodTimeField": "statement_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 1.0013402019976638,
+          "median": 1.0013947500265203,
+          "max": 1.0014033780025784
+        },
+        "methodSecondsEligibleOnly": null,
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.004,
+          "max": 3.006
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              301,
+              300,
+              300
+            ],
+            "completed": [
+              301,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.4,
+              "median": 1.6,
+              "max": 1.68
+            },
+            "p99Ms": {
+              "min": 4.06,
+              "median": 4.12,
+              "max": 4.53
+            },
+            "maxMs": {
+              "min": 4.19,
+              "median": 4.24,
+              "max": 22.23
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              301,
+              302
+            ],
+            "completed": [
+              300,
+              301,
+              302
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.13,
+              "median": 2.31,
+              "max": 2.31
+            },
+            "p99Ms": {
+              "min": 4.78,
+              "median": 5.67,
+              "max": 8.92
+            },
+            "maxMs": {
+              "min": 4.85,
+              "median": 13.17,
+              "max": 14.5
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 559284224,
+          "median": 561889280,
+          "max": 578174976
+        }
+      },
+      "sample3": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.7691548069997225,
+          "median": 0.7982982780085877,
+          "max": 0.8395740370033309
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.7691548069997225,
+          "median": 0.7982982780085877,
+          "max": 0.8395740370033309
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.001,
+          "median": 3.002,
+          "max": 3.004
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.69,
+              "median": 1.86,
+              "max": 2.18
+            },
+            "p99Ms": {
+              "min": 4.22,
+              "median": 4.26,
+              "max": 4.36
+            },
+            "maxMs": {
+              "min": 4.27,
+              "median": 4.55,
+              "max": 4.56
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              302,
+              300
+            ],
+            "completed": [
+              300,
+              302,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.06,
+              "median": 2.11,
+              "max": 2.16
+            },
+            "p99Ms": {
+              "min": 4.88,
+              "median": 4.97,
+              "max": 6.2
+            },
+            "maxMs": {
+              "min": 5.99,
+              "median": 9.99,
+              "max": 20.16
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 394969088,
+          "median": 397524992,
+          "max": 405553152
+        }
+      },
+      "sample10": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.2240018310258165,
+          "median": 0.24881516897585243,
+          "max": 0.2658331769926008
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.2240018310258165,
+          "median": 0.24881516897585243,
+          "max": 0.2658331769926008
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.004,
+          "median": 3.005,
+          "max": 3.005
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              301,
+              300,
+              301
+            ],
+            "completed": [
+              301,
+              300,
+              301
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.08,
+              "median": 2.08,
+              "max": 2.17
+            },
+            "p99Ms": {
+              "min": 4.22,
+              "median": 4.35,
+              "max": 4.96
+            },
+            "maxMs": {
+              "min": 4.91,
+              "median": 11.04,
+              "max": 14.6
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.14,
+              "median": 2.21,
+              "max": 2.48
+            },
+            "p99Ms": {
+              "min": 4.32,
+              "median": 4.84,
+              "max": 13.5
+            },
+            "maxMs": {
+              "min": 5.04,
+              "median": 9.94,
+              "max": 31.27
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 120242176,
+          "median": 121864192,
+          "max": 127811584
+        }
+      }
+    },
+    "secondary_index=True,write_mix=nonindexed": {
+      "control": {
+        "observations": 3,
+        "eligibleMethodCompletions": null,
+        "outcomes": {
+          "control": 3
+        },
+        "methodTimeField": null,
+        "methodSecondsAllOutcomes": null,
+        "methodSecondsEligibleOnly": null,
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.005,
+          "max": 3.005
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.16,
+              "median": 2.31,
+              "max": 2.37
+            },
+            "p99Ms": {
+              "min": 4.34,
+              "median": 4.34,
+              "max": 4.53
+            },
+            "maxMs": {
+              "min": 4.72,
+              "median": 4.82,
+              "max": 5.18
+            }
+          },
+          "write": {
+            "scheduled": [
+              301,
+              300,
+              302
+            ],
+            "completed": [
+              301,
+              300,
+              302
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.6,
+              "median": 2.63,
+              "max": 2.74
+            },
+            "p99Ms": {
+              "min": 4.41,
+              "median": 4.87,
+              "max": 5.15
+            },
+            "maxMs": {
+              "min": 4.98,
+              "median": 6.16,
+              "max": 12.33
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 131072,
+          "median": 262144,
+          "max": 917504
+        }
+      },
+      "count": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "complete": 3
+        },
+        "methodTimeField": "statement_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.07755786599591374,
+          "median": 0.07793128897901624,
+          "max": 0.0793783160042949
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.07755786599591374,
+          "median": 0.07793128897901624,
+          "max": 0.0793783160042949
+        },
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.004,
+          "median": 3.004,
+          "max": 3.005
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              301,
+              300
+            ],
+            "completed": [
+              300,
+              301,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.84,
+              "median": 2.1,
+              "max": 2.27
+            },
+            "p99Ms": {
+              "min": 4.13,
+              "median": 4.48,
+              "max": 4.74
+            },
+            "maxMs": {
+              "min": 4.26,
+              "median": 4.85,
+              "max": 17.81
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.33,
+              "median": 2.47,
+              "max": 2.59
+            },
+            "p99Ms": {
+              "min": 4.67,
+              "median": 5.77,
+              "max": 9.78
+            },
+            "maxMs": {
+              "min": 5.79,
+              "median": 6.15,
+              "max": 25.13
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 16564224,
+          "median": 16580608,
+          "max": 16728064
+        }
+      },
+      "sample3": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.7751993020065129,
+          "median": 0.7862119549827185,
+          "max": 0.8101624720147811
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.7751993020065129,
+          "median": 0.7862119549827185,
+          "max": 0.8101624720147811
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.002,
+          "median": 3.003,
+          "max": 3.003
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.87,
+              "median": 2.06,
+              "max": 2.15
+            },
+            "p99Ms": {
+              "min": 4.2,
+              "median": 4.25,
+              "max": 5.01
+            },
+            "maxMs": {
+              "min": 4.67,
+              "median": 5.59,
+              "max": 13.37
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              302,
+              301
+            ],
+            "completed": [
+              300,
+              302,
+              301
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.06,
+              "median": 2.2,
+              "max": 2.45
+            },
+            "p99Ms": {
+              "min": 5.3,
+              "median": 5.6,
+              "max": 6.01
+            },
+            "maxMs": {
+              "min": 11.32,
+              "median": 11.51,
+              "max": 23.13
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 396050432,
+          "median": 403603456,
+          "max": 404668416
+        }
+      },
+      "sample10": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.2413875560159795,
+          "median": 0.25538036299985833,
+          "max": 0.26795373600907624
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.2413875560159795,
+          "median": 0.25538036299985833,
+          "max": 0.26795373600907624
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.003,
+          "median": 3.003,
+          "max": 3.005
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              301,
+              300,
+              300
+            ],
+            "completed": [
+              301,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.95,
+              "median": 1.98,
+              "max": 2.02
+            },
+            "p99Ms": {
+              "min": 4.02,
+              "median": 4.12,
+              "max": 4.13
+            },
+            "maxMs": {
+              "min": 4.48,
+              "median": 4.67,
+              "max": 4.69
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              301
+            ],
+            "completed": [
+              300,
+              300,
+              301
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.46,
+              "median": 2.46,
+              "max": 2.71
+            },
+            "p99Ms": {
+              "min": 4.56,
+              "median": 4.67,
+              "max": 20.25
+            },
+            "maxMs": {
+              "min": 4.82,
+              "median": 5.17,
+              "max": 24.96
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 118915072,
+          "median": 119996416,
+          "max": 130318336
+        }
+      }
+    },
+    "secondary_index=True,write_mix=indexed": {
+      "control": {
+        "observations": 3,
+        "eligibleMethodCompletions": null,
+        "outcomes": {
+          "control": 3
+        },
+        "methodTimeField": null,
+        "methodSecondsAllOutcomes": null,
+        "methodSecondsEligibleOnly": null,
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.004,
+          "median": 3.005,
+          "max": 3.007
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              301,
+              301
+            ],
+            "completed": [
+              300,
+              301,
+              301
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.94,
+              "median": 2.08,
+              "max": 2.17
+            },
+            "p99Ms": {
+              "min": 4.03,
+              "median": 4.09,
+              "max": 4.16
+            },
+            "maxMs": {
+              "min": 4.47,
+              "median": 4.59,
+              "max": 4.81
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.3,
+              "median": 2.39,
+              "max": 2.64
+            },
+            "p99Ms": {
+              "min": 5.95,
+              "median": 6.99,
+              "max": 7.04
+            },
+            "maxMs": {
+              "min": 7.73,
+              "median": 7.86,
+              "max": 14.3
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 262144,
+          "median": 360448,
+          "max": 2310144
+        }
+      },
+      "count": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "complete": 3
+        },
+        "methodTimeField": "statement_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.029628432006575167,
+          "median": 0.09484175898251124,
+          "max": 0.10109682698384859
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.029628432006575167,
+          "median": 0.09484175898251124,
+          "max": 0.10109682698384859
+        },
+        "samplingAccuracyStatus": {},
+        "samplingBudgetStatus": {},
+        "trialSeconds": {
+          "min": 3.003,
+          "median": 3.003,
+          "max": 3.007
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.87,
+              "median": 2.03,
+              "max": 2.29
+            },
+            "p99Ms": {
+              "min": 4.21,
+              "median": 4.28,
+              "max": 4.77
+            },
+            "maxMs": {
+              "min": 4.58,
+              "median": 4.66,
+              "max": 4.81
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.21,
+              "median": 2.34,
+              "max": 2.48
+            },
+            "p99Ms": {
+              "min": 6.41,
+              "median": 8.97,
+              "max": 10.06
+            },
+            "maxMs": {
+              "min": 8.04,
+              "median": 12.76,
+              "max": 13.17
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 770048,
+          "median": 37683200,
+          "max": 38518784
+        }
+      },
+      "sample3": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.7669978940102737,
+          "median": 0.8042182560020592,
+          "max": 0.8119269960152451
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.7669978940102737,
+          "median": 0.8042182560020592,
+          "max": 0.8119269960152451
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.0,
+          "median": 3.004,
+          "max": 3.004
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              301,
+              300,
+              301
+            ],
+            "completed": [
+              301,
+              300,
+              301
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.8,
+              "median": 1.89,
+              "max": 1.93
+            },
+            "p99Ms": {
+              "min": 3.95,
+              "median": 4.2,
+              "max": 4.26
+            },
+            "maxMs": {
+              "min": 4.46,
+              "median": 4.69,
+              "max": 12.14
+            }
+          },
+          "write": {
+            "scheduled": [
+              300,
+              300,
+              300
+            ],
+            "completed": [
+              300,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 2.07,
+              "median": 2.2,
+              "max": 2.43
+            },
+            "p99Ms": {
+              "min": 5.72,
+              "median": 6.8,
+              "max": 7.62
+            },
+            "maxMs": {
+              "min": 7.53,
+              "median": 11.03,
+              "max": 11.89
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 399130624,
+          "median": 406585344,
+          "max": 407912448
+        }
+      },
+      "sample10": {
+        "observations": 3,
+        "eligibleMethodCompletions": 3,
+        "outcomes": {
+          "target_reached": 3
+        },
+        "methodTimeField": "method_seconds",
+        "methodSecondsAllOutcomes": {
+          "min": 0.2548694110009819,
+          "median": 0.2588441960106138,
+          "max": 0.2696211640140973
+        },
+        "methodSecondsEligibleOnly": {
+          "min": 0.2548694110009819,
+          "median": 0.2588441960106138,
+          "max": 0.2696211640140973
+        },
+        "samplingAccuracyStatus": {
+          "target_reached": 3
+        },
+        "samplingBudgetStatus": {
+          "within_budget": 3
+        },
+        "trialSeconds": {
+          "min": 3.004,
+          "median": 3.006,
+          "max": 3.007
+        },
+        "trialService": {
+          "read": {
+            "scheduled": [
+              300,
+              301,
+              300
+            ],
+            "completed": [
+              300,
+              301,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.96,
+              "median": 1.98,
+              "max": 2.13
+            },
+            "p99Ms": {
+              "min": 4.04,
+              "median": 4.11,
+              "max": 4.13
+            },
+            "maxMs": {
+              "min": 4.26,
+              "median": 4.69,
+              "max": 4.74
+            }
+          },
+          "write": {
+            "scheduled": [
+              301,
+              300,
+              300
+            ],
+            "completed": [
+              301,
+              300,
+              300
+            ],
+            "failed": [
+              0,
+              0,
+              0
+            ],
+            "unfinished": [
+              0,
+              0,
+              0
+            ],
+            "latencyStatus": {
+              "completed_responses": 3
+            },
+            "p50Ms": {
+              "min": 1.91,
+              "median": 1.98,
+              "max": 2.21
+            },
+            "p99Ms": {
+              "min": 4.8,
+              "median": 6.5,
+              "max": 9.77
+            },
+            "maxMs": {
+              "min": 5.52,
+              "median": 6.91,
+              "max": 26.05
+            }
+          }
+        },
+        "trialInnodbDataReadBytes": {
+          "min": 120209408,
+          "median": 121372672,
+          "max": 131481600
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Three observations per index/write-shape/method; quantiles and their min/median/max are descriptive, not confidence intervals.",
+    "Time-boxed COUNT outcomes are censored query durations, not completed COUNT speed.",
+    "COUNT times its SQL statement; sampling callback includes its checks and rollback. Connection setup and owned-session confirmation are outside these method intervals.",
+    "COUNT uses a server statement timer; sampling has a cooperative aggregate budget. These are not identical hard end-to-end deadlines.",
+    "Trial windows include remaining work/cleanup and can exceed the nominal3s. Use actual durations, arrival counts and unfinished markers.",
+    "Unfinished-response quantiles are lower bounds; absent quantiles are unobserved, never zero.",
+    "Latency cohorts contain arrivals scheduled in the trial and observed through workload recording/cleanup. Saved unfinished markers are not a point-in-time count at the trial endpoint.",
+    "InnoDB read counters are global server deltas, not host physical I/O or method-only attribution.",
+    "Cache/order/carryover/host activity are uncontrolled. UPDATE shapes and a750000-row synthetic100-column TDE fixture do not cover arbitrary production traffic.",
+    "There is no5% service arm; static105-case comparison supplies the3/5/10% evidence."
+  ]
+}

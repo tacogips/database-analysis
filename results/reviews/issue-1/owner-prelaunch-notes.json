@@ -1,0 +1,30 @@
+{
+  "status": "applied_before_canonical_runtime",
+  "items": [
+    {
+      "id": "SDK-PIN",
+      "action": "Pin Dockerfile SDK to verified sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e; record actual client/server image identities."
+    },
+    {
+      "id": "NUGET-LOCK",
+      "action": "Owner build-only restore extracts packages.lock.json, add source lock plus --locked-mode, then perform canonical runtime on final unchanged source. First build is not DB execution."
+    },
+    {
+      "id": "ACTIVE-TX-ID",
+      "action": "Track captured transaction IDs in sys.dm_tran_active_transactions in addition to session-transactions and active snapshot views, so loss of session mapping cannot by itself certify transaction end. Add permission probe and explicit documentation."
+    },
+    {
+      "id": "PKCS-TRANSITIVE-PATCH",
+      "action": "Initial build reported NU1902/NU1903 for transitive Pkcs9.0.18. Add direct pinned10.0.14, which exceeds patched10.0.13 per Microsoft advisories; make NuGet vulnerability warnings fail build. Preserve initial build logs.",
+      "sources": [
+        "https://github.com/advisories/GHSA-846f-f764-76mx",
+        "https://github.com/advisories/GHSA-2fmv-rv2c-59x7",
+        "https://www.nuget.org/packages/System.Security.Cryptography.Pkcs"
+      ]
+    },
+    {
+      "id": "CLEANUP-INDEPENDENT-TOKEN",
+      "action": "Fresh30second cleanup token via AsyncLocal, independent of the canceled work/global token. Attach lifetime bound extended to240seconds to permit cleanup after work expiry."
+    }
+  ]
+}

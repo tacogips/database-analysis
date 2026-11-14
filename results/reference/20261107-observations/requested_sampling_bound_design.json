@@ -1,0 +1,33 @@
+{
+  "kind": "analytical_validation_not_database_measurement",
+  "paper": "https://www.cs.mcgill.ca/~colt2009/papers/012.pdf",
+  "source": "bench/sampling_bounds.py",
+  "empty_sample": {
+    "estimate": "0",
+    "lower": 0,
+    "upper": 5268,
+    "relative_error_bound": null,
+    "look_alpha": "0.025",
+    "hoeffding_margin": "14080.09151808223738465861536983983460762280777150112460551798042862016",
+    "empirical_bernstein_margin": "5267.873055519426695072284988105248445642559050621049540307514108159398",
+    "cell_sample_variance": "0",
+    "interval_method": "intersection with half look alpha allocated to each bound"
+  },
+  "dense_example": {
+    "estimate": "250000",
+    "lower": 243415,
+    "upper": 250000,
+    "relative_error_bound": 0.02705256455025368,
+    "look_alpha": "0.025",
+    "hoeffding_margin": "17600.11439760279673082326921229979325952850971437640575689747553577520",
+    "empirical_bernstein_margin": "6584.841319399283368840356235131560557053198813276311925384392635199248",
+    "cell_sample_variance": "0",
+    "interval_method": "intersection with half look alpha allocated to each bound"
+  },
+  "binomial_checks": {
+    "0.001": 3.130247737848629e-24,
+    "0.1": 1.0076504291281542e-05,
+    "0.5": 0.0036899642765400487,
+    "0.9": 1.0076504291281488e-05
+  }
+}

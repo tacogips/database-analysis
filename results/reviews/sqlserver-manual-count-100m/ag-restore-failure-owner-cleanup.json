@@ -1,0 +1,485 @@
+{
+  "status": "owned_paths_deleted_capacity_recheck",
+  "startedAt": "2026-11-08T23:26:29.530743+00:00",
+  "rawRun": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/result.json",
+  "rawRunSha256": "41c66e59931e0ec89f247e1cefec302589a39dcfecbfec6cb5dadc6710ffac02",
+  "archiveManifest": "results/reference/sqlserver-manual-count-100m-ag-restore-failed-20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/manifest.json",
+  "archiveManifestSha256": "19276999a0ddf8bfd8c02a5b42727ab4c90bba449830a32496e5f3e7f2b4fb0d",
+  "commands": [
+    {
+      "argv": [
+        "mise",
+        "-C",
+        "sqlserver/manual-count-100m",
+        "exec",
+        "--",
+        "ruby",
+        "-r",
+        "./model",
+        "-e",
+        "ManualModel.topology_stage!(*ARGV)",
+        "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m",
+        "045d4ac2979742c7f0ab0eafb20b8fa9",
+        "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/045d4ac2979742c7f0ab0eafb20b8fa9/stage"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "label=count.manual100m.owner=045d4ac2979742c7f0ab0eafb20b8fa9",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=045d4ac2979742c7f0ab0eafb20b8fa9",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=045d4ac2979742c7f0ab0eafb20b8fa9",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=045d4ac2979742c7f0ab0eafb20b8fa9",
+        "--format",
+        "{{json .}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-secondary$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-client$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-network$",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "env",
+        "COLIMA_HOME=/Users/taco/.config/colima",
+        "colima",
+        "--profile",
+        "brotli-verify",
+        "ssh",
+        "--",
+        "sh",
+        "-c",
+        "sudo -n -- rm -rf -- /Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/045d4ac2979742c7f0ab0eafb20b8fa9"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 865696016  69533060    93%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 836527316  98701760    90%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791468684 143760392    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791468588 143760488    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791468640 143760436    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469672 143759404    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469676 143759400    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469680 143759396    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791472536 143756540    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791472544 143756532    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791472556 143756520    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791472572 143756504    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791472580 143756496    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469768 143759308    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469792 143759284    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469796 143759280    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469804 143759272    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469808 143759268    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469812 143759264    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791469708 143759368    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791470892 143758184    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791470896 143758180    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791470900 143758168    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791470864 143758212    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791470880 143758196    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791470908 143758172    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791471292 143757784    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791471368 143757708    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791471368 143757708    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s1   971319460 791474168 143754908    85%    /System/Volumes/Data\n",
+      "stderr": ""
+    }
+  ],
+  "rawRunExitCode": 1,
+  "rawCleanup": "failed_or_unknown_preserved_evidence",
+  "rawPrimaryExitCode": 1,
+  "ownedRootAbsent": true,
+  "ownedRuntimeAbsent": true,
+  "hostFreeBytes": 147207892992
+}

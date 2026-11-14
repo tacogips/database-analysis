@@ -1,0 +1,607 @@
+{
+ "id": "06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1",
+ "answers": [
+  "EXP-O6-WRITE-MIX",
+  "FIND-O6-WRITE-SHAPE-01",
+  "FIND-O8-CLIENT-TIMEOUT"
+ ],
+ "started": "2026-11-07T12:17:10",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 130944,
+    "k_k": 39423
+   },
+   "_seconds": 110.74
+  },
+  "arms": {
+   "runs": [
+    {
+     "client_read_timeout_s": 5,
+     "t0": 1794053949.078407,
+     "status": "observed_client_error",
+     "connection_id": 1521,
+     "client_saw": "OperationalError(2013, 'Lost connection to MySQL server during query (timed out)')",
+     "errno": 2013,
+     "interpretation": "Observed disconnect in explicit5s driver-timeout probe; cause not proven; never a COUNT ceiling",
+     "client_returned_at": 1794053953.8917003,
+     "seen": [
+      {
+       "t": 1794053953.8921535,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053954.8933809,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053955.8938684,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053956.8950303,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053957.896224,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053958.8965244,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053959.8972802,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053960.8981662,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053961.8992364,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053962.712967,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053963.7142572,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053964.7155414,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053965.7164366,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053966.7174351,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053967.7187238,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053968.7199402,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053969.7209296,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053970.7221136,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053971.7231407,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053972.5373237,
+       "server_statement_running": true
+      },
+      {
+       "t": 1794053973.53826,
+       "server_statement_running": true
+      }
+     ],
+     "cleanup": {
+      "rollback": "failed",
+      "rollback_error": "InterfaceError(0, '')",
+      "close": "ok",
+      "connection_ids": [
+       1521
+      ],
+      "confirmed": true,
+      "kill_attempts": [
+       {
+        "id": 1521,
+        "status": "sent"
+       }
+      ],
+      "observations": [
+       {
+        "sessions": [
+         1521
+        ],
+        "transactions": [
+         1521
+        ]
+       },
+       {
+        "sessions": [],
+        "transactions": []
+       }
+      ],
+      "status": "confirmed_terminated"
+     },
+     "t1": 1794053973.639894,
+     "outcome": "completed",
+     "rep": 0,
+     "arm": "client_timeout",
+     "write": [
+      {
+       "n": 20103,
+       "p50_ms": 2.81,
+       "p95_ms": 844.68,
+       "p99_ms": 1135.17,
+       "max_ms": 1288.58,
+       "errors": 0,
+       "scheduled": 20103,
+       "started": 20103,
+       "completed": 20103,
+       "failed": 0,
+       "inflight_at_end": 0,
+       "queued_at_end": 0,
+       "stuck_at_end": 0,
+       "slo_assessable": true,
+       "latency_status": "completed_responses",
+       "dispatch_delay": {
+        "n": 20103,
+        "p50_ms": 0.27,
+        "p95_ms": 839.68,
+        "p99_ms": 1130.17,
+        "max_ms": 1283.58
+       },
+       "client_execution": {
+        "n": 20103,
+        "p50_ms": 2.14,
+        "p95_ms": 6.86,
+        "p99_ms": 19.91,
+        "max_ms": 91.42
+       }
+      }
+     ],
+     "read": {
+      "n": 5026,
+      "p50_ms": 0.47,
+      "p95_ms": 3.07,
+      "p99_ms": 12.18,
+      "max_ms": 40.45,
+      "errors": 0,
+      "scheduled": 5026,
+      "started": 5026,
+      "completed": 5026,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 0,
+      "stuck_at_end": 0,
+      "slo_assessable": true,
+      "latency_status": "completed_responses",
+      "dispatch_delay": {
+       "n": 5026,
+       "p50_ms": 0.19,
+       "p95_ms": 1.04,
+       "p99_ms": 7.42,
+       "max_ms": 35.46
+      },
+      "client_execution": {
+       "n": 5026,
+       "p50_ms": 0.25,
+       "p95_ms": 2.06,
+       "p99_ms": 5.4,
+       "max_ms": 36.6
+      }
+     },
+     "server": {
+      "observation_capabilities": {
+       "table_data_locks": "not_measured",
+       "replica_lag": "not_measured"
+      },
+      "samples": 25,
+      "table_data_lock_samples": 0,
+      "seconds": 23.4,
+      "rows_read_per_s": 51313,
+      "bp_disk_reads_per_s": 4993,
+      "bp_miss_pct": 8.371,
+      "row_lock_time_ms": 0,
+      "row_lock_waits": 0,
+      "table_locks_waited": 0,
+      "peak_threads_running": 9.0,
+      "peak_row_lock_current_waits": 0.0,
+      "hll_start": 788,
+      "hll_end": 19997,
+      "hll_peak": 19997,
+      "peak_trx_age_s": 24,
+      "peak_mdl_waiters": 0,
+      "peak_table_mdl_exclusive": 0,
+      "peak_global_read_lock": 0,
+      "peak_row_locks_seen": null,
+      "peak_table_level_locks": null,
+      "peak_replica_lag_s": null
+     }
+    },
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "t0": 1794053978.6467316,
+     "connection_id": 1529,
+     "table": "t",
+     "form": "A",
+     "cursor_columns": [
+      "id"
+     ],
+     "width_start": 10000,
+     "steps": 2001,
+     "null_rows": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "roundtrips": 0,
+     "width_reductions": 0,
+     "complete": true,
+     "rows": 20000000,
+     "partial_rows": 20000000,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "stmt_ms_p50": 6.47,
+     "stmt_ms_p99": 55.02,
+     "stmt_ms_max": 152.35,
+     "seconds_total": 19.425,
+     "width_end": 10000,
+     "last_cursor": [
+      "20000000"
+     ],
+     "slowest_steps_at_s_and_ms": [
+      [
+       9.15,
+       152.4
+      ],
+      [
+       10.51,
+       152.1
+      ],
+      [
+       9.26,
+       111.6
+      ],
+      [
+       10.14,
+       110.1
+      ],
+      [
+       10.72,
+       108.0
+      ],
+      [
+       10.03,
+       101.1
+      ],
+      [
+       9.93,
+       101.0
+      ],
+      [
+       10.24,
+       98.9
+      ],
+      [
+       9.54,
+       90.5
+      ],
+      [
+       1.64,
+       85.8
+      ]
+     ],
+     "longest_step_ms_by_10s": {
+      "0": 152.4,
+      "10": 152.1
+     },
+     "t1": 1794053997.7327294,
+     "seconds": 19.086,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_last": 0,
+      "Handler_read_next": 19998000,
+      "Handler_read_prev": 0,
+      "Handler_read_rnd": 0,
+      "Handler_read_rnd_next": 0
+     },
+     "timer_counter_after": 0,
+     "cleanup": {
+      "rollback": "ok",
+      "close": "ok",
+      "connection_ids": [
+       1529
+      ],
+      "confirmed": true,
+      "kill_attempts": [],
+      "observations": [
+       {
+        "sessions": [],
+        "transactions": []
+       }
+      ],
+      "status": "confirmed_terminated"
+     },
+     "pool_read_requests": 2907425.0,
+     "disk_reads": 98880.0,
+     "cleanup_finished_at": 1794053997.7352314,
+     "outcome": "completed",
+     "rep": 0,
+     "arm": "drift_split",
+     "write": [
+      {
+       "n": 15543,
+       "p50_ms": 825.82,
+       "p95_ms": 1716.54,
+       "p99_ms": 1822.85,
+       "max_ms": 1906.29,
+       "errors": 0,
+       "scheduled": 15543,
+       "started": 15543,
+       "completed": 15543,
+       "failed": 0,
+       "inflight_at_end": 0,
+       "queued_at_end": 0,
+       "stuck_at_end": 0,
+       "slo_assessable": true,
+       "latency_status": "completed_responses",
+       "dispatch_delay": {
+        "n": 15543,
+        "p50_ms": 820.82,
+        "p95_ms": 1711.55,
+        "p99_ms": 1817.85,
+        "max_ms": 1901.29
+       },
+       "client_execution": {
+        "n": 15543,
+        "p50_ms": 2.8,
+        "p95_ms": 9.82,
+        "p99_ms": 31.02,
+        "max_ms": 96.13
+       }
+      }
+     ],
+     "read": {
+      "n": 3886,
+      "p50_ms": 0.58,
+      "p95_ms": 9.1,
+      "p99_ms": 32.26,
+      "max_ms": 74.66,
+      "errors": 0,
+      "scheduled": 3886,
+      "started": 3886,
+      "completed": 3886,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 0,
+      "stuck_at_end": 0,
+      "slo_assessable": true,
+      "latency_status": "completed_responses",
+      "dispatch_delay": {
+       "n": 3886,
+       "p50_ms": 0.24,
+       "p95_ms": 4.41,
+       "p99_ms": 27.31,
+       "max_ms": 69.67
+      },
+      "client_execution": {
+       "n": 3886,
+       "p50_ms": 0.26,
+       "p95_ms": 2.98,
+       "p99_ms": 8.48,
+       "max_ms": 74.4
+      }
+     },
+     "server": {
+      "observation_capabilities": {
+       "table_data_locks": "not_measured",
+       "replica_lag": "not_measured"
+      },
+      "samples": 19,
+      "table_data_lock_samples": 0,
+      "seconds": 17.7,
+      "rows_read_per_s": 1002597,
+      "bp_disk_reads_per_s": 5103,
+      "bp_miss_pct": 3.478,
+      "row_lock_time_ms": 0,
+      "row_lock_waits": 0,
+      "table_locks_waited": 0,
+      "peak_threads_running": 8.0,
+      "peak_row_lock_current_waits": 0.0,
+      "hll_start": 213,
+      "hll_end": 308,
+      "hll_peak": 439,
+      "peak_trx_age_s": 0,
+      "peak_mdl_waiters": 0,
+      "peak_table_mdl_exclusive": 0,
+      "peak_global_read_lock": 0,
+      "peak_row_locks_seen": null,
+      "peak_table_level_locks": null,
+      "peak_replica_lag_s": null
+     }
+    }
+   ],
+   "_seconds": 54.58
+  },
+  "windows": {
+   "arrival_accounting": [
+    {
+     "scheduled": 64595,
+     "started": 64595,
+     "completed": 64595,
+     "failed": 0,
+     "inflight": 0,
+     "unstarted": 0,
+     "consistent": true,
+     "arrival_window_seconds": 64.59483343202737
+    }
+   ],
+   "raw_service_samples": [
+    {
+     "format": "jsonl+gzip-v1",
+     "samples": 64595,
+     "chunk_uncompressed_byte_cap": 8388608,
+     "chunks": [
+      {
+       "path": "raw/requested_06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1/service-0/00000.jsonl.gz",
+       "samples": 64595,
+       "uncompressed_bytes": 5828510,
+       "uncompressed_sha256": "f051a98b70e495e89c43f52adf173877646cb2aa48ec741f4b17aea8860b3035",
+       "bytes": 2105029,
+       "sha256": "ff81e9b46caa49680a9b55800ab28d1d14ec4513ae28cb90791f980d1b9d908a"
+      }
+     ]
+    }
+   ],
+   "raw_server_samples": {
+    "format": "jsonl+gzip-v1",
+    "samples": 65,
+    "chunk_uncompressed_byte_cap": 8388608,
+    "chunks": [
+     {
+      "path": "raw/requested_06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1/server/00000.jsonl.gz",
+      "samples": 65,
+      "uncompressed_bytes": 27458,
+      "uncompressed_sha256": "f7711aceb5ddf421a39f403a12846c8b48b49260a690805121aa76bb57b636ad",
+      "bytes": 2664,
+      "sha256": "0a2fe81c07cfa384d9be58931e33e6f97a6b90c7722925d65bcdf842b72ceb6f"
+     }
+    ]
+   },
+   "quiet_truth_status": "not_requested; no write-count drift bound claimed",
+   "_seconds": 1.11
+  },
+  "fixture_cleanup": {
+   "status": "dropped",
+   "_seconds": 0.03
+  }
+ },
+ "protocol": "partitioned-v3",
+ "mix": "indexed",
+ "target_writes_per_s": 800,
+ "group": "auxiliary",
+ "block": 0,
+ "rows": 20000000,
+ "note": "k moves, so split_k is a labelled negative control: the guideline forbids walking it.",
+ "split_seconds_ceiling": 150,
+ "statement_limit_ms": 120000,
+ "split_settings": {
+  "width": 10000,
+  "limit_ms": 500,
+  "duty": null
+ },
+ "required_repeats_across_scripts": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "scopeComplete": true,
+ "opportunities": [
+  {
+   "rep": 0,
+   "arm": "client_timeout",
+   "outcome": "completed",
+   "run_index": 0
+  },
+  {
+   "rep": 0,
+   "arm": "drift_split",
+   "outcome": "completed",
+   "run_index": 1
+  }
+ ],
+ "tolerance_fixed_in_advance": "Completed medians require all4repeats,20% lower and no overlap. Censored outcomes cannot rank completed speed.",
+ "limitations": "Uncontrolled host/cache carryover,10s warmup and5s recovery do not certify restoration or SLO. Main arms have no matched no-count control. Auxiliary quiet truth is not a bounded drift estimate.",
+ "elapsed_seconds": 177,
+ "section_errors": [],
+ "cleanup": {
+  "confirmed": true,
+  "workloads": [
+   {
+    "confirmed": true,
+    "status": "confirmed_terminated",
+    "errors": [],
+    "child_exitcode": 0,
+    "child_terminated": false,
+    "child_alive": false,
+    "connection_registry_complete": true,
+    "connection_ids": [
+     1512,
+     1514,
+     1515,
+     1516,
+     1517
+    ],
+    "kill_attempts": [],
+    "observations": [
+     {
+      "sessions": [],
+      "transactions": []
+     }
+    ]
+   }
+  ],
+  "builder": {
+   "rollback": "ok",
+   "close": "ok",
+   "connection_ids": [
+    1489
+   ],
+   "confirmed": true,
+   "kill_attempts": [
+    {
+     "id": 1489,
+     "status": "already_gone",
+     "error": "OperationalError(1094, 'Unknown thread id: 1489')"
+    }
+   ],
+   "observations": [
+    {
+     "sessions": [
+      1489
+     ],
+     "transactions": []
+    },
+    {
+     "sessions": [],
+     "transactions": []
+    }
+   ],
+   "status": "confirmed_terminated"
+  }
+ },
+ "required_seconds_after_setup": 300
+}

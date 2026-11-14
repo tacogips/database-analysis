@@ -1,0 +1,78 @@
+{
+  "at": "2026-11-07T16:11:33.291969+00:00",
+  "meaning": "Completion, achieved precision, configured query budgets, production service budgets and cleanup are distinct. No SLO pass is claimed.",
+  "experimentCompletion": {
+    "selectedBaseImpacts": 9,
+    "selectedRequestedScripts": 7,
+    "selectedRequestedProcesses": 9,
+    "allFreshNumericExit0": true,
+    "skippedScripts": 137,
+    "skipsArePasses": false
+  },
+  "precision": {
+    "static105": {
+      "target_reached": 75,
+      "precision_not_reached": 30
+    },
+    "service48": {
+      "count": {
+        "error": 6,
+        "complete": 6
+      },
+      "sample3": {
+        "target_reached": 12
+      },
+      "sample10": {
+        "target_reached": 12
+      }
+    },
+    "wide50ServiceSampling": {
+      "target_reached": 12
+    }
+  },
+  "configuredBudgetMeaning": "Confirmed COUNT timer returns are capped observations, not exact counts or completed COUNT speeds. Sampling callback budgets are cooperative, not equal hard end-to-end deadlines.",
+  "serviceBudget": {
+    "status": "not_certified",
+    "reason": "No production owner SLO/resource budget is supplied by these synthetic fixtures. Sparse and censored windows remain visible; comparative observations cannot certify an arbitrary live service.",
+    "sparse": {
+      "impact_count_estimate.json": [
+        {
+          "path": "$.latency.during.read",
+          "scheduled": 1
+        },
+        {
+          "path": "$.latency.during.write",
+          "scheduled": 0
+        },
+        {
+          "path": "$.actual_method_service.read",
+          "scheduled": 1
+        },
+        {
+          "path": "$.actual_method_service.write",
+          "scheduled": 0
+        }
+      ]
+    },
+    "censored": {
+      "impact_count_force_primary.json": [
+        "$.latency.recovery.write"
+      ]
+    }
+  },
+  "windowAuditCoverage": {
+    "basicArms": 9,
+    "wide50Arms": 36,
+    "service100Arms": 48,
+    "basicReadWriteWindows": 72,
+    "wide50ReadWriteWindows": 264,
+    "service100ReadWriteWindows": 360,
+    "allWindowAuditProblems": 0
+  },
+  "limitations": [
+    "Single workload family/host; cache/read-ahead/order and physical storage isolation are not causally controlled.",
+    "Not a universal10% statistics guarantee or row-count-only safe-production threshold.",
+    "100M x80columns xTDE, real application ciphertext performance, production physical isolation and5%service arm remain unmeasured.",
+    "First narrowed run was rejected for wall-clock windows; it is retained separately, not retrospectively repaired."
+  ]
+}

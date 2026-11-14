@@ -1,0 +1,12 @@
+{
+  "sql": "SELECT s.session_id,s.login_time,s.login_name,s.database_id\nFROM sys.dm_exec_sessions s WHERE s.is_user_process=1 AND s.database_id=DB_ID(N\u0027ManualCount100m\u0027);\nSELECT st.session_id,dt.transaction_id FROM sys.dm_tran_database_transactions dt\nJOIN sys.dm_tran_session_transactions st ON st.transaction_id=dt.transaction_id\nWHERE dt.database_id=DB_ID(N\u0027ManualCount100m\u0027) AND st.is_user_transaction=1;\nSELECT x.* FROM sys.dm_tran_active_snapshot_database_transactions x\nWHERE EXISTS(SELECT 1 FROM sys.dm_tran_database_transactions dt\n  WHERE dt.transaction_id=x.transaction_id AND dt.database_id=DB_ID(N\u0027ManualCount100m\u0027));",
+  "start_ns": 361376506017306,
+  "end_ns": 361376507177041,
+  "elapsed_ns": 1159735,
+  "raw": [
+    [],
+    [],
+    []
+  ],
+  "error": null
+}

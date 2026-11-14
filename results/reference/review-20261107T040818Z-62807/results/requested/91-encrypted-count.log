@@ -1,0 +1,56 @@
+$ lab-matrix-8-4-13 8.4.13
+8.4.13 {'keyring_status': [['Component_name', 'component_keyring_file'], ['Author', 'Oracle Corporation'], ['License', 'GPL'], ['Implementation_name', 'component_keyring_file'], ['Version', '1.0'], ['Component_status', 'Active'], ['Data_file', '/tmp/lab_keyring'], ['Read_only', 'No']], 'sizes': [['t_enc', 396296192, 129744896, "ENCRYPTION='Y'"], ['t_plain', 396296192, 129744896, '']], 'plain_count_record_locks': 0, 'insert_select_count_record_locks': 100000, 'rotate_during_count': {'rotate': 'ok', 'rotate_seconds': 0.001, 'count': {'seconds': 0.294, 'count': 4000000, 'Innodb_buffer_pool_reads': 2695, 'Innodb_buffer_pool_read_ahead': 21533, 'Innodb_data_read': 396935168}}}
+count_default {'plain_cold': [0.384, 0.37, 0.391, 0.516, 0.493, 0.374], 'plain_warm': [0.392, 0.371, 0.391, 0.572, 0.503, 0.354], 'enc_cold': [0.419, 0.418, 0.397, 0.352, 0.481, 0.675], 'enc_warm': [0.412, 0.386, 0.396, 0.334, 0.509, 0.598]}
+count_single_thread {'plain_cold': [0.373, 0.391, 0.395, 0.387, 0.348, 0.334], 'plain_warm': [0.389, 0.39, 0.836, 0.348, 0.332, 0.35], 'enc_cold': [0.357, 0.343, 0.695, 0.376, 0.366, 0.351], 'enc_warm': [0.389, 0.379, 0.385, 0.389, 0.36, 0.359]}
+count_force_primary {'plain_cold': [0.305, 0.248, 0.253, 0.261, 0.261, 0.265], 'plain_warm': [0.25, 0.252, 0.267, 0.266, 0.251, 0.252], 'enc_cold': [0.437, 0.433, 0.447, 0.453, 0.439, 0.442], 'enc_warm': [0.439, 0.443, 0.437, 0.441, 0.441, 0.456]}
+count_force_secondary {'plain_cold': [0.366, 0.368, 0.388, 0.443, 0.344, 0.364], 'plain_warm': [0.376, 0.377, 0.385, 0.387, 0.342, 0.39], 'enc_cold': [0.387, 0.358, 0.713, 0.452, 0.339, 0.371], 'enc_warm': [0.385, 0.386, 1.372, 0.406, 0.343, 0.348]}
+
+$ lab-matrix-9-7-4 9.7.4
+
+$ lab-matrix-26-10-0 26.10.0
+Traceback (most recent call last):
+  File "/work/bench/requested/91-encrypted-count.py", line 132, in <module>
+    main()
+  File "/work/bench/requested/91-encrypted-count.py", line 99, in main
+    query(c, f"INSERT INTO t_evict SELECT n+{off}, REPEAT(LEFT(SHA2(n,256),60),4) FROM seq")
+  File "/work/bench/lablib.py", line 28, in query
+    c.execute(sql, args)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1114, "The table 't_evict' is full")
+
+$ lab-matrix-8-4-13 8.4.13
+8.4.13 {'keyring_status': [['Component_name', 'component_keyring_file'], ['Author', 'Oracle Corporation'], ['License', 'GPL'], ['Implementation_name', 'component_keyring_file'], ['Version', '1.0'], ['Component_status', 'Active'], ['Data_file', '/tmp/lab_keyring'], ['Read_only', 'No']], 'sizes': [['t_enc', 396296192, 129744896, "ENCRYPTION='Y'"], ['t_plain', 396296192, 129744896, '']], 'plain_count_record_locks': 0, 'insert_select_count_record_locks': 100000, 'rotate_during_count': {'rotate': 'ok', 'rotate_seconds': 0.002, 'count': {'seconds': 0.771, 'count': 4000000, 'Innodb_buffer_pool_reads': 2697, 'Innodb_buffer_pool_read_ahead': 21533, 'Innodb_data_read': 397017088}}}
+count_default {'plain_cold': [0.402, 0.403, 0.439, 0.389, 0.501, 0.417], 'plain_warm': [0.398, 0.373, 0.435, 0.371, 1.326, 0.394], 'enc_cold': [0.453, 0.46, 0.454, 0.443, 0.655, 0.529], 'enc_warm': [0.438, 0.426, 0.419, 0.416, 0.533, 0.529]}
+count_single_thread {'plain_cold': [0.363, 0.384, 0.372, 0.366, 0.367, 0.617], 'plain_warm': [0.372, 0.374, 0.391, 0.364, 0.361, 0.59], 'enc_cold': [0.458, 0.422, 0.433, 0.518, 0.42, 0.895], 'enc_warm': [0.425, 0.427, 0.431, 0.525, 0.716, 0.882]}
+count_force_primary {'plain_cold': [1.853, 1.924, 1.458, 3.17, 1.326, 1.416], 'plain_warm': [1.669, 3.543, 1.454, 2.142, 1.334, 1.337], 'enc_cold': [1.657, 1.494, 2.317, 1.529, 1.43, 1.427], 'enc_warm': [1.626, 1.633, 2.183, 1.466, 1.472, 1.428]}
+count_force_secondary {'plain_cold': [0.485, 0.498, 0.488, 0.591, 0.607, 0.48], 'plain_warm': [0.506, 0.513, 0.462, 0.524, 0.605, 0.455], 'enc_cold': [0.577, 0.721, 0.549, 0.763, 0.606, 0.838], 'enc_warm': [1.391, 0.543, 0.53, 0.774, 0.598, 0.708]}
+
+$ lab-matrix-9-7-4 9.7.4
+9.7.4 {'keyring_status': [['Component_name', 'component_keyring_file'], ['Author', 'Oracle Corporation'], ['License', 'GPL'], ['Implementation_name', 'component_keyring_file'], ['Version', '1.0'], ['Component_status', 'Active'], ['Data_file', '/tmp/lab_keyring'], ['Read_only', 'No']], 'sizes': [['t_enc', 396296192, 129744896, "ENCRYPTION='Y'"], ['t_plain', 396296192, 129744896, '']], 'plain_count_record_locks': 0, 'insert_select_count_record_locks': 100000, 'rotate_during_count': {'rotate': 'ok', 'rotate_seconds': 0.002, 'count': {'seconds': 0.653, 'count': 4000000, 'Innodb_buffer_pool_reads': 2695, 'Innodb_buffer_pool_read_ahead': 21533, 'Innodb_data_read': 396951552}}}
+count_default {'plain_cold': [0.484, 0.553, 0.495, 0.635, 0.763, 0.348], 'plain_warm': [0.666, 0.513, 0.48, 0.733, 1.246, 0.156], 'enc_cold': [0.685, 0.692, 1.806, 0.69, 1.468, 0.451], 'enc_warm': [0.776, 0.591, 0.798, 0.582, 0.663, 0.421]}
+count_single_thread {'plain_cold': [0.323, 0.327, 0.329, 0.417, 0.405, 0.461], 'plain_warm': [0.153, 0.156, 0.156, 0.194, 0.188, 0.193], 'enc_cold': [0.383, 0.403, 0.408, 1.196, 0.498, 0.505], 'enc_warm': [0.389, 0.398, 0.402, 0.699, 0.497, 0.499]}
+count_force_primary {'plain_cold': [1.213, 1.898, 1.287, 1.266, 1.267, 1.26], 'plain_warm': [1.21, 1.412, 1.25, 1.236, 2.316, 1.28], 'enc_cold': [1.311, 1.35, 1.287, 1.317, 1.502, 1.304], 'enc_warm': [1.318, 1.308, 1.33, 1.349, 1.344, 1.33]}
+count_force_secondary {'plain_cold': [0.42, 0.433, 0.405, 0.428, 0.439, 0.43], 'plain_warm': [0.192, 0.197, 0.192, 0.197, 0.201, 0.193], 'enc_cold': [0.497, 0.494, 1.256, 0.513, 0.513, 0.502], 'enc_warm': [0.485, 0.498, 0.717, 0.501, 0.52, 0.492]}
+
+$ lab-matrix-26-10-0 26.10.0
+26.10.0 {'keyring_status': [['Component_name', 'component_keyring_file'], ['Author', 'Oracle Corporation'], ['License', 'GPL'], ['Implementation_name', 'component_keyring_file'], ['Version', '1.0'], ['Component_status', 'Active'], ['Data_file', '/tmp/lab_keyring'], ['Read_only', 'No']], 'sizes': [['t_enc', 396296192, 129744896, "ENCRYPTION='Y'"], ['t_plain', 396296192, 129744896, '']], 'plain_count_record_locks': 0, 'insert_select_count_record_locks': 100000, 'rotate_during_count': {'rotate': 'ok', 'rotate_seconds': 0.003, 'count': {'seconds': 0.647, 'count': 4000000, 'Innodb_buffer_pool_reads': 2694, 'Innodb_buffer_pool_read_ahead': 21533, 'Innodb_data_read': 396919296}}}
+count_default {'plain_cold': [0.507, 0.476, 0.451, 0.45, 0.415, 0.662], 'plain_warm': [0.467, 0.463, 0.453, 0.451, 0.198, 0.229], 'enc_cold': [0.508, 0.504, 0.478, 0.52, 0.502, 0.637], 'enc_warm': [0.498, 0.502, 0.491, 0.51, 0.489, 1.48]}
+count_single_thread {'plain_cold': [0.41, 0.43, 0.424, 0.447, 0.415, 0.414], 'plain_warm': [0.189, 0.192, 0.186, 0.189, 0.186, 0.189], 'enc_cold': [0.481, 0.53, 0.523, 0.504, 0.457, 1.315], 'enc_warm': [0.505, 0.504, 0.502, 0.497, 0.518, 0.663]}
+count_force_primary {'plain_cold': [1.254, 1.282, 1.262, 1.289, 1.265, 1.659], 'plain_warm': [1.28, 1.226, 1.305, 1.271, 1.286, 1.237], 'enc_cold': [1.333, 1.341, 1.953, 1.303, 1.319, 1.357], 'enc_warm': [1.295, 1.303, 1.344, 1.324, 1.341, 1.608]}
+count_force_secondary {'plain_cold': [0.428, 0.414, 0.415, 0.418, 0.42, 0.426], 'plain_warm': [0.185, 0.191, 0.192, 0.193, 0.191, 0.194], 'enc_cold': [0.505, 0.504, 0.515, 0.525, 0.711, 0.632], 'enc_warm': [0.504, 0.489, 0.498, 0.561, 0.666, 0.508]}
+

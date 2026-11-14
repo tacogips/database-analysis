@@ -1,0 +1,16 @@
+{
+  "sql": "DECLARE @index_id int = 2; -- \u5B9F\u969B\u306B\u4F7F\u7528\u4E88\u5B9A\u306EID\u3078\u7F6E\u63DB\nSELECT index_id, SUM(used_page_count) AS used_pages,\n       SUM(reserved_page_count) AS reserved_pages\nFROM sys.dm_db_partition_stats\nWHERE object_id = OBJECT_ID(N\u0027dbo.Target\u0027, N\u0027U\u0027)\n  AND index_id = @index_id\nGROUP BY index_id;\n",
+  "start_ns": 361217483976846,
+  "end_ns": 361217493637291,
+  "elapsed_ns": 9660445,
+  "raw": [
+    [
+      {
+        "index_id": 2,
+        "used_pages": 223309,
+        "reserved_pages": 223358
+      }
+    ]
+  ],
+  "error": null
+}

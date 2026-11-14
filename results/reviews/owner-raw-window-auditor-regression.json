@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-11-07T09:21:04.226502+00:00",
+  "meaning": "Synthetic owner auditor regression only. No actual raw decompression or DB work; actual corpus audit remains pending after all.",
+  "helperSha256": "06c63b035d2f05d49fefc116592d1989ebc35151704a28b51ca8d544660b6a2c",
+  "positiveCases": 3,
+  "negativeCases": 16,
+  "checks": {
+    "scheduled": "rejected",
+    "completed": "rejected",
+    "inflight_at_end": "rejected",
+    "queued_at_end": "rejected",
+    "slo_assessable": "rejected",
+    "latency_status": "rejected",
+    "p99_ms": "rejected",
+    "max_ms": "rejected",
+    "dispatch_delay": "rejected",
+    "client_execution": "rejected",
+    "matched_p99": "rejected",
+    "matched_seconds": "rejected",
+    "before_count": "rejected",
+    "missing_control": "rejected"
+  },
+  "boundaryChecks": [
+    "end exclusive",
+    "start inclusive"
+  ],
+  "passed": true,
+  "followup": {
+    "at": "2026-11-07T09:28:47.939943+00:00",
+    "helperSha256": "e3beb6eef63ab0125ea55dc39aea2ba5fbdc2fa4eb4c64b07efe333e98e8f860",
+    "positiveEmptyWindow": true,
+    "missingReadReportRejected": true,
+    "meaning": "Additional synthetic audit checks only; actual raw still pending."
+  }
+}

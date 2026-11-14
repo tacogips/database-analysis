@@ -1,0 +1,31 @@
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+1ea8abad3bff3278627447f2613c2ba260d2c9aac427a29fdfa65050bc476f44
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql --user mysql -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+28543eadfbcbce61d751b155bf4bc7aa32b4387f8037de63e47d9cacc9ca9b58
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+d5f4495e584fd8c4d3671d237f039c8954b836cf12e09a3e9b5250062b1779dc
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+76877af58d24e653e2159768337c92c2a6aa26c28bbe142e046f8c4a14fa64b0
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+168c8df62a6bb37cc443bc5be725dcab7f357c05bbc94cf76c2c46f706cdc3a4
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 --cpuset-cpus 0,1 --mount type=bind,source=/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+306b022a74e360230920dfea51996dd0dfa1b913e2c66a0504998c2b21bb1886
+#<Thread:0x000000011fd4b9b0 /Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:917 run> terminated with exception (report_on_exception is true):
+/Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:917:in 'IO#read': stream closed in another thread (IOError)
+	from /Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:917:in 'block (2 levels) in Open3.capture2e'
+/Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:929:in 'Thread#value': Interrupt
+	from /Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:929:in 'block in Open3.capture2e'
+	from /Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:540:in 'Open3.popen_run'
+	from /Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:522:in 'Open3.popen2e'
+	from /Users/taco/.local/share/mise/installs/ruby/3.4.10/lib/ruby/3.4.0/open3.rb:912:in 'Open3.capture2e'
+	from lab.rb:272:in 'Lab#capture'
+	from lab.rb:207:in 'Lab#requested_process'
+	from lab.rb:197:in 'block in Lab#run_requested'
+	from lab.rb:179:in 'Lab#with_version'
+	from lab.rb:197:in 'Lab#run_requested'
+	from lab.rb:106:in 'block (2 levels) in Lab#requested'
+	from lab.rb:106:in 'Array#map'
+	from lab.rb:106:in 'block in Lab#requested'
+	from lab.rb:90:in 'Array#map'
+	from lab.rb:90:in 'Lab#requested'
+	from lab.rb:317:in '<main>'

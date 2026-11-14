@@ -1,0 +1,101 @@
+{
+  "workflow": {
+    "workflowId": "temp-table-count-protocol-sol",
+    "description": "Sol-only read-only adversarial review of current count-comparison protocols during white-all",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 5400000
+    },
+    "entryStepId": "sol-adversarial-review",
+    "nodes": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeFile": "nodes/sol-review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "sol-adversarial-review",
+        "nodeId": "sol-adversarial-review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/sol-review.json": {
+      "id": "sol-adversarial-review",
+      "description": "Sol-only read-only adversarial review of current count-comparison protocols during white-all",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "You are GPT-6.1 Sol. Review in Japanese. This temporary workflow is a focused DESIGN/METHODOLOGY review, NOT final rollout approval.\nRead results/reviews/sol-protocol-input.json first. Verify the immutable snapshot manifest hashes at start/end. Read the snapshotted source and guide; do not rely on summaries or inspect growing current result files as if complete.\nABSOLUTE CONSTRAINTS: read-only. No DB connections, Docker commands, benchmark execution, workload generation, source/output edits, other workflows or delegation. The real compose white-all is running. File reads, SHA and pure static computations only; do not import modules that connect to DB.\nIndependently inspect reqscale partitioned-v2 and reqmix2, their common Results/workload/count logic, raw evidence and lab runner. The required scale scope is five conditions x two method groups x three fresh-server repetitions, with original300s statement and150s split caps; all declared arms need outcomes. Old3e/3f are retired in favor of05-08; verify preserved hypotheses rather than require broken obsolete code.\nAttack mandatory scope/budget accounting, exceptions swallowed by section managers, expected vs unexpected outcomes, two-hit skipping, missing near-limit arms, method completion vs time-boxed observation, interrupted statements/connection cleanup, service arrival conservation/censored latencies, matched-control timing and calibration comparability. Can an error such as2013 be counted as a planned ceiling? If yes, explain exactly which result/claim would be false and whether the honest owner audit can classify it without remeasuring; distinguish a bounded protocol correction from unnecessary full-lab repetition. Check that raw evidence and source/artifact/cache integrity support the actual claims.\nConsider index/MVCC/update shape and uncertainty; never infer the internal COUNT index solely from FORCE INDEX/EXPLAIN or rank two censored arms by reported cutoff. Current guide/source are pre-integration. Benchmark results have not yet completed; missing final proof is expected here, not a new finding. No claim of current-run failure without observed evidence. Do not manufacture findings, style requests, or measurements that cannot change the recommendation.\nUse stable IDs SOL-PROTOCOL-001 etc with severity high/middle/low, scenario, exact source evidence (snapshot file + function/line), impact, requiredCorrection. High/middle open => rejected for DESIGN readiness. Each question must explain the concrete engineer objection or decision at risk. Alternatives can include an honest claim limitation when it fully addresses the issue.\nReturn adapter JSON {\"when\":{},\"payload\":{...}} with decision accepted/rejected (design readiness only), guidelineSha256, reviewScope, findings, engineerQuestions, betterAlternatives, requestedExperiments, rolloutRecommendation, reviewEvidence, limitations, claimEvidenceMap, validationCoverageMatrix, priorityFixes. Output full findings in JSON; write no files. Rollout remains pending actual all, owner semantic/source audit and two fresh final Sol passes even if design accepted.\n",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "decision",
+            "guidelineSha256",
+            "reviewScope",
+            "findings",
+            "engineerQuestions",
+            "betterAlternatives",
+            "requestedExperiments",
+            "rolloutRecommendation",
+            "reviewEvidence",
+            "limitations",
+            "claimEvidenceMap",
+            "validationCoverageMatrix",
+            "priorityFixes"
+          ],
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "engineerQuestions": {
+              "type": "array"
+            },
+            "betterAlternatives": {
+              "type": "array"
+            },
+            "requestedExperiments": {
+              "type": "array"
+            },
+            "reviewEvidence": {
+              "type": "array"
+            },
+            "claimEvidenceMap": {
+              "type": "array"
+            },
+            "validationCoverageMatrix": {
+              "type": "array"
+            },
+            "priorityFixes": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

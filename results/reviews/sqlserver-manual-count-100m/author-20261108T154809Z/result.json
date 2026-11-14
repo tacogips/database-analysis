@@ -1,0 +1,58 @@
+{
+  "endToEndClaim": false,
+  "files": [
+    "sqlserver/manual-count-100m/lab.rb",
+    "sqlserver/manual-count-100m/model.rb",
+    "sqlserver/manual-count-100m/Program.cs",
+    "sqlserver/manual-count-100m/Fixture.cs",
+    "sqlserver/manual-count-100m/ManualCount100m.csproj",
+    "sqlserver/manual-count-100m/packages.lock.json",
+    "sqlserver/manual-count-100m/NuGet.Config",
+    "sqlserver/manual-count-100m/Dockerfile",
+    "sqlserver/manual-count-100m/.dockerignore",
+    "sqlserver/manual-count-100m/compose.yaml",
+    "sqlserver/manual-count-100m/mise.toml",
+    "sqlserver/manual-count-100m/README.md",
+    "sqlserver/manual-count-100m/input-bindings.json",
+    "sqlserver/manual-count-100m/manual/sql-server.md",
+    "sqlserver/manual-count-100m/manual/source.json",
+    "sqlserver/manual-count-100m/sql/inventory.sql",
+    "sqlserver/manual-count-100m/sql/guard.sql",
+    "sqlserver/manual-count-100m/sql/showplan.sql",
+    "sqlserver/manual-count-100m/sql/indexes.sql",
+    "sqlserver/manual-count-100m/sql/pages.sql",
+    "sqlserver/manual-count-100m/sql/branch-b.sql",
+    "sqlserver/manual-count-100m/verify_offline.rb",
+    "sqlserver/manual-count-100m/author-verification.json",
+    "sqlserver/manual-count-100m/author-verification.log",
+    "docs/sqlserver-manual-count-100m.md"
+  ],
+  "offlineVerification": {
+    "checks": 9,
+    "completeLogPath": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/author-verification.log",
+    "evidencePath": "sqlserver/manual-count-100m/author-verification.json",
+    "exitStatus": 0,
+    "notExecuted": [
+      "Docker",
+      "DB",
+      "builds",
+      "downloads",
+      "measurements"
+    ],
+    "sourceUnchanged": true,
+    "status": "passed_offline_only"
+  },
+  "pendingOwnerSteps": [
+    "Wait for MySQL full-scale measurement and cleanup to finish.",
+    "Repull the two pinned images, confirm host capacity, then execute readyCommand. Locked restore and C# compilation remain unverified.",
+    "Audit actual Rosetta interpreter evidence, 1000 commit receipts, all nine COUNT outcomes, plans/pages, source hashes, terminal exits, resource removal and capacity recovery; integrate measured figures into the standalone document.",
+    "Complete two adversarial GPT-6.1 Sol reviews in fresh separate sessions."
+  ],
+  "protectedFiles": {
+    "authorWriteTargetIntersection": [],
+    "fullContentAudit": "Deferred to owner after MySQL completion; evolving logs were not scanned."
+  },
+  "readyCommand": "mise -C sqlserver/manual-count-100m run all",
+  "status": "author_complete_ready_for_owner",
+  "unresolvedIssues": []
+}

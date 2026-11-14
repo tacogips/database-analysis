@@ -1,0 +1,1925 @@
+{
+  "scope_sha256": "fc448f35097bd89e8ca56a2a16a71f6a21ab1e024f31483b277e5bb149d5004c",
+  "selection": "default_allowlist",
+  "planned_scripts": [
+    "00-budget-start",
+    "01a-PROB-WIDE-50",
+    "01c-ACCURACY-COST",
+    "01d-ACCURACY-SERVICE-100",
+    "91-encrypted-count",
+    "93-metadata-accuracy",
+    "94-metadata-on-replica"
+  ],
+  "skipped_by_user_scope": [
+    {
+      "id": "01-EXP-S8-ENUM-DOMAIN",
+      "versions": [
+        "8.4.13",
+        "9.7.4",
+        "26.10.0"
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "01b-PROB-WIDE-100",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_probability_wide_100.json"
+      ],
+      "encrypted": true,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "03-EXP-S8-REPLICA-CHANNEL-GATE",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_05-EXP-O6-WRITE-MIX-indexed-100-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-statements-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_05-EXP-O6-WRITE-MIX-indexed-100-statements-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100-statements-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_05-EXP-O6-WRITE-MIX-indexed-100-statements-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "05-EXP-O6-WRITE-MIX-indexed-100",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_05-EXP-O6-WRITE-MIX-indexed-100.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_06-EXP-O6-WRITE-MIX-indexed-800-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_06-EXP-O6-WRITE-MIX-indexed-800-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-statements-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800-statements-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_06-EXP-O6-WRITE-MIX-indexed-800-statements-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "06-EXP-O6-WRITE-MIX-indexed-800",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_06-EXP-O6-WRITE-MIX-indexed-800.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_07-EXP-O6-WRITE-MIX-uniform-100-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_07-EXP-O6-WRITE-MIX-uniform-100-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-statements-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_07-EXP-O6-WRITE-MIX-uniform-100-statements-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100-statements-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_07-EXP-O6-WRITE-MIX-uniform-100-statements-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "07-EXP-O6-WRITE-MIX-uniform-100",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_07-EXP-O6-WRITE-MIX-uniform-100.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-statements-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800-statements-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800-statements-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800-statements-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "08-EXP-O6-WRITE-MIX-uniform-800",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_08-EXP-O6-WRITE-MIX-uniform-800.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09-EXP-O6-WRITE-MIX-monotonic-100-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09-EXP-O6-WRITE-MIX-monotonic-100-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-statements-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09-EXP-O6-WRITE-MIX-monotonic-100-statements-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100-statements-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09-EXP-O6-WRITE-MIX-monotonic-100-statements-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09-EXP-O6-WRITE-MIX-monotonic-100",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09-EXP-O6-WRITE-MIX-monotonic-100.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09a-EXP-O6-WRITE-MIX-monotonic-800-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09a-EXP-O6-WRITE-MIX-monotonic-800-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09a-EXP-O6-WRITE-MIX-monotonic-800-statements-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "09a-EXP-O6-WRITE-MIX-monotonic-800",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_09a-EXP-O6-WRITE-MIX-monotonic-800.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0a-EXP-O8-PKONLY-THREADS-large",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0b-EXP-O8-PKONLY-THREADS-cached",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0d-EXP-O10-INDEXED-100-STALL-tail-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r3",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0d-EXP-O10-INDEXED-100-STALL-tail-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r4",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0d-EXP-O10-INDEXED-100-STALL-tail-r4.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL-tail-r5",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0d-EXP-O10-INDEXED-100-STALL-tail-r5.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0d-EXP-O10-INDEXED-100-STALL",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0d-EXP-O10-INDEXED-100-STALL.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0e-EXP-O10-ROW-CEILING-indexed-800-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0e-EXP-O10-ROW-CEILING-indexed-800-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0e-EXP-O10-ROW-CEILING-indexed-800-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0e-EXP-O10-ROW-CEILING-indexed-800-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0e-EXP-O10-ROW-CEILING-indexed-800",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0e-EXP-O10-ROW-CEILING-indexed-800.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0f-EXP-O10-ROW-CEILING-uniform-800-auxiliary-b1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0f-EXP-O10-ROW-CEILING-uniform-800-auxiliary-b1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0f-EXP-O10-ROW-CEILING-uniform-800-splits-b2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0f-EXP-O10-ROW-CEILING-uniform-800-splits-b2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0f-EXP-O10-ROW-CEILING-uniform-800",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [
+        "results/requested_0f-EXP-O10-ROW-CEILING-uniform-800.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-core-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-core-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-core-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-core-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r1",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0g-EXP-O10-PRIMARY-SCALE-indexed-10pct-secondary-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0g-EXP-O10-PRIMARY-SCALE-indexed-10pct.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-core-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-core-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-core-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-core-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r1",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct-secondary-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-core-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-core-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-core-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-core-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r1",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0i-EXP-O10-PRIMARY-SCALE-uniform-10pct-secondary-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0i-EXP-O10-PRIMARY-SCALE-uniform-10pct.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-core-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-core-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-core-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-core-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r1",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct-secondary-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-core-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-core-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-core-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-core-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r1",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r1.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r2",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r2.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r3",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m-secondary-r3.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m.json"
+      ],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "0l-EXP-O10-NOPK-FORCE",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "10-EXP-O2-1-all-tables",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "11-EXP-O2-1-versions",
+      "versions": [],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "12-EXP-6",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "13-EXP-O2-2",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "14-EXP-SOL-1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "20-EXP-R7",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "21-EXP-R8-a",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "22-EXP-R8-b",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "23-EXP-R5",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "24-EXP-R10",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "25-EXP-R15",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "26-EXP-R4-dense",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "27-EXP-R4-wide",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "30-EXP-R9-rep1-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "31-EXP-R9-rep1-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "32-EXP-R9-rep2-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "33-EXP-R9-rep2-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "34-EXP-R9-rep3-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "35-EXP-R9-rep3-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "36-EXP-R9-control-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "37-EXP-R9-control-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "38-EXP-O6-CPU-CONTROL-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "39-EXP-O6-CPU-CONTROL-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "39a-EXP-O6-NOISE-WINDOWS",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3a-EXP-O6-LOOP-RULES",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3b-EXP-6-monitor",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3c-EXP-O2-1-versions",
+      "versions": [
+        "8.4.0",
+        "8.4.13",
+        "9.7.0",
+        "9.7.4",
+        "26.10.0"
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3d-EXP-O6-WRITE-MIX-nonindexed",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3g-EXP-O6-LONG-UNDO-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3h-EXP-O6-LONG-UNDO-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "3i-EXP-S6-REPLICA-FAILURE-CLEANUP",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "40-EXP-R11",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "44-EXP-R13",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "45-EXP-SOL-6",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "46-EXP-SOL-7",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "48-EXP-SOL-4",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "49-EXP-SOL-5",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "51-EXP-3",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "52-EXP-R16",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "52a-EXP-S6-INCREMENTAL-SAME-SECOND",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "53-EXP-R1",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "54-EXP-SOL-9",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "55-EXP-SOL-10",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "56-EXP-7-cpu",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "57-EXP-7-impact",
+      "versions": [
+        "9.7.4",
+        "26.10.0"
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "58-EXP-O2-3",
+      "versions": [
+        "8.4.0",
+        "8.4.13",
+        "9.7.0",
+        "9.7.4",
+        "26.10.0"
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "59-EXP-O6-ANALYZE",
+      "versions": [
+        "8.4.13",
+        "9.7.4",
+        "26.10.0"
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "60-EXP-R9-rep3-low",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "61-EXP-R9-rep3-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "62-EXP-R9-control",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "63-EXP-R9-control-high",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "70-EXP-SOL-10-restart",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "90-wide-count-forms",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "92-cleanup-bench-wide",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "92-wide-form-order",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "96-encrypted-wide-50",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_encrypted_wide_50.json"
+      ],
+      "encrypted": true,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "97-encrypted-wide-100",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_encrypted_wide_100.json"
+      ],
+      "encrypted": true,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "98-stratified-sampling",
+      "versions": [
+        "8.4.13"
+      ],
+      "requiredOutputs": [
+        "results/requested_probability_sampling.json"
+      ],
+      "encrypted": true,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    },
+    {
+      "id": "99-restore-after-added-scripts",
+      "versions": [
+        null
+      ],
+      "requiredOutputs": [],
+      "encrypted": false,
+      "outcome": "skipped_by_user_scope",
+      "reason": "Large write-mix/scale matrices, duplicate width grid and engine/protocol diagnostics outside important operational evidence; keep independently runnable, do not erase evidence."
+    }
+  ],
+  "not_run": [],
+  "status": "completed",
+  "ran": [
+    {
+      "id": "00-budget-start",
+      "ok": true,
+      "seconds": 0,
+      "reused": false,
+      "log": "results/requested/00-budget-start.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": null,
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested/00-budget-start.log",
+          "sha256": "b55f465d379b24271f07f9d66aaa54bcb35fca61b8c7729657416ba0dc6b0bcb",
+          "bytes": 71
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "6c774027a85b91d5dfdc7330467bdab72ced0828fec30e25635c415462d8596f",
+      "inputs_changed_during_run": false
+    },
+    {
+      "id": "01a-PROB-WIDE-50",
+      "ok": true,
+      "seconds": 678,
+      "reused": false,
+      "log": "results/requested/01a-PROB-WIDE-50.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": "8.4.13",
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+          "cleanup": {
+            "container": "lab-matrix-8-4-13",
+            "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+            "ok": true,
+            "container_removed": true,
+            "data_removed": true,
+            "image_disposition": "shared_immutable_cache_retained",
+            "remove_exit_code": 0,
+            "remove_output": "lab-matrix-8-4-13\n",
+            "verify_exit_code": 0,
+            "record": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794065016-496441869673000.json"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested_probability_wide_50.json",
+          "sha256": "725fc045baeeb1f6b0773d617a7a813a6ccb09e2ec760e738a72b8a02382a833",
+          "bytes": 32262291
+        },
+        {
+          "path": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794065016-496441869673000.json",
+          "sha256": "27c20d6f224b1042f5c501ff5fe0beec5b41318d4b9425d130146d4e4d1bb495",
+          "bytes": 434
+        },
+        {
+          "path": "results/requested/01a-PROB-WIDE-50.log",
+          "sha256": "f3147fb6f938cfe5f4c7e48c514e3d8b51adce143d9f97e10522f2a35c183dda",
+          "bytes": 3970
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "bece101e1528e9ad50f8e62683ac9b20834923abf9e0e47a5d21b8f685d305b9",
+      "inputs_changed_during_run": false
+    },
+    {
+      "id": "01c-ACCURACY-COST",
+      "ok": true,
+      "seconds": 493,
+      "reused": false,
+      "log": "results/requested/01c-ACCURACY-COST.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": "8.4.13",
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+          "cleanup": {
+            "container": "lab-matrix-8-4-13",
+            "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+            "ok": true,
+            "container_removed": true,
+            "data_removed": true,
+            "image_disposition": "shared_immutable_cache_retained",
+            "remove_exit_code": 0,
+            "remove_output": "lab-matrix-8-4-13\n",
+            "verify_exit_code": 0,
+            "record": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794065510-496935309363000.json"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested_accuracy_cost_frontier.json",
+          "sha256": "c213d160c5d4e1569d0a2f93dd236a3c37ec34b0eb1ac6a6dddebaa5bc8e6af3",
+          "bytes": 382336
+        },
+        {
+          "path": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794065510-496935309363000.json",
+          "sha256": "2a4decc982f72be1ec3dd6eea5ec7dae26ce5fb7905c24a191004e9e4c64dd35",
+          "bytes": 434
+        },
+        {
+          "path": "results/requested/01c-ACCURACY-COST.log",
+          "sha256": "b5dcfa1265dcd8188a707b5aa3f621bae3f72809a604bd47edb84e524a214341",
+          "bytes": 4766
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "7de7884872c118afe8e91cb2b7a87b4961ed25e5b042a89808c736099b029295",
+      "inputs_changed_during_run": false
+    },
+    {
+      "id": "01d-ACCURACY-SERVICE-100",
+      "ok": true,
+      "seconds": 861,
+      "reused": false,
+      "log": "results/requested/01d-ACCURACY-SERVICE-100.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": "8.4.13",
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+          "cleanup": {
+            "container": "lab-matrix-8-4-13",
+            "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+            "ok": true,
+            "container_removed": true,
+            "data_removed": true,
+            "image_disposition": "shared_immutable_cache_retained",
+            "remove_exit_code": 0,
+            "remove_output": "lab-matrix-8-4-13\n",
+            "verify_exit_code": 0,
+            "record": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794066370-497795865758000.json"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested_accuracy_service_100.json",
+          "sha256": "93d98be74355701c9fa3cd2d5341058e6e3c05d0bb721fbf4c632457e210d5d2",
+          "bytes": 42995826
+        },
+        {
+          "path": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794066370-497795865758000.json",
+          "sha256": "95ffcbb8c3fead24e77faa4519ed0b86ad86fdbf93495dfa88dede3d7f9da9dc",
+          "bytes": 434
+        },
+        {
+          "path": "results/requested/01d-ACCURACY-SERVICE-100.log",
+          "sha256": "ffa1166945e998fbef5eabddbe63c6cadfd69840cc7ea16409feca750b089a72",
+          "bytes": 3237
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "f93345e80a1c266afb903be72e7ee0822a688fb254ce7beecf09fcdfe7fc7f34",
+      "inputs_changed_during_run": false
+    },
+    {
+      "id": "91-encrypted-count",
+      "ok": true,
+      "seconds": 410,
+      "reused": false,
+      "log": "results/requested/91-encrypted-count.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": "8.4.13",
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+          "cleanup": {
+            "container": "lab-matrix-8-4-13",
+            "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-8-4-13",
+            "ok": true,
+            "container_removed": true,
+            "data_removed": true,
+            "image_disposition": "shared_immutable_cache_retained",
+            "remove_exit_code": 0,
+            "remove_output": "lab-matrix-8-4-13\n",
+            "verify_exit_code": 0,
+            "record": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794066503-497928929682000.json"
+          }
+        },
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": "9.7.4",
+          "mysql_image": {
+            "reference": "mysql:9.7.4@sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8",
+            "id": "sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+          "cleanup": {
+            "container": "lab-matrix-9-7-4",
+            "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-9-7-4",
+            "ok": true,
+            "container_removed": true,
+            "data_removed": true,
+            "image_disposition": "shared_immutable_cache_retained",
+            "remove_exit_code": 0,
+            "remove_output": "lab-matrix-9-7-4\n",
+            "verify_exit_code": 0,
+            "record": "results/matrix_cleanup/lab-matrix-9-7-4-26745-1794066641-498066316724000.json"
+          }
+        },
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": "26.10.0",
+          "mysql_image": {
+            "reference": "mysql:26.10.0@sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5",
+            "id": "sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea",
+          "cleanup": {
+            "container": "lab-matrix-26-10-0",
+            "data_dir": "/Users/taco/gits/tacogips/database-analysis/.data/lab-matrix-26-10-0",
+            "ok": true,
+            "container_removed": true,
+            "data_removed": true,
+            "image_disposition": "shared_immutable_cache_retained",
+            "remove_exit_code": 0,
+            "remove_output": "lab-matrix-26-10-0\n",
+            "verify_exit_code": 0,
+            "record": "results/matrix_cleanup/lab-matrix-26-10-0-26745-1794066781-498206128328000.json"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested_encrypted_count_26.10.0.json",
+          "sha256": "916a9623eadee2f141d29b2e263f8571cdeda812ffd28953b682903fd457c363",
+          "bytes": 19370
+        },
+        {
+          "path": "results/requested_encrypted_count_8.4.13.json",
+          "sha256": "d100d397650bd3d3e785ca61f065a890ed2fa3256f81b7217ec70b6945ebd864",
+          "bytes": 19551
+        },
+        {
+          "path": "results/requested_encrypted_count_9.7.4.json",
+          "sha256": "d15e1c878461b543b5e392f9d1d5cc5cae72d8b667699a7295d586ae751a1b47",
+          "bytes": 19377
+        },
+        {
+          "path": "results/matrix_cleanup/lab-matrix-8-4-13-26745-1794066503-497928929682000.json",
+          "sha256": "e85cb5d7824e85c7521d7686a6ed63a4d6253b177a3425fe1c470580d9cb9a46",
+          "bytes": 434
+        },
+        {
+          "path": "results/matrix_cleanup/lab-matrix-9-7-4-26745-1794066641-498066316724000.json",
+          "sha256": "4dabbf13a204bce81c82fbdbffd5d36c196e4b44893afc940f04a36a1de81482",
+          "bytes": 430
+        },
+        {
+          "path": "results/matrix_cleanup/lab-matrix-26-10-0-26745-1794066781-498206128328000.json",
+          "sha256": "40becf2bea58f7c34ea6f7bae8e64418f733de12d4711b7d78144d072c3349b3",
+          "bytes": 438
+        },
+        {
+          "path": "results/requested/91-encrypted-count.log",
+          "sha256": "6a019cfc517d3585c83db4b1aa26d61b0f74f481ca90e819d01b4d7787010424",
+          "bytes": 4813
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "3ca663a65e605c9ecc7cb018ee8cadeeb893cbb2f6cc1dd3f5efcd3a78709c40",
+      "inputs_changed_during_run": false
+    },
+    {
+      "id": "93-metadata-accuracy",
+      "ok": true,
+      "seconds": 56,
+      "reused": false,
+      "log": "results/requested/93-metadata-accuracy.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": null,
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested_metadata_accuracy.json",
+          "sha256": "ba6eb3f185129786accc17174ff4d9f402ecfe413d838ad5a2fbb588f9f0710f",
+          "bytes": 147582
+        },
+        {
+          "path": "results/requested/93-metadata-accuracy.log",
+          "sha256": "4a63a9b9c88f80108d3782059fc51a8c80d7d8fe9724b22e20b8ea0fe3cce6fe",
+          "bytes": 5569
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "9ee1d81bf6eebaca720c270239b91ba5f08cb38c2ac061315b8221fdadfefb3e",
+      "inputs_changed_during_run": false
+    },
+    {
+      "id": "94-metadata-on-replica",
+      "ok": true,
+      "seconds": 203,
+      "reused": false,
+      "log": "results/requested/94-metadata-on-replica.log",
+      "runs": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "signal": null,
+          "version": null,
+          "mysql_image": {
+            "reference": "mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+            "id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+          },
+          "bench_image_id": "sha256:561f9807a7efb4c272a0e2134f09bcf84fd3d362bd609bf3acac2f047b8fc5ea"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "results/requested_metadata_on_replica.json",
+          "sha256": "e87a67b652bcc72bc2fa2778d640f338faf26eac42943d8910738d060b137fc0",
+          "bytes": 11181
+        },
+        {
+          "path": "results/requested/94-metadata-on-replica.log",
+          "sha256": "4a03dbd0704e29e123d339bb5b17aa9673f6d036a0b377457a9c145aceaf2567",
+          "bytes": 3131
+        }
+      ],
+      "missing_outputs": [],
+      "fingerprint": "39a744e055b86e6b78879ccfd035994af8fa2191246c8d9d4bdffbae151eab42",
+      "inputs_changed_during_run": false
+    }
+  ],
+  "lab_data_intact": true
+}

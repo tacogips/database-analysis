@@ -1,0 +1,107 @@
+{
+ "id": "03-EXP-S8-REPLICA-CHANNEL-GATE",
+ "answers": [
+  "EXP-S8-REPLICA-CHANNEL-GATE",
+  "FIND-S8-REPLICA-CHANNEL-01"
+ ],
+ "started": "2026-11-06T23:04:23",
+ "sections": {
+  "single_channel_control": {
+   "before": {
+    "": {
+     "sql": "Yes",
+     "io": "Yes"
+    }
+   },
+   "run": {
+    "channels": [
+     ""
+    ],
+    "stop_requested": true,
+    "stopped_by_us": true,
+    "rows": 20000000,
+    "sql_thread_before": "Yes",
+    "restore": {
+     "starts_issued": 1,
+     "restored": true,
+     "last_state": "Yes",
+     "seconds": 1.03
+    },
+    "status": "complete"
+   },
+   "after": {
+    "": {
+     "sql": "Yes",
+     "io": "Yes"
+    }
+   },
+   "_seconds": 2.04
+  },
+  "two_channels": {
+   "before": {
+    "": {
+     "sql": "Yes",
+     "io": "Yes"
+    },
+    "req_test": {
+     "sql": "No",
+     "io": "No"
+    }
+   },
+   "first_row_of_show_status_only": "",
+   "run": {
+    "channels": [
+     "",
+     "req_test"
+    ],
+    "stop_requested": false,
+    "stopped_by_us": false,
+    "rows": null,
+    "status": "refused:not_one_default_channel"
+   },
+   "after_refusal": {
+    "": {
+     "sql": "Yes",
+     "io": "Yes"
+    },
+    "req_test": {
+     "sql": "No",
+     "io": "No"
+    }
+   },
+   "changed_nothing": true,
+   "unqualified_start": true,
+   "after_unqualified_start": {
+    "": {
+     "sql": "Yes",
+     "io": "Yes"
+    },
+    "req_test": {
+     "sql": "Yes",
+     "io": "No"
+    }
+   },
+   "after_stopping_the_test_channel": {
+    "": {
+     "sql": "Yes",
+     "io": "Yes"
+    },
+    "req_test": {
+     "sql": "No",
+     "io": "No"
+    }
+   },
+   "_seconds": 0.04
+  }
+ },
+ "elapsed_seconds": 2,
+ "section_errors": [],
+ "remove_channel": true,
+ "final": {
+  "": {
+   "sql": "Yes",
+   "io": "Yes"
+  }
+ },
+ "final_catch_up": 0
+}

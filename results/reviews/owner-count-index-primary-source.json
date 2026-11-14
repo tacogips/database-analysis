@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-11-07T13:35:28.339098+00:00",
+  "source": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+  "claim": "MySQL8.4 plain whole-table COUNT(*) normally traverses the smallest available secondary index, otherwise clustered index; hints can change choice. Buffer-pool residency affects cost. COUNT(1) is handled equivalently.",
+  "use": "Final guide integration: useful existing-index plan guidance on isolated acquisition target; do not create primary index or force primary as universal optimization.",
+  "boundary": "Official8.4 semantics, not a measured performance or service SLO guarantee for all supported versions."
+}

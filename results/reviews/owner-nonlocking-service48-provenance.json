@@ -1,0 +1,44 @@
+{
+  "recordedAt": "2026-11-07T12:08:07.201491+00:00",
+  "meaning": "Completed48=2index*2UPDATEshapes*3rep*(control/count/sample3/sample10) actualcurrentTDE100 fixture observations; not SLO/globaloptimum/causalshape effect or fullall proof.",
+  "statusPath": "results/requested/01d-ACCURACY-SERVICE-100.status.json",
+  "statusSha256": "32c5a3e6e202f110ae406056bb3c96d56cd44cb99ca17a259aa860a67cb09368",
+  "resultPath": "results/requested_accuracy_service_100.json",
+  "resultSha256": "9113e982beff1a892aaa53dd03287c2bfd827aadbea954bd8f124d1e6013084d",
+  "fresh": true,
+  "exitCode": 0,
+  "artifactsVerified": 3,
+  "ownedServerAndDataCleanup": true,
+  "source4HashesMatchAllBefore": true,
+  "allSource339Unchanged": true,
+  "methodCounts": {
+    "control": 12,
+    "count": 12,
+    "sample3": 12,
+    "sample10": 12
+  },
+  "samplingStatuses": {
+    "sample3": {
+      "target_reached": 5,
+      "budget_exhausted": 7
+    },
+    "sample10": {
+      "target_reached": 12
+    }
+  },
+  "countOutcomes": {
+    "confirmed_timer_ceiling": 9,
+    "completed": 3
+  },
+  "independentCheck": "results/reviews/owner-nonlocking-service48-check.json",
+  "summary": "results/reviews/owner-nonlocking-measured-service-frontier.json",
+  "limits": [
+    "3%budgetexhausted7areNOTprecisionpasses or unknown disconnectfailures; do not authorize exactCOUNT based on uncertifiedsmallness",
+    "COUNT9timerceilingsarecensored durations,notcompleteCOUNTspeeds",
+    "10%shorterquerydoesNOTprove lowertrialp99; e.g noindex/nonindexed sample10p99median22.16ms vs sample3 4.65ms underN3/order/cache/hostnoise",
+    "Indexedrawlabel meansUPDATEk; onlyactuallyindexmaintenancewhen secondary_indextrue",
+    "COUNTtimingSQLintervalvs samplecallbackchecks+rollback;1s samplerbudgetcooperative,notidenticalhardendtoenddeadline",
+    "No5%service arm; static105provides3/5/10frontier",
+    "Failed/unfinishedrequestcohorts preserved; noquantilemeansunobserved,notzero"
+  ]
+}

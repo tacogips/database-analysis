@@ -1,0 +1,22 @@
+{
+  "meaning": "Completed lab observation audit, not production confidence/SLO/final acceptance.",
+  "problems": [],
+  "staticCases": 20,
+  "serviceCases": 36,
+  "staticSamplingStatuses": {
+    "target_reached": 10
+  },
+  "serviceSamplingStatuses": {
+    "target_reached": 8,
+    "budget_exhausted": 4
+  },
+  "serviceCountStatuses": {
+    "error": 6,
+    "complete": 6
+  },
+  "limitations": [
+    "Expected precision/budget/censoring observations remain separate from unexpected failures.",
+    "Observed truth/coverage in this dense fixture does not prove general confidence coverage.",
+    "Timing/order/cache and service tails need protocol-specific interpretation, not automatic ranking."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-11-07T11:43:02.714684+00:00",
+  "meaning": "Completed currentall100columnTDE20static/36service observation, not production confidence/SLO/causal column-width effect or fullall.",
+  "statusPath": "results/requested/01b-PROB-WIDE-100.status.json",
+  "statusSha256": "ca2cc39d5c52d78b4a5faab446c4246473a76054218a359fbea4ab938f9d5c35",
+  "resultPath": "results/requested_probability_wide_100.json",
+  "resultSha256": "03d287ec963c24eda08c8c5a848e7d6ada8c24196e9335bfd345165f901c92dd",
+  "fresh": true,
+  "exitCode": 0,
+  "artifactsVerified": 3,
+  "ownedServerAndDataCleanupVerified": true,
+  "callerHashMatchesAllBefore": true,
+  "measurementSource339Unchanged": true,
+  "auditPath": "results/reviews/owner-nonlocking-wide100-completed-audit.json",
+  "staticSamplingStatuses": {
+    "target_reached": 10
+  },
+  "serviceSamplingStatuses": {
+    "target_reached": 11,
+    "query_failed": 1
+  },
+  "samplingStatementLimits": [
+    {
+      "secondary_index": false,
+      "write_mix_raw_label": "indexed",
+      "effectiveWriteMeaning": "UPDATE k; withsecondary_indexfalse,k is not indexed",
+      "repeat": 1,
+      "errno": 3024,
+      "seconds": 0.5065,
+      "attempted_draws": 127,
+      "completed_draws": 126,
+      "last_valid_checkpoint_draws": 0,
+      "accuracyStatus": "not_assessed",
+      "budgetStatus": "within_budget",
+      "meaning": "One cell query reached500ms statement limit before first512-draw3%checkpoint. Not a usable estimate/precision success, and not aggregate1sbudget exhaustion or lost server connection."
+    }
+  ],
+  "countOutcomes": {
+    "confirmed_timer_ceiling": 6,
+    "completed": 6
+  },
+  "perIndexServiceCountOutcomes": {
+    "False": {
+      "confirmed_timer_ceiling": 6
+    },
+    "True": {
+      "completed": 6
+    }
+  },
+  "interpretation": "Protocol completed all planned observations; precision not achieved in statement-limited sample. Do not replace missing certified estimate by0 or use it to authorizeexactCOUNT."
+}

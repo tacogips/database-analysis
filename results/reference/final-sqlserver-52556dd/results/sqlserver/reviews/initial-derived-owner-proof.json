@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "ownerAuditSource": {
+    "path": "sqlserver/audit.py",
+    "sha256": "0c1927236952d02285af1345b2f0375a14f4c4226d43a30f3a89097d4586f48c"
+  },
+  "status": "owner_verified_container_benchmark",
+  "at": "2026-11-07T23:12:39.135545+00:00",
+  "command": [
+    "mise",
+    "-C",
+    "sqlserver",
+    "run",
+    "all"
+  ],
+  "processExitCode": 0,
+  "invocationPath": "results/sqlserver/reviews/canonical-invocation.json",
+  "invocationSha256": "b3bd1ef0f907fefde4c62f70e1c2962717eeee65677bf147264ae26fde9d1152",
+  "resultPath": "results/sqlserver/runs/20261107T230105Z-8533a31e/result.json",
+  "resultSha256": "2cfa21fbabc69699dacfb87a855bea9b21ad9e8ec6da6afb5f6f24888d1eaa42",
+  "auditPath": "results/sqlserver/owner-audit.json",
+  "auditSha256": "c997c2124b003d2ca4a5825caf3e115573491f6d5c941f91c948049b13198faa",
+  "manifestPath": "results/sqlserver/runs/20261107T230105Z-8533a31e/manifest.json",
+  "manifestSha256": "054605dffb9a8d3abf0ad8cc280b8c422aad8932792ff6b3c68654c45e04d24e",
+  "measurementSources": {
+    "AGENTS.md": "3c84e655d270fe8c0875990e7bbbcd008509663c6d8302e4db507681fd00a72a",
+    "mise.toml": "56fb15d95a63c63962ab5a36923e6d1d1d9e75a69381144f5aa4477bcb8d4ddb",
+    "sqlserver/compose.yaml": "610abb7f25914f3cc5f3fab913c32b3e54e43ed61e1a8139e97fbc4d4e4a9450",
+    "sqlserver/lab.rb": "47f553dd8edab047be22eaa64922cdc4ee5dd58a17ae72011c780cd75cd4aaf9",
+    "sqlserver/setup.sql": "9cb22c2f93ab3b97d988dbaaa9d895353703991ef89b912fbf3af1c870cfd90a",
+    "sqlserver/fixtures.sql": "4be28dac33dc0ad37aaa8a1259eb4c331c5440878deb4b2a576378258f02c356",
+    "sqlserver/mise.toml": "33787f3ec4a2d3ffb70518692738b98ff38dbda805f5b14864a95ba8196ab31d",
+    "results/sqlserver/plan.json": "b1db6ecd2284995a3e3bde92bace90ccc22c9eed7281427818d487a79abec1a4"
+  },
+  "supportBoundary": {
+    "ruby_arch": "arm64",
+    "docker_arch": "aarch64",
+    "docker_os": "Ubuntu 24.04.4 LTS",
+    "docker_version": "29.5.2",
+    "docker_memory_bytes": 8307171328,
+    "emulated": true,
+    "native_performance": "unmeasured",
+    "microsoft_emulation_support": "unsupported"
+  },
+  "separateJudgments": {
+    "completion": "essential_experiments_completed",
+    "precision": "exact_oracles_match; metadata_errors_observed_only; no_bound_certified",
+    "exactMethodBudget": "completed_within_lab_query_deadlines",
+    "serviceBudget": "unavailable; no SLO certification",
+    "cleanup": {
+      "status": "verified",
+      "remaining": {
+        "container": false,
+        "volume": false,
+        "network": false
+      },
+      "server_boundary": "owned container stopped and removed; volume removed",
+      "sql_termination_failure_seen": false
+    }
+  },
+  "unmeasured": [],
+  "documentAcceptance": "Separate final Sol two-role review required. This proof alone does not accept the document."
+}

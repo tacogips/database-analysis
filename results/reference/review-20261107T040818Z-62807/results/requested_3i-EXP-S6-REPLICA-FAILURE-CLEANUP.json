@@ -1,0 +1,107 @@
+{
+ "id": "3i-EXP-S6-REPLICA-FAILURE-CLEANUP",
+ "answers": [
+  "EXP-S6-REPLICA-FAILURE-CLEANUP",
+  "FIND-S6-REPLICA-CLEANUP-01"
+ ],
+ "started": "2026-11-06T21:52:37",
+ "sections": {
+  "failures": {
+   "start": {
+    "Replica_SQL_Running": "Yes",
+    "Replica_IO_Running": "Yes",
+    "Seconds_Behind_Source": 0,
+    "Last_SQL_Errno": 0
+   },
+   "limit_expires": {
+    "sql_thread_before": "Yes",
+    "stopped_by_us": true,
+    "rows": null,
+    "error": {
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    "after": {
+     "Replica_SQL_Running": "Yes",
+     "Replica_IO_Running": "Yes",
+     "Seconds_Behind_Source": 0,
+     "Last_SQL_Errno": 0
+    },
+    "catch_up": {
+     "wait_result": 0,
+     "seconds": 0.0
+    }
+   },
+   "kill_query": {
+    "sql_thread_before": "Yes",
+    "stopped_by_us": true,
+    "rows": null,
+    "error": {
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    },
+    "after": {
+     "Replica_SQL_Running": "Yes",
+     "Replica_IO_Running": "Yes",
+     "Seconds_Behind_Source": 0,
+     "Last_SQL_Errno": 0
+    },
+    "catch_up": {
+     "wait_result": 0,
+     "seconds": 0.0
+    }
+   },
+   "connection_cut": {
+    "sql_thread_before": "Yes",
+    "stopped_by_us": true,
+    "rows": null,
+    "error": {
+     "errno": 2013,
+     "msg": "(2013, 'Lost connection to MySQL server during query')"
+    },
+    "after": {
+     "Replica_SQL_Running": "Yes",
+     "Replica_IO_Running": "Yes",
+     "Seconds_Behind_Source": 0,
+     "Last_SQL_Errno": 0
+    },
+    "catch_up": {
+     "wait_result": 0,
+     "seconds": 0.0
+    }
+   },
+   "_seconds": 1.85
+  },
+  "control_applier_already_stopped": {
+   "run": {
+    "sql_thread_before": "No",
+    "stopped_by_us": false,
+    "rows": null,
+    "error": {
+     "errno": 1317,
+     "msg": "(1317, 'Query execution was interrupted')"
+    }
+   },
+   "after": {
+    "Replica_SQL_Running": "No",
+    "Replica_IO_Running": "Yes",
+    "Seconds_Behind_Source": null,
+    "Last_SQL_Errno": 0
+   },
+   "left_stopped": true,
+   "_seconds": 0.28
+  }
+ },
+ "elapsed_seconds": 2,
+ "section_errors": [],
+ "final": {
+  "Replica_SQL_Running": "Yes",
+  "Replica_IO_Running": "Yes",
+  "Seconds_Behind_Source": 0,
+  "Last_SQL_Errno": 0
+ },
+ "final_catch_up": {
+  "wait_result": 0,
+  "seconds": 0.0
+ }
+}

@@ -1,0 +1,47 @@
+{
+  "sql": "SELECT b.backup_set_id,b.backup_set_uuid,b.database_name,b.database_guid,b.family_guid,b.type,\n b.first_lsn,b.last_lsn,b.checkpoint_lsn,b.database_backup_lsn,b.backup_start_date,b.backup_finish_date,\n b.backup_size,b.compressed_backup_size,b.has_backup_checksums,m.physical_device_name\nFROM msdb.dbo.backupset b JOIN msdb.dbo.backupmediafamily m ON m.media_set_id=b.media_set_id\nWHERE b.database_name=N\u0027ManualCount100m\u0027 AND m.physical_device_name IN (N\u0027/backup/fixture-full.bak\u0027,N\u0027/backup/fixture-log.trn\u0027)\nORDER BY b.backup_set_id;\n",
+  "start_ns": 364464346666670,
+  "end_ns": 364464358153261,
+  "elapsed_ns": 11486591,
+  "raw": [
+    [
+      {
+        "backup_set_id": 1,
+        "backup_set_uuid": "057fc8da-8367-4a85-aa88-9b7e1ae885d3",
+        "database_name": "ManualCount100m",
+        "database_guid": "c2d5ed2b-f323-41f2-bcc1-ba57c5a40a01",
+        "family_guid": "9647926e-ca4f-4675-ac48-c82ead72aa86",
+        "type": "D",
+        "first_lsn": 2532000012976800001,
+        "last_lsn": 2532000012979200001,
+        "checkpoint_lsn": 2532000012976800001,
+        "database_backup_lsn": 0,
+        "backup_start_date": "2026-11-09T00:11:24",
+        "backup_finish_date": "2026-11-09T00:12:19",
+        "backup_size": 67899640832,
+        "compressed_backup_size": 6165008203,
+        "has_backup_checksums": true,
+        "physical_device_name": "/backup/fixture-full.bak"
+      },
+      {
+        "backup_set_id": 2,
+        "backup_set_uuid": "70e50f0d-7c4b-4db0-b9a2-3db53f0648c4",
+        "database_name": "ManualCount100m",
+        "database_guid": "c2d5ed2b-f323-41f2-bcc1-ba57c5a40a01",
+        "family_guid": "9647926e-ca4f-4675-ac48-c82ead72aa86",
+        "type": "L",
+        "first_lsn": 2532000012976800001,
+        "last_lsn": 2532000012981600001,
+        "checkpoint_lsn": 2532000012976800001,
+        "database_backup_lsn": 2532000012976800001,
+        "backup_start_date": "2026-11-09T00:12:21",
+        "backup_finish_date": "2026-11-09T00:12:21",
+        "backup_size": 142336,
+        "compressed_backup_size": 41430,
+        "has_backup_checksums": true,
+        "physical_device_name": "/backup/fixture-log.trn"
+      }
+    ]
+  ],
+  "error": null
+}

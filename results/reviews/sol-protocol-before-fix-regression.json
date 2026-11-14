@@ -1,0 +1,120 @@
+{
+  "at": "2026-11-07T05:48:03.511246+00:00",
+  "status": "before_fix_defects_reproduced",
+  "meaning": "DB-free execution of exact isolated AST classifier and scheduling loop from immutable pre-fix source. Synthetic durations only; NOT measured runtime or design approval. No benchmark imports, DB or Docker commands.",
+  "source": "results/reference/20261107-protocol-design/bench/reqmix.py",
+  "sourceSha256": "e2e49d7eed128efec5a4035c8234e8437373197cc537114fd68effbc09f8cc75",
+  "classifierObservedCeilingHit": {
+    "complete": false,
+    "error_3024": true,
+    "error_2013": true,
+    "error_1317": true,
+    "stopped:connection_lost": true,
+    "rejected:plan": true,
+    "cleanup_failed": true
+  },
+  "syntheticSchedule": {
+    "declaredRounds": 4,
+    "scriptSeconds": 1140,
+    "inputDurationAndStatus": {
+      "split_k": [
+        149,
+        "complete"
+      ],
+      "split_pk": [
+        150,
+        "stopped:max_seconds"
+      ],
+      "statement_k": [
+        120,
+        "error_3024"
+      ],
+      "statement_pk": [
+        1,
+        "complete"
+      ]
+    },
+    "elapsed": 989,
+    "remaining": 151,
+    "observedPerMethod": {
+      "split_k": 3,
+      "split_pk": 2,
+      "statement_k": 2,
+      "statement_pk": 2
+    },
+    "recordedNearLimitSkips": [
+      "2/statement_pk",
+      "3/split_k",
+      "3/statement_pk"
+    ],
+    "actualSavedRuns": [
+      {
+        "seconds": 149,
+        "status": "complete",
+        "rep": 0,
+        "arm": "split_k"
+      },
+      {
+        "seconds": 150,
+        "status": "stopped:max_seconds",
+        "rep": 0,
+        "arm": "split_pk"
+      },
+      {
+        "seconds": 120,
+        "status": "error_3024",
+        "rep": 0,
+        "arm": "statement_k"
+      },
+      {
+        "seconds": 1,
+        "status": "complete",
+        "rep": 0,
+        "arm": "statement_pk"
+      },
+      {
+        "seconds": 150,
+        "status": "stopped:max_seconds",
+        "rep": 1,
+        "arm": "split_pk"
+      },
+      {
+        "seconds": 149,
+        "status": "complete",
+        "rep": 1,
+        "arm": "split_k"
+      },
+      {
+        "seconds": 1,
+        "status": "complete",
+        "rep": 1,
+        "arm": "statement_pk"
+      },
+      {
+        "seconds": 120,
+        "status": "error_3024",
+        "rep": 1,
+        "arm": "statement_k"
+      },
+      {
+        "seconds": 149,
+        "status": "complete",
+        "rep": 2,
+        "arm": "split_k"
+      }
+    ],
+    "fastStatementObserved": 2,
+    "fastStatementMissingRepetitions": [
+      2,
+      3
+    ]
+  },
+  "proves": [
+    "Unexpected2013/unknown1317/planrejection are counted as ceiling hits in current pre-fix classifier.",
+    "A1s successful statement receives only2of4repetitions with zero setup/save overhead, confirming slow-arm starvation."
+  ],
+  "doesNotProve": [
+    "No assertion that a current DB run experienced2013.",
+    "Does not exercise network cancellation or establish server-side cleanup."
+  ]
+}

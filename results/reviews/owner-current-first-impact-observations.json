@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-11-07T07:49:00.728068+00:00",
+  "meaning": "Current first impact observations only; not full service/accuracy/SLO acceptance or final proof.",
+  "observations": {
+    "baseline": {
+      "errors": [],
+      "finished_within_window": false,
+      "worker_terminated": true,
+      "cancellation": "requested_and_joined",
+      "notes": {}
+    },
+    "count_estimate": {
+      "errors": [],
+      "finished_within_window": true,
+      "worker_terminated": true,
+      "cancellation": "not_needed",
+      "notes": {
+        "table_rows": 99619308,
+        "table_rows_ms": 1.71,
+        "stats_n_rows": 99619308,
+        "stats_n_rows_ms": 1.4,
+        "pk_span": 100000000,
+        "pk_span_ms": 0.45
+      }
+    },
+    "count_default": {
+      "errors": [],
+      "finished_within_window": true,
+      "worker_terminated": true,
+      "cancellation": "not_needed",
+      "notes": {
+        "result": 100000000,
+        "seconds": 8.07
+      }
+    },
+    "count_single_thread": {
+      "errors": [],
+      "finished_within_window": true,
+      "worker_terminated": true,
+      "cancellation": "not_needed",
+      "notes": {
+        "result": 100000000,
+        "seconds": 6.48
+      }
+    }
+  },
+  "qualifications": [
+    "method_rows_per_s=0 is generic unpopulated walk progress for count_once; actual COUNT result/time are notes.result/notes.seconds.",
+    "baseline finished_within_window=false is expected stop-wait control behavior, not COUNT failure.",
+    "count_estimate can have zero scheduled writes during its tiny method window; None latency is unobserved, never zero latency or SLO pass.",
+    "Workload.finish now confirms owned server cleanup by default; these files were saved after its success gate. This inference is distinct from a separately serialized per-arm cleanup transcript.",
+    "All36impact/5matrix/150requested completeness, final integrity, precision/cost frontier, raw/source audit and final reviews remain pending."
+  ]
+}

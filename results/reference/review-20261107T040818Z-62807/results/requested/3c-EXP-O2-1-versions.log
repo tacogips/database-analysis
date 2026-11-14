@@ -1,0 +1,659 @@
+$ lab-matrix-8-4-0 8.4.0
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.55 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.14 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 1.14 s
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 0.49 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway rejected:plan
+section boundary_deletes_and_errors: 1.92 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 0.89 s
+{"id": "3c-EXP-O2-1-versions-8.4.0", "section_errors": [], "elapsed_seconds": 5}
+
+$ lab-matrix-8-4-13 8.4.13
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.36 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.1 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 0.89 s
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 0.36 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway rejected:plan
+section boundary_deletes_and_errors: 1.52 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 0.75 s
+{"id": "3c-EXP-O2-1-versions-8.4.13", "section_errors": [], "elapsed_seconds": 4}
+
+$ lab-matrix-9-7-0 9.7.0
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.35 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.08 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 0.78 s
+SECTION FAILED R6_types
+Traceback (most recent call last):
+  File "/work/bench/reqlib.py", line 51, in section
+    yield d
+  File "/work/bench/requested/3c-EXP-O2-1-versions.py", line 137, in <module>
+    build("CREATE TABLE e_float (f FLOAT NOT NULL, id INT NOT NULL, PRIMARY KEY (f, id))",
+  File "/work/bench/requested/3c-EXP-O2-1-versions.py", line 29, in build
+    query(a, s)
+  File "/work/bench/lablib.py", line 28, in query
+    c.execute(sql, args)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '9007199254740992.000000' for key 'e_dec.PRIMARY'")
+
+section R6_types: 0.13 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway rejected:plan
+section boundary_deletes_and_errors: 1.44 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 0.62 s
+{"id": "3c-EXP-O2-1-versions-9.7.0", "section_errors": ["R6_types"], "elapsed_seconds": 4}
+
+$ lab-matrix-9-7-4 9.7.4
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.51 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.17 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 0.95 s
+SECTION FAILED R6_types
+Traceback (most recent call last):
+  File "/work/bench/reqlib.py", line 51, in section
+    yield d
+  File "/work/bench/requested/3c-EXP-O2-1-versions.py", line 137, in <module>
+    build("CREATE TABLE e_float (f FLOAT NOT NULL, id INT NOT NULL, PRIMARY KEY (f, id))",
+  File "/work/bench/requested/3c-EXP-O2-1-versions.py", line 29, in build
+    query(a, s)
+  File "/work/bench/lablib.py", line 28, in query
+    c.execute(sql, args)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '9007199254740992.000000' for key 'e_dec.PRIMARY'")
+
+section R6_types: 0.16 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway rejected:plan
+section boundary_deletes_and_errors: 1.63 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 0.64 s
+{"id": "3c-EXP-O2-1-versions-9.7.4", "section_errors": ["R6_types"], "elapsed_seconds": 4}
+
+$ lab-matrix-26-10-0 26.10.0
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.35 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.09 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 0.84 s
+SECTION FAILED R6_types
+Traceback (most recent call last):
+  File "/work/bench/reqlib.py", line 51, in section
+    yield d
+  File "/work/bench/requested/3c-EXP-O2-1-versions.py", line 137, in <module>
+    build("CREATE TABLE e_float (f FLOAT NOT NULL, id INT NOT NULL, PRIMARY KEY (f, id))",
+  File "/work/bench/requested/3c-EXP-O2-1-versions.py", line 29, in build
+    query(a, s)
+  File "/work/bench/lablib.py", line 28, in query
+    c.execute(sql, args)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '9007199254740992.000000' for key 'e_dec.PRIMARY'")
+
+section R6_types: 0.13 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway rejected:plan
+section boundary_deletes_and_errors: 1.54 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 0.77 s
+{"id": "3c-EXP-O2-1-versions-26.10.0", "section_errors": ["R6_types"], "elapsed_seconds": 4}
+
+$ lab-matrix-8-4-0 8.4.0
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.57 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.17 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 1.17 s
+e_date complete
+e_time complete
+e_year complete
+e_char complete
+e_pad complete
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 0.74 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway stopped:error_1146
+section boundary_deletes_and_errors: 1.92 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 1.05 s
+{"id": "3c-EXP-O2-1-versions-8.4.0", "section_errors": [], "elapsed_seconds": 6}
+
+$ lab-matrix-8-4-13 8.4.13
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.57 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.15 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 1.19 s
+e_date complete
+e_time complete
+e_year complete
+e_char complete
+e_pad complete
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 0.83 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway stopped:error_1146
+section boundary_deletes_and_errors: 2.01 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 1.06 s
+{"id": "3c-EXP-O2-1-versions-8.4.13", "section_errors": [], "elapsed_seconds": 6}
+
+$ lab-matrix-9-7-0 9.7.0
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.45 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.11 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 0.94 s
+e_date complete
+e_time complete
+e_year complete
+e_char complete
+e_pad complete
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 0.65 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway stopped:error_1146
+section boundary_deletes_and_errors: 1.62 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 0.83 s
+{"id": "3c-EXP-O2-1-versions-9.7.0", "section_errors": [], "elapsed_seconds": 5}
+
+$ lab-matrix-9-7-4 9.7.4
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.42 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.11 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 1.04 s
+e_date complete
+e_time complete
+e_year complete
+e_char complete
+e_pad complete
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 0.71 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway stopped:error_1146
+section boundary_deletes_and_errors: 2.09 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 1.13 s
+{"id": "3c-EXP-O2-1-versions-9.7.4", "section_errors": [], "elapsed_seconds": 6}
+
+$ lab-matrix-26-10-0 26.10.0
+e_empty complete
+e_lt complete
+e_exact complete
+e_neg complete
+e_nopk_null complete
+e_uniq_null complete
+e_tie complete
+e_null_few_primary complete
+e_null_few_forced_nullable_index complete
+e_null_many_primary complete
+e_null_many_forced_nullable_index complete
+section sizes_and_nulls: 0.47 s
+guideline complete
+old_walker_on_k None
+section R2_nullable_composite: 0.11 s
+k_asc_pk_asc measured
+k_desc_pk_asc measured
+k_asc_pk_desc measured
+k_desc_pk_desc measured
+mixed_explicit measured
+section R3_desc: 1.08 s
+e_date complete
+e_time complete
+e_year complete
+e_char complete
+e_pad complete
+float_guideline no_eligible_index
+float_forced_no_roundtrip complete
+float_forced_with_roundtrip stopped:roundtrip_failed
+double_guideline complete
+bit_guideline no_eligible_index
+bit_forced stopped:roundtrip_failed
+set_guideline no_eligible_index
+set_forced complete
+zero_date_guideline stopped:error_1525
+timestamp_utc complete
+timestamp_dst_zone stopped:roundtrip_failed
+timestamp_dst_zone_no_roundtrip complete
+utf8mb4_guideline complete
+latin1_with_roundtrip stopped:roundtrip_failed
+latin1_no_roundtrip stopped:max_steps
+bigint_exact complete
+bigint_through_double complete
+decimal_literal complete
+decimal_quoted_string complete
+decimal_through_double stopped:no_progress
+section R6_types: 1.05 s
+index_dropped_midway stopped:error_1176
+table_dropped_midway stopped:error_1146
+section boundary_deletes_and_errors: 3.28 s
+e_3c complete
+e_4c complete
+e_func complete
+e_mv complete
+e_inv complete
+e_gen complete
+e_onupd complete
+e_defgen complete
+composite_secondary_plus_composite_pk complete
+e_part None
+e_sub None
+tenants None
+section EXP7_designs: 1.39 s
+{"id": "3c-EXP-O2-1-versions-26.10.0", "section_errors": [], "elapsed_seconds": 8}
+

@@ -1,0 +1,533 @@
+{
+  "betterAlternatives": [
+    {
+      "accuracy": "TABLE_ROWS、SHOW TABLE STATUS、EXPLAINは統計由来で、相互の一致は独立した検証にならない。expiry=0は統計キャッシュを迂回する設定で、再標本化や真値取得ではない。",
+      "conditions": "数％の保証を要求せず、迅速な規模把握が目的。",
+      "implementationCost": "低。",
+      "load": "既存結果では低コスト。ただしEXPLAIN等のMDL待ちと多数表巡回の累積コストは別に扱う。",
+      "method": "既存メタ情報を参考値として取得",
+      "privileges": "TABLE_ROWS・EXPLAINは対象表の可視性・SELECT。mysql.innodb_table_statsはその表のSELECT。INNODB_TABLESTATSはPROCESS。",
+      "verification": "24と完了した93を利用できる。NUM_ROWSは初期化状態を条件にする。",
+      "winsWhen": "不確かな精度を許容でき、走査負荷を避けたいとき。"
+    },
+    {
+      "accuracy": "COUNT自体はその読み取りビューの正確値。primary現在値との差は適用遅延と変更内容次第で、遅延秒数だけから数％を保証できない。",
+      "conditions": "レプリカの適用済み状態を数えることで目的を満たし、専用のCPU・I/O余力がある。",
+      "implementationCost": "既存の専用レプリカがあれば中、なければ高。",
+      "load": "primaryの走査を避ける。レプリカのキャッシュ、undo、DDL適用、読み取りサービスへの影響は残る。",
+      "method": "通常適用中の専用read replicaで上限付きCOUNT",
+      "privileges": "SELECTと監視・停止に必要な権限。適用停止権限は必須ではない。",
+      "verification": "通常経路は25に根拠がある。物理的に分離した効果は同一VMのcomposeでは測れない。",
+      "winsWhen": "一瞬のprimary値よりも低い本番影響と許容鮮度が重要な今回の用途。"
+    },
+    {
+      "accuracy": "統計はレプリカ固有で、推定誤差と適用遅延を別々に持つ。",
+      "conditions": "走査を避けたいが、primaryのメタ情報アクセスも集約したい。",
+      "implementationCost": "低〜中。",
+      "load": "小さいと期待されるが、メタ情報手法別の待機条件を確認する必要がある。",
+      "method": "レプリカのメタ情報",
+      "privileges": "取得方法ごとの権限。適用停止は不要。",
+      "verification": "94の完了結果で権限・待機を確認する。部分結果だけで採用判断しない。",
+      "winsWhen": "参考値の定期収集をprimaryから外す場合。"
+    },
+    {
+      "accuracy": "復元された整合状態の正確値。現在との差は別途扱う。",
+      "conditions": "バックアップ時点の件数でよく、復元先を用意できる。",
+      "implementationCost": "既存の復元環境があれば中、なければ高。準備時間と保存容量が必要。",
+      "load": "復元・COUNTの負荷を隔離できる。新規バックアップ取得を無影響とは扱わない。",
+      "method": "既存バックアップ・クローンを隔離環境へ復元してCOUNT",
+      "privileges": "バックアップ、復元、暗号化鍵への適切なアクセス。",
+      "verification": "COUNTの挙動はローカル複製で確認可能。実際のバックアップ方式・鍵管理・サービス費用はこのcomposeでは未確認。",
+      "winsWhen": "primaryを試行する余力がなく、多少古い件数を許容できる。"
+    },
+    {
+      "accuracy": "単位の包含確率に応じた重み付けと不確かさの評価が必要。空標本や反復一致だけで数％達成と判定しない。任意の未知分布への低コスト保証はない。",
+      "conditions": "整数キーや既存パーティションなどで標本単位と抽出確率を定義でき、偏在を検証できる。",
+      "implementationCost": "中〜高。",
+      "load": "全域走査を避けられる可能性がある一方、ランダムI/Oと多数の範囲COUNTが発生する。文・総時間・読取量の上限が必要。",
+      "method": "適用条件を限定した層化・確率的なキー範囲サンプリング",
+      "privileges": "SELECT。標本設計に必要なメタ情報。",
+      "verification": "54は固定した乱数seedによるランダムなキー区間抽出であり、固定位置だけの標本ではない。t_sparseの失敗はこの設計の不適合を示すが、すべての標本設計の棄却にはならない。代替設計を採用したい場合だけ追加比較する。",
+      "winsWhen": "既知の構造を持つ同種テーブルへ繰り返し適用し、統計より精度を改善できる場合。"
+    },
+    {
+      "accuracy": "初期件数と差分位置の整合、コミット単位、重複排除、削除・TRUNCATE・移行の処理が揃えば高精度を狙える。未知の絶対件数を差分だけから復元することはできない。",
+      "conditions": "頻繁な取得が必要で、書き込み経路またはCDC基盤を管理できる。",
+      "implementationCost": "既存基盤があれば中、新規導入は高。",
+      "load": "取得は軽い。同期カウンタは書き込み競合、CDCは処理遅延と保持・再処理の運用負担を持つ。",
+      "method": "既存カウンタ・CDCと基準件数の組み合わせ",
+      "privileges": "カウンタ更新またはbinlog/CDCへの権限。",
+      "verification": "カウンタの競合・初期化・補正再試行は49・54に根拠がある。CDCは未計測。",
+      "winsWhen": "多数サービスが繰り返し件数を要求し、毎回の全域走査を避けたい場合。"
+    },
+    {
+      "accuracy": "閉じた部分の確定値と、新しい部分の件数を合計する。遅延到着、削除、EXCHANGEで前提が崩れる。",
+      "conditions": "既存の閉じたパーティションや期間について不変性を運用で保証できる。",
+      "implementationCost": "中。件数取得だけのための新規パーティション化は高コスト。",
+      "load": "再走査を新しい部分へ限定できる。分割しても各SELECTは表のMDLを取る。",
+      "method": "不変な閉じた範囲の確定件数を再利用",
+      "privileges": "SELECTと集計結果を管理する権限。",
+      "verification": "52と52aで利点と検知漏れが確認されている。TABLE_IDとUPDATE_TIMEの一致だけを不変性の証明にしない。",
+      "winsWhen": "大半が不変の時系列データで、件数を継続的に取得する場合。"
+    },
+    {
+      "accuracy": "通常のCOUNTの意味を維持できる。nullable列のCOUNTへ変更しない。",
+      "conditions": "統計では不足し、COUNTを繰り返す。小さく、書き込みで頻繁に変化しない索引が使える。",
+      "implementationCost": "既存索引なら低、新規追加は高。",
+      "load": "走査量を減らせるが、追加索引は構築I/O、MDL、保存容量、INSERT・DELETE等の維持負担を増やす。",
+      "method": "既存の小さい索引、または繰り返し取得向けの専用索引",
+      "privileges": "既存索引はSELECT。追加はDDL権限と運用調整。",
+      "verification": "54のsmall_or_invisible_indexに限定的な根拠がある。不可視索引も制御された専用セッションなら候補にでき、設定が必要という理由だけで全面棄却する必要はない。ただし現行SQL 3の分割対象へ無条件に追加しない。",
+      "winsWhen": "幅広いクラスタ索引しかなく、継続的な計数費用が追加・維持費を上回る場合。"
+    }
+  ],
+  "decision": "rejected",
+  "engineerQuestions": [
+    {
+      "answerability": "不可。SQL 1にはその保証も判定手段もない。",
+      "improvement": "許容誤差・信頼度・対象時点を依頼時に記録し、保証できない場合は参考値として返す。",
+      "question": "『だいたい』では困ります。±3％なのか±5％なのか、今回の値でどう判断できますか。",
+      "role": "件数を依頼する開発者"
+    },
+    {
+      "answerability": "一部可。共通行数閾値を使わない理由は明確。",
+      "improvement": "推定行数では許可せず、索引バイト数、I/O余力、キャッシュ、SLOに基づく試行予算で判断する短い例を付ける。",
+      "question": "TABLE_ROWSが少なかったらCOUNTしてよいのですか。何行以下なら安全ですか。",
+      "role": "サービス担当"
+    },
+    {
+      "answerability": "一部可。追い出しの説明はあるが、初回試行の開始条件が不足。",
+      "improvement": "時間上限と負荷予算を区別し、tail・エラー・I/Oと回復を監視する。",
+      "question": "1秒で止めれば、数十msのSLOを守れますか。止めた後のキャッシュは戻りますか。",
+      "role": "SRE"
+    },
+    {
+      "answerability": "可。文の形・分離レベルによる行ロックの違いを説明している。",
+      "improvement": "入口にも『トップレベルSELECTの結果をクライアントで受け取り、別文で保存』を残す。",
+      "question": "取得した件数をINSERT SELECTやSETの副問い合わせで保存してはいけませんか。",
+      "role": "アプリ実装者"
+    },
+    {
+      "answerability": "概ね可。ただしidがNOT NULLという条件を入口で明示したい。",
+      "improvement": "COUNT(*)とCOUNT(1)はInnoDBで同じ扱い、COUNT(id)はNOT NULLなら同じ件数、COUNT(nullable_col)はNULLを除く別の値と簡潔に示す。[集計関数公式仕様](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+      "question": "COUNT(1)やCOUNT(id)へ変更すれば速くなりますか。nullable列でもよいですか。",
+      "role": "ORM利用者"
+    },
+    {
+      "answerability": "不足。",
+      "improvement": "暗号化方式と保存形式を確認し、全件数取得で列の復号式を評価しない手順を示す。鍵が利用できず表を開けない状態は復旧担当へ送る。",
+      "question": "暗号化はTDEですか、列暗号化ですか。復号鍵や復号式がCOUNTに必要ですか。",
+      "role": "暗号化を運用する担当者"
+    },
+    {
+      "answerability": "一部可。",
+      "improvement": "列数・表総容量ではなく読む索引のページ数を中心に説明し、インライン行と外部LOB、索引なしを分ける。",
+      "question": "100列や巨大LOBがあれば遅いのですか。小さい二次索引がない場合はどうしますか。",
+      "role": "幅広い表の担当者"
+    },
+    {
+      "answerability": "一部可。監視不能ならCOUNTしない規則はあるが、統計で数％になるとは答えられない。",
+      "improvement": "最低権限で得られる参考統計と、精度を満たすために依頼する窓口を分ける。",
+      "question": "SELECTしかありません。PROCESSやperformance_schemaが読めなくても数％の値を得られますか。",
+      "role": "権限の限られた開発者"
+    },
+    {
+      "answerability": "不可。対象環境は未計測。",
+      "improvement": "製品ごとの停止手段と停止確認を所有者が検証する。クライアント切断だけを代用しない。",
+      "question": "KILLやSTOP REPLICAが制限されています。管理画面のキャンセルで同じですか。",
+      "role": "マネージドMySQLの担当者"
+    },
+    {
+      "answerability": "一部可。DDL適用と共有負荷の注意はあるが、統計の独立性と鮮度の整理が不足。",
+      "improvement": "専用・共用を区別し、取得先、適用位置、取得時刻、統計更新状態を結果に付ける。遅延秒数だけで件数誤差を判断しない。",
+      "question": "共用read replicaでよいですか。統計はprimaryと同じですか。遅延0なら現在の件数ですか。",
+      "role": "レプリカの運用者"
+    },
+    {
+      "answerability": "技術的な規則はあるが、責任分担は未定。",
+      "improvement": "未解決停止要求の継続監視、引継ぎ先、再開確認、読み先へ戻す条件をサービスの運用票で固定する。",
+      "question": "STOPが失敗した後やジョブが落ちた後、誰がレプリカを戻しますか。",
+      "role": "当番・復旧担当"
+    },
+    {
+      "answerability": "一部可。監視で影響をゼロにはできない。",
+      "improvement": "予定確認不能時のprimary長時間COUNTを禁止し、許容できる待ち時間を持つ分割か隔離先へ送る。",
+      "question": "予定を完全には把握できません。監視があれば実行してよいですか。",
+      "role": "DDL・バックアップ担当"
+    },
+    {
+      "answerability": "不足。",
+      "improvement": "DBインスタンスと共有ストレージ単位の同時実行制御、開始時刻の分散、累積I/O予算を設ける。",
+      "question": "各チームが一斉に実行したら、1ジョブずつの計測は意味がありますか。",
+      "role": "複数サービスを運用する基盤担当"
+    },
+    {
+      "answerability": "一部可。対象一覧固定と非同時点性の説明はある。",
+      "improvement": "対象世代、移行時の所有先、成功・未完了の内訳を保存し、未完了を全件数として返さない。",
+      "question": "移行中のテナントやロール表を二重に足しませんか。失敗したシャードを除いた値を返してよいですか。",
+      "role": "シャード・テナント基盤担当"
+    },
+    {
+      "answerability": "概ね可。",
+      "improvement": "物理行数であること、対象集合、基準時点、推定方法、鮮度、未完了状態を結果と一緒に返す。",
+      "question": "論理削除行や履歴も含みますか。昨日のバックアップの件数でもよいですか。",
+      "role": "結果の利用者"
+    }
+  ],
+  "findings": [
+    {
+      "evidence": [
+        "results/requested_metadata_accuracy.json: summary_before_analyze.table_rows_expiry0は58表中within_5pct=54、max_abs_pct=12.152。summary_after_analyzeでもwithin_5pct=54、max_abs_pct=16.591。これは構成した58表の観測であり、本番での成功確率ではない。",
+        "同ファイル: spread_by_sample_pages.t_uuid.20.error_pctは-13.301〜4.854。uneven_row_sizes.runsではsample_pages=20で4.56%と38.731%。",
+        "results/requested_24-EXP-R10.json: sections.after_bulk_changes.del_90pct.immediately.table_rows_expiry0_error_pct=-8.54。",
+        "[TABLES公式仕様](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)もInnoDBのTABLE_ROWSを近似値として説明する。"
+      ],
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "impact": "数％精度が必要な用途へ、精度を判定できない値を渡すことになる。ANALYZE後の値、複数の統計値の一致、繰り返しの安定性も誤差上限の証明にならない。",
+      "requiredCorrection": "冒頭で『精度保証のない参考値』『条件を限定して校正した概算』『スナップショットの正確値』を区別する。SQL 1だけでは任意の未知テーブルについて数％を保証できないと明記し、精度が必須なら既存の信頼できるカウンタ、隔離された複製のCOUNT、または適用条件を検証した推定へ分岐する。93の分布を設計別に反映し、観測範囲・信頼区間・保証された誤差上限を混同しない。統計値の安全係数から共通のCOUNT許可閾値を作らない。",
+      "scenario": "依頼者は『多少ずれてもよい』ではなく『数％の誤差で知りたい』と考えている。概数でよいという分岐からSQL 1で終了すると、その精度要件を満たしたか判断できない。",
+      "section": "§1 結論・判断フロー、§4 概数の精度、§10",
+      "severity": "high"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md: SQL 2の上限は主にDDL待ち許容時間から決める説明。§8の停止表はp50を例示し、本文の別箇所でtail許容値も要求しているが、一体の開始条件になっていない。",
+        "results/requested_30-EXP-R9-rep1-low.json: sections.runs.runsの各server.recoveryにカウント終了後のキャッシュミスが残る。これらは全域走査の結果であり、1000ms試行の影響を直接測った結果ではない。",
+        "results/requested_05-EXP-O6-WRITE-MIX-indexed-100.json: sections.windows.whole_run_write[0]はp50_ms=3.52に対しp99_ms=2345.55。原因は未特定。",
+        "bench/countlib.py: JobMonitorが直接扱うのはMDL、FLUSH状態、行ロック、任意のHLL上限などで、アプリSLOやストレージ余力は別途実装が必要。"
+      ],
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "impact": "時間上限を負荷上限と誤解しやすい。中断しても、失われたキャッシュや消費済みI/Oは元に戻らない。試行の繰り返しも追加負荷になる。",
+      "requiredCorrection": "初回試行にも、アプリのtail遅延・エラー率、CPU、I/O待ち・帯域・IOPS、ストレージ余力、回復観測を含む予算を設定する。1000msを既定の安全値として配布しない。予算を決められなければprimaryでは試さない。打ち切ったCOUNTから一般に進捗率や残時間を推定できないことを明記する。§7の予想所要時間は、過去の同条件実績など根拠がある場合に限定する。",
+      "scenario": "DDL予定を確認できた担当者が、未知サイズの表へ例示の1000ms COUNTを試す。DDLがなくても、その間のI/O、CPU、先読み、キャッシュ追い出しがサービスの許容範囲を超える可能性がある。",
+      "section": "§1 SQL 2、§7 延長の条件、§8 停止条件",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        "bench/requested/91-encrypted-count.py: DDLはid、v、padの3列。TDEの試験であり、列暗号化された幅広い表の試験ではない。",
+        "results/requested_encrypted_count_8.4.13.json: sizes、count_force_primary、plain_count_record_locks、insert_select_count_record_locks。",
+        "count_force_primary.plain_cold[*].secondsは0.248〜0.305、enc_cold[*].secondsは0.433〜0.453。この小規模・無サービス負荷の一条件では差がある。",
+        "同じ比較のplain_warm、enc_warmでもInnodb_data_readが約396MBあり、warmという名前をバッファプール内の比較と解釈できない。",
+        "results/requested_wide_count_forms.jsonは幅広い表だが暗号化との組み合わせではない。"
+      ],
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "impact": "本来の対象に対する採用可否が未回答。TDEの速度倍率を列暗号化へ適用したり、列数だけでCOUNT負荷を判断したりする誤用が起こる。",
+      "requiredCorrection": "TDEと列暗号化を入口で区別する。TDEでは読んだページの復号コスト、列暗号化では保存幅・利用可能な索引・復号式の有無が問題になると説明する。全件数のために復号式を評価しない。列数より選択される索引のバイト数とMVCC参照を重視し、外部LOB容量とインライン幅を分ける。有効な8.4.13の結果を限定して採用し、暗号化された幅広い表のprimary試行は別途検証するか、隔離複製へ送る。",
+      "scenario": "対象サービスは暗号化済みの50〜100列の表を持つが、ガイドは暗号化を保証範囲から除外したままである。利用者には、その場合にどの経路まで利用できるか分からない。",
+      "section": "§2 対象環境、§6 行と列、§11 暗号化された表",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        "results/requested_metadata_accuracy.json: after_analyzeのINNODB_TABLESTATS.NUM_ROWSは54表すべて0として記録されている。summary_after_analyze.innodb_tablestats_num_rows.within_5pct=0。",
+        "bench/requested/93-metadata-accuracy.py: read_allはNUM_ROWSだけを取得し、STATS_INITIALIZEDを記録しない。EXPLAINも本文のCOUNT(*)ではなくSELECT *を説明する。",
+        "[INNODB_TABLESTATS公式仕様](https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html): ANALYZEは統計をUninitializedにし、次の表アクセス時に再収集する。NUM_ROWSは未コミットDMLの影響も受け得る。",
+        "[永続統計の公式仕様](https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html): 自動再計算の統計はインスタンスローカル。通常のANALYZE文はログ抑制しなければ複製され、各レプリカで再計算される。",
+        "94の最終確認時のJSONはstalenessだけで、権限・待機・最終件数の完了結果は未保存。"
+      ],
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "impact": "未初期化の0を空表と誤解したり、レプリカの統計精度と適用遅延を混同したりする。複数の統計値の一致を独立した裏付けとも解釈できない。",
+      "requiredCorrection": "メタ情報を正式な比較表にし、精度の意味、キャッシュ、更新時点、必要権限、対象エンジン、対象表への待機、運用コストを列挙する。NUM_ROWSはSTATS_INITIALIZEDと併読し、未初期化・取得不可・NULLを件数0にしない。93の0を単純な推定精度の悪さと集計しない。レプリカでは統計誤差と適用済み状態の古さを別に表示する。94の完了を確認するまでは、その未完の項目を未確認とする。",
+      "scenario": "利用者がTABLE_ROWS、SHOW TABLE STATUS、mysql.innodb_table_stats、INNODB_TABLESTATS、EXPLAIN、パーティション統計を交換可能な概数取得手段として使う。また、primaryで権限が足りないためread replicaの統計へ切り替える。",
+      "section": "§4 概数の精度、§8 権限、§10 メタ情報候補",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        "results/requested_metadata_accuracy.json: spread_by_sample_pages.t_denseのanalyze_seconds_eachは20ページで0.013、2000ページで0.64。ただし計測区間には統計取得も含まれ、サービス影響は測っていない。",
+        "同ファイル: uneven_row_sizesでは2000ページでも誤差-2.812%または-2.131%。増量は任意精度の保証ではない。",
+        "[ANALYZE TABLE公式仕様](https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html): 対象表のSELECTとINSERT権限が必要で、解析中のread lockを説明している。",
+        "docs/table-count-guideline.mdの既存ANALYZE比較は短いCOUNTとの共存であり、統計刷新自体のI/O、書き込みへの影響、プラン変更を評価したものではない。"
+      ],
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "impact": "低負荷のメタデータ取得と、統計を作り直す操作が同じ手順に見える。統計更新によるプラン変更や複製先の再解析も、計数後まで影響し得る。",
+      "requiredCorrection": "SQL 1にはANALYZEを自動追加しないと明記する。必要な場合はDB所有者が権限、ロック・待機、I/O、プラン変更、binlogへの記録とレプリカ側処理を扱う別の保守操作にする。サンプル設定の増量を本番共通設定として案内しない。待機しなかった短いCOUNT試験から、ANALYZEの無害性を導かない。",
+      "scenario": "『数％へ近づけたい』利用者が、統計を新しくするため本番でANALYZE TABLEを追加し、さらにサンプルページ数を増やす。",
+      "section": "§4 ANALYZEの説明、§8 権限、§10 統計候補",
+      "severity": "middle"
+    },
+    {
+      "evidence": [
+        "README.mdおよびdocs/table-count-guideline.md: benchは検証環境専用。本番で使う監視・停止・結果保存を含む実行手段は配布されていない。",
+        "§8は別接続・別スレッドの監視と停止フラグを要求する。bench/countlib.pyのJobMonitorだけではアプリSLOや組織横断の同時実行制御を提供しない。",
+        "§7は未解決STOPの監視継続と人への引継ぎを要求するが、誰が引き継ぐかはサービスごとの未設定事項。",
+        "bench/countlib.py: restore_applierの誤った成功条件は修正されているが、対応する0cの結果は最終確認時点で存在しない。"
+      ],
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "impact": "各SQLが正しくても、組み合わせ・復旧・実行競合で事故になる。手順が長いこと自体より、利用者が安全条件を実装し直す必要があることが採用障壁となる。",
+      "requiredCorrection": "社内案内を入口の短い判断表と詳細な検証資料に分ける。サービスごとに実行責任者、停止権限、監視経路、DDL・バックアップ確認先、復旧担当、同一DB・共有資源の同時実行上限を記入する導入票を用意する。満たせない場合はprimaryのCOUNTを開始せず、参考統計または隔離複製へ送る。レプリカ停止を一般開発者向けの既定経路にせず、所有者の運用手順として扱う。",
+      "scenario": "DBAが常駐しない複数サービスで、担当者がSQL断片を独自実装する。監視担当やDDL予定の窓口がなく、複数チームが同じDBまたは共有ストレージで同時に開始する。",
+      "section": "§1 コピー用SQL、§7 レプリカ、§8 監視・停止・再開",
+      "severity": "middle"
+    }
+  ],
+  "guidelineSha256": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+  "limitations": [
+    "独立レビューであり、実験を再実行していない。数値は記載した保存ファイルのフィールドまたはその集計に基づく。",
+    "9.7.4と26.10.0の暗号化JSONはinvalidEvidenceとして除外し、有効な根拠に使用していない。",
+    "93の58表の割合や各5反復は、未知の本番テーブルに対する確率、独立標本、信頼区間、誤差上限を与えない。混在するエンジンの全体集計をInnoDB一般の精度として扱わない。",
+    "92は終了コードと完全ログが欠落する。94は部分結果である。これらを完成した合格検証として扱っていない。",
+    "既存ラボは同一VM・共有ストレージであり、ホストキャッシュを制御していない。サービスの無影響や物理的に分離したレプリカの効果を証明できない。",
+    "マネージド環境の権限、停止API、課金、バースト枠、実際の暗号化鍵管理、組織の復旧責任は未確認。",
+    "lab.rbのMATRIXと対象版表記は読んだが、2026-11時点の全サポート契約・終了日の公式照合は今回行っていない。社内対象版の維持確認は別途必要。",
+    "読み取り用集計の途中で、ヒアドキュメントの一時ファイル作成拒否とJSON構造の仮定によるエラーがあった。失敗した確認を合格として使用せず、読み取り専用の代替コマンドで必要な確認を完了した。最終ハッシュ確認は終了コード0。",
+    "自分が起動した未終了セッションや背景プロセスはない。既存実験の状態を変更していない。"
+  ],
+  "priorReviewAssessment": [
+    {
+      "assessment": "旧指摘をそのまま再掲しない。",
+      "evidence": "現行本文・countlibにセッション上限、タイマー発火カウンタ、上限付き往復確認、その他エラー停止がある。13のsections.summaryではkilled_first_called_timeout.counter=0、elapsed=5。",
+      "ids": [
+        "FIND-R2-KILL-01",
+        "FIND-R3-HINT-01",
+        "FIND-R3-LOOPEDGE-01"
+      ]
+    },
+    {
+      "assessment": "『未実行』という旧理由は現在の実装・結果と合わない。測定条件外への保証は別問題。",
+      "evidence": "10の本文手順実行、23のドリフト、26・27の索引比較、21・22の反復比較が存在する。今回の追加要求は暗号化された幅広い表と初回試行の予算に限定した。",
+      "ids": [
+        "FIND-STEP-01",
+        "FIND-PK-01",
+        "FIND-DRIFT-01",
+        "FIND-FAST-01"
+      ]
+    },
+    {
+      "assessment": "旧問題に対する検証と留保は増えている。ただし今回の数％精度・社内運用への適用を自動的に承認するものではない。",
+      "evidence": "24はキャッシュと古い統計を切り分け、25はGTID対応を検証。30以降は回復期を記録する。背景読み取りの原因、真のcold、物理的分離等の限界は本文が開示している。",
+      "ids": [
+        "FIND-LAB-CONTAM-01",
+        "FIND-IMPACT-01",
+        "FIND-EST-01",
+        "FIND-REPL-01"
+      ]
+    },
+    {
+      "assessment": "現行本文の一般化は修正済み。",
+      "evidence": "§1・§7はPRIMARYを短い同一上限で試す候補とし、100/sで優位未確立、条件外では優先しないと明記する。0g〜0kを広範な社内案内の必須実験としては維持しない。",
+      "id": "FIND-O10-PRIMARY-SCALE"
+    },
+    {
+      "assessment": "開示不足は修正済み。原因未特定は残る。",
+      "evidence": "§3に66.806秒、p95/p99、因果不明が記載された。これだけを理由に追加実験を必須にしないが、p50中心の運用判断は今回の指摘で修正を求める。",
+      "id": "FIND-O10-INDEXED-100-STALL"
+    },
+    {
+      "assessment": "Opusの前回の閉鎖は早すぎた。現在はコード・本文が修正されているが、長い保留と引継ぎの実測は未完。",
+      "evidence": "restore_applierは停止未観測時の期限到達をrestored=false、unresolved_stop=trueにする。0cの結果は存在しない。",
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01"
+    },
+    {
+      "assessment": "実装修正と暫定表示を確認。",
+      "evidence": "split_countにmax_rowsがあり、本文は旧完走数がステップ上限による暫定値であると明記する。行数上限の3倍も統計的な誤差上限ではない。",
+      "id": "FIND-O10-STEP-CEILING"
+    },
+    {
+      "assessment": "本文修正で解消している。",
+      "evidence": "PRIMARYという索引がない表を試行から除外し、100/sで索引間の優位が確立していないと記す。",
+      "ids": [
+        "FIND-O10-NOPK-FORCE",
+        "FIND-O10-P100-BOLD"
+      ]
+    },
+    {
+      "assessment": "前回レビューの『3版の保存結果が存在する』という根拠を、有効な比較の証明として引き継がない。",
+      "evidence": "今回の入力マニフェストは9.7.4・26.10.0の2ファイルをinvalidEvidenceと指定する。有効な暗号化比較は8.4.13だけを使用した。§11の3版への参照にはこの区別を追記すべきである。",
+      "id": "FIND-O10-ENCRYPTED-STALE"
+    }
+  ],
+  "requestedExperiments": [
+    {
+      "decisionChangingResult": "短い試行でも予算超過する条件があれば、その条件をprimary試行から除外する。予算内でも、測った条件に限定した試行候補にとどめる。",
+      "executedByReviewer": false,
+      "hypothesis": "暗号化された幅広い表の短時間COUNTは、時間上限内でも無視できないI/O・CPU負荷や回復遅延を生み、小さい二次索引の有無で採用可能性が変わる。",
+      "id": "SOL-EXP-ENCRYPTED-WIDE-TRIAL",
+      "localSteps": [
+        "既存実験の所有者が終了・後始末を確認した後、同じcomposeネットワークの8.4.13検証サーバーだけを使う。",
+        "91の有効な平文/TDE比較を基に、同一データの60列または100列表を作り、読む索引がプールを超える構成を含める。小さい二次索引あり・なしを比較する。",
+        "サービス負荷だけの対照と、例示の短い上限付きCOUNTを順序を交互にして比較する。非索引更新と索引へ触れる更新を区別する。",
+        "上限超過、中断確認、読取バイト、先読み、CPU、アプリtail・エラー、HLL、終了後のキャッシュ回復を記録する。ホストキャッシュを制御できない制約を残す。",
+        "JSON、スクリプト識別情報、完全ログ、実プロセスの終了コードを保存する。"
+      ],
+      "priority": "primaryでの試行を対象へ含める場合に必要。隔離複製へ限定するなら公開前の必須実験ではない。"
+    },
+    {
+      "decisionChangingResult": "対象表のDDL待ちを避けられるメタ情報があるなら、権限と古さを条件に代替経路へ追加する。取得できない・待つ場合は、その制約を正式比較表へ反映する。",
+      "executedByReviewer": false,
+      "hypothesis": "メタ情報の取得先・キャッシュ・権限・DDL待機により、参考値を返せる経路が変わる。",
+      "id": "94-metadata-on-replica",
+      "localSteps": [
+        "既存の所有者が、現在の94をcomposeのprimary・replicaだけで完了させる。",
+        "staleness以外にanalyze_is_local、privileges、waits_on_primary、waits_on_replica_applier_ddl、final_countsが保存されたことを確認する。",
+        "例外やタイムアウトがある場合は部分成功とし、レプリカ再開・後始末・最終件数を確認する。",
+        "完全ログと実終了コードを保存し、本文のCOUNT用EXPLAINと試験のSELECT *用EXPLAINの差も明記する。"
+      ],
+      "priority": "既存実験の完了確認。重複起動しない。"
+    },
+    {
+      "decisionChangingResult": "未解決STOPを成功と報告せず、引継ぎ後に復旧することが確認できれば、明示的な復旧担当を条件に停止手順を候補へ戻せる。",
+      "executedByReviewer": false,
+      "hypothesis": "修正された復旧処理は、監視期限より遅れて効くSTOPを復旧済みと誤報せず、継続所有者へ引き継いで再開確認できる。",
+      "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+      "localSteps": [
+        "既存所有者が、準備済みのbench/requested/0c-EXP-S8-REPLICA-STOP-LONG.pyを通常のラボ実行経路で実施する。レビュー中の実験へ重ねて実行しない。",
+        "compose replicaの適用をローカル行ロックで復旧期限より長く待たせ、STOP失敗後の最初の返却を確認する。",
+        "未確認の返却後に監視を継続し、遅延停止、再開、GTID追いつきまで記録する。元から停止中の負対照も確認する。",
+        "最終適用状態、後始末、完全ログと終了コードを保存する。"
+      ],
+      "priority": "レプリカ停止手順を社内運用として案内する場合に必要。通常適用中のレプリカCOUNTだけを案内するなら対象外にできる。"
+    },
+    {
+      "decisionChangingResult": "特定の構造で精度と負荷が改善するなら、その構造だけの候補にする。密集域の見落としを狭い区間として誤報するなら採用しない。有限の試験から任意分布への保証は主張しない。",
+      "executedByReviewer": false,
+      "hypothesis": "構造を限定した層化標本なら、54の一様キー区間抽出より少ない負荷で数％へ近づけられる場合がある。",
+      "id": "SOL-EXP-STRATIFIED-SAMPLING",
+      "localSteps": [
+        "compose内に連続キー、巨大な欠番、少数の密集域、テナント偏在を持つ決定的な表を作る。",
+        "等しい標本単位または既知の包含確率を持つ層を定義し、重み付けした推定を行う。RANDによる全域走査や単一先頭範囲の外挿は使わない。",
+        "複数seedで真のCOUNTと比較し、誤差・不確かさの区間・区間の実測被覆・読取量を記録する。空標本や予算到達時は精度未達として終了する。",
+        "SQL 1と54の方式を同じ負荷予算で比較する。"
+      ],
+      "priority": "任意のテーブルへの標準推奨にはしない。対応するサービス群があり、この候補を採用したい場合だけ実施する。"
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "actual": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+      "check": "入力と開始時ハッシュ",
+      "command": "shasum -a 256 docs/table-count-guideline.md",
+      "completeOutput": "tool transcript chunk 211e4e",
+      "exitCode": 0,
+      "expected": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+      "result": "一致"
+    },
+    {
+      "check": "終了時のファイル再ハッシュ",
+      "completeOutput": "最終functions.execの比較出力、およびtool transcript chunk 47cd01",
+      "exitCode": 0,
+      "guidelineFinalSha256": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+      "logPath": null,
+      "logPathReason": "読み取り専用のため新しいディスクログを作成していない。検証の完全出力はRielaのtool transcriptに残した。",
+      "result": "比較開始時の269ファイルに変更なし。追加は部分結果results/requested_metadata_on_replica.jsonの1ファイル。",
+      "sourceAggregateSha256BeforeAndAfter": "19a9f2f53095cf728cc80ffa811415859951653fc7f6fd5c9c8f126383ae5b46",
+      "sourceFiles": 127
+    },
+    {
+      "check": "有効な暗号化比較",
+      "file": "results/requested_encrypted_count_8.4.13.json",
+      "finalProcessExitCode": null,
+      "logPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/91-encrypted-count.log",
+      "sha256": "658fd6a1047287842d8dbe5a07e7e887d0414261a4dc8298854a3e3ee246b7ed",
+      "status": "91全体の現在のstatusはok=false。ログ末尾は26.10.0のt_evict作成中1114。8.4.13の完成した比較だけをマニフェストに従い限定使用し、3版全体を成功と扱わない。"
+    },
+    {
+      "check": "92の終了記録",
+      "files": [
+        "results/requested_wide_form_order.json",
+        "results/requested_wide_form_order_after_load.json",
+        "results/requested/92-wide-form-order.status.json"
+      ],
+      "finalProcessExitCode": null,
+      "logPath": null,
+      "result": "64個の異なるthreads/round/positionと6個のafter-load測定を独立に確認。",
+      "status": "statusはrecovered_after_host_runner_exit=true、process_exit_code=null。構造上の測定充足とプロセス終了確認の記録はあるが、完全ログ・終了コードを備えた合格実験とは認定しない。COUNT形式の優劣をこの結果から追加主張していない。"
+    },
+    {
+      "check": "93の完成内容",
+      "exitCodeQualification": "数値終了コード自体は保存されていない。通常のlab.rbはstatus.success?をokへ保存するため、記録上は正常終了相当。精度や運用安全性の合格を意味しない。",
+      "file": "results/requested_metadata_accuracy.json",
+      "finalProcessExitCode": null,
+      "logPath": "/Users/taco/gits/tacogips/database-analysis/results/requested/93-metadata-accuracy.log",
+      "sha256": "a5d9966ab1e7ecacf53dfce8e7ff2130100362746c3a79904bab1bea6d02aa7f",
+      "status": "ok=true、seconds=90。全7トップレベル項目、8表×3設定×5反復、uneven_row_sizesの15測定とログ末尾を照合した。",
+      "statusPath": "results/requested/93-metadata-accuracy.status.json"
+    },
+    {
+      "check": "94の未完確認",
+      "file": "results/requested_metadata_on_replica.json",
+      "finalProcessExitCode": null,
+      "logPath": null,
+      "savedKeys": [
+        "staleness"
+      ],
+      "sha256AtFinalCheck": "2ad8e349f6df343db0d6348f5f0a1f9d878b0aa2c6b8b1c5aec772809ce28854",
+      "status": "完了ステータスと完結したログを確認できないため不合格扱いではなく未完扱い。権限・DDL待機・最終復旧の根拠には使用しない。"
+    },
+    {
+      "check": "既存の統計・代替手法の完成記録",
+      "finalProcessExitCode": null,
+      "logs": [
+        "/Users/taco/gits/tacogips/database-analysis/results/requested/24-EXP-R10.log",
+        "/Users/taco/gits/tacogips/database-analysis/results/requested/54-EXP-SOL-9.log"
+      ],
+      "qualification": "元の数値終了コードは未保存。54のログには以前のSKIPPEDも含まれるため、最後の完結した実行と区別した。",
+      "status": "各statusはok=true、各生JSONはsection_errors=[]。完全ログの最終JSONも一致。"
+    },
+    {
+      "check": "過去レビューの抽出",
+      "file": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+      "paths": [
+        "/session/executions/13/acceptedOutput/payload",
+        "/session/executions/14/acceptedOutput/payload"
+      ],
+      "qualification": "snapshot全体を根拠として丸ごと出力せず、レビューpayloadと状態を抽出した。",
+      "result": "最新完了レビューはrevision=10、対象SHAは5c818808a50c1cd072d6847ad05b6de30e2cb893b103fb64ef64e8cb6d0699d3。現在の対象SHAとは異なるため、指摘を現在の本文・コードへ再照合した。execution 15のauthorはrunningでacceptedOutputなし。"
+    },
+    {
+      "check": "一次資料",
+      "result": "今回必要になった統計・COUNTの意味・ANALYZE・暗号化の説明を公式原文で確認した。",
+      "sources": [
+        "[集計関数](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+        "[永続統計](https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html)",
+        "[ANALYZE TABLE](https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html)",
+        "[information_schema_stats_expiry](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_information_schema_stats_expiry)",
+        "[INNODB_TABLESTATS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-innodb-tablestats-table.html)",
+        "[TABLES](https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html)",
+        "[InnoDB保存時暗号化](https://dev.mysql.com/doc/refman/8.4/en/innodb-data-encryption.html)"
+      ]
+    }
+  ],
+  "reviewScope": {
+    "evidenceCutoff": "最終確認時点で93は結果・成功ステータス・完結したログを確認。92は64測定の構造を確認したが終了コード未記録。94はstalenessだけの部分結果で、完了ステータスなし。",
+    "execution": "読み取り専用。実験、Docker操作、DB接続、負荷生成、ファイル編集、委譲、別workflow起動は行っていない。",
+    "importantQualification": "現行フローは統計上の行数でCOUNTの安全性を判断していない。この点は妥当であり、過小推定を理由に無制限COUNTへ進める欠陥があるとは判定していない。",
+    "purpose": "暗号化された通常50列・最大100列程度の巨大MySQLテーブルについて、稼働中サービスへの影響を最小限にし、数％の誤差で全件数を概算するための社内案内として評価した。",
+    "reviewed": [
+      "入力マニフェスト、ガイドライン全体、README.md、AGENTS.md、compose.yaml、lab.rb",
+      "関連するbench実装、追加実験90〜94、統計・ロック・監視・レプリカ・代替手法の生JSON",
+      "独立検討後、results/review-state-before-experiments.jsonとsession-3の最新Opus/Solレビュー"
+    ]
+  },
+  "rolloutRecommendation": {
+    "allowedUse": "検証資料としての共有は可能。精度保証のない参考統計の取得も、その限界を明示して案内できる。",
+    "companyWideAnnouncement": "現状のまま『数％精度・本番低影響の共通手順』として案内することは不可。",
+    "constraintsNotRequiringExperiments": [
+      "統計キャッシュの迂回は正確値取得ではない。",
+      "同じ統計に由来する値の一致は独立した検証ではない。",
+      "時間上限はI/O・CPU・キャッシュ影響の上限ではない。",
+      "ラボの有限の観測から、未知の全テーブルに共通の誤差上限や安全行数閾値は導けない。",
+      "CDC差分には整合した絶対件数の基準が必要。",
+      "物理的に分離したレプリカ、マネージドサービス、実ストレージの性能はこのcomposeだけでは検証できない。"
+    ],
+    "faqPriorities": [
+      "数％の保証はあるか。統計の一致やANALYZE後なら信用できるか。",
+      "何行以下ならCOUNTしてよいか。試行自体の負荷をどう制限するか。",
+      "SELECTなのにサービスを待たせるのはなぜか。SQLを書き換えてよいか。",
+      "暗号化方式、列数、LOB、索引で何が変わるか。",
+      "監視権限・担当者・DDL予定がない場合はどうするか。",
+      "共有レプリカを使えるか。遅延・統計・適用停止からの復旧を誰が扱うか。",
+      "複数サービス、シャード、テナント移行、部分失敗の結果をどう集計するか。"
+    ],
+    "minimumCorrectionsInPriorityOrder": [
+      "P0: 数％精度の達成と、保証のない概数取得を分ける。普遍的な低負荷・数％保証は得られていないと冒頭で回答する。",
+      "P0: 通常のSELECT COUNT(*)の行ロックなしと、MDL・資源負荷なしを区別する。INSERT SELECT等の危険な文形の説明は維持する。",
+      "P0: 未知表への最初のCOUNTにもSLOとI/Oの予算を要求する。共通の行数閾値や1000msの安全値を配布しない。",
+      "P1: TDE・列暗号化、幅広い行、LOB、小さい索引の有無を入口で分類し、未検証条件は隔離複製または所有者判断へ送る。",
+      "P1: 93を反映してメタ情報比較を更新する。NUM_ROWS未初期化を除外し、94は完了確認後に反映する。ANALYZEを別の保守操作として扱う。",
+      "P1: 実行・監視・停止・復旧・同時実行制御の責任者をサービスごとに固定する。レプリカ停止は所有者の運用に限定する。",
+      "P2: 入口の短い手順と詳細な根拠を分け、結果に対象、取得先、時点、方式、精度の位置付け、完了状態を添付する。"
+    ]
+  }
+}

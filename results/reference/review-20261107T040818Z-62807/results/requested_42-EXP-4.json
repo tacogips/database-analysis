@@ -1,0 +1,434 @@
+{
+ "id": "42-EXP-4",
+ "answers": [
+  "EXP-4",
+  "FIND-R2-CASCADE-VER-01"
+ ],
+ "started": "2026-11-06T17:57:37",
+ "sections": {
+  "ddl_against_a_reader": {
+   "reader_child/ddl_parent/instant_add_column": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1006.43
+   },
+   "reader_child/ddl_parent/inplace_add_index": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1017.42
+   },
+   "reader_child/ddl_gp/instant_add_column": {
+    "ok": true,
+    "errno": null,
+    "ms": 3.15
+   },
+   "reader_child/ddl_gp/inplace_add_index": {
+    "ok": true,
+    "errno": null,
+    "ms": 8.32
+   },
+   "reader_parent/ddl_parent/instant_add_column": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1001.89
+   },
+   "reader_parent/ddl_parent/inplace_add_index": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1009.39
+   },
+   "reader_parent/ddl_gp/instant_add_column": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1002.22
+   },
+   "reader_parent/ddl_gp/inplace_add_index": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1008.57
+   },
+   "reader_gp/ddl_parent/instant_add_column": {
+    "ok": true,
+    "errno": null,
+    "ms": 4.12
+   },
+   "reader_gp/ddl_parent/inplace_add_index": {
+    "ok": true,
+    "errno": null,
+    "ms": 10.39
+   },
+   "reader_gp/ddl_gp/instant_add_column": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1007.47
+   },
+   "reader_gp/ddl_gp/inplace_add_index": {
+    "ok": false,
+    "errno": 1205,
+    "ms": 1003.02
+   },
+   "reader_other/ddl_parent/instant_add_column": {
+    "ok": true,
+    "errno": null,
+    "ms": 4.93
+   },
+   "reader_other/ddl_parent/inplace_add_index": {
+    "ok": true,
+    "errno": null,
+    "ms": 9.67
+   },
+   "reader_other/ddl_gp/instant_add_column": {
+    "ok": true,
+    "errno": null,
+    "ms": 4.68
+   },
+   "reader_other/ddl_gp/inplace_add_index": {
+    "ok": true,
+    "errno": null,
+    "ms": 5.83
+   },
+   "_seconds": 8.19
+  },
+  "what_queues_behind_it": {
+   "mdl_during_wait": [
+    [
+     "child",
+     "SHARED_READ",
+     "GRANTED",
+     1
+    ],
+    [
+     "parent",
+     "EXCLUSIVE",
+     "GRANTED",
+     1
+    ],
+    [
+     "child",
+     "SHARED_UPGRADABLE",
+     "GRANTED",
+     1
+    ],
+    [
+     "gp",
+     "SHARED_UPGRADABLE",
+     "GRANTED",
+     1
+    ],
+    [
+     "#sql-1_1f6e",
+     "EXCLUSIVE",
+     "GRANTED",
+     1
+    ],
+    [
+     "child",
+     "EXCLUSIVE",
+     "PENDING",
+     1
+    ]
+   ],
+   "read_parent": {
+    "ok": false,
+    "ms": 1006.75,
+    "errno": 1205,
+    "msg": "(1205, 'Lock wait timeout exceeded; try restarting transaction')"
+   },
+   "read_child": {
+    "ok": false,
+    "ms": 1001.39,
+    "errno": 1205,
+    "msg": "(1205, 'Lock wait timeout exceeded; try restarting transaction')"
+   },
+   "read_gp": {
+    "ok": true,
+    "ms": 0.15
+   },
+   "write_child": {
+    "ok": false,
+    "ms": 1000.76,
+    "errno": 1205,
+    "msg": "(1205, 'Lock wait timeout exceeded; try restarting transaction')"
+   },
+   "read_other": {
+    "ok": true,
+    "ms": 0.19
+   },
+   "ddl_result": {
+    "ok": true,
+    "ms": 4029.32,
+    "rows": []
+   },
+   "_seconds": 4.04
+  },
+  "lock_tables": {
+   "child READ": {
+    "mdl": [
+     [
+      "child",
+      "SHARED_READ_ONLY",
+      "GRANTED",
+      1
+     ]
+    ],
+    "attempts": {
+     "read_parent": {
+      "ok": true,
+      "errno": null
+     },
+     "update_parent": {
+      "ok": true,
+      "errno": null
+     },
+     "read_child": {
+      "ok": true,
+      "errno": null
+     },
+     "update_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "insert_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "update_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "read_other": {
+      "ok": true,
+      "errno": null
+     }
+    }
+   },
+   "child WRITE": {
+    "mdl": [
+     [
+      "child",
+      "SHARED_NO_READ_WRITE",
+      "GRANTED",
+      1
+     ],
+     [
+      "parent",
+      "SHARED_READ_ONLY",
+      "GRANTED",
+      1
+     ]
+    ],
+    "attempts": {
+     "read_parent": {
+      "ok": true,
+      "errno": null
+     },
+     "update_parent": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "update_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "insert_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "update_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "read_other": {
+      "ok": true,
+      "errno": null
+     }
+    }
+   },
+   "parent READ": {
+    "mdl": [
+     [
+      "parent",
+      "SHARED_READ_ONLY",
+      "GRANTED",
+      1
+     ]
+    ],
+    "attempts": {
+     "read_parent": {
+      "ok": true,
+      "errno": null
+     },
+     "update_parent": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_child": {
+      "ok": true,
+      "errno": null
+     },
+     "update_child": {
+      "ok": true,
+      "errno": null
+     },
+     "insert_child": {
+      "ok": true,
+      "errno": null
+     },
+     "read_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "update_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "read_other": {
+      "ok": true,
+      "errno": null
+     }
+    }
+   },
+   "parent WRITE": {
+    "mdl": [
+     [
+      "parent",
+      "SHARED_NO_READ_WRITE",
+      "GRANTED",
+      1
+     ],
+     [
+      "gp",
+      "SHARED_READ_ONLY",
+      "GRANTED",
+      1
+     ],
+     [
+      "child",
+      "SHARED_READ_ONLY",
+      "GRANTED",
+      1
+     ],
+     [
+      "child",
+      "SHARED_NO_READ_WRITE",
+      "GRANTED",
+      1
+     ]
+    ],
+    "attempts": {
+     "read_parent": {
+      "ok": false,
+      "errno": 1205
+     },
+     "update_parent": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "update_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "insert_child": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_gp": {
+      "ok": true,
+      "errno": null
+     },
+     "update_gp": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_other": {
+      "ok": true,
+      "errno": null
+     }
+    }
+   },
+   "gp WRITE": {
+    "mdl": [
+     [
+      "gp",
+      "SHARED_NO_READ_WRITE",
+      "GRANTED",
+      1
+     ],
+     [
+      "parent",
+      "SHARED_READ_ONLY",
+      "GRANTED",
+      1
+     ]
+    ],
+    "attempts": {
+     "read_parent": {
+      "ok": true,
+      "errno": null
+     },
+     "update_parent": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_child": {
+      "ok": true,
+      "errno": null
+     },
+     "update_child": {
+      "ok": true,
+      "errno": null
+     },
+     "insert_child": {
+      "ok": true,
+      "errno": null
+     },
+     "read_gp": {
+      "ok": false,
+      "errno": 1205
+     },
+     "update_gp": {
+      "ok": false,
+      "errno": 1205
+     },
+     "read_other": {
+      "ok": true,
+      "errno": null
+     }
+    }
+   },
+   "_seconds": 16.07
+  },
+  "real_long_count_on_shared_child": {
+   "alter_parent_while_child_counted": {
+    "ok": true,
+    "ms": 2272.78,
+    "rows": []
+   },
+   "alter_finished_at_s": 2.57,
+   "count_finished_at_s": 2.57,
+   "count": {
+    "ok": true,
+    "ms": 2555.95
+   },
+   "_seconds": 2.59
+  }
+ },
+ "elapsed_seconds": 31,
+ "section_errors": []
+}

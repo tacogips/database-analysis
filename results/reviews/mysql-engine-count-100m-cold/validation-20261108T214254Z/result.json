@@ -1,0 +1,248 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "cleanup": {
+      "assessment": "\u751f\u30ed\u30b0\u306eproject\u8cc7\u6e90\u6d88\u5931\u3001\u6240\u6709\u8005\u306e\u72ec\u7acbcontainer inventory\u3001\u6240\u6709root\u30fbstage\u30d1\u30b9\u6d88\u5931\u3092\u7167\u5408\u3002\u5168\u6240\u6709\u30d7\u30ed\u30bb\u30b9\u306f\u56de\u53ce\u3055\u308c\u3001\u5f37\u5236\u7d42\u4e86\u30fbtimeout\u306f\u306a\u3044\u3002\u5b8c\u4e86\u3001\u7cbe\u5ea6\u3001cold\u65b9\u91dd\u3001\u8ad6\u7406\u5f8c\u59cb\u672b\u306f\u5225\u5224\u5b9a\u3067\u3042\u308a\u3001\u30b5\u30fc\u30d3\u30b9\u8ca0\u8377\u4e88\u7b97\u306fUNAVAILABLE\u3002",
+      "mysqlClientsZeroAndReaped": 30,
+      "processesReaped": 3611,
+      "status": "passed_logical_cleanup"
+    },
+    "coldBufferEveryCount": {
+      "assessment": "\u6295\u5165\u5f8c\u3001\u5404\u7d22\u5f15\u4f5c\u6210\u5f8c\u3001\u53cd\u5fa9\u3059\u3079\u3066\u3067client\u7d42\u4e86\u30fbreap\u3001mysqld\u6b63\u5e38\u505c\u6b62\u3001\u540c\u3058container ID/datadir/nonce\u3067\u518d\u8d77\u52d5\u3057\u3066\u3044\u308b\u3002\u5168boot\u306e\u5b9fglobal\u5024\u306fpreload OFF\u3001dump OFF\u3001O_DIRECT\u3001fast_shutdown=1\u3002COUNT boot\u3054\u3068\u306e\u5bfe\u8c61\u8868\u5168\u8d70\u67fb\u306f1\u56de\u3002InnoDB\u51689\u6a19\u672c\u306e\u30e1\u30bf\u30c7\u30fc\u30bf\u78ba\u8a8d\u524d\u30fbCOUNT\u524dsnapshot\u306f\u5bfe\u8c610\u30da\u30fc\u30b8\u3002MyISAM\u306eKey_*\u306f\u524d\u5f8c\u3068\u30820\u3067\u3001\u4fdd\u5b58\u4ef6\u6570\u6700\u9069\u5316\u3092query-result cache\u3068\u6df7\u540c\u3057\u3066\u3044\u306a\u3044\u3002",
+      "freshCountBoots": 12,
+      "status": "passed"
+    },
+    "fourConditions": {
+      "assessment": "\u54043\u6a19\u672c\u3002InnoDB\u306f\u540c\u3058\u4e0d\u5909\u884c\u96c6\u5408\u3067PK\u3001\u5358\u4e00\u5217\u526f\u7d22\u5f15\u3001\u7f6e\u63db\u3057\u305f\u8907\u5408\u526f\u7d22\u5f15\u3092\u6bd4\u8f03\u3057\u3001MyISAM\u306f\u65b0\u898f\u6295\u5165\u3002\u7d22\u5f15\u306e\u5b58\u5728\u3068\u63a8\u5b9a\u8a08\u753b\u306e\u9078\u629ekey\u3092\u533a\u5225\u3057\u3066\u3044\u308b\u3002",
+      "conditions": [
+        "innodb_primary_only",
+        "innodb_secondary_present",
+        "innodb_composite_secondary",
+        "myisam_primary_only"
+      ],
+      "status": "passed"
+    },
+    "fourteenBoots": {
+      "assessment": "\u516814boot\u306e\u5b9fPID\u30fbStartedAt\u30fbuptime\u30fbUUID\u3001\u6b63\u5e38shutdown\u30ed\u30b0\u3001container\u7d42\u4e860\u3001attach\u7d42\u4e860\u3068reap\u3092\u7167\u5408\u3002\u63a5\u7d9a\u306fboot ordinal+UUID+connection ID\u3067\u8b58\u5225\u3002readiness-pid1\u3068ping\u306e\u5404exit1\u306f\u521d\u671f\u8a3a\u65ad\u3068\u3057\u3066\u4fdd\u6301\u3055\u308c\u3001\u5168boot\u3067\u6210\u529fping\u5f8c\u306b\u8a8d\u8a3cclient\u304c\u4f5c\u3089\u308c\u3066\u3044\u308b\u3002\u8a8d\u8a3c\u5931\u6557\u306f\u6295\u5165\u524d\u306b\u4e2d\u6b62\u3059\u308b\u5b9f\u88c5\u3002",
+      "countBoots": 12,
+      "initialLoadBoots": 2,
+      "status": "passed"
+    },
+    "limitations": {
+      "assessment": "\u56fa\u5b9a\u9806\u5e8f\u3001OS/VM/macOS\u30ad\u30e3\u30c3\u30b7\u30e5\u3001\u7d22\u5f15\u4f5c\u6210\u3001\u80cc\u666f\u51e6\u7406\u3001CLI/Docker/socket\u8f38\u9001\u3068\u5bb9\u91cf\u76e3\u8996\u8cbb\u7528\u304c\u6b8b\u308b\u3002O_DIRECT\u3001engine counter\u3001\u30da\u30fc\u30b8\u7d71\u8a08\u3001EXPLAIN\u3092SSD\u7269\u7406I/O\u306e\u8a3c\u660e\u306b\u306f\u3057\u3066\u3044\u306a\u3044\u3002\u6697\u53f7\u5316\u3001\u5727\u7e2e\u3001VARCHAR/LOB\u3001\u4e00\u822c\u306e100\u5217\u8868\u3001\u696d\u52d9\u8ca0\u8377\u3001\u4ed6hardware\u3001\u672c\u756aSLO\u306f\u672a\u8a08\u6e2c\u3002\u5148\u884c\u672a\u5b8c\u4e869\u6a19\u672c\u3084\u65e7PK\u53c2\u8003\u5024\u306f\u4e3b\u6bd4\u8f03\u306b\u6df7\u5728\u3057\u306a\u3044\u3002",
+      "status": "adequately_disclosed"
+    },
+    "manualIndexChecks": {
+      "assessment": "\u5404\u6a19\u672c\u81ea\u8eab\u306einventory\u3001SHOW INDEX/CARDINALITY\u3001\u901a\u5e38EXPLAIN\u3001InnoDB\u6c38\u7d9a\u7d71\u8a08\u306esize/n_leaf_pages/last_update/page bytes\u3068\u53d6\u5f97\u6642\u9593\u3092\u751f\u5fdc\u7b54\u306b\u7167\u5408\u3002MyISAM\u306fSelect tables optimized away\u3067InnoDB\u7d71\u8a08\u306f\u5bfe\u8c61\u5916\u3002\u5b9f\u5358\u4e00\u5217\u30ab\u30bf\u30ed\u30b0\u306e\u8a55\u4fa1\u5f8c\u306b\u8907\u5408\u7d22\u5f15\u3092\u8ffd\u52a0\u3057\u3001\u4e21DDL\u6642\u9593\u306fCOUNT\u304b\u3089\u5206\u96e2\u3057\u3066\u3044\u308b\u3002",
+      "plannedKeys": [
+        "PRIMARY",
+        "k_count",
+        "k_count_v2",
+        null
+      ],
+      "samplesChecked": 12,
+      "status": "passed"
+    },
+    "physicalCacheStatus": {
+      "assessment": "\u4fee\u6b63\u524dattempt\u30fbaudit.py\u30fbmanifest\u3068\u5b9fdescriptor\u3092\u660e\u793a\u7684\u306b\u691c\u8a3c\u3057\u305f\u3002\u521d\u56deexit1\u306f\u524a\u9664\u6e08\u307f\u53c2\u7167\u30bc\u30ed\u306e\u8981\u6c42\u3067\u767a\u751f\u3057\u3001\u5931\u6557\u5c65\u6b74\u306f\u4fdd\u5b58\u3055\u308c\u3066\u3044\u308b\u3002\u4fee\u6b63\u524d\u5f8c\u306e\u6b8b\u5b5838\u53c2\u7167\u306f\u540c\u4e00\u3067\u3001\u5171\u6709VZ\u306e\u65e2\u77e5system/redo/undo\u7b49\u306e\u8aad\u307f\u53d6\u308a\u5c02\u7528\u53c2\u7167\u3060\u3051\u3002guest\u5074\u3067\u306f\u5bfe\u8c61\u30d1\u30b9\u4e0d\u5728\u3001\u6b8b\u5b58<=2GiB\u3001\u7a7a\u304d>=70GiB\u3002\u4fee\u6b63\u306f\u8a08\u6e2cSOURCE8\u3092\u5909\u66f4\u305b\u305a\u3001\u8ad6\u7406\u524a\u9664\u3068\u672a\u9054\u306e\u7269\u7406\u30ad\u30e3\u30c3\u30b7\u30e5\u89e3\u653e\u3092\u533a\u5225\u3057\u3066\u3044\u308b\u3002\u6b8b\u5b58\u91cf\u3068\u672apurge\u306e\u958b\u793a\u306f\u5341\u5206\u3067\u3001\u5931\u6557\u3092\u96a0\u3057\u305f\u5f8c\u59cb\u672b\u5408\u683c\u3068\u306f\u5224\u65ad\u3057\u306a\u3044\u3002",
+      "classification": "readonly_shared_VZ_known_engine_cache_retained_not_purged",
+      "hostFreeBytes": 166018052096,
+      "remainingBytes": 1136656440,
+      "remainingHandles": 38,
+      "targetTableFileHandles": 0,
+      "unknownHandles": 0,
+      "writableHandles": 0
+    },
+    "precision": {
+      "acknowledgedBatchesPerEngine": 1000,
+      "assessment": "\u51682000\u30d0\u30c3\u30c1\u306e\u751f\u6210SQL\u3001\u5373\u6642ROW_COUNT\u3001COMMIT\u5f8c\u306e\u5fdc\u7b54\u5883\u754c\u3092\u7167\u5408\u3002\u5404\u30a8\u30f3\u30b8\u30f3100M\u884c\u3001\u5b9fschema\u306fBIGINT UNSIGNED PK\u3068INT NOT NULL 99\u5217\u306e\u8a08100\u5217\u3001\u8ad6\u7406\u5024404 bytes\u3002MyISAM\u306eCOMMIT\u3092\u30c8\u30e9\u30f3\u30b6\u30af\u30b7\u30e7\u30f3\u4fdd\u8a3c\u3068\u306f\u6271\u3063\u3066\u3044\u306a\u3044\u3002\u8a18\u8ff0\u7d71\u8a08\u30fb\u6bd4\u306f\u516812\u6a19\u672c\u306e\u5b8c\u4e86\u3068cold\u6210\u7acb\u5f8c\u306b\u8a08\u7b97\u3055\u308c\u3066\u3044\u308b\u3002",
+      "batchSqlOrReceiptMismatches": 0,
+      "freshLoads": 2,
+      "rowsPerBatch": 100000,
+      "status": "passed"
+    },
+    "tableRowsValuesAndTimes": {
+      "assessment": "\u5404\u6a19\u672c\u306e\u5358\u4e00\u8868SQL\u3001\u751f\u5024\u3001\u89b3\u6e2c\u6642\u523b\u3001\u7b26\u53f7\u4ed8\u304d\u8aa4\u5dee\u3092\u78ba\u8a8d\u3002inventory\u306f\u5225\u8981\u6c42\u3002COUNT\u3068\u540c\u3058\u53d7\u4fe1\u6642\u8a08\u3092\u4f7f\u3044raw\u8a18\u9332\u524d\u306b\u6642\u523b\u53d6\u5f97\u3059\u308b\u3002InnoDB\u8aa4\u5dee\u306f\u51689\u89b3\u6e2c\u3067-12.027430%\u3002NULL\u30fb\u672a\u77e5\u30fb\u89b3\u6e2c0\u306e\u6271\u3044\u3082\u9069\u5207\u30023\u6587\u66f8\u306e\u5024\u3068\u6700\u5c0f\u30fb\u4e2d\u592e\u5024\u30fb\u6700\u5927\u306f\u6574\u5408\u3057\u3001MyISAM\u30ac\u30a4\u30c9\u306b\u3082\u4e21\u53d6\u5f97\u6cd5\u306e\u7d50\u679c\u304c\u3042\u308b\u3002",
+      "observations": {
+        "innodb_composite_secondary": [
+          [
+            87972570,
+            909000,
+            909000
+          ],
+          [
+            87972570,
+            865000,
+            865000
+          ],
+          [
+            87972570,
+            1522000,
+            1582000
+          ]
+        ],
+        "innodb_primary_only": [
+          [
+            87972570,
+            870000,
+            870000
+          ],
+          [
+            87972570,
+            1078000,
+            1078000
+          ],
+          [
+            87972570,
+            962000,
+            962000
+          ]
+        ],
+        "innodb_secondary_present": [
+          [
+            87972570,
+            924000,
+            924000
+          ],
+          [
+            87972570,
+            862000,
+            862000
+          ],
+          [
+            87972570,
+            1006000,
+            1006000
+          ]
+        ],
+        "myisam_primary_only": [
+          [
+            100000000,
+            1031000,
+            1031000
+          ],
+          [
+            100000000,
+            1376000,
+            1403000
+          ],
+          [
+            100000000,
+            961000,
+            991000
+          ]
+        ]
+      },
+      "status": "passed",
+      "tupleFormat": [
+        "value",
+        "callerElapsedNs",
+        "fullRequestElapsedNs"
+      ],
+      "unit": "ns"
+    },
+    "twelveCounts": {
+      "allValues": 100000000,
+      "assessment": "\u5168\u8981\u6c42\u30fb\u751f\u5fdc\u7b54\u3092literal marker\u307e\u3067\u7167\u5408\u3002\u5168\u6a19\u672c\u3067\u6b63\u306e\u4e3b\u6642\u9593\u3068full>=scalar\u3092\u78ba\u8a8d\u3002MyISAM\u7b2c3\u6a19\u672c\u306efull\u306f674000 ns\u3001\u4ed6\u306eCOUNT\u306f\u4e3b\u6642\u9593\u3068\u540c\u5024\u3002COUNT(1)\u3001WHERE\u3001hint\u3001\u5f37\u5236\u7d22\u5f15\u3001\u8ffd\u52a0\u306e\u5bfe\u8c61\u8868COUNT\u306f\u306a\u3044\u3002",
+      "callerElapsedNs": {
+        "innodb_composite_secondary": [
+          8747319000,
+          7800472000,
+          8011625000
+        ],
+        "innodb_primary_only": [
+          275416380000,
+          272020612000,
+          273707153000
+        ],
+        "innodb_secondary_present": [
+          7217420000,
+          5968324000,
+          6263160000
+        ],
+        "myisam_primary_only": [
+          691000,
+          564000,
+          624000
+        ]
+      },
+      "completed": 12,
+      "extraTargetCounts": 0,
+      "status": "passed"
+    }
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "docs/guidelines/mysql-innodb.md": "eb838884da4a11f77109a39616a58428dc812069bcba3cc87447d37911d47b93",
+    "docs/guidelines/mysql-myisam.md": "e19bc8a60228b074123de4eb0c51b54c45394842a2e7d19cab3209739bb6a3a9",
+    "docs/mysql-engine-count-100m.md": "58d2781fe8fa5ce7f35192bd26d9f665b9fef59e52c61396e61c528034149cb0"
+  },
+  "findings": [],
+  "independentFindingAssessment": {
+    "assessment": "\u72ec\u7acb\u5224\u65ad\u3092\u56fa\u3081\u305f\u5f8c\u306b\u8aad\u3093\u3060\u3002\u53d7\u5165\u5224\u65ad\u3001\u6570\u5024\u30013\u6587\u66f8hash\u3001\u30ad\u30e3\u30c3\u30b7\u30e5\u5206\u985e\u306f\u72ec\u7acb\u78ba\u8a8d\u3068\u4e00\u81f4\u3059\u308b\u3002\u521d\u56de\u76e3\u67fb\u5931\u6557\u3092\u6210\u529f\u3078\u66f8\u304d\u63db\u3048\u3066\u304a\u3089\u305a\u3001\u7269\u7406\u89e3\u653e\u672a\u9054\u3092\u660e\u793a\u3059\u308b\u70b9\u306b\u3082\u540c\u610f\u3059\u308b\u3002\u8ffd\u52a0\u306e\u53d7\u5165\u963b\u5bb3\u4e8b\u9805\u306f\u306a\u3044\u3002",
+    "engineerResultPath": "results/reviews/mysql-engine-count-100m-cold/final-engineer-result.json",
+    "engineerResultSha256": "cfb7d320f8db6bf9c168bcff7d59e65a3af5eef86f4b55eeedff737eb7059aa2",
+    "formedBeforeReadingEngineerResult": true,
+    "independentConclusion": "\u5b9f\u884c\u30bd\u30fc\u30b9\u3001\u5168\u8981\u6c42\u30fb\u5fdc\u7b54\u3001\u6295\u5165receipts\u3001boot\u7d42\u4e86\u3001archive\u30013\u6587\u66f8\u3001\u30ad\u30e3\u30c3\u30b7\u30e5\u76e3\u67fb\u4fee\u6b63\u3092\u78ba\u8a8d\u3057\u305f\u6642\u70b9\u3067\u3001\u91cd\u5927\u30fb\u4e2d\u7a0b\u5ea6\u306e\u6b20\u9665\u304a\u3088\u3073\u4e0d\u53ef\u6b20\u306a\u8ffd\u52a0\u5b9f\u9a13\u306f\u898b\u3064\u304b\u3089\u306a\u304b\u3063\u305f\u3002"
+  },
+  "requestedExperiments": [],
+  "reviewEvidence": {
+    "acceptanceScope": "\u672cvalidation\u67fb\u8aad\u3068\u3057\u3066\u53d7\u5165\u3002\u4e21\u30ec\u30d3\u30e5\u30fc\u306e\u96c6\u7d04receipt\u5f85\u3061\u306f\u6b20\u9665\u3067\u306f\u306a\u3044\u3002\u5225\u9014\u4e88\u5b9a\u306eSQL Server 6\u6761\u4ef618\u56de\u3001\u304a\u3088\u3073commit/push\u78ba\u8a8d\u306f\u672cMySQL\u67fb\u8aad\u306e\u5bfe\u8c61\u5916\u3002",
+    "artifacts": {
+      ".riela/workflows/mysql-engine-count-100m-cold/review-prompt.txt": "bd0b444481da1e5a2e903fb6a1ce2d2cc79e914d0475ca496e6f1c65fef3cf3d",
+      "results/mysql-engine-count-100m-cold/runs/20261108T183639Z-18e383e6549af749ec1c4409b210c4a4/result.json": "bcedb0f574ebcdc27f88e438a83d06d2156a3cabc92e73419a112d126c43d5df",
+      "results/reference/mysql-engine-count-100m-cold-20261108T183639Z-18e383e6549af749ec1c4409b210c4a4/manifest.json": "7332b4d84e008910442a764abebb0b70f58a8e5e344501e5528a5e222686dadb",
+      "results/reviews/mysql-engine-count-100m-cold/author-before-owner-steering/manifest.json": "50dfa704517dae3af66b17c82cbc72ed31bb33c726760de5cd8628b13e71133f",
+      "results/reviews/mysql-engine-count-100m-cold/baseline.json": "0e184ba5a0ee10e3e87440295f0e342f9a198066a176f1328e99f4ef4a73a5db",
+      "results/reviews/mysql-engine-count-100m-cold/before-cache-scope-correction/attempt.json": "f19b1c5f10b63757b3258b13ff046bad1a75b376331a6c9e43a0fc2282a89dc8",
+      "results/reviews/mysql-engine-count-100m-cold/before-cache-scope-correction/audit.py": "33e21741106e3d2dd8414beeb8d7613fc0e5004600dc41d2d531697ca38c8c67",
+      "results/reviews/mysql-engine-count-100m-cold/before-cache-scope-correction/manifest.json": "98b650189186c6a114aa7fcbb8bc114843beb601a755ec89b8dfcf4af9f9c19b",
+      "results/reviews/mysql-engine-count-100m-cold/host-deleted-descriptor-cleanup.json": "810d1023e929715865bb06bdb3850fbe11176d77a0cb564857cb5dcf518900a2",
+      "results/reviews/mysql-engine-count-100m-cold/host-spec.json": "6196f3aafa977afee58bec8c031b3c8d6b7a3edd038a24dd2fda0e2b1f201cc5",
+      "results/reviews/mysql-engine-count-100m-cold/latest-table-rows-request.json": "05587257d13862886623161dfd345e42a058d8183fc001eb48a8a82e520febfb",
+      "results/reviews/mysql-engine-count-100m-cold/load-duration-author-result.json": "afc08050897a246308bbb09f4dd12f34c31ddf8e9742530742b64c283e9aa8f4",
+      "results/reviews/mysql-engine-count-100m-cold/load-duration-owner-application.json": "61900f6a791052d7efb7531c6ee240dd19983394dddd181371bce3a3ea362bee",
+      "results/reviews/mysql-engine-count-100m-cold/load-duration-stop-audit.json": "6ef3b37a1803fb751dffc09627876d4cd73c38848185514e1ff5e86694031294",
+      "results/reviews/mysql-engine-count-100m-cold/owner-audit.json": "dce88fc8333aca98b4cf002ac11e482ca41a10b251ef4fa41b173c930a822146",
+      "results/reviews/mysql-engine-count-100m-cold/owner-proof.json": "84a2f667c1fee6a2753a8977714483b979be27ad9f7081a4643b832606c4ffbb"
+    },
+    "completeLogs": [
+      {
+        "finalExitStatus": 0,
+        "path": "results/reviews/mysql-engine-count-100m-cold/canonical-invocation.log",
+        "sha256": "c7490c2e4d970e9fe93556ef85d0aa624c3b5676c28c59a9ee4ba4218ea0a196",
+        "terminalRecordVerified": true
+      },
+      {
+        "checks": 67,
+        "finalExitStatus": 0,
+        "path": "results/reviews/mysql-engine-count-100m-cold/owner-offline-final.log",
+        "sha256": "05d2af669d82d2c1fe6d48ab8db5c6e9927bb67f3831e87cd41a4dc513badf32",
+        "terminalRecordVerified": true
+      }
+    ],
+    "documentIntegration": "MyISAM\u306f\u6240\u6709marker\u5916\u304c\u4fdd\u5b58\u524d\u6587\u66f8\u3068\u4e00\u81f4\u3002InnoDB\u306emarker\u5916\u5dee\u5206\u306f\u3001\u65b0\u898f\u8a08\u6e2c\u306b\u3088\u308a\u53e4\u304f\u306a\u3063\u305f\u300e1\u5104\u884c\u00d7100\u5217\u306f\u672a\u8a08\u6e2c\u300f\u306e\u53c2\u7167\u4fee\u6b63\u3060\u3051\u3067\u3001\u7121\u95a2\u4fc2\u306aQ&A\u3092\u6539\u5909\u3057\u3066\u3044\u306a\u3044\u3002",
+    "method": "\u8aad\u307f\u53d6\u308a\u5c02\u7528\u306e\u30bd\u30fc\u30b9\u76e3\u67fb\u3068\u6a19\u6e96\u30e9\u30a4\u30d6\u30e9\u30ea\u306b\u3088\u308b\u5168\u4ef6\u7167\u5408\u3002DB\u30fbDocker\u30fbbuild\u30fb\u8a08\u6e2c\u30fb\u59d4\u8b72\u30fb\u66f8\u8fbc\u307f\u306f\u5b9f\u884c\u3057\u3066\u3044\u306a\u3044\u3002foreground\u691c\u8a3c\u306e\u5b9f\u884csession\u306f\u3059\u3079\u3066terminal\u307e\u3067\u56de\u53ce\u3057\u305f\u3002",
+    "sourceAndAuthorSeparation": "SOURCE8\u306fbefore=after=current\u3067\u5b8c\u5168\u4e00\u81f4\u3002Sol56\u7d42\u4e86\u5f8c\u306eTABLE_ROWS/readiness\u4fee\u6b63\u3092\u5b9f\u30bd\u30fc\u30b9\u3067\u78ba\u8a8d\u3002Sol59\u63d0\u6848\u306e\u9006\u7f6e\u63db\u3067\u65e7hash\u306b\u4e00\u81f4\u3057\u3001\u5909\u66f4\u306fMyISAM\u7d2f\u8a08\u6295\u516514400\u79d2\u3068README\u3060\u3051\u3002\u4ed66\u5165\u529b\u3001InnoDB\u6295\u51657200\u79d2\u3001\u500b\u5225SQL7200\u79d2\u3001\u5168\u4f536\u6642\u9593\u3001COUNT20\u5206\u306f\u4e0d\u5909\u3002\u5148\u884crun\u306eterminal\u30fb\u6240\u6709cleanup\u76e3\u67fb\u5f8c\u306b\u9069\u7528\u3055\u308c\u3001\u65b0\u898f\u767d\u7d19all\u304c\u5b9f\u884c\u3055\u308c\u3066\u3044\u308b\u3002",
+    "verificationTotals": {
+      "currentArchiveFiles": 7254,
+      "documents": 3,
+      "finalSemanticCheckFailures": 0,
+      "frozenRuntimeInputs": 8,
+      "hashMismatches": 0,
+      "historicalArchiveFiles": 5270,
+      "protectedBaselineFiles": 10971,
+      "rawArtifactFiles": 7253,
+      "rawClientLogs": 30,
+      "rawClientQueries": 2205,
+      "rawContainerInspections": 64
+    }
+  },
+  "reviewQuestions": {
+    "betterMethods": "\u6982\u7b97\u3067\u5341\u5206\u306a\u3089TABLE_ROWS\u3067\u7d42\u4e86\u3067\u304d\u308b\u304c\u3001\u4eca\u56de\u306eInnoDB\u89b3\u6e2c\u306f\u7d0412%\u904e\u5c0f\u3067\u7cbe\u5ea6\u4fdd\u8a3c\u306b\u306f\u4f7f\u3048\u306a\u3044\u3002\u6b63\u78ba\u5024\u306b\u306f\u901a\u5e38COUNT\u3068\u65e2\u5b58\u7d22\u5f15\u306e\u78ba\u8a8d\u304c\u59a5\u5f53\u3002\u5236\u7d04\u5185\u3067\u4e0d\u53ef\u6b20\u306a\u672a\u691c\u8a3c\u9ad8\u901f\u5316\u624b\u6cd5\u306f\u898b\u5f53\u305f\u3089\u306a\u3044\u3002",
+    "designCoverage": "PK\u3001\u72ed\u3044\u526f\u7d22\u5f15\u3001\u5e45\u3092\u5897\u3057\u305f\u8907\u5408\u526f\u7d22\u5f15\u3001\u4fdd\u5b58\u4ef6\u6570\u6700\u9069\u5316\u306eMyISAM\u3092\u6bce\u56deDB\u30d0\u30c3\u30d5\u30a1\u30ea\u30bb\u30c3\u30c8\u3067\u6bd4\u8f03\u3057\u3066\u304a\u308a\u3001\u9650\u5b9a\u3057\u305f\u9759\u6b62lab\u306e\u5224\u65ad\u306b\u5341\u5206\u3002",
+    "fastCount": "\u89b3\u6e2c\u4e2d\u592e\u5024\u306fInnoDB\u5358\u4e00\u5217\u526f\u7d22\u5f156.263160\u79d2\u3001MyISAM0.624ms\u3002\u5f8c\u8005\u306f\u4fdd\u5b58\u4ef6\u6570\u6700\u9069\u5316\u3068\u8f38\u9001\u8cbb\u7528\u3092\u542b\u3080\u9759\u6b62\u6bd4\u8f03\u3067\u3042\u308a\u3001\u975e\u30ed\u30c3\u30af\u5019\u88dc\u3001DB\u5185\u90e8\u3060\u3051\u306e\u901f\u5ea6\u3001\u30bc\u30edI/O\u3001\u56e0\u679c\u7684\u306a\u30a8\u30f3\u30b8\u30f3\u9806\u4f4d\u3092\u793a\u3055\u306a\u3044\u3002",
+    "lockFactors": "InnoDB\u901a\u5e38SELECT\u306e\u884c\u30ed\u30c3\u30af\u306a\u3057\u3068MDL\u30fbCPU/I/O\u7af6\u5408\u3001DML\u57cb\u8fbc\u307fCOUNT\u306e\u5225\u6319\u52d5\u3001MyISAM\u306e\u6697\u9ed9\u8868read lock\u3092\u533a\u5225\u3002fixture\u7d22\u5f15DDL\u3084DB\u518d\u8d77\u52d5\u3092\u672c\u756a\u5411\u3051\u624b\u9806\u306b\u3057\u3066\u3044\u306a\u3044\u3002",
+    "omissions": "\u6697\u53f7\u5316\u3001\u53ef\u5909\u9577\u30fbLOB\u3001\u66f4\u65b0\u8ca0\u8377\u3001\u4ed6hardware\u3001\u5168\u5c64cold\u306f\u672a\u8a08\u6e2c\u3068\u3057\u3066\u958b\u793a\u3055\u308c\u3066\u3044\u308b\u3002\u73fe\u5728\u306e\u9650\u5b9a\u7684\u7d50\u8ad6\u306e\u53d7\u5165\u306b\u5e83\u7bc4\u306a\u8ffd\u52a0\u5b9f\u9a13\u306f\u4e0d\u8981\u3002"
+  }
+}

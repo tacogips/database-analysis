@@ -1,0 +1,2583 @@
+{
+  "status": "incomplete",
+  "exit_status": 1,
+  "owner": "09835d7aefce74d25ced05cc7dea235e",
+  "started_at": "2026-11-08T22:40:58Z",
+  "source_before": {
+    "sqlserver/manual-count-100m/lab.rb": "52d47a54a05bab1b2ecdc4bc05c242d8c8d40772b4f2fe76572935008be2697f",
+    "sqlserver/manual-count-100m/model.rb": "b2877122c4849834d013f6df61267893ec88f7390a46669cc7df1ddde991b2ee",
+    "sqlserver/manual-count-100m/verify_offline.rb": "0204c64a19067b76cffe3c73ab00e658163971da84d2fd5d14f878d414098151",
+    "sqlserver/manual-count-100m/mise.toml": "44e7bbb5d9d1185e0e0848cfdfd782824836ee9feec2a9d1b0a99ba571e9acf4",
+    "sqlserver/manual-count-100m/compose.yaml": "c8ab7e587ab8370cf0d2a274c3f138e30ce7613b60a9027ae792784bf9177404",
+    "sqlserver/manual-count-100m/Dockerfile": "4aea959a36994b64141267f612714177fbe0a07cacfbd2d5535741ab59815f04",
+    "sqlserver/manual-count-100m/.dockerignore": "0a1e42540e627caa3100565f190e6da9a82135cf5fc71b0a06f8a105d6e07c2f",
+    "sqlserver/manual-count-100m/ManualCount100m.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/manual-count-100m/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/manual-count-100m/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/manual-count-100m/Program.cs": "1c06187472801e60af785d67e1b8a29b2b960c0c796ecfecea3aa3a592cf07d9",
+    "sqlserver/manual-count-100m/Fixture.cs": "62c551d56092a67ad96329dcfa96f3a6b43fca741e5b18b52228db44a490b7ba",
+    "sqlserver/manual-count-100m/State.cs": "b6bcc6230820a8d47db0f14b3372117e7f08c10e060b9316d4da26be58e25782",
+    "sqlserver/manual-count-100m/README.md": "c43716d69f98f16830137f4f20c08d8c2a2947abc8c3fa51b07600a63603fef8",
+    "sqlserver/manual-count-100m/input-bindings.json": "e3a421c266146aaa3534ce49c79c5dbba810de7018a10f58edfa64cfac379880",
+    "sqlserver/manual-count-100m/manual/sql-server.md": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682",
+    "sqlserver/manual-count-100m/manual/source.json": "836cf870c5eddb95e8e6d5f6c2e87ca998bc8afff34c078e35acf9a810dd5bb1",
+    "sqlserver/manual-count-100m/sql/inventory.sql": "8083045eb9ca3318f302db51ee735ccb7a4c0b3dc3cb5a3f2aac7e659f8155a9",
+    "sqlserver/manual-count-100m/sql/guard.sql": "b7a40f605375f539d651b43befec10a324c4587d7e9e8ea4e7411b7fd08dacd6",
+    "sqlserver/manual-count-100m/sql/role.sql": "ecf728c03a5b1d3b945c9acbf96cfb92ed1de77401c399f55856955f2269728f",
+    "sqlserver/manual-count-100m/sql/showplan.sql": "9e628f01d8cb0a63131a6f2681cfac50e89a4ff573053ed4f487c23e85091be4",
+    "sqlserver/manual-count-100m/sql/indexes.sql": "f05b60eccb7915a764dc5971647a183910567be9754ec5947d77a86a294187ea",
+    "sqlserver/manual-count-100m/sql/pages.sql": "70a9455c876c660ac0b06dad0340643acabe9f8b7d0303ba9abbbfce9e51cf2d",
+    "sqlserver/manual-count-100m/sql/branch-a.sql": "a10008a4f86097055286ccc2033c4e29b934203637a219cb9354598a5b913ce2",
+    "sqlserver/manual-count-100m/sql/branch-b.sql": "50e5b63ad5e053eaff6ffd01c005620c75e80488f1b06234af5c3514d1a35790",
+    "sqlserver/manual-count-100m/sql/branch-c.sql": "96283fb127b9ea8ee623d89524c74759f361cd943f2f30cea136fbb0d6376895",
+    "sqlserver/manual-count-100m/sql/branch-d.sql": "78c918726da0986a3ce00f508d5d85eb8d368e65529faf71c24457db7ba11c3a",
+    "sqlserver/manual-count-100m/sql/ag-primary-state.sql": "d14dc9349f60947a726edb0a391f277404b846af395d4d62d30901ead50b81d9",
+    "sqlserver/manual-count-100m/sql/ag-endpoint.sql": "7fd797b8224756f2a7578a587806994b358e098c1537520db547574731108e34",
+    "sqlserver/manual-count-100m/sql/ag-peer.sql": "3797abff5026d0ea4f5d38f6639f42fdec6886d41a2e4440a245f856de71935a",
+    "sqlserver/manual-count-100m/sql/ag-primary-setup.sql": "7e4c12f3664982991a8cd64cea2e5da6ae4389ea2e60cb11a42b4eb34eff3eab",
+    "sqlserver/manual-count-100m/sql/ag-secondary-setup.sql": "b2ccfcd7c8fac5babf872a02145675573b9ede52a6c028300b165a8ab0eadcbb",
+    "sqlserver/manual-count-100m/sql/ag-backup-proof.sql": "a31e353e70acd7e94183571bcddc6bb04d91a01974ad99c6aab81c174239dd48",
+    "sqlserver/manual-count-100m/sql/ag-topology.sql": "0d0dd5625d2a8de1146a6af693cd256b550d87c2ee11c6477293e513a5d1f294",
+    "results/reviews/sqlserver-manual-count-100m/baseline.json": "4512052b06b5776a99183e2b29b1d5783df59c865aeb3acfd0156b967f43d427"
+  },
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "context",
+        "inspect",
+        "colima-brotli-verify"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00001.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00001.stderr.log",
+      "started_at": "2026-11-08T22:40:58Z",
+      "start_monotonic": 609083.248905,
+      "exit_status": 0,
+      "end_monotonic": 609083.355179,
+      "stdout_sha256": "fc551fa833cfe59ea6532a23d9570092d90c9b8d046f6928867eb17773e3c863",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "info",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00002.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00002.stderr.log",
+      "started_at": "2026-11-08T22:40:58Z",
+      "start_monotonic": 609083.35607,
+      "exit_status": 0,
+      "end_monotonic": 609083.562351,
+      "stdout_sha256": "24a761ce54a7c2216b22e4a0706ee92c385d521fb68128af85549b37da9a2991",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "uname",
+        "-a"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00003.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00003.stderr.log",
+      "started_at": "2026-11-08T22:40:58Z",
+      "start_monotonic": 609083.562893,
+      "exit_status": 0,
+      "end_monotonic": 609083.668702,
+      "stdout_sha256": "f6e1a252cf0dba3889e353c8f47264223c5d4e38bb597891d667cf7275e864c3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "sysctl",
+        "-n",
+        "hw.memsize",
+        "hw.ncpu",
+        "machdep.cpu.brand_string"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00004.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00004.stderr.log",
+      "started_at": "2026-11-08T22:40:58Z",
+      "start_monotonic": 609083.669742,
+      "exit_status": 0,
+      "end_monotonic": 609083.775427,
+      "stdout_sha256": "448c069677e97698b05b247f67577a3558307e466071b631673bcc2f6203b556",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "uname -a; df -Pk /; cat /proc/meminfo; cat /proc/cpuinfo"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00005.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00005.stderr.log",
+      "started_at": "2026-11-08T22:40:58Z",
+      "start_monotonic": 609083.778293,
+      "exit_status": 0,
+      "end_monotonic": 609084.199081,
+      "stdout_sha256": "acfafe177d0d746e579ce749a29b4a3230ced900a30e682d7e46c2f4635cb317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "cat /proc/sys/fs/binfmt_misc/rosetta"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00006.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00006.stderr.log",
+      "started_at": "2026-11-08T22:40:59Z",
+      "start_monotonic": 609084.199858,
+      "exit_status": 0,
+      "end_monotonic": 609084.515364,
+      "stdout_sha256": "f2780d8f4ab2e1ce5c14ef8a0ffdd36c08f11662b2f96b2af067884a773308c8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00007.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00007.stderr.log",
+      "started_at": "2026-11-08T22:40:59Z",
+      "start_monotonic": 609084.517031,
+      "exit_status": 0,
+      "end_monotonic": 609084.623854,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-secondary$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00008.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00008.stderr.log",
+      "started_at": "2026-11-08T22:40:59Z",
+      "start_monotonic": 609084.624982,
+      "exit_status": 0,
+      "end_monotonic": 609084.732138,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-client$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00009.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00009.stderr.log",
+      "started_at": "2026-11-08T22:40:59Z",
+      "start_monotonic": 609084.733825,
+      "exit_status": 0,
+      "end_monotonic": 609084.840749,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-network$",
+        "--format",
+        "{{.Name}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00010.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00010.stderr.log",
+      "started_at": "2026-11-08T22:41:00Z",
+      "start_monotonic": 609084.842496,
+      "exit_status": 0,
+      "end_monotonic": 609084.9518,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "ls",
+        "--filter",
+        "reference=lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e",
+        "--format",
+        "{{.ID}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00011.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00011.stderr.log",
+      "started_at": "2026-11-08T22:41:00Z",
+      "start_monotonic": 609084.953577,
+      "exit_status": 0,
+      "end_monotonic": 609085.062655,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00012.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00012.stderr.log",
+      "started_at": "2026-11-08T22:41:00Z",
+      "start_monotonic": 609085.064533,
+      "exit_status": 0,
+      "end_monotonic": 609085.17288,
+      "stdout_sha256": "c43fd57f31e3634451175bf0396edbe386d16f6ad5385382413255d45a555dca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00013.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00013.stderr.log",
+      "started_at": "2026-11-08T22:41:00Z",
+      "start_monotonic": 609085.178208,
+      "exit_status": 0,
+      "end_monotonic": 609085.287706,
+      "stdout_sha256": "6385e3a6f69d93ec7a06b914a105a4bc2d52c4ab6fc213d9bb4ff9a6ac437792",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00014.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00014.stderr.log",
+      "started_at": "2026-11-08T22:41:00Z",
+      "start_monotonic": 609085.289094,
+      "exit_status": 0,
+      "end_monotonic": 609085.396437,
+      "stdout_sha256": "0acf7ebb3c9a2e9c12faaef816e8d9da887518995bac245c66abe9163f372160",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "build",
+        "--platform",
+        "linux/arm64",
+        "--pull=false",
+        "--label",
+        "count.manual100m.owner=09835d7aefce74d25ced05cc7dea235e",
+        "-t",
+        "lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e",
+        "."
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00015.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00015.stderr.log",
+      "started_at": "2026-11-08T22:41:00Z",
+      "start_monotonic": 609085.397764,
+      "exit_status": 0,
+      "end_monotonic": 609128.144882,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7bfa582ace0df215e565193eddefd7083cda4037daa5e851f3821828ad6a47d6"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00016.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00016.stderr.log",
+      "started_at": "2026-11-08T22:41:43Z",
+      "start_monotonic": 609128.145412,
+      "exit_status": 0,
+      "end_monotonic": 609128.246968,
+      "stdout_sha256": "8933e9bbb28e0071aa2c63de0e091feec390ecad455eef58dd420f32b7cbe356",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "compose",
+        "-p",
+        "lab-sqlserver-manual100m",
+        "-f",
+        "compose.yaml",
+        "create",
+        "--no-recreate",
+        "--no-build",
+        "--pull",
+        "never"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00017.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00017.stderr.log",
+      "started_at": "2026-11-08T22:41:43Z",
+      "start_monotonic": 609128.24792,
+      "exit_status": 0,
+      "end_monotonic": 609128.454359,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cd7544c91fd071155affc1a47b74e2d3271daf4fd538aecf66d8f70d47b35556"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-manual100m"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00018.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00018.stderr.log",
+      "started_at": "2026-11-08T22:41:43Z",
+      "start_monotonic": 609128.454873,
+      "exit_status": 0,
+      "end_monotonic": 609128.55931,
+      "stdout_sha256": "58e74bf80c17813c2647115cfad576220cdd4eedcba80ef51789e140b2cc51bb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-manual100m-secondary"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00019.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00019.stderr.log",
+      "started_at": "2026-11-08T22:41:43Z",
+      "start_monotonic": 609128.560622,
+      "exit_status": 0,
+      "end_monotonic": 609128.66467,
+      "stdout_sha256": "02a7a69aea236b97d05575416da253eceda61010aa6c3f7db41795759e16f19d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-manual100m-client"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00020.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00020.stderr.log",
+      "started_at": "2026-11-08T22:41:43Z",
+      "start_monotonic": 609128.66579,
+      "exit_status": 0,
+      "end_monotonic": 609128.77264,
+      "stdout_sha256": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "inspect",
+        "lab-sqlserver-manual100m-network"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00021.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00021.stderr.log",
+      "started_at": "2026-11-08T22:41:43Z",
+      "start_monotonic": 609128.773401,
+      "exit_status": 0,
+      "end_monotonic": 609128.879746,
+      "stdout_sha256": "c16650711fc17182df485a54c5b1169e560ea72ed3153b8aa3591c0a37601e89",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00022.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00022.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609128.881013,
+      "exit_status": 0,
+      "end_monotonic": 609128.990347,
+      "stdout_sha256": "58e74bf80c17813c2647115cfad576220cdd4eedcba80ef51789e140b2cc51bb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00023.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00023.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609128.991742,
+      "exit_status": 0,
+      "end_monotonic": 609129.099067,
+      "stdout_sha256": "73f610aba47253ada7b69722c18a34f6c96c134c35eeb62f7134f7fdee17c40c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "401a9eb2ecd82786deb9502bd2016dd2f0ae8c3f97cac32fc0b914c9e2ad4ebe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00024.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00024.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.100592,
+      "exit_status": 0,
+      "end_monotonic": 609129.208021,
+      "stdout_sha256": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "inspect",
+        "1f3924d100466eb972fb9c0a9150faf69d4381e1cc166bb8e1757170cae54614"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00025.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00025.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.210945,
+      "exit_status": 0,
+      "end_monotonic": 609129.320196,
+      "stdout_sha256": "c16650711fc17182df485a54c5b1169e560ea72ed3153b8aa3591c0a37601e89",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "cp",
+        "401a9eb2ecd82786deb9502bd2016dd2f0ae8c3f97cac32fc0b914c9e2ad4ebe:/provenance/.",
+        "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/provenance"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00026.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00026.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.32313,
+      "exit_status": 0,
+      "end_monotonic": 609129.43212,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "start",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00027.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00027.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.434157,
+      "exit_status": 0,
+      "end_monotonic": 609129.538099,
+      "stdout_sha256": "0a1071ca28d1acc2f76dbe8e6109b9e6b55fef1d45d898c50aad3d8e69106dfa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00028.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00028.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.538731,
+      "exit_status": 0,
+      "end_monotonic": 609129.644989,
+      "stdout_sha256": "70537fbd8022cb8e9f46af4248de74dd2c64ed1c76b8336fe0956620341e9c19",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "top",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949",
+        "-eo",
+        "pid,comm,args"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00029.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00029.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.645968,
+      "exit_status": 0,
+      "end_monotonic": 609129.752284,
+      "stdout_sha256": "b2d052e49e377ec67d7757b689c787e70c0a521e75f1c05d8a7567d0e7b39d95",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "sudo -n readlink /proc/1045716/exe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00030.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00030.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.753172,
+      "exit_status": 0,
+      "end_monotonic": 609130.067639,
+      "stdout_sha256": "8b35fb10d85fda1d757989e8de370f610ce0d67d93ad66108c23d46198005024",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "top",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949",
+        "-eo",
+        "pid,comm,args"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00031.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00031.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.06841,
+      "exit_status": 0,
+      "end_monotonic": 609130.173503,
+      "stdout_sha256": "57295b3d0454ff86ec0fbec6ac26e36aa67228ecd8e211ff137369ff0720613c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00032.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00032.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.174441,
+      "exit_status": 0,
+      "end_monotonic": 609130.279759,
+      "stdout_sha256": "0f862fb838e79771500cce15eeed5e6feb3e908a3d640924ffc9b87f01dfca34",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-manual100m"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00033.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00033.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.280575,
+      "exit_status": 0,
+      "end_monotonic": 609130.384419,
+      "stdout_sha256": "70537fbd8022cb8e9f46af4248de74dd2c64ed1c76b8336fe0956620341e9c19",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-secondary$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00034.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00034.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.385169,
+      "exit_status": 0,
+      "end_monotonic": 609130.49151,
+      "stdout_sha256": "b6e489db70626e8c1ddbab0ff9a95aea660e98a4e2e8c7a8684635fb4024e89c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-manual100m-secondary"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00035.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00035.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.492066,
+      "exit_status": 0,
+      "end_monotonic": 609130.596894,
+      "stdout_sha256": "02a7a69aea236b97d05575416da253eceda61010aa6c3f7db41795759e16f19d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-client$",
+        "--format",
+        "{{.Names}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00036.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00036.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.597583,
+      "exit_status": 0,
+      "end_monotonic": 609130.701624,
+      "stdout_sha256": "5a3cf1f7468e6aee179c69568ffe98c81699902f7a349f2b8e1e7749dc689e61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "lab-sqlserver-manual100m-client"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00037.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00037.stderr.log",
+      "started_at": "2026-11-08T22:41:45Z",
+      "start_monotonic": 609130.702206,
+      "exit_status": 0,
+      "end_monotonic": 609130.804712,
+      "stdout_sha256": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-network$",
+        "--format",
+        "{{.Name}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00038.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00038.stderr.log",
+      "started_at": "2026-11-08T22:41:46Z",
+      "start_monotonic": 609130.840666,
+      "exit_status": 0,
+      "end_monotonic": 609130.947128,
+      "stdout_sha256": "d1cc3636ad3a5284c7a7ec43c8ea7c59eabc563f96c82dabdaa4e9ad38608ebe",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "inspect",
+        "lab-sqlserver-manual100m-network"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00039.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00039.stderr.log",
+      "started_at": "2026-11-08T22:41:46Z",
+      "start_monotonic": 609130.999424,
+      "exit_status": 0,
+      "end_monotonic": 609131.104353,
+      "stdout_sha256": "6795c4058bf9257514f788d1c01e2fa81c22e22213b9d1457cf19768998e3709",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "401a9eb2ecd82786deb9502bd2016dd2f0ae8c3f97cac32fc0b914c9e2ad4ebe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00040.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00040.stderr.log",
+      "started_at": "2026-11-08T22:41:46Z",
+      "start_monotonic": 609131.141763,
+      "exit_status": 0,
+      "end_monotonic": 609131.243227,
+      "stdout_sha256": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "rm",
+        "--volumes",
+        "401a9eb2ecd82786deb9502bd2016dd2f0ae8c3f97cac32fc0b914c9e2ad4ebe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00041.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00041.stderr.log",
+      "started_at": "2026-11-08T22:41:46Z",
+      "start_monotonic": 609131.291743,
+      "exit_status": 0,
+      "end_monotonic": 609131.393374,
+      "stdout_sha256": "86d493081a627e8871b2753b153c33142be25155af8d75c36e7a50f22ad2fe3e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "logs",
+        "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00042.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00042.stderr.log",
+      "started_at": "2026-11-08T22:41:46Z",
+      "start_monotonic": 609131.442972,
+      "exit_status": 0,
+      "end_monotonic": 609131.548161,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "df -Pk /; cat /proc/meminfo"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00043.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00043.stderr.log",
+      "started_at": "2026-11-08T22:41:46Z",
+      "start_monotonic": 609131.595237,
+      "exit_status": 0,
+      "end_monotonic": 609131.903459,
+      "stdout_sha256": "1639b77a0e65afa8db177aed31fca9d1b34f8f678aa30a12bb4b441bbd07aadc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00044.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00044.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609131.922982,
+      "exit_status": 0,
+      "end_monotonic": 609132.024884,
+      "stdout_sha256": "13588142de012772dab8f360ad0411aa9bce10b6275188bd2baa66e403254ff2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "logs",
+        "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00045.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00045.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.02562,
+      "exit_status": 0,
+      "end_monotonic": 609132.132089,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "rm",
+        "--volumes",
+        "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00046.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00046.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.132772,
+      "exit_status": 0,
+      "end_monotonic": 609132.235434,
+      "stdout_sha256": "a17b67f5905afbcba9bc976f6d04a449d1dbcf413edf9021aade0c6ab78c3588",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "logs",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00047.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00047.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.27199,
+      "exit_status": 0,
+      "end_monotonic": 609132.378379,
+      "stdout_sha256": "46d4f79098b69eec99228288e7a302607d20d17c1df852deff817f7029fcba75",
+      "stderr_sha256": "d425741e12781ecfd2d5779a45e10853522053cafb676efa7e90be303c659c67"
+    },
+    {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "df -Pk /; cat /proc/meminfo"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00048.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00048.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.379264,
+      "exit_status": 0,
+      "end_monotonic": 609132.588267,
+      "stdout_sha256": "e9ee19b80ed3053b066bdfd15092574b0e3a0612014107b489baa599bbf3eb64",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00049.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00049.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.624388,
+      "exit_status": 0,
+      "end_monotonic": 609132.730856,
+      "stdout_sha256": "70537fbd8022cb8e9f46af4248de74dd2c64ed1c76b8336fe0956620341e9c19",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "stop",
+        "--time",
+        "60",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00050.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00050.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.732114,
+      "exit_status": 0,
+      "end_monotonic": 609192.24098,
+      "stdout_sha256": "47649c2ab3cd86c3e21f39661ef33db743a698f84e9a46fe2d8a44c0ae2b0ff2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "inspect",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00051.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00051.stderr.log",
+      "started_at": "2026-11-08T22:42:47Z",
+      "start_monotonic": 609192.241693,
+      "exit_status": 0,
+      "end_monotonic": 609192.346807,
+      "stdout_sha256": "757537125ee3367e735f9e3a42467a63d526b9d2cc81d0b3e4eaafbc9660f4bf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "logs",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00052.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00052.stderr.log",
+      "started_at": "2026-11-08T22:42:47Z",
+      "start_monotonic": 609192.348059,
+      "exit_status": 0,
+      "end_monotonic": 609192.451774,
+      "stdout_sha256": "19697e8bfe5a69079a375a868452efed6a84bcbced65bc19557c23e23c41877f",
+      "stderr_sha256": "d425741e12781ecfd2d5779a45e10853522053cafb676efa7e90be303c659c67"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "rm",
+        "--volumes",
+        "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00053.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00053.stderr.log",
+      "started_at": "2026-11-08T22:42:47Z",
+      "start_monotonic": 609192.453137,
+      "exit_status": 0,
+      "end_monotonic": 609192.560347,
+      "stdout_sha256": "0a1071ca28d1acc2f76dbe8e6109b9e6b55fef1d45d898c50aad3d8e69106dfa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "inspect",
+        "1f3924d100466eb972fb9c0a9150faf69d4381e1cc166bb8e1757170cae54614"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00054.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00054.stderr.log",
+      "started_at": "2026-11-08T22:42:47Z",
+      "start_monotonic": 609192.561515,
+      "exit_status": 0,
+      "end_monotonic": 609192.669079,
+      "stdout_sha256": "c16650711fc17182df485a54c5b1169e560ea72ed3153b8aa3591c0a37601e89",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "rm",
+        "1f3924d100466eb972fb9c0a9150faf69d4381e1cc166bb8e1757170cae54614"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00055.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00055.stderr.log",
+      "started_at": "2026-11-08T22:42:47Z",
+      "start_monotonic": 609192.671021,
+      "exit_status": 0,
+      "end_monotonic": 609192.780102,
+      "stdout_sha256": "1f0bd2e19147ddae8bb688932f143a0491376a5e6868e81b5e8db7f3da336fd8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "ls",
+        "--filter",
+        "reference=lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e",
+        "--format",
+        "{{.ID}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00056.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00056.stderr.log",
+      "started_at": "2026-11-08T22:42:47Z",
+      "start_monotonic": 609192.781037,
+      "exit_status": 0,
+      "end_monotonic": 609192.887241,
+      "stdout_sha256": "e388e2390343a8498a86944b4d7c898ee16dc600b412fcafe474c8ef4a3c4a01",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "inspect",
+        "lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00057.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00057.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609192.888172,
+      "exit_status": 0,
+      "end_monotonic": 609192.995211,
+      "stdout_sha256": "8933e9bbb28e0071aa2c63de0e091feec390ecad455eef58dd420f32b7cbe356",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "rm",
+        "sha256:2d9bbf77360e18b722e4c25f16e6aaadf6a3511994de91ef043837e9d9677e62"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00058.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00058.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609192.996385,
+      "exit_status": 0,
+      "end_monotonic": 609193.103573,
+      "stdout_sha256": "4ecf3f3171d86d8951273829ba0cf8d3fc9ffba03e63fb9a8f6a033fc41a0ba4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "label=count.manual100m.owner=09835d7aefce74d25ced05cc7dea235e",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00059.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00059.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.104573,
+      "exit_status": 0,
+      "end_monotonic": 609193.211666,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=09835d7aefce74d25ced05cc7dea235e",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00060.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00060.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.21306,
+      "exit_status": 0,
+      "end_monotonic": 609193.31925,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=09835d7aefce74d25ced05cc7dea235e",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00061.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00061.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.321096,
+      "exit_status": 0,
+      "end_monotonic": 609193.429546,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m$",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00062.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00062.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.431304,
+      "exit_status": 0,
+      "end_monotonic": 609193.540401,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-secondary$",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00063.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00063.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.541809,
+      "exit_status": 0,
+      "end_monotonic": 609193.649238,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-client$",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00064.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00064.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.650418,
+      "exit_status": 0,
+      "end_monotonic": 609193.754641,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--filter",
+        "name=^lab-sqlserver-manual100m-network$",
+        "--format",
+        "{{json .}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00065.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00065.stderr.log",
+      "started_at": "2026-11-08T22:42:48Z",
+      "start_monotonic": 609193.756079,
+      "exit_status": 0,
+      "end_monotonic": 609193.864266,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "image",
+        "ls",
+        "--filter",
+        "label=count.manual100m.owner=09835d7aefce74d25ced05cc7dea235e",
+        "--format",
+        "{{.ID}}"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00066.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00066.stderr.log",
+      "started_at": "2026-11-08T22:42:49Z",
+      "start_monotonic": 609193.866231,
+      "exit_status": 0,
+      "end_monotonic": 609193.975839,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/Users/taco/gits/tacogips/database-analysis"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00067.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00067.stderr.log",
+      "started_at": "2026-11-08T22:42:49Z",
+      "start_monotonic": 609193.976912,
+      "exit_status": 0,
+      "end_monotonic": 609194.080147,
+      "stdout_sha256": "3428d28b6227125dd81beb32b587601cbadf28641c9d712dafc3a130b56cf9e8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "completion": "incomplete",
+  "precision": "unverified",
+  "transaction_release": "unverified",
+  "service_budget": "UNAVAILABLE_quiet_static_lab",
+  "cleanup": "failed_or_unknown_preserved_evidence",
+  "input_bindings": {
+    "baselineSha256": "4512052b06b5776a99183e2b29b1d5783df59c865aeb3acfd0156b967f43d427",
+    "manualSha256": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682",
+    "promptSha256": "8ef7bec1a3c82c7d9d972f74c66d6d0fa965485e395b2b7ae86512d7b6aa86c5",
+    "role": "author"
+  },
+  "context": {
+    "name": "colima-brotli-verify",
+    "endpoint": "unix:///Users/taco/.config/colima/brotli-verify/docker.sock"
+  },
+  "vm_evidence": {
+    "guest-resources": {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "uname -a; df -Pk /; cat /proc/meminfo; cat /proc/cpuinfo"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00005.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00005.stderr.log",
+      "started_at": "2026-11-08T22:40:58Z",
+      "start_monotonic": 609083.778293,
+      "exit_status": 0,
+      "end_monotonic": 609084.199081,
+      "stdout_sha256": "acfafe177d0d746e579ce749a29b4a3230ced900a30e682d7e46c2f4635cb317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "rosetta-registration": {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "cat /proc/sys/fs/binfmt_misc/rosetta"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00006.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00006.stderr.log",
+      "started_at": "2026-11-08T22:40:59Z",
+      "start_monotonic": 609084.199858,
+      "exit_status": 0,
+      "end_monotonic": 609084.515364,
+      "stdout_sha256": "f2780d8f4ab2e1ce5c14ef8a0ffdd36c08f11662b2f96b2af067884a773308c8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "lab-sqlserver-manual100m-pid-1045716-exe": {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "sudo -n readlink /proc/1045716/exe"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00030.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00030.stderr.log",
+      "started_at": "2026-11-08T22:41:44Z",
+      "start_monotonic": 609129.753172,
+      "exit_status": 0,
+      "end_monotonic": 609130.067639,
+      "stdout_sha256": "8b35fb10d85fda1d757989e8de370f610ce0d67d93ad66108c23d46198005024",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "guest-before-cleanup": {
+      "argv": [
+        "colima",
+        "ssh",
+        "--profile",
+        "brotli-verify",
+        "--",
+        "sh",
+        "-c",
+        "df -Pk /; cat /proc/meminfo"
+      ],
+      "stdout": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00048.stdout.log",
+      "stderr": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e/00048.stderr.log",
+      "started_at": "2026-11-08T22:41:47Z",
+      "start_monotonic": 609132.379264,
+      "exit_status": 0,
+      "end_monotonic": 609132.588267,
+      "stdout_sha256": "e9ee19b80ed3053b066bdfd15092574b0e3a0612014107b489baa599bbf3eb64",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "rosetta_registration": "enabled\ninterpreter /mnt/lima-rosetta/rosetta\nflags: OCF\noffset 0\nmagic 7f454c4602010100000000000000000002003e00\nmask fffffffffffefe00fffffffffffffffffeffffff\n",
+  "free_before_bytes": 148768481280,
+  "stage": {
+    "path": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage",
+    "uid": 501,
+    "gid": 0,
+    "marker": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/owner.json"
+  },
+  "sql_image": [
+    {
+      "Id": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+      "RepoTags": [
+        "mcr.microsoft.com/mssql/server@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+      ],
+      "RepoDigests": [
+        "mcr.microsoft.com/mssql/server@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+      ],
+      "Comment": "buildkit.dockerfile.v0",
+      "Created": "2026-10-20T23:06:58.70115748Z",
+      "Config": {
+        "User": "mssql",
+        "ExposedPorts": {
+          "1433/tcp": {}
+        },
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "MSSQL_RPC_PORT=135",
+          "MSSQL_PID=developer"
+        ],
+        "Entrypoint": [
+          "/opt/mssql/bin/launch_sqlservr.sh"
+        ],
+        "Cmd": [
+          "/opt/mssql/bin/sqlservr"
+        ],
+        "Labels": {
+          "com.microsoft.product": "Microsoft SQL Server",
+          "com.microsoft.version": "17.0.5035.5",
+          "org.opencontainers.image.ref.name": "ubuntu",
+          "org.opencontainers.image.version": "24.04",
+          "vendor": "Microsoft"
+        },
+        "ArgsEscaped": true
+      },
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 635885096,
+      "RootFS": {
+        "Type": "layers",
+        "Layers": [
+          "sha256:e8bce0aabd687e9ee90e0bada33884f40b277196f72aac9934357472863a80ae",
+          "sha256:70511030faaed7d765fb6de26db73223c717782d108cc02694f89ad7a8230372",
+          "sha256:25bf9612429057d2d3e1870d3d59faff2880bb13d51fdfaf63e52ee1e6622957"
+        ]
+      },
+      "Metadata": {
+        "LastTagTime": "2026-11-08T22:40:58.222592377Z"
+      },
+      "Descriptor": {
+        "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+        "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "size": 760
+      },
+      "Identity": {
+        "Pull": [
+          {
+            "Repository": "mcr.microsoft.com/mssql/server"
+          }
+        ]
+      }
+    }
+  ],
+  "sdk_image": [
+    {
+      "Id": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+      "RepoTags": [
+        "mcr.microsoft.com/dotnet/sdk@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+      ],
+      "RepoDigests": [
+        "mcr.microsoft.com/dotnet/sdk@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e"
+      ],
+      "Comment": "buildkit.dockerfile.v0",
+      "Created": "2026-11-05T23:01:00.459953208Z",
+      "Config": {
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "APP_UID=1654",
+          "ASPNETCORE_HTTP_PORTS=8080",
+          "DOTNET_RUNNING_IN_CONTAINER=true",
+          "DOTNET_VERSION=10.0.14",
+          "ASPNET_VERSION=10.0.14",
+          "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+          "DOTNET_NOLOGO=true",
+          "DOTNET_SDK_VERSION=10.0.403",
+          "DOTNET_USE_POLLING_FILE_WATCHER=true",
+          "NUGET_XMLDOC_MODE=skip",
+          "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64"
+        ],
+        "Cmd": [
+          "/bin/bash"
+        ],
+        "Labels": {
+          "org.opencontainers.image.version": "24.04"
+        }
+      },
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 344584636,
+      "RootFS": {
+        "Type": "layers",
+        "Layers": [
+          "sha256:107ffca6dcd3fc87a7bed8c062f5ddc0d6a4b107205c82c0b49efdb7c1aff967",
+          "sha256:09112df7245c4f71290b9e2adc8d59c2fd8c239077deaeb0135fc738754afec6",
+          "sha256:2c128d2a22173723650e57eee883644c9fa3b72b7da8e000a71939f60a81c073",
+          "sha256:fc56b1452eeabd83861375b79b04ce1a3730eea53a8ac2cecdadf2e7d077c8e9",
+          "sha256:99ca1d93e777e729c265afb2cbde52972289803a9c3bc2cf87e6870568a0b77d",
+          "sha256:4c7e58bb242d8ca617fb2ab42357f37d9e982e10f5362284feed907e0b488e1c",
+          "sha256:5d0233e1ec0a359ca65b500f05e305f65ba8a36add9fcb1f51400f68c989527e",
+          "sha256:02122b6c3f177fe7bdeb85b6e15a605da4483301f9d393b6e0a97112b451dac3",
+          "sha256:67d056a5e8ac1b68348481be543b22a52e1c6f5ad95608f1aeeec550de0277fc",
+          "sha256:68d2d4f1cb1fdf9a0ff8c5ab1b6cafe2787fa2d33b8fd1080a043f1ec890785d",
+          "sha256:8e4d3b307f83e559d6fcffdfb28f8ed3878cf435dc691e95aea13ac23381f8ff"
+        ]
+      },
+      "Metadata": {
+        "LastTagTime": "2026-11-08T22:40:58.401285637Z"
+      },
+      "Descriptor": {
+        "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+        "digest": "sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e",
+        "size": 1079
+      },
+      "Identity": {
+        "Pull": [
+          {
+            "Repository": "mcr.microsoft.com/dotnet/sdk"
+          }
+        ]
+      }
+    }
+  ],
+  "servers_created_inspect": {
+    "primary": {
+      "Id": "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949",
+      "Created": "2026-11-08T22:41:43.603630437Z",
+      "Path": "/bin/bash",
+      "Args": [
+        "-c",
+        "# Keep INT effective for asynchronously started children; signal PIDs, never groups.\nset -m\nsql_pid=\nsetup_pid=\nsignal_epoch=0\nterm_pending=0\nint_pending=0\nforward_signal() {\n  local sig=\"$1\" child\n  for child in \"$sql_pid\" \"$setup_pid\"; do\n    if [[ -n \"$child\" ]]; then\n      kill -s \"$sig\" -- \"$child\" 2>/dev/null || :\n    fi\n  done\n}\non_signal() {\n  signal_epoch=$((signal_epoch + 1))\n  case \"$1\" in\n    TERM) term_pending=1 ;;\n    INT) int_pending=1 ;;\n  esac\n  forward_signal \"$1\"\n}\nreplay_signals() {\n  if (( term_pending )); then kill -s TERM -- \"$1\" 2>/dev/null || :; fi\n  if (( int_pending )); then kill -s INT -- \"$1\" 2>/dev/null || :; fi\n}\nwait_child() {\n  local target=\"$1\" epoch rc\n  while :; do\n    epoch=$signal_epoch\n    wait -f \"$target\"\n    rc=$?\n    # A trapped signal interrupts wait; retry the SAME child for its actual status.\n    if (( epoch == signal_epoch )); then return \"$rc\"; fi\n  done\n}\ntrap 'on_signal TERM' TERM\ntrap 'on_signal INT' INT\nif [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then\n  echo 'Unable to run startup permissions check, exiting.' >&2\n  exit 1\nfi\n/opt/mssql/bin/permissions_check.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\ncase \"${MSSQL_PID,,}\" in\n  standarddeveloper) export MSSQL_PID=DeveloperStandard ;;\n  enterprisedeveloper) export MSSQL_PID=Developer ;;\nesac\nsource /opt/mssql/bin/init_custom_setup.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\nif (( term_pending )); then exit 143; fi\nif (( int_pending )); then exit 130; fi\n/opt/mssql/bin/sqlservr &\nsql_pid=$!\n# Replay signals received between launch and capture of the owned child PID.\nreplay_signals \"$sql_pid\"\nsetup_status=0\nif (( !term_pending && !int_pending )); then\n  /opt/mssql/bin/run_custom_setup.sh &\n  setup_pid=$!\n  replay_signals \"$setup_pid\"\n  wait_child \"$setup_pid\"\n  setup_status=$?\n  setup_pid=\nfi\nif (( setup_status != 0 )); then\n  # Failed startup must not abandon the SQL child it already started.\n  kill -s TERM -- \"$sql_pid\" 2>/dev/null || :\nfi\nwait_child \"$sql_pid\"\nsql_status=$?\nsql_pid=\nprintf 'manual100m entrypoint terminal: setup=%s sql=%s\\n' \"$setup_status\" \"$sql_status\"\nif (( sql_status != 0 )); then exit \"$sql_status\"; fi\nif (( setup_status != 0 )); then exit \"$setup_status\"; fi\nexit \"$sql_status\"\n"
+      ],
+      "State": {
+        "Status": "created",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "0001-01-01T00:00:00Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+      "ResolvConfPath": "",
+      "HostnamePath": "",
+      "HostsPath": "",
+      "LogPath": "",
+      "Name": "/lab-sqlserver-manual100m",
+      "RestartCount": 0,
+      "Driver": "overlayfs",
+      "Platform": "linux",
+      "MountLabel": "",
+      "ProcessLabel": "",
+      "AppArmorProfile": "",
+      "ExecIDs": null,
+      "HostConfig": {
+        "Binds": null,
+        "ContainerIDFile": "",
+        "LogConfig": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "NetworkMode": "lab-sqlserver-manual100m-network",
+        "PortBindings": {},
+        "RestartPolicy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "AutoRemove": false,
+        "VolumeDriver": "",
+        "VolumesFrom": null,
+        "ConsoleSize": [
+          0,
+          0
+        ],
+        "CapAdd": null,
+        "CapDrop": null,
+        "CgroupnsMode": "private",
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": [],
+        "GroupAdd": null,
+        "IpcMode": "private",
+        "Cgroup": "",
+        "Links": null,
+        "OomScoreAdj": 0,
+        "PidMode": "",
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": false,
+        "SecurityOpt": null,
+        "UTSMode": "",
+        "UsernsMode": "",
+        "ShmSize": 67108864,
+        "Runtime": "runc",
+        "Isolation": "",
+        "CpuShares": 0,
+        "Memory": 4294967296,
+        "NanoCpus": 3000000000,
+        "CgroupParent": "",
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteIOps": null,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuRealtimePeriod": 0,
+        "CpuRealtimeRuntime": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DeviceCgroupRules": null,
+        "DeviceRequests": null,
+        "MemoryReservation": 0,
+        "MemorySwap": 8589934592,
+        "MemorySwappiness": null,
+        "OomKillDisable": false,
+        "PidsLimit": null,
+        "Ulimits": null,
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "IOMaximumIOps": 0,
+        "IOMaximumBandwidth": 0,
+        "Mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/primary",
+            "Target": "/var/opt/mssql",
+            "BindOptions": {}
+          },
+          {
+            "Type": "bind",
+            "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/shared",
+            "Target": "/backup",
+            "BindOptions": {}
+          }
+        ],
+        "MaskedPaths": [
+          "/proc/acpi",
+          "/proc/asound",
+          "/proc/interrupts",
+          "/proc/kcore",
+          "/proc/keys",
+          "/proc/latency_stats",
+          "/proc/sched_debug",
+          "/proc/scsi",
+          "/proc/timer_list",
+          "/proc/timer_stats",
+          "/sys/devices/virtual/powercap",
+          "/sys/firmware"
+        ],
+        "ReadonlyPaths": [
+          "/proc/bus",
+          "/proc/fs",
+          "/proc/irq",
+          "/proc/sys",
+          "/proc/sysrq-trigger"
+        ]
+      },
+      "Storage": {
+        "RootFS": {
+          "Snapshot": {
+            "Name": "overlayfs"
+          }
+        }
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/primary",
+          "Destination": "/var/opt/mssql",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "bind",
+          "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/shared",
+          "Destination": "/backup",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "Config": {
+        "Hostname": "countprimary",
+        "Domainname": "",
+        "User": "501:0",
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "ExposedPorts": {
+          "1433/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+          "ACCEPT_EULA=Y",
+          "MSSQL_PID=Developer",
+          "MSSQL_ENABLE_HADR=1",
+          "MSSQL_SA_PASSWORD=ManualCount100m_Lab_2026!",
+          "MSSQL_MEMORY_LIMIT_MB=2048",
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "MSSQL_RPC_PORT=135"
+        ],
+        "Cmd": null,
+        "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "Volumes": null,
+        "WorkingDir": "",
+        "Entrypoint": [
+          "/bin/bash",
+          "-c",
+          "# Keep INT effective for asynchronously started children; signal PIDs, never groups.\nset -m\nsql_pid=\nsetup_pid=\nsignal_epoch=0\nterm_pending=0\nint_pending=0\nforward_signal() {\n  local sig=\"$1\" child\n  for child in \"$sql_pid\" \"$setup_pid\"; do\n    if [[ -n \"$child\" ]]; then\n      kill -s \"$sig\" -- \"$child\" 2>/dev/null || :\n    fi\n  done\n}\non_signal() {\n  signal_epoch=$((signal_epoch + 1))\n  case \"$1\" in\n    TERM) term_pending=1 ;;\n    INT) int_pending=1 ;;\n  esac\n  forward_signal \"$1\"\n}\nreplay_signals() {\n  if (( term_pending )); then kill -s TERM -- \"$1\" 2>/dev/null || :; fi\n  if (( int_pending )); then kill -s INT -- \"$1\" 2>/dev/null || :; fi\n}\nwait_child() {\n  local target=\"$1\" epoch rc\n  while :; do\n    epoch=$signal_epoch\n    wait -f \"$target\"\n    rc=$?\n    # A trapped signal interrupts wait; retry the SAME child for its actual status.\n    if (( epoch == signal_epoch )); then return \"$rc\"; fi\n  done\n}\ntrap 'on_signal TERM' TERM\ntrap 'on_signal INT' INT\nif [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then\n  echo 'Unable to run startup permissions check, exiting.' >&2\n  exit 1\nfi\n/opt/mssql/bin/permissions_check.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\ncase \"${MSSQL_PID,,}\" in\n  standarddeveloper) export MSSQL_PID=DeveloperStandard ;;\n  enterprisedeveloper) export MSSQL_PID=Developer ;;\nesac\nsource /opt/mssql/bin/init_custom_setup.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\nif (( term_pending )); then exit 143; fi\nif (( int_pending )); then exit 130; fi\n/opt/mssql/bin/sqlservr &\nsql_pid=$!\n# Replay signals received between launch and capture of the owned child PID.\nreplay_signals \"$sql_pid\"\nsetup_status=0\nif (( !term_pending && !int_pending )); then\n  /opt/mssql/bin/run_custom_setup.sh &\n  setup_pid=$!\n  replay_signals \"$setup_pid\"\n  wait_child \"$setup_pid\"\n  setup_status=$?\n  setup_pid=\nfi\nif (( setup_status != 0 )); then\n  # Failed startup must not abandon the SQL child it already started.\n  kill -s TERM -- \"$sql_pid\" 2>/dev/null || :\nfi\nwait_child \"$sql_pid\"\nsql_status=$?\nsql_pid=\nprintf 'manual100m entrypoint terminal: setup=%s sql=%s\\n' \"$setup_status\" \"$sql_status\"\nif (( sql_status != 0 )); then exit \"$sql_status\"; fi\nif (( setup_status != 0 )); then exit \"$setup_status\"; fi\nexit \"$sql_status\"\n"
+        ],
+        "Labels": {
+          "com.docker.compose.config-hash": "29168d3048eb37a1f912e7fc4d493c0f7d45705d9c446fb4cdbedc5fa0f16a52",
+          "com.docker.compose.container-number": "1",
+          "com.docker.compose.depends_on": "",
+          "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+          "com.docker.compose.oneoff": "False",
+          "com.docker.compose.project": "lab-sqlserver-manual100m",
+          "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+          "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+          "com.docker.compose.service": "server",
+          "com.docker.compose.version": "5.6.1",
+          "com.microsoft.product": "Microsoft SQL Server",
+          "com.microsoft.version": "17.0.5035.5",
+          "count.manual100m.owner": "09835d7aefce74d25ced05cc7dea235e",
+          "org.opencontainers.image.ref.name": "ubuntu",
+          "org.opencontainers.image.version": "24.04",
+          "vendor": "Microsoft"
+        }
+      },
+      "NetworkSettings": {
+        "SandboxID": "",
+        "SandboxKey": "",
+        "Ports": {},
+        "Networks": {
+          "lab-sqlserver-manual100m-network": {
+            "IPAMConfig": {},
+            "Links": null,
+            "Aliases": [
+              "lab-sqlserver-manual100m",
+              "server",
+              "countprimary"
+            ],
+            "DriverOpts": null,
+            "GwPriority": 0,
+            "NetworkID": "",
+            "EndpointID": "",
+            "Gateway": "",
+            "IPAddress": "",
+            "MacAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "DNSNames": null
+          }
+        }
+      },
+      "ImageManifestDescriptor": {
+        "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+        "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "size": 760,
+        "platform": {
+          "architecture": "amd64",
+          "os": "linux"
+        }
+      }
+    },
+    "secondary": {
+      "Id": "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be",
+      "Created": "2026-11-08T22:41:43.603590603Z",
+      "Path": "/bin/bash",
+      "Args": [
+        "-c",
+        "# Keep INT effective for asynchronously started children; signal PIDs, never groups.\nset -m\nsql_pid=\nsetup_pid=\nsignal_epoch=0\nterm_pending=0\nint_pending=0\nforward_signal() {\n  local sig=\"$1\" child\n  for child in \"$sql_pid\" \"$setup_pid\"; do\n    if [[ -n \"$child\" ]]; then\n      kill -s \"$sig\" -- \"$child\" 2>/dev/null || :\n    fi\n  done\n}\non_signal() {\n  signal_epoch=$((signal_epoch + 1))\n  case \"$1\" in\n    TERM) term_pending=1 ;;\n    INT) int_pending=1 ;;\n  esac\n  forward_signal \"$1\"\n}\nreplay_signals() {\n  if (( term_pending )); then kill -s TERM -- \"$1\" 2>/dev/null || :; fi\n  if (( int_pending )); then kill -s INT -- \"$1\" 2>/dev/null || :; fi\n}\nwait_child() {\n  local target=\"$1\" epoch rc\n  while :; do\n    epoch=$signal_epoch\n    wait -f \"$target\"\n    rc=$?\n    # A trapped signal interrupts wait; retry the SAME child for its actual status.\n    if (( epoch == signal_epoch )); then return \"$rc\"; fi\n  done\n}\ntrap 'on_signal TERM' TERM\ntrap 'on_signal INT' INT\nif [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then\n  echo 'Unable to run startup permissions check, exiting.' >&2\n  exit 1\nfi\n/opt/mssql/bin/permissions_check.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\ncase \"${MSSQL_PID,,}\" in\n  standarddeveloper) export MSSQL_PID=DeveloperStandard ;;\n  enterprisedeveloper) export MSSQL_PID=Developer ;;\nesac\nsource /opt/mssql/bin/init_custom_setup.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\nif (( term_pending )); then exit 143; fi\nif (( int_pending )); then exit 130; fi\n/opt/mssql/bin/sqlservr &\nsql_pid=$!\n# Replay signals received between launch and capture of the owned child PID.\nreplay_signals \"$sql_pid\"\nsetup_status=0\nif (( !term_pending && !int_pending )); then\n  /opt/mssql/bin/run_custom_setup.sh &\n  setup_pid=$!\n  replay_signals \"$setup_pid\"\n  wait_child \"$setup_pid\"\n  setup_status=$?\n  setup_pid=\nfi\nif (( setup_status != 0 )); then\n  # Failed startup must not abandon the SQL child it already started.\n  kill -s TERM -- \"$sql_pid\" 2>/dev/null || :\nfi\nwait_child \"$sql_pid\"\nsql_status=$?\nsql_pid=\nprintf 'manual100m entrypoint terminal: setup=%s sql=%s\\n' \"$setup_status\" \"$sql_status\"\nif (( sql_status != 0 )); then exit \"$sql_status\"; fi\nif (( setup_status != 0 )); then exit \"$setup_status\"; fi\nexit \"$sql_status\"\n"
+      ],
+      "State": {
+        "Status": "created",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "0001-01-01T00:00:00Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "Image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+      "ResolvConfPath": "",
+      "HostnamePath": "",
+      "HostsPath": "",
+      "LogPath": "",
+      "Name": "/lab-sqlserver-manual100m-secondary",
+      "RestartCount": 0,
+      "Driver": "overlayfs",
+      "Platform": "linux",
+      "MountLabel": "",
+      "ProcessLabel": "",
+      "AppArmorProfile": "",
+      "ExecIDs": null,
+      "HostConfig": {
+        "Binds": null,
+        "ContainerIDFile": "",
+        "LogConfig": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "NetworkMode": "lab-sqlserver-manual100m-network",
+        "PortBindings": {},
+        "RestartPolicy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "AutoRemove": false,
+        "VolumeDriver": "",
+        "VolumesFrom": null,
+        "ConsoleSize": [
+          0,
+          0
+        ],
+        "CapAdd": null,
+        "CapDrop": null,
+        "CgroupnsMode": "private",
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": [],
+        "GroupAdd": null,
+        "IpcMode": "private",
+        "Cgroup": "",
+        "Links": null,
+        "OomScoreAdj": 0,
+        "PidMode": "",
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": false,
+        "SecurityOpt": null,
+        "UTSMode": "",
+        "UsernsMode": "",
+        "ShmSize": 67108864,
+        "Runtime": "runc",
+        "Isolation": "",
+        "CpuShares": 0,
+        "Memory": 4294967296,
+        "NanoCpus": 3000000000,
+        "CgroupParent": "",
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteIOps": null,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuRealtimePeriod": 0,
+        "CpuRealtimeRuntime": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DeviceCgroupRules": null,
+        "DeviceRequests": null,
+        "MemoryReservation": 0,
+        "MemorySwap": 8589934592,
+        "MemorySwappiness": null,
+        "OomKillDisable": false,
+        "PidsLimit": null,
+        "Ulimits": null,
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "IOMaximumIOps": 0,
+        "IOMaximumBandwidth": 0,
+        "Mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/secondary",
+            "Target": "/var/opt/mssql",
+            "BindOptions": {}
+          },
+          {
+            "Type": "bind",
+            "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/shared",
+            "Target": "/backup",
+            "BindOptions": {}
+          }
+        ],
+        "MaskedPaths": [
+          "/proc/acpi",
+          "/proc/asound",
+          "/proc/interrupts",
+          "/proc/kcore",
+          "/proc/keys",
+          "/proc/latency_stats",
+          "/proc/sched_debug",
+          "/proc/scsi",
+          "/proc/timer_list",
+          "/proc/timer_stats",
+          "/sys/devices/virtual/powercap",
+          "/sys/firmware"
+        ],
+        "ReadonlyPaths": [
+          "/proc/bus",
+          "/proc/fs",
+          "/proc/irq",
+          "/proc/sys",
+          "/proc/sysrq-trigger"
+        ]
+      },
+      "Storage": {
+        "RootFS": {
+          "Snapshot": {
+            "Name": "overlayfs"
+          }
+        }
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/shared",
+          "Destination": "/backup",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "bind",
+          "Source": "/Users/taco/gits/tacogips/database-analysis/.data/sqlserver-manual-count-100m/09835d7aefce74d25ced05cc7dea235e/stage/secondary",
+          "Destination": "/var/opt/mssql",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "Config": {
+        "Hostname": "countsecondary",
+        "Domainname": "",
+        "User": "501:0",
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "ExposedPorts": {
+          "1433/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+          "MSSQL_ENABLE_HADR=1",
+          "MSSQL_SA_PASSWORD=ManualCount100m_Lab_2026!",
+          "MSSQL_MEMORY_LIMIT_MB=2048",
+          "ACCEPT_EULA=Y",
+          "MSSQL_PID=Developer",
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "MSSQL_RPC_PORT=135"
+        ],
+        "Cmd": null,
+        "Image": "mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "Volumes": null,
+        "WorkingDir": "",
+        "Entrypoint": [
+          "/bin/bash",
+          "-c",
+          "# Keep INT effective for asynchronously started children; signal PIDs, never groups.\nset -m\nsql_pid=\nsetup_pid=\nsignal_epoch=0\nterm_pending=0\nint_pending=0\nforward_signal() {\n  local sig=\"$1\" child\n  for child in \"$sql_pid\" \"$setup_pid\"; do\n    if [[ -n \"$child\" ]]; then\n      kill -s \"$sig\" -- \"$child\" 2>/dev/null || :\n    fi\n  done\n}\non_signal() {\n  signal_epoch=$((signal_epoch + 1))\n  case \"$1\" in\n    TERM) term_pending=1 ;;\n    INT) int_pending=1 ;;\n  esac\n  forward_signal \"$1\"\n}\nreplay_signals() {\n  if (( term_pending )); then kill -s TERM -- \"$1\" 2>/dev/null || :; fi\n  if (( int_pending )); then kill -s INT -- \"$1\" 2>/dev/null || :; fi\n}\nwait_child() {\n  local target=\"$1\" epoch rc\n  while :; do\n    epoch=$signal_epoch\n    wait -f \"$target\"\n    rc=$?\n    # A trapped signal interrupts wait; retry the SAME child for its actual status.\n    if (( epoch == signal_epoch )); then return \"$rc\"; fi\n  done\n}\ntrap 'on_signal TERM' TERM\ntrap 'on_signal INT' INT\nif [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then\n  echo 'Unable to run startup permissions check, exiting.' >&2\n  exit 1\nfi\n/opt/mssql/bin/permissions_check.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\ncase \"${MSSQL_PID,,}\" in\n  standarddeveloper) export MSSQL_PID=DeveloperStandard ;;\n  enterprisedeveloper) export MSSQL_PID=Developer ;;\nesac\nsource /opt/mssql/bin/init_custom_setup.sh\nstartup_status=$?\nif (( startup_status != 0 )); then exit \"$startup_status\"; fi\nif (( term_pending )); then exit 143; fi\nif (( int_pending )); then exit 130; fi\n/opt/mssql/bin/sqlservr &\nsql_pid=$!\n# Replay signals received between launch and capture of the owned child PID.\nreplay_signals \"$sql_pid\"\nsetup_status=0\nif (( !term_pending && !int_pending )); then\n  /opt/mssql/bin/run_custom_setup.sh &\n  setup_pid=$!\n  replay_signals \"$setup_pid\"\n  wait_child \"$setup_pid\"\n  setup_status=$?\n  setup_pid=\nfi\nif (( setup_status != 0 )); then\n  # Failed startup must not abandon the SQL child it already started.\n  kill -s TERM -- \"$sql_pid\" 2>/dev/null || :\nfi\nwait_child \"$sql_pid\"\nsql_status=$?\nsql_pid=\nprintf 'manual100m entrypoint terminal: setup=%s sql=%s\\n' \"$setup_status\" \"$sql_status\"\nif (( sql_status != 0 )); then exit \"$sql_status\"; fi\nif (( setup_status != 0 )); then exit \"$setup_status\"; fi\nexit \"$sql_status\"\n"
+        ],
+        "Labels": {
+          "com.docker.compose.config-hash": "3d1d7ea409ab3fa577b1b8b77f5abd088d530cba6127473b805a8bef2df4e54b",
+          "com.docker.compose.container-number": "1",
+          "com.docker.compose.depends_on": "",
+          "com.docker.compose.image": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+          "com.docker.compose.oneoff": "False",
+          "com.docker.compose.project": "lab-sqlserver-manual100m",
+          "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+          "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+          "com.docker.compose.service": "secondary",
+          "com.docker.compose.version": "5.6.1",
+          "com.microsoft.product": "Microsoft SQL Server",
+          "com.microsoft.version": "17.0.5035.5",
+          "count.manual100m.owner": "09835d7aefce74d25ced05cc7dea235e",
+          "org.opencontainers.image.ref.name": "ubuntu",
+          "org.opencontainers.image.version": "24.04",
+          "vendor": "Microsoft"
+        }
+      },
+      "NetworkSettings": {
+        "SandboxID": "",
+        "SandboxKey": "",
+        "Ports": {},
+        "Networks": {
+          "lab-sqlserver-manual100m-network": {
+            "IPAMConfig": {},
+            "Links": null,
+            "Aliases": [
+              "lab-sqlserver-manual100m-secondary",
+              "secondary",
+              "countsecondary"
+            ],
+            "DriverOpts": null,
+            "GwPriority": 0,
+            "NetworkID": "",
+            "EndpointID": "",
+            "Gateway": "",
+            "IPAddress": "",
+            "MacAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "DNSNames": null
+          }
+        }
+      },
+      "ImageManifestDescriptor": {
+        "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+        "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "size": 760,
+        "platform": {
+          "architecture": "amd64",
+          "os": "linux"
+        }
+      }
+    }
+  },
+  "network_created_inspect": {
+    "Name": "lab-sqlserver-manual100m-network",
+    "Id": "1f3924d100466eb972fb9c0a9150faf69d4381e1cc166bb8e1757170cae54614",
+    "Created": "2026-11-09T07:41:43.59403801+09:00",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv4": true,
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": null,
+      "Config": [
+        {
+          "Subnet": "172.19.0.0/16",
+          "Gateway": "172.19.0.1"
+        }
+      ]
+    },
+    "Internal": true,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Options": {},
+    "Labels": {
+      "com.docker.compose.config-hash": "024d930f6b0fbf33531629c67e4a44c30ce9dce5054f3304987a2ee621be9675",
+      "com.docker.compose.network": "runtime",
+      "com.docker.compose.project": "lab-sqlserver-manual100m",
+      "com.docker.compose.version": "5.6.1",
+      "count.manual100m.owner": "09835d7aefce74d25ced05cc7dea235e"
+    },
+    "Containers": {},
+    "Status": {
+      "IPAM": {
+        "Subnets": {
+          "172.19.0.0/16": {
+            "IPsInUse": 3,
+            "DynamicIPsAvailable": 65533
+          }
+        }
+      }
+    }
+  },
+  "client_created_inspect": {
+    "Id": "401a9eb2ecd82786deb9502bd2016dd2f0ae8c3f97cac32fc0b914c9e2ad4ebe",
+    "Created": "2026-11-08T22:41:43.606070588Z",
+    "Path": "dotnet",
+    "Args": [
+      "ManualCount100m.dll"
+    ],
+    "State": {
+      "Status": "created",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "0001-01-01T00:00:00Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "Image": "sha256:2d9bbf77360e18b722e4c25f16e6aaadf6a3511994de91ef043837e9d9677e62",
+    "ResolvConfPath": "",
+    "HostnamePath": "",
+    "HostsPath": "",
+    "LogPath": "",
+    "Name": "/lab-sqlserver-manual100m-client",
+    "RestartCount": 0,
+    "Driver": "overlayfs",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": null,
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "lab-sqlserver-manual100m-network",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "private",
+      "Dns": null,
+      "DnsOptions": null,
+      "DnsSearch": null,
+      "ExtraHosts": [],
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": false,
+      "SecurityOpt": null,
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 1073741824,
+      "NanoCpus": 1000000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": null,
+      "BlkioDeviceReadBps": null,
+      "BlkioDeviceWriteBps": null,
+      "BlkioDeviceReadIOps": null,
+      "BlkioDeviceWriteIOps": null,
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": null,
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 2147483648,
+      "MemorySwappiness": null,
+      "OomKillDisable": false,
+      "PidsLimit": null,
+      "Ulimits": null,
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e",
+          "Target": "/evidence",
+          "BindOptions": {}
+        }
+      ],
+      "MaskedPaths": [
+        "/proc/acpi",
+        "/proc/asound",
+        "/proc/interrupts",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/sys/devices/virtual/powercap",
+        "/sys/firmware"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "Storage": {
+      "RootFS": {
+        "Snapshot": {
+          "Name": "overlayfs"
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T224058Z-09835d7aefce74d25ced05cc7dea235e",
+        "Destination": "/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "Config": {
+      "Hostname": "401a9eb2ecd8",
+      "Domainname": "",
+      "User": "501:0",
+      "AttachStdin": false,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "DOTNET_CLI_TELEMETRY_OPTOUT=1",
+        "DOTNET_NOLOGO=1",
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "APP_UID=1654",
+        "ASPNETCORE_HTTP_PORTS=8080",
+        "DOTNET_RUNNING_IN_CONTAINER=true",
+        "DOTNET_VERSION=10.0.14",
+        "ASPNET_VERSION=10.0.14",
+        "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+        "DOTNET_SDK_VERSION=10.0.403",
+        "DOTNET_USE_POLLING_FILE_WATCHER=true",
+        "NUGET_XMLDOC_MODE=skip",
+        "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64"
+      ],
+      "Cmd": null,
+      "Image": "lab-sqlserver-manual100m-client:09835d7aefce74d25ced05cc7dea235e",
+      "Volumes": null,
+      "WorkingDir": "/app",
+      "Entrypoint": [
+        "dotnet",
+        "ManualCount100m.dll"
+      ],
+      "Labels": {
+        "com.docker.compose.config-hash": "9bd09fb42aa52ee0774f164abb5bd15a762879fbf82412d8dc3f308341af0f84",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:61108d1f7de99abfeed816604bb74b01ed76b4fef90f78eec0729b9441046d2e",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "lab-sqlserver-manual100m",
+        "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+        "com.docker.compose.service": "client",
+        "com.docker.compose.version": "5.6.1",
+        "count.manual100m.owner": "09835d7aefce74d25ced05cc7dea235e",
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "NetworkSettings": {
+      "SandboxID": "",
+      "SandboxKey": "",
+      "Ports": {},
+      "Networks": {
+        "lab-sqlserver-manual100m-network": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": [
+            "lab-sqlserver-manual100m-client",
+            "client"
+          ],
+          "DriverOpts": null,
+          "GwPriority": 0,
+          "NetworkID": "",
+          "EndpointID": "",
+          "Gateway": "",
+          "IPAddress": "",
+          "MacAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": null
+        }
+      }
+    },
+    "ImageManifestDescriptor": {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:61108d1f7de99abfeed816604bb74b01ed76b4fef90f78eec0729b9441046d2e",
+      "size": 3726,
+      "platform": {
+        "architecture": "arm64",
+        "os": "linux"
+      }
+    }
+  },
+  "owned_ids": {
+    "container:lab-sqlserver-manual100m": "8c88dd39dce3d7a5d3b828fd5edd1160aab13eb8da1cde1136115e6fd3c8c949",
+    "container:lab-sqlserver-manual100m-secondary": "65748b9691c260b1acd6e8e8eaeb9180adf03d46da951943e8c751a9df8b53be",
+    "container:lab-sqlserver-manual100m-client": "401a9eb2ecd82786deb9502bd2016dd2f0ae8c3f97cac32fc0b914c9e2ad4ebe",
+    "network:lab-sqlserver-manual100m-network": "1f3924d100466eb972fb9c0a9150faf69d4381e1cc166bb8e1757170cae54614"
+  },
+  "error": "RuntimeError: SQL process identity changed during Rosetta proof",
+  "lab-sqlserver-manual100m-client_terminal_state": {
+    "Status": "created",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "0001-01-01T00:00:00Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "lab-sqlserver-manual100m-secondary_terminal_state": {
+    "Status": "created",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "0001-01-01T00:00:00Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "lab-sqlserver-manual100m_terminal_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 137,
+    "Error": "",
+    "StartedAt": "2026-11-08T22:41:44.740865822Z",
+    "FinishedAt": "2026-11-08T22:42:47.446057866Z"
+  },
+  "free_after_bytes": 215857512448,
+  "cleanup_errors": [
+    "RuntimeError: forced container kill recorded as failure"
+  ],
+  "source_after": {
+    "sqlserver/manual-count-100m/lab.rb": "52d47a54a05bab1b2ecdc4bc05c242d8c8d40772b4f2fe76572935008be2697f",
+    "sqlserver/manual-count-100m/model.rb": "b2877122c4849834d013f6df61267893ec88f7390a46669cc7df1ddde991b2ee",
+    "sqlserver/manual-count-100m/verify_offline.rb": "0204c64a19067b76cffe3c73ab00e658163971da84d2fd5d14f878d414098151",
+    "sqlserver/manual-count-100m/mise.toml": "44e7bbb5d9d1185e0e0848cfdfd782824836ee9feec2a9d1b0a99ba571e9acf4",
+    "sqlserver/manual-count-100m/compose.yaml": "c8ab7e587ab8370cf0d2a274c3f138e30ce7613b60a9027ae792784bf9177404",
+    "sqlserver/manual-count-100m/Dockerfile": "4aea959a36994b64141267f612714177fbe0a07cacfbd2d5535741ab59815f04",
+    "sqlserver/manual-count-100m/.dockerignore": "0a1e42540e627caa3100565f190e6da9a82135cf5fc71b0a06f8a105d6e07c2f",
+    "sqlserver/manual-count-100m/ManualCount100m.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+    "sqlserver/manual-count-100m/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+    "sqlserver/manual-count-100m/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "sqlserver/manual-count-100m/Program.cs": "1c06187472801e60af785d67e1b8a29b2b960c0c796ecfecea3aa3a592cf07d9",
+    "sqlserver/manual-count-100m/Fixture.cs": "62c551d56092a67ad96329dcfa96f3a6b43fca741e5b18b52228db44a490b7ba",
+    "sqlserver/manual-count-100m/State.cs": "b6bcc6230820a8d47db0f14b3372117e7f08c10e060b9316d4da26be58e25782",
+    "sqlserver/manual-count-100m/README.md": "c43716d69f98f16830137f4f20c08d8c2a2947abc8c3fa51b07600a63603fef8",
+    "sqlserver/manual-count-100m/input-bindings.json": "e3a421c266146aaa3534ce49c79c5dbba810de7018a10f58edfa64cfac379880",
+    "sqlserver/manual-count-100m/manual/sql-server.md": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682",
+    "sqlserver/manual-count-100m/manual/source.json": "836cf870c5eddb95e8e6d5f6c2e87ca998bc8afff34c078e35acf9a810dd5bb1",
+    "sqlserver/manual-count-100m/sql/inventory.sql": "8083045eb9ca3318f302db51ee735ccb7a4c0b3dc3cb5a3f2aac7e659f8155a9",
+    "sqlserver/manual-count-100m/sql/guard.sql": "b7a40f605375f539d651b43befec10a324c4587d7e9e8ea4e7411b7fd08dacd6",
+    "sqlserver/manual-count-100m/sql/role.sql": "ecf728c03a5b1d3b945c9acbf96cfb92ed1de77401c399f55856955f2269728f",
+    "sqlserver/manual-count-100m/sql/showplan.sql": "9e628f01d8cb0a63131a6f2681cfac50e89a4ff573053ed4f487c23e85091be4",
+    "sqlserver/manual-count-100m/sql/indexes.sql": "f05b60eccb7915a764dc5971647a183910567be9754ec5947d77a86a294187ea",
+    "sqlserver/manual-count-100m/sql/pages.sql": "70a9455c876c660ac0b06dad0340643acabe9f8b7d0303ba9abbbfce9e51cf2d",
+    "sqlserver/manual-count-100m/sql/branch-a.sql": "a10008a4f86097055286ccc2033c4e29b934203637a219cb9354598a5b913ce2",
+    "sqlserver/manual-count-100m/sql/branch-b.sql": "50e5b63ad5e053eaff6ffd01c005620c75e80488f1b06234af5c3514d1a35790",
+    "sqlserver/manual-count-100m/sql/branch-c.sql": "96283fb127b9ea8ee623d89524c74759f361cd943f2f30cea136fbb0d6376895",
+    "sqlserver/manual-count-100m/sql/branch-d.sql": "78c918726da0986a3ce00f508d5d85eb8d368e65529faf71c24457db7ba11c3a",
+    "sqlserver/manual-count-100m/sql/ag-primary-state.sql": "d14dc9349f60947a726edb0a391f277404b846af395d4d62d30901ead50b81d9",
+    "sqlserver/manual-count-100m/sql/ag-endpoint.sql": "7fd797b8224756f2a7578a587806994b358e098c1537520db547574731108e34",
+    "sqlserver/manual-count-100m/sql/ag-peer.sql": "3797abff5026d0ea4f5d38f6639f42fdec6886d41a2e4440a245f856de71935a",
+    "sqlserver/manual-count-100m/sql/ag-primary-setup.sql": "7e4c12f3664982991a8cd64cea2e5da6ae4389ea2e60cb11a42b4eb34eff3eab",
+    "sqlserver/manual-count-100m/sql/ag-secondary-setup.sql": "b2ccfcd7c8fac5babf872a02145675573b9ede52a6c028300b165a8ab0eadcbb",
+    "sqlserver/manual-count-100m/sql/ag-backup-proof.sql": "a31e353e70acd7e94183571bcddc6bb04d91a01974ad99c6aab81c174239dd48",
+    "sqlserver/manual-count-100m/sql/ag-topology.sql": "0d0dd5625d2a8de1146a6af693cd256b550d87c2ee11c6477293e513a5d1f294",
+    "results/reviews/sqlserver-manual-count-100m/baseline.json": "4512052b06b5776a99183e2b29b1d5783df59c865aeb3acfd0156b967f43d427"
+  },
+  "source_unchanged": true,
+  "elapsed_monotonic_seconds": 110.83859900000971,
+  "finished_at": "2026-11-08T22:42:49Z",
+  "artifact_hashes": {
+    "00001.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00001.stdout.log": "fc551fa833cfe59ea6532a23d9570092d90c9b8d046f6928867eb17773e3c863",
+    "00002.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00002.stdout.log": "24a761ce54a7c2216b22e4a0706ee92c385d521fb68128af85549b37da9a2991",
+    "00003.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00003.stdout.log": "f6e1a252cf0dba3889e353c8f47264223c5d4e38bb597891d667cf7275e864c3",
+    "00004.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00004.stdout.log": "448c069677e97698b05b247f67577a3558307e466071b631673bcc2f6203b556",
+    "00005.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00005.stdout.log": "acfafe177d0d746e579ce749a29b4a3230ced900a30e682d7e46c2f4635cb317",
+    "00006.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00006.stdout.log": "f2780d8f4ab2e1ce5c14ef8a0ffdd36c08f11662b2f96b2af067884a773308c8",
+    "00007.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00007.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00008.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00008.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00009.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00009.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00010.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00010.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00011.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00011.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00012.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00012.stdout.log": "c43fd57f31e3634451175bf0396edbe386d16f6ad5385382413255d45a555dca",
+    "00013.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00013.stdout.log": "6385e3a6f69d93ec7a06b914a105a4bc2d52c4ab6fc213d9bb4ff9a6ac437792",
+    "00014.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00014.stdout.log": "0acf7ebb3c9a2e9c12faaef816e8d9da887518995bac245c66abe9163f372160",
+    "00015.stderr.log": "7bfa582ace0df215e565193eddefd7083cda4037daa5e851f3821828ad6a47d6",
+    "00015.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00016.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00016.stdout.log": "8933e9bbb28e0071aa2c63de0e091feec390ecad455eef58dd420f32b7cbe356",
+    "00017.stderr.log": "cd7544c91fd071155affc1a47b74e2d3271daf4fd538aecf66d8f70d47b35556",
+    "00017.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00018.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00018.stdout.log": "58e74bf80c17813c2647115cfad576220cdd4eedcba80ef51789e140b2cc51bb",
+    "00019.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00019.stdout.log": "02a7a69aea236b97d05575416da253eceda61010aa6c3f7db41795759e16f19d",
+    "00020.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00020.stdout.log": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+    "00021.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00021.stdout.log": "c16650711fc17182df485a54c5b1169e560ea72ed3153b8aa3591c0a37601e89",
+    "00022.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00022.stdout.log": "58e74bf80c17813c2647115cfad576220cdd4eedcba80ef51789e140b2cc51bb",
+    "00023.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00023.stdout.log": "73f610aba47253ada7b69722c18a34f6c96c134c35eeb62f7134f7fdee17c40c",
+    "00024.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00024.stdout.log": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+    "00025.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00025.stdout.log": "c16650711fc17182df485a54c5b1169e560ea72ed3153b8aa3591c0a37601e89",
+    "00026.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00026.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00027.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00027.stdout.log": "0a1071ca28d1acc2f76dbe8e6109b9e6b55fef1d45d898c50aad3d8e69106dfa",
+    "00028.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00028.stdout.log": "70537fbd8022cb8e9f46af4248de74dd2c64ed1c76b8336fe0956620341e9c19",
+    "00029.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00029.stdout.log": "b2d052e49e377ec67d7757b689c787e70c0a521e75f1c05d8a7567d0e7b39d95",
+    "00030.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00030.stdout.log": "8b35fb10d85fda1d757989e8de370f610ce0d67d93ad66108c23d46198005024",
+    "00031.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00031.stdout.log": "57295b3d0454ff86ec0fbec6ac26e36aa67228ecd8e211ff137369ff0720613c",
+    "00032.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00032.stdout.log": "0f862fb838e79771500cce15eeed5e6feb3e908a3d640924ffc9b87f01dfca34",
+    "00033.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00033.stdout.log": "70537fbd8022cb8e9f46af4248de74dd2c64ed1c76b8336fe0956620341e9c19",
+    "00034.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00034.stdout.log": "b6e489db70626e8c1ddbab0ff9a95aea660e98a4e2e8c7a8684635fb4024e89c",
+    "00035.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00035.stdout.log": "02a7a69aea236b97d05575416da253eceda61010aa6c3f7db41795759e16f19d",
+    "00036.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00036.stdout.log": "5a3cf1f7468e6aee179c69568ffe98c81699902f7a349f2b8e1e7749dc689e61",
+    "00037.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00037.stdout.log": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+    "00038.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00038.stdout.log": "d1cc3636ad3a5284c7a7ec43c8ea7c59eabc563f96c82dabdaa4e9ad38608ebe",
+    "00039.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00039.stdout.log": "6795c4058bf9257514f788d1c01e2fa81c22e22213b9d1457cf19768998e3709",
+    "00040.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00040.stdout.log": "e27d0b5c8bb5861d54f4ad54fe4de0f63a71b41fc5fdfb1d2a35f962c6d73d2c",
+    "00041.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00041.stdout.log": "86d493081a627e8871b2753b153c33142be25155af8d75c36e7a50f22ad2fe3e",
+    "00042.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00042.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00043.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00043.stdout.log": "1639b77a0e65afa8db177aed31fca9d1b34f8f678aa30a12bb4b441bbd07aadc",
+    "00044.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00044.stdout.log": "13588142de012772dab8f360ad0411aa9bce10b6275188bd2baa66e403254ff2",
+    "00045.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00045.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00046.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00046.stdout.log": "a17b67f5905afbcba9bc976f6d04a449d1dbcf413edf9021aade0c6ab78c3588",
+    "00047.stderr.log": "d425741e12781ecfd2d5779a45e10853522053cafb676efa7e90be303c659c67",
+    "00047.stdout.log": "46d4f79098b69eec99228288e7a302607d20d17c1df852deff817f7029fcba75",
+    "00048.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00048.stdout.log": "e9ee19b80ed3053b066bdfd15092574b0e3a0612014107b489baa599bbf3eb64",
+    "00049.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00049.stdout.log": "70537fbd8022cb8e9f46af4248de74dd2c64ed1c76b8336fe0956620341e9c19",
+    "00050.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00050.stdout.log": "47649c2ab3cd86c3e21f39661ef33db743a698f84e9a46fe2d8a44c0ae2b0ff2",
+    "00051.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00051.stdout.log": "757537125ee3367e735f9e3a42467a63d526b9d2cc81d0b3e4eaafbc9660f4bf",
+    "00052.stderr.log": "d425741e12781ecfd2d5779a45e10853522053cafb676efa7e90be303c659c67",
+    "00052.stdout.log": "19697e8bfe5a69079a375a868452efed6a84bcbced65bc19557c23e23c41877f",
+    "00053.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00053.stdout.log": "0a1071ca28d1acc2f76dbe8e6109b9e6b55fef1d45d898c50aad3d8e69106dfa",
+    "00054.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00054.stdout.log": "c16650711fc17182df485a54c5b1169e560ea72ed3153b8aa3591c0a37601e89",
+    "00055.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00055.stdout.log": "1f0bd2e19147ddae8bb688932f143a0491376a5e6868e81b5e8db7f3da336fd8",
+    "00056.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00056.stdout.log": "e388e2390343a8498a86944b4d7c898ee16dc600b412fcafe474c8ef4a3c4a01",
+    "00057.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00057.stdout.log": "8933e9bbb28e0071aa2c63de0e091feec390ecad455eef58dd420f32b7cbe356",
+    "00058.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00058.stdout.log": "4ecf3f3171d86d8951273829ba0cf8d3fc9ffba03e63fb9a8f6a033fc41a0ba4",
+    "00059.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00059.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00060.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00060.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00061.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00061.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00062.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00062.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00063.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00063.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00064.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00064.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00065.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00065.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00066.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00066.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00067.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "00067.stdout.log": "3428d28b6227125dd81beb32b587601cbadf28641c9d712dafc3a130b56cf9e8",
+    "colima-config.yaml": "c0aecfea1307717dc03a41dba4a762cf10f40966053c27b7305058baa6ab7446",
+    "provenance/build.log": "01e4869e384167ec5f66273bade973e951f8d243700a5164533a35341f5c7098",
+    "provenance/dotnet-info.txt": "9d714b601440586ab0d3f208ce8bc0a53090cb576dc0b7683ffdd3cc26338540",
+    "provenance/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+    "provenance/restore.log": "2494a55bbcd923d40b12ff8a51955d0e9b56cf5c65f984e5cc47e1f694010547"
+  }
+}

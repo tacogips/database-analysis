@@ -1,0 +1,59 @@
+{
+  "id": "review",
+  "executionBackend": "codex-agent",
+  "model": "gpt-6.1-sol",
+  "modelFreeze": true,
+  "effort": "high",
+  "agentSandbox": "read-only",
+  "sessionPolicy": {
+    "mode": "new"
+  },
+  "variables": {},
+  "promptTemplate": "You are GPT-6.1 Sol independent adversarial reviewer in a NEW read-only session separate from author and other reviewer. Role validation. Read AGENTS.md and results/reviews/issue-1/issue.json in full. Do not modify any file, start Docker/DB/measurements, delegate, run workflows, commit or publish. Review final current docs/guidelines/{mysql.md,sql-server.md,operations-runbook.md}, docs/README.md and sqlserver/issue1 implementation/evidence. Goal: resolve all FOUR Issue 1 items concretely for unfamiliar engineers safely obtaining whole-table row counts. This is an Issue remediation, not a new huge benchmark or certification of production SLO. Existing immutable measurements/receipts must remain unchanged, accepted old docs archived and new hash-bound receipt used.\nVerify actual file hashes against baseline protectedFiles, owner-proof sourceHashes, runtime result before/after and manifest. Independently inspect raw probe.json/controller log/actual plans in runtimeArchive, not only aggregate passed flags. Verify the 5 actual cases, two separate SQL connections, server connection_id vs ClientConnectionId, CONTEXT_INFO visible to observer, all identity fields and permission preflight, 3 mismatch refusals and original owner usability, permission-denied/partial visibility unknown. For server error, clientCancel and timeout request absence must coexist with sleeping open TX/snapshot before finally. Fresh bounded cleanup token must not inherit cancelled work token. Own rollback and guard-checked management KILL paths, retained TX IDs including active_transactions after session mapping gone, session/request/TX/snapshot release and exact resource ownership/cleanup must be sound. KILL has residual SPID TOCTOU; cannot claim atomic identity cancellation. Idle Dispose is only communication-failure simulation, not actual partition; unusable/unreachable observer=>UNKNOWN/no next work/escalation. No native/prod recovery or physical allocation reclaimed claims from this functional probe.\nFor auto stats verify old OFF lab limitation, explicit existing sync/async/lowpriority/compat/state capture, plain unfiltered COUNT only, actual plan/OptimizerStatsUsage vs namedstats timestamps/modcounter/rows before/after, bounded cumulative observation windows and async/XE limitations. No universal COUNT triggers/never triggers claim and no production blanket flag toggles. For operational bridge examine blank plus FILLED independent restored copy and dedicated replica examples, explicit fictional illustrative_not_measured data not recommended thresholds, shared CPU/memory/storage/device/network/primary effects, actual caps mechanism verification or HOLD, metric source/privileges/unavailable not0, normal variability, detection/aggregate/delivery/decision/cancel/rollback/jitter upper budget vs measured time-to-risk not conversion from p99msdelta, recovery/owner and pending-arrival SLO accounting. MySQL MDL/undo/applier + SQL request/TX/version/PVS/AG primary recovery concrete observations. Ordinary COUNT no rowlock does not mean zero MDL; no new intentional contention injection. Do not insist on full performance grid or real network partition experiment where guide explicitly defers all unverified cases safely. Request experiment only indispensable to a current operative claim; doc correction is sufficient when it removes that claim.\nFirst form independent findings. Then read results/reviews/issue-1/final-engineer-result.json and assess its findings in independentFindingAssessment.\nReturn concise JSON accepted(bool), decision accepted/rejected, documentHashes exact current 4doc hashes, findings with stableid/severity high|middle|low and concrete scenario/fix, requestedExperiments, reviewQuestions {betterMethods,designCoverage,omissions,lockFactors,fastCount}, coverageReport mapping Issue1 items1-4 to evidence/pass or fail, reviewEvidence paths/hashes/observations. No high/middle or indispensable experiment may remain at acceptance. Aggregate acceptance.json pending until both reviews finish; do not require prior accepted receipt. Do not waive defects. Low optional improvements can remain if no unsafe recommendation.\n\nExact inputs: {\"documents\": {\"docs/guidelines/mysql.md\": \"ffb3ae5b8d189b90418c9fb9efa8e5d2787c2bcae328a60e9c3fedcf907c2b2f\", \"docs/guidelines/sql-server.md\": \"bbfdada6f71acc91010c8457c076cae1b79d00e6aac07247ff6f66ec547ff47c\", \"docs/README.md\": \"9783f53da8b3e4613628d3f6798d7f5753cbcf9be3a7fadd9e6b7c67c27c48a3\", \"docs/guidelines/operations-runbook.md\": \"27ae9f91f863acb759abf913459755f502108af33c4524650e214ce1e2cf73d1\"}, \"baselineSha256\": \"f35110a6fab261ab7021c8f2e4f7976b6f888f18c311446bd09b5387c78b2f1e\", \"issueSha256\": \"5f94a59773fec11f737812e7f69d105e2b5bbf7c33e51638b607451779fbe3b9\", \"ownerProofSha256\": \"56a995a783884baa76a0194d4a53ebc63b3855f10b402751fdf3e4168f3654f8\", \"ownerAuditSha256\": \"d50ff3cb01b3fdb00dd1d5ae88aca2b340f5deef1e37c5d6f2fa14ebccad5ee3\", \"runtimeArchiveManifestSha256\": \"f8e81e1e1d4adc9ba7a0d6fffe8e2eeafd4e12231ec59cb12b6dab3a74daeef6\", \"sourceHashes\": {\"sqlserver/issue1/lab.rb\": \"7401978cd34d13111e8a763c457cce4ba972885ce7de0b6b0c3615f8260cc437\", \"sqlserver/issue1/mise.toml\": \"9200d44b709fb4266977ad0eea81e11a56849d716c14e901706fe946f8092e4c\", \"sqlserver/issue1/compose.yaml\": \"1826cfb7e8ac74f869b93c4415e039357ebe224f389d3faa9c43f9fc12f27b3a\", \"sqlserver/issue1/Dockerfile\": \"fc330088772578d04b795cd5630ddebe7c58c0ff4e3b74f9e8acf0b58bdd5f90\", \"sqlserver/issue1/.dockerignore\": \"f4a08bffb3077b9356083081520f9987342a4988dd06574763311c2b776417d4\", \"sqlserver/issue1/CountIssue1.csproj\": \"e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0\", \"sqlserver/issue1/NuGet.Config\": \"fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c\", \"sqlserver/issue1/packages.lock.json\": \"9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8\", \"sqlserver/issue1/Program.cs\": \"2de684668ce01307b4a4f514c3979cdeb6cb579eadacbaee3b204495e8c17e96\", \"sqlserver/issue1/runbook-example-inputs.json\": \"5ffd82e6295f0003e86c31dd2c5defbb18cade1d381b6d99fb0b80124d588e0b\", \"sqlserver/issue1/README.md\": \"0a5da3b23737b0d1e89ab8fb53ef4e7de2bf1602579b4f25a68e33ba4a576d73\", \"sqlserver/issue1/verify_author.py\": \"e647f6d794ccd32c5e186431cc7ea433ce22d547b4002127f933874e2f109f5a\"}}",
+  "output": {
+    "jsonSchema": {
+      "type": "object",
+      "required": [
+        "accepted",
+        "decision",
+        "documentHashes",
+        "findings",
+        "requestedExperiments",
+        "reviewQuestions",
+        "coverageReport",
+        "reviewEvidence"
+      ],
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        },
+        "decision": {
+          "enum": [
+            "accepted",
+            "rejected"
+          ]
+        },
+        "documentHashes": {
+          "type": "object"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "requestedExperiments": {
+          "type": "array"
+        },
+        "reviewQuestions": {
+          "type": "object"
+        },
+        "coverageReport": {
+          "type": "object"
+        },
+        "reviewEvidence": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "maxValidationAttempts": 2
+  }
+}

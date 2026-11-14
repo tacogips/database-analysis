@@ -1,0 +1,408 @@
+{
+ "id": "3g-EXP-O6-LONG-UNDO-low",
+ "answers": [
+  "EXP-O6-LONG-UNDO",
+  "FIND-O6-LONG-UNDO-01"
+ ],
+ "started": "2026-11-06T21:31:55",
+ "sections": {
+  "ages": {
+   "runs": [
+    {
+     "read_view_age_s": 0,
+     "held_s": 60,
+     "hll_start": 147,
+     "hll_end": 103,
+     "hll_growth_per_s": -0.7,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 0.0,
+     "hll_after_wait": 112,
+     "count_with_new_view_at_end_s": 0.105,
+     "latency_hold": {
+      "read": {
+       "n": 6017,
+       "p50_ms": 0.85,
+       "p95_ms": 5.22,
+       "p99_ms": 7.21,
+       "max_ms": 29.67,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 6018,
+       "p50_ms": 1.28,
+       "p95_ms": 3.85,
+       "p99_ms": 25.84,
+       "max_ms": 72.32,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 0,
+       "p50_ms": null,
+       "p95_ms": null,
+       "p99_ms": null,
+       "max_ms": null,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 0,
+       "p50_ms": null,
+       "p95_ms": null,
+       "p99_ms": null,
+       "max_ms": null,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 3000,
+       "p50_ms": 0.84,
+       "p95_ms": 5.09,
+       "p99_ms": 7.19,
+       "max_ms": 29.67,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 3000,
+       "p50_ms": 1.26,
+       "p95_ms": 3.72,
+       "p99_ms": 28.92,
+       "max_ms": 70.34,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    },
+    {
+     "read_view_age_s": 60,
+     "held_s": 60,
+     "hll_start": 114,
+     "hll_end": 6018,
+     "hll_growth_per_s": 98.4,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 1.0,
+     "hll_after_wait": 54,
+     "count_with_new_view_at_end_s": 0.109,
+     "latency_hold": {
+      "read": {
+       "n": 6017,
+       "p50_ms": 0.95,
+       "p95_ms": 6.1,
+       "p99_ms": 7.64,
+       "max_ms": 55.78,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 6018,
+       "p50_ms": 1.76,
+       "p95_ms": 5.01,
+       "p99_ms": 20.23,
+       "max_ms": 73.94,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 102,
+       "p50_ms": 0.95,
+       "p95_ms": 6.11,
+       "p99_ms": 7.14,
+       "max_ms": 7.46,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 100,
+       "p50_ms": 1.69,
+       "p95_ms": 4.54,
+       "p99_ms": 6.4,
+       "max_ms": 6.4,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 3000,
+       "p50_ms": 0.97,
+       "p95_ms": 6.12,
+       "p99_ms": 7.66,
+       "max_ms": 55.78,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 3000,
+       "p50_ms": 1.85,
+       "p95_ms": 5.27,
+       "p99_ms": 19.48,
+       "max_ms": 70.02,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    },
+    {
+     "read_view_age_s": 180,
+     "held_s": 180,
+     "hll_start": 54,
+     "hll_end": 18046,
+     "hll_growth_per_s": 100.0,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 1.0,
+     "hll_after_wait": 20,
+     "count_with_new_view_at_end_s": 0.1,
+     "latency_hold": {
+      "read": {
+       "n": 18020,
+       "p50_ms": 0.93,
+       "p95_ms": 5.88,
+       "p99_ms": 7.59,
+       "max_ms": 25.66,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 18020,
+       "p50_ms": 1.67,
+       "p95_ms": 4.6,
+       "p99_ms": 17.12,
+       "max_ms": 279.03,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 101,
+       "p50_ms": 0.79,
+       "p95_ms": 4.31,
+       "p99_ms": 5.92,
+       "max_ms": 6.97,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 100,
+       "p50_ms": 1.28,
+       "p95_ms": 3.82,
+       "p99_ms": 8.38,
+       "max_ms": 8.38,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 3000,
+       "p50_ms": 0.86,
+       "p95_ms": 5.54,
+       "p99_ms": 7.26,
+       "max_ms": 25.66,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 3000,
+       "p50_ms": 1.29,
+       "p95_ms": 3.89,
+       "p99_ms": 33.4,
+       "max_ms": 279.03,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    },
+    {
+     "read_view_age_s": 300,
+     "held_s": 300,
+     "hll_start": 20,
+     "hll_end": 30070,
+     "hll_growth_per_s": 100.2,
+     "undo_files_start": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "undo_files_end": [
+      [
+       "innodb_undo_001",
+       184549376,
+       184549376
+      ],
+      [
+       "innodb_undo_002",
+       201326592,
+       201326592
+      ]
+     ],
+     "seconds_until_hll_near_start": 1.0,
+     "hll_after_wait": 44,
+     "count_with_new_view_at_end_s": 0.12,
+     "latency_hold": {
+      "read": {
+       "n": 30023,
+       "p50_ms": 0.91,
+       "p95_ms": 5.62,
+       "p99_ms": 7.33,
+       "max_ms": 39.99,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 30022,
+       "p50_ms": 1.48,
+       "p95_ms": 4.39,
+       "p99_ms": 23.87,
+       "max_ms": 106.4,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_after": {
+      "read": {
+       "n": 100,
+       "p50_ms": 0.82,
+       "p95_ms": 7.31,
+       "p99_ms": 7.62,
+       "max_ms": 7.62,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 100,
+       "p50_ms": 1.74,
+       "p95_ms": 5.31,
+       "p99_ms": 12.29,
+       "max_ms": 12.29,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     },
+     "latency_last_30s_of_hold": {
+      "read": {
+       "n": 3000,
+       "p50_ms": 0.97,
+       "p95_ms": 6.08,
+       "p99_ms": 7.64,
+       "max_ms": 13.47,
+       "errors": 0,
+       "stuck_at_end": 0
+      },
+      "write": {
+       "n": 3000,
+       "p50_ms": 1.91,
+       "p95_ms": 5.12,
+       "p99_ms": 18.43,
+       "max_ms": 36.52,
+       "errors": 0,
+       "stuck_at_end": 0
+      }
+     }
+    }
+   ],
+   "_seconds": 603.82
+  },
+  "windows": {
+   "_seconds": 0.08
+  }
+ },
+ "rate": "low",
+ "workload": {
+  "readers": 4,
+  "writers": 4,
+  "rate": 25
+ },
+ "ages_s": [
+  60,
+  180,
+  300
+ ],
+ "substitution": "one consistent snapshot holds the read view; no count statement runs for that long",
+ "elapsed_seconds": 621,
+ "section_errors": []
+}

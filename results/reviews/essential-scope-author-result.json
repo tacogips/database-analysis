@@ -1,0 +1,65 @@
+{
+  "changedFiles": [
+    "bench/nonlocking-scope.json",
+    "bench/nonlocking-scope-v23.json",
+    "lab.rb",
+    "bench/test_nonlocking_scope.py",
+    "bench/test_nonlocking_runner.rb",
+    "bench/test_scope_audit.py",
+    "bench/test_resource_preflight.rb",
+    "bench/test_runner_cache.rb",
+    "audit/audit-final-results.py",
+    "mise.toml",
+    "README.md",
+    "docs/table-count-nonlocking-scope.md",
+    "results/reviews/author-essential-scope-verification-attempt1.log",
+    "results/reviews/author-essential-scope-verification-attempt2.log",
+    "results/reviews/author-essential-scope-verification.log",
+    "results/reviews/author-essential-scope-verification.json"
+  ],
+  "decisionCoverage": [
+    "指定のrequested 7件・基本impact 9件を既定allowlistへ変更。不明ID・空リストはfail-closed。",
+    "全registryと明示ID実行を維持。選択外は理由付きで全件記録し、成功に加算しない。",
+    "100M、58設計、通常COUNT 12ケース、5版、整合確認・会計・取消・後始末の保護を維持。",
+    "所有者監査を現行選択集合へ変更。旧台帳はSHA-256付きで保存。",
+    "AGENTS.md・主ガイド・校正文書は編集せず、DB/Docker・workflow・delegation・commit/pushは未実行。"
+  ],
+  "evidenceChecks": [
+    {
+      "complete": true,
+      "completeLog": "results/reviews/author-essential-scope-verification.log",
+      "exitCode": 0,
+      "logHashVerified": true,
+      "record": "results/reviews/author-essential-scope-verification.json"
+    },
+    "実dispatcher・版・暗号化・outputs・不明ID拒否・キャッシュ・取消・後始末・固定runnerを検証。",
+    "Python-only bench配置、構文、要求集合一致、検証中のsource不変性を確認。"
+  ],
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "fcddf7771d6d06e120489e575df55c5223bc27a41f9ca7f46e3103b83a014e7a",
+  "remainingGaps": [
+    "縮小後の固定runner白紙allは別runnerセッションで未実行。",
+    "所有者の意味・最終source・後始末監査と、別セッションの最終Sol 2役レビューが必要。",
+    "指定coreEvidenceのresults/reviews/essential-scope-interruption.jsonが存在しない。",
+    "final-all-proofは作成しておらず、完走・精度・SLO合格は未認定。"
+  ],
+  "selectedCounts": {
+    "baseImpacts": 9,
+    "matrixVersions": 5,
+    "plainCountCases": 12,
+    "quietShapes": 58,
+    "requestedProcesses": 9,
+    "requestedScripts": 7
+  },
+  "skippedCounts": {
+    "baseImpacts": 13,
+    "requestedProcesses": 149,
+    "requestedScripts": 137
+  },
+  "tests": {
+    "dbFree": true,
+    "failed": 0,
+    "passed": 16,
+    "ruby": "mise pinned 4.0.9"
+  }
+}

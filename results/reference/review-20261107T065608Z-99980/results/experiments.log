@@ -1,0 +1,8 @@
+baseline                                   rows/s=       0 write p99 8.48->18.85 ms max=47.88 err=0 read p99 8.36->8.39 ms
+count_estimate                             rows/s=       0 write p99 27.27->None ms max=None err=0 read p99 7.56->1.09 ms
+count_default                              rows/s=       0 write p99 28.04->6.24 ms max=12.04 err=0 read p99 7.96->7.24 ms
+count_single_thread                        rows/s=       0 write p99 20.43->5.3 ms max=6.37 err=0 read p99 7.93->6.21 ms
+count_force_primary                        rows/s=       0 write p99 29.34->32.31 ms max=69.01 err=0 read p99 7.91->7.19 ms
+count_force_secondary                      rows/s=       0 write p99 8.01->37.49 ms max=61.5 err=0 read p99 7.89->8.55 ms
+count_split_100k_nosleep                   rows/s= 8997453 write p99 20.72->6.08 ms max=24.62 err=0 read p99 7.86->7.13 ms
+count_split_100k_duty50                    rows/s= 4065241 write p99 23.93->10.53 ms max=36.84 err=0 read p99 7.74->7.37 ms

@@ -1,0 +1,59 @@
+{
+  "sql": "RESTORE FILELISTONLY FROM DISK=N\u0027/backup/fixture-full.bak\u0027;",
+  "start_ns": 361494219269950,
+  "end_ns": 361494237512706,
+  "elapsed_ns": 18242756,
+  "raw": [
+    [
+      {
+        "LogicalName": "ManualCount100m_data",
+        "PhysicalName": "/var/opt/mssql/data/ManualCount100m.mdf",
+        "Type": "D",
+        "FileGroupName": "PRIMARY",
+        "Size": 68249714688,
+        "MaxSize": 85899345920,
+        "FileId": 1,
+        "CreateLSN": 0,
+        "DropLSN": 0,
+        "UniqueId": "fa7d776d-8a27-4fa0-9597-097821260507",
+        "ReadOnlyLSN": 0,
+        "ReadWriteLSN": 0,
+        "BackupSizeInBytes": 67896672256,
+        "SourceBlockSize": 4096,
+        "FileGroupId": 1,
+        "LogGroupGUID": null,
+        "DifferentialBaseLSN": 0,
+        "DifferentialBaseGUID": "00000000-0000-0000-0000-000000000000",
+        "IsReadOnly": false,
+        "IsPresent": true,
+        "TDEThumbprint": null,
+        "SnapshotUrl": null
+      },
+      {
+        "LogicalName": "ManualCount100m_log",
+        "PhysicalName": "/var/opt/mssql/log/ManualCount100m.ldf",
+        "Type": "L",
+        "FileGroupName": null,
+        "Size": 2550136832,
+        "MaxSize": 4294967296,
+        "FileId": 2,
+        "CreateLSN": 0,
+        "DropLSN": 0,
+        "UniqueId": "95a5857d-2a42-41df-af68-b466b127eb1b",
+        "ReadOnlyLSN": 0,
+        "ReadWriteLSN": 0,
+        "BackupSizeInBytes": 0,
+        "SourceBlockSize": 4096,
+        "FileGroupId": 0,
+        "LogGroupGUID": null,
+        "DifferentialBaseLSN": 0,
+        "DifferentialBaseGUID": "00000000-0000-0000-0000-000000000000",
+        "IsReadOnly": false,
+        "IsPresent": true,
+        "TDEThumbprint": null,
+        "SnapshotUrl": null
+      }
+    ]
+  ],
+  "error": null
+}

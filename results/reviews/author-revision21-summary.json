@@ -1,0 +1,575 @@
+{
+  "revision": 21,
+  "guidelineSha256": "de6b2fc652f7a301d1d438478487c992af5ed6d14682e46598a7aadd4950bc59",
+  "authorResponses": [
+    {
+      "id": "FIND-O10-PRIMARY-SCALE",
+      "status": "unresolved",
+      "response": "30本のscale計画と上限を保持。最終コードの白紙測定と全セル監査が未完了。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "§4、詳細§11/13"
+    },
+    {
+      "id": "FIND-O10-INDEXED-100-STALL",
+      "status": "unresolved",
+      "response": "旧stall観測を保持。5つの対照/PRIMARY pairを分割し、全rawと時系列を保存する実装を用意。新測定と原因評価は未完了。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "詳細§3/11/13"
+    },
+    {
+      "id": "FIND-O10-STEP-CEILING",
+      "status": "unresolved",
+      "response": "行数上限を保持し、0e/0fの4反復を分割。現コードのDB再試験が必要。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "詳細SQL 4、§11"
+    },
+    {
+      "id": "FIND-O10-NOPK-FORCE",
+      "status": "unresolved",
+      "response": "PRIMARY不存在時の強制を禁止する分岐を保持。0lの固定runner実行待ち。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "§4、詳細§11"
+    },
+    {
+      "id": "FIND-O10-ENCRYPTED-STALE",
+      "status": "fixed",
+      "response": "保存済み91観測と92の終了コード不明を区別。現コードの再測定済みとはしない。",
+      "sections": "§3/7、詳細§6/11/13"
+    },
+    {
+      "id": "FIND-O10-P100-BOLD",
+      "status": "fixed",
+      "response": "範囲が重なる100/sでPRIMARY優位を断定しない。",
+      "sections": "詳細§3/10"
+    },
+    {
+      "id": "FIND-DOC-01",
+      "status": "fixed",
+      "response": "保存済み公式確認記録に基づく系列表へ修正。原文全体の再閲覧済みとは表示しない。",
+      "sections": "前提環境、詳細§12"
+    },
+    {
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+      "status": "fixed",
+      "response": "STOP遅効、未解決状態、継続担当と復旧確認を分離。過去の正常終了観測を保持。",
+      "sections": "§6、詳細§7"
+    },
+    {
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "status": "unresolved",
+      "response": "参考統計・条件付き推定・正確値を分離し、任意表の数%/10%や無影響を保証しない。wideのソース修正は提出したが、01c/01dの精度費用曲線と10%service効果は未計測。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "status": "fixed",
+      "response": "初回試行にもtail、CPU/I/O、回復、中断確認を要求。共通安全行数や1000msの安全保証を置かない。",
+      "sections": "§4"
+    },
+    {
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "status": "unresolved",
+      "response": "TDEと列暗号化、幅・小索引・MVCCを分離。保存staticは限定観測。wide終了確認を修正提出したが96/97/01a/01b/01dの現コードでのDB実行は未了。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "status": "fixed",
+      "response": "精度・鮮度・権限・待機・replicaを比較し、Uninitializedを0件として扱わない。",
+      "sections": "§2"
+    },
+    {
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "status": "fixed",
+      "response": "ANALYZEを初回参照から分離。ページ増量による単調改善を保証しない。",
+      "sections": "§2"
+    },
+    {
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "status": "fixed",
+      "response": "責任者、監視・停止権限、共有資源、DDL調整、復旧担当を導入票に保持。",
+      "sections": "§1/4/6、詳細§10"
+    },
+    {
+      "id": "SOL-SAMP-DEADLINE",
+      "status": "unresolved",
+      "response": "期限とaccuracy/budget/cleanupの分離を保持。純粋回帰は通過、最終DB検証待ち。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "§7、詳細§14"
+    },
+    {
+      "id": "SOL-SAMP-DOC-CONTRACT",
+      "status": "fixed",
+      "response": "整数単一PK、固定snapshot、一様復元セル、疎領域の未達、全対象へのalpha割当を明示。",
+      "sections": "§2、確率推定仕様"
+    },
+    {
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "status": "fixed",
+      "response": "通常は適用中replica。取得先変更・再試行・適用停止には所有者判断と累積予算を要求。",
+      "sections": "§1/4/6、詳細§1/7/10/11"
+    },
+    {
+      "id": "SOL-SAMP-98-COMPARISON",
+      "status": "unresolved",
+      "response": "固定98の過去観測を保持し、新コードのDB完了とは扱わない。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "§7、詳細§14"
+    },
+    {
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "status": "unresolved",
+      "response": "wideの予期しない失敗は保存後に非0終了し、実Ruby cache回帰はexit1拒否。旧shared source fingerprintも変化する。ソース反例は修正提出、最終allの必須scopeと所有者監査は未了。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "status": "fixed",
+      "response": "固定対象ID、cancel/joinと純粋回帰、保存済み実DB観測を保持。",
+      "sections": "詳細§8、実験12"
+    },
+    {
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "status": "fixed",
+      "response": "ハッシュ付き履歴と新規結果を分離し、終了コード不明を成功扱いしない。",
+      "sections": "§3/7、証拠保存説明"
+    },
+    {
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "status": "fixed",
+      "response": "操作名と読取量を扱い、cache同等性や暗号処理の一律倍率を主張しない。",
+      "sections": "§3、詳細§11/13"
+    },
+    {
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "status": "unresolved",
+      "response": "arrival保存則と打切りを維持し、wide失敗時にもraw/accountingを保存するfake回帰通過。共有finishは会計と終了確認を分離。最終DBの全scope監査は未完了。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "status": "unresolved",
+      "response": "短窓・空窓・打切りをSLO合格にしない。wideの腕間終了確認は修正提出したが新規service比較未計測。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "SOL-FRONTIER-001",
+      "status": "fixed",
+      "response": "標本を比較COUNTより先に保存し、比較失敗も保存。実関数の失敗回帰通過。",
+      "sections": "詳細§13、record_sample"
+    },
+    {
+      "id": "SOL-FRONTIER-002",
+      "status": "fixed",
+      "response": "文予算と全体予算、未知中断と後始末失敗を分離。既存実装と回帰を保持。",
+      "sections": "詳細§13、sample_with_budgets"
+    },
+    {
+      "id": "SOL-FRONTIER-003",
+      "status": "fixed",
+      "response": "runner所有matrix撤去結果と失敗伝播を保持し、今回もfake teardown self-check通過。matrixは未到達。終端のcontainer停止は途中armの比較可能性を遡って保証しない。",
+      "sections": "主文書§7、詳細§16、統合監査"
+    },
+    {
+      "id": "SOL-FRONTIER-004",
+      "status": "fixed",
+      "response": "今回部分impactでdisabled lock/lagがnull/not_measuredであることを確認。専用lock_factorsの実測と分離。",
+      "sections": "主文書§7、詳細§16、統合監査"
+    },
+    {
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "status": "fixed",
+      "response": "controller/labともRuby4.0.9で起動。初期照合・測定まで到達したためRuby起動修正は確認。exit130は別の設計修正のための所有者中断。",
+      "sections": "主文書§7、詳細§16、統合監査"
+    },
+    {
+      "id": "ROOT-RUBY-RUNTIME",
+      "status": "fixed",
+      "response": "controller/lab4.0.9と明示mise execを保持。実ログで起動確認済み。最新allの完走とは区別。",
+      "sections": "主文書§7、詳細§16、統合監査"
+    },
+    {
+      "id": "ROOT-RAW-ARTIFACT-SIZE",
+      "status": "fixed",
+      "response": "全rawのlossless gzip JSONL、8MiB上限、hash・欠損・改変拒否を保持しwrite-mixにも適用。回帰通過。 今回は対象経路未到達。DB不要回帰と過去観測だけを根拠とし、現DBの成功証拠にはしない。 追加実装・計測ソース変更はこの工程では行わない。",
+      "sections": "§7、README"
+    },
+    {
+      "id": "ROOT-FAILED-ALL-SUMMARY",
+      "status": "fixed",
+      "response": "今回live/snapshotともlast_run.jsonなし。candidate summaryAfter=null/fresh=false、not_reached/ran=[]。以前の完了を今回へ加算しない。",
+      "sections": "主文書§7、詳細§16、統合監査"
+    },
+    {
+      "id": "ROOT-ALL-SEMANTIC-ERRORS",
+      "status": "unresolved",
+      "response": "基本runnerの意味的失敗伝播を維持し、wide callerも保存後に非0伝播へ修正。全結果の意味監査と白紙allは未完了。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+      "status": "unresolved",
+      "response": "旧3e/3f退役証拠と仮説を保持。置換先をpartitioned-v3へ修正したが、新測定は未実行。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "§7、修正説明"
+    },
+    {
+      "id": "ROOT-REVIEW-BUDGET-SCOPE",
+      "status": "fixed",
+      "response": "aggregate capなしと各script上限を区別。timeoutや部分結果を完了扱いしない。",
+      "sections": "§7、修正説明"
+    },
+    {
+      "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+      "status": "unresolved",
+      "response": "scale30本を保持。write-mixも方式群・反復blockへ分割。静的反例は解消したが実DBの全予定機会監査は未完了。 今回も要求実験より前の所有者中断で、必要なDB検証は未到達。",
+      "sections": "§7、修正説明"
+    },
+    {
+      "id": "SOL-PROTOCOL-001",
+      "status": "fixed",
+      "response": "2013・接続断・計画拒否をceilingから除外。3024/1317は所有sessionのtimer counter増加と終了確認を要求。失敗保存・非0伝播のE01回帰通過。 fixedはソース修正とDB不要回帰の提出のみ。今回DB実行なし、実DB判定・査読閉鎖は未了。 今回self-checkで再確認したがreqmixのDB実測は未到達。",
+      "sections": "修正説明§結果分類"
+    },
+    {
+      "id": "SOL-PROTOCOL-002",
+      "status": "fixed",
+      "response": "全機会をsetup前に保存し、方式群・2反復blockへ分割。4反復と元上限を保持。予算不足・例外・未着手を記録。149/150/120/1秒と全arm上限のE02回帰通過。 fixedはソース修正とDB不要回帰の提出のみ。今回DB実行なし、実DB判定・査読閉鎖は未了。 今回self-checkで再確認したがreqmixのDB実測は未到達。",
+      "sections": "修正説明§必須反復"
+    },
+    {
+      "id": "SOL-PROTOCOL-003",
+      "status": "fixed",
+      "response": "既存reqmix/scaleの終了確認を維持。wideにも所有接続確認・finally負荷停止・失敗先行保存を接続し、他反復callerは共有finish既定Trueで停止確認。旧quiet truth/drift境界は撤回したまま。fake通過と実DB確認を区別。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "status": "fixed",
+      "response": "今回preflightはVM6,709,936 KiB/host180,060,128 KiBでok=true。image準備・容量ゲートを通過。完走最小資源や測定中余裕の保証にはしない。自動pruneなし。",
+      "sections": "主文書§7、詳細§16、統合監査"
+    },
+    {
+      "id": "SOL-WIDE-ERROR-001",
+      "status": "fixed",
+      "response": "static/service双方をpersist_outcomeで保存し、原status/errno/精度/予算/cleanupを残してから予期しない失敗を非0伝播。必須未解決失敗はcomplete=false/reusable=false。精度未達・全体予算・確認済み文上限は有効観測。REG-WIDE-OUTCOME-PERSISTENCEの実関数/fakeと実Ruby cache exit1拒否が通過。実DB再現・査読閉鎖は未了。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    },
+    {
+      "id": "SOL-WIDE-ERROR-002",
+      "status": "fixed",
+      "response": "wide armはfinallyでfinish(confirm_server=True)、method所有IDのclose_ownedも実施。失敗時のraw/accounting/cleanupをcallerが先に保存して後続armを停止。同じ既定False漏れは共有finishの既定Trueで閉じ、child非0/未終了・registry・observer/KILL失敗もfail closed。REG-WIDE-CLEANUP-GATE通過。実DB検証・査読閉鎖は未了。",
+      "sections": "主文書§7、詳細§17、wide修正仕様"
+    }
+  ],
+  "requestedExperiments": [
+    {
+      "id": "EXP-O10-PRIMARY-SCALE",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O10-INDEXED-100-STALL",
+      "status": "unresolved_current_source_not_run"
+    },
+    {
+      "id": "EXP-O10-ROW-CEILING",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O10-NOPK-FORCE",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O6-WRITE-MIX",
+      "status": "reopened_pending_partitioned_v3_db"
+    },
+    {
+      "id": "EXP-O8-PKONLY-THREADS",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R6-float-dst",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O2-1-guideline-sql-as-written",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O8-1205",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-7-coverage-gaps",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S8-ENUM-DOMAIN",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "EXP-S8-REPLICA-STOP-FAILURE",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "EXP-S8-REPLICA-CHANNEL-GATE",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R9-working-set-impact",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-CPU-CONTROL",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-NOISE-WINDOWS",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-LONG-UNDO",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-6-sql-not-executed",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-LOOP-RULES",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R15-replica-procedure",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-ANALYZE",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-THREADS-SCOPE",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-MONITOR-RECHECK",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-REPLICA-FAILURE-CLEANUP",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-INCREMENTAL-SAME-SECOND",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R13-least-privilege",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-3-history",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-9-alternative-methods",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-12-mdl-phase",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R1-enum-scaling",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O2-3-cascade-trigger-version",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-10-engine-states",
+      "status": "historical_withdrawn_preserved"
+    },
+    {
+      "id": "EXP-O2-2-stop-vs-timeout",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R5-split-drift",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R7-background-reader",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R8-count-repeat",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R4-primary-split-impact",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R10-estimate-churn",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-1-existing-transaction",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R2-nullable-composite",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R3-desc-index",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R11-lock-forms",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R12-flush-chain",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R14-resume-failover",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R16-incremental",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-4-fk-mdl",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-5-indexed-update-lock",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-2-read-uncommitted",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-3-null-inclusive-timing",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-4-view-semantics",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-5-counter-bootstrap",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-6-monitor-health",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-7-table-generation",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-8-timeout-context",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-11-lock-sampler-control",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "SOL-EXP-ENCRYPTED-WIDE-TRIAL",
+      "status": "reopened_pending_wide_source_repair"
+    },
+    {
+      "id": "94-metadata-on-replica",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-EXP-STRATIFIED-SAMPLING",
+      "status": "unresolved_optional_extension"
+    },
+    {
+      "id": "SOL-SAMP-EXP-PURE-BOUNDARIES",
+      "status": "db_free_regression_reexecuted_db_scope_pending"
+    },
+    {
+      "id": "SOL-SAMP-EXP-98-OWNED-COMPLETION",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-SAMP-EXP-OPERATING-COST",
+      "status": "reopened_pending_wide_source_repair"
+    },
+    {
+      "id": "SOL-EXP-HARNESS-PURE",
+      "status": "db_free_regression_reexecuted_db_scope_pending"
+    },
+    {
+      "id": "SOL-EXP-FINAL-REPRODUCTION",
+      "status": "failed_unresolved"
+    },
+    {
+      "id": "SOL-EXP-TDE-RESIDENCY",
+      "status": "conditional_not_requested_without_multiplier"
+    },
+    {
+      "id": "SOL-EXP-WIDE-TAIL",
+      "status": "reopened_pending_wide_source_repair"
+    },
+    {
+      "id": "SOL-EXP-SAMPLING-CONTRACT",
+      "status": "unresolved_final_db_scope"
+    },
+    {
+      "id": "SOL-FRONTIER-EXP-01",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "SOL-FRONTIER-EXP-02",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "status": "fixed_startup_verified"
+    },
+    {
+      "id": "SOL-PROTOCOL-E01",
+      "status": "db_free_regression_reexecuted_db_scope_pending"
+    },
+    {
+      "id": "SOL-PROTOCOL-E02",
+      "status": "db_free_regression_reexecuted_db_scope_pending"
+    },
+    {
+      "id": "SOL-PROTOCOL-E03",
+      "status": "conditional_after_owner_audit"
+    },
+    {
+      "id": "SOL-PROTOCOL-E04",
+      "status": "unresolved_owner_audit_after_runner"
+    },
+    {
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "status": "fixed_preflight_passed_pending_reviewer"
+    },
+    {
+      "id": "REG-WIDE-OUTCOME-PERSISTENCE",
+      "status": "db_free_regression_passed_final_db_and_reviewer_pending"
+    },
+    {
+      "id": "REG-WIDE-CLEANUP-GATE",
+      "status": "db_free_regression_passed_final_db_and_reviewer_pending"
+    }
+  ],
+  "fullStateArtifact": "results/reviews/author-revision21-output.json",
+  "fullStateSha256": "212f3e4fa7daa1a7b54462c4f58e052670a4681a5575c6ab5262a6cb1caa4675",
+  "verification": {
+    "passed": true,
+    "completeLogPath": "results/reviews/author-revision21-verification.log",
+    "logSha256": "dc129a8ceb617165aeab35cdffaa3f5852bf0ce3628d81e9fc632d33e9421d67"
+  }
+}

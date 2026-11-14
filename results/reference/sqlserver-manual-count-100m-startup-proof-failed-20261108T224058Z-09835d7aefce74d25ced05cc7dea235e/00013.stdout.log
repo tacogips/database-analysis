@@ -1,0 +1,64 @@
+[
+    {
+        "Id": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+        "RepoTags": [
+            "mcr.microsoft.com/mssql/server@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+        ],
+        "RepoDigests": [
+            "mcr.microsoft.com/mssql/server@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-20T23:06:58.70115748Z",
+        "Config": {
+            "User": "mssql",
+            "ExposedPorts": {
+                "1433/tcp": {}
+            },
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "MSSQL_RPC_PORT=135",
+                "MSSQL_PID=developer"
+            ],
+            "Entrypoint": [
+                "/opt/mssql/bin/launch_sqlservr.sh"
+            ],
+            "Cmd": [
+                "/opt/mssql/bin/sqlservr"
+            ],
+            "Labels": {
+                "com.microsoft.product": "Microsoft SQL Server",
+                "com.microsoft.version": "17.0.5035.5",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04",
+                "vendor": "Microsoft"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 635885096,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:e8bce0aabd687e9ee90e0bada33884f40b277196f72aac9934357472863a80ae",
+                "sha256:70511030faaed7d765fb6de26db73223c717782d108cc02694f89ad7a8230372",
+                "sha256:25bf9612429057d2d3e1870d3d59faff2880bb13d51fdfaf63e52ee1e6622957"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-08T22:40:58.222592377Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3",
+            "size": 760
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "mcr.microsoft.com/mssql/server"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,75 @@
+{
+  "workflow": {
+    "workflowId": "temp-monotonic-count-clock-sol",
+    "description": "Guide-focused Sol author; exhaustive engine suite explicitly skipped by latest user",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 1800000
+    },
+    "entryStepId": "guide-author",
+    "nodes": [
+      {
+        "id": "guide-author",
+        "nodeFile": "nodes/guide-author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "guide-author",
+        "nodeId": "guide-author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/guide-author.json": {
+      "id": "guide-author",
+      "description": "Focused practical engineering guide using existing representative evidence",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Repair the actual measurement clock-domain defect, GPT-6.1 Sol only. Read AGENTS.md, owner-essential-semantic-rejection.json, owner-essential-evidence-checks.json and third-party-engineer-acceptance.json. The narrowed white-all ended process0/sourceunchanged/7scripts9processes9impacts, but independent audit correctly rejects reversed wall-clock method intervals: service48 arm9 sample10 start1794060012.173914 end1794060010.2734525 monotonicduration.2949; wide50 servicearm13 COUNT start1794058891.5610619 end1794058890.4167397 monotonic1.002. These are real invalid observations, not a reason to relax the auditor or retrofit timestamps. More positive-looking wall-clock windows can also be misattributed. Workload generates arrival times using time.time plus monotonic offsets; reqwide and other callers/Sampler use wallclock for windows. Global OS cause unknown. Owned compose stopped; NO DB/Docker/measurement/workflow/delegation/commit/push in author stage. Change only bench clock/workload/method/window recording and necessary actual-callsite consumers, independent public audit clock handling and relevant tests, lab selfcheck registration if needed, raw-format docs/README as needed. Keep selected scope revision24, all7requested/9impacts/58shapes/12plaincases/5matrix unchanged; no new DB experiment or broader grid. Preserve all olddata and strict auditing. Use a consistent monotonic timeline across processes for scheduled arrivals, actual method and broad baseline/trial/recovery boundaries, server samples, elapsed/duties and independent selection; wall-clock only provenance. Do not monkeypatch standard time.time globally. Explicit recorded clockdomain and adequate saved boundaries/anchors must let an independent reader recompute windows. Handle legacy records honestly; unsupported clock provenance must not silently pass as monotonic. Keep optional historical scripts independently runnable; avoid breaking old tuple formats without migration/metadata. Ensure empty/invalid windows never appear SLO-assessable. Precision/completion/budget/cleanup remain separate. Actual fake-clock regressions must exercise changed live functions and independent auditor using forward/backward wall jumps, not mirror constants, and reject inverted/foreign/missing intervals or dropped arrivals. Cover same coordinate across child workload/method/server sampler, scheduling and completion/censoring. Do not hide failures, skip the affected arms, merely sort walltimes, or exempt the whole newrun from service-window audit. Do necessary relevant DBfree tests using pinned Ruby and Python, log numeric exits and helper/source hashes. Final integration will run another narrowed fixedwhiteall because source changes. Save compact report results/reviews/author-clock-repair-verification.json/log and explain remaining limitations. Return SMALL required adapter guidelinePath(existing),guidelineSha256,changedFiles,decisionCoverage,evidenceChecks,remainingGaps; add clock design and real regression evidence. Implement concrete fix promptly; do not produce another engine research plan.",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "guidelinePath",
+            "guidelineSha256",
+            "changedFiles",
+            "decisionCoverage",
+            "evidenceChecks",
+            "remainingGaps"
+          ],
+          "properties": {
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "changedFiles": {
+              "type": "array"
+            },
+            "decisionCoverage": {
+              "type": "array"
+            },
+            "evidenceChecks": {
+              "type": "array"
+            },
+            "remainingGaps": {
+              "type": "array"
+            }
+          }
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  }
+}

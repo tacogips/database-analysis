@@ -1,0 +1,176 @@
+{
+  "inputBindings": {
+    "failedRun": {
+      "archiveManifest": "results/reference/sqlserver-manual-count-100m-ag-restore-failed-20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/manifest.json",
+      "archiveManifestSha256": "19276999a0ddf8bfd8c02a5b42727ab4c90bba449830a32496e5f3e7f2b4fb0d",
+      "attachStderrLog": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/00039.stderr.log",
+      "attachStdoutLog": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/00039.stdout.log",
+      "commandCount": 702,
+      "exitCode": 1,
+      "primaryStderr": {
+        "path": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/00687.stderr.log",
+        "sha256": "a9792b1a4618c6b1d71fa109fb92d5ea232d0a12e670b505b1d558c0123d6a39"
+      },
+      "probeSha256": "a7bc97177a76a8b9c34c4469075c39f0ab1f145d46ffd5b7d20ed93cf6e6de53",
+      "result": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/result.json",
+      "resultSha256": "41c66e59931e0ec89f247e1cefec302589a39dcfecbfec6cb5dadc6710ffac02",
+      "secondaryStderr": {
+        "path": "results/sqlserver/manual-count-100m/runs/20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9/00682.stderr.log",
+        "sha256": "2e537b99eaef9e08854a94b748a80addab936152e8c78860a646d77e4c7909ff"
+      }
+    },
+    "historicalOfflineEvidence": {
+      "checks": 19,
+      "exitCode": 0,
+      "log": "results/reviews/sqlserver-manual-count-100m/owner-state-matrix-offline-final.log",
+      "logSha256": "8bb7059755bf0b1a865cc235e9260b09300d4d0b3bada41a3dcc1b73267f8bee",
+      "meaning": "Existing pre-proposal evidence only; not validation of these replacements.",
+      "receipt": "results/reviews/sqlserver-manual-count-100m/owner-state-matrix-offline-final.json"
+    },
+    "offlineReceiptSha256": "cc01d114b97b46a833371bf988b075407eeeeb8210730a23d9454f327822d47b",
+    "ownerEvidenceHashes": {
+      "results/reviews/sqlserver-manual-count-100m/ag-restore-failure-analysis.json": "0132cc41eb63ed5225c00d1720ba8daf98d04a2063abe4251fd65bb50e1880ec",
+      "results/reviews/sqlserver-manual-count-100m/ag-restore-failure-owner-cleanup.json": "7c799fd0a9556106a395a7346541a545cffd8acaddcdef13e59f3911583339c5",
+      "results/reviews/sqlserver-manual-count-100m/entrypoint-repair-owner-application.json": "0df6476d3d49ef09085dd73aaf74d8e8935ba0018c7dba719ef882c47a6bb857",
+      "results/reviews/sqlserver-manual-count-100m/server2022-entrypoint-inspection/source.json": "6752f88a9127e32e3723e35b8843f279de73e924c3437aca319af8801609f15c"
+    },
+    "ownerExecuteBeforeSha256": "5de795035b1b366baab684663d362bfc4aa5429ad3bf70aabecba79a69b77121",
+    "runtimeVariables": {
+      "_rielaInput": {
+        "communicationIds": [],
+        "messages": [],
+        "sourceStepIds": [],
+        "stepId": "author",
+        "workflowExecutionId": "temp-sql100m-engine-repair-author-sol-session-64"
+      }
+    },
+    "sourceHashes": {
+      "sqlserver/manual-count-100m/.dockerignore": "0a1e42540e627caa3100565f190e6da9a82135cf5fc71b0a06f8a105d6e07c2f",
+      "sqlserver/manual-count-100m/Dockerfile": "4aea959a36994b64141267f612714177fbe0a07cacfbd2d5535741ab59815f04",
+      "sqlserver/manual-count-100m/Fixture.cs": "62c551d56092a67ad96329dcfa96f3a6b43fca741e5b18b52228db44a490b7ba",
+      "sqlserver/manual-count-100m/ManualCount100m.csproj": "e63af41a60a9e3ceb49db23c993e00f37128cab8e6b4cc25df61a6d52f8c2de0",
+      "sqlserver/manual-count-100m/NuGet.Config": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c",
+      "sqlserver/manual-count-100m/Program.cs": "1c06187472801e60af785d67e1b8a29b2b960c0c796ecfecea3aa3a592cf07d9",
+      "sqlserver/manual-count-100m/README.md": "ca0086e150900d102e20fee0c7557100bab8575619961821f58dfd65e9c47efb",
+      "sqlserver/manual-count-100m/State.cs": "b6bcc6230820a8d47db0f14b3372117e7f08c10e060b9316d4da26be58e25782",
+      "sqlserver/manual-count-100m/compose.yaml": "c8ab7e587ab8370cf0d2a274c3f138e30ce7613b60a9027ae792784bf9177404",
+      "sqlserver/manual-count-100m/input-bindings.json": "e3a421c266146aaa3534ce49c79c5dbba810de7018a10f58edfa64cfac379880",
+      "sqlserver/manual-count-100m/lab.rb": "20c96015643c3bcc9688314d7c5034d7c885fb4d8a2a53d12449e9b36df037c7",
+      "sqlserver/manual-count-100m/manual/source.json": "836cf870c5eddb95e8e6d5f6c2e87ca998bc8afff34c078e35acf9a810dd5bb1",
+      "sqlserver/manual-count-100m/manual/sql-server.md": "9a66b40420396c8481d55b68de3781fe3712993beaeca9f711e6ba0605922682",
+      "sqlserver/manual-count-100m/mise.toml": "44e7bbb5d9d1185e0e0848cfdfd782824836ee9feec2a9d1b0a99ba571e9acf4",
+      "sqlserver/manual-count-100m/model.rb": "b2877122c4849834d013f6df61267893ec88f7390a46669cc7df1ddde991b2ee",
+      "sqlserver/manual-count-100m/packages.lock.json": "9f4ed17378bdc9695074f16496aa31c416c7ef227d7c2b948078c852a6fa59a8",
+      "sqlserver/manual-count-100m/sql/ag-backup-proof.sql": "a31e353e70acd7e94183571bcddc6bb04d91a01974ad99c6aab81c174239dd48",
+      "sqlserver/manual-count-100m/sql/ag-endpoint.sql": "7fd797b8224756f2a7578a587806994b358e098c1537520db547574731108e34",
+      "sqlserver/manual-count-100m/sql/ag-peer.sql": "3797abff5026d0ea4f5d38f6639f42fdec6886d41a2e4440a245f856de71935a",
+      "sqlserver/manual-count-100m/sql/ag-primary-setup.sql": "7e4c12f3664982991a8cd64cea2e5da6ae4389ea2e60cb11a42b4eb34eff3eab",
+      "sqlserver/manual-count-100m/sql/ag-primary-state.sql": "d14dc9349f60947a726edb0a391f277404b846af395d4d62d30901ead50b81d9",
+      "sqlserver/manual-count-100m/sql/ag-secondary-setup.sql": "b2ccfcd7c8fac5babf872a02145675573b9ede52a6c028300b165a8ab0eadcbb",
+      "sqlserver/manual-count-100m/sql/ag-topology.sql": "0d0dd5625d2a8de1146a6af693cd256b550d87c2ee11c6477293e513a5d1f294",
+      "sqlserver/manual-count-100m/sql/branch-a.sql": "a10008a4f86097055286ccc2033c4e29b934203637a219cb9354598a5b913ce2",
+      "sqlserver/manual-count-100m/sql/branch-b.sql": "50e5b63ad5e053eaff6ffd01c005620c75e80488f1b06234af5c3514d1a35790",
+      "sqlserver/manual-count-100m/sql/branch-c.sql": "96283fb127b9ea8ee623d89524c74759f361cd943f2f30cea136fbb0d6376895",
+      "sqlserver/manual-count-100m/sql/branch-d.sql": "78c918726da0986a3ce00f508d5d85eb8d368e65529faf71c24457db7ba11c3a",
+      "sqlserver/manual-count-100m/sql/guard.sql": "b7a40f605375f539d651b43befec10a324c4587d7e9e8ea4e7411b7fd08dacd6",
+      "sqlserver/manual-count-100m/sql/indexes.sql": "f05b60eccb7915a764dc5971647a183910567be9754ec5947d77a86a294187ea",
+      "sqlserver/manual-count-100m/sql/inventory.sql": "8083045eb9ca3318f302db51ee735ccb7a4c0b3dc3cb5a3f2aac7e659f8155a9",
+      "sqlserver/manual-count-100m/sql/pages.sql": "70a9455c876c660ac0b06dad0340643acabe9f8b7d0303ba9abbbfce9e51cf2d",
+      "sqlserver/manual-count-100m/sql/role.sql": "ecf728c03a5b1d3b945c9acbf96cfb92ed1de77401c399f55856955f2269728f",
+      "sqlserver/manual-count-100m/sql/showplan.sql": "9e628f01d8cb0a63131a6f2681cfac50e89a4ff573053ed4f487c23e85091be4",
+      "sqlserver/manual-count-100m/verify_offline.rb": "bbd08bb1cd1de81cc441691afbed0b8f8413ee373813e500bdfa025c08f47164"
+    }
+  },
+  "offlineChecksRequired": [
+    {
+      "action": "Before application, verify the failed invocation is terminal, its archive manifest and archived artifacts match their hashes, and the exact failed owned namespace/stage is absent. Retain the original helper exit1 and separate capacity-restoration failure. Apply only these eight replacements against the supplied source bindings.",
+      "ownerOnly": true
+    },
+    {
+      "action": "Run the existing foreground `mise -C sqlserver/manual-count-100m exec -- ruby verify_offline.rb` after application. Require all19 checks, including the unchanged startup PID retry and smoke acceptance checks. Save a complete new log and terminal exit status in engine-repair-offline-final.json; record log/logSha256 and the complete fresh sourceHashes set. Do not reuse or overwrite owner-state-matrix-offline-final.json.",
+      "ownerOnly": true
+    },
+    {
+      "action": "Check the modified execute.py syntax without executing its top-level owner path and without producing source-tree bytecode. Audit that its effective invocation provenance references the new engine application/offline receipt while retaining historical author sessions. Save terminal exit status and the complete log path; this author turn has not performed that check.",
+      "ownerOnly": true
+    },
+    {
+      "action": "Create engine-repair-owner-application.json with status applied_offline19_passed_ready_for_one_blank_all and the exact fields required by the proposed gate: authorSession, authorLaunchSha256, authorProposalSha256, offlineReceiptSha256, finalSourceHashes, ownerExecuteSha256, historicalEntrypointApplicationSha256 and failedRunCleanupSha256. Bind the full proposal payload and actual completed launch; preserve previous receipts.",
+      "ownerOnly": true
+    },
+    {
+      "action": "After fresh offline evidence and existing MySQL isolation gates, perform one foreground source-bound fresh all through the owner execute workflow. Keep the terminal exit and complete canonical/image-preparation/command logs. Audit actual2022 runtime version on both nodes, regenerated fixture/backups, all18 cold counts, actual healthy readable secondary, normal SQL exits0, owned cleanup and the independent capacity predicate. A failure remains a failure; no automatic retry or bypass is proposed. Owner audit and two separate fresh GPT-6.1 Sol review roles remain required afterward.",
+      "ownerOnly": true
+    }
+  ],
+  "rationale": {
+    "capacity": "The independent owner cleanup records owned runtime/root absence, but its helper exit1 and failed physical-capacity restoration remain failures. Its last recorded host free is147207892992 bytes versus215847665664 before the run. Neither absence nor a new offline pass establishes capacity sufficiency or repairs historical cleanup.",
+    "controlledRetry": "The owner-resolved SQL2022 digest changes only the engine implementation choice. Local failure analysis cites issue959 as supporting a single controlled retry, not an established cause or Microsoft-confirmed fix. All databases and backups must be regenerated under the same pinned2022 engine on both nodes.",
+    "entrypoint": "All four captured2022 vendor scripts are present with recorded inspection exit0. Its launcher backgrounds SQL without TERM forwarding. Retain the existing inline wrapper unchanged: permissions check, sourced initialization, setup child ownership, pending signal replay, interrupted-wait retry, and actual SQL/setup exit propagation. Fixed MSSQL_PID=Developer is valid; the retained alias normalization branches are inactive for that value.",
+    "preservedRequirements": "Preserve SDK/dependencies, ordered loading, 100M rows and100 columns, six cells\u00d7three samples, exact COUNT SQL/indexes, all19 existing checks, startup PID-set retry, real preload smoke, actual secondary Rosetta proof, all timers/resource budgets, terminal SQL exit0 requirements, 70/24/12GiB gates and cleanup240. Existing MySQL accepted source/docs remain untouched.",
+    "provenFailure": "The actual failed run has 1000 committed load receipts, five measured conditions and 18 sample slots: 15 completed/accepted 100M observations with zero target cached/dirty pages, followed by three pending A slots. Full/log backup identity evidence has no error; restore/join records a transport failure. Both SQL containers terminated with exit1 and OOMKilled=false. The controller and client exited1; cleanup retained its two nonzero-server errors.",
+    "provenance": "New engine author/application/offline receipt names preserve the earlier author chain, entrypoint application, offline receipt and failed archive. The proposed execute gate binds the new launch/proposal/application, full runtime source hash set, executor hash and complete offline log hash before its existing owner-only execution path.",
+    "scope": "Read-only proposal only. No source edits, lab/offline suite execution, DB/Docker invocation, cleanup, network access or delegation was performed. Each of the eight old snippets occurs exactly once in its specified current file."
+  },
+  "replacements": [
+    {
+      "new": "  SQL_IMAGE = 'mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718'",
+      "old": "  SQL_IMAGE = 'mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3'",
+      "path": "sqlserver/manual-count-100m/lab.rb"
+    },
+    {
+      "new": "    image: mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718\n    hostname: countprimary",
+      "old": "    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3\n    hostname: countprimary",
+      "path": "sqlserver/manual-count-100m/compose.yaml"
+    },
+    {
+      "new": "    image: mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718\n    hostname: countsecondary",
+      "old": "    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3\n    hostname: countsecondary",
+      "path": "sqlserver/manual-count-100m/compose.yaml"
+    },
+    {
+      "new": "- SQL amd64, both servers: `mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718`.\n\nThis engine change is one evidence-based controlled fresh-all retry, not a proven repair. SQL Server 2022 has a supported product lifecycle through 2033; Linux amd64 through Rosetta remains unsupported and is the explicitly requested diagnostic route. SQL version was an implementation choice; the latest-version requirement applied to Ruby. No 2022 DB has yet been started. Capture and audit actual @@VERSION / ProductVersion / Edition from both nodes using the existing actual-server-settings and ag-server-identity evidence; image tag alone is not runtime-version proof.\n\nThe historical SQL2025 run `20261108T225157Z-045d4ac2979742c7f0ab0eafb20b8fa9` loaded the same 100M rows / 100 columns with 1000 receipts and completed 15 valid B-clustered/narrow/composite, C and D observations with target cached/dirty pages zero before each count. Actual secondary Rosetta startup and full/log backup succeeded; restore/join failed with SQLPal `seenByMonitor < NonYieldThreshold` at sosschedmon.cpp:219 on both servers. Raw stderr fatal timestamps are 23:23:28 and 23:23:32 UTC, despite the analysis summary's same-time label. Both servers exited1 with OOMKilled=false; all three A slots remain unmeasured, full all failed, and raw cleanup failed. Preserve raw and hashed archive evidence; never combine these 15 historical SQL2025 observations with a SQL2022 run to claim18. Issue959 reports a similar SQL2025 assertion including x86/restored-DB cases and reports that2022 works; this is neither Microsoft-confirmed cause nor a guaranteed fix. Fresh2022 must regenerate every database and backup; do not reuse2025 data/backups or mix engine versions. No automatic retry loop is authorized.\n\nOwner applies only after the terminal failed archive and exact owned namespace/stage absence are verified. Preserve earlier author/entrypoint application and offline receipts. Record this proposal as `engine-repair-author-result.json`, its completed launch as `engine-repair-author-launch.json`, the new application as `engine-repair-owner-application.json`, and fresh source-bound19-check evidence as `engine-repair-offline-final.json`, all under `results/reviews/sqlserver-manual-count-100m/`; use the root owner execute gate. Its application binds this author/proposal, final source hashes, owner execute hash, prior entrypoint receipt, failed-run cleanup receipt and the new offline receipt/log. Owned resource absence does not turn the historical capacity-restoration failure into success: helper exit1 and the within1GiB failure remain separate evidence (~137GiB free versus ~201GiB before). Retain all capacity gates and cleanup240; no VM restart/resize, global OS cache purge or unrelated cleanup. Fresh all still requires all18 counts, real readable AG secondary, both actual terminal SQL exits0, owned cleanup and separate capacity assessment, owner audit, then two fresh independent GPT-6.1 Sol review roles.",
+      "old": "- SQL amd64: `mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3`.",
+      "path": "sqlserver/manual-count-100m/README.md"
+    },
+    {
+      "new": "  services = YAML.safe_load(File.read(File.join(__dir__, 'compose.yaml')), aliases: true).fetch('services')\n  expect(ManualLab::SQL_IMAGE == 'mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718')\n  %w[server secondary].each { |name| expect(services.fetch(name).fetch('image') == ManualLab::SQL_IMAGE) }\n  owner_execute = File.read(File.join(ManualLab::ROOT, '.riela/workflows/sqlserver-manual-count-100m/scripts/execute.py'))\n  expect(owner_execute.include?(\"('linux/amd64','#{ManualLab::SQL_IMAGE}')\"))\n  entrypoint = services.fetch('server').fetch('entrypoint')",
+      "old": "  services = YAML.safe_load(File.read(File.join(__dir__, 'compose.yaml')), aliases: true).fetch('services')\n  entrypoint = services.fetch('server').fetch('entrypoint')",
+      "path": "sqlserver/manual-count-100m/verify_offline.rb"
+    },
+    {
+      "new": "# Earlier author/entrypoint/offline receipts remain immutable historical evidence.\nengine_author=read(out/'engine-repair-author-launch.json')\nassert engine_author['exitCode']==0 and engine_author['runtimeStatus']=='completed' and engine_author['model']=='gpt-6.1-sol'\nassert engine_author['sessionId']=='temp-sql100m-engine-repair-author-sol-session-64'\nassert read(out/'engine-repair-author-result.json')['status']=='proposal_ready'\noffline=read(out/'engine-repair-offline-final.json');assert offline['exitCode']==0 and offline['status']=='passed_offline_only' and offline['checks']==19\nassert sha(root/offline['log'])==offline['logSha256']\nassert set(offline['sourceHashes'])==set(read(out/'owner-state-matrix-offline-final.json')['sourceHashes'])\nfor f,h in offline['sourceHashes'].items():assert sha(root/f)==h,f\nrepair=read(out/'engine-repair-owner-application.json')\nassert repair['status']=='applied_offline19_passed_ready_for_one_blank_all'\nassert repair['authorSession']==engine_author['sessionId']\nassert repair['authorLaunchSha256']==sha(out/'engine-repair-author-launch.json')\nassert repair['authorProposalSha256']==sha(out/'engine-repair-author-result.json')\nassert repair['offlineReceiptSha256']==sha(out/'engine-repair-offline-final.json')\nassert repair['finalSourceHashes']==offline['sourceHashes']\nassert repair['ownerExecuteSha256']==sha(Path(__file__))\nassert repair['historicalEntrypointApplicationSha256']==sha(out/'entrypoint-repair-owner-application.json')=='0df6476d3d49ef09085dd73aaf74d8e8935ba0018c7dba719ef882c47a6bb857'\nassert sha(out/'owner-state-matrix-offline-final.json')=='cc01d114b97b46a833371bf988b075407eeeeb8210730a23d9454f327822d47b'\nag_cleanup=read(out/'ag-restore-failure-owner-cleanup.json')\nassert repair['failedRunCleanupSha256']==sha(out/'ag-restore-failure-owner-cleanup.json')=='7c799fd0a9556106a395a7346541a545cffd8acaddcdef13e59f3911583339c5'\nassert ag_cleanup['ownedRuntimeAbsent'] and ag_cleanup['ownedRootAbsent']\nfailed=read(root/ag_cleanup['rawRun'])\nassert sha(root/ag_cleanup['rawRun'])==ag_cleanup['rawRunSha256']=='41c66e59931e0ec89f247e1cefec302589a39dcfecbfec6cb5dadc6710ffac02'\nassert failed['exit_status']==1 and all(c['exit_status'] is not None for c in failed['commands'])\nfor name in ['lab-sqlserver-manual100m','lab-sqlserver-manual100m-secondary']:\n assert failed[name+'_terminal_state']['Running'] is False and failed[name+'_terminal_state']['ExitCode']==1\nassert not Path(failed['stage']['path']).parent.exists() and not Path(failed['stage']['path']).parent.is_symlink()\nassert sha(root/ag_cleanup['archiveManifest'])==ag_cleanup['archiveManifestSha256']=='19276999a0ddf8bfd8c02a5b42727ab4c90bba449830a32496e5f3e7f2b4fb0d'\n# Historical physical-capacity restoration failed; absence is not capacity success.",
+      "old": "offline=read(out/'owner-state-matrix-offline-final.json');assert offline['exitCode']==0 and offline['status']=='passed_offline_only'\nfor f,h in offline['sourceHashes'].items():assert sha(root/f)==h,f\nrepair=read(out/'entrypoint-repair-owner-application.json')\nassert repair['status']=='applied_offline18_passed_ready_for_blank_all'\nassert repair['offlineReceiptSha256']==sha(out/'owner-state-matrix-offline-final.json')",
+      "path": ".riela/workflows/sqlserver-manual-count-100m/scripts/execute.py"
+    },
+    {
+      "new": "('linux/amd64','mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718')",
+      "old": "('linux/amd64','mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3')",
+      "path": ".riela/workflows/sqlserver-manual-count-100m/scripts/execute.py"
+    },
+    {
+      "new": "r['repairAuthorSessions'].append(engine_author['sessionId'])\nr.update(repairApplicationSha256=sha(out/'engine-repair-owner-application.json'),historicalEntrypointApplicationSha256=sha(out/'entrypoint-repair-owner-application.json'),engineAuthorLaunchSha256=sha(out/'engine-repair-author-launch.json'),engineAuthorProposalSha256=sha(out/'engine-repair-author-result.json'),offlineReceiptSha256=sha(out/'engine-repair-offline-final.json'),ownerExecuteSha256=sha(Path(__file__)),failedRunCleanupSha256=sha(out/'ag-restore-failure-owner-cleanup.json'))\np=out/'canonical-invocation.json';p.write_text(json.dumps(r,indent=2)+'\\n');start=time.monotonic()",
+      "old": "p=out/'canonical-invocation.json';p.write_text(json.dumps(r,indent=2)+'\\n');start=time.monotonic()",
+      "path": ".riela/workflows/sqlserver-manual-count-100m/scripts/execute.py"
+    }
+  ],
+  "status": "proposal_ready",
+  "unresolvedIssues": [
+    {
+      "effect": "This is a controlled-retry proposal, not a remediation-success claim.",
+      "issue": "SQL2022 startup, compilation/SQL compatibility, complete AG restore/readability and all18 execution are unmeasured."
+    },
+    {
+      "effect": "Preserve both raw logs and report the discrepancy. Exact simultaneity and scheduler/clock/architecture root cause are not established.",
+      "issue": "The failure analysis labels both fatal timestamps23:23:28, but the actual00682/00687 stderr headers record23:23:28 and23:23:32 respectively."
+    },
+    {
+      "effect": "Keep helper exit1 and capacity evidence separate. Fresh capacity gates remain decisive; no prohibited host/VM/cache/resource intervention is proposed.",
+      "issue": "Historical within1GiB physical-capacity restoration failed despite owned namespace/stage absence."
+    },
+    {
+      "effect": "Retain it as the explicitly requested diagnostic execution route; this limitation does not independently block the authorized retry or justify changing architecture.",
+      "issue": "Rosetta remains unsupported."
+    }
+  ]
+}

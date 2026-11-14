@@ -1,0 +1,109 @@
+{
+  "revision": 22,
+  "meaning": "Documentation correction; not benchmark result or final audit approval. Re-read SQL integer applicability and fixture/source provenance.",
+  "sourceReference": {
+    "kind": "same source captured by interrupted white-all",
+    "manifest": "results/reference/review-20261107T100132Z-16034/manifest.json"
+  },
+  "sourceSha256": {
+    "bench/accuracy_frontier.py": "2389e371a0dbaa34b0940faee52f94d72307b670dc5a62e40025210caed19176",
+    "bench/samplinglib.py": "a929cd2685f12b6c878de838703182abc8f9dab97ef3f1741de6e6e5da4bcc9f",
+    "bench/reqwide.py": "4c10705b13337dc81e64fc833eec5afd5dfb6fb4aabf469d4e8fb6860684d90b",
+    "bench/reqsamplewide.py": "111fd4404338140ef4e6754b9930be9bc48a7614625a2a73611ce6180ef7629f"
+  },
+  "states": [
+    {
+      "coverage": "91のplain対照に実装と履歴観測あり。",
+      "estimator": "単一整数id等の条件を満たす場合のみ。",
+      "exactCount": "完了した読み取りビューの正確値。",
+      "experiment": "既存計画を維持。",
+      "metadata": "参考推定。",
+      "state": "非暗号化、正常なSQLアクセス"
+    },
+    {
+      "coverage": "実TDEの実装・91履歴観測・公式仕様。91はSELECT-only実証ではない。",
+      "estimator": "SQL上の整数キー等の条件と予算に依存。",
+      "exactCount": "SQL権限と読取能力を満たせば可能。エンジンは鍵を使用する。",
+      "experiment": "SELECT-only追加確認は任意。",
+      "metadata": "取得できても参考推定。",
+      "state": "TDE正常、必要なサーバー鍵を利用可能、SQLクライアントは暗号鍵を持たない"
+    },
+    {
+      "coverage": "公式前提・制約のみ。障害注入は未計測。",
+      "estimator": "サーバー復号不能を回避できない。",
+      "exactCount": "必要なデータへアクセスできなければ約束しない。",
+      "experiment": "不適用と復旧前提の記述で足り、破壊実験は不要。",
+      "metadata": "保持値が見えても現在正確値・数%精度の根拠にならない。",
+      "state": "TDEで必要なサーバー鍵が利用不能"
+    },
+    {
+      "coverage": "鍵の所在と利用能力の区別。実験なし。",
+      "estimator": "同じ復旧前提。",
+      "exactCount": "クライアントの保有だけでは実行可能にならない。",
+      "experiment": "独立した性能実験は不要。",
+      "metadata": "現在件数の代用にしない。",
+      "state": "クライアントは鍵を保有するがサーバーは必要なTDE鍵を利用不能"
+    },
+    {
+      "coverage": "COUNT仕様からの推論。wideは実暗号ではなく合成バイナリ。",
+      "estimator": "SQL整数キー、スナップショット、抽出規則、予算の条件に依存。",
+      "exactCount": "復号式なしで行を数える。",
+      "experiment": "実暗号fixtureは現主張には任意。",
+      "metadata": "暗号文の意味から精度は保証できない。",
+      "state": "アプリ暗号化payload、鍵不明、通常の整数PK"
+    },
+    {
+      "coverage": "現実装の型判定上は適用候補。暗号固有の実測なし。",
+      "estimator": "整数一意性を満たせば候補。巨大な欠番・偏在は費用と精度到達へ影響。",
+      "exactCount": "値の意味によらず可能。",
+      "experiment": "分類修正必須。暗号方式別の追加実験は不要。",
+      "metadata": "参考推定。",
+      "state": "暗号化・不透明化された値をSQL整数idとして保存"
+    },
+    {
+      "coverage": "COUNT仕様と現samplerの型制約。実暗号PK fixtureなし。",
+      "estimator": "現整数セル実装は対象外。",
+      "exactCount": "サーバーが表を読めれば可能。",
+      "experiment": "適用不能の説明で足りる。",
+      "metadata": "参考推定。",
+      "state": "暗号化PKをBINARY/VARBINARY等で保存"
+    },
+    {
+      "coverage": "schemaにUUID・複合設計あり。詳細文書には既存COUNT・分割観測の引用あり。暗号化との同一性は主張できない。",
+      "estimator": "現整数セル実装は対象外。payloadが暗号化されているかとは独立。",
+      "exactCount": "可能。分割は別のカーソル適用条件を確認する。",
+      "experiment": "全キー形状とTDE・列数の直積試験は不要。",
+      "metadata": "参考推定。",
+      "state": "不透明な二進surrogate・UUID・複合PK"
+    },
+    {
+      "coverage": "文書上の状態。物理性能・鍵管理は未計測。",
+      "estimator": "SQLスキーマ等の条件に依存。",
+      "exactCount": "SQL読取可能性を前提に同じ行数意味論。",
+      "experiment": "現主張に物理ストレージ試験は不要。",
+      "metadata": "参考推定。",
+      "state": "ストレージ層暗号化、正常マウント、SQLアクセス可能"
+    },
+    {
+      "coverage": "researchには制約あり、主文書の状態表へ未統合。",
+      "estimator": "現SQL実装は対象外。",
+      "exactCount": "対応SQL経路なし。暗号文サイズだけから約束しない。",
+      "experiment": "不適用・復旧前提の明記で足りる。",
+      "metadata": "利用可能性・時点を別途確認。現在件数と見なさない。",
+      "state": "暗号化ファイル・blobだけがありSQLアクセスなし"
+    }
+  ],
+  "correction": "SQL-visible single integer unique PRIMARY named id is structurally eligible even when encrypted/opaque; noninteger/binary/UUID/composite is outside this sampler. Server table readability and key availability remain prerequisites.",
+  "supersedesForCurrentDocs": [
+    "results/reviews/encryption-state-coverage.json",
+    "results/reference/20261107-encryption-state-design/results/reviews/encryption-state-coverage.json"
+  ],
+  "currentEvidence": [
+    "results/reference/review-20261107T100132Z-16034/results/requested_probability_wide_50.json",
+    "results/reference/review-20261107T100132Z-16034/results/requested_probability_wide_100.json",
+    "results/reference/review-20261107T100132Z-16034/results/requested_accuracy_cost_frontier.json",
+    "results/reference/review-20261107T100132Z-16034/results/requested_accuracy_service_100.json"
+  ],
+  "allSourceHashesMatched": true,
+  "reviewClosure": "pending_fresh_Sol_review"
+}

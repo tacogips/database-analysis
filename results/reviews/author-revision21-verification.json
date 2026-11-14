@@ -1,0 +1,380 @@
+{
+  "databaseAccess": false,
+  "completeLogPath": "results/reviews/author-revision21-verification.log",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 1
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_reqmix_protocol.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 1
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 1
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 1
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "complete": true,
+  "passed": true,
+  "finalChecks": [
+    {
+      "command": [
+        "ast.parse",
+        "bench/**/*.py"
+      ],
+      "exitCode": 0,
+      "files": 185
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_dependencies.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_kill_timer.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_reqmix_protocol.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_sampling_contract.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_workload_accounting.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_matrix_cleanup.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_resource_preflight.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "completedAt": "2026-11-07T07:20:20.211321+00:00",
+  "logSha256": "dc129a8ceb617165aeab35cdffaa3f5852bf0ce3628d81e9fc632d33e9421d67",
+  "priorFinalChecks": [
+    {
+      "command": [
+        "ast.parse",
+        "bench/**/*.py"
+      ],
+      "exitCode": 0,
+      "files": 185
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_accuracy_frontier.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_dependencies.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_kill_timer.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_protocol_integrity.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_raw_evidence.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_reqmix_protocol.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_sampling_contract.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_wide_outcomes.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "bench/test_workload_accounting.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_matrix_cleanup.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_resource_preflight.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_runner_cache.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "bench/test_white_all_runner.rb"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "ruby",
+        "-c",
+        "lab.rb"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "invariants": {
+    "checkedBaselineBenchFiles": 327,
+    "changedBaselineBenchFiles": [
+      "bench/accuracy_frontier.py",
+      "bench/lablib.py",
+      "bench/reqsamplewide.py",
+      "bench/reqwide.py",
+      "bench/test_reqmix_protocol.py",
+      "bench/test_runner_cache.rb"
+    ],
+    "newSelfcheck": "bench/test_wide_outcomes.py",
+    "protectedSamplingCountFixtureAndPlansUnchanged": true,
+    "requestedScripts": 150,
+    "guidelineLines": 216,
+    "databaseAccess": false,
+    "reproductionProofExists": false
+  },
+  "sourceSha256": {
+    "lab.rb": "b82d4cb15002b82e276b3c98a374f6bfe4137c46f7d2f573b3adb889b92d9f47",
+    "bench/accuracy_frontier.py": "2389e371a0dbaa34b0940faee52f94d72307b670dc5a62e40025210caed19176",
+    "bench/consistency.py": "063c46c740468a4efbfcf530e2e8d7577d7299a2e675b2c633b4ed61cf77a6ad",
+    "bench/count_preflight.py": "242664b72a0a28ae33d0a185cdbcdcce01bfdf1862ddd498b31a9a388ec1f127",
+    "bench/count_shapes.py": "7d8e7032a85cdac0026c3b93d254f22e791a95cd40f52509b78449b2e321bac2",
+    "bench/countlib.py": "c03621035d1ecb5577b739cc23c90f0f3563fc9d78937a7489628df12ede2fd7",
+    "bench/dependencies.py": "4b0c24774be5a7bea13d32d5ca295ac70fee2e9da173f853b1d416940414b283",
+    "bench/experiments.py": "696a720f2a3140e778d800b5f4757c329a104e75eaa76105c77d79e6cb8990ad",
+    "bench/lablib.py": "fdf44473231202b073f4168993e9b4a061487fbd43a6fdf9c1358f932542d0e4",
+    "bench/load.py": "a7423e196288f64d5d660ae1814b7a88474197e0071061ed2e2c3d77bf1cdd43",
+    "bench/lock_factors.py": "9ba99317c20b5e14c2de5f7bd508c957b17a4fb5f552f223843593a1bcd7129a",
+    "bench/matrix_probe.py": "6c596407f44aca4420b1a362d8896badaa609ac3cdeae57305fc1dd9846f65a7",
+    "bench/plans.py": "1b86ee70fabc05130fa7e91dd57ccbabf28841b89f51907ff946c761cc3f16af",
+    "bench/preflight.py": "0708ea85579fee1e71e9d37f83efd0ac34b7533b1ffd6a7b5b942981f01bbd63",
+    "bench/protocol_outcomes.py": "876a9675446c591686f63ffc5d565cb8bb000365892cc75e8aae1ac7ebc5bd74",
+    "bench/raw_evidence.py": "04f7f30613641b24030ef8867f649dce13a8e1edeeddf60b96229bc826be8e0f",
+    "bench/reqlib.py": "91852e61fde2944359524d9ffa483cd8b7a8472383fd8102d4cee45c0896c977",
+    "bench/reqmix.py": "4e530df857b2813aad0d44919f40ac8fee8fe1f480d04bf7347f3d710bcf7663",
+    "bench/reqruns.py": "0065b14a96fe9c988811fc44d882416f9213cb4375f4635c71184548c0d81167",
+    "bench/reqsamplewide.py": "111fd4404338140ef4e6754b9930be9bc48a7614625a2a73611ce6180ef7629f",
+    "bench/reqscale.py": "d9275294ba11812754b463aab458f77e18e65d67f68a2f57f2ee3b0796e4609e",
+    "bench/reqwide.py": "4c10705b13337dc81e64fc833eec5afd5dfb6fb4aabf469d4e8fb6860684d90b",
+    "bench/sampling_bounds.py": "a855616344eb25490f5fe3626f316d38f34340bdd5c4bd434668b4989f37a977",
+    "bench/samplinglib.py": "a929cd2685f12b6c878de838703182abc8f9dab97ef3f1741de6e6e5da4bcc9f",
+    "bench/shapes.py": "2ecc721abd50fe455dd2498f5dfb6da63c50eb667bde9ffa18ec36372ea0cfa9",
+    "bench/summarize.py": "b74dbe4db70c097487dc3561226d73b12f83d4df8adaa5c366101d714d817dfa",
+    "bench/test_accuracy_frontier.py": "c04ce7c9a5ee5a5e2ae9a23896743af96d85078d606e48a4b069616c87845b0f",
+    "bench/test_dependencies.py": "2066c2b327ff1f3d6e4cd7cbb20817fc278f140552ba780f769bf632122e8989",
+    "bench/test_kill_timer.py": "82c938f96476048b58a0e773f0bbd7b78d55f13852ee4a4014c747f33437c9ee",
+    "bench/test_protocol_integrity.py": "9a471fe8c18e9c0b3ca921c7c9bceafa4317cc4b8ca0b0e3479e74399550f5d4",
+    "bench/test_raw_evidence.py": "4da3393dc6aeacea3021ce102cd00c2cfb5ed3914fbde49e75e9ffa730402936",
+    "bench/test_reqmix_protocol.py": "72e35b65c42a3f6c082f7d1d05fd6a587d1f9dbcbf168c61f420785fc0496dbf",
+    "bench/test_sampling_contract.py": "ead86a87cccf947f4ca1ed6f2aec82513d312b487dc0deddf04efc1ed993f216",
+    "bench/test_wide_outcomes.py": "0524878330010b73f8ec4fc0e0551add7ee503e740848d313ce08d1dd8d1afb8",
+    "bench/test_workload_accounting.py": "0d1f55e29504b59b9f850b891670d63f92fcfad5e93ba567fab28c303a0214a4",
+    "bench/verify_data.py": "19a35f58c243c552cea0df28799130ca69193fb7af978e5c19d5fdd5e33f1da8",
+    "bench/test_matrix_cleanup.rb": "27619f3bd2ff2f3348efe37b63fc28b7f9bb683704e7aea1a4856cd575ede2f7",
+    "bench/test_resource_preflight.rb": "1916855f46802039c40bcb579764a93305af88b3e1f69d9a5ac2c81315447237",
+    "bench/test_runner_cache.rb": "36923e504cd7ca2741fd14d6118b2291892595959c5c947a057941e6af8780d2",
+    "bench/test_white_all_runner.rb": "f278d07266aad23b40cd8fe543a86f15c790b43436f4cb23dbb4a51cb41c961a"
+  }
+}

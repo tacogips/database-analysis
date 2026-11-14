@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+"""Answers EXP-O6-WRITE-MIX (FIND-O6-WRITE-SHAPE-01): uniform updates of the indexed column."""
+from reqlib import guard
+from reqruns import write_mix_body
+
+ID = "3e-EXP-O6-WRITE-MIX-indexed"
+guard(ID, 15)
+write_mix_body(ID, "indexed")

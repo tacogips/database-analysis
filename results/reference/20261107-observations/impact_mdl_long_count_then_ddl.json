@@ -1,0 +1,146 @@
+{
+ "name": "mdl_long_count_then_ddl",
+ "doc": "One long COUNT(*), then an instant ALTER: does the service queue behind the ALTER?",
+ "target": "t_dense",
+ "window_s": 60,
+ "method_seconds": 18.7,
+ "finished_within_window": true,
+ "method_rows": 0,
+ "method_rows_per_s": 0,
+ "chunks": 0,
+ "chunk_ms": null,
+ "notes": {
+  "result": 100000000,
+  "seconds": 18.68,
+  "ddl": "completed",
+  "ddl_seconds": 13.74
+ },
+ "errors": [],
+ "latency": {
+  "baseline": {
+   "read": {
+    "n": 1000,
+    "p50_ms": 1.22,
+    "p95_ms": 7.25,
+    "p99_ms": 17.13,
+    "max_ms": 34.71,
+    "errors": 0,
+    "stuck_at_end": 0
+   },
+   "write": {
+    "n": 1000,
+    "p50_ms": 1.89,
+    "p95_ms": 112.9,
+    "p99_ms": 184.23,
+    "max_ms": 223.74,
+    "errors": 0,
+    "stuck_at_end": 0
+   }
+  },
+  "during": {
+   "read": {
+    "n": 1870,
+    "p50_ms": 4607.03,
+    "p95_ms": 12811.38,
+    "p99_ms": 13551.87,
+    "max_ms": 13732.44,
+    "errors": 0,
+    "stuck_at_end": 0
+   },
+   "write": {
+    "n": 1868,
+    "p50_ms": 5819.68,
+    "p95_ms": 12904.67,
+    "p99_ms": 13580.27,
+    "max_ms": 13732.47,
+    "errors": 0,
+    "stuck_at_end": 0
+   }
+  },
+  "recovery": {
+   "read": {
+    "n": 1001,
+    "p50_ms": 1.94,
+    "p95_ms": 44.42,
+    "p99_ms": 360.79,
+    "max_ms": 476.66,
+    "errors": 0,
+    "stuck_at_end": 0
+   },
+   "write": {
+    "n": 1002,
+    "p50_ms": 6.79,
+    "p95_ms": 1553.82,
+    "p99_ms": 1909.91,
+    "max_ms": 2068.64,
+    "errors": 0,
+    "stuck_at_end": 0
+   }
+  }
+ },
+ "server": {
+  "baseline": {
+   "seconds": 9.0,
+   "rows_read_per_s": 198,
+   "bp_disk_reads_per_s": 0,
+   "bp_miss_pct": 0.0,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 7.0,
+   "peak_row_lock_current_waits": 0,
+   "hll_start": 252,
+   "hll_end": 260,
+   "hll_peak": 272,
+   "peak_trx_age_s": 0,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": 0,
+   "peak_table_level_locks": 0,
+   "peak_replica_lag_s": 0
+  },
+  "during": {
+   "seconds": 17.0,
+   "rows_read_per_s": 5448141,
+   "bp_disk_reads_per_s": 4051,
+   "bp_miss_pct": 0.658,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 13.0,
+   "peak_row_lock_current_waits": 0,
+   "hll_start": 77,
+   "hll_end": 520,
+   "hll_peak": 520,
+   "peak_trx_age_s": 18,
+   "peak_mdl_waiters": 9,
+   "peak_table_mdl_exclusive": 1,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": 0,
+   "peak_table_level_locks": 0,
+   "peak_replica_lag_s": 0
+  },
+  "recovery": {
+   "seconds": 9.0,
+   "rows_read_per_s": 372,
+   "bp_disk_reads_per_s": 96,
+   "bp_miss_pct": 2.514,
+   "row_lock_time_ms": 0,
+   "row_lock_waits": 0,
+   "table_locks_waited": 0,
+   "peak_threads_running": 8.0,
+   "peak_row_lock_current_waits": 0,
+   "hll_start": 98,
+   "hll_end": 18,
+   "hll_peak": 336,
+   "peak_trx_age_s": 0,
+   "peak_mdl_waiters": 0,
+   "peak_table_mdl_exclusive": 0,
+   "peak_global_read_lock": 0,
+   "peak_row_locks_seen": 0,
+   "peak_table_level_locks": 0,
+   "peak_replica_lag_s": 0
+  }
+ }
+}

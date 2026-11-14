@@ -1,0 +1,10 @@
+{
+  "sql": "IF @@TRANCOUNT \u003C\u003E 0 OR XACT_STATE() \u003C\u003E 0\n  THROW 51000, \u0027Unexpected transaction\u0027, 1;\nIF DB_NAME() \u003C\u003E N\u0027ManualCount100m\u0027 THROW 51000, \u0027Unexpected database\u0027, 1;\nIF NOT EXISTS (SELECT 1 FROM sys.databases\n               WHERE database_id = DB_ID() AND snapshot_isolation_state = 1)\n  THROW 51000, \u0027SNAPSHOT required\u0027, 1;\nSET IMPLICIT_TRANSACTIONS OFF;\nSET TRANSACTION ISOLATION LEVEL SNAPSHOT;\n",
+  "start_ns": 361367989960590,
+  "end_ns": 361367990263178,
+  "elapsed_ns": 302588,
+  "raw": [
+    []
+  ],
+  "error": null
+}

@@ -1,0 +1,73 @@
+{
+  "runnerExitCode": 130,
+  "runnerLogSha256": "a42c4a3b1bb4bfd9ae0e894e40889ddefa095ac5e2d2b16c5aa337563839e2c8",
+  "measurementSourceCount": 335,
+  "sourceMismatches": [],
+  "snapshotManifestFileCount": 366,
+  "snapshotHashMismatches": [],
+  "plannedRequestedScriptCount": 150,
+  "lastRunPresence": {
+    "live": false,
+    "snapshot": false
+  },
+  "arrivalWindowCount": 48,
+  "arrivalViolations": [],
+  "censoredWindows": [
+    {
+      "scheduled": 1002,
+      "started": 1000,
+      "completed": 1000,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 2,
+      "stuck_at_end": 2,
+      "slo_assessable": false,
+      "latency_status": "censored_lower_bounds",
+      "p99_ms": 8.18,
+      "file": "results/reference/review-20261107T065608Z-99980/results/impact_count_default.json",
+      "window": "recovery",
+      "kind": "write",
+      "scheduledConserved": true,
+      "startedConserved": true
+    }
+  ],
+  "emptyWindows": [
+    {
+      "scheduled": 0,
+      "started": 0,
+      "completed": 0,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 0,
+      "stuck_at_end": 0,
+      "slo_assessable": true,
+      "latency_status": "completed_responses",
+      "p99_ms": null,
+      "file": "results/reference/review-20261107T065608Z-99980/results/impact_count_estimate.json",
+      "window": "during",
+      "kind": "write",
+      "scheduledConserved": true,
+      "startedConserved": true
+    }
+  ],
+  "initialDataCheck": {
+    "file": "results/reference/review-20261107T065608Z-99980/results/data_check.json",
+    "sha256": "bcfd190693eb80c9a24c6c91f2314fbac4c537e7fababe269bec9435e33b43a8",
+    "cases": 58,
+    "mismatches": [],
+    "replicaRows": 20000000,
+    "replicaCaughtUp": true,
+    "finalCheckCompleted": false,
+    "meaning": "initial check only; owned servers later stopped; MEMORY volatile; current/final integrity not established"
+  },
+  "lockCases": {
+    "count": 99,
+    "outcomes": {
+      "ok": 99
+    },
+    "scope": "local early phase records only; no final all credit"
+  },
+  "shapeCases": 58,
+  "reproductionProofExists": false
+}
+Artifact/document audit completed. This is not a passing benchmark.

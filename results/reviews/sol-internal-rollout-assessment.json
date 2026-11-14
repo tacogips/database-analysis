@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-11-07T01:27:47.519686+00:00",
+  "review": "results/reviews/sol-internal-rollout-review.json",
+  "decision": "rejected",
+  "guidelineSha256": "8f028adb1129b2a5a9d05e15ffb01befeeba343808494dd4ec0bade39f082f75",
+  "nextActions": [
+    "Resolve precision routing, initial COUNT load budget, encrypted/wide applicability, metadata comparison, ANALYZE maintenance boundary, operational ownership before company-wide guidance.",
+    "Use completed 94 results to update metadata comparison; reviewer observed an earlier partial result.",
+    "Keep original scope including encrypted 50-100 columns, order test, reproducibility, Opus/Sol adversarial review, final clean mise run all and authorized commit/push."
+  ],
+  "evidenceUpdatesAfterReviewerInspection": {
+    "94-metadata-on-replica": {
+      "status": {
+        "id": "94-metadata-on-replica",
+        "ok": true,
+        "seconds": 328,
+        "log": "results/requested/94-metadata-on-replica.log"
+      },
+      "sections": [
+        "staleness",
+        "analyze_is_local",
+        "privileges",
+        "waits_on_primary",
+        "waits_on_replica_applier_ddl",
+        "final_counts"
+      ],
+      "lastRun": {
+        "ran": [
+          {
+            "id": "93-metadata-accuracy",
+            "ok": true,
+            "seconds": 90,
+            "log": "results/requested/93-metadata-accuracy.log"
+          },
+          {
+            "id": "94-metadata-on-replica",
+            "ok": true,
+            "seconds": 328,
+            "log": "results/requested/94-metadata-on-replica.log"
+          }
+        ],
+        "lab_data_intact": true
+      }
+    }
+  },
+  "ongoing": {
+    "encryptedRunnerExecSession": 14508,
+    "command": "mise exec -- ruby lab.rb requested 91-encrypted-count",
+    "log": "results/requested/encrypted-continuation.log",
+    "note": "All three versions rerunning serially with matrix data bound to .data/. Do not run other experiments or lab-runner concurrently. Old 9.7.4/26.10 JSON remains invalid until replaced by successful complete comparisons."
+  }
+}

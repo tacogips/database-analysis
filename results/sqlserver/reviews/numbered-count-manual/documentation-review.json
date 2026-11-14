@@ -1,0 +1,26 @@
+{
+  "scope": "documentation_only",
+  "change": "numbered SQL Server procedure with pre-execution plan and lock investigation",
+  "reviews": [
+    {
+      "agent": "qa_engineer_review",
+      "accepted": true
+    },
+    {
+      "agent": "qa_validation_review",
+      "accepted": true
+    }
+  ],
+  "files": {
+    "docs/guidelines/sql-server.md": "9a85ec7dfeb63ae693703b33236efd7b1e8db3cca8c38d3d830fffad2ae007a3",
+    "docs/guidelines/count-qa.md": "e3abe11128d24cae1be707ff767e7864fdf98abe8c7610484e285594fcacda0d",
+    "docs/guidelines/count-check-rationale.md": "47f2624cb2a2b34e6e882f0fd6cc9e82ea392ce27d6380af00c1360ce8fdbfae"
+  },
+  "checks": [
+    "git diff --check",
+    "local links and heading anchors",
+    "HTML preview generation"
+  ],
+  "database_execution": false,
+  "performance_validation": false
+}

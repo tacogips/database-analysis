@@ -1,0 +1,13 @@
+8.4.0 8.4.0 -> /work/results/matrix_8.4.0.json
+8.4.13 8.4.13 -> /work/results/matrix_8.4.13.json
+Traceback (most recent call last):
+  File "/work/bench/matrix_probe.py", line 197, in <module>
+    sys.exit(main())
+  File "/work/bench/matrix_probe.py", line 145, in main
+    "explain_default_child": count_explain(c, "SELECT COUNT(*) FROM child"),
+  File "/work/bench/countlib.py", line 119, in explain
+    plan = json.loads(query(c, "EXPLAIN FORMAT=JSON " + sql, args)[0][0])["query_block"]
+KeyError: 'query_block'
+9.7.0 9.7.0 -> /work/results/matrix_9.7.0.json
+9.7.4 9.7.4 -> /work/results/matrix_9.7.4.json
+26.10.0 26.10.0 -> /work/results/matrix_26.10.0.json

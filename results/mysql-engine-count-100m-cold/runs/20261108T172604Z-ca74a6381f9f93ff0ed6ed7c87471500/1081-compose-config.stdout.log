@@ -1,0 +1,39 @@
+name: lab-mysql-engine-count-100m-cold
+services:
+  mysql:
+    restart: 'no'
+    container_name: lab-mysql-engine-count-100m-cold
+    cpus: 3
+    command:
+      - mysqld
+      - --datadir=/labdata/data
+      - --tmpdir=/labdata/tmp
+      - --socket=/labdata/mysql.sock
+      - --pid-file=/labdata/mysql.pid
+      - --secure-file-priv=NULL
+      - --skip-networking
+      - --mysqlx=OFF
+      - --skip-log-bin
+      - --innodb-buffer-pool-size=1073741824
+      - --key-buffer-size=134217728
+      - --innodb-redo-log-capacity=1073741824
+      - --innodb-buffer-pool-load-at-startup=OFF
+      - --innodb-buffer-pool-dump-at-shutdown=OFF
+      - --innodb-flush-method=O_DIRECT
+    environment:
+      MYSQL_ROOT_PASSWORD: public-disposable-engine100m-cold
+    image: mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+    labels:
+      count.engine100m.cold.owner: ca74a6381f9f93ff0ed6ed7c87471500
+    mem_limit: "4294967296"
+    network_mode: none
+    stop_grace_period: 25s
+    tmpfs:
+      - /var/lib/mysql:size=1048576,mode=0700
+    user: '501:20'
+    volumes:
+      - type: bind
+        source: /Users/taco/gits/tacogips/database-analysis/.data/engine-count-100m-cold/ca74a6381f9f93ff0ed6ed7c87471500/MyISAM/stage
+        target: /labdata
+        bind:
+          create_host_path: false

@@ -1,0 +1,53 @@
+{
+  "workflow": {
+    "workflowId": "temp-issue3-author-sol",
+    "description": "Issue3 documentation correction author",
+    "defaults": {
+      "nodeTimeoutMs": 3600000,
+      "maxLoopIterations": 1
+    },
+    "entryStepId": "author",
+    "nodes": [
+      {
+        "id": "author",
+        "nodeFile": "nodes/author.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "author",
+        "nodeId": "author",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/author.json": {
+      "id": "author",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "workspace-write",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "promptTemplate": "Read AGENTS.md and results/reviews/issue-3/issue.json completely. All nodes GPT-6.1 Sol, NEW session. No delegation, nested workflows, commit/push or external messages. Author and reviewers NEVER start Docker/DB/measurements; root owner runs dedicated fixed all after author terminal. All old sources/results/receipts are protected by baseline. Do not edit any protected file, especially sqlserver/issue1 and issue2 evidence. Mutable old docs exactly the five in baseline; new implementation only sqlserver/issue3/. Old five docs and Issue2 receipt archived at results/reference/issue-3-pre-fix-16cc9b3/manifest.json. Never certify old 4096 non-RLS fixture as verification of RLS context safety. User asks resolve Issue3 CONTEXT_INFO RLS collision.\nYou are author/implementer. Implement the minimal SAFE HOLD route for CONTEXT_INFO conflicts, not a new universal identifier/cancellation service.\nDOCUMENTS: edit ONLY baseline.mutableDocuments (five docs). Before ANY SET CONTEXT_INFO or candidate metadata/COUNT relying on configured subject, owner must attest context slot JOB-EXCLUSIVE and nonconflicting across target RLS policy+dependencies, tenant/business init incl later SET, auditing, triggers and lifetime. Null/nonpool/admin privilege is NOT proof. No attestation or BUSINESS_USE => refuse BEFORE tag write or candidateCOUNT, preserve business context, export/HOLD. No SESSION_CONTEXT substitution: observer cannot remotely read. No unapproved concatenate/prefix/restore context, no RLS policy change/disable. For approved exclusive slot, initialize ordinary jobtag once only; business init completed/audited, reader+observer+KILL same identity contract and immutable job lifetime; drift/mismatch=>refuse/escalate, don't retag to make cancel pass. Show DRIVER approval gate with default deny BEFORE SQL block; comment alone not a SQL/server guarantee. Labguard matches prose. RLS visible0 vs physicalempty remains distinct, metadata global count not tenantcount. Ordinary non-RLS tables keep qualified path; CONTEXT_INFO RLS unsupported => HOLD/export not broad unusableguide. Context compatibility becomes separate fillable approval field + fictional examples explicitly reserved vs unknown. Current5docs route new Issue3 receipt and archiveIssue2 historicalreceipt. No future '作成予定' phrasing: record absence/hash mismatch=>HOLD; aggregate receipt awaits owner+2reviews but don't claim it accepted. Historical Issue1 Program is frozen RLS-FREE fixture only, do NOT continue referencing Initialize as production-safe unconditional example; point new guard/C# source and clearly label old implementation limitation. Keep all Issue1/2 fixes (role/equivalence/freshness/resource controls/cancel/release) intact. Cite official RLS docs https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver17 and Microsoft CONTEXT_INFO RLS pattern https://techcommunity.microsoft.com/blog/sqlserver/row-level-security-performance-and-common-patterns/384367/ .\nIMPLEMENTATION: new sqlserver/issue3 disposable tiny runner, copy proven Issue1 controller/compose/build/project/lockedpackages into new directory and rename ALL resources/labels/owner vars/Db/projectDLL/result paths to issue3/Issue3/ISSUE3/CountIssue3. Never edit original. Fixed unix local context only, foreground/reaped CLI, flock/name preflight/no-recreate, owned ensure cleanup with final absence, no published ports/socketmount/externalDSN. Same pinned SQL2025CU10 amd64 + SDK10.0 digest and exact SqlClient7.1.1 + Pkcs10.0.14 lock, build restore --locked-mode/NU190x errors. Fix source list duplicates, include every executable/build/config source/README/packageslock beforeafter; remove old example-inputs and verify_author files unlessactuallycopied/used. Do not start Docker/DB/build. Ruby syntax/config/offline code checks allowed; root will compile/run. New README reproducible mise -C sqlserver/issue3 run all, explicit labonly/no production implementation, SA not leastprivilege/nativeSLO.\nKeep existing 5 old functional cases/stats if simplest reliable reuse (they take ~23sec, NOT a new broadgrid); don't add synthetic hugecounts/locking/DDLcontention. Add a CONTEXT_INFO usage CONTRACT parameter to INITIALIZE and candidate path, default missing/UNKNOWN/BUSINESS => HoldException before connection context mutation and any candidateCOUNT. Explicit owner-approved JOB_EXCLUSIVE contract only for known new non-RLS dbo.Target fixture, approval source scope/lifetime recorded; not inferred by querying CONTEXT_INFO NULL or sys.security_policies alone. Callers all must pass contract; no unguarded production-facing initializer overload. Guard must also be on candidateCOUNT wrapper so no caller can bypass negative test by directly calling raw count method through method-under-test. PositiveCase uses guarded preparation/count path with one consistent identity scheme; retain existing two actual connections, 3 mismatch refusals, Cancel/timeout/finally independent cleanup token/capturedTXIDrelease and source ownership semantics.\nNEW RLS rejection tests in same new DB: seed exactly 5 rows with tenant1=2, tenant2=3, neither nontransactional. Create dedicated schema + schemabound inline predicate relying CONTEXT_INFO converted first4bytes to int, policy ON. SA/dbo is intentionally subject to RLS, no bypass. Separate explicitly-labelled fixture_control_count queries under business contexts1/2/99 must prove visible2/3/0 and stable seededphysical5, all COUNTs unfiltered plainCOUNT_BIG at existing RCSI (businessscope is RLS, notWHERE). For BUSINESS contract at context1 and UNKNOWN contract at contextNULL/knownbusinessvalue, call SAME guarded candidate entrypoint that would set jobtag and COUNT. It must refuse BEFORE tagwrite and candidateCOUNT dispatch; record counters pernegativecase tag writes0/count dispatch0, original owner and separateobserver context beforeafter equal, no TX/request/snapshot left afterownedDispose (capture actualidentity WITHOUT overwriting businesscontext, no guardedKILL on incorrectexpectedtag). UNKNOWN evenNULL cannot grant permission. Demonstrate later business initialization doesn't make unknown approved: later context set1/2 remains same with anotherrefusal. Fixture control verification queries separately named and never candidateaccuracyapproval. Don't label visible0 as physicalempty; preserve no realdata/keys. These tests validate HOLD only, NOT operational COUNT+cancel under CONTEXT_INFO-RLS. Positive jobexclusive fixture retains owner/cancel tests, not RLS certified. All results with completion/precision/ownership/transactionrelease/recovery/servicebudget separate; ARM emulation functionalonly, rawserver/clientlogs and artifacts.\nReturn concise JSON status,files,unresolvedIssues,readyCommand,verification. Owner runtime and final reviews may be pending in separate pending field, unresolvedIssues only actual blocking implementation defects. Author must NOT run DB/Docker; no thirdparty agents.\n\nExact inputs: {\"documents\": {\"README.md\": \"14130ad352ab27373d6e4cddd3a4b419dbf04f4387b5a0cdbf009fccc3ba9c27\", \"docs/README.md\": \"5bc2a1ce121bfe34e1b562d3cef5b340e5424286ca3011fe21aef8bd91762434\", \"docs/guidelines/mysql.md\": \"8e1a49826c92b8f77d254bda1415c8dcca49ec9afb1f45e1d360595e05734bdd\", \"docs/guidelines/sql-server.md\": \"64aea4b927d552fb724a4f4ddb009f27388fcd54dae3b0be62ed36c512db97b0\", \"docs/guidelines/operations-runbook.md\": \"5c31092659a94f21b0be4af6abc519712f7579ddc35b7f357f6186f1cc53612c\"}, \"baselineSha256\": \"f01ced311ed3f67f12d3c739c9cf1b22528194880e841f0c696f07611fb1e1ea\", \"issueSha256\": \"cbfd6402c7e52f5e7eedc862fdf143bf4fce725155ac888f6103d6926f540684\"}",
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "required": [
+            "status",
+            "files",
+            "unresolvedIssues"
+          ],
+          "properties": {},
+          "additionalProperties": true
+        },
+        "maxValidationAttempts": 2
+      }
+    }
+  },
+  "cliCompatibility": "Installed CLI lacks --workflow-json-file/--dry-run: validate explicit definition dir then execute one step; preserve exact embedded payload."
+}

@@ -1,0 +1,365 @@
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+42616de89e4054fa10d7121df62ae9978739e4103a1f9c5c3d3b57a4e6a88c18
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.4' locally
+9.7.4: Pulling from library/mysql
+b76013fbb918: Pulling fs layer
+053fec689bfc: Pulling fs layer
+6d0bdba5eb82: Pulling fs layer
+1eb2512f0309: Pulling fs layer
+ee15add96297: Pulling fs layer
+cea84603e890: Pulling fs layer
+332288060cf8: Pulling fs layer
+0faccbb03700: Pulling fs layer
+84d412465407: Pulling fs layer
+b76013fbb918: Download complete
+332288060cf8: Download complete
+ee15add96297: Download complete
+cea84603e890: Download complete
+053fec689bfc: Download complete
+0faccbb03700: Download complete
+84d412465407: Download complete
+1eb2512f0309: Download complete
+332288060cf8: Pull complete
+0faccbb03700: Pull complete
+ee15add96297: Pull complete
+053fec689bfc: Pull complete
+84d412465407: Pull complete
+db5edd9c75b0: Download complete
+cea84603e890: Pull complete
+1eb2512f0309: Pull complete
+71b7f8695596: Download complete
+6d0bdba5eb82: Download complete
+6d0bdba5eb82: Pull complete
+b76013fbb918: Pull complete
+Digest: sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+Status: Downloaded newer image for mysql:9.7.4
+2a8d763cde45a189d847bffc055898eba37beb5d21bfdba1d1a638788baa9ea3
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:26.10.0' locally
+26.10.0: Pulling from library/mysql
+abb8b963bc24: Pulling fs layer
+7f360cfcd0c6: Pulling fs layer
+59a4b8888e49: Pulling fs layer
+f589dac8ec1f: Pulling fs layer
+0ac49b392b78: Pulling fs layer
+111940a3af7a: Pulling fs layer
+f66cb2d4f38d: Pulling fs layer
+01ab56bed6cf: Pulling fs layer
+b44aa14e230f: Pulling fs layer
+7f360cfcd0c6: Download complete
+abb8b963bc24: Download complete
+59a4b8888e49: Download complete
+0ac49b392b78: Download complete
+111940a3af7a: Download complete
+01ab56bed6cf: Download complete
+f589dac8ec1f: Download complete
+7f360cfcd0c6: Pull complete
+abb8b963bc24: Pull complete
+f589dac8ec1f: Pull complete
+0ac49b392b78: Pull complete
+111940a3af7a: Pull complete
+5e5100be39ae: Download complete
+1b185e2dd510: Download complete
+f66cb2d4f38d: Download complete
+01ab56bed6cf: Pull complete
+f66cb2d4f38d: Pull complete
+b44aa14e230f: Download complete
+59a4b8888e49: Pull complete
+b44aa14e230f: Pull complete
+Digest: sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+Status: Downloaded newer image for mysql:26.10.0
+6bb47ec74a842981098644e0510f1cc206954df0fc427028655004b0cd975900
+==> docker run -d --name lab-matrix-8-4-0 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:8.4.0' locally
+8.4.0: Pulling from library/mysql
+126b0c167328: Pulling fs layer
+60ea4dc82df4: Pulling fs layer
+8dbb8564b525: Pulling fs layer
+ddeaac00f5df: Pulling fs layer
+93611301cba5: Pulling fs layer
+9687d48bd5ee: Pulling fs layer
+361d3d3a6688: Pulling fs layer
+dc1bd0a565d7: Pulling fs layer
+20ed4303a4e5: Pulling fs layer
+b9690ceac92f: Pulling fs layer
+126b0c167328: Download complete
+ddeaac00f5df: Download complete
+8dbb8564b525: Download complete
+dc1bd0a565d7: Download complete
+20ed4303a4e5: Download complete
+93611301cba5: Download complete
+9687d48bd5ee: Download complete
+361d3d3a6688: Download complete
+b9690ceac92f: Download complete
+7e4242312b76: Download complete
+3de42c8f2b5a: Download complete
+60ea4dc82df4: Download complete
+ddeaac00f5df: Pull complete
+93611301cba5: Pull complete
+60ea4dc82df4: Pull complete
+8dbb8564b525: Pull complete
+dc1bd0a565d7: Pull complete
+9687d48bd5ee: Pull complete
+20ed4303a4e5: Pull complete
+361d3d3a6688: Pull complete
+126b0c167328: Pull complete
+b9690ceac92f: Pull complete
+Digest: sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0
+Status: Downloaded newer image for mysql:8.4.0
+e3d9d57c16a9676a7492b2b3e90fdce87a23edb0a8f9bc44ff24446c0e2e5c85
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+905cdedeb913423ed165b0b8bb1b2c398ba50b4ca97d9bcc9e88d5a505086b7c
+==> docker run -d --name lab-matrix-9-7-0 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.0' locally
+9.7.0: Pulling from library/mysql
+98a0c748a764: Pulling fs layer
+000edcaa94f8: Pulling fs layer
+0a13c12c93c1: Pulling fs layer
+40919faf9eb7: Pulling fs layer
+f3c5770eff97: Pulling fs layer
+6a2ad1ff17eb: Pulling fs layer
+5a09fca0124b: Pulling fs layer
+6591e9dc6192: Pulling fs layer
+e16a7551afaf: Pulling fs layer
+c7e993edb915: Pulling fs layer
+6a2ad1ff17eb: Download complete
+0a13c12c93c1: Download complete
+e16a7551afaf: Download complete
+98a0c748a764: Download complete
+5a09fca0124b: Download complete
+40919faf9eb7: Download complete
+f3c5770eff97: Download complete
+cba395b333a7: Download complete
+c7e993edb915: Download complete
+000edcaa94f8: Download complete
+6a2ad1ff17eb: Pull complete
+0a13c12c93c1: Pull complete
+5a09fca0124b: Pull complete
+40919faf9eb7: Pull complete
+f3c5770eff97: Pull complete
+000edcaa94f8: Pull complete
+f89612214b00: Download complete
+6591e9dc6192: Download complete
+e16a7551afaf: Pull complete
+6591e9dc6192: Pull complete
+98a0c748a764: Pull complete
+c7e993edb915: Pull complete
+Digest: sha256:c11782aa2a96624c1efc121768641d96954faa136d6aa82751b032d8c426ffbc
+Status: Downloaded newer image for mysql:9.7.0
+80cf6aca25f8c159fd2a470565623f482b86fd727b6d4cf5a7000652e1cd9ce0
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.4' locally
+9.7.4: Pulling from library/mysql
+b76013fbb918: Pulling fs layer
+1eb2512f0309: Pulling fs layer
+ee15add96297: Pulling fs layer
+84d412465407: Pulling fs layer
+6d0bdba5eb82: Pulling fs layer
+053fec689bfc: Pulling fs layer
+332288060cf8: Pulling fs layer
+cea84603e890: Pulling fs layer
+0faccbb03700: Pulling fs layer
+0faccbb03700: Download complete
+332288060cf8: Download complete
+b76013fbb918: Download complete
+cea84603e890: Download complete
+053fec689bfc: Download complete
+ee15add96297: Download complete
+84d412465407: Download complete
+0faccbb03700: Pull complete
+332288060cf8: Pull complete
+053fec689bfc: Pull complete
+ee15add96297: Pull complete
+84d412465407: Pull complete
+db5edd9c75b0: Download complete
+71b7f8695596: Download complete
+6d0bdba5eb82: Download complete
+1eb2512f0309: Download complete
+cea84603e890: Pull complete
+1eb2512f0309: Pull complete
+6d0bdba5eb82: Pull complete
+b76013fbb918: Pull complete
+Digest: sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+Status: Downloaded newer image for mysql:9.7.4
+1d70a989b12aaf935bed6edeb3e44e1668af71a0ab1754c0196fde267d0db7d4
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:26.10.0' locally
+26.10.0: Pulling from library/mysql
+0ac49b392b78: Pulling fs layer
+59a4b8888e49: Pulling fs layer
+111940a3af7a: Pulling fs layer
+f66cb2d4f38d: Pulling fs layer
+7f360cfcd0c6: Pulling fs layer
+01ab56bed6cf: Pulling fs layer
+b44aa14e230f: Pulling fs layer
+abb8b963bc24: Pulling fs layer
+f589dac8ec1f: Pulling fs layer
+111940a3af7a: Download complete
+0ac49b392b78: Download complete
+59a4b8888e49: Download complete
+01ab56bed6cf: Download complete
+abb8b963bc24: Download complete
+7f360cfcd0c6: Download complete
+f589dac8ec1f: Download complete
+abb8b963bc24: Pull complete
+7f360cfcd0c6: Pull complete
+111940a3af7a: Pull complete
+0ac49b392b78: Pull complete
+f589dac8ec1f: Pull complete
+5e5100be39ae: Download complete
+1b185e2dd510: Download complete
+f66cb2d4f38d: Download complete
+b44aa14e230f: Download complete
+01ab56bed6cf: Pull complete
+f66cb2d4f38d: Pull complete
+59a4b8888e49: Pull complete
+b44aa14e230f: Pull complete
+Digest: sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+Status: Downloaded newer image for mysql:26.10.0
+4a4baa253f13c618962fba25e6e0b2d80525c9c18e493b05b188043ad9794237
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.4' locally
+9.7.4: Pulling from library/mysql
+b76013fbb918: Pulling fs layer
+84d412465407: Pulling fs layer
+ee15add96297: Pulling fs layer
+1eb2512f0309: Pulling fs layer
+cea84603e890: Pulling fs layer
+053fec689bfc: Pulling fs layer
+332288060cf8: Pulling fs layer
+6d0bdba5eb82: Pulling fs layer
+0faccbb03700: Pulling fs layer
+0faccbb03700: Download complete
+053fec689bfc: Download complete
+b76013fbb918: Download complete
+ee15add96297: Download complete
+332288060cf8: Download complete
+cea84603e890: Download complete
+84d412465407: Download complete
+1eb2512f0309: Download complete
+332288060cf8: Pull complete
+0faccbb03700: Pull complete
+ee15add96297: Pull complete
+84d412465407: Pull complete
+db5edd9c75b0: Download complete
+053fec689bfc: Pull complete
+71b7f8695596: Download complete
+cea84603e890: Pull complete
+1eb2512f0309: Pull complete
+6d0bdba5eb82: Download complete
+b76013fbb918: Pull complete
+6d0bdba5eb82: Pull complete
+Digest: sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+Status: Downloaded newer image for mysql:9.7.4
+0985f2de1da859ba16ffa8bb6e1d39d4b4f7d56e85031719a14867ba76593757
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:26.10.0' locally
+26.10.0: Pulling from library/mysql
+abb8b963bc24: Pulling fs layer
+b44aa14e230f: Pulling fs layer
+59a4b8888e49: Pulling fs layer
+7f360cfcd0c6: Pulling fs layer
+111940a3af7a: Pulling fs layer
+f66cb2d4f38d: Pulling fs layer
+f589dac8ec1f: Pulling fs layer
+01ab56bed6cf: Pulling fs layer
+0ac49b392b78: Pulling fs layer
+111940a3af7a: Download complete
+abb8b963bc24: Download complete
+0ac49b392b78: Download complete
+01ab56bed6cf: Download complete
+59a4b8888e49: Download complete
+7f360cfcd0c6: Download complete
+f589dac8ec1f: Download complete
+abb8b963bc24: Pull complete
+7f360cfcd0c6: Pull complete
+111940a3af7a: Pull complete
+0ac49b392b78: Pull complete
+f589dac8ec1f: Pull complete
+5e5100be39ae: Download complete
+f66cb2d4f38d: Download complete
+01ab56bed6cf: Pull complete
+f66cb2d4f38d: Pull complete
+1b185e2dd510: Download complete
+b44aa14e230f: Download complete
+59a4b8888e49: Pull complete
+b44aa14e230f: Pull complete
+Digest: sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+Status: Downloaded newer image for mysql:26.10.0
+aa1cfae23e827cb39c230e04b2b03bfd1c89622ea5b0e5d38e4236bac690b862
+==> docker run -d --name lab-matrix-8-4-13 --network bulk-read-lab_default --memory 1500m --cpus 2 -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:8.4.13 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+75867f35b7c1c16c19cb7eb776ed7362c07234d9d88d11042563339782e8c54f
+==> docker run -d --name lab-matrix-9-7-4 --network bulk-read-lab_default --memory 1500m --cpus 2 -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:9.7.4 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:9.7.4' locally
+9.7.4: Pulling from library/mysql
+b76013fbb918: Pulling fs layer
+332288060cf8: Pulling fs layer
+1eb2512f0309: Pulling fs layer
+053fec689bfc: Pulling fs layer
+cea84603e890: Pulling fs layer
+84d412465407: Pulling fs layer
+0faccbb03700: Pulling fs layer
+6d0bdba5eb82: Pulling fs layer
+ee15add96297: Pulling fs layer
+0faccbb03700: Download complete
+332288060cf8: Download complete
+053fec689bfc: Download complete
+b76013fbb918: Download complete
+cea84603e890: Download complete
+ee15add96297: Download complete
+84d412465407: Download complete
+0faccbb03700: Pull complete
+332288060cf8: Pull complete
+053fec689bfc: Pull complete
+ee15add96297: Pull complete
+84d412465407: Pull complete
+db5edd9c75b0: Download complete
+1eb2512f0309: Download complete
+71b7f8695596: Download complete
+cea84603e890: Pull complete
+1eb2512f0309: Pull complete
+6d0bdba5eb82: Download complete
+b76013fbb918: Pull complete
+6d0bdba5eb82: Pull complete
+Digest: sha256:df90258da46f6e7ff8574ff84f17618aba0765cac749928299c69fd4e7cb8ad8
+Status: Downloaded newer image for mysql:9.7.4
+f04a2a592f852396886f6ff349f26138b823a497c68f5af82211b376a8f309c9
+==> docker run -d --name lab-matrix-26-10-0 --network bulk-read-lab_default --memory 1500m --cpus 2 -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/mysqld.my:/usr/sbin/mysqld.my:ro -v /Users/taco/gits/tacogips/database-analysis/bench/keyring/component_keyring_file.cnf:/usr/lib64/mysql/plugin/component_keyring_file.cnf:ro -e MYSQL_ROOT_PASSWORD=lab mysql:26.10.0 --innodb-buffer-pool-size=256M --log-bin=binlog --server-id=9 --gtid-mode=ON --enforce-gtid-consistency=ON
+Unable to find image 'mysql:26.10.0' locally
+26.10.0: Pulling from library/mysql
+59a4b8888e49: Pulling fs layer
+abb8b963bc24: Pulling fs layer
+f66cb2d4f38d: Pulling fs layer
+f589dac8ec1f: Pulling fs layer
+111940a3af7a: Pulling fs layer
+01ab56bed6cf: Pulling fs layer
+7f360cfcd0c6: Pulling fs layer
+0ac49b392b78: Pulling fs layer
+b44aa14e230f: Pulling fs layer
+1b185e2dd510: Download complete
+abb8b963bc24: Download complete
+5e5100be39ae: Download complete
+abb8b963bc24: Pull complete
+01ab56bed6cf: Download complete
+7f360cfcd0c6: Download complete
+111940a3af7a: Download complete
+59a4b8888e49: Download complete
+0ac49b392b78: Download complete
+7f360cfcd0c6: Pull complete
+f589dac8ec1f: Download complete
+111940a3af7a: Pull complete
+0ac49b392b78: Pull complete
+f589dac8ec1f: Pull complete
+f66cb2d4f38d: Download complete
+01ab56bed6cf: Pull complete
+f66cb2d4f38d: Pull complete
+b44aa14e230f: Download complete
+59a4b8888e49: Pull complete
+b44aa14e230f: Pull complete
+Digest: sha256:3819b2b23835c4a73c8b022fafc33c8095c0f81c929a8b7a84613d2fba6c52f5
+Status: Downloaded newer image for mysql:26.10.0
+22dd0620ddf90e47f64f99babf8cca5dae386059f3ed67e4cd5698eb19211a6a
+==> docker exec lab-bench python3 -u /work/bench/verify_data.py
+mismatched: none | replica caught up: True | replica t_repl: 20000000
+{"ran":[{"id":"00-budget-start","ok":true,"seconds":0,"log":"results/requested/00-budget-start.log"},{"id":"01-EXP-S8-ENUM-DOMAIN","ok":true,"seconds":45,"log":"results/requested/01-EXP-S8-ENUM-DOMAIN.log"},{"id":"02-EXP-S8-REPLICA-STOP-FAILURE","ok":true,"seconds":65,"log":"results/requested/02-EXP-S8-REPLICA-STOP-FAILURE.log"},{"id":"03-EXP-S8-REPLICA-CHANNEL-GATE","ok":true,"seconds":2,"log":"results/requested/03-EXP-S8-REPLICA-CHANNEL-GATE.log"},{"id":"04-EXP-O8-1205","ok":true,"seconds":36,"log":"results/requested/04-EXP-O8-1205.log"},{"id":"05-EXP-O6-WRITE-MIX-indexed-100","ok":true,"seconds":256,"log":"results/requested/05-EXP-O6-WRITE-MIX-indexed-100.log"},{"id":"06-EXP-O6-WRITE-MIX-indexed-800","ok":true,"seconds":932,"log":"results/requested/06-EXP-O6-WRITE-MIX-indexed-800.log"},{"id":"07-EXP-O6-WRITE-MIX-uniform-100","ok":true,"seconds":280,"log":"results/requested/07-EXP-O6-WRITE-MIX-uniform-100.log"},{"id":"08-EXP-O6-WRITE-MIX-uniform-800","ok":true,"seconds":514,"log":"results/requested/08-EXP-O6-WRITE-MIX-uniform-800.log"},{"id":"09-EXP-O6-WRITE-MIX-monotonic-100","ok":true,"seconds":144,"log":"results/requested/09-EXP-O6-WRITE-MIX-monotonic-100.log"},{"id":"09a-EXP-O6-WRITE-MIX-monotonic-800","ok":true,"seconds":170,"log":"results/requested/09a-EXP-O6-WRITE-MIX-monotonic-800.log"},{"id":"0a-EXP-O8-PKONLY-THREADS-large","ok":true,"seconds":406,"log":"results/requested/0a-EXP-O8-PKONLY-THREADS-large.log"},{"id":"0b-EXP-O8-PKONLY-THREADS-cached","ok":true,"seconds":370,"log":"results/requested/0b-EXP-O8-PKONLY-THREADS-cached.log"},{"id":"10-EXP-O2-1-all-tables","ok":true,"seconds":61,"log":"results/requested/10-EXP-O2-1-all-tables.log"},{"id":"3c-EXP-O2-1-versions","ok":true,"seconds":114,"log":"results/requested/3c-EXP-O2-1-versions.log"},{"id":"57-EXP-7-impact","ok":true,"seconds":858,"log":"results/requested/57-EXP-7-impact.log"},{"id":"90-wide-count-forms","ok":true,"seconds":1198,"log":"results/requested/90-wide-count-forms.log"},{"id":"91-encrypted-count","ok":false,"seconds":59,"log":"results/requested/91-encrypted-count.log"},{"id":"92-cleanup-bench-wide","ok":true,"seconds":0,"log":"results/requested/92-cleanup-bench-wide.log"}],"lab_data_intact":true}

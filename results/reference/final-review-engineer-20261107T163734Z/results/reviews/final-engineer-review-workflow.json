@@ -1,0 +1,114 @@
+{
+  "workflow": {
+    "workflowId": "temp-final-count-engineer-sol",
+    "description": "Final separate Sol operational review: engineer",
+    "defaults": {
+      "maxLoopIterations": 1,
+      "nodeTimeoutMs": 3600000
+    },
+    "entryStepId": "review",
+    "nodes": [
+      {
+        "id": "review",
+        "nodeFile": "nodes/review.json"
+      }
+    ],
+    "steps": [
+      {
+        "id": "review",
+        "nodeId": "review",
+        "role": "worker"
+      }
+    ]
+  },
+  "nodePayloads": {
+    "nodes/review.json": {
+      "id": "review",
+      "description": "GPT-6.1 Sol adversarial review of the guideline and its evidence.",
+      "executionBackend": "codex-agent",
+      "model": "gpt-6.1-sol",
+      "modelFreeze": true,
+      "effort": "high",
+      "agentSandbox": "read-only",
+      "sessionPolicy": {
+        "mode": "new"
+      },
+      "variables": {},
+      "output": {
+        "jsonSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "independentDecision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            },
+            "findingDispositions": {
+              "type": "array"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "requestedExperiments": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "reviewEvidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "discussionHistory": {
+              "type": "array"
+            },
+            "workflowInput": {
+              "type": "object"
+            },
+            "revision": {
+              "type": "integer"
+            },
+            "guidelinePath": {
+              "type": "string"
+            },
+            "guidelineSha256": {
+              "type": "string"
+            },
+            "reviewQuestions": {
+              "type": "object",
+              "required": [
+                "betterMethods",
+                "designCoverage",
+                "omissions",
+                "lockFactors",
+                "fastCount"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "workflowInput",
+            "revision",
+            "guidelinePath",
+            "guidelineSha256",
+            "independentDecision",
+            "findings",
+            "requestedExperiments",
+            "reviewEvidence",
+            "reviewQuestions"
+          ]
+        },
+        "maxValidationAttempts": 2
+      },
+      "promptTemplate": "You are GPT-6.1 Sol only, final reviewer1: unfamiliar-service-engineer. Use a NEW session separate from author/integrator and reviewer2. You are read-only: no writes, DB/Docker/benchmark execution, state-changing commands, delegation, workflow calls, commit or push. Read-only file/hash/syntax inspection and official documentation checks are allowed.\n\nCurrent authority and scope:\n- The latest user prioritizes an unfamiliar engineer obtaining counts for their own huge MySQL service without degradation. Give a usable decision and explicit deferral; never promise universal zero impact or a globally fastest algorithm.\n- Read AGENTS.md, results/reviews/third-party-engineer-acceptance.json and owner-operator-guide-open-checks.json first. Read runtimeVariables/workflowInput as provided; preserve workflowInput and revision in schema outputs. Use the actual current guide and linked calibration, not a historical draft.\n- bench/nonlocking-scope.json is the exact current allowlist/exclusion ledger. Keep ordinary InnoDB RC/RR plain SELECT, reference statistics, conditional sampling, TDE/plain SELECT, and normal service-write load. Ordinary SELECT still takes MDL; fixture maintenance and business UPDATE/INSERT/DELETE have separate natural locks. Non-InnoDB is quiet catalog only.\n- Do not restore or request FOR SHARE/FOR UPDATE, COUNT embedded in DML/CTAS/SET, LOCK TABLES/FTWRL, SERIALIZABLE COUNT, or intentional pending-DDL/FLUSH/ANALYZE contention injection. Broad engine/scale/write-mix and duplicate width grids explicitly skipped by the user are superseded_by_explicit_user_scope, not measurement passes, technical closure, or missing current default coverage.\n- Preserve historical findings by references and stable IDs in results/reviews/finding-register.json and its source reviews. Reassess material operational concerns against the current recommendation. Do not copy giant historical adapters or force every old grid to run. Author submissions and owner audits are not independent reviewer closure.\n\nRead the guide and linked calibration first as an engineer who did not write this service or lab. Walk each third-party acceptance case using only the instructions and their links. Report exactly where a reader cannot safely choose or execute, lacks necessary authority, may report an incorrect value, or is directed into an unapproved production operation. Do not require the engineer to run this lab. Then inspect underlying evidence independently of author summaries.\n\nOperational acceptance checks:\nWalk the guide as an engineer with an unfamiliar huge encrypted table, unknown statistics, no application seed, 50/100 columns, possibly no dedicated replica and limited permissions. Check:\n1. First use approved existing inventory/monitoring exports. Before any scoped SQL establish target, owner budget/monitoring and a NEW dedicated connection, never an application pool/transaction. Nonzero stats_expiry is not cache-only; missing/expired cache or existing expiry=0 can fetch engine stats. No extra primary impact allowed/no budget means exported stats, isolated acquisition or explicit deferral. NULL/zero/uninitialized/denied/missing/error is not certified empty.\n2. Rough statistics, empirically calibrated estimates, conditional probabilistic bounds and exact snapshot counts are separate. A few representative tables do not prove a universal bound. Logical restoration/rebuild changes page layout/statistics; compare matching generation/time and never transfer restored-statistics error to old production cache. Approximate smallness never authorizes unbounded primary COUNT.\n3. Provisioning replicas/backups itself can load primary: require approved owner-budgeted procedures. Establish resource isolation/caps before monitoring; dedicated/shared replica labels alone are insufficient. Define freshness/GTID/restore position, missing shards and generations. No compliant target means defer or relax precision/freshness explicitly.\n4. Pre/during/post monitoring and a named cancellation owner with a separate control path; stop thresholds with detection/cancel headroom BEFORE SLO violation. A SQL timeout is insufficient prevention. Match current query ownership using job tag, target/account and start context plus connection ID; never KILL a recycled ID blindly. Confirm server work/read view ended and service recovery, and forbid blind retry.\n5. Supported InnoDB RC/RR plain SELECT COUNT(*) is row-nonlocking but has MDL/undo/resource costs; locking DML and SERIALIZABLE are separate excluded forms. No long pooled/shared transaction, automatic primary ANALYZE/index creation, or automatic replica stop. COUNT(col) drops NULLs; COUNT(1) is no magic acceleration.\n6. TDE server key availability differs from client seed/application ciphertext. SQL-visible integer PK eligibility is structural, not determined by encryption provenance. No extrapolation from thin100M or750k50/100-column synthetic TDE to100M80-column production performance. Existing-index/default COUNT may beat sampling; conditional sampling needs all snapshot/PK/randomness/cell-bound/stopping/confidence/budget/cleanup criteria, not stable repeats alone.\n7. Lab preflight recommendation labels and legacy research docs are diagnostics/history, not production permission or current mandatory experiment plans. The guide must be usable without running this lab.\n\nEvidence and final gate:\n- Read results/reviews/final-all-proof.json, final-all-candidate.json, the candidate's complete log and fixed measurementSnapshot manifest. Read every owner audit referenced by proof, including semantic/source, integrity, precision/budget, runtime quiescence and cleanup. Hash the current guide and linked current detail documents. Verify the supplied guidelineSha256, not an earlier revision's digest.\n- Verify proof measurementSnapshot.manifestSha256 and every manifest file; verify candidatePath/candidateSha256, fresh runnerSummary, process numeric exit, source-before=after=current for the complete source set, scope hash and pinned image identities. Verify the owner bundle manifest hash and every referenced report/source hash. The archived verification-source/README.md is historical documentation; allowed current docs edits do not waive any measurement/auditor source mismatch. Verify the seven public Python audit sources remain at proof hashes. A static planned_not_db_executed scope label is not runtime status.\n- Candidate collection or exit0 alone is not owner acceptance. Missing/inconsistent proof, source drift, unexplained semantic failures, incomplete logs or unconfirmed cleanup remain incomplete. Never invent owner acceptance, retrofit timestamps, silently promote reused/failed/unknown-exit evidence, or accept at a round/time limit.\n- Bind every quoted result to a hash-verified immutable source. Separate old observations, rejected wall-clock windows and the new monotonic run; do not overwrite historical claims with new figures. Check fresh metadata93, encrypted91, static105 and service48 for counterexamples. Counts/accuracy may be valid while service windows are invalid. Preserve all tied minima, exact signed/absolute errors, rounded zero versus exact zero, and rejected prototype estimates (including 100% error/UNKNOWN).\n- Distinguish experimental completion, precision achieved, service/resource budget and cleanup. Timed/cancelled COUNT is not a completed count or completion speed. Preserve unfinished/unstarted arrivals, sparse/censored tails, and actual-method versus broad windows. Process success does not prove service SLO, cache parity, causal ranking, universal accuracy or physical production isolation.\n\nAnswer all five schema keys in reviewQuestions, even with no findings:\n- betterMethods: Is an available simpler option better for the specified precision/freshness/budget (existing exported stats, calibrated stats, default COUNT with existing index, isolated target, conditional sampling, or a separately designed maintained counter)? Explain only decision-relevant alternatives and their load/lock/prerequisites; do not enumerate every imaginable engine feature.\n- designCoverage: Does routing give a safe answer or explicit deferral for unknown PK/index, gaps, wide/LOB/TDE, nullable columns, churn, partitions/shards/generations and non-InnoDB/views outside this procedure? Test representative failure cases; do not require every design crossed with every state.\n- omissions: Identify actionable operational prerequisites, freshness/permissions, UNKNOWN/error handling, provisioning impact, monitoring/cancellation/recovery and no-compliant-path handling. Distinguish actual defects from explicitly scoped limitations.\n- lockFactors: Verify ordinary RC/RR InnoDB SELECT versus excluded locking forms, unavoidable MDL and long read-view/resource costs. Index choice changes work but does not make plain SELECT acquire row locks. EXPLAIN is not a locking/safety certificate. Do not demand excluded lock-injection experiments.\n- fastCount: Does the guide choose a justified efficient option for the requested accuracy and freshness without unsupported safety/fastest claims? Check the small immutable COUNT/sample comparison, measurement intervals, calibration eligibility and unsupported production extrapolation. No universal ranking or row-count-only safety threshold.\n\nMeasurement requests:\nRaise additional measurements ONLY if indispensable to decide a specific remaining operational recommendation. State that recommendation, the concrete counterexample, why existing evidence/official semantics are insufficient, and what decision each possible result changes. Prefer correcting/removing an unsupported recommendation or explicitly marking it unmeasured when that fully resolves the defect. Do not turn every measurable question or table design into a grid. Do not run DB/Docker/benchmarks, delegate or invoke workflows in this session. A necessary unresolved measurement stays pending for the owner; it is never a pass. Do not waive actual high/middle defects to avoid measurement.\n\nReport real defects, not style preferences. Each finding: stable id, severity high/middle/low, section, concrete scenario/counterexample, source file/field or official URL, operational impact and required correction. Real high/middle defects and necessary pending experiments block acceptance. An explicitly unmeasured condition is not automatically a defect if the guide safely defers or withholds that recommendation.\nUse findingDispositions to retain stable IDs and source references for material historical concerns: verified_fixed, still_open, disputed_with_evidence, or superseded_by_explicit_user_scope. The last category is never a technical pass. Review actual corrections rather than trusting author labels; never assert another review closed a finding without its artifact.\n\nSet independentDecision=accepted only when current revision/digest and linked detail hashes are verified, strict owner proof/source/artifact/cleanup checks pass, and no real high/middle defect or indispensable experiment is open. Missing evidence or runtime/round limits means rejected/incomplete, never approval.\n\nReturn {\"when\":{\"always\":true},\"payload\":{...}} with workflowInput, revision, guidelinePath, guidelineSha256, independentDecision, reviewQuestions (all five keys), findings, findingDispositions, requestedExperiments, reviewEvidence (strings naming precise checks/files/hashes) and discussionHistory. Keep history by reference. Do not claim reviewer2 has run or final combined acceptance exists.\n\nFinal operational review. Read results/reviews/third-party-engineer-acceptance.json. Do not run DB/Docker, mutate state, delegate or start workflows. Act as an unfamiliar service engineer following the instructions. Verify the actual current guide and calibration hashes and owner proof. No unsupported global safety/accuracy claim; no resurrected exhaustive grids. Return the required SMALL adapter with actual evidence, not copied historical adapters.\n"
+    }
+  }
+}

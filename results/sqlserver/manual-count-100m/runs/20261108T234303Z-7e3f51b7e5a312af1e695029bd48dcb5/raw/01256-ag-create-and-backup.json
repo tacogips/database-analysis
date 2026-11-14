@@ -1,0 +1,128 @@
+{
+  "sql": "-- Owned static fixture only; no production setting-change advice. No automatic second copy.\nALTER DATABASE ManualCount100m SET RECOVERY FULL;\nCREATE AVAILABILITY GROUP ManualCountAg WITH(CLUSTER_TYPE=NONE)\n FOR REPLICA ON\n N\u0027countprimary\u0027 WITH(ENDPOINT_URL=N\u0027tcp://countprimary:5022\u0027,AVAILABILITY_MODE=SYNCHRONOUS_COMMIT,\n FAILOVER_MODE=MANUAL,SEEDING_MODE=MANUAL,SECONDARY_ROLE(ALLOW_CONNECTIONS=READ_ONLY)),\n N\u0027countsecondary\u0027 WITH(ENDPOINT_URL=N\u0027tcp://countsecondary:5022\u0027,AVAILABILITY_MODE=SYNCHRONOUS_COMMIT,\n FAILOVER_MODE=MANUAL,SEEDING_MODE=MANUAL,SECONDARY_ROLE(ALLOW_CONNECTIONS=READ_ONLY));\nBACKUP DATABASE ManualCount100m TO DISK=N\u0027/backup/fixture-full.bak\u0027 WITH COMPRESSION,CHECKSUM;\nBACKUP LOG ManualCount100m TO DISK=N\u0027/backup/fixture-log.trn\u0027 WITH COMPRESSION,CHECKSUM;\nALTER AVAILABILITY GROUP ManualCountAg ADD DATABASE ManualCount100m;\nSELECT name,recovery_model_desc FROM sys.databases WHERE name=N\u0027ManualCount100m\u0027;\nSELECT database_guid,family_guid,recovery_fork_guid FROM sys.database_recovery_status WHERE database_id=DB_ID(N\u0027ManualCount100m\u0027);\nSELECT DB_NAME(database_id) db_name,name,physical_name,size,max_size,growth FROM sys.master_files;\n",
+  "start_ns": 364407685677917,
+  "end_ns": 364464344589029,
+  "elapsed_ns": 56658911112,
+  "raw": [
+    [
+      {
+        "name": "ManualCount100m",
+        "recovery_model_desc": "FULL"
+      }
+    ],
+    [
+      {
+        "database_guid": "c2d5ed2b-f323-41f2-bcc1-ba57c5a40a01",
+        "family_guid": "9647926e-ca4f-4675-ac48-c82ead72aa86",
+        "recovery_fork_guid": "9647926e-ca4f-4675-ac48-c82ead72aa86"
+      }
+    ],
+    [
+      {
+        "db_name": "master",
+        "name": "master",
+        "physical_name": "/var/opt/mssql/data/master.mdf",
+        "size": 544,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "master",
+        "name": "mastlog",
+        "physical_name": "/var/opt/mssql/data/mastlog.ldf",
+        "size": 256,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev",
+        "physical_name": "/var/opt/mssql/data/tempdb.mdf",
+        "size": 1024,
+        "max_size": 1048576,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "templog",
+        "physical_name": "/var/opt/mssql/data/templog.ldf",
+        "size": 1024,
+        "max_size": 524288,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev2",
+        "physical_name": "/var/opt/mssql/data/tempdb2.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev3",
+        "physical_name": "/var/opt/mssql/data/tempdb3.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "tempdb",
+        "name": "tempdev4",
+        "physical_name": "/var/opt/mssql/data/tempdb4.ndf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "model",
+        "name": "modeldev",
+        "physical_name": "/var/opt/mssql/data/model.mdf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "model",
+        "name": "modellog",
+        "physical_name": "/var/opt/mssql/data/modellog.ldf",
+        "size": 1024,
+        "max_size": -1,
+        "growth": 8192
+      },
+      {
+        "db_name": "msdb",
+        "name": "MSDBData",
+        "physical_name": "/var/opt/mssql/data/MSDBData.mdf",
+        "size": 1944,
+        "max_size": -1,
+        "growth": 10
+      },
+      {
+        "db_name": "msdb",
+        "name": "MSDBLog",
+        "physical_name": "/var/opt/mssql/data/MSDBLog.ldf",
+        "size": 160,
+        "max_size": 268435456,
+        "growth": 10
+      },
+      {
+        "db_name": "ManualCount100m",
+        "name": "ManualCount100m_data",
+        "physical_name": "/var/opt/mssql/data/ManualCount100m.mdf",
+        "size": 8331264,
+        "max_size": 10485760,
+        "growth": 32768
+      },
+      {
+        "db_name": "ManualCount100m",
+        "name": "ManualCount100m_log",
+        "physical_name": "/var/opt/mssql/log/ManualCount100m.ldf",
+        "size": 294912,
+        "max_size": 524288,
+        "growth": 8192
+      }
+    ]
+  ],
+  "error": null
+}

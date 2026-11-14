@@ -1,0 +1,4485 @@
+{
+ "tables": {
+  "t_sparse": {
+   "preflight": {
+    "table": "t_sparse",
+    "engine": "InnoDB",
+    "estimated_rows": 9730876,
+    "avg_row_bytes": 33,
+    "data_bytes": 329121792,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`t_sparse`.* FROM `t_sparse` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_sparse`.`id` > 97)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 10000000,
+    "rows": 10000000,
+    "complete": true,
+    "chunks": 2000,
+    "max_chunk_ms": 440.0,
+    "seconds": 80.5,
+    "rows_per_s": 124224
+   }
+  },
+  "t_uuid": {
+   "preflight": {
+    "table": "t_uuid",
+    "engine": "InnoDB",
+    "estimated_rows": 4673086,
+    "avg_row_bytes": 97,
+    "data_bytes": 456130560,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`t_uuid`.* FROM `t_uuid` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_uuid`.`id` > '\\0\\0\u0002?Py?FJ???u???')",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 5000000,
+    "rows": 5000000,
+    "complete": true,
+    "chunks": 1000,
+    "max_chunk_ms": 167.2,
+    "seconds": 33.5,
+    "rows_per_s": 149254
+   }
+  },
+  "t_composite": {
+   "preflight": {
+    "table": "t_composite",
+    "engine": "InnoDB",
+    "estimated_rows": 9295132,
+    "avg_row_bytes": 49,
+    "data_bytes": 457179136,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "tenant_id",
+      "seq"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "tenant_id",
+       "seq"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `tenant_id`,`seq`,`t_composite`.* FROM `t_composite` FORCE INDEX (`PRIMARY`) WHERE `tenant_id` > %s OR (`tenant_id` = %s AND (`seq` > %s)) ORDER BY `tenant_id`,`seq` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "tenant_id",
+      "seq"
+     ],
+     "rows_examined_estimate": 2,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`t_composite`.`tenant_id` > 1) or ((`bench`.`t_composite`.`tenant_id` = 1) and (`bench`.`t_composite`.`seq` > 2)))",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 10000000,
+    "rows": 10000000,
+    "complete": true,
+    "chunks": 2000,
+    "max_chunk_ms": 1464.9,
+    "seconds": 113.0,
+    "rows_per_s": 88496
+   }
+  },
+  "t_nopk": {
+   "preflight": {
+    "table": "t_nopk",
+    "engine": "InnoDB",
+    "estimated_rows": 4989895,
+    "avg_row_bytes": 35,
+    "data_bytes": 175833088,
+    "index_bytes": 112885760,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": null,
+    "indexes": [
+     {
+      "name": "k_a",
+      "unique": false,
+      "cols": [
+       "a"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": null,
+    "recommendation": {
+     "method": "OFFLOAD_ONLY",
+     "reason": "No unique NOT NULL full-column BTREE key: keyset cannot prove completeness. Read one scan on a backup or replica."
+    }
+   },
+   "extraction": {
+    "skipped": "no safe key"
+   }
+  },
+  "t_uniq_notnull": {
+   "preflight": {
+    "table": "t_uniq_notnull",
+    "engine": "InnoDB",
+    "estimated_rows": 2994474,
+    "avg_row_bytes": 33,
+    "data_bytes": 99221504,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "uk_code",
+     "unique": true,
+     "cols": [
+      "code"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "uk_code",
+      "unique": true,
+      "cols": [
+       "code"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `code`,`t_uniq_notnull`.* FROM `t_uniq_notnull` FORCE INDEX (`uk_code`) WHERE `code` > %s ORDER BY `code` LIMIT 5000",
+     "access_type": "range",
+     "key": "uk_code",
+     "used_key_parts": [
+      "code"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_uniq_notnull`.`code` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "key is a secondary index; on InnoDB it is only clustered if there is no PK"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 3000000,
+    "rows": 3000000,
+    "complete": true,
+    "chunks": 600,
+    "max_chunk_ms": 119.5,
+    "seconds": 12.2,
+    "rows_per_s": 245902
+   }
+  },
+  "t_uniq_nullable": {
+   "preflight": {
+    "table": "t_uniq_nullable",
+    "engine": "InnoDB",
+    "estimated_rows": 2993576,
+    "avg_row_bytes": 37,
+    "data_bytes": 112869376,
+    "index_bytes": 55164928,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": null,
+    "indexes": [
+     {
+      "name": "uk_code",
+      "unique": true,
+      "cols": [
+       "code"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": null,
+    "recommendation": {
+     "method": "OFFLOAD_ONLY",
+     "reason": "No unique NOT NULL full-column BTREE key: keyset cannot prove completeness. Read one scan on a backup or replica."
+    }
+   },
+   "extraction": {
+    "skipped": "no safe key"
+   }
+  },
+  "customers": {
+   "preflight": {
+    "table": "customers",
+    "engine": "InnoDB",
+    "estimated_rows": 996325,
+    "avg_row_bytes": 36,
+    "data_bytes": 36241408,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [
+     "customer_tags",
+     "orders"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`customers`.* FROM `customers` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`customers`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 26.1,
+    "seconds": 3.5,
+    "rows_per_s": 285714
+   }
+  },
+  "orders": {
+   "preflight": {
+    "table": "orders",
+    "engine": "InnoDB",
+    "estimated_rows": 4987125,
+    "avg_row_bytes": 43,
+    "data_bytes": 218890240,
+    "index_bytes": 158089216,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "customers"
+    ],
+    "fk_children": [
+     "order_items"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_customer",
+      "unique": false,
+      "cols": [
+       "customer_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`orders`.* FROM `orders` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`orders`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 5000000,
+    "rows": 5000000,
+    "complete": true,
+    "chunks": 1000,
+    "max_chunk_ms": 98.5,
+    "seconds": 22.4,
+    "rows_per_s": 223214
+   }
+  },
+  "order_items": {
+   "preflight": {
+    "table": "order_items",
+    "engine": "InnoDB",
+    "estimated_rows": 14959728,
+    "avg_row_bytes": 46,
+    "data_bytes": 688914432,
+    "index_bytes": 498073600,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "orders"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_order",
+      "unique": false,
+      "cols": [
+       "order_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`order_items`.* FROM `order_items` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`order_items`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 15000000,
+    "rows": 15000000,
+    "complete": true,
+    "chunks": 3000,
+    "max_chunk_ms": 197.5,
+    "seconds": 80.0,
+    "rows_per_s": 187500
+   }
+  },
+  "tags": {
+   "preflight": {
+    "table": "tags",
+    "engine": "InnoDB",
+    "estimated_rows": 1000,
+    "avg_row_bytes": 65,
+    "data_bytes": 65536,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [
+     "customer_tags"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`tags`.* FROM `tags` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`tags`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 999,
+    "index_rows_read": 999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000,
+    "rows": 1000,
+    "complete": true,
+    "chunks": 1,
+    "max_chunk_ms": 4.6,
+    "seconds": 0.0,
+    "rows_per_s": 100000
+   }
+  },
+  "customer_tags": {
+   "preflight": {
+    "table": "customer_tags",
+    "engine": "InnoDB",
+    "estimated_rows": 5284022,
+    "avg_row_bytes": 49,
+    "data_bytes": 263045120,
+    "index_bytes": 130793472,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "customers",
+     "tags"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "customer_id",
+      "tag_id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_tag",
+      "unique": false,
+      "cols": [
+       "tag_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "customer_id",
+       "tag_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `customer_id`,`tag_id`,`customer_tags`.* FROM `customer_tags` FORCE INDEX (`PRIMARY`) WHERE `customer_id` > %s OR (`customer_id` = %s AND (`tag_id` > %s)) ORDER BY `customer_id`,`tag_id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "customer_id",
+      "tag_id"
+     ],
+     "rows_examined_estimate": 2,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`customer_tags`.`customer_id` > 1) or ((`bench`.`customer_tags`.`customer_id` = 1) and (`bench`.`customer_tags`.`tag_id` > 1)))",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 5000000,
+    "rows": 5000000,
+    "complete": true,
+    "chunks": 1000,
+    "max_chunk_ms": 563.3,
+    "seconds": 32.1,
+    "rows_per_s": 155763
+   }
+  },
+  "categories": {
+   "preflight": {
+    "table": "categories",
+    "engine": "InnoDB",
+    "estimated_rows": 998108,
+    "avg_row_bytes": 38,
+    "data_bytes": 38354944,
+    "index_bytes": 23658496,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "categories"
+    ],
+    "fk_children": [
+     "categories"
+    ],
+    "self_reference": true,
+    "fk_cycle": true,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_parent",
+      "unique": false,
+      "cols": [
+       "parent_id"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "self-reference or FK cycle: no parent-first load order; load with foreign_key_checks=0 and verify afterwards",
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`categories`.* FROM `categories` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`categories`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 341.7,
+    "seconds": 7.3,
+    "rows_per_s": 136986
+   }
+  },
+  "circ_a": {
+   "preflight": {
+    "table": "circ_a",
+    "engine": "InnoDB",
+    "estimated_rows": 100345,
+    "avg_row_bytes": 47,
+    "data_bytes": 4734976,
+    "index_bytes": 2637824,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "circ_b"
+    ],
+    "fk_children": [
+     "circ_b"
+    ],
+    "self_reference": false,
+    "fk_cycle": true,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_b",
+      "unique": false,
+      "cols": [
+       "b_id"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "self-reference or FK cycle: no parent-first load order; load with foreign_key_checks=0 and verify afterwards",
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`circ_a`.* FROM `circ_a` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`circ_a`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 100000,
+    "rows": 100000,
+    "complete": true,
+    "chunks": 20,
+    "max_chunk_ms": 27.5,
+    "seconds": 0.5,
+    "rows_per_s": 200000
+   }
+  },
+  "circ_b": {
+   "preflight": {
+    "table": "circ_b",
+    "engine": "InnoDB",
+    "estimated_rows": 97830,
+    "avg_row_bytes": 48,
+    "data_bytes": 4734976,
+    "index_bytes": 2637824,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "circ_a"
+    ],
+    "fk_children": [
+     "circ_a"
+    ],
+    "self_reference": false,
+    "fk_cycle": true,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_a",
+      "unique": false,
+      "cols": [
+       "a_id"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "self-reference or FK cycle: no parent-first load order; load with foreign_key_checks=0 and verify afterwards",
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`circ_b`.* FROM `circ_b` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`circ_b`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 100000,
+    "rows": 100000,
+    "complete": true,
+    "chunks": 20,
+    "max_chunk_ms": 32.4,
+    "seconds": 0.5,
+    "rows_per_s": 200000
+   }
+  },
+  "t_lob": {
+   "preflight": {
+    "table": "t_lob",
+    "engine": "InnoDB",
+    "estimated_rows": 291611,
+    "avg_row_bytes": 16916,
+    "data_bytes": 4933074944,
+    "index_bytes": 0,
+    "lob_columns": [
+     "payload"
+    ],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "LOB columns ['payload']: size chunks by bytes and exclude columns you do not need"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`t_lob`.* FROM `t_lob` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_lob`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "use a byte budget per chunk"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 300000,
+    "rows": 300000,
+    "complete": true,
+    "chunks": 60,
+    "max_chunk_ms": 1630.4,
+    "seconds": 29.3,
+    "rows_per_s": 10239
+   }
+  },
+  "t_part": {
+   "preflight": {
+    "table": "t_part",
+    "engine": "InnoDB",
+    "estimated_rows": 9952753,
+    "avg_row_bytes": 36,
+    "data_bytes": 364511232,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 6,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id",
+      "created_at"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id",
+       "created_at"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "partitioned: check that the key is unique across partitions and consider per-partition chunks"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`created_at`,`t_part`.* FROM `t_part` FORCE INDEX (`PRIMARY`) WHERE `id` > %s OR (`id` = %s AND (`created_at` > %s)) ORDER BY `id`,`created_at` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id",
+      "created_at"
+     ],
+     "rows_examined_estimate": 2,
+     "partitions": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "p5",
+      "p6"
+     ],
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`t_part`.`id` > 1) or ((`bench`.`t_part`.`id` = 1) and (`bench`.`t_part`.`created_at` > DATE'2026-03-25')))",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "run per partition with PARTITION (pN) when the key has no global ordering need"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 10000000,
+    "rows": 10000000,
+    "complete": true,
+    "chunks": 2000,
+    "max_chunk_ms": 332.8,
+    "seconds": 104.6,
+    "rows_per_s": 95602
+   }
+  },
+  "t_strpk": {
+   "preflight": {
+    "table": "t_strpk",
+    "engine": "InnoDB",
+    "estimated_rows": 1180829,
+    "avg_row_bytes": 60,
+    "data_bytes": 70909952,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "code"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "code"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `code`,`t_strpk`.* FROM `t_strpk` FORCE INDEX (`PRIMARY`) WHERE `code` > %s ORDER BY `code` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "code"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_strpk`.`code` > '100')",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 70.8,
+    "seconds": 5.7,
+    "rows_per_s": 175439
+   }
+  },
+  "t_events": {
+   "preflight": {
+    "table": "t_events",
+    "engine": "InnoDB",
+    "estimated_rows": 5080119,
+    "avg_row_bytes": 59,
+    "data_bytes": 304087040,
+    "index_bytes": 190578688,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_created",
+      "unique": false,
+      "cols": [
+       "created_at"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`t_events`.* FROM `t_events` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_events`.`id` > 50884923)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 5000000,
+    "rows": 5000000,
+    "complete": true,
+    "chunks": 1000,
+    "max_chunk_ms": 207.8,
+    "seconds": 44.2,
+    "rows_per_s": 113122
+   }
+  },
+  "t_myisam": {
+   "preflight": {
+    "table": "t_myisam",
+    "engine": "MyISAM",
+    "estimated_rows": 3000000,
+    "avg_row_bytes": 13,
+    "data_bytes": 39000000,
+    "index_bytes": 43251712,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "MyISAM has no MVCC: reads can block writes or see no consistent view"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`t_myisam`.* FROM `t_myisam` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": null,
+     "ok": true
+    },
+    "recommendation": {
+     "method": "OFFLOAD_ONLY",
+     "reason": "MyISAM reads are not MVCC. Read from a backup or replica, or take an agreed window. Do not chunk on the primary without measuring write stalls."
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 3000000,
+    "rows": 3000000,
+    "complete": true,
+    "chunks": 600,
+    "max_chunk_ms": 41.9,
+    "seconds": 15.8,
+    "rows_per_s": 189873
+   }
+  },
+  "t_memory": {
+   "preflight": {
+    "table": "t_memory",
+    "engine": "MEMORY",
+    "estimated_rows": 500000,
+    "avg_row_bytes": 13,
+    "data_bytes": 8063984,
+    "index_bytes": 12159736,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": null,
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "HASH",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "MEMORY has no MVCC: reads can block writes or see no consistent view"
+    ],
+    "plan": null,
+    "recommendation": {
+     "method": "OFFLOAD_ONLY",
+     "reason": "MEMORY reads are not MVCC. Read from a backup or replica, or take an agreed window. Do not chunk on the primary without measuring write stalls."
+    }
+   },
+   "extraction": {
+    "skipped": "no safe key"
+   }
+  },
+  "t_archive": {
+   "preflight": {
+    "table": "t_archive",
+    "engine": "ARCHIVE",
+    "estimated_rows": 1000000,
+    "avg_row_bytes": 3,
+    "data_bytes": 3772921,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": null,
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "SE_SPECIFIC",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "ARCHIVE has no MVCC: reads can block writes or see no consistent view"
+    ],
+    "plan": null,
+    "recommendation": {
+     "method": "OFFLOAD_ONLY",
+     "reason": "ARCHIVE reads are not MVCC. Read from a backup or replica, or take an agreed window. Do not chunk on the primary without measuring write stalls."
+    }
+   },
+   "extraction": {
+    "skipped": "no safe key"
+   }
+  },
+  "order_items_nofk": {
+   "preflight": {
+    "table": "order_items_nofk",
+    "engine": "InnoDB",
+    "estimated_rows": 4986219,
+    "avg_row_bytes": 46,
+    "data_bytes": 229392384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`order_items_nofk`.* FROM `order_items_nofk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`order_items_nofk`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 5000000,
+    "rows": 5000000,
+    "complete": true,
+    "chunks": 1000,
+    "max_chunk_ms": 266.8,
+    "seconds": 38.5,
+    "rows_per_s": 129870
+   }
+  },
+  "t_hot": {
+   "preflight": {
+    "table": "t_hot",
+    "engine": "InnoDB",
+    "estimated_rows": 4987646,
+    "avg_row_bytes": 41,
+    "data_bytes": 208404480,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`t_hot`.* FROM `t_hot` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_hot`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 5000000,
+    "rows": 5000000,
+    "complete": true,
+    "chunks": 1000,
+    "max_chunk_ms": 205.5,
+    "seconds": 32.8,
+    "rows_per_s": 152439
+   }
+  },
+  "t_repl": {
+   "preflight": {
+    "table": "t_repl",
+    "engine": "InnoDB",
+    "estimated_rows": 19918934,
+    "avg_row_bytes": 68,
+    "data_bytes": 1373634560,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`t_repl`.* FROM `t_repl` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_repl`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 20000000,
+    "rows": 20000000,
+    "complete": true,
+    "chunks": 4000,
+    "max_chunk_ms": 347.9,
+    "seconds": 137.5,
+    "rows_per_s": 145455
+   }
+  },
+  "t_dense": {
+   "preflight": {
+    "table": "t_dense",
+    "engine": "InnoDB",
+    "estimated_rows": 99619308,
+    "avg_row_bytes": 64,
+    "data_bytes": 6434062336,
+    "index_bytes": 2136981504,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_created",
+      "unique": false,
+      "cols": [
+       "created_at"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`t_dense`.* FROM `t_dense` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`t_dense`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "extraction": {
+    "skipped": "too large for this script"
+   }
+  },
+  "d_negative_pk": {
+   "preflight": {
+    "table": "d_negative_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 998490,
+    "avg_row_bytes": 33,
+    "data_bytes": 33095680,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_negative_pk`.* FROM `d_negative_pk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_negative_pk`.`id` > -499999)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 34.5,
+    "seconds": 5.2,
+    "rows_per_s": 192308
+   }
+  },
+  "d_float_pk": {
+   "preflight": {
+    "table": "d_float_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 998490,
+    "avg_row_bytes": 33,
+    "data_bytes": 33095680,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_float_pk`.* FROM `d_float_pk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_float_pk`.`id` > 0.333333333e0)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 48.6,
+    "seconds": 5.4,
+    "rows_per_s": 185185
+   }
+  },
+  "d_decimal_pk": {
+   "preflight": {
+    "table": "d_decimal_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 998446,
+    "avg_row_bytes": 35,
+    "data_bytes": 35209216,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_decimal_pk`.* FROM `d_decimal_pk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_decimal_pk`.`id` > 0.142857)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 226.3,
+    "seconds": 7.5,
+    "rows_per_s": 133333
+   }
+  },
+  "d_datetime_pk": {
+   "preflight": {
+    "table": "d_datetime_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 998490,
+    "avg_row_bytes": 33,
+    "data_bytes": 33095680,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_datetime_pk`.* FROM `d_datetime_pk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_datetime_pk`.`id` > TIMESTAMP'2026-01-01 00:00:00.001234')",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 45.9,
+    "seconds": 7.9,
+    "rows_per_s": 126582
+   }
+  },
+  "d_timestamp_pk": {
+   "preflight": {
+    "table": "d_timestamp_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 998585,
+    "avg_row_bytes": 32,
+    "data_bytes": 32047104,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_timestamp_pk`.* FROM `d_timestamp_pk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_timestamp_pk`.`id` > TIMESTAMP'2026-01-01 00:00:00.001234')",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 46.4,
+    "seconds": 6.9,
+    "rows_per_s": 144928
+   }
+  },
+  "d_enum_pk": {
+   "preflight": {
+    "table": "d_enum_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 999763,
+    "avg_row_bytes": 35,
+    "data_bytes": 35192832,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "status",
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "status",
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `status`,`id`,`d_enum_pk`.* FROM `d_enum_pk` FORCE INDEX (`PRIMARY`) WHERE `status` > %s OR (`status` = %s AND (`id` > %s)) ORDER BY `status`,`id` LIMIT 5000",
+     "access_type": "index",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "status",
+      "id"
+     ],
+     "rows_examined_estimate": 5000,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`d_enum_pk`.`status` > 'z') or ((`bench`.`d_enum_pk`.`status` = 'z') and (`bench`.`d_enum_pk`.`id` > 3)))",
+     "ok": false
+    },
+    "recommendation": {
+     "method": "STOP_AND_REVIEW",
+     "reason": "Chunk query plan is not a clean range scan: {'sql': 'SELECT `status`,`id`,`d_enum_pk`.* FROM `d_enum_pk` FORCE INDEX (`PRIMARY`) WHERE `status` > %s OR (`status` = %s AND (`id` > %s)) ORDER BY `status`,`id` LIMIT 5000', 'access_type': 'index', 'key': 'PRIMARY', 'used_key_parts': ['status', 'id'], 'rows_examined_estimate': 5000, 'partitions': None, 'filesort': False, 'temporary': False, 'attached_condition': \"((`bench`.`d_enum_pk`.`status` > 'z') or ((`bench`.`d_enum_pk`.`status` = 'z') and (`bench`.`d_enum_pk`.`id` > 3)))\", 'ok': False}"
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 5000,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 333333,
+    "complete": false,
+    "chunks": 67,
+    "max_chunk_ms": 127.5,
+    "seconds": 3.1,
+    "rows_per_s": 107527
+   }
+  },
+  "d_desc_pk": {
+   "preflight": {
+    "table": "d_desc_pk",
+    "engine": "InnoDB",
+    "estimated_rows": 998490,
+    "avg_row_bytes": 33,
+    "data_bytes": 33095680,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_desc_pk`.* FROM `d_desc_pk` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_desc_pk`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 171.3,
+    "seconds": 5.7,
+    "rows_per_s": 175439
+   }
+  },
+  "d_snowflake": {
+   "preflight": {
+    "table": "d_snowflake",
+    "engine": "InnoDB",
+    "estimated_rows": 998490,
+    "avg_row_bytes": 33,
+    "data_bytes": 33095680,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_snowflake`.* FROM `d_snowflake` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_snowflake`.`id` > 7130316800155189249)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 24.9,
+    "seconds": 3.8,
+    "rows_per_s": 263158
+   }
+  },
+  "d_unsigned_max": {
+   "preflight": {
+    "table": "d_unsigned_max",
+    "engine": "InnoDB",
+    "estimated_rows": 100098,
+    "avg_row_bytes": 36,
+    "data_bytes": 3686400,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_unsigned_max`.* FROM `d_unsigned_max` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_unsigned_max`.`id` > 18446744073709451616)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 100000,
+    "rows": 100000,
+    "complete": true,
+    "chunks": 20,
+    "max_chunk_ms": 18.4,
+    "seconds": 0.3,
+    "rows_per_s": 333333
+   }
+  },
+  "d_str_bin": {
+   "preflight": {
+    "table": "d_str_bin",
+    "engine": "InnoDB",
+    "estimated_rows": 542383,
+    "avg_row_bytes": 76,
+    "data_bytes": 41484288,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "code"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "code"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `code`,`d_str_bin`.* FROM `d_str_bin` FORCE INDEX (`PRIMARY`) WHERE `code` > %s ORDER BY `code` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "code"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_str_bin`.`code` > 'A10')",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 22.8,
+    "seconds": 2.1,
+    "rows_per_s": 238095
+   }
+  },
+  "d_prefix_unique": {
+   "preflight": {
+    "table": "d_prefix_unique",
+    "engine": "InnoDB",
+    "estimated_rows": 498200,
+    "avg_row_bytes": 70,
+    "data_bytes": 35192832,
+    "index_bytes": 21594112,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": null,
+    "indexes": [
+     {
+      "name": "uk_prefix",
+      "unique": true,
+      "cols": [
+       "code"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": true
+     }
+    ],
+    "warnings": [],
+    "plan": null,
+    "recommendation": {
+     "method": "OFFLOAD_ONLY",
+     "reason": "No unique NOT NULL full-column BTREE key: keyset cannot prove completeness. Read one scan on a backup or replica."
+    }
+   },
+   "extraction": {
+    "skipped": "no safe key"
+   }
+  },
+  "d_gipk": {
+   "preflight": {
+    "table": "d_gipk",
+    "engine": "InnoDB",
+    "estimated_rows": 998360,
+    "avg_row_bytes": 37,
+    "data_bytes": 37289984,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "my_row_id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "my_row_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `my_row_id`,`d_gipk`.* FROM `d_gipk` FORCE INDEX (`PRIMARY`) WHERE `my_row_id` > %s ORDER BY `my_row_id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "my_row_id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_gipk`.`my_row_id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 26.7,
+    "seconds": 4.4,
+    "rows_per_s": 227273
+   }
+  },
+  "d_compressed": {
+   "preflight": {
+    "table": "d_compressed",
+    "engine": "InnoDB",
+    "estimated_rows": 494275,
+    "avg_row_bytes": 97,
+    "data_bytes": 48037888,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_compressed`.* FROM `d_compressed` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_compressed`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 23.5,
+    "seconds": 2.2,
+    "rows_per_s": 227273
+   }
+  },
+  "d_json_virtual": {
+   "preflight": {
+    "table": "d_json_virtual",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [
+     "doc"
+    ],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_kind",
+      "unique": false,
+      "cols": [
+       "kind"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "LOB columns ['doc']: size chunks by bytes and exclude columns you do not need"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`d_json_virtual`.* FROM `d_json_virtual` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_json_virtual`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "use a byte budget per chunk"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 33.5,
+    "seconds": 2.6,
+    "rows_per_s": 192308
+   }
+  },
+  "d_fulltext": {
+   "preflight": {
+    "table": "d_fulltext",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 32768,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "ft",
+      "unique": false,
+      "cols": [
+       "body"
+      ],
+      "nullable": false,
+      "type": "FULLTEXT",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_fulltext`.* FROM `d_fulltext` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_fulltext`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 200000,
+    "rows": 200000,
+    "complete": true,
+    "chunks": 40,
+    "max_chunk_ms": 25.3,
+    "seconds": 0.9,
+    "rows_per_s": 222222
+   }
+  },
+  "d_spatial": {
+   "preflight": {
+    "table": "d_spatial",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "sp",
+      "unique": false,
+      "cols": [
+       "g"
+      ],
+      "nullable": false,
+      "type": "SPATIAL",
+      "prefix": true
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_spatial`.* FROM `d_spatial` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_spatial`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 200000,
+    "rows": 200000,
+    "complete": true,
+    "chunks": 40,
+    "max_chunk_ms": 19.8,
+    "seconds": 0.7,
+    "rows_per_s": 285714
+   }
+  },
+  "d_soft_delete": {
+   "preflight": {
+    "table": "d_soft_delete",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_deleted",
+      "unique": false,
+      "cols": [
+       "deleted_at"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_soft_delete`.* FROM `d_soft_delete` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_soft_delete`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 2000000,
+    "rows": 2000000,
+    "complete": true,
+    "chunks": 400,
+    "max_chunk_ms": 128.1,
+    "seconds": 12.3,
+    "rows_per_s": 162602
+   }
+  },
+  "d_history": {
+   "preflight": {
+    "table": "d_history",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "entity_id",
+      "valid_from"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "entity_id",
+       "valid_from"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `entity_id`,`valid_from`,`d_history`.* FROM `d_history` FORCE INDEX (`PRIMARY`) WHERE `entity_id` > %s OR (`entity_id` = %s AND (`valid_from` > %s)) ORDER BY `entity_id`,`valid_from` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "entity_id",
+      "valid_from"
+     ],
+     "rows_examined_estimate": 2,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`d_history`.`entity_id` > 1) or ((`bench`.`d_history`.`entity_id` = 1) and (`bench`.`d_history`.`valid_from` > TIMESTAMP'2020-01-02 03:46:40')))",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 43.6,
+    "seconds": 7.3,
+    "rows_per_s": 136986
+   }
+  },
+  "d_eav": {
+   "preflight": {
+    "table": "d_eav",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "entity_id",
+      "attr"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "entity_id",
+       "attr"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `entity_id`,`attr`,`d_eav`.* FROM `d_eav` FORCE INDEX (`PRIMARY`) WHERE `entity_id` > %s OR (`entity_id` = %s AND (`attr` > %s)) ORDER BY `entity_id`,`attr` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "entity_id",
+      "attr"
+     ],
+     "rows_examined_estimate": 2,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`d_eav`.`entity_id` > 1) or ((`bench`.`d_eav`.`entity_id` = 1) and (`bench`.`d_eav`.`attr` > 'a')))",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 26.1,
+    "seconds": 4.5,
+    "rows_per_s": 222222
+   }
+  },
+  "d_polymorphic": {
+   "preflight": {
+    "table": "d_polymorphic",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "k_owner",
+      "unique": false,
+      "cols": [
+       "owner_type",
+       "owner_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_polymorphic`.* FROM `d_polymorphic` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_polymorphic`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 24.6,
+    "seconds": 4.0,
+    "rows_per_s": 250000
+   }
+  },
+  "d_triggered": {
+   "preflight": {
+    "table": "d_triggered",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [],
+    "plan": {
+     "sql": "SELECT `id`,`d_triggered`.* FROM `d_triggered` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`d_triggered`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": []
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 71.5,
+    "seconds": 3.7,
+    "rows_per_s": 135135
+   }
+  },
+  "fk_diamond_a": {
+   "preflight": {
+    "table": "fk_diamond_a",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [
+     "fk_diamond_b",
+     "fk_diamond_c"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_diamond_a`.* FROM `fk_diamond_a` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_diamond_a`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 100000,
+    "rows": 100000,
+    "complete": true,
+    "chunks": 20,
+    "max_chunk_ms": 20.1,
+    "seconds": 0.4,
+    "rows_per_s": 250000
+   }
+  },
+  "fk_diamond_b": {
+   "preflight": {
+    "table": "fk_diamond_b",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "fk_diamond_a"
+    ],
+    "fk_children": [
+     "fk_diamond_d"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "a_id",
+      "unique": false,
+      "cols": [
+       "a_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_diamond_b`.* FROM `fk_diamond_b` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_diamond_b`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 25.0,
+    "seconds": 1.9,
+    "rows_per_s": 263158
+   }
+  },
+  "fk_diamond_c": {
+   "preflight": {
+    "table": "fk_diamond_c",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "fk_diamond_a"
+    ],
+    "fk_children": [
+     "fk_diamond_d"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "a_id",
+      "unique": false,
+      "cols": [
+       "a_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_diamond_c`.* FROM `fk_diamond_c` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_diamond_c`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 20.1,
+    "seconds": 1.7,
+    "rows_per_s": 294118
+   }
+  },
+  "fk_diamond_d": {
+   "preflight": {
+    "table": "fk_diamond_d",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 32768,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "fk_diamond_b",
+     "fk_diamond_c"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "b_id",
+      "unique": false,
+      "cols": [
+       "b_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "c_id",
+      "unique": false,
+      "cols": [
+       "c_id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_diamond_d`.* FROM `fk_diamond_d` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_diamond_d`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 27.7,
+    "seconds": 4.1,
+    "rows_per_s": 243902
+   }
+  },
+  "fk_comp_parent": {
+   "preflight": {
+    "table": "fk_comp_parent",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [
+     "fk_comp_child"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "a",
+      "b"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "a",
+       "b"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `a`,`b`,`fk_comp_parent`.* FROM `fk_comp_parent` FORCE INDEX (`PRIMARY`) WHERE `a` > %s OR (`a` = %s AND (`b` > %s)) ORDER BY `a`,`b` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "a",
+      "b"
+     ],
+     "rows_examined_estimate": 2,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "((`bench`.`fk_comp_parent`.`a` > 1) or ((`bench`.`fk_comp_parent`.`a` = 1) and (`bench`.`fk_comp_parent`.`b` > 1)))",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 26.6,
+    "seconds": 2.1,
+    "rows_per_s": 238095
+   }
+  },
+  "fk_comp_child": {
+   "preflight": {
+    "table": "fk_comp_child",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "fk_comp_parent"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "a",
+      "unique": false,
+      "cols": [
+       "a",
+       "b"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_comp_child`.* FROM `fk_comp_child` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_comp_child`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 27.5,
+    "seconds": 4.0,
+    "rows_per_s": 250000
+   }
+  },
+  "fk_uq_parent": {
+   "preflight": {
+    "table": "fk_uq_parent",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [
+     "fk_uq_child"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "uk",
+      "unique": true,
+      "cols": [
+       "code"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_uq_parent`.* FROM `fk_uq_parent` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_uq_parent`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 21.6,
+    "seconds": 1.7,
+    "rows_per_s": 294118
+   }
+  },
+  "fk_uq_child": {
+   "preflight": {
+    "table": "fk_uq_child",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "fk_uq_parent"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "parent_code",
+      "unique": false,
+      "cols": [
+       "parent_code"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_uq_child`.* FROM `fk_uq_child` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_uq_child`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 1000000,
+    "rows": 1000000,
+    "complete": true,
+    "chunks": 200,
+    "max_chunk_ms": 24.2,
+    "seconds": 3.4,
+    "rows_per_s": 294118
+   }
+  },
+  "fk_null_parent": {
+   "preflight": {
+    "table": "fk_null_parent",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 0,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [],
+    "fk_children": [
+     "fk_null_child"
+    ],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_null_parent`.* FROM `fk_null_parent` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_null_parent`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 100000,
+    "rows": 100000,
+    "complete": true,
+    "chunks": 20,
+    "max_chunk_ms": 16.0,
+    "seconds": 0.3,
+    "rows_per_s": 333333
+   }
+  },
+  "fk_null_child": {
+   "preflight": {
+    "table": "fk_null_child",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "fk_null_parent"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "p",
+      "unique": false,
+      "cols": [
+       "p"
+      ],
+      "nullable": true,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_null_child`.* FROM `fk_null_child` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_null_child`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 35.7,
+    "seconds": 2.0,
+    "rows_per_s": 250000
+   }
+  },
+  "fk_cross_schema": {
+   "preflight": {
+    "table": "fk_cross_schema",
+    "engine": "InnoDB",
+    "estimated_rows": 0,
+    "avg_row_bytes": 0,
+    "data_bytes": 16384,
+    "index_bytes": 16384,
+    "lob_columns": [],
+    "partitions": 0,
+    "fk_parents": [
+     "parent"
+    ],
+    "fk_children": [],
+    "self_reference": false,
+    "fk_cycle": false,
+    "key": {
+     "name": "PRIMARY",
+     "unique": true,
+     "cols": [
+      "id"
+     ],
+     "nullable": false,
+     "type": "BTREE",
+     "prefix": false
+    },
+    "indexes": [
+     {
+      "name": "p",
+      "unique": false,
+      "cols": [
+       "p"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     },
+     {
+      "name": "PRIMARY",
+      "unique": true,
+      "cols": [
+       "id"
+      ],
+      "nullable": false,
+      "type": "BTREE",
+      "prefix": false
+     }
+    ],
+    "warnings": [
+     "FK family: rows copied at different times can be orphaned; use one snapshot or reconcile afterwards"
+    ],
+    "plan": {
+     "sql": "SELECT `id`,`fk_cross_schema`.* FROM `fk_cross_schema` FORCE INDEX (`PRIMARY`) WHERE `id` > %s ORDER BY `id` LIMIT 5000",
+     "access_type": "range",
+     "key": "PRIMARY",
+     "used_key_parts": [
+      "id"
+     ],
+     "rows_examined_estimate": 1,
+     "partitions": null,
+     "filesort": false,
+     "temporary": false,
+     "attached_condition": "(`bench`.`fk_cross_schema`.`id` > 1)",
+     "ok": true
+    },
+    "recommendation": {
+     "method": "KEYSET_CHUNKS",
+     "reason": "unique ordered key and a clean range plan",
+     "notes": [
+      "FK family: for a consistent set, read all tables from one snapshot on a backup or replica"
+     ]
+    }
+   },
+   "first_chunk_probe": {
+    "rows_returned": 5000,
+    "index_rows_read": 4999,
+    "ok": true
+   },
+   "extraction": {
+    "truth": 500000,
+    "rows": 500000,
+    "complete": true,
+    "chunks": 100,
+    "max_chunk_ms": 131.8,
+    "seconds": 3.3,
+    "rows_per_s": 151515
+   }
+  },
+  "v_orders_with_customer": {
+   "preflight": {
+    "table": "v_orders_with_customer",
+    "engine": null,
+    "warnings": [
+     "view: read its base tables instead"
+    ],
+    "key": null,
+    "plan": null,
+    "estimated_rows": null,
+    "recommendation": {
+     "method": "NOT_A_TABLE",
+     "reason": "A view has no key of its own and may join several tables"
+    }
+   },
+   "extraction": {
+    "skipped": "no safe key"
+   }
+  }
+ },
+ "naive": {
+  "composite_keyset_forms": {
+   "tuple": {
+    "rows": 5000,
+    "ms": 1178.4,
+    "handler_read_next": 4504999,
+    "explain_access": "index",
+    "explain_key_parts": [
+     "tenant_id",
+     "seq"
+    ],
+    "explain_rows_estimate": 5000
+   },
+   "and_or": {
+    "rows": 5000,
+    "ms": 455.4,
+    "handler_read_next": 4504999,
+    "explain_access": "range",
+    "explain_key_parts": [
+     "tenant_id"
+    ],
+    "explain_rows_estimate": 4392405
+   },
+   "or_expanded": {
+    "rows": 5000,
+    "ms": 20.6,
+    "handler_read_next": 4999,
+    "explain_access": "range",
+    "explain_key_parts": [
+     "tenant_id",
+     "seq"
+    ],
+    "explain_rows_estimate": 5427297
+   }
+  },
+  "nullable_unique_keyset": {
+   "truth": 3000000,
+   "rows_seen": 2000000,
+   "lost": 1000000
+  },
+  "non_unique_time_keyset": {
+   "truth": 5000000,
+   "rows_seen": 4999001,
+   "lost": 999
+  },
+  "time_plus_pk_keyset": {
+   "truth": 5000000,
+   "rows_seen": 5000000,
+   "lost": 0
+  },
+  "no_order_by_keyset": {
+   "truth": 5000000,
+   "rows_seen": 5000000,
+   "lost": 0,
+   "key": "PRIMARY"
+  },
+  "no_pk_non_unique_keyset": {
+   "truth": 5000000,
+   "rows_seen": 5000000,
+   "lost": 0
+  },
+  "partition_global_tuple": {
+   "rows": 10000000,
+   "max_chunk_ms": 284.2,
+   "seconds": 41.3
+  },
+  "partition_per_partition": {
+   "rows": 10000000,
+   "max_chunk_ms": 290.7,
+   "seconds": 45.6
+  },
+  "range_chunks_on_sparse": {
+   "id_span": 1000969999903,
+   "ranges_needed_estimate": 2063855,
+   "ranges_tried": 20000,
+   "empty_in_tried": 19000,
+   "seconds": 2.5
+  },
+  "negative_pk_start_at_zero": {
+   "truth": 1000000,
+   "rows_seen": 500000,
+   "lost": 500000
+  },
+  "enum_keyset_text_cursor": {
+   "truth": 1000000,
+   "rows_seen": 333333,
+   "lost": 666667
+  },
+  "enum_keyset_numeric_cursor": {
+   "truth": 1000000,
+   "rows_seen": 1000000,
+   "lost": 0,
+   "rows": 5000,
+   "ms": 20.5,
+   "handler_read_next": 5032,
+   "explain_access": "index",
+   "explain_key_parts": [
+    "status",
+    "id"
+   ],
+   "explain_rows_estimate": 5000
+  },
+  "float_pk_keyset": {
+   "truth": 1000000,
+   "rows_seen": 1000000,
+   "difference": 0
+  },
+  "soft_delete_filter_in_chunk": {
+   "filtered_ms": 293.3,
+   "unfiltered_ms": 12.4,
+   "rows": 5000
+  },
+  "gipk_select_star": {
+   "columns_with_star": 2,
+   "columns_named": 3
+  },
+  "timestamp_pk_time_zone": {
+   "rows_after_cursor_utc": 499999,
+   "rows_after_same_text_jst": 1000000,
+   "difference": 500001
+  },
+  "lob_with_lob": {
+   "rows": 100000,
+   "seconds": 41.48,
+   "rows_per_s": 2411,
+   "approx_mb_per_s": 19.8
+  },
+  "lob_without_lob": {
+   "rows": 100000,
+   "seconds": 0.47,
+   "rows_per_s": 213941,
+   "approx_mb_per_s": 2.1
+  }
+ }
+}

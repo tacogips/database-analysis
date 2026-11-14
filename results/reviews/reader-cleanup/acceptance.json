@@ -1,0 +1,60 @@
+{
+  "recordedAt": "2026-11-08T13:46:21.005744+00:00",
+  "scope": "Documentation-only removal of internal workflow/history from reader guides; developer reproduction instructions relocated",
+  "accepted": true,
+  "documents": {
+    "README.md": "b83259f08c63be7280a6fde2882fc86a2cb8e8d22672fa86a9673b33c01a1fd7",
+    "docs/README.md": "660b204ab4c5ce491d251b310c158287bfa937760122bed7d26ec75c5246cfdb",
+    "docs/guidelines/mysql.md": "96427ac10474ff96b70e8b6b92f5149915adcde164ca997c00ea479f987e44d4",
+    "docs/guidelines/sql-server.md": "a417c274732c256a26a0cbcc44e6ef0ed515d6472fc10ed2526c4582b1b639b4",
+    "docs/guidelines/operations-runbook.md": "d6b0ce4eaf5e7e92ab4cc30b8ee50f42f9ec0bad41e76c341ad18207e7ecb862",
+    "docs/guidelines/count-qa.md": "cce2df007cc06437a32829703d8ea4ed018ba34abc6ceec3745048e6dcd51b78",
+    "docs/benchmark-development.md": "6a36271e04094d195e9a51263e8fc1863aa5174905a65aa12832d3d598c7de96"
+  },
+  "reviews": [
+    {
+      "agent": "/root/qa_engineer_review",
+      "model": "gpt-6.1-sol",
+      "separateSession": true,
+      "accepted": true,
+      "documents": {
+        "README.md": "b83259f08c63be7280a6fde2882fc86a2cb8e8d22672fa86a9673b33c01a1fd7",
+        "docs/README.md": "660b204ab4c5ce491d251b310c158287bfa937760122bed7d26ec75c5246cfdb",
+        "docs/guidelines/mysql.md": "96427ac10474ff96b70e8b6b92f5149915adcde164ca997c00ea479f987e44d4",
+        "docs/guidelines/sql-server.md": "a417c274732c256a26a0cbcc44e6ef0ed515d6472fc10ed2526c4582b1b639b4",
+        "docs/guidelines/operations-runbook.md": "d6b0ce4eaf5e7e92ab4cc30b8ee50f42f9ec0bad41e76c341ad18207e7ecb862",
+        "docs/guidelines/count-qa.md": "cce2df007cc06437a32829703d8ea4ed018ba34abc6ceec3745048e6dcd51b78",
+        "docs/benchmark-development.md": "6a36271e04094d195e9a51263e8fc1863aa5174905a65aa12832d3d598c7de96"
+      },
+      "unresolvedFindings": []
+    },
+    {
+      "agent": "/root/qa_validation_review",
+      "model": "gpt-6.1-sol",
+      "separateSession": true,
+      "accepted": true,
+      "documents": {
+        "README.md": "b83259f08c63be7280a6fde2882fc86a2cb8e8d22672fa86a9673b33c01a1fd7",
+        "docs/README.md": "660b204ab4c5ce491d251b310c158287bfa937760122bed7d26ec75c5246cfdb",
+        "docs/guidelines/mysql.md": "96427ac10474ff96b70e8b6b92f5149915adcde164ca997c00ea479f987e44d4",
+        "docs/guidelines/sql-server.md": "a417c274732c256a26a0cbcc44e6ef0ed515d6472fc10ed2526c4582b1b639b4",
+        "docs/guidelines/operations-runbook.md": "d6b0ce4eaf5e7e92ab4cc30b8ee50f42f9ec0bad41e76c341ad18207e7ecb862",
+        "docs/guidelines/count-qa.md": "cce2df007cc06437a32829703d8ea4ed018ba34abc6ceec3745048e6dcd51b78",
+        "docs/benchmark-development.md": "6a36271e04094d195e9a51263e8fc1863aa5174905a65aa12832d3d598c7de96"
+      },
+      "unresolvedFindings": []
+    }
+  ],
+  "checks": [
+    "git diff --check",
+    "local file links",
+    "reader terminology check",
+    "HTML preview regenerated"
+  ],
+  "databaseDockerOrMeasurementStarted": false,
+  "limitations": [
+    "No new performance or SLO validation",
+    "Previous evidence unchanged"
+  ],
+  "previousDocuments": "results/reference/reader-cleanup-before/manifest.json"
+}

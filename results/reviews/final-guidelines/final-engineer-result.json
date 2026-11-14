@@ -1,0 +1,89 @@
+{
+  "accepted": true,
+  "coverageReport": {
+    "acceptanceScope": "この独立運用者レビューの判定。最終aggregate acceptance.jsonの完成は要求していない。",
+    "mysql": {
+      "limits": "取得先・鍵・権限・鮮度・予算が不足する場合は条件付き保留。全状態の性能実測や適用率保証ではない。",
+      "ordinaryRoute": "承認済みexport → 予算付きTABLE_ROWS → 必要時に資源隔離済みの通常COUNT(*)。通常InnoDBのPKなし、文字列PK、索引差、幅広行、圧縮、partition、TDE、暗号文、更新中にも適用可能。",
+      "specialAndFailureRouting": "非InnoDB、temporary、view、remoteは所有者の形式別export／隔離手順へ。0・NULL・欠落・拒否・失敗は空表認定にせず、取得不能はUNKNOWN、欠落集計はINCOMPLETE。",
+      "unusableRoutingCases": []
+    },
+    "operatorUsability": "3文書を通読し、SQL例、実行前予算、所有処理の取消、終了・回復確認まで確認した。利用にlab／Riela起動は不要。",
+    "sqlServer": {
+      "limits": "columnstoreのdelete/delta性能、native性能、実Always Encrypted、巨大幅広TDEの組合せは未認定。AGは両側の監視・停止・回復条件が成立しなければ独立復元先か保留。",
+      "ordinaryRoute": "承認済みexport → base index 0/1の全partition参考値 → 適格隔離先のversioned COUNT_BIG(*)。heap、clustered、partition、圧縮、幅広行、暗号文、対応disk columnstoreに経路がある。",
+      "specialAndFailureRouting": "memory-optimized、external、remote、synonym、temp、viewは所有者の専用経路へ。RLS・tenant・temporal current/historyは数える範囲を明示。権限拒否・鍵不足・欠落・失敗を0へ変換しない。",
+      "unusableRoutingCases": []
+    }
+  },
+  "decision": "accepted",
+  "documentHashes": {
+    "docs/README.md": "1dec0cc28ee32b1e707c312ed3a3a6aef7d5d08ecc3de7c2c259dc0f64a8fc8b",
+    "docs/guidelines/mysql.md": "97e9cfd5016684d27acd1995599d1b08bb64118810f31a272891952fb4557078",
+    "docs/guidelines/sql-server.md": "2a8e6d1b4a75abb6a9bb27e601d176c3e08f34f99be6fa081c02e7e2a7f9b899"
+  },
+  "findings": [],
+  "requestedExperiments": [],
+  "reviewEvidence": [
+    {
+      "baselineSha256": "b0e31b25d5786de7ffd52f1fdebdf2c553a7a9ff6e02fa0812dcd592c2d73256",
+      "check": "受入基準・保護対象",
+      "criteriaSha256": "470848426329fcd212f59599a1a0cc8526876f9c15d46384504b6c7110d3b2c7",
+      "mismatches": 0,
+      "protectedFilesVerified": 361
+    },
+    {
+      "check": "proof・固定アーカイブ",
+      "mismatches": 0,
+      "mysqlProofSha256": "0ef235cd8832593093b25335121253fae8ab2fc5c2bf9feb1384c30ba2e93350",
+      "mysqlSnapshotFilesVerified": 426,
+      "sqlserverArchiveFilesVerified": 2742,
+      "sqlserverArchiveManifestSha256": "9dc945d48939a68bca35b60b711ccecf740798b5d5b85719a3f2be30336baeb2",
+      "sqlserverProofSha256": "83067594c7760061f4c74145b11916ee2f70b8f7343086e7abe49e93e2e26d11"
+    },
+    {
+      "check": "引用数値を元JSONから照合",
+      "mysql": "非InnoDB 3表を除く55表。500000→621877は+24.3754%、1000000→1195881は+19.5881%。",
+      "sqlServer": "正値DMV 27観測すべてが対応するsnapshot oracleと一致。heap統計50000対真値50021は−0.0419823674%。OPEN deltaのみのcolumnstore条件も一致。"
+    },
+    {
+      "check": "既存実行の終了・完全ログ",
+      "mysql": {
+        "completeLogPath": "results/reference/review-20261107T155750Z-26743/results/reviews/final-all-run.log",
+        "exitCode": 0,
+        "logHashMatches": true
+      },
+      "sqlServer": {
+        "completeLogPath": "results/reference/final-sqlserver-52556dd/results/sqlserver/runs/20261107T230105Z-8533a31e/runner.log",
+        "exitCode": 0,
+        "logHashMatches": true,
+        "serviceBudget": "unavailable。本番SLO合格とは扱っていない。"
+      }
+    },
+    {
+      "check": "公式仕様との照合",
+      "sources": [
+        "[MySQL COUNT仕様](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html#function_count)",
+        "[SQL Server分離レベル](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-ver17)",
+        "[partition DMV](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-objects/sys-dm-db-partition-stats-transact-sql?view=sql-server-ver17)",
+        "[AG readable secondary制約](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-ver17)"
+      ]
+    },
+    {
+      "check": "最終確認",
+      "currentHashesRechecked": true,
+      "executionScope": "読み取り専用。DB・Docker・計測・workflow・委任・公開・ファイル変更は実施していない。",
+      "foregroundVerificationExitCode": 0,
+      "localLinksChecked": 32,
+      "missingLinks": 0,
+      "terminalOutputChunk": "459404"
+    }
+  ],
+  "reviewQuestions": {
+    "betterMethods": "承認済みexportを優先し、参考統計、同条件の経験的校正、適格な隔離先の正確COUNTへ進む選択は妥当。常時計数は別設計として扱い、COUNT(1)、ID範囲、未認定標本を高速化の代用にしていない。",
+    "designCoverage": "両製品とも通常の物理表に共通の実行可能経路がある。PK、索引、幅、圧縮、partition、暗号化、更新状態の組合せを一括して保留せず、意味と費用を分けている。広い分岐網羅を実測網羅と誤認させない。",
+    "fastCount": "精度・鮮度・追加費用による選択になっており、普遍的最速、概数の小ささによるprimary走査許可、ゼロ負荷、一律誤差保証を主張していない。列数と索引幅・cache・統計・counterも区別されている。",
+    "lockFactors": "MySQLの通常InnoDB RC/RR読取とMDL・undoを区別。SQL Serverはlocking RC、既存RCSI、既存SNAPSHOTを区別し、専用接続、transaction guard、取消、rollback、server終了確認を要求。AGのprimary側回収・容量影響も扱っている。",
+    "omissions": "修正必須の欠落は確認されなかった。特殊形式・権限不足・鍵不足・欠落shard・世代不明には、参考値または所有者の次作業と安全な保留先がある。追加実験を必要とする未裏付けの現行推奨はない。"
+  }
+}

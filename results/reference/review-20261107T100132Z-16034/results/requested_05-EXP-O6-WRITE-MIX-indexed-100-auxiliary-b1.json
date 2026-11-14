@@ -1,0 +1,379 @@
+{
+ "id": "05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1",
+ "answers": [
+  "EXP-O6-WRITE-MIX",
+  "FIND-O6-WRITE-SHAPE-01",
+  "FIND-O8-CLIENT-TIMEOUT"
+ ],
+ "started": "2026-11-07T09:04:02",
+ "sections": {
+  "build": {
+   "pages": {
+    "PRIMARY": 130944,
+    "k_k": 39423
+   },
+   "_seconds": 81.37
+  },
+  "arms": {
+   "runs": [
+    {
+     "kind": "split",
+     "index": "PRIMARY",
+     "status": "complete",
+     "t0": 1794042334.292155,
+     "connection_id": 1945,
+     "table": "t",
+     "form": "A",
+     "cursor_columns": [
+      "id"
+     ],
+     "width_start": 10000,
+     "steps": 2001,
+     "null_rows": 0,
+     "plan_check": {
+      "access_type": "range",
+      "key": "PRIMARY",
+      "used_key_parts": [
+       "id"
+      ],
+      "using_filesort": false,
+      "partitions": null,
+      "rows_examined_per_scan": 1,
+      "ok": true
+     },
+     "roundtrips": 0,
+     "width_reductions": 0,
+     "complete": true,
+     "rows": 20000000,
+     "partial_rows": 20000000,
+     "statements": {
+      "first": 1,
+      "mid": 2000,
+      "tail": 1
+     },
+     "stmt_ms_p50": 2.92,
+     "stmt_ms_p99": 7.67,
+     "stmt_ms_max": 30.35,
+     "seconds_total": 5.998,
+     "width_end": 10000,
+     "last_cursor": [
+      "20000000"
+     ],
+     "slowest_steps_at_s_and_ms": [
+      [
+       2.41,
+       30.4
+      ],
+      [
+       1.09,
+       13.1
+      ],
+      [
+       2.24,
+       12.1
+      ],
+      [
+       0.02,
+       11.1
+      ],
+      [
+       0.19,
+       10.7
+      ],
+      [
+       4.32,
+       10.5
+      ],
+      [
+       1.3,
+       10.2
+      ],
+      [
+       2.22,
+       10.1
+      ],
+      [
+       0.25,
+       8.9
+      ],
+      [
+       0.29,
+       8.7
+      ]
+     ],
+     "longest_step_ms_by_10s": {
+      "0": 30.4
+     },
+     "t1": 1794042340.2943864,
+     "seconds": 6.002,
+     "handler": {
+      "Handler_read_first": 1,
+      "Handler_read_key": 2002,
+      "Handler_read_last": 0,
+      "Handler_read_next": 19998000,
+      "Handler_read_prev": 0,
+      "Handler_read_rnd": 0,
+      "Handler_read_rnd_next": 0
+     },
+     "timer_counter_after": 0,
+     "cleanup": {
+      "rollback": "ok",
+      "close": "ok",
+      "connection_ids": [
+       1945
+      ],
+      "confirmed": true,
+      "kill_attempts": [
+       {
+        "id": 1945,
+        "status": "already_gone",
+        "error": "OperationalError(1094, 'Unknown thread id: 1945')"
+       }
+      ],
+      "observations": [
+       {
+        "sessions": [],
+        "transactions": [
+         1945
+        ]
+       },
+       {
+        "sessions": [],
+        "transactions": []
+       }
+      ],
+      "status": "confirmed_terminated"
+     },
+     "pool_read_requests": 2494875.0,
+     "disk_reads": 1562.0,
+     "cleanup_finished_at": 1794042340.3970265,
+     "outcome": "completed",
+     "rep": 0,
+     "arm": "drift_split",
+     "write": [
+      {
+       "n": 600,
+       "p50_ms": 1.23,
+       "p95_ms": 3.14,
+       "p99_ms": 6.02,
+       "max_ms": 11.04,
+       "errors": 0,
+       "scheduled": 600,
+       "started": 600,
+       "completed": 600,
+       "failed": 0,
+       "inflight_at_end": 0,
+       "queued_at_end": 0,
+       "stuck_at_end": 0,
+       "slo_assessable": true,
+       "latency_status": "completed_responses",
+       "dispatch_delay": {
+        "n": 600,
+        "p50_ms": 0.48,
+        "p95_ms": 1.76,
+        "p99_ms": 3.13,
+        "max_ms": 4.99
+       },
+       "client_execution": {
+        "n": 600,
+        "p50_ms": 0.59,
+        "p95_ms": 2.12,
+        "p99_ms": 4.96,
+        "max_ms": 9.96
+       }
+      }
+     ],
+     "read": {
+      "n": 151,
+      "p50_ms": 0.71,
+      "p95_ms": 3.64,
+      "p99_ms": 7.26,
+      "max_ms": 7.7,
+      "errors": 0,
+      "scheduled": 151,
+      "started": 151,
+      "completed": 151,
+      "failed": 0,
+      "inflight_at_end": 0,
+      "queued_at_end": 0,
+      "stuck_at_end": 0,
+      "slo_assessable": true,
+      "latency_status": "completed_responses",
+      "dispatch_delay": {
+       "n": 151,
+       "p50_ms": 0.41,
+       "p95_ms": 2.62,
+       "p99_ms": 4.96,
+       "max_ms": 7.06
+      },
+      "client_execution": {
+       "n": 151,
+       "p50_ms": 0.18,
+       "p95_ms": 1.25,
+       "p99_ms": 4.52,
+       "max_ms": 7.28
+      }
+     },
+     "server": {
+      "observation_capabilities": {
+       "table_data_locks": "not_measured",
+       "replica_lag": "not_measured"
+      },
+      "samples": 6,
+      "table_data_lock_samples": 0,
+      "seconds": 5.0,
+      "rows_read_per_s": 3378653,
+      "bp_disk_reads_per_s": 226,
+      "bp_miss_pct": 0.054,
+      "row_lock_time_ms": 0,
+      "row_lock_waits": 0,
+      "table_locks_waited": 0,
+      "peak_threads_running": 4.0,
+      "peak_row_lock_current_waits": 0.0,
+      "hll_start": 121,
+      "hll_end": 107,
+      "hll_peak": 221,
+      "peak_trx_age_s": 0,
+      "peak_mdl_waiters": 0,
+      "peak_table_mdl_exclusive": 0,
+      "peak_global_read_lock": 0,
+      "peak_row_locks_seen": null,
+      "peak_table_level_locks": null,
+      "peak_replica_lag_s": null
+     }
+    }
+   ],
+   "_seconds": 11.11
+  },
+  "windows": {
+   "arrival_accounting": [
+    {
+     "scheduled": 2643,
+     "started": 2643,
+     "completed": 2643,
+     "failed": 0,
+     "inflight": 0,
+     "unstarted": 0,
+     "consistent": true,
+     "arrival_window_seconds": 21.13487119000638
+    }
+   ],
+   "raw_service_samples": [
+    {
+     "format": "jsonl+gzip-v1",
+     "samples": 2643,
+     "chunk_uncompressed_byte_cap": 8388608,
+     "chunks": [
+      {
+       "path": "raw/requested_05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1/service-0/00000.jsonl.gz",
+       "samples": 2643,
+       "uncompressed_bytes": 238188,
+       "uncompressed_sha256": "5a774606eafd4922277c5390b1053d88cf5e77c05201b4abb5eb2d672d168a40",
+       "bytes": 88542,
+       "sha256": "1e7a3718a25c10f8497d2351919a31147b5960b7230e134a01d4e294978790b7"
+      }
+     ]
+    }
+   ],
+   "raw_server_samples": {
+    "format": "jsonl+gzip-v1",
+    "samples": 22,
+    "chunk_uncompressed_byte_cap": 8388608,
+    "chunks": [
+     {
+      "path": "raw/requested_05-EXP-O6-WRITE-MIX-indexed-100-auxiliary-b1/server/00000.jsonl.gz",
+      "samples": 22,
+      "uncompressed_bytes": 9399,
+      "uncompressed_sha256": "3d4318cce6cb2ba4db5c2da3cf5da0d55e665a199bdade539f87e60c32a97b86",
+      "bytes": 959,
+      "sha256": "98ccbc6bf9ee893f0f17778744c87659beb92e1ba42a68d4de1e87d15ff4aa70"
+     }
+    ]
+   },
+   "quiet_truth_status": "not_requested; no write-count drift bound claimed",
+   "_seconds": 0.02
+  },
+  "fixture_cleanup": {
+   "status": "dropped",
+   "_seconds": 0.01
+  }
+ },
+ "protocol": "partitioned-v3",
+ "mix": "indexed",
+ "target_writes_per_s": 100,
+ "group": "auxiliary",
+ "block": 0,
+ "rows": 20000000,
+ "note": "k moves, so split_k is a labelled negative control: the guideline forbids walking it.",
+ "split_seconds_ceiling": 150,
+ "statement_limit_ms": 120000,
+ "split_settings": {
+  "width": 10000,
+  "limit_ms": 500,
+  "duty": null
+ },
+ "required_repeats_across_scripts": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "scopeComplete": true,
+ "opportunities": [
+  {
+   "rep": 0,
+   "arm": "drift_split",
+   "outcome": "completed",
+   "run_index": 0
+  }
+ ],
+ "tolerance_fixed_in_advance": "Completed medians require all4repeats,20% lower and no overlap. Censored outcomes cannot rank completed speed.",
+ "limitations": "Uncontrolled host/cache carryover,10s warmup and5s recovery do not certify restoration or SLO. Main arms have no matched no-count control. Auxiliary quiet truth is not a bounded drift estimate.",
+ "elapsed_seconds": 103,
+ "section_errors": [],
+ "cleanup": {
+  "confirmed": true,
+  "workloads": [
+   {
+    "confirmed": true,
+    "status": "confirmed_terminated",
+    "errors": [],
+    "child_exitcode": 0,
+    "child_terminated": false,
+    "child_alive": false,
+    "connection_registry_complete": true,
+    "connection_ids": [
+     1937,
+     1938,
+     1939,
+     1940,
+     1941
+    ],
+    "kill_attempts": [],
+    "observations": [
+     {
+      "sessions": [],
+      "transactions": []
+     }
+    ]
+   }
+  ],
+  "builder": {
+   "rollback": "ok",
+   "close": "ok",
+   "connection_ids": [
+    1919
+   ],
+   "confirmed": true,
+   "kill_attempts": [],
+   "observations": [
+    {
+     "sessions": [],
+     "transactions": []
+    }
+   ],
+   "status": "confirmed_terminated"
+  }
+ },
+ "required_seconds_after_setup": 240
+}

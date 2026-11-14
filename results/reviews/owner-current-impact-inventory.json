@@ -1,0 +1,437 @@
+{
+  "recordedAt": "2026-11-07T08:16:15.915613+00:00",
+  "meaning": "Completed basic-impact coverage/conservation audit only. Expected time-boxed controls/loops and censored windows differ from failed COUNT. No SLO, causal ranking, production guarantee or full all acceptance.",
+  "declaredExperiments": 36,
+  "savedExperiments": 36,
+  "missing": [],
+  "extra": [],
+  "methodOrWindowCountProblems": [],
+  "files": {
+    "baseline": {
+      "path": "results/impact_baseline.json",
+      "sha256": "91b984e8f2adff1ae36955af1870abe6861bdbb28568de638e11efd9f41acccf",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "baseline_end": {
+      "path": "results/impact_baseline_end.json",
+      "sha256": "9a731f97d801c9d627c3234fef3de2d773186b42cd0ce6949f6390a750623bc5",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "baseline_mid": {
+      "path": "results/impact_baseline_mid.json",
+      "sha256": "c5b7921532615d9a8370cd5e7a8a5d9c5db2995e5637f0cb0e04a65b0f49b46b",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_default": {
+      "path": "results/impact_count_default.json",
+      "sha256": "5fe76ef98b4551643866b9fb3b8e7ee3dd04032203ed6db63178db3c595c3f39",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_estimate": {
+      "path": "results/impact_count_estimate.json",
+      "sha256": "5930a6cfdc7735a78c951296a9f1f4d362b929a723c20fa8e3f4023dd2295394",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [
+        {
+          "path": "$.latency.during.read",
+          "scheduled": 2
+        },
+        {
+          "path": "$.latency.during.write",
+          "scheduled": 0
+        }
+      ],
+      "windowCountProblems": []
+    },
+    "count_force_primary": {
+      "path": "results/impact_count_force_primary.json",
+      "sha256": "81de4c91e1d842a4ed7e4c96965ded5873ac9007947934b3ec98d1ebd91b5d36",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_force_secondary": {
+      "path": "results/impact_count_force_secondary.json",
+      "sha256": "a5491ca7b489917a3ed320c24b08a1937a6a2722eee07240cf0ac12c226546c3",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_kill_latency": {
+      "path": "results/impact_count_kill_latency.json",
+      "sha256": "4d2f7a0d0283a68dacab4c8abdf642b861f5098935d6d073cdd9e1744ad9123b",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_on_primary_t_repl": {
+      "path": "results/impact_count_on_primary_t_repl.json",
+      "sha256": "e095ef355c7b126d748613928d5a87b5d38d9ea914dbe41b111639cfb756157e",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [
+        "$.latency.recovery.read"
+      ],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_on_replica_t_repl": {
+      "path": "results/impact_count_on_replica_t_repl.json",
+      "sha256": "19ad15691d4cd139e55ff917b07c938bfbc1644fc63b050cf8d9ebf889c1da38",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [
+        "$.latency.recovery.read",
+        "$.latency.recovery.write"
+      ],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_single_thread": {
+      "path": "results/impact_count_single_thread.json",
+      "sha256": "5744804e6d8790bb14b7904319164813b33b8cc3234c01c6128814c58336d1bd",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_100k_duty50": {
+      "path": "results/impact_count_split_100k_duty50.json",
+      "sha256": "dea69fc639dfe8093f6caac0f94e390f8fccc8f3c60a1a40dc47a57b8edc32d5",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_100k_nosleep": {
+      "path": "results/impact_count_split_100k_nosleep.json",
+      "sha256": "0ebba0f60ec51f7454842acee07e01f5915cade5f6191a9c6609099f5585c1b8",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_10k_duty50": {
+      "path": "results/impact_count_split_10k_duty50.json",
+      "sha256": "53fd516c0bd8d2f212443b1d3f0d7d59cf6c95090893f6366c449f26faa083da",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_split_1m_duty50": {
+      "path": "results/impact_count_split_1m_duty50.json",
+      "sha256": "7cf280db4258b9d0331da4e95997d6eeb31be11f561063d6b2ae45f86941e5e2",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_timeout_hint": {
+      "path": "results/impact_count_timeout_hint.json",
+      "sha256": "e888ee1d49ba48a0e2fc7bece5794f95349e350c74033aac89c75f26a4100f32",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "count_under_history": {
+      "path": "results/impact_count_under_history.json",
+      "sha256": "eb7e7c9ae5c5b5fa124b073830060831fe9fef9d924428c4dc89fd53f5cbed5b",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "counter_no_trigger": {
+      "path": "results/impact_counter_no_trigger.json",
+      "sha256": "033bb4a4b0267a065a449010464ee856f367f1b81704dd344de58ea0d012fc3a",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "counter_trigger_one_row": {
+      "path": "results/impact_counter_trigger_one_row.json",
+      "sha256": "e96f3e67ac5dcab3fd3a32c58ce7588e90a18f39d6a9f35ee86c61e397077b9c",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "engine_archive_count": {
+      "path": "results/impact_engine_archive_count.json",
+      "sha256": "0e613dcba9753871a318a8951a15aaedb9570a8cb99b550eea609db84162c516",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [
+        "$.latency.during.read",
+        "$.latency.recovery.read"
+      ],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "engine_memory_count": {
+      "path": "results/impact_engine_memory_count.json",
+      "sha256": "e0b56e7c2bda5010250b1149e33a12899972e7f4b5b039d4cc6f66e4f555c014",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [
+        "$.latency.recovery.read"
+      ],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "engine_myisam_count": {
+      "path": "results/impact_engine_myisam_count.json",
+      "sha256": "02c86f8c9c0db062731172426c90be430d8fc581141edd1f8c1093d73c387990",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "fk_lock_tables_child_blocks_parent": {
+      "path": "results/impact_fk_lock_tables_child_blocks_parent.json",
+      "sha256": "0262c8811efaecc2d27cb8e6f7d8819b3aa672ef5e8f7b03af5c3e87c82bf9c8",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_baseline": {
+      "path": "results/impact_lock_baseline.json",
+      "sha256": "8d469a9de603b4f6fc79f27f2734aac45be880d318ae0a79c58f645e6323dcb0",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_count_for_share": {
+      "path": "results/impact_lock_count_for_share.json",
+      "sha256": "05a8f426bc68bc4b033f13e856f06ac287fca996aef7543a0e2403b09fcb1ae6",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_insert_summary_rc": {
+      "path": "results/impact_lock_insert_summary_rc.json",
+      "sha256": "fbb953a176e7226e349f371d6483422b6647864f18554f2af1da59c4f1b15f7c",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_insert_summary_rr": {
+      "path": "results/impact_lock_insert_summary_rr.json",
+      "sha256": "7987b7300e627a553a495c03fe2eb14176eb41c22756700d97fd4848c0f1fc90",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [
+        "$.latency.recovery.read"
+      ],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_plain_count": {
+      "path": "results/impact_lock_plain_count.json",
+      "sha256": "b1065c5cfc1ed4c9f633982821198be2e7b9fb32e4c65f7dec4276b092dcfb39",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [
+        "$.latency.recovery.write"
+      ],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_serializable_autocommit": {
+      "path": "results/impact_lock_serializable_autocommit.json",
+      "sha256": "cae361215c55d3dfd3439d6e715d0a0dd88f224ed0a84181324298ea73da73ba",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_serializable_in_trx": {
+      "path": "results/impact_lock_serializable_in_trx.json",
+      "sha256": "16b75f3c893664499ed5e7b64157d433931b14d57846dfad0c7fb1c239e04039",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_set_variable_rr": {
+      "path": "results/impact_lock_set_variable_rr.json",
+      "sha256": "eb1dc69a6f30de74cb47dfc3b6608dfdd0ee86bd6951e664a8591fe38afcba52",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "lock_tables_then_count": {
+      "path": "results/impact_lock_tables_then_count.json",
+      "sha256": "2554447486121779f31e4fecd0d728e18f62f2d81beae75d6f834289332fc45b",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "mdl_long_count_then_ddl": {
+      "path": "results/impact_mdl_long_count_then_ddl.json",
+      "sha256": "1bdb1234118eb02a41cd006fc7afd84db2709969786d1e04a5d77e6a085981bd",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "mdl_split_count_then_ddl": {
+      "path": "results/impact_mdl_split_count_then_ddl.json",
+      "sha256": "863056bcafd3d4ade7b15509c337ff2e2c862a1c37446701f06841ed47c8aa6a",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "replica_control_no_count": {
+      "path": "results/impact_replica_control_no_count.json",
+      "sha256": "d3635f86ec89e7d57a900cdf998a6332e44827d97bfa610677e0fa6e6e298c64",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": false,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    },
+    "replica_count_vs_ddl": {
+      "path": "results/impact_replica_count_vs_ddl.json",
+      "sha256": "e62c2cee1fc759fab9d020b4003722230702117c49732dcdf1c0d08073fda8da",
+      "errors": [],
+      "worker_terminated": true,
+      "finished_within_window": true,
+      "latencyWindows": 6,
+      "censoredWindows": [],
+      "sparseWindows": [],
+      "windowCountProblems": []
+    }
+  },
+  "pending": [
+    "5version matrix and cleanup outcomes",
+    "150requested plus105accuracy/48service/41writeMix/30scale scope",
+    "final integrity, raw/source audit",
+    "crypto docs integration, proof, two fresh final Sol approvals",
+    "commit/push"
+  ]
+}

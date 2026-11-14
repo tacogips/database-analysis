@@ -1,0 +1,242 @@
+[
+    {
+        "Id": "29e1b6ca9561b53e2fe9c51fc573a2453731208ea8ccfef5db9ab631291be829",
+        "Created": "2026-11-08T23:43:06.547513312Z",
+        "Path": "dotnet",
+        "Args": [
+            "ManualCount100m.dll"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-08T23:43:10.587582915Z",
+            "FinishedAt": "2026-11-09T00:16:16.820511658Z"
+        },
+        "Image": "sha256:1d66f07165296581fc62a83cf2d15dd1b849fb7fe3518145c51565336154ea11",
+        "ResolvConfPath": "/var/lib/docker/containers/29e1b6ca9561b53e2fe9c51fc573a2453731208ea8ccfef5db9ab631291be829/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/29e1b6ca9561b53e2fe9c51fc573a2453731208ea8ccfef5db9ab631291be829/hostname",
+        "HostsPath": "/var/lib/docker/containers/29e1b6ca9561b53e2fe9c51fc573a2453731208ea8ccfef5db9ab631291be829/hosts",
+        "LogPath": "/var/lib/docker/containers/29e1b6ca9561b53e2fe9c51fc573a2453731208ea8ccfef5db9ab631291be829/29e1b6ca9561b53e2fe9c51fc573a2453731208ea8ccfef5db9ab631291be829-json.log",
+        "Name": "/lab-sqlserver-manual100m-client",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "lab-sqlserver-manual100m-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 1073741824,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T234303Z-7e3f51b7e5a312af1e695029bd48dcb5",
+                    "Target": "/evidence",
+                    "BindOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/taco/gits/tacogips/database-analysis/results/sqlserver/manual-count-100m/runs/20261108T234303Z-7e3f51b7e5a312af1e695029bd48dcb5",
+                "Destination": "/evidence",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "29e1b6ca9561",
+            "Domainname": "",
+            "User": "501:0",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DOTNET_NOLOGO=1",
+                "DOTNET_CLI_TELEMETRY_OPTOUT=1",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.14",
+                "ASPNET_VERSION=10.0.14",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_SDK_VERSION=10.0.403",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04-arm64"
+            ],
+            "Cmd": null,
+            "Image": "lab-sqlserver-manual100m-client:7e3f51b7e5a312af1e695029bd48dcb5",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "dotnet",
+                "ManualCount100m.dll"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "1a7754284a68a423596668cf0685a491afa276416b3a4bb087437c4d13d5ac7d",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:71867d41388ad9b1bb1d6666986938f0022c06b2b910d72f88dadbfa6403600d",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "lab-sqlserver-manual100m",
+                "com.docker.compose.project.config_files": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m/compose.yaml",
+                "com.docker.compose.project.working_dir": "/Users/taco/gits/tacogips/database-analysis/sqlserver/manual-count-100m",
+                "com.docker.compose.service": "client",
+                "com.docker.compose.version": "5.6.1",
+                "count.manual100m.owner": "7e3f51b7e5a312af1e695029bd48dcb5",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "lab-sqlserver-manual100m-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "lab-sqlserver-manual100m-client",
+                        "client"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "dcfaebfa2534c5100f57d4b8241feff00c960cc7e44f4e99d7f2274fd2583963",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "lab-sqlserver-manual100m-client",
+                        "client",
+                        "29e1b6ca9561"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:71867d41388ad9b1bb1d6666986938f0022c06b2b910d72f88dadbfa6403600d",
+            "size": 3726,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]

@@ -1,0 +1,185 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-11-08T01:38:45.169226+00:00",
+  "checks": [
+    {
+      "name": "actual_foreground_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_commands_finished",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "final_source_and_old_evidence",
+      "passed": true,
+      "detail": {
+        "protected_files": 362,
+        "source_files": 12
+      }
+    },
+    {
+      "name": "artifact_bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "five_cases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "two_actual_connections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "three_wrong_identities_refused",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "restricted_visibility_unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "attention_not_transaction_end",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual_finally_paths",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_server_error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_client_cancel",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_command_timeout",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_dispose_connection",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_management_fallback",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retention_not_physical_recovery",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "stats_three_profiles",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "stats_off",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "stats_sync_on",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "stats_async_on",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_lock_matches_runtime",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unix_daemon",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "owned_container_absent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "owned_volume_absent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "owned_network_absent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "controller_cleanup",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "cleanupInventory": {
+    "container": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "container",
+        "ls",
+        "-a",
+        "--format",
+        "{{.Names}}"
+      ],
+      "exit_status": 0,
+      "stdout": "punchflow-release-smoke\nbuildx_buildkit_punchflow-release0\ndocker-kestra-ec-1\ndocker-remote-worker-1\ndocker-remote-worker-b-1\ndocker-mailpit-1\ndocker-postgres-1\n",
+      "stderr": ""
+    },
+    "volume": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exit_status": 0,
+      "stdout": "6deb00c071ff6d6eb9cd3fca9cf4744edb3c05a5dfaaaf17dcf45ab05677077d\n459c3580c016078744c141196743f93b2640e684f56f81b5d5d28146c56fe8f0\n05359f73c6c5da176e06f825e6ecdea69fc40e7043118bae63611981ce451e27\nb2e52dc24f16e1068bc80f332a5667df35e4fc5c114b627d858b57f40962128d\nbuildx_buildkit_punchflow-release0_state\nc56c0e29398f21dcdb37c7f0e15d57535e2ddcac86438a6b20b72c43e4d88608\ndocker_kestra-ec-data\ndocker_postgres-data\ne8c3d467a9984776f1c57dac8bb8da90944bf28b8137815e4fd8744e973441b7\nfad084f251210d098e68291369d6f152072084754933486e523a5cd5f0512987\n",
+      "stderr": ""
+    },
+    "network": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/taco/.config/colima/brotli-verify/docker.sock",
+        "network",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "exit_status": 0,
+      "stdout": "bridge\ndocker_default\nhost\nnone\n",
+      "stderr": ""
+    }
+  },
+  "archiveManifest": "results/reference/issue-1-runtime-20261108T013522-6bd01cec80ff/manifest.json"
+}

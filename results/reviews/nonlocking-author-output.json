@@ -1,0 +1,1341 @@
+{
+  "authorResponses": [
+    {
+      "id": "FIND-O10-PRIMARY-SCALE",
+      "response": "scale30本と必要反復・上限を維持。変更後ソースの白紙allと所有者監査待ち。",
+      "status": "unresolved"
+    },
+    {
+      "id": "FIND-O10-INDEXED-100-STALL",
+      "response": "過去stall診断を保持。0dの現ソース測定・回復評価は未完了。",
+      "status": "unresolved"
+    },
+    {
+      "id": "FIND-O10-STEP-CEILING",
+      "response": "行数上限と0e/0fを維持。現ソースの必要比較は未実行。",
+      "status": "unresolved"
+    },
+    {
+      "id": "FIND-O10-NOPK-FORCE",
+      "response": "PRIMARY不存在時の強制禁止を維持。0lの現ソース確認待ち。",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "docs/table-count-nonlocking-scope.md",
+        "results/reviews/author-revision23-encryption-coverage.json"
+      ],
+      "id": "FIND-O10-ENCRYPTED-STALE",
+      "response": "保存TDE結果と新規完了・部分観測の区別を維持。新defaultの91はSELECT比較を残す。",
+      "sections": "主文書§3/7、詳細§18/19",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md",
+        "results/reviews/integrate-revision22-measured-frontier.json"
+      ],
+      "id": "FIND-O10-P100-BOLD",
+      "response": "PRIMARY優位を条件付きとし、任意表への一般推奨にしない。",
+      "sections": "主文書§2/4",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/mysql-support-check-20261107.json",
+        "results/reviews/encrypted-keyless-research.json"
+      ],
+      "id": "FIND-DOC-01",
+      "response": "保存した公式確認と今回の未再閲覧を区別。新しい外部仕様確認は主張しない。",
+      "sections": "主文書の前提・公式仕様、詳細§12/19",
+      "status": "fixed"
+    },
+    {
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01",
+      "response": "FOR UPDATEによる失敗STOP再注入は除外。過去のlate-stop問題を保持し、0cの非ロック対照を残した。技術的閉鎖は所有者と最終Solが判断する。",
+      "scopeDisposition": "superseded_by_explicit_user_scope_for_blocking_injection_only",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-ROLLOUT-ACCURACY",
+      "response": "参考統計・条件付き区間・正確値を分離し、任意表の3/5/10%や無影響を保証しない。",
+      "sections": "主文書§1/2",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET",
+      "response": "初回にも所有者の負荷予算・監視・停止確認を必要とし、共通行数閾値を設けない。",
+      "sections": "主文書§4/6",
+      "status": "fixed"
+    },
+    {
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE",
+      "response": "01a〜01dの保存結果と状態分類を維持。96/97など残存要求と最終allは未完了。",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md",
+        "bench/nonlocking-scope.json"
+      ],
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON",
+      "response": "精度・鮮度・権限・待機の比較を維持。94の新defaultでは意図的DDL待ち注入だけを除外。",
+      "sections": "主文書§2、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-nonlocking-scope.md",
+        "bench/nonlocking-scope.json"
+      ],
+      "id": "SOL-ROLLOUT-ANALYZE-COST",
+      "response": "ANALYZEを自動COUNT手順から除外。59の競合注入を除き、別保守としての統計校正と非ANALYZE対照を残した。",
+      "sections": "主文書§2、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-ROLLOUT-OPERATING-MODEL",
+      "response": "取得先・共有資源・責任者・停止権限・部分失敗の運用条件を維持。",
+      "sections": "主文書§4/6",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-scope-audit.json",
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-SAMP-DEADLINE",
+      "response": "既存のdeadline・終了確認修正を維持。今回、標本式や上限は変更していない。",
+      "sections": "確率推定仕様、既存修正",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/probability-count.md"
+      ],
+      "id": "SOL-SAMP-DOC-CONTRACT",
+      "response": "整数キー・snapshot・抽出・信頼度配分・予算内精度の適用条件を維持。",
+      "sections": "主文書§2、確率推定仕様",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-scope-audit.json"
+      ],
+      "id": "SOL-SAMP-EVIDENCE-DRIFT",
+      "response": "保存観測と現ソースを区別。今回のスコープ変更で新しい白紙allが必要。",
+      "sections": "主文書§7、詳細§18",
+      "status": "fixed"
+    },
+    {
+      "id": "SOL-SAMP-98-COMPARISON",
+      "response": "98を残した。過去完了を現ソースの新規完了へ充当しない。",
+      "status": "unresolved"
+    },
+    {
+      "id": "SOL-VALIDATION-RUN-CACHE",
+      "response": "依存policyと範囲台帳をfingerprintへ反映。pure回帰は通過したが、最終all・所有者監査・proof待ち。",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-VALIDATION-TIMER-TARGET",
+      "response": "固定したKILL対象とtimer回帰を維持。意図的ロック注入の除外とは独立。",
+      "sections": "既存timer修正、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-scope-audit.json"
+      ],
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE",
+      "response": "過去snapshotを保持し、既存計測JSON122件の一致を確認。新proofは作成していない。",
+      "sections": "主文書§7、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md",
+        "bench/nonlocking-scope.json"
+      ],
+      "id": "SOL-VALIDATION-TDE-CACHE",
+      "response": "TDE/plainのcache同等性や暗号化の一律倍率を主張しない。SELECT比較は維持。",
+      "sections": "主文書§3、詳細§18/19",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-scope-audit.json",
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS",
+      "response": "未着手・打切りを残し、SLO合格へ変換しない。Workload実装の不変性を確認。",
+      "sections": "主文書§4/7、詳細§18",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE",
+      "response": "実験完了・精度・負荷・後始末を別判定。短窓や低readから無影響を認定しない。",
+      "sections": "主文書§2/4/7",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/integrate-revision22-measured-frontier.json",
+        "results/reviews/author-revision23-scope-audit.json"
+      ],
+      "id": "SOL-FRONTIER-001",
+      "response": "静的105機会と目標別looks・信頼度配分を保持。実現誤差と区間目標を分離。",
+      "sections": "主文書§2、詳細§18",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-FRONTIER-002",
+      "response": "失敗・部分結果・cleanupを保存する修正を維持し、pure回帰を再確認。",
+      "sections": "詳細§18、既存frontier修正",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-evidence.md",
+        "results/reviews/author-revision23-scope-audit.json"
+      ],
+      "id": "SOL-FRONTIER-003",
+      "response": "実method区間と広いtrialを区別。3/10%負荷48armを維持し、5%負荷は未計測。",
+      "sections": "主文書§2、詳細§18",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "docs/table-count-guideline.md"
+      ],
+      "id": "SOL-FRONTIER-004",
+      "response": "既存105/48完了観測の適用範囲を保持。新しい最適化gridは追加しない。",
+      "sections": "主文書§2/7",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "response": "Ruby4.0.9の既存bootstrapを維持し、隔離fakeのrunner回帰を確認。",
+      "sections": "既存runner修正",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.log"
+      ],
+      "id": "ROOT-RUBY-RUNTIME",
+      "response": "固定Rubyと実体記録を維持。DBなし検証はRuby4.0.9で実行。",
+      "sections": "既存runner修正",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "ROOT-RAW-ARTIFACT-SIZE",
+      "response": "8MiB chunk・raw hash・cache検証を維持し、pure回帰を確認。",
+      "sections": "README、生計装の既存修正",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "ROOT-FAILED-ALL-SUMMARY",
+      "response": "旧summaryの新規加算を防ぐ修正を維持。今回、runnerは起動していない。",
+      "sections": "既存runner修正、主文書§7",
+      "status": "fixed"
+    },
+    {
+      "id": "ROOT-ALL-SEMANTIC-ERRORS",
+      "response": "現defaultの全artifact・意味・最終整合・後始末監査は次の所有者工程。",
+      "status": "unresolved"
+    },
+    {
+      "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+      "response": "旧無効protocolの履歴を保持。置換write-mix全範囲の現ソース完了は未確認。",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "bench/nonlocking-scope.json",
+        "results/reviews/author-revision23-scope-audit.json"
+      ],
+      "id": "ROOT-REVIEW-BUDGET-SCOPE",
+      "response": "各script20分・all合計上限なしを維持。利用者除外以外のscopeを削減しない。",
+      "sections": "README、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+      "response": "分割計画と上限を保持。全mixとscale30本の現ソース充足は未確認。",
+      "status": "unresolved"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-PROTOCOL-001",
+      "response": "2013・未知1317・計画拒否を予定上限へ加算しない分類を維持。",
+      "sections": "既存protocol修正、主文書§7",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-scope-audit.json",
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-PROTOCOL-002",
+      "response": "必要機会・反復・打切り・未着手の記録と分割予算を維持。",
+      "sections": "既存protocol修正、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json",
+        "docs/table-count-nonlocking-scope.md"
+      ],
+      "id": "SOL-PROTOCOL-003",
+      "response": "所有session終了確認と後続停止を維持。quiet truthや同時点driftの保証をしない。",
+      "sections": "既存protocol修正、主文書§4/6",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "response": "予備容量・image準備・自動prune禁止を維持。今回のDocker操作やcleanupはない。",
+      "sections": "README、既存preflight",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-WIDE-ERROR-001",
+      "response": "予期しない失敗の先行保存・非0伝播・無効cache拒否を維持し、実関数fake回帰を確認。",
+      "sections": "既存wide修正、詳細§18",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-scope-audit.json",
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "SOL-WIDE-ERROR-002",
+      "response": "所有workloadのサーバー終了確認・会計・cleanup gateを維持。Workload実装は不変。",
+      "sections": "既存wide修正、詳細§18",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-encryption-coverage.json"
+      ],
+      "id": "SOL-ENCRYPTION-STATE-001",
+      "response": "暗号由来でもSQL上の単一整数idなら構造上候補。二進・UUID・複合PKと分離。",
+      "sections": "主文書§3、詳細§19",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-encryption-coverage.json"
+      ],
+      "id": "SOL-ENCRYPTION-STATE-002",
+      "response": "TDEサーバー鍵・クライアント鍵・SQLアクセス・型ごとの状態表を維持。実アプリ暗号・鍵障害・ストレージ性能は未計測。",
+      "sections": "主文書§3、詳細§19、非ロックスコープ",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "results/reviews/author-revision23-encryption-coverage.json"
+      ],
+      "id": "SOL-ENCRYPTION-STATE-003",
+      "response": "revision22訂正coverageの4ソースhashを再照合。旧coverageを上書きせず参照版を区別。",
+      "sections": "詳細§19、訂正coverage",
+      "status": "fixed"
+    },
+    {
+      "evidence": [
+        "bench/nonlocking-scope.json",
+        "bench/nonlocking_policy.py",
+        "bench/test_nonlocking_scope.py",
+        "results/reviews/author-revision23-verification.json"
+      ],
+      "id": "ROOT-NONLOCKING-DEFAULT-SCOPE",
+      "response": "意図的ロックと競合注入をdefaultから除外。混在scriptの非ロック部分・TDE SELECT・通常業務書込を保持し、実SQL送信前ガードと範囲回帰を追加。",
+      "sections": "主文書§4/6/7、README、AGENTS、workflow prompts、非ロックスコープ",
+      "status": "fixed"
+    }
+  ],
+  "completeAdapterPath": "results/reviews/author-revision23-output.json",
+  "completeAdapterSha256": "1e55d6165e640e4e2aa08c58925943b5c7d5bb0fcade0dfafd70c6e4fc0fef77",
+  "defaultExpectedScope": {
+    "baseImpactCount": 22,
+    "matrixVersions": [
+      "8.4.0",
+      "8.4.13",
+      "9.7.0",
+      "9.7.4",
+      "26.10.0"
+    ],
+    "plainCountCases": 12,
+    "preservedPlans": {
+      "primaryScaleScripts": 30,
+      "serviceFrontierArms": 48,
+      "statementAndTotalCaps": "unchanged",
+      "staticFrontierOpportunities": 105,
+      "wideColumns": [
+        50,
+        100
+      ],
+      "writeMixMainOpportunities": 112,
+      "writeMixScripts": 41
+    },
+    "requestedProcessCount": 158,
+    "requestedScriptCount": 144
+  },
+  "discussionHistory": [
+    {
+      "preservedRecordIndex": 0,
+      "revision": 1,
+      "role": "history",
+      "summary": "Revisions1〜9の参照先を保持。"
+    },
+    {
+      "preservedRecordIndex": 1,
+      "revision": 10,
+      "role": "author",
+      "summary": "write-mix・索引条件・分割・型・STOP失敗の統合履歴を保持。"
+    },
+    {
+      "preservedRecordIndex": 2,
+      "revision": 10,
+      "role": "opus",
+      "summary": "過去の差し戻し記録のみ保持。新規Opus承認は要求しない。"
+    },
+    {
+      "preservedRecordIndex": 3,
+      "revision": 10,
+      "role": "sol",
+      "summary": "PRIMARY適用範囲とlate STOPの差し戻し・確認記録を保持。"
+    },
+    {
+      "preservedRecordIndex": 4,
+      "revision": 13,
+      "role": "preserved-review-history",
+      "summary": "rollout/sampling/validation/frontierと統合台帳を保持。"
+    },
+    {
+      "preservedRecordIndex": 5,
+      "revision": 14,
+      "role": "author",
+      "summary": "scale30分割・反復・上限維持と旧protocol引退の履歴を保持。"
+    },
+    {
+      "preservedRecordIndex": 6,
+      "revision": 15,
+      "role": "integrate",
+      "summary": "Ruby構文失敗で実験未到達。旧結果同梱を新規測定にしない記録を保持。"
+    },
+    {
+      "preservedRecordIndex": 7,
+      "revision": 16,
+      "role": "author",
+      "summary": "Ruby bootstrap、raw chunk、cache、fresh-summary修正の履歴を保持。"
+    },
+    {
+      "preservedRecordIndex": 8,
+      "revision": 17,
+      "role": "integrate",
+      "summary": "protocol指摘による01a途中exit130、最終整合未到達の記録を保持。"
+    },
+    {
+      "preservedRecordIndex": 9,
+      "revision": 18,
+      "role": "author",
+      "summary": "失敗分類・機会分割・終了確認・資源preflight修正の履歴を保持。"
+    },
+    {
+      "preservedRecordIndex": 10,
+      "revision": 19,
+      "role": "integrate",
+      "summary": "容量preflight失敗、要求実験と最終verify未到達の記録を保持。"
+    },
+    {
+      "preservedRecordIndex": 11,
+      "revision": 20,
+      "role": "integrate",
+      "summary": "wide静的反例による中断、部分impact・proofなしの記録を保持。"
+    },
+    {
+      "preservedRecordIndex": 12,
+      "revision": 21,
+      "role": "author",
+      "summary": "wide失敗保存と所有session確認・pure回帰提出の履歴を保持。"
+    },
+    {
+      "preservedRecordIndex": 13,
+      "revision": 22,
+      "role": "integrate",
+      "summary": "利用者の非ロック指定によるexit130。01a〜01dの完了観測を統合し、08補助・後続・最終verifyは未完了。"
+    },
+    {
+      "evidence": [
+        "docs/table-count-nonlocking-scope.md",
+        "results/reviews/author-revision23-verification.json",
+        "results/reviews/author-revision23-scope-audit.json"
+      ],
+      "preservedRecordIndex": 14,
+      "revision": 23,
+      "role": "author",
+      "summary": "非ロックdefaultへ限定修正。22impact・12plain・5matrix・144script/158版別予定を台帳化。通常業務書込、50/100列、105静的/48負荷、write-mix41/112主機会・補助/tail、scale30と数学・方式・上限を維持。暗号化状態と外部負荷の意味を明示。主文書220行。DB・Docker・計測・workflow・委譲・commit/pushなし。"
+    }
+  ],
+  "experimentsRun": [],
+  "experimentsWritten": [
+    {
+      "changedSourceAudit": "results/reviews/author-revision23-scope-audit.json",
+      "dbExecution": "not_run",
+      "id": "NONLOCKING-DEFAULT-SCOPE",
+      "kind": "scope-only modifications; no new optimization grid",
+      "scopeCatalog": "bench/nonlocking-scope.json"
+    }
+  ],
+  "findings": [
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-PRIMARY-SCALE"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-INDEXED-100-STALL"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-STEP-CEILING"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-O10-NOPK-FORCE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-O10-ENCRYPTED-STALE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-O10-P100-BOLD"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "FIND-DOC-01"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-ACCURACY"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-TRIAL-BUDGET"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-ROLLOUT-ENCRYPTED-WIDE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-METADATA-COMPARISON"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-ANALYZE-COST"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ROLLOUT-OPERATING-MODEL"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-SAMP-DEADLINE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-SAMP-DOC-CONTRACT"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-SAMP-EVIDENCE-DRIFT"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-SAMP-98-COMPARISON"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "SOL-VALIDATION-RUN-CACHE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-TIMER-TARGET"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-EVIDENCE-LIFECYCLE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-TDE-CACHE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-UNSTARTED-ARRIVALS"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-VALIDATION-SERVICE-ACCEPTANCE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-FRONTIER-001"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-FRONTIER-002"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-FRONTIER-003"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-FRONTIER-004"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "ROOT-RUBY-RUNTIME"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "ROOT-RAW-ARTIFACT-SIZE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "ROOT-FAILED-ALL-SUMMARY"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "ROOT-ALL-SEMANTIC-ERRORS"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "ROOT-REVIEW-BUDGET-SCOPE"
+    },
+    {
+      "authorStatus": "unresolved",
+      "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-PROTOCOL-001"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-PROTOCOL-002"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-PROTOCOL-003"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-WIDE-ERROR-001"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-WIDE-ERROR-002"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ENCRYPTION-STATE-001"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ENCRYPTION-STATE-002"
+    },
+    {
+      "authorStatus": "fixed",
+      "id": "SOL-ENCRYPTION-STATE-003"
+    }
+  ],
+  "guidelineLines": 220,
+  "guidelinePath": "docs/table-count-guideline.md",
+  "guidelineSha256": "3d35270a8d1eec1c918240e17096783a8b724b34b8de40b100104a9794365734",
+  "historicalExperimentsRunPointer": "results/reviews/author-revision23-output.json#/payload/experimentsRun",
+  "measurementSnapshot": "results/reference/review-20261107T100132Z-16034",
+  "measurementSnapshotRole": "historical interrupted attempt5; revised nonlocking default has not been measured",
+  "measurementSourceUnchanged": false,
+  "preservation": {
+    "authorResponsesPointer": "/payload/authorResponses",
+    "discussionHistoryPointer": "/payload/discussionHistory",
+    "findingsPointer": "/payload/findings",
+    "meaning": "完全adapterに全45指摘、82実験要求、15議論記録、過去の実験結果・回答・ネストした履歴を保持。以下のID別一覧は引渡し用の要約であり、原記録を置換しない。",
+    "previousAdapterPath": "results/reviews/integrate-revision22-output.json",
+    "requestedExperimentsPointer": "/payload/requestedExperiments"
+  },
+  "reproductionProofExists": false,
+  "reproductionVerified": false,
+  "requestedExperimentScopeCatalog": "bench/nonlocking-scope.json",
+  "requestedExperiments": [
+    {
+      "id": "EXP-O10-PRIMARY-SCALE",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O10-INDEXED-100-STALL",
+      "status": "unresolved_current_source_not_run"
+    },
+    {
+      "id": "EXP-O10-ROW-CEILING",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O10-NOPK-FORCE",
+      "status": "unresolved_not_run"
+    },
+    {
+      "id": "EXP-O6-WRITE-MIX",
+      "status": "reopened_partial"
+    },
+    {
+      "id": "EXP-O8-PKONLY-THREADS",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R6-float-dst",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O2-1-guideline-sql-as-written",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O8-1205",
+      "scopeDisposition": "superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-7-coverage-gaps",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-S8-ENUM-DOMAIN",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "EXP-S8-REPLICA-STOP-FAILURE",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-S8-REPLICA-CHANNEL-GATE",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "EXP-R9-working-set-impact",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-CPU-CONTROL",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-NOISE-WINDOWS",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-LONG-UNDO",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-6-sql-not-executed",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O6-LOOP-RULES",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R15-replica-procedure",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-O6-ANALYZE",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-O6-THREADS-SCOPE",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-S6-MONITOR-RECHECK",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-S6-REPLICA-FAILURE-CLEANUP",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-S6-INCREMENTAL-SAME-SECOND",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R13-least-privilege",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-3-history",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-9-alternative-methods",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-12-mdl-phase",
+      "scopeDisposition": "superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R1-enum-scaling",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-O2-3-cascade-trigger-version",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-10-engine-states",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-O2-2-stop-vs-timeout",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R5-split-drift",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R7-background-reader",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R8-count-repeat",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R4-primary-split-impact",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R10-estimate-churn",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-1-existing-transaction",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R2-nullable-composite",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R3-desc-index",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R11-lock-forms",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R12-flush-chain",
+      "scopeDisposition": "superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-R14-resume-failover",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-R16-incremental",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-4-fk-mdl",
+      "scopeDisposition": "superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-5-indexed-update-lock",
+      "scopeDisposition": "superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-SOL-2-read-uncommitted",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-3-null-inclusive-timing",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-4-view-semantics",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-5-counter-bootstrap",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-SOL-6-monitor-health",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "EXP-SOL-7-table-generation",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-8-timeout-context",
+      "status": "historical_closed_preserved"
+    },
+    {
+      "id": "EXP-SOL-11-lock-sampler-control",
+      "scopeDisposition": "superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "SOL-EXP-ENCRYPTED-WIDE-TRIAL",
+      "status": "reopened_partial_required_scope"
+    },
+    {
+      "id": "94-metadata-on-replica",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "0c-EXP-S8-REPLICA-STOP-LONG",
+      "scopeDisposition": "partially_superseded_by_explicit_user_scope"
+    },
+    {
+      "id": "SOL-EXP-STRATIFIED-SAMPLING",
+      "status": "unresolved_optional_extension"
+    },
+    {
+      "id": "SOL-SAMP-EXP-PURE-BOUNDARIES",
+      "status": "db_free_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-SAMP-EXP-98-OWNED-COMPLETION",
+      "status": "historical_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-SAMP-EXP-OPERATING-COST",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-EXP-HARNESS-PURE",
+      "status": "db_free_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-EXP-FINAL-REPRODUCTION",
+      "status": "reopened_failed"
+    },
+    {
+      "id": "SOL-EXP-TDE-RESIDENCY",
+      "status": "conditional_not_requested_without_multiplier"
+    },
+    {
+      "id": "SOL-EXP-WIDE-TAIL",
+      "status": "reopened_unmeasured_required_condition"
+    },
+    {
+      "id": "SOL-EXP-SAMPLING-CONTRACT",
+      "status": "reopened_final_98_pending"
+    },
+    {
+      "id": "SOL-FRONTIER-EXP-01",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-FRONTIER-EXP-02",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "ROOT-WHITE-ALL-RUBY-BOOTSTRAP",
+      "status": "fixed_startup_verified"
+    },
+    {
+      "id": "SOL-PROTOCOL-E01",
+      "status": "db_free_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-PROTOCOL-E02",
+      "status": "db_free_result_submitted_pending_reviewer"
+    },
+    {
+      "id": "SOL-PROTOCOL-E03",
+      "status": "conditional_after_owner_audit"
+    },
+    {
+      "id": "SOL-PROTOCOL-E04",
+      "status": "reopened_partial_owner_audit"
+    },
+    {
+      "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "REG-WIDE-OUTCOME-PERSISTENCE",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "REG-WIDE-CLEANUP-GATE",
+      "status": "result_submitted_pending_reviewer"
+    },
+    {
+      "id": "EXP-ENCRYPTION-STATE-001",
+      "status": "reopened_existing_plan_partial"
+    },
+    {
+      "id": "EXP-ENCRYPTION-STATE-002",
+      "status": "optional_not_run"
+    },
+    {
+      "id": "EXP-ENCRYPTION-STATE-003",
+      "status": "optional_not_run"
+    },
+    {
+      "id": "EXP-ENCRYPTION-STATE-004",
+      "status": "not_required_for_current_claims"
+    },
+    {
+      "id": "EXP-ENCRYPTION-STATE-005",
+      "status": "not_required_for_current_claims"
+    }
+  ],
+  "reviewClosurePolicy": "全fixedは著者提出。全45指摘の査読閉鎖はpending。ユーザー除外は成功測定や技術的閉鎖ではない。",
+  "reviewEvidence": [
+    "results/reviews/author-revision23-verification.json",
+    "results/reviews/author-revision23-verification.log",
+    "results/reviews/author-revision23-adapter-check.log",
+    "results/reviews/author-revision23-scope-audit.json",
+    "results/reviews/author-revision23-encryption-coverage.json",
+    "bench/nonlocking-scope.json",
+    "docs/table-count-nonlocking-scope.md",
+    "results/reviews/integrate-revision22-output.json"
+  ],
+  "revision": 23,
+  "unresolvedQuestions": [
+    {
+      "blocker": "所有者が現defaultと除外台帳を監査してから固定runnerを起動する。author工程では起動していない。",
+      "id": "ROOT-NONLOCKING-OWNER-AUDIT"
+    },
+    {
+      "blocker": "変更後ソースの白紙all、文書統合後の意味・全scope・最終source不変性・後始末・最終整合の所有者監査とproofが必要。",
+      "id": "FINAL-REPRODUCTION"
+    },
+    {
+      "blocker": "proof後の別セッションSol最終2役と未解決high/middle0が必要。今回のfixedは閉鎖ではない。",
+      "id": "SOL-FINAL-REVIEWS"
+    },
+    {
+      "blocker": "意図的FOR UPDATE障害注入は利用者範囲外。過去の運用問題と非ロック対照の技術的処置を所有者・最終Solが判断する。",
+      "id": "FIND-S8-REPLICA-STOP-FAILURE-01-SCOPE"
+    },
+    {
+      "blocker": "scale、全write-mix、0d〜0l、96/97、98などの現ソース全範囲は未完了。保持した部分成功を代用しない。",
+      "id": "REMAINING-APPLICABLE-EXPERIMENTS"
+    },
+    {
+      "blocker": "5%サービス負荷、実アプリ暗号、鍵障害、物理分離、長い回復は未計測。現在の限定主張のための破壊実験や全直積試験は追加しない。",
+      "id": "UNMEASURED-CONDITIONS"
+    }
+  ],
+  "verification": {
+    "adapterCheckCompleteLogPath": "results/reviews/author-revision23-adapter-check.log",
+    "adapterCheckExitCode": 0,
+    "benchmarksRun": 0,
+    "completeLogPath": "results/reviews/author-revision23-verification.log",
+    "databaseConnections": 0,
+    "delegations": 0,
+    "dockerOperations": 0,
+    "exitCode": 0,
+    "preservedMeasurementJsonChecked": 122,
+    "preservedMeasurementMismatches": 0,
+    "protectedProtocolFilesUnchanged": 14,
+    "pythonSyntaxFiles": 181,
+    "recordPath": "results/reviews/author-revision23-verification.json",
+    "rubySyntaxChecksPassed": 2,
+    "selfChecksPassed": 14,
+    "workloadClassUnchanged": true
+  },
+  "workflowInput": {
+    "acceptanceCriteria": [
+      "GPT-6.1 Solのみを使用し、執筆と2つの査読を別の役割・セッションで実施する。未解決high/middleは0とし、異種モデルの独立性は主張しない。ラウンド上限を合格にしない。",
+      "未知の任意表で数%精度や本番無影響を無条件に保証しない。参考統計・条件付き確率推定・正確COUNTを区別し、精度と予算と後始末を別判定する",
+      "暗号化され内容不明の50〜100列表に具体的な経路と根拠を示す。TDEと列暗号化を区別する",
+      "cache/index/暗号化/条件漏れ/検証不備の査読を含め、主要結論ごとに根拠の適用範囲を確認する",
+      "本文数値はハッシュ付きの保持されたresults/reference配下へ対応。実験完了・精度達成・SLO合格を区別する",
+      "固定runnerが白紙DBからのmise run allを実施し、文書反映後に所有者が結果の意味と最終計測ソースの不変性を監査する。reproductionProofPathが無い間は完了としない",
+      "Latest user accepts about10% when few-percent is costly: compare3/5/10% accuracy-cost frontiers and exactCOUNT, show how conditions improve or worsen accuracy, and recommend methods under explicit error/freshness/service budgets."
+    ],
+    "accuracyFrontierExistingEvidencePath": "results/reviews/accuracy-frontier-existing-evidence.json",
+    "additionalExperimentRequired": {
+      "budget": "必要なら仮説を変えず複数scriptへ分割。timeout/guardの部分結果を完走としない。追加・変更したコードのセルフチェックも更新する。",
+      "coverage": "少なくとも100列TDEについて、小さい索引があればexact COUNTが勝つ条件と、索引なしでbounded samplingが負荷/読取量を減らせるか、索引更新で何が変わるかを確認する。service負荷なしの精度/コスト比較とservice負荷中の診断を区別する。",
+      "currentImplementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "implementation": "01a/01b completed successfully;24-file immutable source/results snapshot is at wideSamplingSnapshotPath. Remaining original0h-0l run serially under current owner. Latest accuracy-cost01c/01d are already prepared and root-fixed for review001/002; see latestAccuracySteering and assessment. Do not duplicate.",
+      "protocol": "順序交替、対照、warmup/回復の明示、actual method区間と広いtrialの区別、予定数保存則・unfinished/censoredを保存。固定乱数は再現用であり本番信頼度の根拠ではない。ホストcacheは未制御。短窓からSLO合格や無影響を認定しない。",
+      "purpose": "確率的推定を50/100列表という実対象へ対応させる。同じコードで整数PK・TDE・小さい索引有無・indexed/nonindexed UPDATEを比較し、精度とコストと負荷を別判定する。"
+    },
+    "capacityMaintenanceEvidencePath": "results/reviews/build-cache-cleanup-evidence.json",
+    "completionAuditPath": "results/reviews/pre-final-audit.json",
+    "constraints": [
+      "実データベース接続禁止。Composeのprimary/replicaとLabが起動するmatrixサーバーだけ",
+      "table dataをコミットしない。測定JSONを捏造・書換えしない",
+      "人が読む主文書は日本語・220行以内。詳細は分離したまま維持",
+      "commit/pushはワークフローから実施しない",
+      "測定と別の実験を重ねない。固定runnerと.lab.lockを使う",
+      "フィールドcold/warmはキャッシュ同等性を意味しない。暗号化の一律倍率を結論にしない",
+      "有限ラボで実施不能な本番条件は未計測と適用制限を明記し、無意味な追加実験を要求しない"
+    ],
+    "currentEvidence": [
+      "Attempt5 actual source-frozen all started07:28:15Z, stopped10:01:32Z exit130 due latest user nonlocking-only scope. Initial58table integrity,58shapes/99historical lockcases,36impacts,5matrix,105static+48service,50/100wide completed before stop; later requested partial. This is not finalall/proof.",
+      "Owner write-mix progress audit13scripts44obs clean before interruption, raw not decompressed. Current08aux was intentionally interrupted, never mandatory success. No actual DB beyond compose was used.",
+      "Stale crypto-docs waiting supervisor PID15785 was terminated before launch; latest crypto requirements are folded into THIS author. Current session19 docs writer must finish before author starts."
+    ],
+    "currentRevision": 22,
+    "detailPaths": [
+      "docs/table-count-evidence.md",
+      "docs/probability-count.md"
+    ],
+    "encryptionResearchPath": "results/reviews/encrypted-keyless-research.json",
+    "encryptionStateCoveragePath": "results/reviews/encryption-state-coverage.json",
+    "encryptionStateReviewPath": "results/reviews/sol-encryption-state-review.json",
+    "environmentRetryEvidencePath": "results/reviews/space-retry-evidence.json",
+    "findingRegisterPath": "results/reviews/finding-register.json",
+    "fixes": [
+      {
+        "boundedRemediation": "callerの失敗集計・保存・終了判定を限定修正する。失敗結果を保存して非0終了する方式、または診断完了を維持しつつ必須範囲の再利用を明示的に禁止する方式で足りる。precision_not_reached、全体budget_exhausted、確認済みdeadlineを一律失敗へ変更しない。既存の失敗観測は診断として保持し、成功比較から除外できるが、必須条件を満たしたことには代用できない。",
+        "evidence": "results/reviews/sol-wide-errors-review.json",
+        "id": "SOL-WIDE-ERROR-001",
+        "requiredCorrection": "staticとserviceの双方について、期待された観測と予期しない失敗を区別して保存する。未解決の予期しない失敗を必須範囲の再利用可能な完了として扱わない。",
+        "severity": "middle"
+      },
+      {
+        "boundedRemediation": "既存のWorkload.finish(confirm_server=True)と所有connection確認機構を利用し、失敗時にも現在のarm情報・到着会計・cleanup診断をcallerへ保存してから停止する。後始末失敗を単なる遅延観測へ変換しない。SQL、caps、fixture、arm数の変更は不要。",
+        "evidence": "results/reviews/sol-wide-errors-review.json",
+        "id": "SOL-WIDE-ERROR-002",
+        "requiredCorrection": "各wide armの所有workloadについて終了確認を行い、確認できない場合は後続比較を開始しない。accounting、打切り観測、cleanup結果を別々に保存する。",
+        "severity": "middle"
+      }
+    ],
+    "frontierDesignReview": {
+      "assessmentPath": "results/reviews/sol-frontier-assessment.json",
+      "log": "results/reviews/sol-frontier-run.log",
+      "resultPath": "results/reviews/sol-frontier-review.json",
+      "snapshot": "results/reference/20261107-frontier-design",
+      "status": "completed,rejected middle3/low1 on immutable pre-fix design",
+      "workflow": "temp-table-count-frontier-sol"
+    },
+    "guidelinePath": "docs/table-count-guideline.md",
+    "historicalCurrentEvidence": [
+      "Interrupted white-all attempt2 actually used Ruby4.0.9, passed10self-checks, verified generated data/replica, completed58shapes,99lock cases,36impact experiments and5matrix versions. It was deliberately stopped during01a because new high2/middle1 protocol defects require source changes. Exit130 is intentional, not a Ruby/bootstrap or DB failure. This is NOT final reproduction.",
+      "Read results/reviews/white-all-interruption.json and the immutable results/reference/review-20261107T053954Z-72116/manifest.json. 01a is partial; later requested scripts were not run in this attempt. The source stayed unchanged during attempt2; no final proof exists.",
+      "Read the new results/reviews/sol-protocol-review.json and owner assessment. The findings are static counterexamples, not an assertion that current-run reqmix hit2013. Repair classification, necessary repetition budgeting and cleanup; preserve hypotheses.",
+      "All5pinned images are now downloaded. Docker VM filled during image pulls. Root removed only confirmed unused build caches; VM now has2.6GiB free, host142GiB. No images, containers, volumes or DB data were deleted for space. Read build-cache-cleanup-evidence.json; prepare images/check space before performance in future.",
+      "The original31finding register and five focused Sol reviews remain pending final closure. Original Opus records are historical only; all new agents must be GPT-6.1 Sol.",
+      "Keep prior runtime selection, lossless8MiB raw chunks, artifact/cache hashes, fresh-summary attribution, partitioned scale30scripts and tolerance105static/48service scope. The current requested glob has118scripts before this repair; derive final scope from source.",
+      "LATEST environment-only retry: source unchanged through completed integration revision19. See space-retry-evidence.json. Current VMfreeKiB=6710280. Prior preflight failure is NOT DB/measurement failure; final all still required. Use current prepared image/cache without further cleanup during measurements."
+    ],
+    "historicalPhaseRequirements": {
+      "currentEvidence": [
+        "Latest source is Sol author18, integrated through19 and now phase17 documentation-only integration after an intentional stop. Source repairs are needed only for confirmed SOL-WIDE-ERROR001/002; no observed live wide failure is claimed.",
+        "Actual WHITE attempt4 started2026-11-07T06:33:58Z underRuby4.0.9, passed resource preflight and12selfchecks, generated/verified initial data and replica, completed58shapes/99lock cases and8impact files before controlled interruption. It is NOT final reproduction. Wide/requested phase was not reached.",
+        "Read results/reviews/wide-errors-interruption.json and sol-wide-errors-review.json/assessment.json. Middle2 are confirmed exact-function/fake counterexamples: service errors omitted from failure/reuse decision, and defaultFalse workload server confirmation before next wide arm.",
+        "Root paused orchestrator, SIGINT exact bench Python, stopped only owned compose primary/replica cleanly(exit0), confirmed no bench Python, then orchestratorSIGINT130. Data files retained; MEMORY is volatile. Final data integrity was not reached, not falsely approved.",
+        "VM capacity is resolved without lowering2GiBreserve. Unused publicSwift6.2SDKcache removed after exact registry digest resolved and zero container references; MySQL5 and currentbenchimages preserved. Last actual preflight VM6.4GiBfree/host sufficient. Do not prune caches or alter Docker/runtime for this repair.",
+        "All prior reqmix partitioned-v3 outcome/cleanup/fail-fast changes,150requested scripts,41write-mix plan with112main opportunities+aux/tail,30scale plan,105accuracy/48service scope and source/raw/cache/freshness/Ruby/resource fixes remain required. No math/SQL/cap/fixture changes merely to pass.",
+        "Registry now33unique reviewer IDs,41occurrences;all final closures pending. Six focused Sol reviews are prior evidence. Only two fresh final proof-based Sol roles can close high/middle after successful all and owner audit."
+      ],
+      "phaseControl": "Single Sol author after phase17 integration terminal; fixedWHITEall; docs-only integration(max3steps). Source changes require new final-code reproduction. Owner semantic/source audit, proof and two fresh final Sol roles remain required.",
+      "phaseSpecificWork": "Bounded wide failure/cleanup repair only. Preserve all estimator math, SQL methods, statement/total caps, fixtures, required150scripts/41write-mixplan/30scaleplan,105accuracy and48service scope. New review confirms two middle defects. Keep all previous startup/raw/cache/freshness/resource/reqmix fixes. No DB experiments outside the fixed runner. Add actual-function/fake regressions and register selfchecks. Then final-source WHITE mise run all and docs-only integration.",
+      "protocolRepairAcceptance": [
+        "2013/unknown1317/planreject/cleanupfailurecannotbeplannedceilingorcacheablegreen;savefailureandpropagatesemantic failure.",
+        "Everyrequiredmethod/case/repetitionopportunityhasoutcomeorvalidpredeclaredcensoringrule;budgetabsencecannotpretendcomplete. Preventslowarmstarvation,partitionnecessarycomparisonswithoutshorteningdeclared300s/150sscalecapsor droppinghypotheses.",
+        "ConfirmownedinterruptedDBstatementterminationbeforelaterarm;savecleanupstatus;finallystopload;quiettruth/driftrequiresresolvedunfinishedwrites. Withdrawunprovedclaimsinsteadoffakingquietness.",
+        "Pureclassificationregression(E01),static149/150/120/1sbudgetcounterexample(E02),sectionexception/cleanupregressionregisteredin allselfchecks.",
+        "ReuseexistingRuby4.0.9bootstrap,boundedrawchunkstorage/cachehashes/freshsummaryfixes. KeepSolonly andno commit/push.",
+        "Do not count root cache maintenance,partial01aorcompletedbase36/matrix5 as finalall. Sourcechangedrequiresnewwhiteall. Freshmeasurementsmustbeownedonlybyfixedrunner."
+      ],
+      "wideRepairAcceptance": [
+        "Persist original method error/errno, raw samples/accounting, accuracy/budget/cleanup dimensions and workload cleanup BEFORE stopping. No later arm after unconfirmed cleanup.",
+        "Expected precision_not_reached, total budget_exhausted and confirmed statement deadlines remain legitimate observations; do not turn all non-success into fatal failure. Genuine2013,cleanup_failed and unknown interruption cannot become reusable mandatory-success results.",
+        "Cover reqsamplewide01a/01b,reqwide96/97 and accuracy_frontier01d shared arm/callers. Preserve valid sample/count behavior and all planned cases.",
+        "Use Workload.finish(confirm_server=True) or equivalent existing owned-session confirmation, save its results and fail closed. Audit other repeated-load callers for the SAME defaultFalse leak risk; use shared safe behavior or explicit required gating where appropriate, without unrelated SQL/protocol redesign.",
+        "DB-free exact-function/fake regressions must cover genuine2013 with failed rollback, achieved precision plus cleanup failure, unknown1317 with timer delta0, confirmed deadline, precision_not_reached,total budget_exhausted,successful sample/count; and consistent accounting plus incomplete registry/stuck,observer/KILL/child-exit failure,combined failures. Verify persistence,no nextarm,and no invalid cache reuse.",
+        "Do not shorten scopes, lower resource reserve or delete more environment caches. VM was restored to6.4GiB,all5MySQL/currentbenchimages prepared; currentbenchbuild cache reuse confirmed. DBs intentionally stopped and will be recreated by fixed all.",
+        "Read current guide/detail history and retain source/method qualifications. No commit/push; all new Riela nodes Sol only."
+      ]
+    },
+    "latestAccuracySteering": {
+      "additionalServicePriority": "Because actual100-column3%-target sampling exhausted the1s service budget in all6 no-small-index arms, include a minimal bounded100-column TDE under-load comparison at relaxed10% (plus matched control and existing3% evidence). Test whether reduced draws actually improve budget/precision outcomes, rather than infer from static checkpoints.5% can be static if a full service factorial would add little. Split scripts within20min limits; avoid an exhaustive redundant factorial.",
+      "conditionMechanisms": "Distinguish effects on statistical accuracy, cost under a fixed budget, and freshness. Key-space sparsity/cell-density variance affect sampling interval convergence; page-level row-size/density heterogeneity, stats sample pages and staleness affect metadata error. A small index, cache, TDE, row width and MVCC mainly change read/CPU/time cost and therefore attainable precision within a fixed budget; they do not make a completed snapshotCOUNT approximate. Concurrent writes/replica lag can change the represented time/population and must not be conflated with estimator error. More sample pages/ANALYZE does not guarantee monotonic accuracy and has separate maintenance impact.",
+      "implementation": "Root added isolated bench/accuracy_frontier.py plus01c-ACCURACY-COST and01d-ACCURACY-SERVICE-100 (.versions8.4.13/.encrypted/.outputs). No active imported source was edited. Code is prepared, NOT DB-executed. Review/fix these scripts rather than duplicate.01c uses seven fixtures xfive seeds x3targets, fullCOUNT paired comparisons, target-specific predeclared looks and same alpha.01d uses100-column TDE with control/exact/3%/10%, index absent/present, indexed/nonindexed writes x3repeats=48arms.5% service is explicitly unmeasured; static includes it. Pure arithmetic verifies each first look can meet its target at zero variance; static closure includes new module and sampling dependencies. Both new wrappers honor the review-only aggregate guard (exit3, never success) and declare their required .outputs. Final all has no aggregate cap.",
+      "interpretation": "Compare accuracy, elapsed time, read volume and service impact rather than require only3%. Include exactCOUNT at0% error. Choose the most favorable method within the accepted error, freshness and service budget;10% is not an unconditional guarantee for arbitrary unknown tables.",
+      "newExperiment": "Review and run the isolated implementation named in implementation after the current owner ends. Retain hypotheses and proper confidence/look allocation. Repair demonstrated issues or split if20min is insufficient; do not duplicate experiments or infer unobserved service effects.",
+      "reporting": "Give a compact condition-by-method comparison with accuracy/freshness/cost/limitations and recommended paths. Distinguish interval target from realized error and from global confidence. Relaxed accuracy does not prove no service impact.",
+      "requiredComparison": [
+        "Metadata realized errors and freshness; no guaranteed error bound",
+        "Conditional cell sampling at3%,5%,10% relative-error targets with matched confidence, precision failures, realized error, runtime and read volume",
+        "ExactCOUNT runtime/reads/impact, including cases where a small index beats sampling",
+        "50/100 columns,TDE,index presence,key gaps/density skew,concurrent changes,MVCC and caches; separate measured from unmeasured"
+      ],
+      "userInstruction": "数%に収まらなければ10%程度でもよい。どの条件で精度がどれくらい上がる/下がるかを知り、そのうえで最高精度でperformance最大の件数取得方法を知りたい。"
+    },
+    "latestRubyProbePath": "results/reviews/mise-runtime-latest-probe.json",
+    "latestRubySourceFixApplied": true,
+    "latestUserSteering": "Latest explicit user scope: 全行lockは絶対に避けるので計測しなくていい。lockを発生させない方法で計測。This supersedes older requests for intentional locking COUNT comparisons; do not reintroduce them merely to satisfy old reviewer IDs/150-script grids.",
+    "modelPolicy": "User explicitly instructed on 2026-11-07: Riela must use GPT-6.1 Sol only. No Opus step or Opus approval is required.",
+    "nonlockingScopeRequirements": [
+      "Read results/reviews/nonlocking-scope-interruption.json. Attempt5 intentionally interrupted for user scope, not a harness failure: source336 unchanged, actual command exit130, owned compose DBs stopped and bench Python quiescent. Snapshot results/reference/review-20261107T100132Z-16034 is partial/historical only.",
+      "Audit actual execution paths, not only script names/grep. Default all must not execute FOR SHARE/FOR UPDATE COUNT, count-to-DML/CTAS/SET subquery, explicit LOCK TABLES/FTWRL, SERIALIZABLE-in-transaction COUNT, or intentional blocking-lock injection diagnostic probes. Small pure parser/safety/selfcheck fixtures containing strings are allowed; they execute no DB SQL.",
+      "Change lock_factors/default impact stages and relevant requested mixed scripts at arm/section level when practical; explicitly retain nonlocking parts and current crypto/COUNT-form experiments. Candidate paths to inspect include40/41/42/50/57/91 and14/02/0c plus shared experiments/lock_factors. SELECT-only TDE comparison must remain even if91 locking insert-select section is excluded. No blanket removal of all request scripts or all concurrent writes.",
+      "Restriction applies to COUNT/estimator candidates and intentional lock-injection comparisons, NOT the locks naturally needed by fixture CREATE/INSERT/ANALYZE/DROP before or after service measurement or by simulated business writes. Do not demand an impossible lock-free entire DB lifecycle. ANALYZE/statistics refresh is not a compliant automatic count step; label its locking/operational caveats and do not benchmark its blocking as a candidate. Metadata-only reads, needed MDL monitoring and nonlocking read-only runtime-state diagnostics remain applicable.",
+      "Ordinary SELECT necessarily takes MDL; document this rather than promising zero locks of all kinds. Count candidate must avoid row-locking reads. InnoDB session isolation/autocommit/read-only snapshot settings matter. Business workload UPDATE/INSERT/DELETE naturally takes its own locks and is separate from the counter. Avoid presenting non-InnoDB table-locking scans as compliant service-impact candidates.",
+      "Existing nonlocking150 grid coverage is superseded ONLY for user-excluded lock probes. Preserve41writeMix/112main opportunities+aux/tails,30primaryScale,105static3/5/10%,48TDE100service3/10%,50/100wide and all other applicable nonlocking scope/protocols/budgets. Derive and write exact new default expected scope and an explicit exclusion catalog mapping prior IDs/reasons; do not count skips as measurements.",
+      "Make mise run all from white reproduce the CURRENT nonlocking default without executing excluded probes. Optional legacy negative probes need not be runnable; if retained require explicit separate opt-in and never default all. Update README/AGENTS/workflow prompts/gates so old mandatory locking experiments do not override new user instruction. Preserve source/cache/freshness/raw/cleanup/fail-fast guards; no cap/fixture/math changes merely to pass.",
+      "No DB experiments by author. Run relevant DB-free selfchecks; add focused meaningful guard that default execution paths cannot dispatch prohibited probes. Do not duplicate every implementation assertion in tests. New full all remains pending owner launch; do not fabricate process/evidence/proof.",
+      "Integrate sol-encryption-state-review/assessment, encryption-state-coverage and encrypted-keyless-research including latestUserConcurrentWorkloadQuestion. Main guide<=220Japanese lines, linked state catalog: TDE server decrypt capability required/client key possession separate; real appcrypto/storage/key-loss experiments unmeasured or spec-only; SQL-visible integer PK applicability conditional. Read relatedCurrentEvidence actual105/48frontiers/50/100provenance and preliminarywriteMix4column results with boundaries. Do not force new crypto destructive experiments.",
+      "Preserve36stable findings and all discussions/requests. User-excluded lock probes may be dispositioned superseded_by_explicit_user_scope, with exact reason and boundaries; owner/final Sol reviewers still decide technical closure for all remaining material findings. Final proof and two fresh Sol roles still required, same-model role separation only."
+    ],
+    "officialSupportCheckPath": "results/reviews/mysql-support-check-20261107.json",
+    "originalReviewExportPath": "results/reviews/original-revision10-reviews.json",
+    "phaseControl": "AUTHOR ONLY max1. No DB/Docker/benchmark/workflow/delegation/commit/push. File edits, pure isolated selfchecks and syntax checks allowed. Owner will inspect actual default scope before starting the fixed lab runner. No automatic all in this phase.",
+    "phaseSpecificWork": "Bounded user-directed default-suite scope change: remove intentional row/table/global-lock acquisition probes from default mise run all. Retain ordinary nonlocking InnoDB SELECT COUNT, rough metadata and conditional sampler, static accuracy and concurrent normal-business-load comparisons. Integrate pending latest crypto-state taxonomy/seventh Sol review and user concurrent-workload clarification into concise Japanese guide. Preserve prior evidence and all stable IDs with explicit user-out-of-scope dispositions rather than pretending excluded tests passed. Do not introduce unrelated redesign or new optimization grids.",
+    "previousPhaseFixes": [
+      {
+        "boundedRemediation": "既存結果にerror_2013等が残っていれば、所有者監査で失敗・原因不明へ再分類するための再測定は不要。タイマーの裏付けが保存されていない1317を確定した予定上限へ昇格させない。欠けた有効比較を主張する場合だけ、その比較を補測する。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-001",
+        "requiredCorrection": "完了、確認済みの予定上限、予期しない失敗、原因不明、未着手を明示的に分類する。2013・接続断・計画拒否等はceiling hitに加算せず、保存後にsemantic failureへ反映する。1317は経過時間だけでタイマー扱いせず、既存split_countと同様にタイマーカウンタ等の裏付けを要求する。scale側の2013拒否は維持する。",
+        "severity": "high"
+      },
+      {
+        "boundedRemediation": "確認済み上限2回だけなら「その2観測で未完了」と限定でき、完走順位を主張しなければ追加反復は不要。速いarmの中央値・順位を必要とする場合だけ不足比較を補測する。scaleの300秒statement・150秒split上限を短縮して穴埋めしてはならない。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-002",
+        "requiredCorrection": "各条件・arm・反復機会を事前に列挙し、実行済み、確認済み打切り、規定による省略、予算不足、失敗をすべて記録する。必要反復と比較成立条件を別に判定し、不足はsemantic incompleteにする。必要な方式群・反復を分割する等で、先行armが後続比較の予算を消費し尽くさない設計にする。",
+        "severity": "high"
+      },
+      {
+        "boundedRemediation": "既存証拠で終了が確認できない窓は、後始末未確認・比較不能と分類できる。quiet truthやdrift境界の主張を撤回すれば、そのためだけの再測定は不要。中断後の影響やdriftを結論に必要とする場合だけ、該当経路を補測する。",
+        "evidence": "results/reviews/sol-protocol-review.json",
+        "id": "SOL-PROTOCOL-003",
+        "requiredCorrection": "中断時は所有する接続IDについて別接続から処理終了を確認し、必要なKILL・rollback・closeとその成否を保存する。確認できなければ次の比較を開始せず、後続結果を比較不能にする。負荷停止はfinallyで実施し、quiet truthを使う場合は未完了writeの解決とDB処理終了を別途確認する。意図した打切り観測にCOUNT全件完走を要求する必要はない。",
+        "severity": "middle"
+      },
+      {
+        "evidence": "results/reviews/build-cache-cleanup-evidence.json",
+        "id": "ROOT-VM-CAPACITY-MAINTENANCE",
+        "requiredCorrection": "ActualVMrootfilledduringmatriximagepullsafterbaselinephase. Rootalreadyreclaimedunusedbuildcacheonly;VMnow2.6GiBfreeandall5pinnedimagespulled. KeepDBdataonhostbindmounts. Make imagepreparation/VMspacepreflight occur beforebenchmarkperformance sofuturewhiteallfailsbeforemeasurementifspaceunavailable. Do not perform automatic cache/image/container/volume pruning. Document measuredlabresource requirements and no cache-controlled claim. No extra DB experiments outside fixedrunner."
+      }
+    ],
+    "primaryCoverageSnapshotPath": "results/reference/20261107-primary-coverage",
+    "priorCoverageBatchOutcome": {
+      "benchPythonProcessesAbsent": true,
+      "completeExperiments": [
+        "01a-PROB-WIDE-50",
+        "01b-PROB-WIDE-100",
+        "0d-EXP-O10-INDEXED-100-STALL",
+        "0g-EXP-O10-PRIMARY-SCALE-indexed-10pct",
+        "0i-EXP-O10-PRIMARY-SCALE-uniform-10pct"
+      ],
+      "confirmedAt": "2026-11-07T03:50:15.786519+00:00",
+      "coverageIsComplete": false,
+      "forcedKillRequired": false,
+      "matrixContainersAbsent": true,
+      "notYetRun": [
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "ownerBirth": "Sat Nov  7 11:45:33 2026",
+      "ownerCliExitCode": 130,
+      "ownerPid": 40467,
+      "ownerPidAbsent": true,
+      "partialExperiment": "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+      "partialSnapshot": "results/reference/20261107-primary-coverage/results/requested_0j-EXP-O10-PRIMARY-SCALE-uniform-30pct.json",
+      "reason": "Confirmed ROOT-INTRA-ARM-BUDGET-PARTIAL:300s secondary scans crowd out required fast-arm repetitions. Preserve scope, fix protocol before final all, avoid continuing known defective allocation.",
+      "requestedAt": "2026-11-07T03:49:14.764359+00:00",
+      "requiredRerun": [
+        "0h-EXP-O10-PRIMARY-SCALE-indexed-30pct",
+        "0j-EXP-O10-PRIMARY-SCALE-uniform-30pct",
+        "0k-EXP-O10-PRIMARY-SCALE-uniform-10pct-20m",
+        "0l-EXP-O10-NOPK-FORCE"
+      ],
+      "status": "confirmed_interrupted_for_protocol_repair"
+    },
+    "priorOriginalSession": ".riela/artifacts/table-count-guideline-review-session-3/runtime-snapshot.json",
+    "priorPhaseOutputPath": "results/reviews/sol-only-wide-phase-output.json",
+    "priorWhiteAllInterruptionPath": "results/reviews/wide-errors-interruption.json",
+    "protocolDesignReviewPath": "results/reviews/sol-protocol-review.json",
+    "protocolOwnerAssessmentPath": "results/reviews/sol-protocol-assessment.json",
+    "reproductionCandidatePath": "results/reviews/final-all-candidate.json",
+    "reproductionProofPath": "results/reviews/final-all-proof.json",
+    "requestedWork": "件数も内容も分からない巨大MySQLテーブルで、暗号化され通常50列・最大100列程度という条件を含め、稼働サービスのDB performanceへの影響を最小限にして誤差数%の概数を得る最適な方法を調査・検証する。概数から小さいと判断して正確COUNTへ進む案と、その許可閾値の考え方も扱う。社内の不特定メンバー・サービスへ案内した際の疑問、不満、より良い案と、検証方法への疑問・条件漏れ・不備を敵対的に洗い出し解消する。 Latest steering: about10% error may be acceptable if few-percent is not attainable affordably; quantify conditions and identify the accuracy-performance frontier.",
+    "reviewPaths": [
+      "results/reviews/sol-internal-rollout-review.json",
+      "results/reviews/sol-sampling-review.json",
+      "results/reviews/sol-validation-review.json",
+      "results/reviews/sol-frontier-review.json",
+      "results/reviews/sol-protocol-review.json",
+      "results/reviews/sol-wide-errors-review.json",
+      "results/reviews/sol-encryption-state-review.json"
+    ],
+    "rubyLatestSource": "https://www.ruby-lang.org/en/downloads/",
+    "rubyVersion": "4.0.9",
+    "wideErrorsAssessmentPath": "results/reviews/sol-wide-errors-assessment.json",
+    "wideErrorsReviewPath": "results/reviews/sol-wide-errors-review.json",
+    "wideSamplingSnapshotPath": "results/reference/20261107-wide-sampling"
+  }
+}

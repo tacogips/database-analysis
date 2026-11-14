@@ -1,0 +1,166 @@
+name: lab-sqlserver-manual100m
+services:
+  server:
+    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3
+    hostname: countprimary
+    entrypoint: &sqlserver_entrypoint
+      - /bin/bash
+      - -c
+      - |
+        # Keep INT effective for asynchronously started children; signal PIDs, never groups.
+        set -m
+        sql_pid=
+        setup_pid=
+        signal_epoch=0
+        term_pending=0
+        int_pending=0
+        forward_signal() {
+          local sig="$$1" child
+          for child in "$$sql_pid" "$$setup_pid"; do
+            if [[ -n "$$child" ]]; then
+              kill -s "$$sig" -- "$$child" 2>/dev/null || :
+            fi
+          done
+        }
+        on_signal() {
+          signal_epoch=$$((signal_epoch + 1))
+          case "$$1" in
+            TERM) term_pending=1 ;;
+            INT) int_pending=1 ;;
+          esac
+          forward_signal "$$1"
+        }
+        replay_signals() {
+          if (( term_pending )); then kill -s TERM -- "$$1" 2>/dev/null || :; fi
+          if (( int_pending )); then kill -s INT -- "$$1" 2>/dev/null || :; fi
+        }
+        wait_child() {
+          local target="$$1" epoch rc
+          while :; do
+            epoch=$$signal_epoch
+            wait -f "$$target"
+            rc=$$?
+            # A trapped signal interrupts wait; retry the SAME child for its actual status.
+            if (( epoch == signal_epoch )); then return "$$rc"; fi
+          done
+        }
+        trap 'on_signal TERM' TERM
+        trap 'on_signal INT' INT
+        if [[ ! -x /opt/mssql/bin/permissions_check.sh ]]; then
+          echo 'Unable to run startup permissions check, exiting.' >&2
+          exit 1
+        fi
+        /opt/mssql/bin/permissions_check.sh
+        startup_status=$$?
+        if (( startup_status != 0 )); then exit "$$startup_status"; fi
+        case "$${MSSQL_PID,,}" in
+          standarddeveloper) export MSSQL_PID=DeveloperStandard ;;
+          enterprisedeveloper) export MSSQL_PID=Developer ;;
+        esac
+        source /opt/mssql/bin/init_custom_setup.sh
+        startup_status=$$?
+        if (( startup_status != 0 )); then exit "$$startup_status"; fi
+        if (( term_pending )); then exit 143; fi
+        if (( int_pending )); then exit 130; fi
+        /opt/mssql/bin/sqlservr &
+        sql_pid=$$!
+        # Replay signals received between launch and capture of the owned child PID.
+        replay_signals "$$sql_pid"
+        setup_status=0
+        if (( !term_pending && !int_pending )); then
+          /opt/mssql/bin/run_custom_setup.sh &
+          setup_pid=$$!
+          replay_signals "$$setup_pid"
+          wait_child "$$setup_pid"
+          setup_status=$$?
+          setup_pid=
+        fi
+        if (( setup_status != 0 )); then
+          # Failed startup must not abandon the SQL child it already started.
+          kill -s TERM -- "$$sql_pid" 2>/dev/null || :
+        fi
+        wait_child "$$sql_pid"
+        sql_status=$$?
+        sql_pid=
+        printf 'manual100m entrypoint terminal: setup=%s sql=%s\n' "$$setup_status" "$$sql_status"
+        if (( sql_status != 0 )); then exit "$$sql_status"; fi
+        if (( setup_status != 0 )); then exit "$$setup_status"; fi
+        exit "$$sql_status"
+    platform: linux/amd64
+    container_name: lab-sqlserver-manual100m
+    user: "${MANUAL_UID:?controller only}:0"
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_ENABLE_HADR: "1"
+      MSSQL_SA_PASSWORD: ManualCount100m_Lab_2026!
+      MSSQL_MEMORY_LIMIT_MB: "2048"
+    mem_limit: 4g
+    cpus: 3
+    volumes:
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/primary"
+        target: /var/opt/mssql
+        bind: {create_host_path: false}
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/shared"
+        target: /backup
+        bind: {create_host_path: false}
+    networks:
+      runtime:
+        aliases: [countprimary]
+  secondary:
+    image: mcr.microsoft.com/mssql/server:2025-latest@sha256:245f6b1c8903edae52cb20fa31419cefcde1a49938bb8c3447099011fc871ca3
+    hostname: countsecondary
+    entrypoint: *sqlserver_entrypoint
+    platform: linux/amd64
+    container_name: lab-sqlserver-manual100m-secondary
+    user: "${MANUAL_UID:?controller only}:0"
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_ENABLE_HADR: "1"
+      MSSQL_SA_PASSWORD: ManualCount100m_Lab_2026!
+      MSSQL_MEMORY_LIMIT_MB: "2048"
+    mem_limit: 4g
+    cpus: 3
+    volumes:
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/secondary"
+        target: /var/opt/mssql
+        bind: {create_host_path: false}
+      - type: bind
+        source: "${MANUAL_STAGE:?controller only}/shared"
+        target: /backup
+        bind: {create_host_path: false}
+    networks:
+      runtime:
+        aliases: [countsecondary]
+  client:
+    image: "lab-sqlserver-manual100m-client:${MANUAL_OWNER:?controller only}"
+    platform: linux/arm64
+    container_name: lab-sqlserver-manual100m-client
+    user: "${MANUAL_UID:?controller only}:0"
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"
+    environment:
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    mem_limit: 1g
+    cpus: 1
+    volumes:
+      - type: bind
+        source: "${MANUAL_EVIDENCE:?controller only}"
+        target: /evidence
+        bind: {create_host_path: false}
+    networks: [runtime]
+networks:
+  runtime:
+    name: lab-sqlserver-manual100m-network
+    internal: true
+    labels:
+      count.manual100m.owner: "${MANUAL_OWNER:?controller only}"

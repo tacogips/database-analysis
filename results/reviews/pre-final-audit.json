@@ -1,0 +1,143 @@
+{
+  "createdAt": "2026-11-07T02:57:46.343755+00:00",
+  "classification": "pre-final audit; not reproduction or reviewer approval",
+  "historicalSnapshotFilesChecked": 167,
+  "historicalSnapshotProblems": [],
+  "localLinksChecked": 17,
+  "brokenLinks": [],
+  "sourceObservations": [
+    {
+      "id": "ROOT-ALL-SEMANTIC-ERRORS",
+      "status": "requires final audit; not yet measured",
+      "evidence": [
+        "bench/experiments.py:run appends unexpected method/cleanup exceptions to result.errors",
+        "bench/experiments.py:main loops over run results without deriving a failing exit status from result.errors"
+      ],
+      "implication": "Even a zero mise run all exit is insufficient proof of experimental success. Inspect every impact result errors, expected cancellation cases, method completion and source-specific expected coverage. Do not require time-boxed methods to finish when the protocol intentionally cancels them.",
+      "requiredAction": "Author should either propagate unexpected errors to main exit or explain a documented semantic-completeness audit. Owner must inspect generated JSON before final-all-proof acceptance."
+    },
+    {
+      "id": "ROOT-SUPERSEDED-UNBOUNDED-PROTOCOLS",
+      "status": "historical failures confirmed; final all behavior pending",
+      "evidence": [
+        "results/requested_3e-EXP-O6-WRITE-MIX-indexed.json: sections.runs._error is OperationalError2013 timeout through reqruns.py255/278",
+        "results/requested_3f-EXP-O6-WRITE-MIX-insert-delete.json: same timeout and section_errors=[runs]",
+        "bench/reqmix.py module docstring explicitly says first write-mix design used one shared connection and first unbounded statement loses remaining arms",
+        "bench/requested/3e-*.py and 3f-*.py still call superseded reqruns.write_mix_body; all enumerates all93 scripts"
+      ],
+      "requiredAction": "Before final all, decide how to handle superseded invalid protocols without falsely accepting partial results or needlessly rerunning a known-invalid design. Preserve old observations; use a justified replacement protocol or clearly retire superseded experiments while retaining hypothesis coverage. Do not reduce required write-mix coverage."
+    },
+    {
+      "id": "ROOT-REVIEW-BUDGET-SCOPE",
+      "status": "static runner observation; not a measured failure",
+      "evidence": [
+        "Riela runner passes215min to reqlib.guard; only scripts that call guard honor it",
+        "90/91/92/93/94/96/97/98 and01a/01b do not all call guard; each still has1200s timeout",
+        "lab-runner node timeout4h"
+      ],
+      "requiredAction": "Do not present215min as an enforced total wall-clock ceiling for every script. Before a long review run, retain per-script limits and either make aggregate enforcement honest or explicitly document guard coverage; a later white all remains unbounded in aggregate. Do not silently accept incomplete measurements."
+    },
+    {
+      "id": "ROOT-INTRA-ARM-BUDGET-PARTIAL",
+      "status": "actual incomplete coverage confirmed",
+      "evidence": [
+        "results/requested/0h-EXP-O10-PRIMARY-SCALE-indexed-30pct.status.json:ok=true,exit0,seconds987",
+        "results/requested_0h-EXP-O10-PRIMARY-SCALE-indexed-30pct.json:sections.arms.not_run_near_limit=['2/statement_pk', '3/statement_pk', '3/split_pk', '4/statement_pk', '4/split_pk']",
+        "reqscale uses300s for statement arms and reserves full timeout before starting each; two slow secondary scans crowd out later fast PRIMARY/split repetitions"
+      ],
+      "requiredAction": "Do not call all planned comparisons complete from process success. Repair bounded scheduling or predeclare an adequate smaller secondary statement ceiling/split protocol so remaining decisive arms run, or explicitly report valid scope and unresolved comparison without silently green coverage. Preserve honest limit outcomes and test hypothesis; do not discard evidence because slow. Avoid blindly increasing every script timeout or pretending unmeasured arms succeeded."
+    },
+    {
+      "id": "ROOT-RUBY-RUNTIME",
+      "evidence": "results/reviews/ruby-runtime-fix-evidence.json",
+      "requiredCorrection": "Latest user permits current Ruby: pin latest stable4.0.9 in mise.toml (official downloads and mise latest agree; root is installing it). Keep public mise run all; explicitly use mise exec -- ruby lab.rb <command> in each of5tasks and include mise.toml in cache fingerprint. Bootstrap Riela command node through an executable POSIX shell wrapper that execs mise exec -- ruby <workflow Ruby controller>, so controller itself starts on configured4.0.9. Preserve project cwd; capture wrapper in source-before/after fingerprint/snapshot. Do not add legacy2.6 compatibility. Update actual-launch-chain fake regression plus early-failure stale-summary case. Existing real Riela guarded probes establish the plain-task/explicit-exec mechanism; latest4.0.9 bootstrap probe will be supplied. Do not change database algorithms for this startup failure."
+    },
+    {
+      "id": "ROOT-RAW-ARTIFACT-SIZE",
+      "evidence": "results/reviews/raw-evidence-size-projection.json",
+      "requiredCorrection": "New reqscale embeds full raw_service_samples in indented mainJSON. Existing observed1105writes/s and planned620s imply about162MB prettyJSON, over GitHub100MiB file limit. Preserve ALL raw numeric samples losslessly in bounded-size standard gzip JSONL chunks with sample counts and SHA manifests; main results JSON retains summaries/metadata/chunk refs. Enforce a conservative uncompressed chunk byte cap, not one unbounded gzip. No table data. Add pure roundtrip/count/hash/bound tests. Include generated nested raw files in per-script artifact collection/cache validation and immutable runner snapshot, and prove deleting/changing a raw chunk invalidates reuse. Keep sampling/load/timing protocols unchanged; representation happens after collection. Document how to verify/read chunks. This projection is not a DB measurement."
+    },
+    {
+      "id": "ROOT-FAILED-ALL-SUMMARY",
+      "evidence": "results/reviews/final-all-candidate.json and final-all-run.log first attempt",
+      "requiredCorrection": "Failure occurred at Ruby parsing BEFORE reset. Controller read prior interrupted requested/last_run.json(status started), not a summary produced by this all attempt. Detect summary freshness with pre/post file signature or equivalent read-only evidence; report not_reached on unchanged prior summary. Do not move/delete another potential lab owner data before the CLI lock. Snapshot collection may contain pre-run files on early failure; label honestly. Extend isolated actual-runner regression to an early failure leaving an old completed summary, ensuring no prior ran entries are credited. Preserve first failed candidate/log in existing immutable snapshot or dedicated reviews copy before next all."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "requirement": "Unknown whole-table counts; few-percent goal; no application WHERE or row extraction; supported MySQL only",
+      "evidenceNeeded": [
+        "docs/table-count-guideline.md",
+        "docs/probability-count.md",
+        "docs/table-count-evidence.md",
+        "official supported-version verification"
+      ],
+      "status": "final text review pending"
+    },
+    {
+      "id": "R2",
+      "requirement": "Opaque encrypted 50/100-column tables; caches, actual index path and concurrent update shapes",
+      "evidenceNeeded": [
+        "01a/01b complete and successful source/artifact manifests",
+        "96/97 successful current-code diagnostics",
+        "91 three supported versions with cache limitations"
+      ],
+      "status": "50-column 01a complete; 100-column and final all pending"
+    },
+    {
+      "id": "R3",
+      "requirement": "Approximation then exact count; defensible safety threshold reasoning and abort/cleanup contract",
+      "evidenceNeeded": [
+        "guideline decision flow",
+        "sampling contract",
+        "countlib and count_preflight",
+        "explicit no universal row threshold and per-service acceptance budget"
+      ],
+      "status": "final review pending"
+    },
+    {
+      "id": "R4",
+      "requirement": "White-database reproducibility using final code via mise run all; no real DB; no table-data commit",
+      "evidenceNeeded": [
+        "final-all-proof.json",
+        "exact command exit and source/image/artifact hashes",
+        "semantic completeness audit",
+        "git staged data exclusion"
+      ],
+      "status": "not run"
+    },
+    {
+      "id": "R5",
+      "requirement": "Sol-only adversarial reviews of engineer objections, alternatives and validation-method defects",
+      "evidenceNeeded": [
+        "three completed temporary reviews",
+        "new final two-role Sol review findings and dispositions",
+        "zero unresolved high/middle at actual final revision"
+      ],
+      "status": "temporary reviews complete; final review pending"
+    },
+    {
+      "id": "R6",
+      "requirement": "Japanese concise guideline plus detail/reproduction artifacts and measured JSON; commit/push when ready",
+      "evidenceNeeded": [
+        "docs and README",
+        "compose.yaml and bench",
+        "results/reference manifests",
+        "final commit and remote verification"
+      ],
+      "status": "pending final reproduction and review"
+    }
+  ],
+  "sourceCoverageInventory": {
+    "helper": ".private.handover/audit-final-results.py",
+    "currentExpected": {
+      "impactExperiments": 36,
+      "tableShapes": 58,
+      "lockCases": 99,
+      "matrixVersions": 5,
+      "requestedScripts": 93
+    },
+    "purpose": "Read-only AST-derived missing-file/coverage/artifact inventory plus recursive semantic flags. Does not declare acceptance; expected cancellation, invalid old walkers and experiment counterexamples require manual classification."
+  }
+}

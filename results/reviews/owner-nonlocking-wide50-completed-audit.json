@@ -1,0 +1,28 @@
+{
+  "meaning": "Completed lab observation audit, not production confidence/SLO/final acceptance.",
+  "problems": [],
+  "staticCases": 20,
+  "serviceCases": 36,
+  "inlineWindowAudit": {
+    "problems": [],
+    "arms": 36,
+    "savedTrialCohorts": 36,
+    "timestampedMethodWindows": 24,
+    "limitation": "Trial cohort quantiles/membership verified; original broad-window timestamp boundaries and baseline/recovery quantiles cannot be reconstructed from this artifact. No SLO approval."
+  },
+  "staticSamplingStatuses": {
+    "target_reached": 10
+  },
+  "serviceSamplingStatuses": {
+    "target_reached": 12
+  },
+  "serviceCountStatuses": {
+    "error": 6,
+    "complete": 6
+  },
+  "limitations": [
+    "Expected precision/budget/censoring observations remain separate from unexpected failures.",
+    "Observed truth/coverage in this dense fixture does not prove general confidence coverage.",
+    "Timing/order/cache and service tails need protocol-specific interpretation, not automatic ranking."
+  ]
+}
